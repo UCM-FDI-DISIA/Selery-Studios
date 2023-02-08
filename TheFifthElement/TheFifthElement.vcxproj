@@ -134,9 +134,15 @@
     <ClInclude Include="Resource.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="TheFifthElement.h" />
+    <ClInclude Include="utils\Component.h" />
+    <ClInclude Include="utils\Entity.h" />
+    <ClInclude Include="utils\Manager.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TheFifthElement.cpp" />
+    <ClCompile Include="utils\Component.cpp" />
+    <ClCompile Include="utils\Entity.cpp" />
+    <ClCompile Include="utils\Manager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="TheFifthElement.rc" />

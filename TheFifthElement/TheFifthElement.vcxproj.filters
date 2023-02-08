@@ -28,6 +28,12 @@
     <Filter Include="Archivos de encabezado\SDL">
       <UniqueIdentifier>{df45433e-4fbe-45c2-9332-87cf449dd632}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Archivos de encabezado\utils">
+      <UniqueIdentifier>{1fb57c1b-c0db-43df-bc05-5b1487d2f24e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\utils">
+      <UniqueIdentifier>{5ec3d980-e01c-45a0-b4fc-5f3fe2517ccd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TheFifthElement.h">
@@ -42,10 +48,28 @@
     <ClInclude Include="targetver.h">
       <Filter>Archivos de encabezado\SDL</Filter>
     </ClInclude>
+    <ClInclude Include="utils\Component.h">
+      <Filter>Archivos de encabezado\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\Entity.h">
+      <Filter>Archivos de encabezado\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\Manager.h">
+      <Filter>Archivos de encabezado\utils</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TheFifthElement.cpp">
       <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="utils\Component.cpp">
+      <Filter>Archivos de origen\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="utils\Entity.cpp">
+      <Filter>Archivos de origen\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="utils\Manager.cpp">
+      <Filter>Archivos de origen\utils</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
