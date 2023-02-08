@@ -1,5 +1,7 @@
 #include"SDL.h"
-#include "lib/tmxlite-1.2.1/include/tmxlite/LayerGroup.hpp"
+#include "tmxlite/detail/Android.hpp"
+#include "SDL_ttf.h"
+
 int main(int argc, char* argv[])
 {
 	return 0;

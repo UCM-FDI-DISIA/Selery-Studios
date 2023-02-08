@@ -13,19 +13,34 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Archivos de origen\Components">
+      <UniqueIdentifier>{fca723c3-c13d-4e6d-8dd7-039ae23847b5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Components">
+      <UniqueIdentifier>{9c30a94e-3129-430a-a959-7cf60b233f14}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Clases">
+      <UniqueIdentifier>{d88e9983-8dc0-481d-9952-663ec8c04889}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\Clases">
+      <UniqueIdentifier>{e0afa214-987a-4d3a-9f6a-bf44dfdfc874}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\SDL">
+      <UniqueIdentifier>{df45433e-4fbe-45c2-9332-87cf449dd632}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="framework.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="targetver.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="Resource.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
     <ClInclude Include="TheFifthElement.h">
       <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="framework.h">
+      <Filter>Archivos de encabezado\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>Archivos de encabezado\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Archivos de encabezado\SDL</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
