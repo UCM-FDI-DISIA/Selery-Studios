@@ -13,30 +13,115 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Archivos de origen\Components">
+      <UniqueIdentifier>{fca723c3-c13d-4e6d-8dd7-039ae23847b5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Components">
+      <UniqueIdentifier>{9c30a94e-3129-430a-a959-7cf60b233f14}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Clases">
+      <UniqueIdentifier>{d88e9983-8dc0-481d-9952-663ec8c04889}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\Clases">
+      <UniqueIdentifier>{e0afa214-987a-4d3a-9f6a-bf44dfdfc874}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\SDL">
+      <UniqueIdentifier>{df45433e-4fbe-45c2-9332-87cf449dd632}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\utils">
+      <UniqueIdentifier>{1fb57c1b-c0db-43df-bc05-5b1487d2f24e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\utils">
+      <UniqueIdentifier>{5ec3d980-e01c-45a0-b4fc-5f3fe2517ccd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\SDLutils">
+      <UniqueIdentifier>{2e5df256-f412-46d1-a0b6-3b8d969e336a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\SDLutils">
+      <UniqueIdentifier>{9f5a20cc-a5e8-4f1e-bf76-992f09dd8097}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\json">
+      <UniqueIdentifier>{827d8365-5adc-4041-8f66-0a0a63771d7f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\json">
+      <UniqueIdentifier>{173a75f4-d958-4f36-9ca2-512a68077c05}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="framework.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="targetver.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="Resource.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
     <ClInclude Include="TheFifthElement.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="Game.h">
-      <Filter>Archivos de encabezado</Filter>
+    <ClInclude Include="framework.h">
+      <Filter>Archivos de encabezado\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>Archivos de encabezado\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Archivos de encabezado\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\Component.h">
+      <Filter>Archivos de encabezado\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\Entity.h">
+      <Filter>Archivos de encabezado\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\Manager.h">
+      <Filter>Archivos de encabezado\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\ecs.h">
+      <Filter>Archivos de encabezado\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="sdlutils\Font.h">
+      <Filter>Archivos de encabezado\SDLutils</Filter>
+    </ClInclude>
+    <ClInclude Include="sdlutils\InputHandler.h">
+      <Filter>Archivos de encabezado\SDLutils</Filter>
+    </ClInclude>
+    <ClInclude Include="sdlutils\macros.h">
+      <Filter>Archivos de encabezado\SDLutils</Filter>
+    </ClInclude>
+    <ClInclude Include="sdlutils\Music.h">
+      <Filter>Archivos de encabezado\SDLutils</Filter>
+    </ClInclude>
+    <ClInclude Include="sdlutils\RandomNumberGenerator.h">
+      <Filter>Archivos de encabezado\SDLutils</Filter>
+    </ClInclude>
+    <ClInclude Include="sdlutils\SDLUtils.h">
+      <Filter>Archivos de encabezado\SDLutils</Filter>
+    </ClInclude>
+    <ClInclude Include="sdlutils\SoundEffect.h">
+      <Filter>Archivos de encabezado\SDLutils</Filter>
+    </ClInclude>
+    <ClInclude Include="sdlutils\SoundManager.h">
+      <Filter>Archivos de encabezado\SDLutils</Filter>
+    </ClInclude>
+    <ClInclude Include="sdlutils\Texture.h">
+      <Filter>Archivos de encabezado\SDLutils</Filter>
+    </ClInclude>
+    <ClInclude Include="sdlutils\VirtualTimer.h">
+      <Filter>Archivos de encabezado\SDLutils</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\Vector2D.h">
+      <Filter>Archivos de encabezado\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\checkML.h">
+      <Filter>Archivos de encabezado\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\Singleton.h">
+      <Filter>Archivos de encabezado\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="json\JSON.h">
+      <Filter>Archivos de encabezado\json</Filter>
+    </ClInclude>
+    <ClInclude Include="json\JSONValue.h">
+      <Filter>Archivos de encabezado\json</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TheFifthElement.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-<<<<<<< Updated upstream
-=======
     <ClCompile Include="utils\Component.cpp">
       <Filter>Archivos de origen\utils</Filter>
     </ClCompile>
@@ -46,10 +131,24 @@
     <ClCompile Include="utils\Manager.cpp">
       <Filter>Archivos de origen\utils</Filter>
     </ClCompile>
-    <ClCompile Include="Game.cpp">
-      <Filter>Archivos de origen</Filter>
+    <ClCompile Include="sdlutils\SDLUtils.cpp">
+      <Filter>Archivos de origen\SDLutils</Filter>
     </ClCompile>
->>>>>>> Stashed changes
+    <ClCompile Include="sdlutils\SoundEffect.cpp">
+      <Filter>Archivos de origen\SDLutils</Filter>
+    </ClCompile>
+    <ClCompile Include="sdlutils\Texture.cpp">
+      <Filter>Archivos de origen\SDLutils</Filter>
+    </ClCompile>
+    <ClCompile Include="utils\Vector2D.cpp">
+      <Filter>Archivos de origen\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="json\JSON.cpp">
+      <Filter>Archivos de origen\json</Filter>
+    </ClCompile>
+    <ClCompile Include="json\JSONValue.cpp">
+      <Filter>Archivos de origen\json</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="TheFifthElement.rc">

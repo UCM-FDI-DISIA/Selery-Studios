@@ -1,8 +1,4 @@
-<<<<<<< Updated upstream
-﻿  TheFifthElement.cpp
-  LINK : no se encontró C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\x64\Debug\TheFifthElement.exe o no lo generó el último vínculo incremental; ejecutando vínculo completo
-  TheFifthElement.vcxproj -> C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\x64\Debug\TheFifthElement.exe
-=======
-﻿  Manager.cpp
-  TheFifthElement.vcxproj -> C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\x64\Debug\TheFifthElement.exe
->>>>>>> Stashed changes
+﻿  JSON.cpp
+  JSONValue.cpp
+  Generando código...
+  TheFifthElement.vcxproj -> C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\x64\Debug\TheFifthElement.exe
