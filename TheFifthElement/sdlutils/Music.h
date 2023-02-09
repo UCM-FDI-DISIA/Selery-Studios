@@ -1,7 +1,5 @@
 // This file is part of the course TPV2@UCM - Samir Genaim
-
 #pragma once
-
 #include <string>
 #include <SDL_mixer.h>
 #include "../utils/checkML.h"

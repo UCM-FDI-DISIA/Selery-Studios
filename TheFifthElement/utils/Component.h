@@ -7,7 +7,7 @@ protected:
 	Entity* ent_;
 public:
 	Component() : ent_() {}
-	virtual ~Component() { }
+	virtual ~Component() {}
 	inline void setContext(Entity* ent) {
 		ent_ = ent;
 	}

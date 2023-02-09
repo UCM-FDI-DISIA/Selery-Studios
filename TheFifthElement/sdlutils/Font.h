@@ -1,12 +1,8 @@
-// This file is part of the course TPV2@UCM - Samir Genaim
-
 #pragma once
-
 #include <SDL_ttf.h>
 #include <string>
 #include <cassert>
 #include <iostream>
-
 #include "macros.h"
 #include "../utils/checkML.h"
 

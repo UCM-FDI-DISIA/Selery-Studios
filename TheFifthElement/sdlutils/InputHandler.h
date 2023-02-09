@@ -1,11 +1,7 @@
-// This file is part of the course TPV2@UCM - Samir Genaim
-
 #pragma once
-
 #include <iostream>
 #include <SDL.h>
 #include <array>
-
 #include "../utils/Singleton.h"
 #include "../utils/checkML.h"
 
