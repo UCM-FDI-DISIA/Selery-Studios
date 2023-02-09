@@ -130,6 +130,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Collision.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="states\GameState.h" />
@@ -151,6 +152,7 @@
     <ClInclude Include="states\TopDownState.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="TheFifthElement.h" />
+    <ClInclude Include="Transform.h" />
     <ClInclude Include="utils\checkML.h" />
     <ClInclude Include="utils\Component.h" />
     <ClInclude Include="utils\ecs.h" />
@@ -160,6 +162,7 @@
     <ClInclude Include="utils\Vector2D.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Collision.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="states\GameState.cpp" />
     <ClCompile Include="states\GameStateMachine.cpp" />

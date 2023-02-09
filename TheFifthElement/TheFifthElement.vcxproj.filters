@@ -138,6 +138,12 @@
     <ClInclude Include="states\TopDownState.h">
       <Filter>Archivos de encabezado\states</Filter>
     </ClInclude>
+    <ClInclude Include="Collision.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="Transform.h">
+      <Filter>Archivos de encabezado\utils</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="sdlutils\SDLUtils.cpp">
@@ -183,6 +189,9 @@
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="GameManager.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="Collision.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>
