@@ -1,9 +1,9 @@
 #pragma once
-#include "../utils/Manager.h"
+#include "../utils/Singleton.h"
 #include <stack>
 #include "GameState.h"
 
-class GameStateMachine :public Manager {
+class GameStateMachine: public Singleton <GameStateMachine> {
 private:
 	stack<GameState*> st; // pila de estados
 	stack<GameState*> stToDelete; // pila de estados a borrar

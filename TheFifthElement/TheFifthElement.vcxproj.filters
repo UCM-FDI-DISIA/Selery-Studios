@@ -123,9 +123,6 @@
     <ClInclude Include="json\JSONValue.h">
       <Filter>Archivos de encabezado\json</Filter>
     </ClInclude>
-    <ClInclude Include="TopDownState.h">
-      <Filter>Archivos de encabezado\states</Filter>
-    </ClInclude>
     <ClInclude Include="GameManager.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
@@ -136,6 +133,9 @@
       <Filter>Archivos de encabezado\states</Filter>
     </ClInclude>
     <ClInclude Include="states\MainMenuState.h">
+      <Filter>Archivos de encabezado\states</Filter>
+    </ClInclude>
+    <ClInclude Include="states\TopDownState.h">
       <Filter>Archivos de encabezado\states</Filter>
     </ClInclude>
   </ItemGroup>
@@ -178,6 +178,12 @@
     </ClCompile>
     <ClCompile Include="states\TopDownState.cpp">
       <Filter>Archivos de origen\states</Filter>
+    </ClCompile>
+    <ClCompile Include="TheFifthElement.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="GameManager.cpp">
+      <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

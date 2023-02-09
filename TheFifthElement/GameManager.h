@@ -1,6 +1,5 @@
 #pragma once
 #include "utils/Manager.h"
-#include "SDL.h" 
 #include "utils/checkML.h"
 #include "states/GameStateMachine.h"
 #include "states/GameState.h"
@@ -25,7 +24,7 @@ private:
 	bool exit;
 
 public:
-	GameManager();
+	GameManager() ;
 	virtual ~GameManager();
 	void handleEvents();
 	void render();

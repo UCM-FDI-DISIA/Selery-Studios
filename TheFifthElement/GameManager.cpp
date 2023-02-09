@@ -1,4 +1,5 @@
 #include "GameManager.h"
+#include "states/TopDownState.h"
 GameManager::GameManager() {
 	sdl_utils = static_cast <SDLUtils*>(SDLUtils::instance());
 	exit = false;

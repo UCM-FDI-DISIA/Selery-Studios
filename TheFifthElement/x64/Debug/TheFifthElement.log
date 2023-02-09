@@ -1,3 +1,6 @@
-﻿  TopDownState.cpp
-SDL2main.lib(SDL_windows_main.obj) : error LNK2019: símbolo externo SDL_main sin resolver al que se hace referencia en la función main_getcmdline
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\x64\Debug\TheFifthElement.exe : fatal error LNK1120: 1 externos sin resolver
+﻿  GameManager.cpp
+  TheFifthElement.cpp
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\crtdbg.h(307,1): warning C4005: '_malloca': redefinición de macro
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\malloc.h(124): message : vea la definición anterior de '_malloca'
+  Generando código...
+  TheFifthElement.vcxproj -> C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\x64\Debug\TheFifthElement.exe

@@ -1,14 +1,10 @@
 #pragma once
 #include <string>
 #include <list>
-//#include "GameStateMachine.h"
 #include "../utils/Entity.h"
 using namespace std;
-
 class GameStateMachine;
-class GameState;
 class MainMenuState;
-
 class GameState
 {
 protected:

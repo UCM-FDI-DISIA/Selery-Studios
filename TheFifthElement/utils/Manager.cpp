@@ -47,21 +47,5 @@ void Manager::render() {
 		ents_[i]->render();
 }
 
-	#pragma region Groups
-	/*void Manager::addToGroupList(grpId_type gId, Entity* e) {
-		entsByGroup_[gId].push_back(e);
-	}
-	void Manager::refresh() {
-		for (ecs::grpId_type gId = 0; gId < ecs::maxGroupId; gId++) {
-			auto& grpEnts = entsByGroup_[gId];
-			grpEnts.erase(
-				std::remove_if(grpEnts.begin(), grpEnts.end(),
-					[gId](Entity* e) {
-						return !e->isAlive() || !e->hasGroup(gId);
-					}),
-				grpEnts.end());
-		}
-	}*/
-	///falta a partir de la diapo 51
-	#pragma endregion
+	
 
