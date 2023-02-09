@@ -5,8 +5,10 @@ GameManager::GameManager() {
 	window = SDL_CreateWindow("<3", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WIN_WIDTH, WIN_HEIGHT, SDL_WINDOW_SHOWN);
 	renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 	if (window == nullptr || renderer == nullptr) throw "Error cargando SDL";// excepción de SDL
-
-	gameStMc = static_cast<GameStateMachine*>(GameStateMachine::instance());
+	exit = false;
+	//LO DE SOFI
+	//gameSTMC=static_cast<GameStateMachine*>(GameStateMachine::Instance())
+	gameStMc = new GameStateMachine();
 	gameStMc->pushState(new GameState());
 }
 

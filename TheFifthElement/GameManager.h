@@ -21,10 +21,11 @@ private:
 	SDL_Window* window = nullptr;
 	SDL_Renderer* renderer = nullptr;
 	GameStateMachine* gameStMc;
+	bool exit;
 
 public:
 	GameManager();
-	~GameManager();
+	virtual ~GameManager();
 	void handleEvents();
 	void render();
 	void update();
