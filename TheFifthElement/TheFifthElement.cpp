@@ -3,7 +3,7 @@
 #include "SDL_ttf.h"
 #include "utils/checkML.h"
 #include <fstream>
-#include "GameStateMachine.h"
+#include "states/GameStateMachine.h"
 #include "GameManager.h"
 //#include <cstdint>
 using namespace std;

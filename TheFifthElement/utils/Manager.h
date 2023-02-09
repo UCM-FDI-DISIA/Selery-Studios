@@ -2,9 +2,7 @@
 #include <vector>
 #include "Entity.h"
 #include "Singleton.h"
-//#include "uptr.h"
 using namespace std;
-
 
 class Manager:public Singleton <Manager> {
 protected:
@@ -17,15 +15,5 @@ public:
 	void refresh();
 	void update();
 	void render();
-
-	#pragma region Groups
-	/*void addToGroupList(grpId_type gId, Entity* e);
-	inline const auto& getEntities() { return ents_; }
-	inline const auto& getEntitiesByGroup(grpId_type gId) {
-		return entsByGroup_[gId];
-	}
-	private:
-		array<vector<Entity*>, maxGroupId> entsByGroup_;*/
-	#pragma endregion
 
 };

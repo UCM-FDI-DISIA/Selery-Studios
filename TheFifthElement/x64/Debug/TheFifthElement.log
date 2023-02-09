@@ -1,2 +1,3 @@
-﻿  GameManager.cpp
-  TheFifthElement.vcxproj -> C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\x64\Debug\TheFifthElement.exe
+﻿  TopDownState.cpp
+SDL2main.lib(SDL_windows_main.obj) : error LNK2019: símbolo externo SDL_main sin resolver al que se hace referencia en la función main_getcmdline
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\x64\Debug\TheFifthElement.exe : fatal error LNK1120: 1 externos sin resolver

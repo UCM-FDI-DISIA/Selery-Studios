@@ -7,7 +7,7 @@
 
 
 SDLUtils::SDLUtils() :
-		SDLUtils("SDL Demo", 600, 400) {
+		SDLUtils("El quinto elemento :)", 600, 400) {
 }
 
 SDLUtils::SDLUtils(std::string windowTitle, int width, int height) :

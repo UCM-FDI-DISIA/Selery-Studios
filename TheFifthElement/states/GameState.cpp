@@ -1,0 +1,23 @@
+#include "GameStateMachine.h"
+#include "GameState.h"
+#include "MainMenuState.h"
+
+GameState::GameState() {
+	gameStMc = static_cast<GameStateMachine*>(GameStateMachine::instance());
+}
+
+
+GameState::~GameState() // destructora
+{
+	for (list<Entity*>::iterator it = gameObjectList.begin(); it != gameObjectList.end();)
+	{
+		++it;
+		delete(*gameObjectList.begin());
+		gameObjectList.pop_front();
+	}
+}
+
+void GameState::menuToPlay() // ir a juego
+{
+	
+}

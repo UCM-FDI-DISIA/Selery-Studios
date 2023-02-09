@@ -76,24 +76,5 @@ public:
 			currCmps_[i]->render();
 	}
 
-	#pragma region Groups
-	/*inline void addToGroup(grpId_type gId) {
-		if (!groups_[gId]) {
-			groups_[gId] = true;
-			GameManager::getInstance()->addToGroupList(gId, this);
-		}
-	}
-
-	inline void removeFromGroup(grpId_type gId) {
-		if (groups_[gId]) groups_[gId] = false;
-	}
-
-	inline bool hasGroup(grpId_type gId) {
-		return groups_[gId];
-	}
-	private:
-		bitset<ecs::maxGroupId> groups_;// group*/
-	#pragma endregion
-
 };
 
