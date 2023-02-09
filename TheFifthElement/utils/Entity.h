@@ -13,11 +13,11 @@ private:
 	vector<Component*> currCmps_;
 	array<Component*, ecs::maxComponentId> cmps_;
 public:
-	Entity() 
-	{
-		cmps_(), currCmps_(), alive_();
-			currCmps_.reserve(ecs::maxComponentId);
+	Entity() :cmps_(), currCmps_(), alive_() {
+
+		currCmps_.reserve(ecs::maxComponentId);
 	}
+	
 
 	virtual ~Entity() {
 		for (auto c : currCmps_) {
@@ -34,12 +34,12 @@ public:
 	}
 
 	template<typename T, typename Ts>
-	inline T* addComponent(cmpId_type cId, Ts&& …args) {
+	inline T* addComponent(cmpId_type cId, Ts&& args) {
 		T* c = new T(forward<Ts>(args));
-		removeComponent(cId)
+		removeComponent(cId);
 			currCmps_.push_back(c);
 		cmps_[cId] = c;
-		c->setContext(this, mngr_);
+		c->setContext(this);
 		c->initComponent();
 		return c;
 	}
