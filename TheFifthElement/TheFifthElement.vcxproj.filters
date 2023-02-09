@@ -31,9 +31,6 @@
     <Filter Include="Archivos de encabezado\utils">
       <UniqueIdentifier>{1fb57c1b-c0db-43df-bc05-5b1487d2f24e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Archivos de origen\utils">
-      <UniqueIdentifier>{5ec3d980-e01c-45a0-b4fc-5f3fe2517ccd}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Archivos de encabezado\SDLutils">
       <UniqueIdentifier>{2e5df256-f412-46d1-a0b6-3b8d969e336a}</UniqueIdentifier>
     </Filter>
@@ -45,6 +42,15 @@
     </Filter>
     <Filter Include="Archivos de origen\json">
       <UniqueIdentifier>{173a75f4-d958-4f36-9ca2-512a68077c05}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\States">
+      <UniqueIdentifier>{55b8a20d-e934-47e6-9c4f-8e7ff42d38a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\States">
+      <UniqueIdentifier>{dd88abc4-992d-48cc-bad7-3d6697223eae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\utils">
+      <UniqueIdentifier>{5ec3d980-e01c-45a0-b4fc-5f3fe2517ccd}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -117,19 +123,25 @@
     <ClInclude Include="json\JSONValue.h">
       <Filter>Archivos de encabezado\json</Filter>
     </ClInclude>
+    <ClInclude Include="GameStateMachine.h">
+      <Filter>Archivos de encabezado\States</Filter>
+    </ClInclude>
+    <ClInclude Include="StateManager.h">
+      <Filter>Archivos de encabezado\States</Filter>
+    </ClInclude>
+    <ClInclude Include="GameState.h">
+      <Filter>Archivos de encabezado\States</Filter>
+    </ClInclude>
+    <ClInclude Include="GameManager.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="MainMenuState.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TheFifthElement.cpp">
       <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="utils\Component.cpp">
-      <Filter>Archivos de origen\utils</Filter>
-    </ClCompile>
-    <ClCompile Include="utils\Entity.cpp">
-      <Filter>Archivos de origen\utils</Filter>
-    </ClCompile>
-    <ClCompile Include="utils\Manager.cpp">
-      <Filter>Archivos de origen\utils</Filter>
     </ClCompile>
     <ClCompile Include="sdlutils\SDLUtils.cpp">
       <Filter>Archivos de origen\SDLutils</Filter>
@@ -148,6 +160,30 @@
     </ClCompile>
     <ClCompile Include="json\JSONValue.cpp">
       <Filter>Archivos de origen\json</Filter>
+    </ClCompile>
+    <ClCompile Include="GameManager.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="GameStateMachine.cpp">
+      <Filter>Archivos de origen\States</Filter>
+    </ClCompile>
+    <ClCompile Include="StateManager.cpp">
+      <Filter>Archivos de origen\States</Filter>
+    </ClCompile>
+    <ClCompile Include="GameState.cpp">
+      <Filter>Archivos de origen\States</Filter>
+    </ClCompile>
+    <ClCompile Include="utils\Component.cpp">
+      <Filter>Archivos de origen\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="utils\Entity.cpp">
+      <Filter>Archivos de origen\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="utils\Manager.cpp">
+      <Filter>Archivos de origen\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="MainMenuState.cpp">
+      <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

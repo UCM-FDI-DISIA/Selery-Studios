@@ -1,5 +1,12 @@
 #include "Manager.h"
 
+Manager::Manager() {
+	ents_.reserve(100);
+	/*for (auto& grpEnts : entsByGroup_) {
+		grpEnts.reserve(100);
+	}*///groups
+}
+
 
 Manager::~Manager() {
 	for (auto e : ents_) {
@@ -30,13 +37,13 @@ void Manager::refresh() {
 
 void Manager::update() {
 	auto n = ents_.size();
-	for (auto i = 0u; i < n; i++)
+	for (auto i = 0; i < n; i++)
 		ents_[i]->update();
 }
 
 void Manager::render() {
 	auto n = ents_.size();
-	for (auto i = 0u; i < n; i++)
+	for (auto i = 0; i < n; i++)
 		ents_[i]->render();
 }
 
