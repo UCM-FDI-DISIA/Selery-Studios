@@ -33,9 +33,9 @@ public:
 		alive_ = alive;
 	}
 
-	template<typename T, typename Ts>
-	inline T* addComponent(cmpId_type cId, Ts&& args) {
-		T* c = new T(forward<Ts>(args));
+	template<typename T, typename ...Ts>
+	inline T* addComponent(cmpId_type cId, Ts&... args) {
+		T* c = new T(forward<Ts>(args)...);
 		removeComponent(cId);
 			currCmps_.push_back(c);
 		cmps_[cId] = c;

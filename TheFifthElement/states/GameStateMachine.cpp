@@ -1,5 +1,4 @@
 #include "GameStateMachine.h"
-
 GameStateMachine::~GameStateMachine() // destructora
 {
 	clearStates();
@@ -10,17 +9,17 @@ GameStateMachine::~GameStateMachine() // destructora
 	}
 }
 
-GameState* GameStateMachine::currentState() // consulta del estado actual
+Manager* GameStateMachine::currentState() // consulta del estado actual
 {
 	return st.top();
 }
 
-void GameStateMachine::pushState(GameState* myState) // push del nuevo estado y entra en él 
+void GameStateMachine::pushState(Manager* myState) // push del nuevo estado y entra en él 
 {
 	st.push(myState);
 }
 
-void GameStateMachine::changeState(GameState* myState) // cambio de estado
+void GameStateMachine::changeState(Manager* myState) // cambio de estado
 {
 	//le pasa el nuevo playState a game para que siempre tenga acceso al último PlayState (es decir el que se está ejecutando)
 	//if (myState->getStateID() == "play") game->ChangePlayState(static_cast<PlayState*>(myState)); // cambio de playState de game

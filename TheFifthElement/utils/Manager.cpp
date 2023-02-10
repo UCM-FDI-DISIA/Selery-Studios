@@ -14,12 +14,6 @@ Manager::~Manager() {
 	}
 }
 
-Entity* Manager::addEntity() {
-	Entity* e = new Entity();
-	e->setAlive(true);
-	ents_.push_back(e);
-	return e;
-}
 
 void Manager::refresh() {
 	ents_.erase(

@@ -11,9 +11,16 @@ public:
 
 	Manager();
 	virtual ~Manager();
-	Entity* addEntity();
-	void refresh();
-	void update();
-	void render();
+	template<typename T>
+	Entity* addEntity(T* e) {
+		e->setAlive(true);
+		ents_.push_back(e);
+		return e;
+	}
+	virtual void refresh();
+	virtual void update();
+	virtual void render();
+	virtual void handleEvents() {};
+	virtual string getStateID() { return "nothing"; };
 
 };

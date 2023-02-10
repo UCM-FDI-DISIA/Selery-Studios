@@ -6,8 +6,11 @@
 
 class Transform : public Component {
 public:
+	Transform() {
+		cout << "fdgbxc";
+	}
 	// Constructora
-	Transform(Vector2D pos, Vector2D vel, float w, float h, float r) {
+	Transform( Vector2D pos, Vector2D vel, float w, float h, float r) : Component() {
 		position_ = pos;
 		velocity_ = vel;
 		width_ = w;

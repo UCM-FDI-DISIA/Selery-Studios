@@ -6,14 +6,14 @@ GameState::GameState() {
 	gameStMc = static_cast<GameStateMachine*>(GameStateMachine::instance());
 }
 
+void GameState::render() {
+	for (auto e : ents_) e->render();
+};
 
 GameState::~GameState() // destructora
 {
-	for (list<Entity*>::iterator it = gameObjectList.begin(); it != gameObjectList.end();)
-	{
-		++it;
-		delete(*gameObjectList.begin());
-		gameObjectList.pop_front();
+	for (auto e : ents_) {
+		delete e;
 	}
 }
 

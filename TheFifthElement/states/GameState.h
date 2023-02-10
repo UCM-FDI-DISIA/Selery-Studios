@@ -1,24 +1,20 @@
 #pragma once
 #include <string>
 #include <list>
-#include "../utils/Entity.h"
+#include "../utils/Manager.h"
 using namespace std;
 class GameStateMachine;
-class MainMenuState;
-class GameState
-{
+class GameState: Manager{
 protected:
+	//puntero a la maquina de estados
 	GameStateMachine* gameStMc; 
-	list <Entity*> gameObjectList; // lista de gameObjects
 public:
 	GameState();
 	virtual ~GameState(); // destructora
 	virtual void update() {};
-	virtual void render() {};
+	virtual void render();
 	virtual void handleEvents() {};
-	virtual string getStateID() { return "nothing"; }; // virtual de stringID de cada estado
-
-	// BOTONES
+	virtual string getStateID() { return "nothing"; }; // virtual de stringID de cada 
 	static void menuToPlay(); // ir al juego
 };
 

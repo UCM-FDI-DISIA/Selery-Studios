@@ -133,6 +133,7 @@
     <ClInclude Include="Collision.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="GameManager.h" />
+    <ClInclude Include="Npc.h" />
     <ClInclude Include="states\GameState.h" />
     <ClInclude Include="states\GameStateMachine.h" />
     <ClInclude Include="states\MainMenuState.h" />
@@ -164,6 +165,7 @@
   <ItemGroup>
     <ClCompile Include="Collision.cpp" />
     <ClCompile Include="GameManager.cpp" />
+    <ClCompile Include="Npc.cpp" />
     <ClCompile Include="states\GameState.cpp" />
     <ClCompile Include="states\GameStateMachine.cpp" />
     <ClCompile Include="states\MainMenuState.cpp" />

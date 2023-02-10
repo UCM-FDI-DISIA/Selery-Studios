@@ -1,11 +1,15 @@
 #pragma once
 #include "GameState.h"
-
-class TopDownState: public GameState{
+#include "../Npc.h"
+class TopDownState: public Manager{
 public:
     virtual string getStateID() { return "top-down"; }; // stringID
-   TopDownState() {
+	TopDownState() {
+		addEntity(new Npc());
+	}
+	~TopDownState() {
 
-    }
+	}
+
 };
 
