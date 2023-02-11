@@ -27,4 +27,7 @@ public:
 	void render();
 	void update();
 	void run();// blucle de juego
+	SDL_Renderer* getRenderer() {
+		return sdl_utils->renderer();
+	}
 };
