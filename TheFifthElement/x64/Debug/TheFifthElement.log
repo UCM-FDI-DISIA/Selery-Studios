@@ -1,8 +1,34 @@
 ﻿  GameManager.cpp
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\RenderComponent.h(11,4): error C2065: 'ent_': identificador no declarado
   Npc.cpp
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\RenderComponent.h(11,4): error C2065: 'ent_': identificador no declarado
+  RenderComponent.cpp
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\utils\ecs.h(9,15): error C2059: error de sintaxis: '='
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\utils\ecs.h(13,2): error C2143: error de sintaxis: falta ';' delante de '}'
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\utils\ecs.h(14,40): error C2065: '_LAST_CMP_ID': identificador no declarado
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\utils\ecs.h(14,38): error C2131: la expresión no se evaluó como una constante
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\utils\ecs.h(14,38): message : se encontró una (sub)expresión no constante
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\utils\ecs.h(15,1): error C2059: error de sintaxis: '}'
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\utils\ecs.h(15,1): error C2143: error de sintaxis: falta ';' delante de '}'
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\utils\Component.h(12,12): error C2143: error de sintaxis: falta ';' delante de '*'
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\utils\Component.h(12,12): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\utils\Component.h(12,18): error C2238: símbolos (token) inesperados delante de ';'
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\utils\Component.h(21,25): error C2061: error de sintaxis: identificador 'GameObject'
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\utils\Component.h(16,16): error C2614: 'Component': inicialización de miembro no válida: 'gObj' no es una base o miembro
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\utils\Component.h(22,3): error C2065: 'gObj': identificador no declarado
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\utils\Component.h(22,10): error C2065: '_gObj': identificador no declarado
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\utils\Component.h(23,10): error C2065: '_mngr': identificador no declarado
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\RenderComponent.h(10,31): error C2061: error de sintaxis: identificador 'Entity'
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\RenderComponent.h(11,4): error C2065: 'ent_': identificador no declarado
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\RenderComponent.h(11,11): error C2065: 'e': identificador no declarado
+  GameState.cpp
+  GameStateMachine.cpp
+  MainMenuState.cpp
   TopDownState.cpp
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\RenderComponent.h(11,4): error C2065: 'ent_': identificador no declarado
   TheFifthElement.cpp
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\crtdbg.h(307,1): warning C4005: '_malloca': redefinición de macro
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\malloc.h(124): message : vea la definición anterior de '_malloca'
+  Entity.cpp
+  Manager.cpp
   Generando código...
-  TheFifthElement.vcxproj -> C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\x64\Debug\TheFifthElement.exe

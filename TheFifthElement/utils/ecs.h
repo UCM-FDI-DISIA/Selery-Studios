@@ -7,6 +7,7 @@ namespace ecs {
 	enum cmpId : cmpId_type {
 		// ... (compoment ids)
 		TRANSFORM_H_=0,
+		RENDERCOMP_ = 1,
 		// do not remove this
 		_LAST_CMP_ID
 	};
