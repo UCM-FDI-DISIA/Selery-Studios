@@ -34,8 +34,8 @@ public:
         SDL_Rect rect;
         rect.x = f->getPos().getX();
         rect.y = f->getPos().getY();
-        rect.h = 100;
-        rect.w = 100;
+        rect.h = 120;
+        rect.w = 68;
         SDL_Rect src;
         src.x = i*( f->getW()/ nframes);
         src.y = 0;
