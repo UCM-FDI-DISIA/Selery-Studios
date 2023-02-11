@@ -11,11 +11,11 @@ class Entity
 private:
 	bool alive_;
 	vector<Component*> currCmps_;
-	array<Component*, ecs::maxComponentId> cmps_;
+	array<Component*,maxComponentId> cmps_;
 public:
 	Entity() :cmps_(), currCmps_(), alive_() {
 
-		currCmps_.reserve(ecs::maxComponentId);
+		currCmps_.reserve(maxComponentId);
 	}
 	
 
@@ -36,7 +36,7 @@ public:
 	template<typename T, typename ...Ts>
 	inline T* addComponent(cmpId_type cId, Ts&... args) {
 		T* c = new T(forward<Ts>(args)...);
-		removeComponent(cId);
+		//removeComponent(cId);
 			currCmps_.push_back(c);
 		cmps_[cId] = c;
 		c->setContext(this);

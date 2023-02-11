@@ -1,15 +1,17 @@
 #include "GameManager.h"
 #include "states/TopDownState.h"
 GameManager::GameManager() {
-	sdl_utils = static_cast <SDLUtils*>(SDLUtils::instance());
+	SDLUtils::init();
+	renderer = SDLUtils::instance()->renderer();
+	window = SDLUtils::instance()->window();
 	exit = false;
 	//LO DE SOFI
 	//gameSTMC=static_cast<GameStateMachine*>(GameStateMachine::Instance())
 	gameStMc = new GameStateMachine();
-	gameStMc->pushState(new TopDownState());
 
 	//Audio de prueba
 	SDLUtils::instance()->soundEffects().at("prueba").play();
+	gameStMc->pushState(new TopDownState(this));
 }
 
 
@@ -41,8 +43,10 @@ void GameManager::run()// bucle de juego
 		}
 		if (!exit)
 		{
+			SDL_RenderClear(renderer);
 			render();
 			SDL_RenderPresent(renderer);// dibuja en pantalla el estado actual del juego
+			SDL_Delay(10);
 		}
 	}
 }
