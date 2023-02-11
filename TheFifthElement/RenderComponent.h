@@ -10,28 +10,38 @@ class RenderComponent :
 protected:
 Texture* t;
 Transform* f;
+int nframes;
+int i = 0;
+int cont = 0;
 public:
-    RenderComponent(Texture* t_,Transform* x):Component() {
+    RenderComponent(Texture* t_,Transform* x, int n):Component() {
         t = t_;
         f = x;
+        nframes = n;
+       
      //   f = ent_->getComponent<Transform>(int(TRANSFORM_H_));
     };
     ~RenderComponent() {};
     void update() {
-      
+        if (cont > 5) {
+            i++;
+            i = i % nframes;
+            cont = 0;
+        }
+        cont++;
     }
     void render() {
         SDL_Rect rect;
         rect.x = f->getPos().getX();
         rect.y = f->getPos().getY();
-        rect.h = f->getH();
-        rect.w = f->getW();
+        rect.h = 100;
+        rect.w = 100;
         SDL_Rect src;
-        rect.x = 0;
-        rect.y =0;
-        rect.h = f->getH();
-        rect.w = f->getW();
-        t->render(rect);
+        src.x = i*( f->getW()/ nframes);
+        src.y = 0;
+        src.h = f->getH();
+        src.w = f->getW()/nframes;
+        t->render( src,rect);
     }
 
 };
