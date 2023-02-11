@@ -14,7 +14,6 @@ const uint FRAME_RATE = 3;// número de frames que tardará en actualizarse el jue
 class GameManager:public Singleton <GameManager>
 {
 private:
-	SDLUtils* sdl_utils = nullptr;
 	SDL_Window* window = nullptr;
 	SDL_Renderer* renderer = nullptr;
 	GameStateMachine* gameStMc;
@@ -28,6 +27,7 @@ public:
 	void update();
 	void run();// blucle de juego
 	SDL_Renderer* getRenderer() {
-		return sdl_utils->renderer();
+		return SDLUtils::instance()->renderer();
+		 
 	}
 };

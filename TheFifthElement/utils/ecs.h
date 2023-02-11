@@ -4,9 +4,9 @@
 
 using cmpId_type = int;
 enum cmpId : cmpId_type {
-	_TRANSFORM = 0,
+	_TRANSFORM_H_ =0,
 	// ... (compoment ids)
-
+	RENDERCOMPONENT_H_ =1,
 	// do not remove this
 	_LAST_CMP_ID
 };

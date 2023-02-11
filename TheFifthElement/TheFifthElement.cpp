@@ -1,5 +1,4 @@
 #include"SDL.h"
-#include "tmxlite/detail/Android.hpp"
 #include "SDL_ttf.h"
 #include "utils/checkML.h"
 #include <fstream>
@@ -21,7 +20,7 @@ int main(int argc, char* argv[])
 		//GameStateMachine::init();
 		GameManager* game = new GameManager();
 		game->run();
-		SDL_Delay(500); // delay al acabar
+		SDL_Delay(1); // delay al acabar
 		delete(game);
 		
 	}

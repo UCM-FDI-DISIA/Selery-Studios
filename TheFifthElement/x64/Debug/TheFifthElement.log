@@ -1,13 +1,1 @@
-﻿  GameManager.cpp
-  Npc.cpp
-  GameState.cpp
-  GameStateMachine.cpp
-  MainMenuState.cpp
-  TopDownState.cpp
-  TheFifthElement.cpp
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\crtdbg.h(307,1): warning C4005: '_malloca': redefinición de macro
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\malloc.h(124): message : vea la definición anterior de '_malloca'
-  Entity.cpp
-  Manager.cpp
-  Generando código...
-  TheFifthElement.vcxproj -> C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\x64\Debug\TheFifthElement.exe
+﻿  TheFifthElement.vcxproj -> C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\x64\Debug\TheFifthElement.exe

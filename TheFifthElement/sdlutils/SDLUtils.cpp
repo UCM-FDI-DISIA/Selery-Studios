@@ -7,7 +7,7 @@
 
 
 SDLUtils::SDLUtils() :
-		SDLUtils("El quinto elemento :)", 600, 400) {
+		SDLUtils("El quinto elemento", 600, 400) {
 }
 
 SDLUtils::SDLUtils(std::string windowTitle, int width, int height) :
@@ -30,6 +30,7 @@ SDLUtils::~SDLUtils() {
 }
 
 void SDLUtils::initWindow() {
+
 	// initialise SDL
 	int sdlInit_ret = SDL_Init(SDL_INIT_EVERYTHING);
 	assert(sdlInit_ret == 0);
@@ -44,6 +45,7 @@ void SDLUtils::initWindow() {
 	renderer_ = SDL_CreateRenderer(window_, -1,
 			SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
 	assert(renderer_ != nullptr);
+	SDL_SetRenderDrawColor(renderer_, 0, 0, 0, 255);
 }
 
 void SDLUtils::closeWindow() {

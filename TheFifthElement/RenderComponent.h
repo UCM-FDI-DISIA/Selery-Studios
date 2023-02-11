@@ -1,9 +1,9 @@
 #pragma once
+#ifndef RENDERCOMPONENT_H_
+#define RENDERCOMPONENT_H_
 #include "./utils/Component.h"
 #include "SDLutils/Texture.h"
 #include "Transform.h"
-
-#include "utils/ecs.h"
 class RenderComponent :
     public Component
 {
@@ -18,8 +18,21 @@ public:
     };
     ~RenderComponent() {};
     void update() {
-       
+      
+    }
+    void render() {
+        SDL_Rect rect;
+        rect.x = f->getPos().getX();
+        rect.y = f->getPos().getY();
+        rect.h = f->getH();
+        rect.w = f->getW();
+        SDL_Rect src;
+        rect.x = 1;
+        rect.y =1;
+        rect.h = f->getH();
+        rect.w = f->getW();
+        t->render(src,rect);
     }
 
 };
-
+#endif
