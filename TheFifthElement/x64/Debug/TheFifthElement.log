@@ -1,3 +1,53 @@
+<<<<<<< Updated upstream
 ﻿  TheFifthElement.cpp
   LINK : no se encontró C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\x64\Debug\TheFifthElement.exe o no lo generó el último vínculo incremental; ejecutando vínculo completo
   TheFifthElement.vcxproj -> C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\x64\Debug\TheFifthElement.exe
+=======
+﻿  GameManager.cpp
+C:\Users\Dorjee\Documents\GitHub\Selery-Studios\TheFifthElement\RenderComponent.h(35,34): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Dorjee\Documents\GitHub\Selery-Studios\TheFifthElement\RenderComponent.h(36,34): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Dorjee\Documents\GitHub\Selery-Studios\TheFifthElement\RenderComponent.h(40,18): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Dorjee\Documents\GitHub\Selery-Studios\TheFifthElement\RenderComponent.h(42,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Dorjee\Documents\GitHub\Selery-Studios\TheFifthElement\RenderComponent.h(43,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Dorjee\Documents\GitHub\Selery-Studios\TheFifthElement\sdlutils\SDLUtils.h(51,30): warning C4101: 'e': variable local sin referencia
+C:\Users\Dorjee\Documents\GitHub\Selery-Studios\TheFifthElement\sdlutils\SDLUtils.h(47,1): message : al compilar la función del miembro clase plantilla "SoundEffect &SDLUtils::map_access_wrapper<SoundEffect>::at(std::string)"
+C:\Users\Dorjee\Documents\GitHub\Selery-Studios\TheFifthElement\sdlutils\SDLUtils.h(197,34): message : Vea la referencia a la creación de una instancia de clase plantilla "SDLUtils::map_access_wrapper<SoundEffect>" que se está compilando
+  ImputComponent.cpp
+C:\Users\Dorjee\Documents\GitHub\Selery-Studios\TheFifthElement\RenderComponent.h(35,34): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Dorjee\Documents\GitHub\Selery-Studios\TheFifthElement\RenderComponent.h(36,34): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Dorjee\Documents\GitHub\Selery-Studios\TheFifthElement\RenderComponent.h(40,18): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Dorjee\Documents\GitHub\Selery-Studios\TheFifthElement\RenderComponent.h(42,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Dorjee\Documents\GitHub\Selery-Studios\TheFifthElement\RenderComponent.h(43,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Dorjee\Documents\GitHub\Selery-Studios\TheFifthElement\utils\Entity.h(60,2): error C2243: 'static_cast': la conversión de '_Ty' a 'MovementComponent *' existe, pero no es accesible
+          with
+          [
+              _Ty=Component *
+          ]
+C:\Users\Dorjee\Documents\GitHub\Selery-Studios\TheFifthElement\ImputComponent.cpp(7,65): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Entity::getComponent<MovementComponent>(cmpId_type)" que se está compilando
+          with
+          [
+              T=MovementComponent
+          ]
+  MovementComponent.cpp
+  Npc.cpp
+C:\Users\Dorjee\Documents\GitHub\Selery-Studios\TheFifthElement\RenderComponent.h(35,34): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Dorjee\Documents\GitHub\Selery-Studios\TheFifthElement\RenderComponent.h(36,34): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Dorjee\Documents\GitHub\Selery-Studios\TheFifthElement\RenderComponent.h(40,18): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Dorjee\Documents\GitHub\Selery-Studios\TheFifthElement\RenderComponent.h(42,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Dorjee\Documents\GitHub\Selery-Studios\TheFifthElement\RenderComponent.h(43,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+  GameState.cpp
+  GameStateMachine.cpp
+  MainMenuState.cpp
+  TopDownState.cpp
+C:\Users\Dorjee\Documents\GitHub\Selery-Studios\TheFifthElement\RenderComponent.h(35,34): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Dorjee\Documents\GitHub\Selery-Studios\TheFifthElement\RenderComponent.h(36,34): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Dorjee\Documents\GitHub\Selery-Studios\TheFifthElement\RenderComponent.h(40,18): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Dorjee\Documents\GitHub\Selery-Studios\TheFifthElement\RenderComponent.h(42,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Dorjee\Documents\GitHub\Selery-Studios\TheFifthElement\RenderComponent.h(43,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+  TheFifthElement.cpp
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22000.0\ucrt\crtdbg.h(307,1): warning C4005: '_malloca': redefinición de macro
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22000.0\ucrt\malloc.h(124,1): message : vea la definición anterior de '_malloca'
+  Entity.cpp
+  Manager.cpp
+  Generando código...
+>>>>>>> Stashed changes
