@@ -27,11 +27,11 @@ public:
         rect.h = f->getH();
         rect.w = f->getW();
         SDL_Rect src;
-        rect.x = 1;
-        rect.y =1;
+        rect.x = 0;
+        rect.y =0;
         rect.h = f->getH();
         rect.w = f->getW();
-        t->render(src,rect);
+        t->render(rect);
     }
 
 };

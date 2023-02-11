@@ -2,6 +2,8 @@
 #include "states/TopDownState.h"
 GameManager::GameManager() {
 	SDLUtils::init();
+	renderer = SDLUtils::instance()->renderer();
+	window = SDLUtils::instance()->window();
 	exit = false;
 	//LO DE SOFI
 	//gameSTMC=static_cast<GameStateMachine*>(GameStateMachine::Instance())
