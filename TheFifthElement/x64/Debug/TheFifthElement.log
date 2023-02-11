@@ -1,8 +1,24 @@
-﻿  GameManager.cpp
+﻿  Collision.cpp
+  GameManager.cpp
+C:\Users\pmq12\OneDrive\Escritorio\Selery-Studios\TheFifthElement\sdlutils\SDLUtils.h(51,30): warning C4101: 'e': variable local sin referencia
+C:\Users\pmq12\OneDrive\Escritorio\Selery-Studios\TheFifthElement\sdlutils\SDLUtils.h(47): message : al compilar la función del miembro clase plantilla "SoundEffect &SDLUtils::map_access_wrapper<SoundEffect>::at(std::string)"
+C:\Users\pmq12\OneDrive\Escritorio\Selery-Studios\TheFifthElement\sdlutils\SDLUtils.h(197): message : Vea la referencia a la creación de una instancia de clase plantilla "SDLUtils::map_access_wrapper<SoundEffect>" que se está compilando
   Npc.cpp
+  GameState.cpp
+  GameStateMachine.cpp
+  MainMenuState.cpp
   TopDownState.cpp
+  JSON.cpp
+  JSONValue.cpp
+  SDLUtils.cpp
+  SoundEffect.cpp
+  Texture.cpp
   TheFifthElement.cpp
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\crtdbg.h(307,1): warning C4005: '_malloca': redefinición de macro
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\malloc.h(124): message : vea la definición anterior de '_malloca'
+  Component.cpp
+  Entity.cpp
+  Manager.cpp
+  Vector2D.cpp
   Generando código...
-  TheFifthElement.vcxproj -> C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\x64\Debug\TheFifthElement.exe
+  TheFifthElement.vcxproj -> C:\Users\pmq12\OneDrive\Escritorio\Selery-Studios\TheFifthElement\x64\Debug\TheFifthElement.exe
