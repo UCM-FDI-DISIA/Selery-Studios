@@ -27,7 +27,7 @@ int main(int argc, char* argv[])
 	}
 	catch(string e)
 	{
-		//cout << e << endl;
+		cout << e << endl;
 	}
 	return 0;
 }
