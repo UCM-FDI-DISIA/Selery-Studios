@@ -14,7 +14,6 @@ public:
 	template<typename T>
 	Entity* addEntity(T* e) {
 		e->setAlive(true);
-		e->setContext(e);
 		ents_.push_back(e);
 		return e;
 	}
