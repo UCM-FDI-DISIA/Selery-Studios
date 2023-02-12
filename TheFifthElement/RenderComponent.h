@@ -4,52 +4,42 @@
 #include "./utils/Component.h"
 #include "SDLutils/Texture.h"
 #include "Transform.h"
-<<<<<<< Updated upstream
 class RenderComponent :  public Component{
 protected:
 Texture* t;
 Transform* f;
+int nframes;
+int i = 0;
+int cont = 0;
 public:
-    RenderComponent(Texture* t_,Transform* x):Component() {
+    RenderComponent(Texture* t_,Transform* x, int n):Component() {
         t = t_;
         f = x;
+        nframes = n;
+       
      //   f = ent_->getComponent<Transform>(int(TRANSFORM_H_));
     };
     ~RenderComponent() {};
     void update() {
-      
-=======
-class RenderComponent : public Component {
-protected:
-    Texture* t;
-    Transform* f;
-public:
-    RenderComponent(Texture* t_, Transform* x) :Component() {
-        t = t_;
-        f = x;
-        //   f = ent_->getComponent<Transform>(int(TRANSFORM_H_));
-    };
-    ~RenderComponent() {};
-    void update() {
-
->>>>>>> Stashed changes
+        if (cont > 5) {
+            i++;
+            i = i % nframes;
+            cont = 0;
+        }
+        cont++;
     }
     void render() {
         SDL_Rect rect;
         rect.x = f->getPos().getX();
         rect.y = f->getPos().getY();
-        rect.h = f->getH();
-        rect.w = f->getW();
-        SDL_Rect src;
-        rect.x = 0;
-<<<<<<< Updated upstream
-        rect.y =0;
-=======
-        rect.y = 0;
->>>>>>> Stashed changes
-        rect.h = f->getH();
-        rect.w = f->getW();
-        t->render(rect);
+        rect.h = 120;
+        rect.w = 68;
+         SDL_Rect src;
+        src.x = i*( f->getW()/ nframes);
+        src.y = 0;
+        src.h = f->getH();
+        src.w = f->getW()/nframes;
+        t->render( src,rect);
     }
 
 };

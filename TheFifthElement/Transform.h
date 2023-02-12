@@ -7,7 +7,6 @@
 class Transform : public Component {
 public:
 	Transform() {
-		//cout << "fdgbxc";
 	}
 	// Constructora
 	Transform(Vector2D pos, Vector2D vel, float w, float h, float r) : Component() {

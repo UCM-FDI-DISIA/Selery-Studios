@@ -89,7 +89,14 @@ public:
 		SDL_Rect src = { 0, 0, width_, height_ };
 		render(src, dest);
 	}
-
+	/*inline void renderFrame(const SDL_Rect& destRect, int row, int col, int angle, SDL_RendererFlip flip) const {
+		SDL_Rect srcRect;
+		srcRect.x = fw * col;
+		srcRect.y = fh * row;
+		srcRect.w = fw;
+		srcRect.h = fh;
+		SDL_RenderCopyEx(renderer_, texture_, &srcRect, &destRect, angle, 0, flip);
+	}*/
 	// renders the complete texture at a destination rectangle (dest),
 	// with rotation
 	inline void render(const SDL_Rect& dest, float rotation) {
