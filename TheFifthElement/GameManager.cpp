@@ -9,7 +9,8 @@ GameManager::GameManager() {
 	//gameSTMC=static_cast<GameStateMachine*>(GameStateMachine::Instance())
 	gameStMc = new GameStateMachine();
 
-	SDLUtils::instance()->soundEffects().at("prueba").play();
+	//Audio de prueba
+	//SDLUtils::instance()->soundEffects().at("prueba").play();
 	gameStMc->pushState(new TopDownState(this));
 }
 

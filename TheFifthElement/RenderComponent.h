@@ -4,7 +4,7 @@
 #include "./utils/Component.h"
 #include "SDLutils/Texture.h"
 #include "Transform.h"
-class RenderComponent :  public Component{
+class RenderComponent : public Component{
 protected:
 Texture* t;
 Transform* f;
@@ -34,7 +34,7 @@ public:
         rect.y = f->getPos().getY();
         rect.h = 120;
         rect.w = 68;
-         SDL_Rect src;
+        SDL_Rect src;
         src.x = i*( f->getW()/ nframes);
         src.y = 0;
         src.h = f->getH();

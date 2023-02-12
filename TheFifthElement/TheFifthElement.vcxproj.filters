@@ -150,20 +150,13 @@
     <ClInclude Include="RenderComponent.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-<<<<<<< Updated upstream
-    <ClInclude Include="MovementComponent.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="InputComponent.h">
-=======
-    <ClInclude Include="InputComponent.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="MovementComponent.h">
->>>>>>> Stashed changes
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
     <ClInclude Include="PlayerTD.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="MovementComponent.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="InputComponent.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>
@@ -222,21 +215,15 @@
     <ClCompile Include="RenderComponent.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-<<<<<<< Updated upstream
+    <ClCompile Include="PlayerTD.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
     <ClCompile Include="MovementComponent.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="InputComponent.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-=======
-    <ClCompile Include="InputComponent.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="MovementComponent.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
->>>>>>> Stashed changes
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="TheFifthElement.rc">
