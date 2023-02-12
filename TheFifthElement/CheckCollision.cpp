@@ -23,11 +23,11 @@ void CheckCollision::update() {
 
 	if (Collision::collides(tr1->getPos(), width1 / 3, height1 / 3, tr2->getPos(), width2 / 3, height2 / 3))					//Aumentado el numero por el que dividimos las alturas y anchuras, tambien aumentamos lo que tarda en detectarnos el enemigo
 	{
-		cout << "fight";
+		cout << "FIGHT!";
 	}
 	else if (Collision::collides(tr1->getPos(), width1, height1, tr2->getPos(), width2, height2))
 	{
-		cout << "grrrr";
+		SDLUtils::instance()->soundEffects().at("prueba").play();
 	}
 
 }
