@@ -1,8 +1,10 @@
+#pragma once
 #include "MovementComponent.h"
-
+#include "utils/Entity.h"
+cmpId_type z = int(TRANSFORM_H_);
 
 MovementComponent::MovementComponent() {
-	tr = ent_->getComponent<Transform>(_TRANSFORM_H_);
+	tr = ent_->getComponent<Transform>(z);
 }
 
 void MovementComponent::update() {

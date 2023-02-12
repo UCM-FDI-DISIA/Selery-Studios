@@ -8,6 +8,9 @@ enum cmpId : cmpId_type {
 	// ... (compoment ids)
 	RENDERCOMPONENT_H_ =1,
 	_MOVEMENTCOMPONENT_ =2,
+	INPUTCOMPONENT_H = 3,
+	MOVEMENTCOMPONENT_H=4,
+
 	// do not remove this
 	_LAST_CMP_ID
 };

@@ -2,9 +2,10 @@
 #include "sdlutils/InputHandler.h"
 #include "utils/Entity.h"
 #include "RenderComponent.h"
+#include "utils/ecs.h"
 
-InputComponent::InputComponent() {
-	mov = ent_->getComponent<MovementComponent>(_MOVEMENTCOMPONENT_);
+InputComponent::InputComponent(MovementComponent * mov) {
+	mov_ = mov;
 }
 
 void InputComponent::update() {

@@ -1,12 +1,16 @@
 #pragma once
+#ifndef INPUTCOMPONENT_H
+#define INPUTCOMPONENT_H_
 #include "utils/Component.h"
 #include "MovementComponent.h"
 
 class InputComponent : Component
 {
 public:
-    InputComponent();
+    InputComponent(MovementComponent* mov);
     void update();
 private:
-    MovementComponent* mov = nullptr;
+    
+    MovementComponent* mov_ = nullptr;
 };
+#endif
