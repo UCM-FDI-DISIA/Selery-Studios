@@ -11,7 +11,7 @@
 class PlayerTD : public Entity {
 private:
 	//Component* componenete;
-	Vector2D PlayerPosition_{ 10,0 };
+	Vector2D PlayerPosition_{ 10,150 };
 	Vector2D PlayerVelocity_{ 0,0 };
 	float PlayerWidth_ = 100, PlayerHeigth_ = 200, PlayerRotation_ = 1;
 	Texture* t;

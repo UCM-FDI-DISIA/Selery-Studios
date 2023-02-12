@@ -159,6 +159,12 @@
     <ClInclude Include="InputComponent.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
+    <ClInclude Include="Enemy.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="CheckCollision.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="sdlutils\SDLUtils.cpp">
@@ -222,6 +228,12 @@
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="InputComponent.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="CheckCollision.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>
