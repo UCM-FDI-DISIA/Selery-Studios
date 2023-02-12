@@ -4,6 +4,8 @@
 #include <array>
 #include <vector>
 #include <bitset>
+#include <iostream>
+
 using namespace std;
 
 class Entity
@@ -11,13 +13,12 @@ class Entity
 private:
 	bool alive_;
 	vector<Component*> currCmps_;
-	array<Component*,maxComponentId> cmps_;
+	array<Component*, maxComponentId> cmps_;
 public:
 	Entity() :cmps_(), currCmps_(), alive_() {
 
 		currCmps_.reserve(maxComponentId);
 	}
-	
 
 	virtual ~Entity() {
 		for (auto c : currCmps_) {
@@ -36,8 +37,8 @@ public:
 	template<typename T, typename ...Ts>
 	inline T* addComponent(cmpId_type cId, Ts&... args) {
 		T* c = new T(forward<Ts>(args)...);
-		//removeComponent(cId);
-			currCmps_.push_back(c);
+		removeComponent(cId);
+		currCmps_.push_back(c);
 		cmps_[cId] = c;
 		c->setContext(this);
 		c->initComponent();
@@ -57,6 +58,7 @@ public:
 
 	template<typename T>
 	inline T* getComponent(cmpId_type cId) {
+		cout << "Sofia puta" << endl;
 		return static_cast<T*>(cmps_[cId]);
 	}
 

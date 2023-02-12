@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 ﻿  InputComponent.cpp
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\RenderComponent.h(23,34): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\RenderComponent.h(24,34): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
@@ -7,3 +8,6 @@ C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\Rende
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\RenderComponent.h(31,25): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\RenderComponent.h(27,18): warning C4101: 'src': variable local sin referencia
   TheFifthElement.vcxproj -> C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\x64\Debug\TheFifthElement.exe
+=======
+﻿  TheFifthElement.vcxproj -> C:\Users\Dorjee\Documents\GitHub\Selery-Studios\TheFifthElement\x64\Debug\TheFifthElement.exe
+>>>>>>> Stashed changes

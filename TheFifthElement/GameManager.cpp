@@ -8,6 +8,12 @@ GameManager::GameManager() {
 	//LO DE SOFI
 	//gameSTMC=static_cast<GameStateMachine*>(GameStateMachine::Instance())
 	gameStMc = new GameStateMachine();
+<<<<<<< Updated upstream
+=======
+
+	//Audio de prueba
+	//SDLUtils::instance()->soundEffects().at("prueba").play();
+>>>>>>> Stashed changes
 	gameStMc->pushState(new TopDownState(this));
 }
 

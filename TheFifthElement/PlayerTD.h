@@ -16,6 +16,7 @@ private:
 	Texture* t;
 	Transform* tr;
 	GameManager* m;
+<<<<<<< Updated upstream
 	MovementComponent* mov = nullptr;
 
 public:
@@ -31,6 +32,22 @@ public:
 		mov =addComponent<MovementComponent>(s);
 		cmpId_type w = int(INPUTCOMPONENT_H_);
 		addComponent<InputComponent>(w, mov);
+=======
+	
+
+public:
+	PlayerTD(GameManager* gm_) : Entity() {
+		cmpId_type z = int(_TRANSFORM_H_);
+		tr = addComponent<Transform>(z, PlayerPosition_, PlayerVelocity_, PlayerWidth_, PlayerHeigth_, PlayerRotation_);
+		t = new Texture(gm_->getRenderer(), "./assets/NPCs/NPC1-Idle-Left.png");
+		cmpId_type x = int(RENDERCOMPONENT_H_);
+		//referencia al texture y al transform
+		addComponent<RenderComponent>(x, t, tr);
+		cmpId_type s = int(MOVEMENTCOMPONENT_H);
+		addComponent<MovementComponent>(MOVEMENTCOMPONENT_H, tr);
+		cmpId_type w = int(INPUTCOMPONENT_H);
+		addComponent<InputComponent>(w);
+>>>>>>> Stashed changes
 		//addComponent(ecs::TRANSFORM_H, Transform(this, m, Vector2D(0, 0), Vector2D(0, 0), 1, 1, 1));
 	}
 	~PlayerTD() {
@@ -38,6 +55,7 @@ public:
 	}
 };
 
+<<<<<<< Updated upstream
 #pragma once
 #pragma once
 #include "utils/Entity.h"
@@ -70,4 +88,7 @@ public:
 
 	}
 };
+=======
+
+>>>>>>> Stashed changes
 

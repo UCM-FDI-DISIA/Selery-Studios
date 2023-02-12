@@ -48,7 +48,8 @@ public:
 		Mix_FadeInMusic(music_, -1, ticks);
 	}
 
-	inline static int setMusicVolume(int volume) {
+	inline static int setMusic
+	(int volume) {
 		assert(volume >= 0 && volume <= 128);
 		return Mix_VolumeMusic(volume);
 	}
