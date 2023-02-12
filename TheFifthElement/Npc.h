@@ -21,7 +21,7 @@ public:
 		cmpId_type z=int(_TRANSFORM_H_);
 	    tr=addComponent<Transform>(z, NpcPosition_, NpcVelocity_, NpcWith_, NpcHeith_, NpcRotation_);
 		t = new Texture(gm_->getRenderer(), "./assets/NPCs/NPC1-Idle-Left.png");
-		cmpId_type x = int(RENDERCOMPONENT_H_);
+		cmpId_type x = int(RENDERCOMPONENT_H);
 		//referencia al texture y al transform
 		addComponent<RenderComponent>(x,t,tr, nframes);
 		//addComponent(ecs::TRANSFORM_H, Transform(this, m, Vector2D(0, 0), Vector2D(0, 0), 1, 1, 1));

@@ -9,8 +9,10 @@ class MovementComponent : public Component
 public:
 
 	MovementComponent();
+	void initComponent();
 	void update();
 private:
-	Transform* tr = nullptr; Vector2D speed;
+	Transform* tr = nullptr; 
+	Vector2D speed =Vector2D(1,1);
 };
 #endif

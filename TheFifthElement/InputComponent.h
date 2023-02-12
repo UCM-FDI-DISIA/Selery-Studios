@@ -8,6 +8,7 @@ class InputComponent : public Component
 {
 public:
     InputComponent();
+    void initComponent();
     void update();
 private:
 

@@ -4,10 +4,12 @@
 #include "RenderComponent.h"
 #include "utils/ecs.h"
 
-InputComponent::InputComponent() {
-	mov_ = ent_->getComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
+InputComponent::InputComponent():Component() {
 }
+void InputComponent::initComponent() {
+	mov_ = ent_->getComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
 
+}
 void InputComponent::update() {
 	if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_A)) {
 		cout << "n" << endl;

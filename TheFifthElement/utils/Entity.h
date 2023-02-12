@@ -58,7 +58,6 @@ public:
 
 	template<typename T>
 	inline T* getComponent(cmpId_type cId) {
-		cout << "Sofia puta" << endl;
 		return static_cast<T*>(cmps_[cId]);
 	}
 

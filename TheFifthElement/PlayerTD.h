@@ -22,16 +22,16 @@ private:
 
 public:
 	PlayerTD(GameManager* gm_) : Entity() {
-		cmpId_type z = int(TRANSFORM_H_);
+		cmpId_type z = int(_TRANSFORM_H_);
 		tr = addComponent<Transform>(z, PlayerPosition_, PlayerVelocity_, PlayerWidth_, PlayerHeigth_, PlayerRotation_);
 		t = new Texture(gm_->getRenderer(), "./assets/PlayableCharacters/Exploration/Fire/andar.png");
-		cmpId_type x = int(RENDERCOMPONENT_H_);
+		cmpId_type x = int(RENDERCOMPONENT_H);
 		//referencia al texture y al transform
 		addComponent<RenderComponent>(x, t, tr, nframes);
-		cmpId_type s = int(MOVEMENTCOMPONENT_H_);
+		cmpId_type s = int(MOVEMENTCOMPONENT_H);
 		mov = addComponent<MovementComponent>(s);
-		cmpId_type w = int(INPUTCOMPONENT_H_);
-		//addComponent<InputComponent>(w);
+		cmpId_type w = int(INPUTCOMPONENT_H);
+		addComponent<InputComponent>(w);
 	
 	}
 	~PlayerTD() {
