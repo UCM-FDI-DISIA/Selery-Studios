@@ -4,9 +4,7 @@
 #include "./utils/Component.h"
 #include "SDLutils/Texture.h"
 #include "Transform.h"
-class RenderComponent :
-    public Component
-{
+class RenderComponent : public Component{
 protected:
 Texture* t;
 Transform* f;

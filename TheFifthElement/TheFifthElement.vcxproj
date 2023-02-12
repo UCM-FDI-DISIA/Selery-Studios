@@ -133,7 +133,10 @@
     <ClInclude Include="Collision.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="GameManager.h" />
+    <ClInclude Include="InputComponent.h" />
+    <ClInclude Include="MovementComponent.h" />
     <ClInclude Include="Npc.h" />
+    <ClInclude Include="PlayerTD.h" />
     <ClInclude Include="RenderComponent.h" />
     <ClInclude Include="states\GameState.h" />
     <ClInclude Include="states\GameStateMachine.h" />
@@ -166,7 +169,10 @@
   <ItemGroup>
     <ClCompile Include="Collision.cpp" />
     <ClCompile Include="GameManager.cpp" />
+    <ClCompile Include="InputComponent.cpp" />
+    <ClCompile Include="MovementComponent.cpp" />
     <ClCompile Include="Npc.cpp" />
+    <ClCompile Include="PlayerTD.cpp" />
     <ClCompile Include="RenderComponent.cpp" />
     <ClCompile Include="states\GameState.cpp" />
     <ClCompile Include="states\GameStateMachine.cpp" />
