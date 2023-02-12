@@ -1,6 +1,16 @@
+<<<<<<< Updated upstream
 ﻿  GameManager.cpp
   TheFifthElement.cpp
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\crtdbg.h(307,1): warning C4005: '_malloca': redefinición de macro
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\malloc.h(124): message : vea la definición anterior de '_malloca'
   Generando código...
   TheFifthElement.vcxproj -> C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\x64\Debug\TheFifthElement.exe
+=======
+﻿  CheckCollision.cpp
+E:\Selery-Studios\TheFifthElement\RenderComponent.h(33,34): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+E:\Selery-Studios\TheFifthElement\RenderComponent.h(34,34): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+E:\Selery-Studios\TheFifthElement\RenderComponent.h(38,18): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+E:\Selery-Studios\TheFifthElement\RenderComponent.h(40,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+E:\Selery-Studios\TheFifthElement\RenderComponent.h(41,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+  TheFifthElement.vcxproj -> E:\Selery-Studios\TheFifthElement\x64\Debug\TheFifthElement.exe
+>>>>>>> Stashed changes

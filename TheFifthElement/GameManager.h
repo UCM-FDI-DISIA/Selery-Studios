@@ -30,4 +30,11 @@ public:
 	void render();
 	void update();
 	void run();// blucle de juego
+<<<<<<< Updated upstream
+=======
+	virtual SDL_Renderer* getRenderer() {
+		return SDLUtils::instance()->renderer();
+		 
+	}
+>>>>>>> Stashed changes
 };
