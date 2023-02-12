@@ -7,6 +7,7 @@ enum cmpId : cmpId_type {
 	_TRANSFORM_H_ =0,
 	// ... (compoment ids)
 	RENDERCOMPONENT_H_ =1,
+	_MOVEMENTCOMPONENT_ =2,
 	// do not remove this
 	_LAST_CMP_ID
 };
