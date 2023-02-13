@@ -4,6 +4,8 @@
 #include <array>
 #include <vector>
 #include <bitset>
+#include <iostream>
+
 using namespace std;
 
 class Entity
@@ -11,13 +13,12 @@ class Entity
 private:
 	bool alive_;
 	vector<Component*> currCmps_;
-	array<Component*, ecs::maxComponentId> cmps_;
+	array<Component*, maxComponentId> cmps_;
 public:
 	Entity() :cmps_(), currCmps_(), alive_() {
 
-		currCmps_.reserve(ecs::maxComponentId);
+		currCmps_.reserve(maxComponentId);
 	}
-	
 
 	virtual ~Entity() {
 		for (auto c : currCmps_) {
@@ -33,11 +34,11 @@ public:
 		alive_ = alive;
 	}
 
-	template<typename T, typename Ts>
-	inline T* addComponent(cmpId_type cId, Ts&& args) {
-		T* c = new T(forward<Ts>(args));
+	template<typename T, typename ...Ts>
+	inline T* addComponent(cmpId_type cId, Ts&... args) {
+		T* c = new T(forward<Ts>(args)...);
 		removeComponent(cId);
-			currCmps_.push_back(c);
+		currCmps_.push_back(c);
 		cmps_[cId] = c;
 		c->setContext(this);
 		c->initComponent();
@@ -75,25 +76,6 @@ public:
 		for (auto i = 0u; i < n; i++)
 			currCmps_[i]->render();
 	}
-
-	#pragma region Groups
-	/*inline void addToGroup(grpId_type gId) {
-		if (!groups_[gId]) {
-			groups_[gId] = true;
-			GameManager::getInstance()->addToGroupList(gId, this);
-		}
-	}
-
-	inline void removeFromGroup(grpId_type gId) {
-		if (groups_[gId]) groups_[gId] = false;
-	}
-
-	inline bool hasGroup(grpId_type gId) {
-		return groups_[gId];
-	}
-	private:
-		bitset<ecs::maxGroupId> groups_;// group*/
-	#pragma endregion
 
 };
 

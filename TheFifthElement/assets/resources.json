@@ -1,0 +1,23 @@
+{
+
+  "fonts" : [
+ 
+  ],
+
+  "images" : [
+ 
+  ],
+
+  "messages" : [
+   
+  ],
+
+  "sounds" : [
+    { "id" : "prueba", "file" : "assets/Sounds/beat.wav" }
+  ],
+
+  "musics": [
+    
+  ]
+    
+}

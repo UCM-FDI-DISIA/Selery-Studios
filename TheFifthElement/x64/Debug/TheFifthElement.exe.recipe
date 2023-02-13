@@ -2,11 +2,7 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-<<<<<<< Updated upstream
-      <FullPath>C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\x64\Debug\TheFifthElement.exe</FullPath>
-=======
-      <FullPath>C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\x64\Debug\TheFifthElement.exe</FullPath>
->>>>>>> Stashed changes
+      <FullPath>C:\Users\Dorjee\Documents\GitHub\Selery-Studios\TheFifthElement\x64\Debug\TheFifthElement.exe</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />

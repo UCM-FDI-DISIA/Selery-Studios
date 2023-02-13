@@ -1,7 +1,5 @@
 // This file is part of the course TPV2@UCM - Samir Genaim
-
 #pragma once
-
 #include <string>
 #include <SDL_mixer.h>
 #include "../utils/checkML.h"
@@ -50,7 +48,8 @@ public:
 		Mix_FadeInMusic(music_, -1, ticks);
 	}
 
-	inline static int setMusicVolume(int volume) {
+	inline static int setMusic
+	(int volume) {
 		assert(volume >= 0 && volume <= 128);
 		return Mix_VolumeMusic(volume);
 	}

@@ -1,15 +1,17 @@
 #include "GameManager.h"
-
+#include "states/TopDownState.h"
 GameManager::GameManager() {
-	SDL_Init(SDL_INIT_EVERYTHING);
-	window = SDL_CreateWindow("<3", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WIN_WIDTH, WIN_HEIGHT, SDL_WINDOW_SHOWN);
-	renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
-	if (window == nullptr || renderer == nullptr) throw "Error cargando SDL";// excepción de SDL
+	SDLUtils::init();
+	renderer = SDLUtils::instance()->renderer();
+	window = SDLUtils::instance()->window();
 	exit = false;
 	//LO DE SOFI
 	//gameSTMC=static_cast<GameStateMachine*>(GameStateMachine::Instance())
 	gameStMc = new GameStateMachine();
-	gameStMc->pushState(new GameState());
+
+	//Audio de prueba
+	//SDLUtils::instance()->soundEffects().at("prueba").play();
+	gameStMc->pushState(new TopDownState(this));
 }
 
 
@@ -41,8 +43,10 @@ void GameManager::run()// bucle de juego
 		}
 		if (!exit)
 		{
+			SDL_RenderClear(renderer);
 			render();
 			SDL_RenderPresent(renderer);// dibuja en pantalla el estado actual del juego
+			SDL_Delay(10);
 		}
 	}
 }

@@ -13,18 +13,6 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Archivos de origen\Components">
-      <UniqueIdentifier>{fca723c3-c13d-4e6d-8dd7-039ae23847b5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de encabezado\Components">
-      <UniqueIdentifier>{9c30a94e-3129-430a-a959-7cf60b233f14}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de encabezado\Clases">
-      <UniqueIdentifier>{d88e9983-8dc0-481d-9952-663ec8c04889}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de origen\Clases">
-      <UniqueIdentifier>{e0afa214-987a-4d3a-9f6a-bf44dfdfc874}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Archivos de encabezado\SDL">
       <UniqueIdentifier>{df45433e-4fbe-45c2-9332-87cf449dd632}</UniqueIdentifier>
     </Filter>
@@ -43,14 +31,26 @@
     <Filter Include="Archivos de origen\json">
       <UniqueIdentifier>{173a75f4-d958-4f36-9ca2-512a68077c05}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Archivos de encabezado\States">
-      <UniqueIdentifier>{55b8a20d-e934-47e6-9c4f-8e7ff42d38a0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de origen\States">
-      <UniqueIdentifier>{dd88abc4-992d-48cc-bad7-3d6697223eae}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Archivos de origen\utils">
       <UniqueIdentifier>{5ec3d980-e01c-45a0-b4fc-5f3fe2517ccd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\classes">
+      <UniqueIdentifier>{d88e9983-8dc0-481d-9952-663ec8c04889}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\components">
+      <UniqueIdentifier>{9c30a94e-3129-430a-a959-7cf60b233f14}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\states">
+      <UniqueIdentifier>{55b8a20d-e934-47e6-9c4f-8e7ff42d38a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\classes">
+      <UniqueIdentifier>{e0afa214-987a-4d3a-9f6a-bf44dfdfc874}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\components">
+      <UniqueIdentifier>{fca723c3-c13d-4e6d-8dd7-039ae23847b5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\states">
+      <UniqueIdentifier>{dd88abc4-992d-48cc-bad7-3d6697223eae}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -123,19 +123,46 @@
     <ClInclude Include="json\JSONValue.h">
       <Filter>Archivos de encabezado\json</Filter>
     </ClInclude>
-    <ClInclude Include="GameStateMachine.h">
-      <Filter>Archivos de encabezado\States</Filter>
-    </ClInclude>
-    <ClInclude Include="StateManager.h">
-      <Filter>Archivos de encabezado\States</Filter>
-    </ClInclude>
-    <ClInclude Include="GameState.h">
-      <Filter>Archivos de encabezado\States</Filter>
-    </ClInclude>
     <ClInclude Include="GameManager.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="MainMenuState.h">
+    <ClInclude Include="states\GameState.h">
+      <Filter>Archivos de encabezado\states</Filter>
+    </ClInclude>
+    <ClInclude Include="states\GameStateMachine.h">
+      <Filter>Archivos de encabezado\states</Filter>
+    </ClInclude>
+    <ClInclude Include="states\MainMenuState.h">
+      <Filter>Archivos de encabezado\states</Filter>
+    </ClInclude>
+    <ClInclude Include="states\TopDownState.h">
+      <Filter>Archivos de encabezado\states</Filter>
+    </ClInclude>
+    <ClInclude Include="Collision.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="Transform.h">
+      <Filter>Archivos de encabezado\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Npc.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderComponent.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerTD.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="MovementComponent.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="InputComponent.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="CheckCollision.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="Layer.h">
@@ -152,9 +179,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="TheFifthElement.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
     <ClCompile Include="sdlutils\SDLUtils.cpp">
       <Filter>Archivos de origen\SDLutils</Filter>
     </ClCompile>
@@ -173,18 +197,6 @@
     <ClCompile Include="json\JSONValue.cpp">
       <Filter>Archivos de origen\json</Filter>
     </ClCompile>
-    <ClCompile Include="GameManager.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="GameStateMachine.cpp">
-      <Filter>Archivos de origen\States</Filter>
-    </ClCompile>
-    <ClCompile Include="StateManager.cpp">
-      <Filter>Archivos de origen\States</Filter>
-    </ClCompile>
-    <ClCompile Include="GameState.cpp">
-      <Filter>Archivos de origen\States</Filter>
-    </ClCompile>
     <ClCompile Include="utils\Component.cpp">
       <Filter>Archivos de origen\utils</Filter>
     </ClCompile>
@@ -194,7 +206,46 @@
     <ClCompile Include="utils\Manager.cpp">
       <Filter>Archivos de origen\utils</Filter>
     </ClCompile>
-    <ClCompile Include="MainMenuState.cpp">
+    <ClCompile Include="states\GameState.cpp">
+      <Filter>Archivos de origen\states</Filter>
+    </ClCompile>
+    <ClCompile Include="states\GameStateMachine.cpp">
+      <Filter>Archivos de origen\states</Filter>
+    </ClCompile>
+    <ClCompile Include="states\MainMenuState.cpp">
+      <Filter>Archivos de origen\states</Filter>
+    </ClCompile>
+    <ClCompile Include="states\TopDownState.cpp">
+      <Filter>Archivos de origen\states</Filter>
+    </ClCompile>
+    <ClCompile Include="TheFifthElement.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="GameManager.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="Collision.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="Npc.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderComponent.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerTD.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="MovementComponent.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="InputComponent.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="CheckCollision.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="Layer.cpp">
@@ -222,5 +273,8 @@
     <Image Include="TheFifthElement.ico">
       <Filter>Archivos de recursos</Filter>
     </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\resources.json" />
   </ItemGroup>
 </Project>
