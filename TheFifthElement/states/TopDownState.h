@@ -13,11 +13,14 @@ public:
 		addEntity(player_);
 		addEntity(new Enemy(Gm_,player_));
 	}
-	~TopDownState() {
-
-	}
+	~TopDownState() {}
+	void LoadMap(string const& filename);
 private:
 	GameManager* Gm_;
 	PlayerTD* player_;
+
+	vector<ColliderTile*> collisions_;
+
+	vector<Enemy*>enemyContainer_;//aqui irán los enemigos que habra en el topdown con los que se interactuarán
 };
 
