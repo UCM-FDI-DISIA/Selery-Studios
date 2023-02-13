@@ -52,6 +52,12 @@
     <Filter Include="Archivos de origen\states">
       <UniqueIdentifier>{dd88abc4-992d-48cc-bad7-3d6697223eae}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Archivos de origen\map">
+      <UniqueIdentifier>{920759f0-5c6f-4927-bb31-ccd34d7dec8e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\map">
+      <UniqueIdentifier>{432d5a55-a226-4d36-bfe2-7a35ba5e9c36}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TheFifthElement.h">
@@ -165,17 +171,8 @@
     <ClInclude Include="CheckCollision.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="Layer.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="TileMap.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="TileLayer.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="MapParser.h">
-      <Filter>Archivos de encabezado</Filter>
+    <ClInclude Include="ColisionTile.h">
+      <Filter>Archivos de encabezado\map</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -248,17 +245,8 @@
     <ClCompile Include="CheckCollision.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="Layer.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="TileMap.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="TileLayer.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="MapParser.cpp">
-      <Filter>Archivos de origen</Filter>
+    <ClCompile Include="ColisionTile.cpp">
+      <Filter>Archivos de origen\map</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
