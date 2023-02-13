@@ -23,7 +23,7 @@ private:
 
 public:
 	PlayerTD(GameManager* gm_) : Entity() {
-		cmpId_type z = int(_TRANSFORM_H_);
+		cmpId_type z = int(TRANSFORM_H);
 		tr = addComponent<Transform>(z, PlayerPosition_, PlayerVelocity_, PlayerWidth_, PlayerHeigth_, PlayerRotation_);
 		t = new Texture(gm_->getRenderer(), "./assets/PlayableCharacters/Exploration/Fire/andar.png");
 		cmpId_type x = int(RENDERCOMPONENT_H);

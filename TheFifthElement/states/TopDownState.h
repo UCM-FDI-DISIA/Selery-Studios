@@ -11,7 +11,7 @@ public:
 		addEntity(new Npc(Gm_));
 		player_ = new PlayerTD(Gm_);
 		addEntity(player_);
-		addEntity(new Enemy(Gm_,player_));
+		addEntity(new Enemy(Gm_,player_, 10));
 	}
 	~TopDownState() {
 
