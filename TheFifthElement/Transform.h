@@ -19,7 +19,9 @@ public:
         width = w;
         height = h;
         rotation_ = r;
+
     }
+  
     // Destructora
     virtual ~Transform() { }
     // Devuelve su posicion
@@ -40,6 +42,8 @@ public:
     inline void setW(float valWid) { width = valWid; }
 
     inline void setPos(Vector2D Position) { position = Position; }
+
+ 
 
 
 };

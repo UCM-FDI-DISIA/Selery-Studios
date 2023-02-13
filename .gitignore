@@ -1,4 +1,4 @@
-# Prerequisites
+## Prerequisites
 *.d
 
 # Compiled Object files
@@ -7,7 +7,9 @@
 *.o
 *.obj
 *.log
-
+*.vsidx
+*.pdb
+*.tlog
 # Precompiled Headers
 *.gch
 *.pch
