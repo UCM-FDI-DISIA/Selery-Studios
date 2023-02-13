@@ -2,7 +2,7 @@
 #include "CheckCollision.h"
 #include "utils/Entity.h"
 using namespace std;
-cmpId_type p = int(_TRANSFORM_H_);
+cmpId_type p = int(TRANSFORM_H);
 
 CheckCollision::CheckCollision(PlayerTD* player) :Component()
 {
