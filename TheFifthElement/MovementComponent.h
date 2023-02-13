@@ -10,6 +10,7 @@ public:
 
 	MovementComponent();
 	void initComponent();
+	void setVel(Vector2D vec);
 	void update();
 private:
 	Transform* tr = nullptr; 

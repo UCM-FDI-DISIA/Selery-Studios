@@ -12,7 +12,7 @@ void InputComponent::initComponent() {
 }
 void InputComponent::update() {
 	if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_A)) {
-		cout << "n" << endl;
+		
 	}
 	if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_W)) {
 		cout << "e" << endl;

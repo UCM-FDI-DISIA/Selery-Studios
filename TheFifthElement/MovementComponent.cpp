@@ -10,6 +10,9 @@ void MovementComponent::initComponent() {
 	tr = ent_->getComponent<Transform>(z);
 
 }
+void MovementComponent::setVel(Vector2D vec)
+{
+}
 void MovementComponent::update() {
 	tr->setPos(tr->getPos() + speed);
 }
