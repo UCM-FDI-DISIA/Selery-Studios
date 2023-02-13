@@ -13,6 +13,6 @@ public:
 	void update();
 private:
 	Transform* tr = nullptr; 
-	Vector2D speed =Vector2D(1,0);
+	Vector2D speed =Vector2D(0,0);
 };
 #endif
