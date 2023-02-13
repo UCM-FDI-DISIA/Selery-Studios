@@ -13,4 +13,6 @@ void MovementComponent::initComponent() {
 
 void MovementComponent::update() {
 	tr->setPos(tr->getPos() + speed);
+
+	cout <<speed;
 }

@@ -19,5 +19,4 @@ private:
 	Transform* tr2;
 	float width1, width2, height1, height2;
 };
-
 #endif
