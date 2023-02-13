@@ -7,6 +7,7 @@
 #include "GameManager.h"
 #include "CheckCollision.h"
 #include "PlayerTD.h"
+#include "LifeBarComponent.h"
 
 
 class Enemy : public Entity
@@ -26,8 +27,7 @@ private:
 
 public:
 
-	Enemy(GameManager* gm_) : Entity()
-	{
+	Enemy(GameManager* gm_) : Entity() {
 		cmpId_type z = int(TRANSFORM_H);
 		tr = addComponent<Transform>(z, EnemyPosition_, EnemyVelocity_, EnemyWidth_, EnemyHeight_, EnemyRotation_);
 		t = new Texture(gm_->getRenderer(), "./assets/NPCs/NPC5-idle-left.png");
@@ -36,40 +36,33 @@ public:
 		addComponent<RenderComponent>(x, t, tr, nframes);
 		//addComponent(ecs::TRANSFORM_H, Transform(this, m, Vector2D(0, 0), Vector2D(0, 0), 1, 1, 1));
 
+	}
+
+	~Enemy() {
 
 	}
 
-
-
-	~Enemy()
-	{
-
-	}
-
-	void update()
-	{
-		cout << "as";
-	}
-
-
-	Enemy(GameManager* gm_, PlayerTD* player, float maxLife) : Entity()
-	{
+	Enemy(GameManager* gm_, PlayerTD* player, float maxLife) : Entity() {
 		maxLife_ = maxLife;
 		life_ = maxLife;
+		m = gm_;
 
 		cmpId_type z = int(TRANSFORM_H);
-
 		tr = addComponent<Transform>(z, EnemyPosition_, EnemyVelocity_, EnemyWidth_, EnemyHeight_, EnemyRotation_);
+
 		t = new Texture(gm_->getRenderer(), "./assets/NPCs/NPC5-idle-left.png");
-		cmpId_type x = int(RENDERCOMPONENT_H);
+		
 		player_ = player;
 		trPlayer_ = player_->getComponent<Transform>(z);
+
 		cmpId_type w = int(CHECKCOLLISION_H);
 		ch = addComponent<CheckCollision>(w, player_);
 
-		//referencia al texture y al transform
+		cmpId_type x = int(RENDERCOMPONENT_H);
 		addComponent<RenderComponent>(x, t, tr, nframes);
-		//addComponent(ecs::TRANSFORM_H, Transform(this, m, Vector2D(0, 0), Vector2D(0, 0), 1, 1, 1));
+
+		cmpId_type v = int(LIFEBARCOMPONENT_H);
+		addComponent<LifeBarComponent>(v, m, tr, maxLife_);
 	}
 
 };
