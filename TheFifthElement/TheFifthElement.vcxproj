@@ -132,8 +132,23 @@
   <ItemGroup>
     <ClInclude Include="framework.h" />
     <ClInclude Include="GameManager.h" />
+<<<<<<< Updated upstream
     <ClInclude Include="GameState.h" />
     <ClInclude Include="GameStateMachine.h" />
+=======
+    <ClInclude Include="MapParser.h" />
+    <ClInclude Include="TileLayer.h" />
+    <ClInclude Include="TileMap.h" />
+    <ClInclude Include="InputComponent.h" />
+    <ClInclude Include="Layer.h" />
+    <ClInclude Include="MovementComponent.h" />
+    <ClInclude Include="Npc.h" />
+    <ClInclude Include="PlayerTD.h" />
+    <ClInclude Include="RenderComponent.h" />
+    <ClInclude Include="states\GameState.h" />
+    <ClInclude Include="states\GameStateMachine.h" />
+    <ClInclude Include="states\MainMenuState.h" />
+>>>>>>> Stashed changes
     <ClInclude Include="json\JSON.h" />
     <ClInclude Include="json\JSONValue.h" />
     <ClInclude Include="MainMenuState.h" />
@@ -161,8 +176,24 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameManager.cpp" />
+<<<<<<< Updated upstream
     <ClCompile Include="GameState.cpp" />
     <ClCompile Include="GameStateMachine.cpp" />
+=======
+    <ClCompile Include="MapParser.cpp" />
+    <ClCompile Include="TileLayer.cpp" />
+    <ClCompile Include="TileMap.cpp" />
+    <ClCompile Include="InputComponent.cpp" />
+    <ClCompile Include="Layer.cpp" />
+    <ClCompile Include="MovementComponent.cpp" />
+    <ClCompile Include="Npc.cpp" />
+    <ClCompile Include="PlayerTD.cpp" />
+    <ClCompile Include="RenderComponent.cpp" />
+    <ClCompile Include="states\GameState.cpp" />
+    <ClCompile Include="states\GameStateMachine.cpp" />
+    <ClCompile Include="states\MainMenuState.cpp" />
+    <ClCompile Include="states\TopDownState.cpp" />
+>>>>>>> Stashed changes
     <ClCompile Include="json\JSON.cpp" />
     <ClCompile Include="json\JSONValue.cpp" />
     <ClCompile Include="MainMenuState.cpp" />
