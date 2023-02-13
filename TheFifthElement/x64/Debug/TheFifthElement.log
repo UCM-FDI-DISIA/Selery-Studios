@@ -1,10 +1,1 @@
-﻿  CheckCollision.cpp
-E:\Selery-Studios\TheFifthElement\RenderComponent.h(33,34): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-E:\Selery-Studios\TheFifthElement\RenderComponent.h(34,34): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-E:\Selery-Studios\TheFifthElement\RenderComponent.h(38,18): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-E:\Selery-Studios\TheFifthElement\RenderComponent.h(40,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-E:\Selery-Studios\TheFifthElement\RenderComponent.h(41,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-E:\Selery-Studios\TheFifthElement\sdlutils\SDLUtils.h(51,30): warning C4101: 'e': variable local sin referencia
-E:\Selery-Studios\TheFifthElement\sdlutils\SDLUtils.h(47,1): message : al compilar la función del miembro clase plantilla "SoundEffect &SDLUtils::map_access_wrapper<SoundEffect>::at(std::string)"
-E:\Selery-Studios\TheFifthElement\sdlutils\SDLUtils.h(197,34): message : Vea la referencia a la creación de una instancia de clase plantilla "SDLUtils::map_access_wrapper<SoundEffect>" que se está compilando
-  TheFifthElement.vcxproj -> E:\Selery-Studios\TheFifthElement\x64\Debug\TheFifthElement.exe
+﻿  TheFifthElement.vcxproj -> C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\x64\Debug\TheFifthElement.exe
