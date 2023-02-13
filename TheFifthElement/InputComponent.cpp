@@ -11,16 +11,19 @@ void InputComponent::initComponent() {
 
 }
 void InputComponent::update() {
-	if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_A)) {
-		
+	//mov_->setSpeed(Vector2D(-1, 0));
+
+	if (InputHandler::instance()->keyDownEvent()) {
+		mov_->setSpeed(Vector2D(-1, 0));
 	}
-	if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_W)) {
-		cout << "e" << endl;
+	else if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_W)) {
+		mov_->setSpeed(Vector2D(-1, 0));
 	}
-	if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_S)) {
-		cout << "g" << endl;
+	else if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_S)) {
+		mov_->setSpeed(Vector2D(-1, 0));
 	}
-	if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_D)) {
-		cout << "r" << endl;
+	else if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_D)) {
+		mov_->setSpeed(Vector2D(-1, 0));
 	}
+	else mov_->setSpeed(Vector2D(0, 0)); std::cout << "asf" << endl;
 }

@@ -17,6 +17,7 @@ private:
 	Texture* t;
 	Transform* tr;
 	GameManager* m;
+	Vector2D dir;
 	MovementComponent* mov = nullptr;
 	int nframes = 7;
 
