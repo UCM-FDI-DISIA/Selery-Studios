@@ -171,11 +171,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CheckCollision.cpp" />
-    <ClCompile Include="ColisionTile.cpp" />
     <ClCompile Include="Collision.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="InputComponent.cpp" />
+    <ClCompile Include="map\ColisionTile.cpp" />
     <ClCompile Include="MovementComponent.cpp" />
     <ClCompile Include="Npc.cpp" />
     <ClCompile Include="PlayerTD.cpp" />

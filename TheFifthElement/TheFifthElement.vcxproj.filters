@@ -245,7 +245,7 @@
     <ClCompile Include="CheckCollision.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="ColisionTile.cpp">
+    <ClCompile Include="map\ColisionTile.cpp">
       <Filter>Archivos de origen\map</Filter>
     </ClCompile>
   </ItemGroup>
