@@ -10,7 +10,7 @@ enum cmpId : cmpId_type {
 	INPUTCOMPONENT_H = 2,
 	MOVEMENTCOMPONENT_H = 3,
 	CHECKCOLLISION_H = 4,
-	LIFEBARCOMPONENT_H = 5,
+	LIFECOMPONENT_H = 5,
 	// do not remove this
 	_LAST_CMP_ID
 };

@@ -136,7 +136,7 @@
     <ClInclude Include="framework.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="InputComponent.h" />
-    <ClInclude Include="LifeBarComponent.h" />
+    <ClInclude Include="LifeComponent.h" />
     <ClInclude Include="MovementComponent.h" />
     <ClInclude Include="Npc.h" />
     <ClInclude Include="PlayerTD.h" />
@@ -175,7 +175,7 @@
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="InputComponent.cpp" />
-    <ClCompile Include="LifeBarComponent.cpp" />
+    <ClCompile Include="LifeComponent.cpp" />
     <ClCompile Include="MovementComponent.cpp" />
     <ClCompile Include="Npc.cpp" />
     <ClCompile Include="PlayerTD.cpp" />

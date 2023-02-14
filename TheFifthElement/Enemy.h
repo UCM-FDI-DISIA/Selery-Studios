@@ -7,7 +7,7 @@
 #include "GameManager.h"
 #include "CheckCollision.h"
 #include "PlayerTD.h"
-#include "LifeBarComponent.h"
+#include "LifeComponent.h"
 
 
 class Enemy : public Entity
@@ -70,8 +70,8 @@ public:
 		cmpId_type x = int(RENDERCOMPONENT_H);
 		addComponent<RenderComponent>(x, t, tr, nframes);
 
-		cmpId_type v = int(LIFEBARCOMPONENT_H);
-		addComponent<LifeBarComponent>(v, m, tr, maxLife_);
+		cmpId_type v = int(LIFECOMPONENT_H);
+		addComponent<LifeComponent>(v, m, tr, maxLife_);
 	}
 
 };
