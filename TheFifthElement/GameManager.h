@@ -18,6 +18,7 @@ private:
 	SDL_Renderer* renderer = nullptr;
 	GameStateMachine* gameStMc;
 	bool exit;
+	
 
 public:
 	GameManager() ;
@@ -28,6 +29,6 @@ public:
 	void run();// blucle de juego
 	SDL_Renderer* getRenderer() {
 		return SDLUtils::instance()->renderer();
-		 
 	}
+	SDL_Window* getWindow() { return window; }
 };

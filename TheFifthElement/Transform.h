@@ -3,11 +3,13 @@
 #define TRANSFORM_H_
 #include "utils/Vector2D.h"
 #include "utils/Component.h"
+#include "sdlutils/SDLUtils.h"
 
 class Transform : public Component {
 private:
     Vector2D position, velocity;
     float width, height, rotation_;
+    SDL_Rect rect;
 public:
     Transform() {
         //cout << "fdgbxc";
@@ -42,9 +44,14 @@ public:
     inline void setW(float valWid) { width = valWid; }
 
     inline void setPos(Vector2D Position) { position = Position; }
-
- 
-
-
+    
+    void render()
+    {
+       rect= build_sdlrect(getPos().getX() + 10, getPos().getY(), getW() / 7, getH());
+       SDL_SetRenderDrawColor(sdlutils().renderer(), 255, 0, 255, 0);
+       SDL_RenderDrawRect(sdlutils().renderer(), &rect);
+       SDL_SetRenderDrawColor(sdlutils().renderer(), 0, 0, 0, 0);
+      
+    }
 };
 #endif
