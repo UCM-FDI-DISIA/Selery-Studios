@@ -55,7 +55,9 @@ public:
 		maxLife_ = maxLife;
 		life_ = maxLife;
 		m = gm_;
-
+		float a = 1.0f;
+		float lookingRange = 150.0f;
+		float lookingWidth = 100.0f;
 		cmpId_type z = int(TRANSFORM_H);
 		tr = addComponent<Transform>(z, EnemyPosition_, EnemyVelocity_, EnemyWidth_, EnemyHeight_, EnemyRotation_);
 
@@ -65,7 +67,7 @@ public:
 		trPlayer_ = player_->getComponent<Transform>(z);
 
 		cmpId_type w = int(CHECKCOLLISION_H);
-		ch = addComponent<CheckCollision>(w, player_,gm_);
+		ch = addComponent<CheckCollision>(w, player_,gm_,lookingRange,lookingWidth,a);
 
 		cmpId_type x = int(RENDERCOMPONENT_H);
 		addComponent<RenderComponent>(x, t, tr, nframes);
