@@ -4,8 +4,7 @@
 #include "../PlayerTD.h"
 #include "../Enemy.h"
 #include "../InputComponent.h"
-
-
+#include "../Camera.h"
 
 class TopDownState : public Manager {
 public:
@@ -20,6 +19,7 @@ public:
 		in_ = player_->getComponent<InputComponent>(w);
 		addEntity(player_);
 		addEntity(new Enemy(Gm_,player_, 100));
+		addEntity(new Camera(Gm_, player_));	
 	}
 
 	void handleEvents()

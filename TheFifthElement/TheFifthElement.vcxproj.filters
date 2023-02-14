@@ -168,6 +168,12 @@
     <ClInclude Include="LifeBarComponent.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
+    <ClInclude Include="CameraComponent.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="sdlutils\SDLUtils.cpp">
@@ -240,6 +246,12 @@
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="LifeBarComponent.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="CameraComponent.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>
