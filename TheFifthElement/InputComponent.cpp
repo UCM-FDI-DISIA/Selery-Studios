@@ -50,7 +50,7 @@ void InputComponent::handleEvents(SDL_Event event)
 	    else if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_S)) {
 			mov_->setSpeed(Vector2D(0, 1));
 		}
-		else mov_->setSpeed(Vector2D(0, 0)); std::cout << "asf" << endl;
+		else mov_->setSpeed(Vector2D(0, 0)); 
 	}
 	
 
