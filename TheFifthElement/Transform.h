@@ -47,10 +47,10 @@ public:
     
     void render()
     {
-       rect= build_sdlrect(getPos().getX() + 10, getPos().getY(), getW() / 7, getH());
+     /*  rect= build_sdlrect(getPos().getX() + 10, getPos().getY(), getW() / 7, getH());
        SDL_SetRenderDrawColor(sdlutils().renderer(), 255, 0, 255, 0);
        SDL_RenderDrawRect(sdlutils().renderer(), &rect);
-       SDL_SetRenderDrawColor(sdlutils().renderer(), 0, 0, 0, 0);
+       SDL_SetRenderDrawColor(sdlutils().renderer(), 0, 0, 0, 0);*/
       
     }
 };

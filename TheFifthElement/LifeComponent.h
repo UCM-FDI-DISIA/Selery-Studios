@@ -1,12 +1,12 @@
 #pragma once
-#ifndef LIFEBARCOMPONENT_H
-#define LIFEBARCOMPONENT_H_
+#ifndef LIFECOMPONENT_H
+#define LIFECOMPONENT_H_
 #include "Transform.h"
 #include "utils/Vector2D.h"
 #include "sdlutils/Texture.h"
 #include "GameManager.h"
 
-class LifeBarComponent : public Component
+class LifeComponent : public Component
 {
 private:
 	Texture* lifeBar;
@@ -20,7 +20,7 @@ private:
 	float life_, maxLife_;
 public:
 
-	LifeBarComponent(GameManager* gm,  Transform* tr, float maxLife) {
+	LifeComponent(GameManager* gm,  Transform* tr, float maxLife) {
 		life_ = maxLife;
 		maxLife_ = maxLife;
 		gm_ = gm;

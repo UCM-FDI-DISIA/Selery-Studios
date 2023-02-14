@@ -7,7 +7,7 @@
 #include "GameManager.h"
 #include "CheckCollision.h"
 #include "PlayerTD.h"
-#include "LifeBarComponent.h"
+#include "LifeComponent.h"
 
 
 class Enemy : public Entity
@@ -55,7 +55,9 @@ public:
 		maxLife_ = maxLife;
 		life_ = maxLife;
 		m = gm_;
-
+		float a = 1.0f;
+		float lookingRange = 150.0f;
+		float lookingWidth = 100.0f;
 		cmpId_type z = int(TRANSFORM_H);
 		tr = addComponent<Transform>(z, EnemyPosition_, EnemyVelocity_, EnemyWidth_, EnemyHeight_, EnemyRotation_);
 
@@ -65,13 +67,13 @@ public:
 		trPlayer_ = player_->getComponent<Transform>(z);
 
 		cmpId_type w = int(CHECKCOLLISION_H);
-		ch = addComponent<CheckCollision>(w, player_,gm_);
+		ch = addComponent<CheckCollision>(w, player_,gm_,lookingRange,lookingWidth,a);
 
 		cmpId_type x = int(RENDERCOMPONENT_H);
 		addComponent<RenderComponent>(x, t, tr, nframes);
 
-		cmpId_type v = int(LIFEBARCOMPONENT_H);
-		addComponent<LifeBarComponent>(v, m, tr, maxLife_);
+		cmpId_type v = int(LIFECOMPONENT_H);
+		addComponent<LifeComponent>(v, m, tr, maxLife_);
 	}
 
 };
