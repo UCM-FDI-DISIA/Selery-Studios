@@ -38,11 +38,20 @@ public:
 
 	}
 
-	~Enemy() {
+	~Enemy()
+	{
 
 	}
 
-	Enemy(GameManager* gm_, PlayerTD* player, float maxLife) : Entity() {
+	void update()
+	{
+	
+	}
+
+
+	Enemy(GameManager* gm_, PlayerTD* player, float maxLife) : Entity()
+	{
+
 		maxLife_ = maxLife;
 		life_ = maxLife;
 		m = gm_;
@@ -56,7 +65,7 @@ public:
 		trPlayer_ = player_->getComponent<Transform>(z);
 
 		cmpId_type w = int(CHECKCOLLISION_H);
-		ch = addComponent<CheckCollision>(w, player_);
+		ch = addComponent<CheckCollision>(w, player_,gm_);
 
 		cmpId_type x = int(RENDERCOMPONENT_H);
 		addComponent<RenderComponent>(x, t, tr, nframes);
