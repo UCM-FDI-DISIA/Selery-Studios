@@ -2,7 +2,8 @@
 #ifndef CAMERACOMPONENT_H
 #define CAMERACOMPONENT_H_
 #include "Transform.h"
-#include "Camera.h"
+#include "GameManager.h"
+#include "PlayerTD.h"
 
 class CameraComponent : public Component
 {
@@ -10,17 +11,16 @@ public:
 	CameraComponent(GameManager* gm_, PlayerTD* player);
 	void initComponent();
 	void update();
-	//void drawCollider();
+	inline SDL_Rect getRect() { return build_sdlrect(camTr_->getPos(), camTr_->getW(), camTr_->getH()); }
+	void render();
 	
 
 private:
-	Vector2D pos_;
+	Vector2D pos_{ 0,0 };
 	GameManager* gm_;
 	Transform* camTr_;
-	//Camera* cam_;
 	Transform* playerTr_;
 	PlayerTD* player_;
-	SDL_Rect camRect_;
-	
+	SDL_Rect camRect_;	
 };
 #endif

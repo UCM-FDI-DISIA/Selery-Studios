@@ -22,7 +22,6 @@ private:
 	Vector2D camPosition_;
 	Vector2D camVelocity_;
 	float camRotation_ = 0;
-
 	Transform* tr;
 	/*Transform* trPlayer_;*/
 	GameManager* m;
@@ -58,8 +57,8 @@ public:
 		cmpId_type z = int(TRANSFORM_H);
 		tr = addComponent<Transform>(z, camPosition_, camVelocity_, WIN_WIDTH, WIN_HEIGHT, camRotation_);
 
-		cmpId_type c = int(CAMERACOMPONENT_H);
-		addComponent<CameraComponent>(c, m, player_);
+		cmpId_type k = int(CAMERACOMPONENT_H);
+		addComponent<CameraComponent>(k, m, player_);
 
 		/*player_ = player;
 		trPlayer_ = player_->getComponent<Transform>(z);*/
