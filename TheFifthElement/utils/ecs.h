@@ -4,11 +4,13 @@
 
 using cmpId_type = int;
 enum cmpId : cmpId_type {
-	_TRANSFORM_H_ =0,
 	// ... (compoment ids)
+	TRANSFORM_H = 0,
 	RENDERCOMPONENT_H = 1,
 	INPUTCOMPONENT_H = 2,
 	MOVEMENTCOMPONENT_H = 3,
+	CHECKCOLLISION_H = 4,
+	LIFEBARCOMPONENT_H = 5,
 	// do not remove this
 	_LAST_CMP_ID
 };

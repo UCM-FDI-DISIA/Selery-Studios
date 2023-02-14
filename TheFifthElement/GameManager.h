@@ -11,7 +11,7 @@ const uint WIN_HEIGHT = 900;// altura de ventana
 const uint FRAME_RATE = 3;// número de frames que tardará en actualizarse el juego
 
 
-class GameManager:public Singleton <GameManager>
+class GameManager : public Singleton<GameManager>
 {
 private:
 	SDL_Window* window = nullptr;
