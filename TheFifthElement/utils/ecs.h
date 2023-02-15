@@ -13,6 +13,7 @@ enum cmpId : cmpId_type {
 	LIFECOMPONENT_H = 5,
 	DIALOGBOX_H = 6,
 	IMAGE_H =7,
+	INPUTCOMPONENTBEU_H = 8,
 	// do not remove this
 	_LAST_CMP_ID
 };

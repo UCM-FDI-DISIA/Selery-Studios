@@ -171,6 +171,12 @@
     <ClInclude Include="Image.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
+    <ClInclude Include="PlayerBEU.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="InputComponentBEU.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="sdlutils\SDLUtils.cpp">
@@ -243,6 +249,12 @@
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="DialogBox.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerBEU.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="InputComponentBEU.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>

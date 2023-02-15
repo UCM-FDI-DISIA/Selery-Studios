@@ -7,6 +7,7 @@
 class Image : public Component {
 public:
 	int i = 0;
+	int cont = 0;
 
 	// Constructora
 	Image(Texture* tex,int nframes) : tr_(nullptr), tex_(tex) {
@@ -25,7 +26,7 @@ public:
 	}
 	// Dibuja en escena
 	void render() {
-		if (frames_ == 1) {
+		if (frames_ == 1) { //Cuando la imagen solo tiene un frame (sin animación)
 			SDL_Rect dest = build_sdlrect(tr_->getPos(), tr_->getW(), tr_->getH());
 			tex_->render(dest, tr_->getR());
 		}
@@ -41,7 +42,11 @@ public:
 			src.h = tr_->getH();
 			src.w = tr_->getW() / frames_;
 			tex_->render(src, rect);
-			i++;
+			if (cont >= 5) {
+				i++;
+				cont = 0;
+			}
+			cont++;
 			if (i ==frames_) i = 0;
 		}
 		

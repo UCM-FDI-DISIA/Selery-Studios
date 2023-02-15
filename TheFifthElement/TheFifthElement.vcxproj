@@ -138,9 +138,11 @@
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="Image.h" />
     <ClInclude Include="InputComponent.h" />
+    <ClInclude Include="InputComponentBEU.h" />
     <ClInclude Include="LifeComponent.h" />
     <ClInclude Include="MovementComponent.h" />
     <ClInclude Include="Npc.h" />
+    <ClInclude Include="PlayerBEU.h" />
     <ClInclude Include="PlayerTD.h" />
     <ClInclude Include="states\GameState.h" />
     <ClInclude Include="states\GameStateMachine.h" />
@@ -177,9 +179,11 @@
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="InputComponent.cpp" />
+    <ClCompile Include="InputComponentBEU.cpp" />
     <ClCompile Include="LifeComponent.cpp" />
     <ClCompile Include="MovementComponent.cpp" />
     <ClCompile Include="Npc.cpp" />
+    <ClCompile Include="PlayerBEU.cpp" />
     <ClCompile Include="PlayerTD.cpp" />
     <ClCompile Include="states\GameState.cpp" />
     <ClCompile Include="states\GameStateMachine.cpp" />

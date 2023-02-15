@@ -36,20 +36,20 @@ void InputComponent::handleEvents(SDL_Event event)
 	if(InputHandler::instance()->keyDownEvent())
 	{
 		if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_A)) {
-			mov_->setSpeed(Vector2D(-1, 0));
+			mov_->setDir(Vector2D(-1, 0));
 		}
 
 		else if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_D)) {
-			mov_->setSpeed(Vector2D(1, 0));
+			mov_->setDir(Vector2D(1, 0));
 		}
-		
+
 		else  if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_W)) {
-			mov_->setSpeed(Vector2D(0, -1));
+			mov_->setDir(Vector2D(0, -1));
 		}
-	    else if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_S)) {
-			mov_->setSpeed(Vector2D(0, 1));
+		else if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_S)) {
+			mov_->setDir(Vector2D(0, 1));
 		}
-		else mov_->setSpeed(Vector2D(0, 0)); 
+		else mov_->setDir(Vector2D(0, 0));
 	}
 	
 

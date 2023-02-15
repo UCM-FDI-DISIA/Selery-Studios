@@ -13,7 +13,7 @@ private:
 	Font* font_;
 	//Component* componenete;
 	Vector2D DialogBoxPosition_{ 20,190 };
-	Vector2D DialogBoxVelocity_{ 0,0 };
+	//float speed_ = 0.0f;
 	float DialogBoxWith_ = 520, DialogBoxHeith_ = 252, DialogBoxRotation_ = 0;
 	Texture* t;
 	Transform* tr;
@@ -25,7 +25,7 @@ public:
 	DialogBox(GameManager* gm_) {
 		font_ = new Font("./assets/fonts/text.ttf", 35);
 		cmpId_type z = int(TRANSFORM_H);
-		tr = addComponent<Transform>(z, DialogBoxPosition_, DialogBoxVelocity_, DialogBoxWith_, DialogBoxHeith_, DialogBoxRotation_);
+		tr = addComponent<Transform>(z, DialogBoxPosition_, DialogBoxWith_, DialogBoxHeith_, DialogBoxRotation_);
 		t = new Texture(gm_->getRenderer(), "./assets/fonts/image.png");
 		cmpId_type x = int(RENDERCOMPONENT_H);
 		//referencia al texture y al transform

@@ -12,7 +12,7 @@ class PlayerTD : public Entity {
 private:
 	//Component* componenete;
 	Vector2D PlayerPosition_{ 10,150 };
-	Vector2D PlayerVelocity_{ 1,0 };
+	float speed_ = 1.0f;
 	float PlayerWidth_ = 476, PlayerHeigth_ = 120, PlayerRotation_ = 1;
 	Texture* t;
 	Transform* tr;
@@ -25,7 +25,7 @@ private:
 public:
 	PlayerTD(GameManager* gm_) : Entity() {
 		cmpId_type z = int(TRANSFORM_H);
-		tr = addComponent<Transform>(z, PlayerPosition_, PlayerVelocity_, PlayerWidth_, PlayerHeigth_, PlayerRotation_);
+		tr = addComponent<Transform>(z, PlayerPosition_, PlayerWidth_, PlayerHeigth_, PlayerRotation_);
 		t = new Texture(gm_->getRenderer(), "./assets/PlayableCharacters/Exploration/Fire/andar.png");
 		cmpId_type x = int(RENDERCOMPONENT_H);
 		//referencia al texture y al transform
@@ -33,7 +33,7 @@ public:
 		addComponent<Image>(int(IMAGE_H), t, nframes);
 
 		cmpId_type s = int(MOVEMENTCOMPONENT_H);
-		mov = addComponent<MovementComponent>(s);
+		mov = addComponent<MovementComponent>(s, speed_);
 		cmpId_type w = int(INPUTCOMPONENT_H);
 		addComponent<InputComponent>(w);
 	

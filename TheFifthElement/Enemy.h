@@ -13,7 +13,7 @@ class Enemy : public Entity
 {
 private:
 	Vector2D EnemyPosition_{ 450,150 };
-	Vector2D EnemyVelocity_{ 0,0 };
+	//float speed_ = 0.0f;
 	float EnemyWidth_ = 476, EnemyHeight_ = 120, EnemyRotation_ = 1;
 	Texture* t;
 	Transform* tr;
@@ -46,7 +46,7 @@ public:
 		float a =1.0f;
 		float lookingRange = 150.0f;
 		float lookingWidth = 100.0f;
-		tr = addComponent<Transform>(int(TRANSFORM_H), EnemyPosition_, EnemyVelocity_, EnemyWidth_, EnemyHeight_, EnemyRotation_);
+		tr = addComponent<Transform>(int(TRANSFORM_H), EnemyPosition_, EnemyWidth_, EnemyHeight_, EnemyRotation_);
 		t = new Texture(gm_->getRenderer(), "./assets/NPCs/NPC5-idle-left.png");
 		player_ = player;
 		trPlayer_ = player_->getComponent<Transform>(int(TRANSFORM_H));
