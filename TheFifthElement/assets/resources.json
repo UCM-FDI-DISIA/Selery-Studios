@@ -17,7 +17,14 @@
   ],
 
   "musics": [
-    
+
+  ],
+
+  "tilesets": [
+    {
+      "id": "tileGuide", 
+      "file": "assets/MapAssets/AncientRuins/Tilesets/tile_guide.png"
+    }
   ]
     
 }

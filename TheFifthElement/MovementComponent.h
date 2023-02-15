@@ -11,11 +11,11 @@ public:
 	MovementComponent();
 	void initComponent();
 	void update();
-	void setSpeed(Vector2D SPEED) {
+	inline void setSpeed(Vector2D SPEED) {
 		speed = SPEED;
 	}
 private:
 	Transform* tr = nullptr; 
-	Vector2D speed;
+	Vector2D speed = Vector2D(0,0);
 };
 #endif

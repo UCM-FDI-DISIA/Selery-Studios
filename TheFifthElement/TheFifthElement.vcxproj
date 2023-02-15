@@ -132,16 +132,15 @@
   <ItemGroup>
     <ClInclude Include="CheckCollision.h" />
     <ClInclude Include="Collision.h" />
-    <ClInclude Include="DialogBox.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="GameManager.h" />
-    <ClInclude Include="Image.h" />
     <ClInclude Include="InputComponent.h" />
-    <ClInclude Include="LifeComponent.h" />
+    <ClInclude Include="map\ColisionTile.h" />
     <ClInclude Include="MovementComponent.h" />
     <ClInclude Include="Npc.h" />
     <ClInclude Include="PlayerTD.h" />
+    <ClInclude Include="RenderComponent.h" />
     <ClInclude Include="states\GameState.h" />
     <ClInclude Include="states\GameStateMachine.h" />
     <ClInclude Include="states\MainMenuState.h" />
@@ -173,14 +172,14 @@
   <ItemGroup>
     <ClCompile Include="CheckCollision.cpp" />
     <ClCompile Include="Collision.cpp" />
-    <ClCompile Include="DialogBox.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="InputComponent.cpp" />
-    <ClCompile Include="LifeComponent.cpp" />
+    <ClCompile Include="map\ColisionTile.cpp" />
     <ClCompile Include="MovementComponent.cpp" />
     <ClCompile Include="Npc.cpp" />
     <ClCompile Include="PlayerTD.cpp" />
+    <ClCompile Include="RenderComponent.cpp" />
     <ClCompile Include="states\GameState.cpp" />
     <ClCompile Include="states\GameStateMachine.cpp" />
     <ClCompile Include="states\MainMenuState.cpp" />

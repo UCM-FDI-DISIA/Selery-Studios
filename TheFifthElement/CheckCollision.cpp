@@ -2,91 +2,32 @@
 #include "CheckCollision.h"
 #include "utils/Entity.h"
 using namespace std;
-cmpId_type p = int(TRANSFORM_H);
+cmpId_type p = int(_TRANSFORM_H_);
 
-CheckCollision::CheckCollision(PlayerTD* player,GameManager* gm_, float lookingRange, float lookingWidth, float side) :Component()
+CheckCollision::CheckCollision(PlayerTD* player) :Component()
 {
 	player_ = player;
-	gm = gm_;
-	side_ = side;								//side==-1 ------>mira a la derecha					//			side==1-------->mira a la izquierda
-	lookingRange_ = lookingRange;
-	lookingHeight_ = lookingWidth;
-
 }
 void CheckCollision::initComponent() {
 	tr1 = ent_->getComponent<Transform>(p);
+	width1 = tr1->getW();
+	height1 = tr1->getH();
 	tr2 = player_->getComponent<Transform>(p);
-
-	lookingRange_ *=side_;
-	offset = tr1->getW() / 7;
-	if (side_==1)
-	{
-		offset = (tr1->getW() / 7)-60;
-	}
-	
+	width2 = tr2->getW();
+	height2 = tr2->getH();
 
 
-
-
-	rectPlayer = getPlayerRect();
-	rectFight = getRectFight();														
-	rectDetection = getRectDetection();
 }
-void CheckCollision::update() 
-{
-	
+void CheckCollision::update() {
 
-	
-	if (ent_->getComponent<Transform>(p))
+
+	if (Collision::collides(tr1->getPos(), width1 / 3, height1 / 3, tr2->getPos(), width2 / 3, height2 / 3))					//Aumentado el numero por el que dividimos las alturas y anchuras, tambien aumentamos lo que tarda en detectarnos el enemigo
 	{
-    	if (Collision::collides(Vector2D(rectPlayer.x,rectPlayer.y), rectPlayer.w,rectPlayer.h, Vector2D(rectFight.x,rectFight.y),rectFight.w,rectFight.h))					//Aumentado el numero por el que dividimos las alturas y anchuras, tambien aumentamos lo que tarda en detectarnos el enemigo
-		{
-			cout << "FIGHT!";
-		}
-		else if (Collision::collides(Vector2D(rectPlayer.x, rectPlayer.y), rectPlayer.w, rectPlayer.h, Vector2D(rectDetection.x, rectDetection.y), rectDetection.w, rectDetection.h))
-		{
-			cout << "as";
-
-			//SDLUtils::instance()->soundEffects().at("prueba").play();
-		}
+		cout << "FIGHT!";
 	}
-	else
+	else if (Collision::collides(tr1->getPos(), width1, height1, tr2->getPos(), width2, height2))
 	{
-		cout << "LO QUE HACE EL NPC";
-		
+		SDLUtils::instance()->soundEffects().at("prueba").play();
 	}
-	updateRects();
-	
-	/*SDL_Rect mierda=build_sdlrect(tr1->getPos().getX() + offset * -side_, tr1->getPos().getY() - (lookingHeight_ / 2) / 2, lookingRange_ + 50 * side_, tr1->getH() + lookingHeight_ / 2
-	if(Collision::collides(,)
-	{
-		cout << "PUTA MIERDA";
-	}*/
-	
-}
 
-
-void CheckCollision::render()
-{ 
-
-	SDL_SetRenderDrawColor(gm->getRenderer(), 0, 255, 0, 0);							//	Renderizamos el rectángulo del player
-	SDL_RenderDrawRect(gm->getRenderer(), &rectPlayer);
-	
-	SDL_SetRenderDrawColor(gm->getRenderer(), 120, 50, 255, 0);							//	Renderizamos el rectángulo de detección del enemigo
-	SDL_RenderDrawRect(gm->getRenderer(), &rectDetection);
-
-
-	SDL_SetRenderDrawColor(gm->getRenderer(), 225, 100, 255, 0);
-	SDL_RenderDrawRect(gm->getRenderer(), &rectFight);									// Renderizamos el rectángulo de combate del enemigo
-	
-
-	SDL_SetRenderDrawColor(gm->getRenderer(), 0, 0, 0, 255);							//ponemos el fondo a negro
-}
-
-void CheckCollision::updateRects()														
-{
-	rectFight = getRectFight();
-	rectPlayer = getPlayerRect();
-														//Método para actualizar los rectángulos
-	rectDetection= getRectDetection();
 }

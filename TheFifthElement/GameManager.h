@@ -11,14 +11,13 @@ const uint WIN_HEIGHT = 900;// altura de ventana
 const uint FRAME_RATE = 3;// número de frames que tardará en actualizarse el juego
 
 
-class GameManager : public Singleton<GameManager>
+class GameManager:public Singleton <GameManager>
 {
 private:
 	SDL_Window* window = nullptr;
 	SDL_Renderer* renderer = nullptr;
 	GameStateMachine* gameStMc;
 	bool exit;
-	
 
 public:
 	GameManager() ;
@@ -29,6 +28,6 @@ public:
 	void run();// blucle de juego
 	SDL_Renderer* getRenderer() {
 		return SDLUtils::instance()->renderer();
+		 
 	}
-	SDL_Window* getWindow() { return window; }
 };

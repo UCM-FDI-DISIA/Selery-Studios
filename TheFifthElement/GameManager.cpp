@@ -2,7 +2,6 @@
 #include "states/TopDownState.h"
 GameManager::GameManager() {
 	SDLUtils::init();
-	SDLUtils::instance()->showCursor();
 	renderer = SDLUtils::instance()->renderer();
 	window = SDLUtils::instance()->window();
 	exit = false;

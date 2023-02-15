@@ -1,4 +1,4 @@
-// This file is part of the course TPV2@UCM - Samir Genaim
+		// This file is part of the course TPV2@UCM - Samir Genaim
 
 #include "SDLUtils.h"
 
@@ -9,7 +9,7 @@
 
 
 SDLUtils::SDLUtils() :
-		SDLUtils("El quinto elemento :)", 600, 400, "assets/resources.json") {
+		SDLUtils("El quinto elemento :)", 160, 160, "assets/resources.json") {
 }
 
 SDLUtils::SDLUtils(std::string windowTitle, int width, int height) :
@@ -130,7 +130,8 @@ void SDLUtils::loadReasources(std::string filename) {
 	JSONObject root = jValueRoot->AsObject();
 	JSONValue* jValue = nullptr;
 
-	// TODO improve syntax error checks below, now we do not check
+	// TODO improve syntax error 
+	// checks below, now we do not check
 	//      validity of keys with values as sting or integer
 
 	// load fonts
@@ -278,6 +279,33 @@ void SDLUtils::loadReasources(std::string filename) {
 			throw "'musics' is not an array";
 		}
 	}
+
+	//load tileset
+	jValue = root["tilesets"];
+	if (jValue != nullptr) {
+		if (jValue->IsArray()) {
+			for (auto& v : jValue->AsArray()) {
+				if (v->IsObject()) {
+					JSONObject vObj = v->AsObject();
+					std::string key = vObj["id"]->AsString();
+					std::string file = vObj["file"]->AsString();
+#ifdef _DEBUG
+					std::cout << "Loading tileset with id: " << key << std::endl;
+#endif
+					auto a = new Texture(renderer(), file);
+					tilesets_.emplace(key, a);
+				}
+				else {
+					throw "'tilesets' array in '" + filename
+						+ "' includes and invalid value";
+				}
+			}
+		}
+		else {
+			throw "'tilesets' is not an array";
+		}
+	}
+
 
 }
 
