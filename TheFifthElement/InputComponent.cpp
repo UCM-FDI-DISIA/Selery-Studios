@@ -1,7 +1,6 @@
 #include "InputComponent.h"
 #include "sdlutils/InputHandler.h"
 #include "utils/Entity.h"
-#include "RenderComponent.h"
 #include "utils/ecs.h"
 
 InputComponent::InputComponent():Component() {
