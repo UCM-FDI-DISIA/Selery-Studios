@@ -19,8 +19,9 @@ public:
 		cmpId_type w = int(INPUTCOMPONENT_H);
 		in_ = player_->getComponent<InputComponent>(w);
 		addEntity(player_);
-		addEntity(new Enemy(Gm_,player_, 100));
 		addEntity(new DialogBox(Gm_));
+
+		addEntity(new Enemy(Gm_,player_, 100));
 	}
 
 	void handleEvents()

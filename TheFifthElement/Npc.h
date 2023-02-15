@@ -18,6 +18,9 @@ private:
 	int nframes = 7;
 	PlayerTD* player_;
 	CheckCollision* ch;
+	float a = 1.0f;
+	float lookingRange = 150.0f;
+	float lookingWidth = 100.0f;
 	//cada npc va a tener un dialogo distinto, hay que pasarle en la contructora un array con los diaglogos
 	//es decir tipo string y cada parte será un enter que se quiere hacer
 public:
@@ -30,7 +33,7 @@ public:
 		addComponent<Image>(int(IMAGE_H),t,nframes);
 		//addComponent<RenderComponent>(x,t,tr, nframes, h, w);
 		player_ = player;
-		ch = addComponent<CheckCollision>(int(CHECKCOLLISION_H), player_, gm_);
+		ch = addComponent<CheckCollision>(int(CHECKCOLLISION_H), player_, gm_, lookingRange, lookingWidth, a);
 		//addComponent(ecs::TRANSFORM_H, Transform(this, m, Vector2D(0, 0), Vector2D(0, 0), 1, 1, 1));
 	}
 	~Npc(){
