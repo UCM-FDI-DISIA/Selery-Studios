@@ -2,8 +2,8 @@
 void TopDownState::LoadMap(string const& filename) {
     
     mapInfo.tile_MAP = new tmx::Map();  //crea el mapa
-    bool pepe= mapInfo.tile_MAP->load(filename);   // CARGA DE INFO DESDE EL .TMX
-    cout << pepe << endl;
+    mapInfo.tile_MAP->load(filename);   // CARGA DE INFO DESDE EL .TMX
+    
 
     tmx::Vector2u mapsize_= mapInfo.tile_MAP->getTileCount();    // TAMAÑO MAPA
     mapInfo.rows = mapsize_.y;  
@@ -31,9 +31,10 @@ void TopDownState::LoadMap(string const& filename) {
    
     for (tmx::Tileset tile : mapTilesets) {
         string name = tile.getName();
-        Texture* texture =tilesets_.find(name)->second;
+        string ruta= tile.getImagePath();
+        //Texture* texture =tilesets_.find(name)->second;
         //Texture* texture = tilesets_.find(name)->second;;
-        //Texture* texture = sdlutils().tilesets().find(name)->second; PORQUE ASI?????????????
+        Texture* texture = sdlutils().tilesets().find(name)->second; //PORQUE ASI?????????????
         mapInfo.tilesets.insert(pair<uint, Texture*>(tile.getFirstGID(), texture));  //inserta en el mapa de Map_Info: llamado tilesets el ID del tileset y su textura
     }
 

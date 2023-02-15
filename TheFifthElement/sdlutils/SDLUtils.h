@@ -148,6 +148,10 @@ public:
 		return musicsAccessWrapper_;
 	}
 
+
+	inline sdl_resource_table<Texture*>& tilesets() {
+		return tilesets_;
+	}
 	// Access to the random number generator. It is important to always
 	// use this generator, this way you can regenerate the same sequence
 	// if you start from the same seed
@@ -196,7 +200,7 @@ private:
 	map_access_wrapper<Texture> msgsAccessWrapper_;
 	map_access_wrapper<SoundEffect> soundsAccessWrapper_;
 	map_access_wrapper<Music> musicsAccessWrapper_;
-
+	sdl_resource_table<Texture*> tilesets_;
 	RandomNumberGenerator random_; // (pseudo) random numbers generator
 	VirtualTimer timer_; // virtual timer
 };

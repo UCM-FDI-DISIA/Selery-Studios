@@ -47,7 +47,7 @@ public:
 		player_ = new PlayerTD(Gm_);
 		addEntity(player_);
 		addEntity(new Enemy(Gm_,player_));
-		LoadMap("./../assets/MapAssets/tiledPrueba.tmx");
+		LoadMap("assets/MapAssets/tiledPrueba.tmx");
 		//.\\Src\\TilemapSrc\\MainMap.tmx
 		/*Transform* transform = new Transform({ 0,0 }, { 0,0 }, 100, 100, 0);
 		int uno = 1;

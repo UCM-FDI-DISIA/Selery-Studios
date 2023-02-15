@@ -1,4 +1,4 @@
-// This file is part of the course TPV2@UCM - Samir Genaim
+		// This file is part of the course TPV2@UCM - Samir Genaim
 
 #include "SDLUtils.h"
 
@@ -130,7 +130,8 @@ void SDLUtils::loadReasources(std::string filename) {
 	JSONObject root = jValueRoot->AsObject();
 	JSONValue* jValue = nullptr;
 
-	// TODO improve syntax error checks below, now we do not check
+	// TODO improve syntax error 
+	// checks below, now we do not check
 	//      validity of keys with values as sting or integer
 
 	// load fonts
@@ -278,6 +279,10 @@ void SDLUtils::loadReasources(std::string filename) {
 			throw "'musics' is not an array";
 		}
 	}
+
+	//load tileset
+	jValue = root["tilesets"];
+
 
 }
 
