@@ -22,6 +22,7 @@ private:
 	PlayerTD* player_;
 	CheckCollision* ch;
 	int nframes = 7;
+	int fila_;
 	float life_, maxLife_;
 public:
 
@@ -51,7 +52,8 @@ public:
 		player_ = player;
 		trPlayer_ = player_->getComponent<Transform>(int(TRANSFORM_H));
 		ch = addComponent<CheckCollision>(int(CHECKCOLLISION_H), player_,gm_, lookingRange, lookingWidth, a);
-		addComponent<Image>(int(IMAGE_H), t, nframes);
+		fila_ = 0;
+		addComponent<Image>(int(IMAGE_H), t, nframes, nframes, fila_);
 		addComponent<LifeComponent>(int(LIFECOMPONENT_H), m, tr, maxLife_);
 	}
 

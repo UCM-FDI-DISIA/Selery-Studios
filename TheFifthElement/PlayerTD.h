@@ -16,10 +16,10 @@ private:
 	float PlayerWidth_ = 476, PlayerHeigth_ = 120, PlayerRotation_ = 1;
 	Texture* t;
 	Transform* tr;
-	GameManager* m;
 	Vector2D dir;
 	MovementComponent* mov = nullptr;
 	int nframes = 7;
+	int fila_;
 	int w = 68;
 	int h = 120;
 public:
@@ -27,10 +27,8 @@ public:
 		cmpId_type z = int(TRANSFORM_H);
 		tr = addComponent<Transform>(z, PlayerPosition_, PlayerWidth_, PlayerHeigth_, PlayerRotation_);
 		t = new Texture(gm_->getRenderer(), "./assets/PlayableCharacters/Exploration/Fire/andar.png");
-		cmpId_type x = int(RENDERCOMPONENT_H);
-		//referencia al texture y al transform
-		//addComponent<RenderComponent>(x, t, tr, nframes, h, w);
-		addComponent<Image>(int(IMAGE_H), t, nframes);
+		fila_ = 0;
+		addComponent<Image>(int(IMAGE_H), t, nframes, nframes, fila_);
 
 		cmpId_type s = int(MOVEMENTCOMPONENT_H);
 		mov = addComponent<MovementComponent>(s, speed_);
@@ -41,6 +39,8 @@ public:
 	~PlayerTD() {
 
 	}
+
+	int returnFramesTot() { return 1; }
 };
 
 

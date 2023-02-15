@@ -16,6 +16,7 @@ private:
 	Transform* tr;
 	GameManager* m;
 	int nframes = 7;
+	int fila_;
 	PlayerTD* player_;
 	CheckCollision* ch;
 	float a = 1.0f;
@@ -30,7 +31,8 @@ public:
 		t = new Texture(gm_->getRenderer(), "./assets/NPCs/NPC1-Idle-Left.png");
 		cmpId_type x = int(RENDERCOMPONENT_H);
 		//referencia al texture y al transform
-		addComponent<Image>(int(IMAGE_H),t,nframes);
+		fila_ = 0;
+		addComponent<Image>(int(IMAGE_H),t,nframes, nframes, fila_);
 		//addComponent<RenderComponent>(x,t,tr, nframes, h, w);
 		player_ = player;
 		ch = addComponent<CheckCollision>(int(CHECKCOLLISION_H), player_, gm_, lookingRange, lookingWidth, a);

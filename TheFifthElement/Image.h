@@ -6,12 +6,12 @@
 #include "utils/Entity.h"
 class Image : public Component {
 public:
-	int i = 0;
-	int cont = 0;
 
 	// Constructora
-	Image(Texture* tex,int nframes) : tr_(nullptr), tex_(tex) {
+	Image(Texture* tex, int nframes, int framesT, int fila) : tr_(nullptr), tex_(tex) {
 		frames_ = nframes;
+		fila_ = fila;
+		framesTotales_ = framesT;
 	}
 	// Destructora
 	virtual ~Image() { }
@@ -26,7 +26,7 @@ public:
 	}
 	// Dibuja en escena
 	void render() {
-		if (frames_ == 1) { //Cuando la imagen solo tiene un frame (sin animación)
+		if (frames_ == 0) { //Cuando la imagen solo tiene un frame (sin animación)
 			SDL_Rect dest = build_sdlrect(tr_->getPos(), tr_->getW(), tr_->getH());
 			tex_->render(dest, tr_->getR());
 		}
@@ -35,14 +35,14 @@ public:
 			rect.x = tr_->getPos().getX();
 			rect.y = tr_->getPos().getY();
 			rect.h = tr_->getH();
-			rect.w = tr_->getW() / frames_;
+			rect.w = tr_->getW() / framesTotales_;
 			SDL_Rect src;
-			src.x = i*(tr_->getW() / frames_);
-			src.y = 0;
+			src.x = i*(tr_->getW() / framesTotales_);
+			src.y = tr_->getH() * fila_;
 			src.h = tr_->getH();
-			src.w = tr_->getW() / frames_;
+			src.w = tr_->getW() / framesTotales_;
 			tex_->render(src, rect);
-			if (cont >= 5) {
+			if (cont >= 10) {
 				i++;
 				cont = 0;
 			}
@@ -52,7 +52,9 @@ public:
 		
 	}
 private:
-	int frames_;
+	int frames_, fila_, framesTotales_;
+	int i = 0;
+	int cont = 0;
 	Transform* tr_; // Consulta las caracteristicas fisicas
 	Texture* tex_;	// Imagen a rederizar
 };
