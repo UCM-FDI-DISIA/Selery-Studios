@@ -5,6 +5,7 @@
 #include "../Enemy.h"
 #include "../InputComponent.h"
 #include "../Camera.h"
+#include "../DialogBox.h"
 
 class TopDownState : public Manager {
 public:
@@ -12,12 +13,14 @@ public:
 
 	TopDownState(GameManager* gm_) {
 		Gm_ = gm_;
-		addEntity(new Npc(Gm_));
 		player_ = new PlayerTD(Gm_);
+		addEntity(new Npc(Gm_, player_));
 
 		cmpId_type w = int(INPUTCOMPONENT_H);
 		in_ = player_->getComponent<InputComponent>(w);
 		addEntity(player_);
+		addEntity(new DialogBox(Gm_));
+
 		addEntity(new Enemy(Gm_,player_, 100));
 		addEntity(new Camera(Gm_, player_));	
 	}
