@@ -55,7 +55,7 @@ public:
 		maxLife_ = maxLife;
 		life_ = maxLife;
 		m = gm_;
-		float a =-1.0f;
+		float a =1.0f;
 		float lookingRange = 150.0f;
 		float lookingWidth = 100.0f;
 		cmpId_type z = int(TRANSFORM_H);

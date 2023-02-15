@@ -93,16 +93,17 @@ bool Collision::collides(const Vector2D& o1Pos, float o1Width, float o1Height,
 	//SI LA ANCHURA ES NEGATIVA COMPRUEBA LA COLISIÓN DE MANERA DIFERENTE, ESENCIALMENTE FORZAMOS A QUE EL EXTREMO IZQUIERDO DEL RECTÁNGULO SEA LA NUEVA POSICIÓN, LA CUAL VA A SER MUCHO MENOR.
 	// DE ESTA MANERA SIEMPRE QUE EL NPC / ENEMIGO MIRE A LA IZQUIERDA, USARÁ EL IF PARA DETECTAR LA COLISIÓN, Y EL ELSE SERÁ PARA ENEMIGOS QUE MIREN A LA DERECHA
 
-	if (o2Width<0)											//ANCHURAS NEGATIVAS
+	if (o2Width < 0 && o1Pos.getX() < o2Pos.getX())								//ANCHURAS NEGATIVAS
 	{
 		//o2Pos.getX() += o2Width;
 		// o1 completely to the left of o2, or vice versa
 		if (o1Pos.getX() + o1Width < o2Pos.getX() + o2Width
-			|| o2Pos.getX() - o2Width < o1Pos.getX()) {					
+			|| o2Pos.getX() - o2Width < o1Pos.getX()) {
 			return false;
 		}
 	}
-	else													//ANCHURAS POSITIVAS
+	else if (o2Width < 0 && o1Pos.getX() > o2Pos.getX()) return false;
+	else 												//ANCHURAS POSITIVAS
 	{
 		// o1 completely to the left of o2, or vice versa
 		if (o1Pos.getX() + o1Width < o2Pos.getX()
