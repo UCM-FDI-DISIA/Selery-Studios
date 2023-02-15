@@ -9,8 +9,18 @@
 #include "GameManager.h"
 class CheckCollision : public Component
 {
+private:
+	PlayerTD* player_;
+	Transform* tr1;
+	Transform* tr2;
+	SDL_Rect rectFight, rectDetection, rectPlayer;
+	GameManager* gm;
+	float lookingRange_;
+	float lookingHeight_;
+	float offset;
+	int side_;
 public:
-
+	CheckCollision(PlayerTD* player, GameManager* gm_);
 	CheckCollision(PlayerTD* player,GameManager* gm_,float lookingRange,float lookingWidth,float side);
 	void initComponent();
 	void update();
@@ -21,16 +31,5 @@ public:
 	inline SDL_Rect getNPCRect() { return build_sdlrect(tr1->getPos(), tr1->getW() / 7, tr1->getW()); }
 	inline SDL_Rect getPlayerRect() { return build_sdlrect(tr2->getPos(), (tr2->getW() / 7), tr2->getH()); }
 	void render();
-private:
-	PlayerTD* player_;
-	Transform* tr1;
-	Transform* tr2;
-	SDL_Rect rectFight,rectDetection,rectPlayer;
-	GameManager* gm;
-	float lookingRange_;
-	float lookingHeight_;
-	float offset;
-	int side_;
-	
 };
 #endif

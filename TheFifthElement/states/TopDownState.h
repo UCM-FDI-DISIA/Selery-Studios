@@ -7,6 +7,7 @@
 #include "../InputComponent.h"
 #include "../InputComponentBEU.h"
 #include "../DialogBox.h"
+#include "../Portal.h"
 
 
 class TopDownState : public Manager {
@@ -28,6 +29,7 @@ public:
 		addEntity(playerBEU_);
 		addEntity(new DialogBox(Gm_));
 		addEntity(new Enemy(Gm_, player_, 100));
+		addEntity(new Portal(Gm_, player_));
 	}
 	void handleEvents()
 	{

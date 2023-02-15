@@ -4,8 +4,12 @@
 using namespace std;
 cmpId_type p = int(TRANSFORM_H);
 
-CheckCollision::CheckCollision(PlayerTD* player,GameManager* gm_, float lookingRange, float lookingWidth, float side) :Component()
-{
+CheckCollision::CheckCollision(PlayerTD* player, GameManager* gm_) :Component() {
+	player_ = player;
+	gm = gm_;
+}
+
+CheckCollision::CheckCollision(PlayerTD* player,GameManager* gm_, float lookingRange, float lookingWidth, float side) :Component() {
 	player_ = player;
 	gm = gm_;
 	side_ = side;								//side==-1 ------>mira a la derecha					//			side==1-------->mira a la izquierda
@@ -34,8 +38,6 @@ void CheckCollision::initComponent() {
 }
 void CheckCollision::update() 
 {
-	
-
 	
 	if (ent_->getComponent<Transform>(p))
 	{
