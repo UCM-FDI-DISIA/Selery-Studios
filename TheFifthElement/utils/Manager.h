@@ -11,8 +11,8 @@ public:
 
 	Manager();
 	virtual ~Manager();
-	template<typename T>
-	Entity* addEntity(T* e) {
+
+	Entity* addEntity(Entity* e) {
 		e->setAlive(true);
 		ents_.push_back(e);
 		return e;
