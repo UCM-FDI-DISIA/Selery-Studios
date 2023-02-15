@@ -11,6 +11,8 @@ enum cmpId : cmpId_type {
 	MOVEMENTCOMPONENT_H = 3,
 	CHECKCOLLISION_H = 4,
 	LIFEBARCOMPONENT_H = 5,
+	DIALOGBOX_H = 6,
+	IMAGE_H =7,
 	// do not remove this
 	_LAST_CMP_ID
 };
