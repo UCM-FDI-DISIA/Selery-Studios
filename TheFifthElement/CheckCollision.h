@@ -29,7 +29,7 @@ public:
 	inline SDL_Rect getRectDetection() { return  build_sdlrect(tr1->getPos().getX() + offset*-side_, tr1->getPos().getY() - lookingHeight_/2, lookingRange_+ 200* side_, tr1->getH()+lookingHeight_); }							//lo que sume a getH()------> lo tengo que restar a la Y partido de 2------> si sumo 4, resto 2
 
 	//M?odo para crear el rect?gulo, en caso de ser un NPC
-	inline SDL_Rect getNPCRect() { return build_sdlrect(tr1->getPos(), tr1->getW() / 7, tr1->getW()); }
+	inline SDL_Rect getRectNPC() { return build_sdlrect(tr1->getPos(), tr1->getW() / 7, tr1->getH()); }
 	
 	//Equivalente para el personaje
 	inline SDL_Rect getPlayerRect() { return build_sdlrect(tr2->getPos(), tr2->getW() / 7, tr2->getH()); }
