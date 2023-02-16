@@ -5,6 +5,7 @@
 #include "Transform.h" 
 #include "utils/Entity.h"
 #include "InputComponentBEU.h"
+#include "PlayerBEU.h"
 class Image : public Component {
 public:
 
@@ -57,8 +58,8 @@ public:
 		}
 		else if (ent_->hasComponent(INPUTCOMPONENTBEU_H)) {
 			Vector2D player_vel = tr_->getVel();
-			cout << player_vel.getX() << " " << player_vel.getY() << endl;
-			if (!is_attaking) {
+			
+			if (!(static_cast<PlayerBEU*>(ent_)->getAttack())){
 				if (player_vel.getX() == 1 && fila_ != 1) {
 					fila_ = 1;
 					//tex_ = &SDLUtils::instance()->images().at("p_left");
@@ -85,6 +86,13 @@ public:
 					cont = 0;
 
 				}
+			}
+			else if (fila_ != 5) {
+				is_attaking = true;
+				fila_ = 5;
+				frames_ = 8;
+				i = 0;
+				cont = 0;
 			}
 			
 		}
@@ -123,7 +131,8 @@ public:
 				i = 0;
 				if (is_attaking) {
 					is_attaking = false;
-					ent_->getComponent<InputComponentBEU>(INPUTCOMPONENTBEU_H)->stop_attack();
+					//ent_->getComponent<InputComponentBEU>(INPUTCOMPONENTBEU_H)->stop_attack();
+					static_cast<PlayerBEU*>(ent_)->setAttack(false);
 				}
 			
 			}

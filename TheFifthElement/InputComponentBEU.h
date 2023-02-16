@@ -16,6 +16,6 @@ public:
 private:
     bool attack = false;
     MovementComponent* mov_ = nullptr;
-    Image* img;
+
 };
 

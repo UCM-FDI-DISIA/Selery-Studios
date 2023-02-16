@@ -1,7 +1,7 @@
 #include "SkinComponent.h"
 #include "utils/Entity.h"
 #include "utils/ecs.h"
-
+#include "Image.h"
 void SkinComponent::initComponent() {
 	ent_->addComponent<Image>(int(IMAGE_H), fire, nframes, nframes, fila_);
 }

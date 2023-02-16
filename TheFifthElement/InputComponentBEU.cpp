@@ -2,13 +2,12 @@
 #include "sdlutils/InputHandler.h"
 #include "utils/Entity.h"
 #include "utils/ecs.h"
-#include "Image.h"
+#include "PlayerBEU.h"
 
 InputComponentBEU::InputComponentBEU() :Component() {
 }
 void InputComponentBEU::initComponent() {
 	mov_ = ent_->getComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
-	img = ent_->getComponent<Image>(IMAGE_H);
 
 }
 void InputComponentBEU::initComponentBEU()
@@ -30,7 +29,7 @@ void InputComponentBEU::handleEvents(SDL_Event event)
 
 	if (InputHandler::instance()->keyDownEvent())
 	{
-		if (!attack) {
+		if (!(static_cast<PlayerBEU*>(ent_)->getAttack())) {
 			if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_A)) {
 				mov_->setDir(Vector2D(-1, 0));
 			}
@@ -49,8 +48,8 @@ void InputComponentBEU::handleEvents(SDL_Event event)
 				std::cout << "ATTACK" << endl;
 			}
 			else if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_Q)) {
-				attack = true;
-				img->setAtack();
+				//attack = true;
+				static_cast<PlayerBEU*>(ent_)->setAttack(true);
 
 
 			}
