@@ -5,7 +5,11 @@
   ],
 
   "images" : [
- 
+    {"id":"p_idle","file":"assets/PlayableCharacters/Exploration/Fire/idle.png"},
+    {"id":"p_left","file":"assets/PlayableCharacters/Exploration/Fire/andar.png"},
+    {"id":"p_top","file":"assets/PlayableCharacters/Exploration/Fire/andararriba.png"},
+    {"id":"p_down","file":"assets/PlayableCharacters/Exploration/Fire/andarfrente.png"},
+    {"id":"p_right","file":"assets/PlayableCharacters/Exploration/Fire/andarIzquierda.png"}
   ],
 
   "messages" : [

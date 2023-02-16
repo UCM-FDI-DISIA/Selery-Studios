@@ -24,6 +24,37 @@ public:
 		tr_ = ent_->getComponent<Transform>(TRANSFORM_H);
 		assert(tr_ != nullptr);
 	}
+
+	void update() {
+		if (ent_->hasComponent(INPUTCOMPONENT_H)) {
+			Vector2D player_vel = tr_->getVel();
+			//cout << vel.getX() << " " << vel.getY() << endl;
+			if (player_vel.getX() == 1 && player_vel.getY() == 0) {
+				tex_ = &SDLUtils::instance()->images().at("p_left");
+				framesTotales_ = 7;
+				//s = SDL_FLIP_NONE;
+			}
+			else if (player_vel.getX() == -1 && player_vel.getY() == 0) {
+				tex_ = &SDLUtils::instance()->images().at("p_right");
+				framesTotales_ = 7;
+				//	s = SDL_FLIP_HORIZONTAL;
+			}
+			else if (player_vel.getY() == -1 && player_vel.getX() == 0) {
+				tex_ = &SDLUtils::instance()->images().at("p_top");
+
+				framesTotales_ = 9;
+			}
+			else if (player_vel.getY() == 1 && player_vel.getX() == 0) {
+				tex_ = &SDLUtils::instance()->images().at("p_down");
+				framesTotales_ = 9;
+			}
+			else {
+				tex_ = &SDLUtils::instance()->images().at("p_idle");
+				framesTotales_ = 7;
+			}
+
+		}
+	}
 	// Dibuja en escena
 	void render() {
 		if (frames_ == 0) { //Cuando la imagen solo tiene un frame (sin animación)
