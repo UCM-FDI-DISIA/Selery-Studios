@@ -16,6 +16,7 @@ private:
 	Vector2D PlayerPosition_{ 10,150 };
 	float speed_ = 1.0f;
 	float PlayerWidth_ = 476, PlayerHeigth_ = 120, PlayerRotation_ = 1;
+	GameManager* gm_;
 	Texture* t;
 	Transform* tr;
 	Vector2D dir;
@@ -23,11 +24,16 @@ private:
 	SkinComponent* sk = nullptr;
 	int nframes = 7;
 	int fila_;
-	int w = 68;
-	int h = 120;
+	int collisionNPC = -1;
 	bool matrix_ = false;
 public:
-	PlayerTD(GameManager* gm_) : Entity() {
+	void setCol(int col) {
+		collisionNPC = col;
+	}
+	int getCol() {
+		return collisionNPC;
+	}
+	void initEntity() {
 		cmpId_type z = int(TRANSFORM_H);
 		tr = addComponent<Transform>(z, PlayerPosition_, PlayerWidth_, PlayerHeigth_, PlayerRotation_, nframes, matrix_);
 		/*t = new Texture(gm_->getRenderer(), "./assets/PlayableCharacters/Exploration/Fire/andar.png");
@@ -39,6 +45,9 @@ public:
 		mov = addComponent<MovementComponent>(s);
 		cmpId_type w = int(INPUTCOMPONENT_H);
 		addComponent<InputComponent>(w);
+	}
+	PlayerTD(GameManager* gm) : Entity() {
+		gm_ = gm;
 	
 	}
 	~PlayerTD() {

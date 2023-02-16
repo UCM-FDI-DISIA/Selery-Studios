@@ -15,19 +15,25 @@ public:
 
 	TopDownState(GameManager* gm_) {
 		Gm_ = gm_;
-		player_ = new PlayerTD(Gm_);
-
+		player_ = addEntity(new PlayerTD(Gm_));
+		dialog_ = false;
 		addEntity(new Npc(Gm_, player_));
-		playerBEU_ = new PlayerBEU(Gm_);
+		//playerBEU_ = new PlayerBEU(Gm_);
 
-		cmpId_type b = int(INPUTCOMPONENTBEU_H);
-		inBEU_ = playerBEU_->getComponent<InputComponentBEU>(b);
+	//	cmpId_type b = int(INPUTCOMPONENTBEU_H);
+		//inBEU_ = playerBEU_->getComponent<InputComponentBEU>(b);
 		cmpId_type w = int(INPUTCOMPONENT_H);
 		in_ = player_->getComponent<InputComponent>(w);
-		addEntity(player_);
-		addEntity(playerBEU_);
-		addEntity(new DialogBox(Gm_));
+		
+		//addEntity(playerBEU_);
+		//addEntity(new DialogBox(Gm_));
 		addEntity(new Enemy(Gm_, player_, 100));
+	}
+	void dialog() {
+		if (dialog_ == false ) {
+			addEntity(new DialogBox(Gm_));
+			dialog_ = true;
+		}
 	}
 	void handleEvents()
 	{
@@ -35,7 +41,7 @@ public:
 		while (SDL_PollEvent(&event)) 
 		{
 			in_->handleEvents(event);
-			inBEU_->handleEvents(event);
+			//inBEU_->handleEvents(event);
 ;		}
 	}
 	~TopDownState() {
@@ -47,5 +53,6 @@ private:
 	InputComponent* in_;
 	PlayerBEU* playerBEU_;
 	InputComponentBEU* inBEU_;
+	bool dialog_;
 };
 

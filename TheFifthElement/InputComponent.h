@@ -8,14 +8,15 @@
 
 class InputComponent : public Component
 {
+private:
+    bool npccol = false;
+    MovementComponent* mov_ = nullptr;
+    SkinComponent* skin_ = nullptr;
 public:
     InputComponent();
     void initComponent();
     void update();
     void handleEvents(SDL_Event event);
-private:
 
-    MovementComponent* mov_ = nullptr;
-    SkinComponent* skin_ = nullptr;
 };
 #endif
