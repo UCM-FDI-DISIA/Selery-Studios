@@ -14,6 +14,7 @@ enum cmpId : cmpId_type {
 	DIALOGBOX_H = 6,
 	IMAGE_H =7,
 	INPUTCOMPONENTBEU_H = 8,
+	SKINCOMPONENT_H=9,
 	// do not remove this
 	_LAST_CMP_ID
 };

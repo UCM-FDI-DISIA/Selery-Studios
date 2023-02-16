@@ -8,6 +8,8 @@
 #include "InputComponent.h"
 #include "MovementComponent.h"
 #include "Image.h"
+#include "SkinComponent.h"
+
 class PlayerTD : public Entity {
 private:
 	//Component* componenete;
@@ -18,6 +20,7 @@ private:
 	Transform* tr;
 	Vector2D dir;
 	MovementComponent* mov = nullptr;
+	SkinComponent* sk = nullptr;
 	int nframes = 7;
 	int fila_;
 	int w = 68;
@@ -26,10 +29,11 @@ public:
 	PlayerTD(GameManager* gm_) : Entity() {
 		cmpId_type z = int(TRANSFORM_H);
 		tr = addComponent<Transform>(z, PlayerPosition_, PlayerWidth_, PlayerHeigth_, PlayerRotation_);
-		t = new Texture(gm_->getRenderer(), "./assets/PlayableCharacters/Exploration/Fire/andar.png");
+		/*t = new Texture(gm_->getRenderer(), "./assets/PlayableCharacters/Exploration/Fire/andar.png");
 		fila_ = 0;
-		addComponent<Image>(int(IMAGE_H), t, nframes, nframes, fila_);
-
+		addComponent<Image>(int(IMAGE_H), t, nframes, nframes, fila_);*/
+		cmpId_type k = int(SKINCOMPONENT_H);
+		sk = addComponent<SkinComponent>(k, gm_);
 		cmpId_type s = int(MOVEMENTCOMPONENT_H);
 		mov = addComponent<MovementComponent>(s, speed_);
 		cmpId_type w = int(INPUTCOMPONENT_H);
