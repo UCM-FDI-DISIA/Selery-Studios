@@ -23,11 +23,6 @@ void CheckCollision::initComponent() {
 	{
 		offset = (tr1->getW() / 7)-60;
 	}
-	
-
-
-
-
 	rectPlayer = getPlayerRect();
 	rectFight = getRectFight();														
 	rectDetection = getRectDetection();
@@ -41,7 +36,7 @@ void CheckCollision::update()
 	{
     	if (Collision::collides(Vector2D(rectPlayer.x,rectPlayer.y), rectPlayer.w,rectPlayer.h, Vector2D(rectFight.x,rectFight.y),rectFight.w,rectFight.h))					//Aumentado el numero por el que dividimos las alturas y anchuras, tambien aumentamos lo que tarda en detectarnos el enemigo
 		{
-			cout << "FIGHT!";
+			gm->goBeatEmUp();
 		}
 		else if (Collision::collides(Vector2D(rectPlayer.x, rectPlayer.y), rectPlayer.w, rectPlayer.h, Vector2D(rectDetection.x, rectDetection.y), rectDetection.w, rectDetection.h))
 		{
@@ -52,17 +47,13 @@ void CheckCollision::update()
 	}
 	else
 	{
-		cout << "LO QUE HACE EL NPC";
-		
+		if (Collision::collides(Vector2D(rectPlayer.x, rectPlayer.y), rectPlayer.w, rectPlayer.h, Vector2D(rectFight.x, rectFight.y), rectFight.w, rectFight.h))					//Aumentado el numero por el que dividimos las alturas y anchuras, tambien aumentamos lo que tarda en detectarnos el enemigo
+		{
+			cout << "FIGHT!";
+		}
 	}
 	updateRects();
-	
-	/*SDL_Rect mierda=build_sdlrect(tr1->getPos().getX() + offset * -side_, tr1->getPos().getY() - (lookingHeight_ / 2) / 2, lookingRange_ + 50 * side_, tr1->getH() + lookingHeight_ / 2
-	if(Collision::collides(,)
-	{
-		cout << "PUTA MIERDA";
-	}*/
-	
+		
 }
 
 

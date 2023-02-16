@@ -1,5 +1,6 @@
 #include "GameManager.h"
 #include "states/TopDownState.h"
+#include "BeatEmUpState.h"
 GameManager::GameManager() {
 	SDLUtils::init();
 	SDLUtils::instance()->showCursor();
@@ -51,7 +52,10 @@ void GameManager::run()// bucle de juego
 		}
 	}
 }
-
+void GameManager::goBeatEmUp()
+{
+	gameStMc->changeState(new BeatEmUpState(this));
+}
 void GameManager::handleEvents() {
 	// handleEvents
 	gameStMc->handleEvents();

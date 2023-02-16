@@ -171,6 +171,7 @@
     <ClInclude Include="Image.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
+<<<<<<< Updated upstream
     <ClInclude Include="PlayerBEU.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
@@ -178,6 +179,9 @@
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="SkinComponent.h">
+=======
+    <ClInclude Include="BeatEmUpState.h">
+>>>>>>> Stashed changes
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>
@@ -254,6 +258,7 @@
     <ClCompile Include="DialogBox.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
+<<<<<<< Updated upstream
     <ClCompile Include="PlayerBEU.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
@@ -261,6 +266,9 @@
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="SkinComponent.cpp">
+=======
+    <ClCompile Include="BeatEmUpState.cpp">
+>>>>>>> Stashed changes
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>
