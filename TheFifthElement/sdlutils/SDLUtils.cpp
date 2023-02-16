@@ -9,7 +9,7 @@
 
 
 SDLUtils::SDLUtils() :
-		SDLUtils("El quinto elemento :)", 600, 400, "assets/resources.json") {
+		SDLUtils("El quinto elemento :)", 160, 160, "assets/resources.json") {
 }
 
 SDLUtils::SDLUtils(std::string windowTitle, int width, int height) :
@@ -282,6 +282,29 @@ void SDLUtils::loadReasources(std::string filename) {
 
 	//load tileset
 	jValue = root["tilesets"];
+	if (jValue != nullptr) {
+		if (jValue->IsArray()) {
+			for (auto& v : jValue->AsArray()) {
+				if (v->IsObject()) {
+					JSONObject vObj = v->AsObject();
+					std::string key = vObj["id"]->AsString();
+					std::string file = vObj["file"]->AsString();
+#ifdef _DEBUG
+					std::cout << "Loading tileset with id: " << key << std::endl;
+#endif
+					auto a = new Texture(renderer(), file);
+					tilesets_.emplace(key, a);
+				}
+				else {
+					throw "'tilesets' array in '" + filename
+						+ "' includes and invalid value";
+				}
+			}
+		}
+		else {
+			throw "'tilesets' is not an array";
+		}
+	}
 
 
 }

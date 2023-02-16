@@ -8,8 +8,6 @@
 #include <vector>
 #include "tmxlite/Map.hpp"
 #include "tmxlite/TileLayer.hpp"
-#include ".././RenderComponent.h"
-#include "./../Transform.h"
 
 
 
@@ -43,11 +41,12 @@ public:
 	virtual string getStateID() { return "top-down"; }; // stringID
 	TopDownState(GameManager* gm_) {
 		Gm_ = gm_;
+		LoadMap("assets/MapAssets/tiledPrueba.tmx");
 		addEntity(new Npc(Gm_));
 		player_ = new PlayerTD(Gm_);
 		addEntity(player_);
 		addEntity(new Enemy(Gm_,player_));
-		LoadMap("assets/MapAssets/tiledPrueba.tmx");
+		
 		//.\\Src\\TilemapSrc\\MainMap.tmx
 		/*Transform* transform = new Transform({ 0,0 }, { 0,0 }, 100, 100, 0);
 		int uno = 1;

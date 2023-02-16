@@ -20,8 +20,11 @@
 
   ],
 
-  "tileset": [
-    {"id": "tileset","file": "assets/MapAssets/AncientRuins/Tilesets/tile_guide.png "}
+  "tilesets": [
+    {
+      "id": "tileGuide", 
+      "file": "assets/MapAssets/AncientRuins/Tilesets/tile_guide.png"
+    }
   ]
     
 }

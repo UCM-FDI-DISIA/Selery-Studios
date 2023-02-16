@@ -1,15 +1,15 @@
 ﻿#include "TopDownState.h"
 void TopDownState::LoadMap(string const& filename) {
-    
+
     mapInfo.tile_MAP = new tmx::Map();  //crea el mapa
     mapInfo.tile_MAP->load(filename);   // CARGA DE INFO DESDE EL .TMX
-    
 
-    tmx::Vector2u mapsize_= mapInfo.tile_MAP->getTileCount();    // TAMAÑO MAPA
-    mapInfo.rows = mapsize_.y;  
+
+    tmx::Vector2u mapsize_ = mapInfo.tile_MAP->getTileCount();    // TAMAÑO MAPA
+    mapInfo.rows = mapsize_.y;
     mapInfo.cols = mapsize_.x;
 
-    
+
     tmx::Vector2u tilesize_ = mapInfo.tile_MAP->getTileSize();   // TAMAÑO TILE
     mapInfo.tile_width = tilesize_.x;
     mapInfo.tile_height = tilesize_.y;
@@ -17,7 +17,7 @@ void TopDownState::LoadMap(string const& filename) {
 
     int fondowidth_ = mapInfo.tile_width * mapInfo.cols;//ancho del fondo= ancho tile * numcols
     int fondoheight_ = mapInfo.tile_height * mapInfo.rows;//alto del fondo= alto del tile* numrows
-    
+
 
     // convertir a textura
     background_ = SDL_CreateTexture(Gm_->getRenderer(), SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, fondowidth_, fondoheight_);
@@ -28,10 +28,10 @@ void TopDownState::LoadMap(string const& filename) {
 
     //Cargamos y almacenamos los tilesets utilizados por el tilemap
     vector<tmx::Tileset> mapTilesets = mapInfo.tile_MAP->getTilesets();
-   
-    for (tmx::Tileset tile : mapTilesets) {
+
+    for (const tmx::Tileset tile : mapTilesets) {
         string name = tile.getName();
-        string ruta= tile.getImagePath();
+        //string ruta = tile.getImagePath();
         //Texture* texture =tilesets_.find(name)->second;
         //Texture* texture = tilesets_.find(name)->second;;
         Texture* texture = sdlutils().tilesets().find(name)->second; //PORQUE ASI?????????????
@@ -45,9 +45,9 @@ void TopDownState::LoadMap(string const& filename) {
         if (layer->getType() == tmx::Layer::Type::Tile) {
             // cargamos la capa
             tmx::TileLayer* tile_layer = dynamic_cast<tmx::TileLayer*>(layer.get());
-            string name= tile_layer->getName();
+            string name = tile_layer->getName();
             auto& layer_tiles = tile_layer->getTiles();
-            if(name=="Suelo") {
+            if (name == "Suelo") {
                 // recorremos todos los tiles para obtener su informacion
                 for (auto y = 0; y < mapInfo.rows; ++y) {
                     for (auto x = 0; x < mapInfo.cols; ++x) {
@@ -58,8 +58,7 @@ void TopDownState::LoadMap(string const& filename) {
                         int cur_gid = layer_tiles[tile_index].ID;
 
                         // si es 0 esta vacio asi que continuamos a la siguiente iteracion
-                        if (cur_gid == 0)
-                            continue;
+                        if (cur_gid == 0) continue;
 
                         // guardamos el tileset que utiliza este tile (nos quedamos con el tileset cuyo gid sea
                         // el mas cercano, y a la vez menor, al gid del tile)           NO ENTIENDO ESTE COMENTARIO????????
@@ -74,8 +73,7 @@ void TopDownState::LoadMap(string const& filename) {
                         }
 
                         // si no hay tileset valido, continuamos a la siguiente iteracion
-                        if (tset_gid == -1)
-                            continue;
+                        if (tset_gid == -1) continue;
 
                         // normalizamos el �ndice            //esto para que es???????????????
                         cur_gid -= tset_gid;
@@ -113,7 +111,8 @@ void TopDownState::LoadMap(string const& filename) {
                         //SDL_RendererFlip tileFlip = SDL_FLIP_NONE;
 
                         //Multiplicamos por 45 porque esta multiplicado por factor de 45 (lo que devuelve rot)
-                        mapInfo.tilesets[tset_gid]->render(src, dest, (double)tileRot * rotCorrection);
+                        mapInfo.tilesets[tset_gid]->render(src, dest, tileRot * rotCorrection);
+                        
                     }
                 }
 
@@ -121,14 +120,13 @@ void TopDownState::LoadMap(string const& filename) {
 
 
             }
-            else if (name=="Col") {
+            /*else if (name == "Col") {
 
 
-            }
+            }*/
 
 
         }
     }
-    
-
 }
+    
