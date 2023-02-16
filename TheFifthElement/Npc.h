@@ -22,12 +22,13 @@ private:
 	float a = 1.0f;
 	float lookingRange = 150.0f;
 	float lookingWidth = 100.0f;
+	bool matrix_ = false;
 	//cada npc va a tener un dialogo distinto, hay que pasarle en la contructora un array con los diaglogos
 	//es decir tipo string y cada parte será un enter que se quiere hacer
 public:
 	Npc(GameManager* gm_, PlayerTD* player) : Entity() {
 		cmpId_type z=int(TRANSFORM_H);
-	    tr=addComponent<Transform>(z, NpcPosition_, NpcWith_, NpcHeith_, NpcRotation_);
+	    tr=addComponent<Transform>(z, NpcPosition_, NpcWith_, NpcHeith_, NpcRotation_, nframes, matrix_);
 		t = new Texture(gm_->getRenderer(), "./assets/NPCs/NPC1-Idle-Left.png");
 		cmpId_type x = int(RENDERCOMPONENT_H);
 		//referencia al texture y al transform

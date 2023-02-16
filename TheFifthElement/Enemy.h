@@ -24,6 +24,7 @@ private:
 	int nframes = 7;
 	int fila_;
 	float life_, maxLife_;
+	bool matrix_ = false;
 public:
 
 
@@ -47,7 +48,7 @@ public:
 		float a =1.0f;
 		float lookingRange = 150.0f;
 		float lookingWidth = 100.0f;
-		tr = addComponent<Transform>(int(TRANSFORM_H), EnemyPosition_, EnemyWidth_, EnemyHeight_, EnemyRotation_);
+		tr = addComponent<Transform>(int(TRANSFORM_H), EnemyPosition_, EnemyWidth_, EnemyHeight_, EnemyRotation_, nframes, matrix_);
 		t = new Texture(gm_->getRenderer(), "./assets/NPCs/NPC5-idle-left.png");
 		player_ = player;
 		trPlayer_ = player_->getComponent<Transform>(int(TRANSFORM_H));

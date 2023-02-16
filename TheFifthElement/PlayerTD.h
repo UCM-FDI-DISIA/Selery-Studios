@@ -25,10 +25,11 @@ private:
 	int fila_;
 	int w = 68;
 	int h = 120;
+	bool matrix_ = false;
 public:
 	PlayerTD(GameManager* gm_) : Entity() {
 		cmpId_type z = int(TRANSFORM_H);
-		tr = addComponent<Transform>(z, PlayerPosition_, PlayerWidth_, PlayerHeigth_, PlayerRotation_);
+		tr = addComponent<Transform>(z, PlayerPosition_, PlayerWidth_, PlayerHeigth_, PlayerRotation_, nframes, matrix_);
 		/*t = new Texture(gm_->getRenderer(), "./assets/PlayableCharacters/Exploration/Fire/andar.png");
 		fila_ = 0;
 		addComponent<Image>(int(IMAGE_H), t, nframes, nframes, fila_);*/

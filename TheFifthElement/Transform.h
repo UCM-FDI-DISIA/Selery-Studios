@@ -10,17 +10,20 @@ private:
     Vector2D position, velocity;
     float width, height, rotation_;
     SDL_Rect rect;
+    int framesTotales_;
+    bool matrix_;
 public:
     Transform() {
         //cout << "fdgbxc";
     }
     // Constructora
-    Transform(Vector2D pos, float w, float h, float r) : Component() {
+    Transform(Vector2D pos, float w, float h, float r, int frames, bool matrix) : Component() {
         position = pos;
         width = w;
         height = h;
         rotation_ = r;
-
+        framesTotales_ = frames;
+        matrix_ = matrix;
     }
 
     // Destructora
@@ -55,7 +58,13 @@ public:
     void render()
     {
 
-        rect = build_sdlrect(getPos().getX(), getPos().getY(), getW() / 7, getH());
+        if(matrix_)
+            rect = build_sdlrect(getPos().getX()+120, getPos().getY()+70, getW() / (5*framesTotales_), getH()/2);
+        else 
+        { 
+           if(framesTotales_ != 0) rect = build_sdlrect(getPos().getX(), getPos().getY(), getW() / framesTotales_, getH()); 
+           else  rect = build_sdlrect(getPos().getX()+50, getPos().getY()+60, 3*getW()/4, getH()/2);
+        }
         SDL_SetRenderDrawColor(sdlutils().renderer(), 255, 0, 255, 0);
         SDL_RenderDrawRect(sdlutils().renderer(), &rect);
 

@@ -20,18 +20,20 @@ private:
 	GameManager* m;
 	Vector2D dir;
 	MovementComponent* mov = nullptr;
-	int nframes = 28;
+	int nframes = 7;
 	int framesT_ = 28;
 	int fila_;
+	bool matrix_ = true;
 
 public:
 	PlayerBEU(GameManager* gm_) : Entity() {
 		cmpId_type z = int(TRANSFORM_H);
-		tr = addComponent<Transform>(z, PlayerPosition_, PlayerWidth_, PlayerHeigth_, PlayerRotation_);
+		//int width = PlayerWidth_ / framesT_;
+		tr = addComponent<Transform>(z, PlayerPosition_, PlayerWidth_, PlayerHeigth_, PlayerRotation_, framesT_, matrix_);
 		t = new Texture(gm_->getRenderer(), "./assets/PlayableCharacters/BeatEmUp/Fire/spritesheets/fireMatrix.png");
 		//cmpId_type x = int(RENDERCOMPONENT_H);
 		//referencia al texture y al transform
-		fila_ = 9;
+		fila_ = 0;
 		addComponent<Image>(int(IMAGE_H), t, nframes, framesT_, fila_);
 		cmpId_type s = int(MOVEMENTCOMPONENT_H);
 		mov = addComponent<MovementComponent>(s, speed_);
