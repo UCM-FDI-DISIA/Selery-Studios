@@ -60,7 +60,7 @@ public:
 			Vector2D player_vel = tr_->getVel();
 			
 			if (!(static_cast<PlayerBEU*>(ent_)->getAttack())){
-				if (player_vel.getX() == 1 && fila_ != 1) {
+				if (player_vel.getX() == 1 && (fila_ != 1||s==SDL_FLIP_HORIZONTAL)) {
 					fila_ = 1;
 					//tex_ = &SDLUtils::instance()->images().at("p_left");
 					frames_ = 8;
@@ -68,7 +68,7 @@ public:
 					cont = 0;
 					i = 0;
 				}
-				else if (player_vel.getX() == -1 && fila_ != 1) {
+				else if (player_vel.getX() == -1 && (fila_ != 1||s==SDL_FLIP_NONE)) {
 					//tex_ = &SDLUtils::instance()->images().at("p_right");
 					fila_ = 1;
 					frames_ = 8;

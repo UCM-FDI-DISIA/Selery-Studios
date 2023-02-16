@@ -53,7 +53,7 @@ public:
     void render()
     {
 
-       /* if(matrix_)
+        if(matrix_)
             rect = build_sdlrect(getPos().getX()+120, getPos().getY()+70, getW() / (5*framesTotales_), getH()/2);
         else 
         { 
@@ -61,7 +61,7 @@ public:
            else  rect = build_sdlrect(getPos().getX()+50, getPos().getY()+60, 3*getW()/4, getH()/2);
         }
         SDL_SetRenderDrawColor(sdlutils().renderer(), 255, 0, 255, 0);
-        SDL_RenderDrawRect(sdlutils().renderer(), &rect);*/
+        SDL_RenderDrawRect(sdlutils().renderer(), &rect);
 
     }
 };
