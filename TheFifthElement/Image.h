@@ -4,6 +4,8 @@
 #include "sdlutils/Texture.h"
 #include "Transform.h" 
 #include "utils/Entity.h"
+//#include "Camera.h"
+
 class Image : public Component {
 public:
 
@@ -22,7 +24,8 @@ public:
 	// Inicializa el componente
 	void initComponent() {
 		tr_ = ent_->getComponent<Transform>(TRANSFORM_H);
-		assert(tr_ != nullptr);
+		//camTr_ = cam_->getComponent<Transform>(TRANSFORM_H);
+		assert(tr_ != nullptr );
 	}
 
 	void update() {
@@ -57,14 +60,15 @@ public:
 	}
 	// Dibuja en escena
 	void render() {
+		//Vector2D v = Gm_->getEntByComp(CAMERACOMPONENT_H)->getComponent<Transform>(TRANSFORM_H)->getPos();
 		if (frames_ == 0) { //Cuando la imagen solo tiene un frame (sin animación)
 			SDL_Rect dest = build_sdlrect(tr_->getPos(), tr_->getW(), tr_->getH());
 			tex_->render(dest, tr_->getR());
 		}
 		else {
 			SDL_Rect rect;
-			rect.x = tr_->getPos().getX();
-			rect.y = tr_->getPos().getY();
+			rect.x = tr_->getPos().getX() /*- v.getX()*/;
+			rect.y = tr_->getPos().getY() /*- v.getY()*/;
 			rect.h = tr_->getH();
 			rect.w = tr_->getW() / framesTotales_;
 			SDL_Rect src;
@@ -88,5 +92,7 @@ private:
 	int cont = 0;
 	Transform* tr_; // Consulta las caracteristicas fisicas
 	Texture* tex_;	// Imagen a rederizar
+	//Camera* cam_;
+	//Transform* camTr_;
 };
 #endif

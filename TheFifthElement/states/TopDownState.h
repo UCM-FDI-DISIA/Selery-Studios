@@ -7,6 +7,8 @@
 #include "../InputComponent.h"
 #include "../InputComponentBEU.h"
 #include "../DialogBox.h"
+#include "../Camera.h"
+//#include "../utils/Manager.h"
 
 
 class TopDownState : public Manager {
@@ -28,6 +30,8 @@ public:
 		//addEntity(playerBEU_);
 		//addEntity(new DialogBox(Gm_));
 		addEntity(new Enemy(Gm_, player_, 100));
+		//cam_ = addEntity(new Camera(Gm_, player_));
+		addEntity(new Camera(Gm_, player_));
 	}
 	void dialog() {
 		if (dialog_ == false ) {
@@ -53,6 +57,9 @@ private:
 	InputComponent* in_;
 	PlayerBEU* playerBEU_;
 	InputComponentBEU* inBEU_;
+
+	/*Entity* cam_;*/
+	/*Manager* mngr_;*/
 	bool dialog_;
 };
 

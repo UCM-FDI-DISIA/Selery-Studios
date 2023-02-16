@@ -17,8 +17,7 @@ private:
 	SDL_Window* window = nullptr;
 	SDL_Renderer* renderer = nullptr;
 	GameStateMachine* gameStMc;
-	bool exit;
-	
+	bool exit;	
 
 public:
 	GameManager() ;

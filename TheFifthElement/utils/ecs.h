@@ -15,6 +15,7 @@ enum cmpId : cmpId_type {
 	IMAGE_H =7,
 	INPUTCOMPONENTBEU_H = 8,
 	SKINCOMPONENT_H=9,
+	CAMERACOMPONENT_H = 10,
 	// do not remove this
 	_LAST_CMP_ID
 };

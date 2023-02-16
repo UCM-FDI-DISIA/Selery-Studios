@@ -7,6 +7,7 @@ using namespace std;
 class Manager:public Singleton <Manager> {
 protected:
 	vector<Entity*> ents_;
+	
 public:
 
 	Manager();
@@ -24,5 +25,4 @@ public:
 	virtual void render();
 	virtual void handleEvents() {};
 	virtual string getStateID() { return "nothing"; };
-
 };
