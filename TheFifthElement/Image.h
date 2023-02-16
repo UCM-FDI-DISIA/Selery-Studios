@@ -4,6 +4,7 @@
 #include "sdlutils/Texture.h"
 #include "Transform.h" 
 #include "utils/Entity.h"
+#include "InputComponentBEU.h"
 class Image : public Component {
 public:
 
@@ -56,34 +57,44 @@ public:
 		}
 		else if (ent_->hasComponent(INPUTCOMPONENTBEU_H)) {
 			Vector2D player_vel = tr_->getVel();
-			//cout << vel.getX() << " " << vel.getY() << endl;
-			if (player_vel.getX() == 1&&fila_!=1 ) {
-				fila_ = 1;
-				//tex_ = &SDLUtils::instance()->images().at("p_left");
-				frames_ = 8;
-				s = SDL_FLIP_NONE;
-				cont = 0;
-				i = 0;
-			}
-			else if (player_vel.getX() == -1&&fila_!=1) {
-				//tex_ = &SDLUtils::instance()->images().at("p_right");
-				fila_ = 1;
-				frames_ = 8;
-				s = SDL_FLIP_HORIZONTAL;
-				cont = 0;
-				i = 0;
-				
+			cout << player_vel.getX() << " " << player_vel.getY() << endl;
+			if (!is_attaking) {
+				if (player_vel.getX() == 1 && fila_ != 1) {
+					fila_ = 1;
+					//tex_ = &SDLUtils::instance()->images().at("p_left");
+					frames_ = 8;
+					s = SDL_FLIP_NONE;
+					cont = 0;
+					i = 0;
+				}
+				else if (player_vel.getX() == -1 && fila_ != 1) {
+					//tex_ = &SDLUtils::instance()->images().at("p_right");
+					fila_ = 1;
+					frames_ = 8;
+					s = SDL_FLIP_HORIZONTAL;
+					cont = 0;
+					i = 0;
+
+				}
+
+				else if (fila_ != 0 && player_vel.getX() == 0) {
+					//tex_ = &SDLUtils::instance()->images().at("p_idle");
+					fila_ = 0;
+					frames_ = 8;
+					i = 0;
+					cont = 0;
+
+				}
 			}
 			
-			else if(fila_!=0&&player_vel.getX() == 0) {
-				//tex_ = &SDLUtils::instance()->images().at("p_idle");
-				fila_ = 0;
-				frames_ = 8;
-				i = 0;
-				cont = 0;
-			
-			}
 		}
+	}
+	void setAtack() {
+		is_attaking = true;
+		fila_ = 5;
+		frames_ = 8;
+		i = 0;
+		cont = 0;
 	}
 	// Dibuja en escena
 	void render() {
@@ -108,7 +119,14 @@ public:
 				cont = 0;
 			}
 			cont++;
-			if (i ==frames_) i = 0;
+			if (i == frames_) { 
+				i = 0;
+				if (is_attaking) {
+					is_attaking = false;
+					ent_->getComponent<InputComponentBEU>(INPUTCOMPONENTBEU_H)->stop_attack();
+				}
+			
+			}
 		}
 		
 	}
@@ -119,5 +137,6 @@ private:
 	Transform* tr_; // Consulta las caracteristicas fisicas
 	Texture* tex_;	// Imagen a rederizar
 	SDL_RendererFlip s = SDL_FLIP_NONE;
+	bool is_attaking = false;
 };
 #endif
