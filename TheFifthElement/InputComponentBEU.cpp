@@ -28,11 +28,9 @@ void InputComponentBEU::handleEvents(SDL_Event event)
 		if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_A)) {
 			mov_->setDir(Vector2D(-1, 0));
 		}
-
 		else if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_D)) {
 			mov_->setDir(Vector2D(1, 0));
 		}
-
 		else  if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_W)) {
 			mov_->setDir(Vector2D(0, -1));
 		}
@@ -40,7 +38,10 @@ void InputComponentBEU::handleEvents(SDL_Event event)
 			mov_->setDir(Vector2D(0, 1));
 		}
 		else if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_R)) {
-			std::cout << "ATTACK" << endl;
+			SDLUtils::instance()->soundEffects().at("playerAttack").play();
+		}
+		else if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_E)) {
+			SDLUtils::instance()->soundEffects().at("playerSpecialAttack").play();
 		}
 		else mov_->setDir(Vector2D(0, 0));
 	}

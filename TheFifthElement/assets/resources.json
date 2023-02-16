@@ -1,27 +1,60 @@
 {
 
-  "fonts" : [
- 
+  "fonts": [
+
   ],
 
-  "images" : [
-    {"id":"p_idle","file":"assets/PlayableCharacters/Exploration/Fire/idle.png"},
-    {"id":"p_left","file":"assets/PlayableCharacters/Exploration/Fire/andar.png"},
-    {"id":"p_top","file":"assets/PlayableCharacters/Exploration/Fire/andararriba.png"},
-    {"id":"p_down","file":"assets/PlayableCharacters/Exploration/Fire/andarfrente.png"},
-    {"id":"p_right","file":"assets/PlayableCharacters/Exploration/Fire/andarIzquierda.png"}
+  "images": [
+    {
+      "id": "p_idle",
+      "file": "assets/PlayableCharacters/Exploration/Fire/idle.png"
+    },
+    {
+      "id": "p_left",
+      "file": "assets/PlayableCharacters/Exploration/Fire/andar.png"
+    },
+    {
+      "id": "p_top",
+      "file": "assets/PlayableCharacters/Exploration/Fire/andararriba.png"
+    },
+    {
+      "id": "p_down",
+      "file": "assets/PlayableCharacters/Exploration/Fire/andarfrente.png"
+    },
+    {
+      "id": "p_right",
+      "file": "assets/PlayableCharacters/Exploration/Fire/andarIzquierda.png"
+    }
   ],
 
-  "messages" : [
+  "messages": [
+
+  ],
+
+  "sounds": [
+    { "id": "prueba", "file": "assets/sounds/beat.wav" },
+
+    { "id": "playerAttack", "file": "assets/sounds/player/attack/playerAttackStrong.wav" },
+    { "id": "playerSpecialAttack", "file": "assets/sounds/player/attack/playerSpecialAttack.wav" },
+    { "id": "playerDamage", "file": "assets/sounds/beat.wav" },
+    { "id": "playerDie", "file": "assets/sounds/beat.wav" },
+
+    { "id": "shroomDamage", "file": "assets/sounds/beat.wav" },
+    { "id": "shroomDie", "file": "assets/sounds/beat.wav" },
+
+    { "id": "skeletonDamage", "file": "assets/sounds/enemy/skeleton/skeletonDamage.wav" },
+    { "id": "skeletonDie", "file": "assets/sounds/enemy/skeleton/skeletonDeath.wav" },
+
+    { "id": "goblinDamage", "file": "assets/sounds/beat.wav" },
+    { "id": "goblinDie", "file": "assets/sounds/enemy/goblin/goblinDeath.wav" },
+
+    { "id": "batDamage", "file": "assets/sounds/beat.wav" },
+    { "id": "batDie", "file": "assets/sounds/beat.wav" }
    
   ],
 
-  "sounds" : [
-    { "id" : "prueba", "file" : "assets/Sounds/beat.wav" }
-  ],
-
   "musics": [
-    
+
   ]
-    
-}
+
+} 
