@@ -8,8 +8,6 @@
 #include <vector>
 #include "tmxlite/Map.hpp"
 #include "tmxlite/TileLayer.hpp"
-#include ".././RenderComponent.h"
-#include "./../Transform.h"
 
 
 

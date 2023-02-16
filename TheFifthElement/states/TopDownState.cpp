@@ -29,7 +29,7 @@ void TopDownState::LoadMap(string const& filename) {
     //Cargamos y almacenamos los tilesets utilizados por el tilemap
     vector<tmx::Tileset> mapTilesets = mapInfo.tile_MAP->getTilesets();
 
-    for (tmx::Tileset tile : mapTilesets) {
+    for (const tmx::Tileset tile : mapTilesets) {
         string name = tile.getName();
         //string ruta = tile.getImagePath();
         //Texture* texture =tilesets_.find(name)->second;
@@ -47,7 +47,7 @@ void TopDownState::LoadMap(string const& filename) {
             tmx::TileLayer* tile_layer = dynamic_cast<tmx::TileLayer*>(layer.get());
             string name = tile_layer->getName();
             auto& layer_tiles = tile_layer->getTiles();
-            if (name=="Suelo") {
+            if (name == "Suelo") {
                 // recorremos todos los tiles para obtener su informacion
                 for (auto y = 0; y < mapInfo.rows; ++y) {
                     for (auto x = 0; x < mapInfo.cols; ++x) {
@@ -111,7 +111,8 @@ void TopDownState::LoadMap(string const& filename) {
                         //SDL_RendererFlip tileFlip = SDL_FLIP_NONE;
 
                         //Multiplicamos por 45 porque esta multiplicado por factor de 45 (lo que devuelve rot)
-                        mapInfo.tilesets[tset_gid]->render(src, dest, (double)tileRot * rotCorrection);
+                        mapInfo.tilesets[tset_gid]->render(src, dest, tileRot * rotCorrection);
+                        
                     }
                 }
 
