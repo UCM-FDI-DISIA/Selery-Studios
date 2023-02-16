@@ -7,7 +7,7 @@ InputComponent::InputComponent():Component() {
 }
 void InputComponent::initComponent() {
 	mov_ = ent_->getComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
-
+	skin_ = ent_->getComponent<SkinComponent>(SKINCOMPONENT_H);
 }
 void InputComponent::update() {
 	//mov_->setSpeed(Vector2D(-1, 0));
@@ -50,6 +50,20 @@ void InputComponent::handleEvents(SDL_Event event)
 			mov_->setDir(Vector2D(0, 1));
 		}
 		else mov_->setDir(Vector2D(0, 0));
+
+
+		if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_U)) {
+			skin_->changeSkin("fire");
+		}
+		else if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_I)) {
+			skin_->changeSkin("air");
+		}
+		else  if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_O)) {
+			skin_->changeSkin("water");
+		}
+		else if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_P)) {
+			skin_->changeSkin("earth");
+		}
 	}
 	
 

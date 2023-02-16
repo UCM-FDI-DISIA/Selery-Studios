@@ -144,6 +144,7 @@
     <ClInclude Include="Npc.h" />
     <ClInclude Include="PlayerBEU.h" />
     <ClInclude Include="PlayerTD.h" />
+    <ClInclude Include="SkinComponent.h" />
     <ClInclude Include="states\GameState.h" />
     <ClInclude Include="states\GameStateMachine.h" />
     <ClInclude Include="states\MainMenuState.h" />
@@ -185,6 +186,7 @@
     <ClCompile Include="Npc.cpp" />
     <ClCompile Include="PlayerBEU.cpp" />
     <ClCompile Include="PlayerTD.cpp" />
+    <ClCompile Include="SkinComponent.cpp" />
     <ClCompile Include="states\GameState.cpp" />
     <ClCompile Include="states\GameStateMachine.cpp" />
     <ClCompile Include="states\MainMenuState.cpp" />

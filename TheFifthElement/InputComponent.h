@@ -3,6 +3,7 @@
 #define INPUTCOMPONENT_H_
 #include "utils/Component.h"
 #include "MovementComponent.h"
+#include "SkinComponent.h"
 #include "SDL_events.h"
 
 class InputComponent : public Component
@@ -15,6 +16,6 @@ public:
 private:
 
     MovementComponent* mov_ = nullptr;
-   
+    SkinComponent* skin_ = nullptr;
 };
 #endif
