@@ -10,8 +10,6 @@ void MovementComponent::initComponent() {
 }
 
 void MovementComponent::update() {
-	tr->Move(speed);
-
-	//cout <<speed;
+	tr->setPos(tr->getPos() + tr->getVel());
 
 }

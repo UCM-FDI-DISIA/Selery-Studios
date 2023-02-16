@@ -36,7 +36,7 @@ public:
 		fila_ = 0;
 		addComponent<Image>(int(IMAGE_H), t, nframes, framesT_, fila_);
 		cmpId_type s = int(MOVEMENTCOMPONENT_H);
-		mov = addComponent<MovementComponent>(s, speed_);
+		mov = addComponent<MovementComponent>(s);
 		cmpId_type w = int(INPUTCOMPONENTBEU_H);
 		addComponent<InputComponentBEU>(w);
 

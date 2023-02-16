@@ -36,7 +36,7 @@ public:
 		cmpId_type k = int(SKINCOMPONENT_H);
 		sk = addComponent<SkinComponent>(k, gm_);
 		cmpId_type s = int(MOVEMENTCOMPONENT_H);
-		mov = addComponent<MovementComponent>(s, speed_);
+		mov = addComponent<MovementComponent>(s);
 		cmpId_type w = int(INPUTCOMPONENT_H);
 		addComponent<InputComponent>(w);
 	

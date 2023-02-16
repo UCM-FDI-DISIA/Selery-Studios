@@ -50,11 +50,6 @@ public:
     inline void setVel(Vector2D speed_) { velocity = speed_; }
 
 
-    void Move(Vector2D speed_) {
-        setVel(speed_);
-        position = position + speed_;
-    }
-
     void render()
     {
 
