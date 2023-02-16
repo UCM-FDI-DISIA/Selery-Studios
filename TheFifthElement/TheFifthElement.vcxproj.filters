@@ -30,6 +30,7 @@
     <ClCompile Include="utils\Manager.cpp" />
     <ClCompile Include="utils\Vector2D.cpp" />
     <ClCompile Include="Class.cpp" />
+    <ClCompile Include="EnemyBEU.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BeatEmUpState.h" />
@@ -76,6 +77,7 @@
     <ClInclude Include="utils\Singleton.h" />
     <ClInclude Include="utils\Vector2D.h" />
     <ClInclude Include="Class.h" />
+    <ClInclude Include="EnemyBEU.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="TheFifthElement.rc" />
