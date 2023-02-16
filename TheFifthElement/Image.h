@@ -52,7 +52,37 @@ public:
 				tex_ = &SDLUtils::instance()->images().at("p_idle");
 				framesTotales_ = 7;
 			}
-
+			s = SDL_FLIP_NONE;
+		}
+		else if (ent_->hasComponent(INPUTCOMPONENTBEU_H)) {
+			Vector2D player_vel = tr_->getVel();
+			//cout << vel.getX() << " " << vel.getY() << endl;
+			if (player_vel.getX() == 1&&fila_!=1 ) {
+				fila_ = 1;
+				//tex_ = &SDLUtils::instance()->images().at("p_left");
+				frames_ = 8;
+				s = SDL_FLIP_NONE;
+				cont = 0;
+				i = 0;
+			}
+			else if (player_vel.getX() == -1&&fila_!=1) {
+				//tex_ = &SDLUtils::instance()->images().at("p_right");
+				fila_ = 1;
+				frames_ = 8;
+				s = SDL_FLIP_HORIZONTAL;
+				cont = 0;
+				i = 0;
+				
+			}
+			
+			else if(fila_!=0&&player_vel.getX() == 0) {
+				//tex_ = &SDLUtils::instance()->images().at("p_idle");
+				fila_ = 0;
+				frames_ = 8;
+				i = 0;
+				cont = 0;
+			
+			}
 		}
 	}
 	// Dibuja en escena
@@ -72,7 +102,7 @@ public:
 			src.y = tr_->getH() * fila_;
 			src.h = tr_->getH();
 			src.w = tr_->getW() / framesTotales_;
-			tex_->render(src, rect);
+			tex_->render(src, rect,0,nullptr,s);
 			if (cont >= 10) {
 				i++;
 				cont = 0;
@@ -88,5 +118,6 @@ private:
 	int cont = 0;
 	Transform* tr_; // Consulta las caracteristicas fisicas
 	Texture* tex_;	// Imagen a rederizar
+	SDL_RendererFlip s = SDL_FLIP_NONE;
 };
 #endif
