@@ -10,18 +10,15 @@ class CameraComponent : public Component
 private:
 	//Vector2D pos_{ 0,0 };
 	GameManager* gm_;
-	Transform* camTr_;
 	Transform* playerTr_;
 	PlayerTD* player_;
 	SDL_Rect camRect_;
-
+	Transform* camTr_;
 public:
 	CameraComponent(GameManager* gm_, PlayerTD* player);
 	void initComponent();
 	void update();
 	inline SDL_Rect getRect() { return build_sdlrect(camTr_->getPos(), camTr_->getW(), camTr_->getH()); }
 	void render();
-
-
 };
 #endif

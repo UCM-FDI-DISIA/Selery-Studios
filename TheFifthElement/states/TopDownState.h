@@ -57,7 +57,7 @@ private:
 	InputComponent* in_;
 	PlayerBEU* playerBEU_;
 	InputComponentBEU* inBEU_;
-
+	/*Camera* cam_;*/
 	/*Entity* cam_;*/
 	/*Manager* mngr_;*/
 	bool dialog_;

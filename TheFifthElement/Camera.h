@@ -10,7 +10,7 @@
 class Camera : public Entity
 {
 private:
-	Transform* tr;
+	Transform* camTr_;
 	GameManager* m;
 	PlayerTD* player_;
 
@@ -20,7 +20,7 @@ public:
 		m = gm_;
 		player_ = player;
 		cmpId_type z = int(TRANSFORM_H);
-		tr = addComponent<Transform>(z);
+		camTr_ = addComponent<Transform>(z);
 
 		cmpId_type k = int(CAMERACOMPONENT_H);
 		addComponent<CameraComponent>(k, m, player_);

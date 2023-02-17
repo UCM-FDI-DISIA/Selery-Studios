@@ -2,11 +2,13 @@
 #include <vector>
 #include "Entity.h"
 #include "Singleton.h"
+//#include "../Camera.h"
 using namespace std;
 
 class Manager:public Singleton <Manager> {
 protected:
 	vector<Entity*> ents_;
+	/*Camera* cam_;*/
 	
 public:
 
@@ -25,4 +27,5 @@ public:
 	virtual void render();
 	virtual void handleEvents() {};
 	virtual string getStateID() { return "nothing"; };
+	/*Vector2D getCamPos();*/
 };

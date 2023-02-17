@@ -1,6 +1,7 @@
 #include "GameManager.h"
 #include "states/TopDownState.h"
 #include "BeatEmUpState.h"
+
 GameManager::GameManager() {
 	SDLUtils::init();
 	SDLUtils::instance()->showCursor();

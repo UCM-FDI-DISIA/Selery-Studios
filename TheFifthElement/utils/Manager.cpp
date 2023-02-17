@@ -41,5 +41,9 @@ void Manager::render() {
 		ents_[i]->render();
 }
 
+//Vector2D Manager::getCamPos() {
+//	return cam_->getComponent<Transform>(TRANSFORM_H)->getPos();
+//}
+
 	
 
