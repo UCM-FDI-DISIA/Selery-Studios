@@ -45,17 +45,19 @@ void InputComponentBEU::handleEvents(SDL_Event event)
 				mov_->setDir(Vector2D(0, 1));
 			}
 			else if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_R)) {
-				std::cout << "ATTACK" << endl;
+				SDLUtils::instance()->soundEffects().at("playerAttack").play();
 			}
-			else if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_Q)) {
+			else if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_E)) {
+			SDLUtils::instance()->soundEffects().at("playerSpecialAttack").play();
+
+			}else if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_Q)) {
 				//attack = true;
 				static_cast<PlayerBEU*>(ent_)->setAttack(true);
 
 
-			}
-			else mov_->setDir(Vector2D(0, 0));
 		}
 		else mov_->setDir(Vector2D(0, 0));
+
 		
 	}
 
