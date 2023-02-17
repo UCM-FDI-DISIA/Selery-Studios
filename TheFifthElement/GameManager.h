@@ -31,4 +31,6 @@ public:
 		return SDLUtils::instance()->renderer();
 	}
 	SDL_Window* getWindow() { return window; }
+
+	void goBeatEmUp();
 };

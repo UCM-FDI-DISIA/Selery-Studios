@@ -18,18 +18,21 @@ private:
 	Texture* t;
 	Transform* tr;
 	GameManager* m;
-	int nframes = 1;
+	int nframes = 0;
 	int w = 58;
 	int h = 27;
+	int fila_;
+	bool matrix_ = false;
 public:
 	DialogBox(GameManager* gm_) {
 		font_ = new Font("./assets/fonts/text.ttf", 35);
 		cmpId_type z = int(TRANSFORM_H);
-		tr = addComponent<Transform>(z, DialogBoxPosition_, DialogBoxWith_, DialogBoxHeith_, DialogBoxRotation_);
+		tr = addComponent<Transform>(z, DialogBoxPosition_, DialogBoxWith_, DialogBoxHeith_, DialogBoxRotation_, nframes, matrix_);
 		t = new Texture(gm_->getRenderer(), "./assets/fonts/image.png");
 		cmpId_type x = int(RENDERCOMPONENT_H);
 		//referencia al texture y al transform
-		addComponent<Image>(int(IMAGE_H), t, nframes);
+		fila_ = 0;
+		addComponent<Image>(int(IMAGE_H), t, nframes, nframes, fila_);
 
 	}
 	virtual ~DialogBox() {
