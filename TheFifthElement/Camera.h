@@ -19,11 +19,13 @@ public:
 	{
 		m = gm_;
 		player_ = player;
+		Vector2D p = player_->getComponent<Transform>(TRANSFORM_H)->getPos();
 		cmpId_type z = int(TRANSFORM_H);
-		camTr_ = addComponent<Transform>(z);
+		camTr_ = addComponent<Transform>(z, p={ p.getX() - 300, p.getY() - 200 }, 600, 400, 0, 1, false);
 
 		cmpId_type k = int(CAMERACOMPONENT_H);
 		addComponent<CameraComponent>(k, m, player_);
+
 	}
 
 	~Camera()

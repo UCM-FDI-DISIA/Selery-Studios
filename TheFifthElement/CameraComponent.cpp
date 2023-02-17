@@ -46,8 +46,6 @@ void CameraComponent::update()
 }
 
 void CameraComponent::render() {
-	SDL_SetRenderDrawColor(gm_->getRenderer(), 255, 0, 0, 255);
-	SDL_RenderDrawRect(gm_->getRenderer(), &camRect_);
-	SDL_SetRenderDrawColor(gm_->getRenderer(), 0, 0, 0, 255);
+	
 	
 }

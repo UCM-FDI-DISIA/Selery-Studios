@@ -4,9 +4,10 @@
 #include "sdlutils/Texture.h"
 #include "Transform.h" 
 #include "utils/Entity.h"
-//#include "Camera.h"
 #include "InputComponentBEU.h"
 #include "PlayerBEU.h"
+//#include "Camera.h"
+
 
 class Image : public Component {
 public:
@@ -26,8 +27,6 @@ public:
 	// Inicializa el componente
 	void initComponent() {
 		tr_ = ent_->getComponent<Transform>(TRANSFORM_H);
-		//camTr_ = ent_->hasComponent(CAMERACOMPONENT_H);
-		
 		//camTr_ = cam_->getComponent<Transform>(TRANSFORM_H);
 		assert(tr_ != nullptr);
 	}
@@ -111,6 +110,7 @@ public:
 	}
 	// Dibuja en escena
 	void render() {
+		/*Vector2D v = static_cast<Camera*>(ent_)->getComponent<Transform>(TRANSFORM_H)->getPos();*/	
 		/*Vector2D v = camTr_->getPos();*/
 		if (frames_ == 0) { //Cuando la imagen solo tiene un frame (sin animación)
 			SDL_Rect dest = build_sdlrect(tr_->getPos(), tr_->getW(), tr_->getH());
@@ -118,13 +118,13 @@ public:
 		}
 		else {
 			SDL_Rect rect;
-			rect.x = tr_->getPos().getX()/* - v.getX()*/;
+			rect.x = tr_->getPos().getX() /*- v.getX()*/;
 			rect.y = tr_->getPos().getY() /*- v.getY()*/;
 			rect.h = tr_->getH();
 			rect.w = tr_->getW() / framesTotales_;
 			SDL_Rect src;
-			src.x = i*(tr_->getW() / framesTotales_);
-			src.y = tr_->getH() * fila_;
+			src.x = i*(tr_->getW() / framesTotales_) /*- v.getX()*/;
+			src.y = tr_->getH() * fila_ /*- v.getY()*/;
 			src.h = tr_->getH();
 			src.w = tr_->getW() / framesTotales_;
 			tex_->render(src, rect,0,nullptr,s);
@@ -154,7 +154,7 @@ private:
 
 	/*Camera* cam_;*/
 	Transform* camTr_;
-
+	/*Vector2D v;*/
 	SDL_RendererFlip s = SDL_FLIP_NONE;
 	bool is_attaking = false;
 
