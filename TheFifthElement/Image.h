@@ -5,6 +5,8 @@
 #include "Transform.h" 
 #include "utils/Entity.h"
 //#include "Camera.h"
+#include "InputComponentBEU.h"
+#include "PlayerBEU.h"
 
 class Image : public Component {
 public:
@@ -57,8 +59,55 @@ public:
 				tex_ = &SDLUtils::instance()->images().at("p_idle");
 				framesTotales_ = 7;
 			}
-
+			s = SDL_FLIP_NONE;
 		}
+		else if (ent_->hasComponent(INPUTCOMPONENTBEU_H)) {
+			Vector2D player_vel = tr_->getVel();
+			
+			if (!(static_cast<PlayerBEU*>(ent_)->getAttack())){
+				if (player_vel.getX() == 1 && (fila_ != 1||s==SDL_FLIP_HORIZONTAL)) {
+					fila_ = 1;
+					//tex_ = &SDLUtils::instance()->images().at("p_left");
+					frames_ = 8;
+					s = SDL_FLIP_NONE;
+					cont = 0;
+					i = 0;
+				}
+				else if (player_vel.getX() == -1 && (fila_ != 1||s==SDL_FLIP_NONE)) {
+					//tex_ = &SDLUtils::instance()->images().at("p_right");
+					fila_ = 1;
+					frames_ = 8;
+					s = SDL_FLIP_HORIZONTAL;
+					cont = 0;
+					i = 0;
+
+				}
+
+				else if (fila_ != 0 && player_vel.getX() == 0) {
+					//tex_ = &SDLUtils::instance()->images().at("p_idle");
+					fila_ = 0;
+					frames_ = 8;
+					i = 0;
+					cont = 0;
+
+				}
+			}
+			else if (fila_ != 5) {
+				is_attaking = true;
+				fila_ = 5;
+				frames_ = 8;
+				i = 0;
+				cont = 0;
+			}
+			
+		}
+	}
+	void setAtack() {
+		is_attaking = true;
+		fila_ = 5;
+		frames_ = 8;
+		i = 0;
+		cont = 0;
 	}
 	// Dibuja en escena
 	void render() {
@@ -78,13 +127,21 @@ public:
 			src.y = tr_->getH() * fila_;
 			src.h = tr_->getH();
 			src.w = tr_->getW() / framesTotales_;
-			tex_->render(src, rect);
+			tex_->render(src, rect,0,nullptr,s);
 			if (cont >= 10) {
 				i++;
 				cont = 0;
 			}
 			cont++;
-			if (i ==frames_) i = 0;
+			if (i == frames_) { 
+				i = 0;
+				if (is_attaking) {
+					is_attaking = false;
+					//ent_->getComponent<InputComponentBEU>(INPUTCOMPONENTBEU_H)->stop_attack();
+					static_cast<PlayerBEU*>(ent_)->setAttack(false);
+				}
+			
+			}
 		}
 		
 	}
@@ -94,7 +151,12 @@ private:
 	int cont = 0;
 	Transform* tr_; // Consulta las caracteristicas fisicas
 	Texture* tex_;	// Imagen a rederizar
+
 	/*Camera* cam_;*/
 	Transform* camTr_;
+
+	SDL_RendererFlip s = SDL_FLIP_NONE;
+	bool is_attaking = false;
+
 };
 #endif

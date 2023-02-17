@@ -5,6 +5,7 @@
 #include "Enemy.h"
 #include "InputComponent.h"
 #include "DialogBox.h"
+#include "EnemyBEU.h"
 
 class BeatEmUpState : public Manager
 {
@@ -23,7 +24,7 @@ public:
 		cmpId_type b = int(INPUTCOMPONENTBEU_H);
 		in_ = player_->getComponent<InputComponentBEU>(b);
 		cmpId_type w = int(INPUTCOMPONENT_H);
-		
+		addEntity(new EnemyBEU(gm_, player_, 100));
 
 	
 	}

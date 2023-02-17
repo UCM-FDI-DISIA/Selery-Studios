@@ -23,9 +23,11 @@ private:
 	int h = 27;
 	int fila_;
 	bool matrix_ = false;
+	string aaa;
 public:
-	DialogBox(GameManager* gm_) {
-		font_ = new Font("./assets/fonts/text.ttf", 35);
+	DialogBox(GameManager* gm_, int a) {
+		font_ = &SDLUtils::instance()->fonts().at("TCentury");
+		aaa = SDLUtils::instance()->dialog().at("1");
 		cmpId_type z = int(TRANSFORM_H);
 		tr = addComponent<Transform>(z, DialogBoxPosition_, DialogBoxWith_, DialogBoxHeith_, DialogBoxRotation_, nframes, matrix_);
 		t = new Texture(gm_->getRenderer(), "./assets/fonts/image.png");
