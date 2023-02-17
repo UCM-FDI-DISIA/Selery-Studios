@@ -6,6 +6,7 @@
 #include "GameManager.h"
 #include "CheckCollision.h"
 #include "PlayerTD.h"
+#include "ObjectsComponent.h"
 
 
 class Portal : public Entity
@@ -22,13 +23,7 @@ private:
 	int nframes = 1;
 	int elementsCollected = 0;
 public:
-
-
-
-	~Portal()
-	{
-
-	}
+	~Portal() {}
 
 	void update() {}
 
@@ -39,11 +34,14 @@ public:
 	{
 		m = gm_;
 		player_ = player;
-		tr = addComponent<Transform>(int(TRANSFORM_H), portalPosition_, portalWidth_, portalHeight_, portalRotation_);
+		tr = addComponent<Transform>(int(TRANSFORM_H), portalPosition_, portalWidth_, portalHeight_, portalRotation_, nframes, false);
 		trPlayer_ = player_->getComponent<Transform>(int(TRANSFORM_H));
-		t = new Texture(gm_->getRenderer(), "./assets/MapAssets/AncientRuins/Props/portal.png");
-		addComponent<Image>(int(IMAGE_H), t, nframes);
-
+		t = &SDLUtils::instance()->images().at("portal");
+		addComponent<Image>(int(IMAGE_H), t, nframes, nframes, 0);
+		addComponent<ObjectsComponent>(int(OBJECTSCOMPONENT_H));
+		elementEarned();
+		elementEarned();
+		elementEarned();
 	}
 
 };

@@ -132,7 +132,6 @@
   <ItemGroup>
     <ClInclude Include="BeatEmUpState.h" />
     <ClInclude Include="CheckCollision.h" />
-    <ClInclude Include="Class.h" />
     <ClInclude Include="Collision.h" />
     <ClInclude Include="DialogBox.h" />
     <ClInclude Include="Enemy.h" />
@@ -146,8 +145,10 @@
     <ClInclude Include="LifeComponent.h" />
     <ClInclude Include="MovementComponent.h" />
     <ClInclude Include="Npc.h" />
+    <ClInclude Include="ObjectsComponent.h" />
     <ClInclude Include="PlayerBEU.h" />
     <ClInclude Include="PlayerTD.h" />
+    <ClInclude Include="Portal.h" />
     <ClInclude Include="SkinComponent.h" />
     <ClInclude Include="states\GameState.h" />
     <ClInclude Include="states\GameStateMachine.h" />
@@ -180,7 +181,6 @@
   <ItemGroup>
     <ClCompile Include="BeatEmUpState.cpp" />
     <ClCompile Include="CheckCollision.cpp" />
-    <ClCompile Include="Class.cpp" />
     <ClCompile Include="Collision.cpp" />
     <ClCompile Include="DialogBox.cpp" />
     <ClCompile Include="Enemy.cpp" />
@@ -192,8 +192,10 @@
     <ClCompile Include="LifeComponent.cpp" />
     <ClCompile Include="MovementComponent.cpp" />
     <ClCompile Include="Npc.cpp" />
+    <ClCompile Include="ObjectsComponent.cpp" />
     <ClCompile Include="PlayerBEU.cpp" />
     <ClCompile Include="PlayerTD.cpp" />
+    <ClCompile Include="Portal.cpp" />
     <ClCompile Include="SkinComponent.cpp" />
     <ClCompile Include="states\GameState.cpp" />
     <ClCompile Include="states\GameStateMachine.cpp" />

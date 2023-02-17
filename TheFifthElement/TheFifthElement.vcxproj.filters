@@ -29,9 +29,10 @@
     <ClCompile Include="utils\Entity.cpp" />
     <ClCompile Include="utils\Manager.cpp" />
     <ClCompile Include="utils\Vector2D.cpp" />
-    <ClCompile Include="Class.cpp" />
     <ClCompile Include="EnemyBEU.cpp" />
     <ClCompile Include="EnemyBEUDirectionComponent.cpp" />
+    <ClCompile Include="Portal.cpp" />
+    <ClCompile Include="ObjectsComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BeatEmUpState.h" />
@@ -77,9 +78,10 @@
     <ClInclude Include="utils\Manager.h" />
     <ClInclude Include="utils\Singleton.h" />
     <ClInclude Include="utils\Vector2D.h" />
-    <ClInclude Include="Class.h" />
     <ClInclude Include="EnemyBEU.h" />
     <ClInclude Include="EnemyBEUDirectionComponent.h" />
+    <ClInclude Include="Portal.h" />
+    <ClInclude Include="ObjectsComponent.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="TheFifthElement.rc" />

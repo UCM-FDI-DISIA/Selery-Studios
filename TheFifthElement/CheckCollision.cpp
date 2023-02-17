@@ -4,9 +4,10 @@
 using namespace std;
 cmpId_type p = int(TRANSFORM_H);
 
-CheckCollision::CheckCollision(PlayerTD* player, GameManager* gm_) :Component() {
+CheckCollision::CheckCollision(PlayerTD* player, GameManager* gm_, string id) : Component() {
 	player_ = player;
 	gm = gm_;
+	id_ = id;
 }
 
 CheckCollision::CheckCollision(PlayerTD* player,GameManager* gm_, float lookingRange, float lookingWidth, float side) :Component() {
@@ -40,12 +41,13 @@ void CheckCollision::initComponent() {
 		rectNPC = getRectNPC();
 	}
 	rectPlayer = getPlayerRect();
-	
+
+	enemies = ent_->hasComponent(LIFECOMPONENT_H);
+	objects_ = ent_->hasComponent(OBJECTSCOMPONENT_H);
 }
 void CheckCollision::update() 
 {
-	
-	if (ent_->hasComponent(LIFECOMPONENT_H))
+	if (enemies)
 	{
     	if (Collision::collides(Vector2D(rectPlayer.x,rectPlayer.y), rectPlayer.w,rectPlayer.h, Vector2D(rectFight.x,rectFight.y),rectFight.w,rectFight.h))					//Aumentado el numero por el que dividimos las alturas y anchuras, tambien aumentamos lo que tarda en detectarnos el enemigo
 		{
@@ -53,12 +55,16 @@ void CheckCollision::update()
 		}
 		else if (Collision::collides(Vector2D(rectPlayer.x, rectPlayer.y), rectPlayer.w, rectPlayer.h, Vector2D(rectDetection.x, rectDetection.y), rectDetection.w, rectDetection.h))
 		{
-
 			//SDLUtils::instance()->soundEffects().at("prueba").play();
 		}
 	}
-	else
-	{
+	else if (objects_ && id_ == "portal") {
+		if (Collision::collides(Vector2D(rectPlayer.x, rectPlayer.y), rectPlayer.w, rectPlayer.h, Vector2D(tr1->getPos().getX(), tr1->getPos().getY()), tr1->getW(), tr1->getH()))					//Aumentado el numero por el que dividimos las alturas y anchuras, tambien aumentamos lo que tarda en detectarnos el enemigo
+		{
+			cout << "Me voy al reino de luz";
+		}
+	}
+	else {
 
 		if (Collision::collides(Vector2D(rectPlayer.x, rectPlayer.y), rectPlayer.w, rectPlayer.h, Vector2D(rectNPC.x, rectNPC.y), rectNPC.w, rectNPC.h))					//Aumentado el numero por el que dividimos las alturas y anchuras, tambien aumentamos lo que tarda en detectarnos el enemigo
 		{
@@ -70,9 +76,6 @@ void CheckCollision::update()
 		
 	}
 	updateRects();
-	
-
-	
 }
 
 

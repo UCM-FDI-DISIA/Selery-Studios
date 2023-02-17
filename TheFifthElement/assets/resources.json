@@ -24,6 +24,10 @@
     {
       "id": "p_right",
       "file": "assets/PlayableCharacters/Exploration/Fire/andarIzquierda.png"
+    },
+    {
+      "id": "portal",
+      "file": "assets/MapAssets/AncientRuins/Props/portal.png"
     }
   ],
 
