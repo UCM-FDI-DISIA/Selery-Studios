@@ -55,6 +55,7 @@ void InputComponentBEU::handleEvents(SDL_Event event)
 			}
 			else mov_->setDir(Vector2D(0, 0));
 		}
+		else mov_->setDir(Vector2D(0, 0));
 		
 	}
 
