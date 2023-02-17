@@ -1,6 +1,17 @@
 {
+  "dialog": [
+    {
+      "id": "1",
+      "text": "HOLA FUNCIONA?"
+    }
+  ],
 
   "fonts": [
+    {
+      "id": "TCentury",
+      "file": "assets/fonts/text.TTF",
+      "size": 16
+    }
 
   ],
 
@@ -89,7 +100,6 @@
       "id": "batDie",
       "file": "assets/sounds/enemy/bat/batDeath.wav"
     }
-
   ],
 
   "musics": [
@@ -104,3 +114,4 @@
   ]
 
 } 
+ 

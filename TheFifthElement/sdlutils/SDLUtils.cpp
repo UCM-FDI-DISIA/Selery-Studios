@@ -16,6 +16,7 @@ SDLUtils::SDLUtils(std::string windowTitle, int width, int height) :
 	windowTitle_(windowTitle), //
 	width_(width), //
 	height_(height), //
+	dialogAccessWrapper_(dialog_, "Dialog Table"),//
 	fontsAccessWrapper_(fonts_, "Fonts Table"), //
 	imagesAccessWrapper_(images_, "Images Table"), //
 	msgsAccessWrapper_(msgs_, "Messages Table"), //
@@ -132,7 +133,30 @@ void SDLUtils::loadReasources(std::string filename) {
 
 	// TODO improve syntax error checks below, now we do not check
 	//      validity of keys with values as sting or integer
-
+	jValue = root["dialog"];
+	if (jValue != nullptr) {
+		if (jValue->IsArray()) {
+			fonts_.reserve(jValue->AsArray().size()); // reserve enough space to avoid resizing
+			for (auto& v : jValue->AsArray()) {
+				if (v->IsObject()) {
+					JSONObject vObj = v->AsObject();
+					std::string key = vObj["id"]->AsString();
+					std::string file = vObj["text"]->AsString();
+#ifdef _DEBUG
+					std::cout << "Loading dialog with id: " << key << std::endl;
+#endif
+					dialog_.emplace(key, file);
+				}
+				else {
+					throw "'fonts' array in '" + filename
+						+ "' includes and invalid value";
+				}
+			}
+		}
+		else {
+			throw "'dialog' is not an array in '" + filename + "'";
+		}
+	}
 	// load fonts
 	jValue = root["fonts"];
 	if (jValue != nullptr) {

@@ -56,10 +56,13 @@ public:
 
 	}
 	void LoadMap(string const& filename);
-	void dialog() {
+	void dialog(int a) {
 		if (dialog_ == false ) {
-			addEntity(new DialogBox(Gm_));
+			addEntity(new DialogBox(Gm_, a));
 			dialog_ = true;
+		}
+		else {
+			
 		}
 	}
 	void handleEvents()
