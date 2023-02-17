@@ -69,8 +69,12 @@ public:
 		cmpId_type s = int(MOVEMENTCOMPONENT_H);
 		mov_ = addComponent<MovementComponent>(s);
 		cmpId_type e = int(ENEMYBEUDIRECTIONCOMPONENT_H);
-		eMov_ = addComponent<EnemyBEUDirectionComponent>(e);
+		eMov_ = addComponent<EnemyBEUDirectionComponent>(e, player);
 		//addComponent<LifeComponent>(int(LIFECOMPONENT_H), m, tr, maxLife_);
+	}
+
+	PlayerBEU* returnPlayer() {
+		return player_;
 	}
 };
 
