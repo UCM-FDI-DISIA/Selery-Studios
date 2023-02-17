@@ -60,7 +60,7 @@ public:
 		float lookingRange = 150.0f;
 		float lookingWidth = 100.0f;
 		tr = addComponent<Transform>(int(TRANSFORM_H), EnemyPosition_, EnemyWidth_, EnemyHeight_, EnemyRotation_, nframes, matrix_);
-		t = new Texture(gm_->getRenderer(),"./assets/Enemies/Pack/Water/WaterSkeleton/idle.png");
+		t = new Texture(gm_->getRenderer(),"./assets/Enemies/Pack/Wind/WindSkeleton/idle.png");
 		player_ = player;
 		trPlayer_ = player_->getComponent<Transform>(int(TRANSFORM_H));
 		//ch = addComponent<CheckCollision>(int(CHECKCOLLISION_H), player_, gm_, lookingRange, lookingWidth, a);
