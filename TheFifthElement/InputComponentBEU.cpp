@@ -50,11 +50,13 @@ void InputComponentBEU::handleEvents(SDL_Event event)
 			else if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_E)) {
 			SDLUtils::instance()->soundEffects().at("playerSpecialAttack").play();
 
-			}else if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_Q)) {
+			}
+			else if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_Q)) {
 				//attack = true;
 				static_cast<PlayerBEU*>(ent_)->setAttack(true);
 
-
+			}
+			else mov_->setDir(Vector2D(0, 0));
 		}
 		else mov_->setDir(Vector2D(0, 0));
 
