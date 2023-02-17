@@ -87,15 +87,6 @@ public:
 		}
 	}
 
-	void setAtack() {
-		animPlaying = true;
-		is_attaking = true;
-		fila_ = 5;
-		frames_ = 8;
-		i = 0;
-		cont = 0;
-	}
-
 	// Dibuja en escena
 	void render() {
 		if (frames_ == 0) { //Cuando la imagen solo tiene un frame (sin animación)
@@ -139,6 +130,10 @@ public:
 			i = I;
 			cont = Cont;
 		}
+	}
+
+	bool isAnimPlaying() {
+		return animPlaying;
 	}
 
 private:
