@@ -8,7 +8,6 @@
 #include "../InputComponentBEU.h"
 #include "../DialogBox.h"
 #include "../Camera.h"
-//#include "../utils/Manager.h"
 #include "tmxlite/Map.hpp"
 #include "tmxlite/TileLayer.hpp"
 
