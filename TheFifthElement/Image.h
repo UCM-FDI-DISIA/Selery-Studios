@@ -60,7 +60,7 @@ public:
 			}
 			s = SDL_FLIP_NONE;
 		}
-		else if (ent_->hasComponent(INPUTCOMPONENTBEU_H)) {
+		else if (ent_->hasComponent(INPUTCOMPONENTBEU_H) && !animPlaying) {
 			Vector2D player_vel = tr_->getVel();
 			
 			if (!(static_cast<PlayerBEU*>(ent_)->getAttack())){
@@ -79,35 +79,18 @@ public:
 					s = SDL_FLIP_HORIZONTAL;
 					cont = 0;
 					i = 0;
-
 				}
-
 				else if (fila_ != 0 && player_vel.getX() == 0) {
 					//tex_ = &SDLUtils::instance()->images().at("p_idle");
 					fila_ = 0;
 					frames_ = 8;
 					i = 0;
 					cont = 0;
-
 				}
 			}
-			else if (fila_ != 5) {
-				is_attaking = true;
-				fila_ = 5;
-				frames_ = 8;
-				i = 0;
-				cont = 0;
-			}
-			
 		}
 	}
-	void setAtack() {
-		is_attaking = true;
-		fila_ = 5;
-		frames_ = 8;
-		i = 0;
-		cont = 0;
-	}
+
 	// Dibuja en escena
 	void render() {
 		/*Vector2D v = static_cast<Camera*>(ent_)->getComponent<Transform>(TRANSFORM_H)->getPos();*/	
@@ -140,11 +123,25 @@ public:
 					//ent_->getComponent<InputComponentBEU>(INPUTCOMPONENTBEU_H)->stop_attack();
 					static_cast<PlayerBEU*>(ent_)->setAttack(false);
 				}
-			
+				if (animPlaying) { animPlaying = false; }
 			}
 		}
-		
 	}
+
+	void setAnim(bool Anim, int Fila, int Frames, int I, int Cont) { //Metodo generico para cambiar de animacion en BEU
+		if (fila_ != Fila && !animPlaying) { // Si la animacion no es la actual la actualiza
+			animPlaying = Anim;
+			fila_ = Fila;
+			frames_ = Frames;
+			i = I;
+			cont = Cont;
+		}
+	}
+
+	bool isAnimPlaying() {
+		return animPlaying;
+	}
+
 private:
 	int frames_, fila_, framesTotales_;
 	int i = 0;
@@ -158,5 +155,6 @@ private:
 	SDL_RendererFlip s = SDL_FLIP_NONE;
 	bool is_attaking = false;
 
+	bool animPlaying = false;
 };
 #endif

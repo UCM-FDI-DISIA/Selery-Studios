@@ -50,7 +50,7 @@
 
     {
       "id": "playerAttack",
-      "file": "assets/sounds/player/attack/playerAttackStrong.wav"
+      "file": "assets/sounds/player/attack/playerAttack.wav"
     },
     {
       "id": "playerSpecialAttack",
