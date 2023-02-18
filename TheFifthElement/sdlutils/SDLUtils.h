@@ -5,7 +5,7 @@
 #include <SDL.h>
 #include <string>
 #include <unordered_map>
-#include <string>
+
 #include "../utils/Singleton.h"
 #include "RandomNumberGenerator.h"
 #include "Font.h"
@@ -13,6 +13,7 @@
 #include "SoundEffect.h"
 #include "Texture.h"
 #include "VirtualTimer.h"
+
 class SDLUtils : public Singleton<SDLUtils> {
 
 	friend Singleton<SDLUtils>; // needed to give access to private constructors
@@ -121,10 +122,7 @@ public:
 
 	// All resource maps can be modified from outside, this way you can store
 	// your own dynamically. Be careful when modifying them!
-	// fonts map
-	inline auto& dialog() {
-		return dialogAccessWrapper_;
-	}
+
 	// fonts map
 	inline auto& fonts() {
 		return fontsAccessWrapper_;
@@ -150,9 +148,6 @@ public:
 		return musicsAccessWrapper_;
 	}
 
-	inline sdl_resource_table<Texture*>& tilesets() {
-		return tilesets_;
-	}
 	// Access to the random number generator. It is important to always
 	// use this generator, this way you can regenerate the same sequence
 	// if you start from the same seed
@@ -190,15 +185,12 @@ private:
 	SDL_Window* window_; // the window
 	SDL_Renderer* renderer_; // the renderer
 
-	sdl_resource_table<std::string> dialog_; // fonts map (string -> dialog)
 	sdl_resource_table<Font> fonts_; // fonts map (string -> font)
 	sdl_resource_table<Texture> images_; // textures map (string -> texture)
 	sdl_resource_table<Texture> msgs_; // textures map (string -> texture)
 	sdl_resource_table<SoundEffect> sounds_; // sounds map (string -> sound)
 	sdl_resource_table<Music> musics_; // musics map (string -> music)
-	sdl_resource_table<Texture*> tilesets_;
 
-	map_access_wrapper<std::string> dialogAccessWrapper_;
 	map_access_wrapper<Font> fontsAccessWrapper_;
 	map_access_wrapper<Texture> imagesAccessWrapper_;
 	map_access_wrapper<Texture> msgsAccessWrapper_;

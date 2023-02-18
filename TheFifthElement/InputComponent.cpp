@@ -64,15 +64,14 @@ void InputComponent::handleEvents(SDL_Event event)
 				skin_->changeSkin("earth");
 			}
 		}
-		
-		
-	}
-	if (InputHandler::instance()->isKeyUp(SDL_SCANCODE_E)) {
-			int a = static_cast<PlayerTD*>(ent_)->getCol() != -1;
-			if (a) {
-				npccol = true;
-				static_cast<TopDownState*>(mngr_)->dialog(a);
+		if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_E)) {
+			cout << static_cast<PlayerTD*>(ent_)->getCol();
+			if (static_cast<PlayerTD*>(ent_)->getCol() != -1) {
+				static_cast<TopDownState*>(mngr_)->dialog();
 			}
 		}
+		
+	}
+	
 
 }
