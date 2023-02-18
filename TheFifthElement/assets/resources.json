@@ -1,6 +1,17 @@
 {
+  "dialog": [
+    {
+      "id": "1",
+      "text": "HOLA, soy el primer npc :) "
+    }
+  ],
 
   "fonts": [
+    {
+      "id": "TCentury",
+      "file": "assets/fonts/text.TTF",
+      "size": 16
+    }
 
   ],
 
@@ -36,29 +47,75 @@
   ],
 
   "sounds": [
-    { "id": "prueba", "file": "assets/sounds/beat.wav" },
+    {
+      "id": "prueba",
+      "file": "assets/sounds/beat.wav"
+    },
 
-    { "id": "playerAttack", "file": "assets/sounds/player/attack/playerAttackStrong.wav" },
-    { "id": "playerSpecialAttack", "file": "assets/sounds/player/attack/playerSpecialAttack.wav" },
-    { "id": "playerDamage", "file": "assets/sounds/player/damage/playerDamage.wav" },
-    { "id": "playerDie", "file": "assets/sounds/player/damage/playerDeath.wav" },
+    {
+      "id": "playerAttack",
+      "file": "assets/sounds/player/attack/playerAttack.wav"
+    },
+    {
+      "id": "playerSpecialAttack",
+      "file": "assets/sounds/player/attack/playerSpecialAttack.wav"
+    },
+    {
+      "id": "playerDamage",
+      "file": "assets/sounds/player/damage/playerDamage.wav"
+    },
+    {
+      "id": "playerDie",
+      "file": "assets/sounds/player/damage/playerDeath.wav"
+    },
 
-    { "id": "shroomDamage", "file": "assets/sounds/enemy/mushroom/mushroomDamage.wav" },
-    { "id": "shroomDie", "file": "assets/sounds/enemy/mushroom/mushroomDeath.wav" },
+    {
+      "id": "shroomDamage",
+      "file": "assets/sounds/enemy/mushroom/mushroomDamage.wav"
+    },
+    {
+      "id": "shroomDie",
+      "file": "assets/sounds/enemy/mushroom/mushroomDeath.wav"
+    },
 
-    { "id": "skeletonDamage", "file": "assets/sounds/enemy/skeleton/skeletonDamage.wav" },
-    { "id": "skeletonDie", "file": "assets/sounds/enemy/skeleton/skeletonDeath.wav" },
+    {
+      "id": "skeletonDamage",
+      "file": "assets/sounds/enemy/skeleton/skeletonDamage.wav"
+    },
+    {
+      "id": "skeletonDie",
+      "file": "assets/sounds/enemy/skeleton/skeletonDeath.wav"
+    },
 
-    { "id": "goblinDamage", "file": "assets/sounds/enemy/goblin/goblinDamage.wav" },
-    { "id": "goblinDie", "file": "assets/sounds/enemy/goblin/goblinDeath.wav" },
+    {
+      "id": "goblinDamage",
+      "file": "assets/sounds/enemy/goblin/goblinDamage.wav"
+    },
+    {
+      "id": "goblinDie",
+      "file": "assets/sounds/enemy/goblin/goblinDeath.wav"
+    },
 
-    { "id": "batDamage", "file": "assets/sounds/enemy/bat/batDamage.wav" },
-    { "id": "batDie", "file": "assets/sounds/enemy/bat/batDeath.wav" }
-   
+    {
+      "id": "batDamage",
+      "file": "assets/sounds/enemy/bat/batDamage.wav"
+    },
+    {
+      "id": "batDie",
+      "file": "assets/sounds/enemy/bat/batDeath.wav"
+    }
   ],
 
   "musics": [
 
+  ],
+
+  "tilesets": [
+    {
+      "id": "tileGuide",
+      "file": "assets/MapAssets/AncientRuins/Tilesets/tile_guide.png"
+    }
   ]
 
 } 
+ 
