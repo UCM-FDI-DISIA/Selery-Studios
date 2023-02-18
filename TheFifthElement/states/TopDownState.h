@@ -22,7 +22,6 @@ struct MapInfo {
 	int rows, cols;	//fila columna
 	int tile_width, tile_height;	//ancho y alto del tile
 	map<uint, Texture*> tilesets;	//mapa con CLAVE: int, ARGUMENTO: puntero a textura
-
 	//MapInfo() {
 	//	tile_MAP = nullptr;
 	//	path = "";
@@ -38,7 +37,7 @@ struct MapInfo {
 class TopDownState : public Manager {
 public:
 	virtual string getStateID() { return "top-down"; }; // stringID
-
+	DialogBox* d;
 	TopDownState(GameManager* gm_) {
 		Gm_ = gm_;
 		LoadMap("assets/MapAssets/tiledPrueba.tmx");
@@ -61,12 +60,17 @@ public:
 	}
 	void LoadMap(string const& filename);
 	void dialog(int a) {
-		if (dialog_ == false ) {
-			addEntity(new DialogBox(Gm_, a));
-			dialog_ = true;
+		if (dialog_ != false) {
+			cout << "sd"<<endl;
+			d->~DialogBox();
+			dialog_= false;
 		}
-		else {
-			
+		else  {
+			d = new DialogBox(Gm_, a);
+			addEntity(d);
+			dialog_ = true;
+			cout << "d" << endl;
+
 		}
 	}
 	void handleEvents()
