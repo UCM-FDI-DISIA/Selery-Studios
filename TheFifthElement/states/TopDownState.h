@@ -12,7 +12,7 @@
 class TopDownState : public Manager {
 public:
 	virtual string getStateID() { return "top-down"; }; // stringID
-
+	void LoadMap(string const& filename);
 	TopDownState(GameManager* gm_) {
 		Gm_ = gm_;
 		player_ = addEntity(new PlayerTD(Gm_));

@@ -6,7 +6,7 @@
 #include "GameManager.h"
 #include "CheckCollision.h"
 #include "PlayerTD.h"
-#include "LifeComponent.h"
+
 
 
 class Enemy : public Entity
