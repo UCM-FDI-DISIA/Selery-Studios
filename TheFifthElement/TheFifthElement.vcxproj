@@ -139,6 +139,7 @@
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="EnemyBEU.h" />
     <ClInclude Include="EnemyBEUDirectionComponent.h" />
+    <ClInclude Include="Entities\Background.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="Image.h" />
@@ -188,6 +189,7 @@
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="EnemyBEU.cpp" />
     <ClCompile Include="EnemyBEUDirectionComponent.cpp" />
+    <ClCompile Include="Entities\Background.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="InputComponent.cpp" />
     <ClCompile Include="InputComponentBEU.cpp" />

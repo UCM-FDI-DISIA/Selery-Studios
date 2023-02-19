@@ -117,7 +117,8 @@ public:
 					//ent_->getComponent<InputComponentBEU>(INPUTCOMPONENTBEU_H)->stop_attack();
 					static_cast<PlayerBEU*>(ent_)->setAttack(false);
 				}
-				if (animPlaying) { animPlaying = false; }
+				if (animPlaying) { animPlaying = false;	static_cast<PlayerBEU*>(ent_)->setAttack(false);
+				}
 			}
 		}
 	}

@@ -47,6 +47,9 @@
     {
       "id": "fireball",
       "file": "assets/Elements/FireBall/Sheets/IdleLoop-Sheet.png"
+    }, {
+      "id":"fondo",
+      "file":"assets/backgrounds/bonito/Grassy_Mountains_preview.png"
     }
   ],
 
