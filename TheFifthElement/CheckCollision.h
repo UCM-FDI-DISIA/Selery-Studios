@@ -9,20 +9,7 @@
 #include "GameManager.h"
 class CheckCollision : public Component
 {
-private:
-	PlayerTD* player_;
-	Transform* tr1;
-	Transform* tr2;
-	SDL_Rect rectFight, rectDetection, rectPlayer, rectNPC;
-	GameManager* gm;
-	float lookingRange_;
-	float lookingHeight_;
-	float offset;
-	int side_;
-	bool enemies, objects_;
-	string id_;
 public:
-	CheckCollision(PlayerTD* player, GameManager* gm_, string id);
 
 	//Constructora de CheckCollision, esta recibe tanto el player como el manager, para tomar referencias
 	//Y como valores el looking range, que es lo ancho que van a ser los rectangulos (el espacio que abarcan), el alto y la direcci?, side
@@ -47,5 +34,16 @@ public:
 	//Equivalente para el personaje
 	inline SDL_Rect getPlayerRect() { return build_sdlrect(tr2->getPos(), tr2->getW() / 7, tr2->getH()); }
 	void render();
+private:
+	PlayerTD* player_;
+	Transform* tr1;
+	Transform* tr2;
+	SDL_Rect rectFight,rectDetection,rectPlayer,rectNPC;
+	GameManager* gm;
+	float lookingRange_;
+	float lookingHeight_;
+	float offset;
+	int side_;
+	
 };
 #endif

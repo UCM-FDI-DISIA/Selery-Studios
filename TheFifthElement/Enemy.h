@@ -36,7 +36,7 @@ public:
 
 	void update()
 	{
-		
+	
 	}
 
 
@@ -52,11 +52,10 @@ public:
 		t = new Texture(gm_->getRenderer(), "./assets/NPCs/NPC5-idle-left.png");
 		player_ = player;
 		trPlayer_ = player_->getComponent<Transform>(int(TRANSFORM_H));
-		addComponent<LifeComponent>(int(LIFECOMPONENT_H), m, tr, maxLife_);
 		ch = addComponent<CheckCollision>(int(CHECKCOLLISION_H), player_,gm_, lookingRange, lookingWidth, a);
 		fila_ = 0;
 		addComponent<Image>(int(IMAGE_H), t, nframes, nframes, fila_);
-		
+		addComponent<LifeComponent>(int(LIFECOMPONENT_H), m, tr, maxLife_);
 	}
 
 };

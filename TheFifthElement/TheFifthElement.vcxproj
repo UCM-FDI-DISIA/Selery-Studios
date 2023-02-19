@@ -134,14 +134,12 @@
     <ClInclude Include="Camera.h" />
     <ClInclude Include="CameraComponent.h" />
     <ClInclude Include="CheckCollision.h" />
+    <ClInclude Include="Class.h" />
     <ClInclude Include="Collision.h" />
     <ClInclude Include="DialogBox.h" />
-    <ClInclude Include="DialogueComponent.h" />
-    <ClInclude Include="Element.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="EnemyBEU.h" />
     <ClInclude Include="EnemyBEUDirectionComponent.h" />
-    <ClInclude Include="Entities\Background.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="Image.h" />
@@ -152,7 +150,6 @@
     <ClInclude Include="Npc.h" />
     <ClInclude Include="PlayerBEU.h" />
     <ClInclude Include="PlayerTD.h" />
-    <ClInclude Include="Portal.h" />
     <ClInclude Include="SkinComponent.h" />
     <ClInclude Include="states\GameState.h" />
     <ClInclude Include="states\GameStateMachine.h" />
@@ -187,13 +184,12 @@
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="CameraComponent.cpp" />
     <ClCompile Include="CheckCollision.cpp" />
+    <ClCompile Include="Class.cpp" />
     <ClCompile Include="Collision.cpp" />
     <ClCompile Include="DialogBox.cpp" />
-    <ClCompile Include="Element.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="EnemyBEU.cpp" />
     <ClCompile Include="EnemyBEUDirectionComponent.cpp" />
-    <ClCompile Include="Entities\Background.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="InputComponent.cpp" />
     <ClCompile Include="InputComponentBEU.cpp" />
@@ -202,7 +198,6 @@
     <ClCompile Include="Npc.cpp" />
     <ClCompile Include="PlayerBEU.cpp" />
     <ClCompile Include="PlayerTD.cpp" />
-    <ClCompile Include="Portal.cpp" />
     <ClCompile Include="SkinComponent.cpp" />
     <ClCompile Include="states\GameState.cpp" />
     <ClCompile Include="states\GameStateMachine.cpp" />

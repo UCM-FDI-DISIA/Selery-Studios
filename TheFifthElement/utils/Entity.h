@@ -39,7 +39,7 @@ public:
 	template<typename T, typename ...Ts>
 	inline T* addComponent(cmpId_type cId, Ts && ...args) {
 		T* c = new T(forward<Ts>(args)...);
-		// Borra el componente actual de la posiciï¿½n cId en caso 
+		// Borra el componente actual de la posición cId en caso 
 		// de encontrar el componeent
 		removeComponent(cId);
 		// Anade al array y a la lista de componentes

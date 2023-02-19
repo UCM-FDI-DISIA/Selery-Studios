@@ -46,7 +46,7 @@ void TopDownState::LoadMap(string const& filename) {
             tmx::TileLayer* tile_layer = dynamic_cast<tmx::TileLayer*>(layer.get());
             string name = tile_layer->getName();
             auto& layer_tiles = tile_layer->getTiles();
-            if (name != "Suelo") {
+            if (name == "Suelo") {
                 // recorremos todos los tiles para obtener su informacion
                 for (auto y = 0; y < mapInfo.rows; ++y) {
                     for (auto x = 0; x < mapInfo.cols; ++x) {
@@ -138,8 +138,8 @@ void TopDownState::LoadMap(string const& filename) {
 }
 
 void TopDownState::render() {
-    SDL_Rect dst = { 0, 0, 1600, 1600 };
-    SDL_Rect src = { 0, 0, 1600, 1600 };
+    SDL_Rect dst = { 0, 0, 160, 160 };
+    SDL_Rect src = { 0, 0, 160, 160 };
     SDL_RenderCopy(Gm_->getRenderer(), background_, &src, &dst);
     Manager::render();
 }

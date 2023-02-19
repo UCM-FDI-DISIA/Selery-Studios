@@ -8,8 +8,6 @@
 #include "../InputComponentBEU.h"
 #include "../DialogBox.h"
 #include "../Camera.h"
-#include "../Portal.h"
-#include "../Element.h"
 #include "tmxlite/Map.hpp"
 #include "tmxlite/TileLayer.hpp"
 
@@ -42,7 +40,7 @@ public:
 
 	TopDownState(GameManager* gm_) {
 		Gm_ = gm_;
-		LoadMap("assets/MapAssets/MapaInicial.tmx");
+		LoadMap("assets/MapAssets/tiledPrueba.tmx");
 		player_ = addEntity(new PlayerTD(Gm_));
 		dialog_ = false;
 		addEntity(new Npc(Gm_, player_));
@@ -56,23 +54,14 @@ public:
 		//addEntity(playerBEU_);
 		//addEntity(new DialogBox(Gm_));
 		addEntity(new Enemy(Gm_, player_, 100));
+		//cam_ = addEntity(new Camera(Gm_, player_));
 		addEntity(new Camera(Gm_, player_));
-		Portal* p = addEntity(new Portal(Gm_, player_));
-		addEntity(new Element(Gm_, player_, Vector2D(100, 100), p));
-		addEntity(new Element(Gm_, player_, Vector2D(300, 100), p));
-		addEntity(new Element(Gm_, player_, Vector2D(200, 200), p));
+
 	}
 	void LoadMap(string const& filename);
 	void dialog(int a) {
-		if (dialog_ != false) {
-			in_->changebool();
-			cout << "sd"<<endl;
-			d->~DialogBox();
-			dialog_= false;
-		}
-		else  {
-			d = new DialogBox(Gm_, a);
-			addEntity(d);
+		if (dialog_ == false ) {
+			addEntity(new DialogBox(Gm_, a));
 			dialog_ = true;
 		}
 		else {
