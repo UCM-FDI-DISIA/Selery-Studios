@@ -133,6 +133,7 @@
     <ClInclude Include="BeatEmUpState.h" />
     <ClInclude Include="CheckCollision.h" />
     <ClInclude Include="Collision.h" />
+    <ClInclude Include="componets\Enemy_movementTD_component.h" />
     <ClInclude Include="DialogBox.h" />
     <ClInclude Include="DialogueComponent.h" />
     <ClInclude Include="Element.h" />
@@ -184,6 +185,7 @@
     <ClCompile Include="BeatEmUpState.cpp" />
     <ClCompile Include="CheckCollision.cpp" />
     <ClCompile Include="Collision.cpp" />
+    <ClCompile Include="componets\Enemy_movementTD_component.cpp" />
     <ClCompile Include="DialogBox.cpp" />
     <ClCompile Include="Element.cpp" />
     <ClCompile Include="Enemy.cpp" />
@@ -196,6 +198,7 @@
     <ClCompile Include="LifeComponent.cpp" />
     <ClCompile Include="MovementComponent.cpp" />
     <ClCompile Include="Npc.cpp" />
+    <ClCompile Include="ObjectsComponent.cpp" />
     <ClCompile Include="PlayerBEU.cpp" />
     <ClCompile Include="PlayerTD.cpp" />
     <ClCompile Include="Portal.cpp" />

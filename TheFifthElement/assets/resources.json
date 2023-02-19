@@ -20,6 +20,15 @@
   ],
 
   "images": [
+    { 
+      "id":"BEU_wind_Mushroom",
+      "file":"./assets/Enemies/Pack/Wind/WindMushroom/Idle.png"
+      
+    },
+    {
+"id":"TD_wind_mushroom",
+"file":"assets/Enemies/TopDown/shroomRunLeft.png"
+    },
     {
       "id": "p_idle",
       "file": "assets/PlayableCharacters/Exploration/Fire/idle.png"

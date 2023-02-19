@@ -33,7 +33,7 @@ void CheckCollision::initComponent() {
 	{
 		offset = (tr1->getW() / 7)-60;
 	}
-	if (ent_->hasComponent(LIFECOMPONENT_H))
+	if (ent_->hasComponent(ENEMY_MOVEMENT_TD_H))
 	{
 		rectFight = getRectFight();
 		rectDetection = getRectDetection();
@@ -43,7 +43,7 @@ void CheckCollision::initComponent() {
 	}
 	rectPlayer = getPlayerRect();
 
-	enemies = ent_->hasComponent(LIFECOMPONENT_H);
+	enemies = ent_->hasComponent(ENEMY_MOVEMENT_TD_H);
 	objects_ = ent_->hasComponent(OBJECTSCOMPONENT_H);
 }
 void CheckCollision::update() 
