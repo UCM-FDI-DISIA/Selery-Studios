@@ -17,6 +17,7 @@ enum cmpId : cmpId_type {
 	SKINCOMPONENT_H = 9,
 	ENEMYBEUDIRECTIONCOMPONENT_H = 10,
 	DIALOGCOMPONENT_H = 11,
+	OBJECTSCOMPONENT_H = 12,
 	// do not remove this
 	_LAST_CMP_ID
 };

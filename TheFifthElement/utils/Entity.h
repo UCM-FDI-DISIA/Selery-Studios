@@ -39,7 +39,7 @@ public:
 	template<typename T, typename ...Ts>
 	inline T* addComponent(cmpId_type cId, Ts && ...args) {
 		T* c = new T(forward<Ts>(args)...);
-		// Borra el componente actual de la posición cId en caso 
+		// Borra el componente actual de la posiciï¿½n cId en caso 
 		// de encontrar el componeent
 		removeComponent(cId);
 		// Anade al array y a la lista de componentes
@@ -71,14 +71,14 @@ public:
 		return cmps_[cId] != nullptr;
 	}
 
-	 inline void update() {
+	inline void update() {
 		auto n = currCmps_.size();
 		for (auto i = 0u; i < n; i++)
 			currCmps_[i]->update();
 	}
 	
 
-	 inline void render() {
+	inline void render() {
 		auto n = currCmps_.size();
 		for (auto i = 0u; i < n; i++)
 			currCmps_[i]->render();

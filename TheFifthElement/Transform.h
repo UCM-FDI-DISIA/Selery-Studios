@@ -52,7 +52,6 @@ public:
 
     void render()
     {
-
         if (matrix_)
             rect = build_sdlrect(getPos().getX() + 120, getPos().getY() + 70, getW() / (5 * framesTotales_), getH() / 2);
         else
