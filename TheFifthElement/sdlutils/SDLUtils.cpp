@@ -9,7 +9,7 @@
 
 
 SDLUtils::SDLUtils() :
-		SDLUtils("El quinto elemento :)", 160, 160, "assets/resources.json") {
+	SDLUtils("El quinto elemento :)",400, 300, "assets/resources.json") {
 }
 
 SDLUtils::SDLUtils(std::string windowTitle, int width, int height) :

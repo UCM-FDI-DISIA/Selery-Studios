@@ -29,7 +29,7 @@ void GameManager::run()// bucle de juego
 	startTime = SDL_GetTicks();
 	while (!exit) // bucle de juego
 	{
-		SDL_RenderClear(renderer);
+		//SDL_RenderClear(renderer);
 
 		handleEvents();
 

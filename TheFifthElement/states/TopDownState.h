@@ -10,8 +10,6 @@
 #include "tmxlite/TileLayer.hpp"
 
 
-
-
 #define TILE_SIZE 16
 
 using uint = unsigned int;
@@ -42,6 +40,9 @@ public:
 	TopDownState(GameManager* gm_) {
 		Gm_ = gm_;
 		LoadMap("assets/MapAssets/tiledPrueba.tmx");
+		/*mBackground->setTexture(mapInfo.path);
+		mBackground->setPosition(mMapInfo.mAnchoFondo / 2, sdlutils().height() / 2);
+		mBackground->setDimension(mMapInfo.mAnchoFondo, mMapInfo.mAltoFondo);*/
 		addEntity(new Npc(Gm_));
 		player_ = new PlayerTD(Gm_);
 		addEntity(player_);
@@ -67,5 +68,6 @@ private:
 	MapInfo mapInfo;//struct
 	tileset_map tilesets_; // textures map (string -> texture)
 	SDL_Texture* background_;
+	//Imagen* mBackground;
 };
 

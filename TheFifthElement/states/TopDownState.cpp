@@ -20,7 +20,7 @@ void TopDownState::LoadMap(string const& filename) {
 
 
     // convertir a textura
-    background_ = SDL_CreateTexture(Gm_->getRenderer(), SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, fondowidth_, fondoheight_);
+   background_ = SDL_CreateTexture(Gm_->getRenderer(), SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, fondowidth_, fondoheight_);
     SDL_RenderClear(Gm_->getRenderer());
     SDL_SetTextureBlendMode(background_, SDL_BLENDMODE_BLEND);
     SDL_SetRenderTarget(Gm_->getRenderer(), background_);
@@ -111,7 +111,7 @@ void TopDownState::LoadMap(string const& filename) {
                         //SDL_RendererFlip tileFlip = SDL_FLIP_NONE;
 
                         //Multiplicamos por 45 porque esta multiplicado por factor de 45 (lo que devuelve rot)
-                        mapInfo.tilesets[tset_gid]->render(src, dest, tileRot * rotCorrection);
+                        mapInfo.tilesets[tset_gid]->render(src, dest);
                         
                     }
                 }
@@ -128,5 +128,7 @@ void TopDownState::LoadMap(string const& filename) {
 
         }
     }
+   SDL_SetRenderTarget(Gm_->getRenderer(), nullptr);
+   SDL_RenderPresent(Gm_->getRenderer());
 }
     
