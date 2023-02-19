@@ -60,7 +60,7 @@ public:
 		float lookingRange = 150.0f;
 		float lookingWidth = 100.0f;
 		tr = addComponent<Transform>(int(TRANSFORM_H), EnemyPosition_, EnemyWidth_, EnemyHeight_, EnemyRotation_, nframes, matrix_);
-		t = new Texture(gm_->getRenderer(),"./assets/Enemies/Pack/Water/WaterSkeleton/idle.png");
+		t = new Texture(gm_->getRenderer(),"./assets/Enemies/Pack/Wind/WindSkeleton/idle.png");
 		player_ = player;
 		trPlayer_ = player_->getComponent<Transform>(int(TRANSFORM_H));
 		//ch = addComponent<CheckCollision>(int(CHECKCOLLISION_H), player_, gm_, lookingRange, lookingWidth, a);
@@ -69,8 +69,12 @@ public:
 		cmpId_type s = int(MOVEMENTCOMPONENT_H);
 		mov_ = addComponent<MovementComponent>(s);
 		cmpId_type e = int(ENEMYBEUDIRECTIONCOMPONENT_H);
-		eMov_ = addComponent<EnemyBEUDirectionComponent>(e);
+		eMov_ = addComponent<EnemyBEUDirectionComponent>(e, player);
 		//addComponent<LifeComponent>(int(LIFECOMPONENT_H), m, tr, maxLife_);
+	}
+
+	PlayerBEU* returnPlayer() {
+		return player_;
 	}
 };
 
