@@ -116,8 +116,8 @@
 
   "tilesets": [
     {
-      "id": "tileGuide",
-      "file": "assets/MapAssets/AncientRuins/Tilesets/tile_guide.png"
+      "id": "wall-6 - 2 tiles tall",
+      "file": "assets/MapAssets/AncientRuins/Tilesets/wall-6 - 2 tiles tall.png"
     }
   ]
 

@@ -40,10 +40,10 @@ public:
 	DialogBox* d;
 	TopDownState(GameManager* gm_) {
 		Gm_ = gm_;
-		LoadMap("assets/MapAssets/tiledPrueba.tmx");
+		LoadMap("assets/MapAssets/MapaInicial.tmx");
 		player_ = addEntity(new PlayerTD(Gm_));
 		dialog_ = false;
-		addEntity(new Npc(Gm_, player_));
+		//addEntity(new Npc(Gm_, player_));
 		//playerBEU_ = new PlayerBEU(Gm_);
 
 	//	cmpId_type b = int(INPUTCOMPONENTBEU_H);
