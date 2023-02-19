@@ -11,9 +11,11 @@ public:
 
 	Manager();
 	virtual ~Manager();
-
-	Entity* addEntity(Entity* e) {
+	template<typename T>
+	T* addEntity(T* e) {
 		e->setAlive(true);
+		e->setContext(this);
+		e->initEntity();
 		ents_.push_back(e);
 		return e;
 	}

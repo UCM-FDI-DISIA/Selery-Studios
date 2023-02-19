@@ -3,17 +3,17 @@
 #include "Transform.h"
 #include "utils/ecs.h"
 #include "sdlutils/Texture.h"
-#include "RenderComponent.h"
 #include "GameManager.h"
 #include "CheckCollision.h"
 #include "PlayerTD.h"
+#include "LifeComponent.h"
 
 
 class Enemy : public Entity
 {
 private:
-	Vector2D EnemyPosition_{ 300,150 };
-	Vector2D EnemyVelocity_{ 0,0 };
+	Vector2D EnemyPosition_{ 450,150 };
+	//float speed_ = 0.0f;
 	float EnemyWidth_ = 476, EnemyHeight_ = 120, EnemyRotation_ = 1;
 	Texture* t;
 	Transform* tr;
@@ -22,23 +22,10 @@ private:
 	PlayerTD* player_;
 	CheckCollision* ch;
 	int nframes = 7;
-
+	int fila_;
+	float life_, maxLife_;
+	bool matrix_ = false;
 public:
-
-	Enemy(GameManager* gm_) : Entity()
-	{
-		cmpId_type z = int(_TRANSFORM_H_);
-		tr = addComponent<Transform>(z, EnemyPosition_, EnemyVelocity_, EnemyWidth_, EnemyHeight_, EnemyRotation_);
-		t = new Texture(gm_->getRenderer(), "./assets/NPCs/NPC5-idle-left.png");
-		cmpId_type x = int(RENDERCOMPONENT_H);
-
-
-
-
-		//referencia al texture y al transform
-		addComponent<RenderComponent>(x, t, tr, nframes);
-		//addComponent(ecs::TRANSFORM_H, Transform(this, m, Vector2D(0, 0), Vector2D(0, 0), 1, 1, 1));
-	}
 
 
 
@@ -49,28 +36,26 @@ public:
 
 	void update()
 	{
-		cout << "as";
+	
 	}
 
 
-	Enemy(GameManager* gm_, PlayerTD* player) : Entity()
+	Enemy(GameManager* gm_, PlayerTD* player, float maxLife) : Entity()
 	{
-		cmpId_type z = int(_TRANSFORM_H_);
-
-		tr = addComponent<Transform>(z, EnemyPosition_, EnemyVelocity_, EnemyWidth_, EnemyHeight_, EnemyRotation_);
+		maxLife_ = maxLife;
+		life_ = maxLife;
+		m = gm_;
+		float a =1.0f;
+		float lookingRange = 150.0f;
+		float lookingWidth = 100.0f;
+		tr = addComponent<Transform>(int(TRANSFORM_H), EnemyPosition_, EnemyWidth_, EnemyHeight_, EnemyRotation_, nframes, matrix_);
 		t = new Texture(gm_->getRenderer(), "./assets/NPCs/NPC5-idle-left.png");
-		cmpId_type x = int(RENDERCOMPONENT_H);
 		player_ = player;
-		trPlayer_ = player_->getComponent<Transform>(z);
-		cmpId_type w = int(CHECKCOLLISION_H);
-		ch = addComponent<CheckCollision>(w, player_);
-
-
-
-
-		//referencia al texture y al transform
-		addComponent<RenderComponent>(x, t, tr, nframes);
-		//addComponent(ecs::TRANSFORM_H, Transform(this, m, Vector2D(0, 0), Vector2D(0, 0), 1, 1, 1));
+		trPlayer_ = player_->getComponent<Transform>(int(TRANSFORM_H));
+		ch = addComponent<CheckCollision>(int(CHECKCOLLISION_H), player_,gm_, lookingRange, lookingWidth, a);
+		fila_ = 0;
+		addComponent<Image>(int(IMAGE_H), t, nframes, nframes, fila_);
+		addComponent<LifeComponent>(int(LIFECOMPONENT_H), m, tr, maxLife_);
 	}
 
 };

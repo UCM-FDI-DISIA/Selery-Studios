@@ -8,14 +8,16 @@ class MovementComponent : public Component
 {
 public:
 
-	MovementComponent();
+	MovementComponent() {
+		
+	}
 	void initComponent();
 	void update();
-	inline void setSpeed(Vector2D SPEED) {
-		speed = SPEED;
+	void setDir(Vector2D direction) {
+		tr->setVel(direction);
 	}
 private:
-	Transform* tr = nullptr; 
-	Vector2D speed = Vector2D(0,0);
+	Transform* tr = nullptr;
+	
 };
 #endif

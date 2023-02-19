@@ -4,7 +4,6 @@
 #include <array>
 #include <vector>
 #include <bitset>
-#include <iostream>
 
 using namespace std;
 
@@ -12,20 +11,23 @@ class Entity
 {
 private:
 	bool alive_;
+	Manager* mngr_;
 	vector<Component*> currCmps_;
 	array<Component*, maxComponentId> cmps_;
 public:
-	Entity() :cmps_(), currCmps_(), alive_() {
+	Entity() :mngr_(nullptr), cmps_(), currCmps_(), alive_() {
 
 		currCmps_.reserve(maxComponentId);
 	}
-
+	virtual void initEntity() { }
 	virtual ~Entity() {
 		for (auto c : currCmps_) {
 			delete c;
 		}
 	}
-
+	// Asigna a la entidad su manager
+	inline void setContext(Manager* mngr) { mngr_ = mngr; }
+	// Devuelve si esta vivo
 	inline bool isAlive() {
 		return alive_;
 	}
@@ -33,14 +35,18 @@ public:
 	inline void setAlive(bool alive) {
 		alive_ = alive;
 	}
-
+	// Crea un componente
 	template<typename T, typename ...Ts>
-	inline T* addComponent(cmpId_type cId, Ts&... args) {
+	inline T* addComponent(cmpId_type cId, Ts && ...args) {
 		T* c = new T(forward<Ts>(args)...);
+		// Borra el componente actual de la posición cId en caso 
+		// de encontrar el componeent
 		removeComponent(cId);
+		// Anade al array y a la lista de componentes
 		currCmps_.push_back(c);
 		cmps_[cId] = c;
-		c->setContext(this);
+		// Inicializa el componente
+		c->setContext(this, mngr_);
 		c->initComponent();
 		return c;
 	}
