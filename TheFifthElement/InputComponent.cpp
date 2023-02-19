@@ -67,10 +67,12 @@ void InputComponent::handleEvents(SDL_Event event)
 		
 		
 	}
-	if (InputHandler::instance()->isKeyUp(SDL_SCANCODE_E)) {
+	if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_E)) {
+		cout << "f";
 			int a = static_cast<PlayerTD*>(ent_)->getCol() != -1;
-			if (a) {
+			if (a ) {
 				npccol = true;
+				mov_->setDir(Vector2D(0, 0));
 				static_cast<TopDownState*>(mngr_)->dialog(a);
 			}
 		}

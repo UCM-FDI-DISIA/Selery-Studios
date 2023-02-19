@@ -80,6 +80,7 @@
     <ClInclude Include="Class.h" />
     <ClInclude Include="EnemyBEU.h" />
     <ClInclude Include="EnemyBEUDirectionComponent.h" />
+    <ClInclude Include="DialogueComponent.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="TheFifthElement.rc" />

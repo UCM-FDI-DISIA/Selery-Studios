@@ -135,6 +135,7 @@
     <ClInclude Include="Class.h" />
     <ClInclude Include="Collision.h" />
     <ClInclude Include="DialogBox.h" />
+    <ClInclude Include="DialogueComponent.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="EnemyBEU.h" />
     <ClInclude Include="EnemyBEUDirectionComponent.h" />
