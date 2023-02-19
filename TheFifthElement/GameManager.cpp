@@ -13,8 +13,8 @@ GameManager::GameManager() {
 
 	//Audio de prueba
 	//SDLUtils::instance()->soundEffects().at("prueba").play();
-	gameStMc->pushState(new TopDownState(this));
-	//gameStMc->pushState(new BeatEmUpState(this));
+	//gameStMc->pushState(new TopDownState(this));
+	gameStMc->pushState(new BeatEmUpState(this));
 }
 
 
