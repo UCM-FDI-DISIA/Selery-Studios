@@ -11,21 +11,11 @@ void InputComponent::initComponent() {
 	skin_ = ent_->getComponent<SkinComponent>(SKINCOMPONENT_H);
 }
 void InputComponent::update() {
-	//mov_->setSpeed(Vector2D(-1, 0));
 	
-	/*if (InputHandler::instance()->isKeyDown(SDLK_LEFT)) {
-		mov_->setSpeed(Vector2D(-1, 0));
-	}
-	else if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_W)) {
-		mov_->setSpeed(Vector2D(-1, 0));
-	}
-	else if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_S)) {
-		mov_->setSpeed(Vector2D(-1, 0));
-	}
-	else if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_D)) {
-		mov_->setSpeed(Vector2D(-1, 0));
-	}
-	else mov_->setSpeed(Vector2D(0, 0)); std::cout << "asf" << endl;*/
+	//Actualizamos el contador que mide el tiempo
+	unsigned timer = clock();
+	actionDelay = (double(timer) / CLOCKS_PER_SEC);
+
 }
 
 
@@ -33,6 +23,7 @@ void InputComponent::handleEvents(SDL_Event event)
 {
 
 	InputHandler::instance()->update(event);
+
 
 	if(InputHandler::instance()->keyDownEvent())
 	{
@@ -68,13 +59,24 @@ void InputComponent::handleEvents(SDL_Event event)
 		
 	}
 	if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_E)) {
-		cout << "f";
+	
+		
+
+
+		if (actionDelay>0) { // The shorterpaddle and biggerpaddle rewards is activated REWARDS_TIME seconds
 			int a = static_cast<PlayerTD*>(ent_)->getCol() != -1;
-			if (a ) {
+			if (a) {
 				npccol = true;
 				mov_->setDir(Vector2D(0, 0));
 				static_cast<TopDownState*>(mngr_)->dialog(a);
 			}
 		}
+		actionDelay = 0;
+	
+		
+			
+		
+	
+	}
 
 }
