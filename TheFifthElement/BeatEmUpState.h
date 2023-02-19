@@ -6,8 +6,8 @@
 #include "InputComponent.h"
 #include "DialogBox.h"
 #include "EnemyBEU.h"
-
-class BeatEmUpState : public Manager
+#include "Entities/Background.h"
+class BeatEmUpState	 : public Manager
 {
 
 public:
@@ -15,6 +15,7 @@ public:
 
 	BeatEmUpState(GameManager* gm_) {
 		
+		addEntity(new Background());
 		Gm_ = gm_;
 		player_ = addEntity(new PlayerBEU(Gm_));
 		dialog_ = false;

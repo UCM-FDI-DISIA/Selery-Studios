@@ -1,46 +1,37 @@
 #pragma once
 #ifndef DIALOGBOX_H_
 #define DIALOGBOX_H_
-#include "sdlutils/Font.h"
+
 #include "utils/Entity.h"
-#include "sdlutils/Texture.h"
 #include "Transform.h"
-#include "utils/ecs.h"
 #include "GameManager.h"
 #include "Image.h"
+#include "DialogueComponent.h"
 class DialogBox: public Entity {
 private:
-	Font* font_;
-	//Component* componenete;
 	Vector2D DialogBoxPosition_{ 20,190 };
-	//float speed_ = 0.0f;
 	float DialogBoxWith_ = 520, DialogBoxHeith_ = 252, DialogBoxRotation_ = 0;
 	Texture* t;
-	Transform* tr;
 	GameManager* m;
 	int nframes = 0;
-	int w = 58;
-	int h = 27;
 	int fila_;
 	bool matrix_ = false;
-	string aaa;
 public:
 	DialogBox(GameManager* gm_, int a) {
-		font_ = &SDLUtils::instance()->fonts().at("TCentury");
-		aaa = SDLUtils::instance()->dialog().at("1");
+		m = gm_;
 		cmpId_type z = int(TRANSFORM_H);
-		tr = addComponent<Transform>(z, DialogBoxPosition_, DialogBoxWith_, DialogBoxHeith_, DialogBoxRotation_, nframes, matrix_);
+		addComponent<Transform>(z, DialogBoxPosition_, DialogBoxWith_, DialogBoxHeith_, DialogBoxRotation_, nframes, matrix_);
 		t = new Texture(gm_->getRenderer(), "./assets/fonts/image.png");
 		cmpId_type x = int(RENDERCOMPONENT_H);
 		//referencia al texture y al transform
 		fila_ = 0;
 		addComponent<Image>(int(IMAGE_H), t, nframes, nframes, fila_);
-
+		addComponent<DialogueComponent>(int(DIALOGCOMPONENT_H), a);
 	}
 	virtual ~DialogBox() {
-
+		
 	}
-
+	
 protected:
 
 

@@ -41,11 +41,13 @@ void InputComponentBEU::handleEvents(SDL_Event event){
 			}
 			else if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_O)) {
 				if (!im_->isAnimPlaying()) SDLUtils::instance()->soundEffects().at("playerAttack").play();
-				im_->setAnim(true, 5, 8, 0, 0);
+				im_->setAnim(true, 7, 10, 0, 0);
+				static_cast<PlayerBEU*>(ent_)->setAttack(true);
 			}
 			else if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_P)) {
 				if(!im_->isAnimPlaying()) SDLUtils::instance()->soundEffects().at("playerSpecialAttack").play();
 				im_->setAnim(true, 10, 17, 0, 0);
+				static_cast<PlayerBEU*>(ent_)->setAttack(true);
 			}
 			else mov_->setDir(Vector2D(0, 0));
 		}

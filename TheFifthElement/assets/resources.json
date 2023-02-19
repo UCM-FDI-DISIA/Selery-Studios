@@ -2,7 +2,11 @@
   "dialog": [
     {
       "id": "1",
-      "text": "HOLA FUNCIONA?"
+      "text": "HOLA"
+    },
+    {
+      "id": "2",
+      "text": "jose haz lo tuyo "
     }
   ],
 
@@ -35,6 +39,17 @@
     {
       "id": "p_right",
       "file": "assets/PlayableCharacters/Exploration/Fire/andarIzquierda.png"
+    },
+    {
+      "id": "portal",
+      "file": "assets/MapAssets/AncientRuins/Props/portal.png"
+    },
+    {
+      "id": "fireball",
+      "file": "assets/Elements/FireBall/Sheets/IdleLoop-Sheet.png"
+    }, {
+      "id":"fondo",
+      "file":"assets/backgrounds/bonito/Grassy_Mountains_preview.png"
     }
   ],
 
@@ -108,9 +123,29 @@
 
   "tilesets": [
     {
-      "id": "tileGuide",
-      "file": "assets/MapAssets/AncientRuins/Tilesets/tile_guide.png"
+      "id": "wall-6 - 2 tiles tall",
+      "file": "assets/MapAssets/AncientRuins/Tilesets/wall-6 - 2 tiles tall.png"
+    },
+    {
+      "id": "pozo",
+      "file": "assets/MapAssets/GrassLand/Props/water well-rope.png"
+
+    },
+    {
+      "id": "shrine3-empty",
+      "file": "assets/MapAssets/GrassLand/Props/shrine3-empty.png"
+    },
+    {
+
+      "id": "altar",
+      "file": "assets/MapAssets/GrassLand/Props/altar.png"
+    },
+    {
+
+      "id": "casa",
+      "file": "assets/MapAssets/GrassLand/Props/blacksmith shop(ready to use)_to build another shop, use provided props.png"
     }
+      
   ]
 
 } 
