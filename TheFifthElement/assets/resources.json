@@ -118,7 +118,27 @@
     {
       "id": "wall-6 - 2 tiles tall",
       "file": "assets/MapAssets/AncientRuins/Tilesets/wall-6 - 2 tiles tall.png"
+    },
+    {
+      "id": "pozo",
+      "file": "assets/MapAssets/GrassLand/Props/water well-rope.png"
+
+    },
+    {
+      "id": "shrine3-empty",
+      "file": "assets/MapAssets/GrassLand/Props/shrine3-empty.png"
+    },
+    {
+
+      "id": "altar",
+      "file": "assets/MapAssets/GrassLand/Props/altar.png"
+    },
+    {
+
+      "id": "casa",
+      "file": "assets/MapAssets/GrassLand/Props/blacksmith shop(ready to use)_to build another shop, use provided props.png"
     }
+      
   ]
 
 } 
