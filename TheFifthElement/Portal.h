@@ -12,7 +12,7 @@
 class Portal : public Entity
 {
 private:
-	Vector2D portalPosition_{ 200,150 };
+	Vector2D portalPosition_{ 100, 400 };
 	float portalWidth_ = 290, portalHeight_ = 192, portalRotation_ = 1;
 	Texture* t;
 	Transform* tr;
@@ -29,6 +29,7 @@ public:
 
 	void elementEarned(); // Metodo que se usará cuando se derrote un jefe y se recoja su elemento
 
+	void Teleport(Vector2D newPlayerPos);
 
 	Portal(GameManager* gm_, PlayerTD* player) : Entity()
 	{
@@ -39,9 +40,6 @@ public:
 		t = &SDLUtils::instance()->images().at("portal");
 		addComponent<Image>(int(IMAGE_H), t, nframes, nframes, 0);
 		addComponent<ObjectsComponent>(int(OBJECTSCOMPONENT_H));
-		elementEarned();
-		elementEarned();
-		elementEarned();
 	}
 
 };

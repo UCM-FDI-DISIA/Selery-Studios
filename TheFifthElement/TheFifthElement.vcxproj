@@ -134,6 +134,7 @@
     <ClInclude Include="CheckCollision.h" />
     <ClInclude Include="Collision.h" />
     <ClInclude Include="DialogBox.h" />
+    <ClInclude Include="Element.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="EnemyBEU.h" />
     <ClInclude Include="EnemyBEUDirectionComponent.h" />
@@ -183,6 +184,7 @@
     <ClCompile Include="CheckCollision.cpp" />
     <ClCompile Include="Collision.cpp" />
     <ClCompile Include="DialogBox.cpp" />
+    <ClCompile Include="Element.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="EnemyBEU.cpp" />
     <ClCompile Include="EnemyBEUDirectionComponent.cpp" />

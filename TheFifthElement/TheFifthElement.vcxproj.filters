@@ -33,6 +33,7 @@
     <ClCompile Include="EnemyBEUDirectionComponent.cpp" />
     <ClCompile Include="Portal.cpp" />
     <ClCompile Include="ObjectsComponent.cpp" />
+    <ClCompile Include="Element.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BeatEmUpState.h" />
@@ -82,6 +83,7 @@
     <ClInclude Include="EnemyBEUDirectionComponent.h" />
     <ClInclude Include="Portal.h" />
     <ClInclude Include="ObjectsComponent.h" />
+    <ClInclude Include="Element.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="TheFifthElement.rc" />

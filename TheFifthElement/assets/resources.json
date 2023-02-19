@@ -39,6 +39,10 @@
     {
       "id": "portal",
       "file": "assets/MapAssets/AncientRuins/Props/portal.png"
+    },
+    {
+      "id": "fireball",
+      "file": "assets/Elements/FireBall/Sheets/IdleLoop-Sheet.png"
     }
   ],
 
