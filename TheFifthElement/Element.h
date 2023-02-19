@@ -14,7 +14,7 @@ class Element : public Entity
 {
 private:
 	Vector2D elementPosition_;
-	float elementWidth_ = 64, elementHeight_ = 64, elementRotation_ = 1;
+	float elementWidth_ = 64 * 4, elementHeight_ = 64, elementRotation_ = 1;
 	Texture* t;
 	Transform* tr;
 	Transform* trPlayer_;
@@ -43,7 +43,7 @@ public:
 		elementPosition_ = pos;
 		m = gm_;
 		player_ = player;
-		tr = addComponent<Transform>(int(TRANSFORM_H), elementPosition_, elementWidth_, elementHeight_, elementRotation_, nframes, false);
+		tr = addComponent<Transform>(int(TRANSFORM_H), elementPosition_, elementWidth_, elementHeight_, elementRotation_, nframes, true);
 		trPlayer_ = player_->getComponent<Transform>(int(TRANSFORM_H));
 		t = &SDLUtils::instance()->images().at("fireball");
 		addComponent<Image>(int(IMAGE_H), t, nframes, nframes, 0);

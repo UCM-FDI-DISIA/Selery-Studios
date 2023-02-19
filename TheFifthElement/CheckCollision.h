@@ -19,7 +19,7 @@ private:
 	float lookingHeight_;
 	float offset;
 	int side_;
-	bool enemies, objects_;
+	bool enemies, objects_, demo = true;
 	string id_;
 public:
 	CheckCollision(PlayerTD* player, GameManager* gm_, string id);

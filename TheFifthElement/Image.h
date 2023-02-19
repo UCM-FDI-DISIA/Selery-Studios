@@ -23,7 +23,7 @@ public:
 	//void render() override;
 	// Inicializa el componente
 	void initComponent() {
-		tr_ = ent_->getComponent<Transform>(TRANSFORM_H);
+		tr_ = ent_->getComponent<Transform>(int(TRANSFORM_H));
 		assert(tr_ != nullptr);
 	}
 
@@ -35,24 +35,29 @@ public:
 				tex_ = &SDLUtils::instance()->images().at("p_left");
 				framesTotales_ = 7;
 				//s = SDL_FLIP_NONE;
+				tr_->setW(476);
 			}
 			else if (player_vel.getX() == -1 && player_vel.getY() == 0) {
 				tex_ = &SDLUtils::instance()->images().at("p_right");
 				framesTotales_ = 7;
 				//	s = SDL_FLIP_HORIZONTAL;
+				tr_->setW(476);
 			}
 			else if (player_vel.getY() == -1 && player_vel.getX() == 0) {
 				tex_ = &SDLUtils::instance()->images().at("p_top");
 
 				framesTotales_ = 9;
+				tr_->setW(612);
 			}
 			else if (player_vel.getY() == 1 && player_vel.getX() == 0) {
 				tex_ = &SDLUtils::instance()->images().at("p_down");
 				framesTotales_ = 9;
+				tr_->setW(612);
 			}
 			else {
 				tex_ = &SDLUtils::instance()->images().at("p_idle");
 				framesTotales_ = 7;
+				tr_->setW(519);
 			}
 			s = SDL_FLIP_NONE;
 		}
@@ -67,6 +72,7 @@ public:
 					s = SDL_FLIP_NONE;
 					cont = 0;
 					i = 0;
+					
 				}
 				else if (player_vel.getX() == -1 && (fila_ != 1||s==SDL_FLIP_NONE)) {
 					//tex_ = &SDLUtils::instance()->images().at("p_right");
@@ -75,6 +81,7 @@ public:
 					s = SDL_FLIP_HORIZONTAL;
 					cont = 0;
 					i = 0;
+					
 				}
 				else if (fila_ != 0 && player_vel.getX() == 0) {
 					//tex_ = &SDLUtils::instance()->images().at("p_idle");
@@ -82,6 +89,7 @@ public:
 					frames_ = 8;
 					i = 0;
 					cont = 0;
+					
 				}
 			}
 		}
