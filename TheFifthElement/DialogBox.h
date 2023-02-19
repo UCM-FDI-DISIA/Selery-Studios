@@ -16,31 +16,45 @@ private:
 	//float speed_ = 0.0f;
 	float DialogBoxWith_ = 520, DialogBoxHeith_ = 252, DialogBoxRotation_ = 0;
 	Texture* t;
-	Transform* tr;
 	GameManager* m;
 	int nframes = 0;
 	int w = 58;
 	int h = 27;
 	int fila_;
 	bool matrix_ = false;
-	string aaa;
+	string stringoriginal;
+	string strigsalir;
+	SDL_Color color_ ;
+	int cont=0, fin;
 public:
 	DialogBox(GameManager* gm_, int a) {
+		m = gm_;
+		color_ = { 50,50,0 };
 		font_ = &SDLUtils::instance()->fonts().at("TCentury");
-		aaa = SDLUtils::instance()->dialog().at("1");
+		stringoriginal = SDLUtils::instance()->dialog().at(to_string(a));
 		cmpId_type z = int(TRANSFORM_H);
-		tr = addComponent<Transform>(z, DialogBoxPosition_, DialogBoxWith_, DialogBoxHeith_, DialogBoxRotation_, nframes, matrix_);
+		addComponent<Transform>(z, DialogBoxPosition_, DialogBoxWith_, DialogBoxHeith_, DialogBoxRotation_, nframes, matrix_);
 		t = new Texture(gm_->getRenderer(), "./assets/fonts/image.png");
 		cmpId_type x = int(RENDERCOMPONENT_H);
 		//referencia al texture y al transform
 		fila_ = 0;
 		addComponent<Image>(int(IMAGE_H), t, nframes, nframes, fila_);
-
+		strigsalir = stringoriginal[0];
+		fin = stringoriginal.size();
+	}
+	void render() {
+		Entity::render();
+		font_->render(m->getRenderer(), strigsalir, 150,300, color_);
+	}
+	void update() {
+		Entity::update();
+		cont++;
+		if (cont<fin)strigsalir += stringoriginal[cont];
 	}
 	virtual ~DialogBox() {
-
+		
 	}
-
+	
 protected:
 
 
