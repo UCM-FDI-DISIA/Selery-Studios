@@ -1,11 +1,17 @@
 #pragma once
 #include "CheckCollision.h"
 #include "utils/Entity.h"
+#include "Element.h"
 using namespace std;
 cmpId_type p = int(TRANSFORM_H);
 
-CheckCollision::CheckCollision(PlayerTD* player,GameManager* gm_, float lookingRange, float lookingWidth, float side) :Component()
-{
+CheckCollision::CheckCollision(PlayerTD* player, GameManager* gm_, string id) : Component() {
+	player_ = player;
+	gm = gm_;
+	id_ = id;
+}
+
+CheckCollision::CheckCollision(PlayerTD* player,GameManager* gm_, float lookingRange, float lookingWidth, float side) :Component() {
 	player_ = player;
 	gm = gm_;
 	side_ = side;								//side==-1 ------>mira a la derecha					//			side==1-------->mira a la izquierda
@@ -36,12 +42,13 @@ void CheckCollision::initComponent() {
 		rectNPC = getRectNPC();
 	}
 	rectPlayer = getPlayerRect();
-	
+
+	enemies = ent_->hasComponent(LIFECOMPONENT_H);
+	objects_ = ent_->hasComponent(OBJECTSCOMPONENT_H);
 }
 void CheckCollision::update() 
 {
-	
-	if (ent_->hasComponent(LIFECOMPONENT_H))
+	if (enemies)
 	{
     	if (Collision::collides(Vector2D(rectPlayer.x,rectPlayer.y), rectPlayer.w,rectPlayer.h, Vector2D(rectFight.x,rectFight.y),rectFight.w,rectFight.h))					//Aumentado el numero por el que dividimos las alturas y anchuras, tambien aumentamos lo que tarda en detectarnos el enemigo
 		{
@@ -49,12 +56,22 @@ void CheckCollision::update()
 		}
 		else if (Collision::collides(Vector2D(rectPlayer.x, rectPlayer.y), rectPlayer.w, rectPlayer.h, Vector2D(rectDetection.x, rectDetection.y), rectDetection.w, rectDetection.h))
 		{
-
 			//SDLUtils::instance()->soundEffects().at("prueba").play();
 		}
 	}
-	else
-	{
+	else if (objects_ && id_ == "portal") {
+		if (Collision::collides(Vector2D(rectPlayer.x, rectPlayer.y), rectPlayer.w, rectPlayer.h, Vector2D(tr1->getPos().getX(), tr1->getPos().getY()), tr1->getW(), tr1->getH()))					//Aumentado el numero por el que dividimos las alturas y anchuras, tambien aumentamos lo que tarda en detectarnos el enemigo
+		{
+			static_cast<Portal*>(ent_)->Teleport(Vector2D(700, 400));
+		}
+	}
+	else if (objects_ && id_ == "element") {
+		if (!static_cast<Element*>(ent_)->GetPicked() && Collision::collides(Vector2D(rectPlayer.x, rectPlayer.y), rectPlayer.w, rectPlayer.h, Vector2D(tr1->getPos().getX(), tr1->getPos().getY()), tr1->getW(), tr1->getH()))					//Aumentado el numero por el que dividimos las alturas y anchuras, tambien aumentamos lo que tarda en detectarnos el enemigo
+		{
+			static_cast<Element*>(ent_)->SetPicked(true);
+		}
+	}
+	else {
 
 		if (Collision::collides(Vector2D(rectPlayer.x, rectPlayer.y), rectPlayer.w, rectPlayer.h, Vector2D(rectNPC.x, rectNPC.y), rectNPC.w, rectNPC.h))					//Aumentado el numero por el que dividimos las alturas y anchuras, tambien aumentamos lo que tarda en detectarnos el enemigo
 		{
@@ -70,31 +87,29 @@ void CheckCollision::update()
 		
 	}
 	updateRects();
-	
-
-	
 }
 
 
 void CheckCollision::render()
 { 
 	//Nota---->Checkear si hacer comprobaciones aqu?o no
+	if (id_ != "portal" && id_ != "element") {
+		SDL_SetRenderDrawColor(gm->getRenderer(), 0, 255, 0, 0);							//	Renderizamos el rect?gulo del player
+		SDL_RenderDrawRect(gm->getRenderer(), &rectPlayer);
 
-	SDL_SetRenderDrawColor(gm->getRenderer(), 0, 255, 0, 0);							//	Renderizamos el rect?gulo del player
-	SDL_RenderDrawRect(gm->getRenderer(), &rectPlayer);
-	
-	SDL_SetRenderDrawColor(gm->getRenderer(), 120, 50, 255, 0);							//	Renderizamos el rect?gulo de detecci? del enemigo
-	SDL_RenderDrawRect(gm->getRenderer(), &rectDetection);
+		SDL_SetRenderDrawColor(gm->getRenderer(), 120, 50, 255, 0);							//	Renderizamos el rect?gulo de detecci? del enemigo
+		SDL_RenderDrawRect(gm->getRenderer(), &rectDetection);
 
 
-	SDL_SetRenderDrawColor(gm->getRenderer(), 225, 100, 255, 0);
-	SDL_RenderDrawRect(gm->getRenderer(), &rectFight);									// Renderizamos el rect?gulo de combate del enemigo
-	
+		SDL_SetRenderDrawColor(gm->getRenderer(), 225, 100, 255, 0);
+		SDL_RenderDrawRect(gm->getRenderer(), &rectFight);									// Renderizamos el rect?gulo de combate del enemigo
 
-	SDL_SetRenderDrawColor(gm->getRenderer(), 225, 100, 255, 0);
-	SDL_RenderDrawRect(gm->getRenderer(), &rectNPC);
 
-	SDL_SetRenderDrawColor(gm->getRenderer(), 0, 0, 0, 255);							//ponemos el fondo a negro
+		SDL_SetRenderDrawColor(gm->getRenderer(), 225, 100, 255, 0);
+		SDL_RenderDrawRect(gm->getRenderer(), &rectNPC);
+
+		SDL_SetRenderDrawColor(gm->getRenderer(), 0, 0, 0, 255);							//ponemos el fondo a negro
+	}
 }
 
 void CheckCollision::updateRects()														

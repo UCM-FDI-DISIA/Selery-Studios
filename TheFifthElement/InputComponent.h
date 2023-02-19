@@ -10,6 +10,7 @@ class InputComponent : public Component
 {
 private:
     bool npccol = false;
+    double actionDelay;
     MovementComponent* mov_ = nullptr;
     SkinComponent* skin_ = nullptr;
 public:
