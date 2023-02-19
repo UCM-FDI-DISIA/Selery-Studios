@@ -20,6 +20,14 @@
   ],
 
   "images": [
+    {
+    "id":"NPC_1",
+    "file":"./assets/NPCs/NPC1-Idle-Left.png"
+    },
+    {
+      "id":"NPC_2",
+      "file":"./assets/NPCs/NPC2-Idle-Left.png"
+    },
     { 
       "id":"BEU_wind_Mushroom",
       "file":"./assets/Enemies/Pack/Wind/WindMushroom/Idle.png"

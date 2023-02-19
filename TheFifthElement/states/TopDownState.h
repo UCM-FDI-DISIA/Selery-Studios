@@ -11,7 +11,7 @@
 #include "../Element.h"
 #include "tmxlite/Map.hpp"
 #include "tmxlite/TileLayer.hpp"
-
+#include "../sdlutils/SDLUtils.h"
 using uint = unsigned int;
 using tileset_map = std::map<std::string, Texture*>; //mapa con CLAVE:string, ARGUMENTO: puntero a textura
 using tilelayer = tmx::TileLayer;
@@ -43,7 +43,8 @@ public:
 		LoadMap("assets/MapAssets/MapaInicial.tmx");
 		player_ = addEntity(new PlayerTD(Gm_));
 		dialog_ = false;
-		addEntity(new Npc(Gm_, player_));
+		addEntity(new Npc(Gm_, player_,{0,10},&SDLUtils::instance()->images().at("NPC_1")));
+		addEntity(new Npc(Gm_, player_, { 50,10 }, &SDLUtils::instance()->images().at("NPC_2")));
 		//playerBEU_ = new PlayerBEU(Gm_);
 
 	//	cmpId_type b = int(INPUTCOMPONENTBEU_H);
@@ -64,7 +65,7 @@ public:
 		if (dialog_ != false) {
 			in_->changebool();
 			cout << "sd"<<endl;
-			d->~DialogBox();
+			d->~DialogBox();//cris hija haz delete(d)
 			dialog_= false;
 		}
 		else  {
