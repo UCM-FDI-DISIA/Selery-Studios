@@ -2,7 +2,11 @@
   "dialog": [
     {
       "id": "1",
-      "text": "HOLA, soy el primer npc :) "
+      "text": "HOLA"
+    },
+    {
+      "id": "2",
+      "text": "jose haz lo tuyo "
     }
   ],
 

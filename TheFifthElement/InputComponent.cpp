@@ -65,11 +65,14 @@ void InputComponent::handleEvents(SDL_Event event)
 
 		if (actionDelay>0) { // The shorterpaddle and biggerpaddle rewards is activated REWARDS_TIME seconds
 			int a = static_cast<PlayerTD*>(ent_)->getCol() != -1;
+			
 			if (a) {
+				cout << "2";
 				npccol = true;
 				mov_->setDir(Vector2D(0, 0));
 				static_cast<TopDownState*>(mngr_)->dialog(a);
 			}
+		
 		}
 		actionDelay = 0;
 	

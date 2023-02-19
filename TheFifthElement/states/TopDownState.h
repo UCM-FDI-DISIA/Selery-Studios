@@ -43,7 +43,7 @@ public:
 		LoadMap("assets/MapAssets/MapaInicial.tmx");
 		player_ = addEntity(new PlayerTD(Gm_));
 		dialog_ = false;
-		//addEntity(new Npc(Gm_, player_));
+		addEntity(new Npc(Gm_, player_));
 		//playerBEU_ = new PlayerBEU(Gm_);
 
 	//	cmpId_type b = int(INPUTCOMPONENTBEU_H);
@@ -62,6 +62,7 @@ public:
 	void LoadMap(string const& filename);
 	void dialog(int a) {
 		if (dialog_ != false) {
+			in_->changebool();
 			cout << "sd"<<endl;
 			d->~DialogBox();
 			dialog_= false;
