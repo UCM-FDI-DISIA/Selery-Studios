@@ -2,7 +2,6 @@
 #ifndef SKINCOMPONENT_H
 #define SKINCOMPONENT_H_
 #include "utils/Component.h"
-#include "Image.h"
 #include "sdlutils/Texture.h"
 #include "GameManager.h"
 #include <string>

@@ -63,6 +63,10 @@ void CheckCollision::update()
 			player_->setCol(1);
 
 		}
+		else {
+			player_->setCol(-1);
+
+		}
 		
 	}
 	updateRects();

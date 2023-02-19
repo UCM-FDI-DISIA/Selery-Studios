@@ -132,9 +132,12 @@
   <ItemGroup>
     <ClInclude Include="BeatEmUpState.h" />
     <ClInclude Include="CheckCollision.h" />
+    <ClInclude Include="Class.h" />
     <ClInclude Include="Collision.h" />
     <ClInclude Include="DialogBox.h" />
     <ClInclude Include="Enemy.h" />
+    <ClInclude Include="EnemyBEU.h" />
+    <ClInclude Include="EnemyBEUDirectionComponent.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="Image.h" />
@@ -177,9 +180,12 @@
   <ItemGroup>
     <ClCompile Include="BeatEmUpState.cpp" />
     <ClCompile Include="CheckCollision.cpp" />
+    <ClCompile Include="Class.cpp" />
     <ClCompile Include="Collision.cpp" />
     <ClCompile Include="DialogBox.cpp" />
     <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="EnemyBEU.cpp" />
+    <ClCompile Include="EnemyBEUDirectionComponent.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="InputComponent.cpp" />
     <ClCompile Include="InputComponentBEU.cpp" />

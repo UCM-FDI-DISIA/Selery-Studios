@@ -20,8 +20,7 @@ void TopDownState::LoadMap(string const& filename) {
 
 
     // convertir a textura
-   background_ = SDL_CreateTexture(Gm_->getRenderer(), SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, fondowidth_, fondoheight_);
-    SDL_RenderClear(Gm_->getRenderer());
+    background_ = SDL_CreateTexture(Gm_->getRenderer(), SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, fondowidth_, fondoheight_);
     SDL_SetTextureBlendMode(background_, SDL_BLENDMODE_BLEND);
     SDL_SetRenderTarget(Gm_->getRenderer(), background_);
 
@@ -111,8 +110,8 @@ void TopDownState::LoadMap(string const& filename) {
                         //SDL_RendererFlip tileFlip = SDL_FLIP_NONE;
 
                         //Multiplicamos por 45 porque esta multiplicado por factor de 45 (lo que devuelve rot)
-                        mapInfo.tilesets[tset_gid]->render(src, dest);
-                        
+                        mapInfo.tilesets[tset_gid]->render(src, dest, tileRot * rotCorrection);
+
                     }
                 }
 
@@ -120,15 +119,27 @@ void TopDownState::LoadMap(string const& filename) {
 
 
             }
-            /*else if (name == "Col") {
+            else if (name == "Col") {
 
+                //CREAR TILES DE COLISIONES
 
-            }*/
+            }
 
 
         }
+
     }
-   SDL_SetRenderTarget(Gm_->getRenderer(), nullptr);
-   SDL_RenderPresent(Gm_->getRenderer());
+    SDL_RenderPresent(Gm_->getRenderer());
+    SDL_SetRenderTarget(Gm_->getRenderer(), nullptr);
+
+
+    //setRenderer(Gm_->getRenderer());
+
 }
-    
+
+void TopDownState::render() {
+    SDL_Rect dst = { 0, 0, 160, 160 };
+    SDL_Rect src = { 0, 0, 160, 160 };
+    SDL_RenderCopy(Gm_->getRenderer(), background_, &src, &dst);
+    Manager::render();
+}
