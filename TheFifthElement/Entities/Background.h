@@ -1,7 +1,7 @@
 #pragma once
 #include "../utils/Entity.h"
-#include "../Image.h"
-#include "../Transform.h"
+#include "../components/Image.h"
+#include "../components/Transform.h"
 #include "../utils/ecs.h"
 #include "../sdlutils/SDLUtils.h"
 class Background :public Entity {
