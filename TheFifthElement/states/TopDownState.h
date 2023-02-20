@@ -12,6 +12,7 @@
 #include "tmxlite/Map.hpp"
 #include "tmxlite/TileLayer.hpp"
 #include "../sdlutils/SDLUtils.h"
+#include "../Camera.h"
 using uint = unsigned int;
 using tileset_map = std::map<std::string, Texture*>; //mapa con CLAVE:string, ARGUMENTO: puntero a textura
 using tilelayer = tmx::TileLayer;
@@ -55,10 +56,12 @@ public:
 		//addEntity(playerBEU_);
 		//addEntity(new DialogBox(Gm_));
 		addEntity(new Enemy(Gm_, player_, 100));
+		addEntity(new Camera(Gm_, player_));
 		Portal* p = addEntity(new Portal(Gm_, player_));
 		addEntity(new Element(Gm_, player_, Vector2D(100, 100), p));
 		addEntity(new Element(Gm_, player_, Vector2D(300, 100), p));
 		addEntity(new Element(Gm_, player_, Vector2D(200, 200), p));
+		
 	}
 	void LoadMap(string const& filename);
 	void dialog(int a) {

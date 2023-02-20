@@ -36,6 +36,8 @@
     <ClCompile Include="Entities\Background.cpp" />
     <ClCompile Include="ObjectsComponent.cpp" />
     <ClCompile Include="componets\Enemy_movementTD_component.cpp" />
+    <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="CameraComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BeatEmUpState.h" />
@@ -88,6 +90,8 @@
     <ClInclude Include="Element.h" />
     <ClInclude Include="Entities\Background.h" />
     <ClInclude Include="componets\Enemy_movementTD_component.h" />
+    <ClInclude Include="Camera.h" />
+    <ClInclude Include="CameraComponent.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="TheFifthElement.rc" />
