@@ -20,6 +20,7 @@ public:
 	SoundEffect(const std::string& fileName) {
 		chunk_ = Mix_LoadWAV(fileName.c_str());
 		assert(chunk_ != nullptr);
+		setVolume(5);
 	}
 
 	SoundEffect(SoundEffect&& other) noexcept {
