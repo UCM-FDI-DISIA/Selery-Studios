@@ -136,6 +136,7 @@
     <ClInclude Include="CheckCollision.h" />
     <ClInclude Include="Class.h" />
     <ClInclude Include="Collision.h" />
+    <ClInclude Include="componets\Enemy_movementTD_component.h" />
     <ClInclude Include="DialogBox.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="EnemyBEU.h" />
@@ -186,6 +187,7 @@
     <ClCompile Include="CheckCollision.cpp" />
     <ClCompile Include="Class.cpp" />
     <ClCompile Include="Collision.cpp" />
+    <ClCompile Include="componets\Enemy_movementTD_component.cpp" />
     <ClCompile Include="DialogBox.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="EnemyBEU.cpp" />
@@ -196,6 +198,7 @@
     <ClCompile Include="LifeComponent.cpp" />
     <ClCompile Include="MovementComponent.cpp" />
     <ClCompile Include="Npc.cpp" />
+    <ClCompile Include="ObjectsComponent.cpp" />
     <ClCompile Include="PlayerBEU.cpp" />
     <ClCompile Include="PlayerTD.cpp" />
     <ClCompile Include="SkinComponent.cpp" />

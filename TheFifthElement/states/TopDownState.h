@@ -7,10 +7,11 @@
 #include "../InputComponent.h"
 #include "../InputComponentBEU.h"
 #include "../DialogBox.h"
-#include "../Camera.h"
+#include "../Portal.h"
+#include "../Element.h"
 #include "tmxlite/Map.hpp"
 #include "tmxlite/TileLayer.hpp"
-
+#include "../sdlutils/SDLUtils.h"
 using uint = unsigned int;
 using tileset_map = std::map<std::string, Texture*>; //mapa con CLAVE:string, ARGUMENTO: puntero a textura
 using tilelayer = tmx::TileLayer;
@@ -21,7 +22,6 @@ struct MapInfo {
 	int rows, cols;	//fila columna
 	int tile_width, tile_height;	//ancho y alto del tile
 	map<uint, Texture*> tilesets;	//mapa con CLAVE: int, ARGUMENTO: puntero a textura
-
 	//MapInfo() {
 	//	tile_MAP = nullptr;
 	//	path = "";
@@ -37,13 +37,14 @@ struct MapInfo {
 class TopDownState : public Manager {
 public:
 	virtual string getStateID() { return "top-down"; }; // stringID
-
+	DialogBox* d;
 	TopDownState(GameManager* gm_) {
 		Gm_ = gm_;
-		LoadMap("assets/MapAssets/tiledPrueba.tmx");
+		LoadMap("assets/MapAssets/MapaInicial.tmx");
 		player_ = addEntity(new PlayerTD(Gm_));
 		dialog_ = false;
-		addEntity(new Npc(Gm_, player_));
+		addEntity(new Npc(Gm_, player_,{0,10},&SDLUtils::instance()->images().at("NPC_1")));
+		addEntity(new Npc(Gm_, player_, { 50,10 }, &SDLUtils::instance()->images().at("NPC_2")));
 		//playerBEU_ = new PlayerBEU(Gm_);
 
 	//	cmpId_type b = int(INPUTCOMPONENTBEU_H);
@@ -54,18 +55,25 @@ public:
 		//addEntity(playerBEU_);
 		//addEntity(new DialogBox(Gm_));
 		addEntity(new Enemy(Gm_, player_, 100));
-		//cam_ = addEntity(new Camera(Gm_, player_));
-		addEntity(new Camera(Gm_, player_));
-
+		Portal* p = addEntity(new Portal(Gm_, player_));
+		addEntity(new Element(Gm_, player_, Vector2D(100, 100), p));
+		addEntity(new Element(Gm_, player_, Vector2D(300, 100), p));
+		addEntity(new Element(Gm_, player_, Vector2D(200, 200), p));
 	}
 	void LoadMap(string const& filename);
 	void dialog(int a) {
-		if (dialog_ == false ) {
-			addEntity(new DialogBox(Gm_, a));
-			dialog_ = true;
+		if (dialog_ != false) {
+			in_->changebool();
+			cout << "sd"<<endl;
+			d->~DialogBox();//cris hija haz delete(d)
+			dialog_= false;
 		}
-		else {
-			
+		else  {
+			d = new DialogBox(Gm_, a);
+			addEntity(d);
+			dialog_ = true;
+			cout << "d" << endl;
+
 		}
 	}
 	void handleEvents()
@@ -87,9 +95,6 @@ private:
 	InputComponent* in_;
 	PlayerBEU* playerBEU_;
 	InputComponentBEU* inBEU_;
-	/*Camera* cam_;*/
-	/*Entity* cam_;*/
-	/*Manager* mngr_;*/
 	tileset_map tilesets_; // textures map (string -> texture)
 	SDL_Texture* background_;
 	MapInfo mapInfo;//struct

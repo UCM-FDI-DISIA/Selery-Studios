@@ -6,9 +6,6 @@
 #include "utils/Entity.h"
 #include "InputComponentBEU.h"
 #include "PlayerBEU.h"
-//#include "Camera.h"
-
-
 class Image : public Component {
 public:
 
@@ -26,8 +23,7 @@ public:
 	//void render() override;
 	// Inicializa el componente
 	void initComponent() {
-		tr_ = ent_->getComponent<Transform>(TRANSFORM_H);
-		//camTr_ = cam_->getComponent<Transform>(TRANSFORM_H);
+		tr_ = ent_->getComponent<Transform>(int(TRANSFORM_H));
 		assert(tr_ != nullptr);
 	}
 
@@ -39,24 +35,29 @@ public:
 				tex_ = &SDLUtils::instance()->images().at("p_left");
 				framesTotales_ = 7;
 				//s = SDL_FLIP_NONE;
+				tr_->setW(476);
 			}
 			else if (player_vel.getX() == -1 && player_vel.getY() == 0) {
 				tex_ = &SDLUtils::instance()->images().at("p_right");
 				framesTotales_ = 7;
 				//	s = SDL_FLIP_HORIZONTAL;
+				tr_->setW(476);
 			}
 			else if (player_vel.getY() == -1 && player_vel.getX() == 0) {
 				tex_ = &SDLUtils::instance()->images().at("p_top");
 
 				framesTotales_ = 9;
+				tr_->setW(612);
 			}
 			else if (player_vel.getY() == 1 && player_vel.getX() == 0) {
 				tex_ = &SDLUtils::instance()->images().at("p_down");
 				framesTotales_ = 9;
+				tr_->setW(612);
 			}
 			else {
 				tex_ = &SDLUtils::instance()->images().at("p_idle");
 				framesTotales_ = 7;
+				tr_->setW(519);
 			}
 			s = SDL_FLIP_NONE;
 		}
@@ -71,6 +72,7 @@ public:
 					s = SDL_FLIP_NONE;
 					cont = 0;
 					i = 0;
+					
 				}
 				else if (player_vel.getX() == -1 && (fila_ != 1||s==SDL_FLIP_NONE)) {
 					//tex_ = &SDLUtils::instance()->images().at("p_right");
@@ -79,6 +81,7 @@ public:
 					s = SDL_FLIP_HORIZONTAL;
 					cont = 0;
 					i = 0;
+					
 				}
 				else if (fila_ != 0 && player_vel.getX() == 0) {
 					//tex_ = &SDLUtils::instance()->images().at("p_idle");
@@ -86,6 +89,7 @@ public:
 					frames_ = 8;
 					i = 0;
 					cont = 0;
+					
 				}
 			}
 		}
@@ -93,21 +97,19 @@ public:
 
 	// Dibuja en escena
 	void render() {
-		/*Vector2D v = static_cast<Camera*>(ent_)->getComponent<Transform>(TRANSFORM_H)->getPos();*/	
-		/*Vector2D v = camTr_->getPos();*/
 		if (frames_ == 0) { //Cuando la imagen solo tiene un frame (sin animación)
 			SDL_Rect dest = build_sdlrect(tr_->getPos(), tr_->getW(), tr_->getH());
 			tex_->render(dest, tr_->getR());
 		}
 		else {
 			SDL_Rect rect;
-			rect.x = tr_->getPos().getX() /*- v.getX()*/;
-			rect.y = tr_->getPos().getY() /*- v.getY()*/;
+			rect.x = tr_->getPos().getX();
+			rect.y = tr_->getPos().getY();
 			rect.h = tr_->getH();
 			rect.w = tr_->getW() / framesTotales_;
 			SDL_Rect src;
-			src.x = i*(tr_->getW() / framesTotales_) /*- v.getX()*/;
-			src.y = tr_->getH() * fila_ /*- v.getY()*/;
+			src.x = i*(tr_->getW() / framesTotales_);
+			src.y = tr_->getH() * fila_;
 			src.h = tr_->getH();
 			src.w = tr_->getW() / framesTotales_;
 			tex_->render(src, rect,0,nullptr,s);
@@ -123,7 +125,8 @@ public:
 					//ent_->getComponent<InputComponentBEU>(INPUTCOMPONENTBEU_H)->stop_attack();
 					static_cast<PlayerBEU*>(ent_)->setAttack(false);
 				}
-				if (animPlaying) { animPlaying = false; }
+				if (animPlaying) { animPlaying = false;	static_cast<PlayerBEU*>(ent_)->setAttack(false);
+				}
 			}
 		}
 	}
@@ -148,13 +151,8 @@ private:
 	int cont = 0;
 	Transform* tr_; // Consulta las caracteristicas fisicas
 	Texture* tex_;	// Imagen a rederizar
-
-	/*Camera* cam_;*/
-	Transform* camTr_;
-	/*Vector2D v;*/
 	SDL_RendererFlip s = SDL_FLIP_NONE;
 	bool is_attaking = false;
-
 	bool animPlaying = false;
 };
 #endif

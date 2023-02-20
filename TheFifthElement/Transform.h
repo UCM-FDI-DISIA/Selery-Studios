@@ -11,7 +11,7 @@ private:
     float width, height, rotation_;
     SDL_Rect rect;
     int framesTotales_;
-    bool matrix_;
+    bool matrix_, demo = true;
 public:
     Transform() {
         //cout << "fdgbxc";
@@ -52,18 +52,18 @@ public:
 
     void render()
     {
-
-        if (matrix_)
-            rect = build_sdlrect(getPos().getX() + 120, getPos().getY() + 70, getW() / (5 * framesTotales_), getH() / 2);
-        else
-        {
-            if (framesTotales_ != 0) rect = build_sdlrect(getPos().getX(), getPos().getY(), getW() / framesTotales_, getH());
-            else  rect = build_sdlrect(getPos().getX() + 50, getPos().getY() + 60, 3 * getW() / 4, getH() / 2);
+        if (!demo) {
+            if (matrix_)
+                rect = build_sdlrect(getPos().getX() + 120, getPos().getY() + 70, getW() / (5 * framesTotales_), getH() / 2);
+            else
+            {
+                if (framesTotales_ != 0) rect = build_sdlrect(getPos().getX(), getPos().getY(), getW() / framesTotales_, getH());
+                else  rect = build_sdlrect(getPos().getX() + 50, getPos().getY() + 60, 3 * getW() / 4, getH() / 2);
+            }
+            SDL_SetRenderDrawColor(sdlutils().renderer(), 255, 0, 255, 0);
+            SDL_RenderDrawRect(sdlutils().renderer(), &rect);
+            SDL_SetRenderDrawColor(sdlutils().renderer(), 0, 0, 0, 0);
         }
-        SDL_SetRenderDrawColor(sdlutils().renderer(), 255, 0, 255, 0);
-        SDL_RenderDrawRect(sdlutils().renderer(), &rect);
-        SDL_SetRenderDrawColor(sdlutils().renderer(), 0, 0, 0, 0);
-
     }
 };
 #endif
