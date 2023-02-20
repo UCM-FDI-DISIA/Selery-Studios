@@ -1,18 +1,18 @@
 #pragma once
 #include "GameState.h"
-#include "../Npc.h"
-#include "../PlayerTD.h"
-#include "../Enemy.h"
-#include "../PlayerBEU.h"
-#include "../InputComponent.h"
-#include "../InputComponentBEU.h"
-#include "../DialogBox.h"
-#include "../Portal.h"
-#include "../Element.h"
+#include "../Entities/Npc.h"
+#include "../Entities/PlayerTD.h"
+#include "../Entities/Enemy.h"
+#include "../Entities/PlayerBEU.h"
+#include "../components/InputComponent.h"
+#include "../components/InputComponentBEU.h"
+#include "../Entities/DialogBox.h"
+#include "../Entities/Portal.h"
+#include "../Entities/Element.h"
 #include "tmxlite/Map.hpp"
 #include "tmxlite/TileLayer.hpp"
 #include "../sdlutils/SDLUtils.h"
-#include "../Camera.h"
+#include "../Entities/Camera.h"
 using uint = unsigned int;
 using tileset_map = std::map<std::string, Texture*>; //mapa con CLAVE:string, ARGUMENTO: puntero a textura
 using tilelayer = tmx::TileLayer;
