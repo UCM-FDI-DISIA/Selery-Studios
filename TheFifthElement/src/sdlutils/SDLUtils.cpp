@@ -5,7 +5,7 @@
 #include <cassert>
 #include <memory>
 
-#include "../json/JSON.h"
+#include "../../json/JSON.h"
 
 
 SDLUtils::SDLUtils() :
