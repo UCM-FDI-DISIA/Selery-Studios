@@ -36,4 +36,4 @@
 *.db
 *.suo
 *.sup
-*.fileList.bin
+*fileList.bin
