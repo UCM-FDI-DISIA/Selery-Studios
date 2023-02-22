@@ -56,7 +56,7 @@ public:
 		//addEntity(playerBEU_);
 		//addEntity(new DialogBox(Gm_));
 		addEntity(new Enemy(Gm_, player_, 100));
-		addEntity(new Camera(Gm_, player_));
+		cam_ = addEntity(new Camera(Gm_, player_)); // entidad de camara
 		Portal* p = addEntity(new Portal(Gm_, player_));
 		addEntity(new Element(Gm_, player_, Vector2D(100, 100), p));
 		addEntity(new Element(Gm_, player_, Vector2D(300, 100), p));
@@ -102,5 +102,6 @@ private:
 	SDL_Texture* background_;
 	MapInfo mapInfo;//struct
 	bool dialog_;
+	Camera* cam_;
 };
 

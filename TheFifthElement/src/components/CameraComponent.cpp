@@ -16,15 +16,15 @@ void CameraComponent::initComponent() {
 
 	camRect_.x = (playerTr_->getPos().getX() + 40) - 600 / 2; // player en el centro de la camara
 	camRect_.y = (playerTr_->getPos().getY() + 40) - 400 / 2;
-	camRect_.h = 400; //400
-	camRect_.w = 600; //600
+	camRect_.h = 400; // Cambiar por windowHeight
+	camRect_.w = 600; // Cambiar por windowWidth
 }
 void CameraComponent::update()
 {
 	camRect_.x = (playerTr_->getPos().getX()+40) - 600 / 2; // cambiar variables por constantes de la pantalla y personaje
 	camRect_.y = (playerTr_->getPos().getY()+40) - 400 / 2;
 	// Clamp
-	if (camRect_.x < 0) {
+	if (camRect_.x < 0) { 
 		camRect_.x = 0;
 	}
 	if (camRect_.y < 0) {
@@ -38,9 +38,7 @@ void CameraComponent::update()
 	}*/
 
 	camTr_->getPos().set(camRect_.x, camRect_.y); // seteo el transform de la cámara según la posición de camRect
-	//cout << camRect_.x;
-	//cout << camTr_->getPos().getX();
-	//cout << camRect_.h;
+
 }
 
 void CameraComponent::render() {
