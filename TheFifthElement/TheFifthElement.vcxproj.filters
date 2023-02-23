@@ -92,6 +92,7 @@
     <ClInclude Include="src\components\Enemy_movementTD_component.h" />
     <ClInclude Include="src\Entities\Camera.h" />
     <ClInclude Include="src\components\CameraComponent.h" />
+    <ClInclude Include="src\utils\Constants.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="TheFifthElement.rc" />

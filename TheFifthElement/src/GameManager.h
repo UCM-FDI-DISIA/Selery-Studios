@@ -4,13 +4,6 @@
 #include "sdlutils/SDLUtils.h"
 using namespace std;
 
-using uint = unsigned int;
-
-const uint WIN_WIDTH = 800;// anchura de ventana
-const uint WIN_HEIGHT = 900;// altura de ventana
-const uint FRAME_RATE = 3;// número de frames que tardará en actualizarse el juego
-
-
 class GameManager : public Singleton<GameManager>
 {
 private:

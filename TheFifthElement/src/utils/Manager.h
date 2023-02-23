@@ -2,6 +2,7 @@
 #include <vector>
 #include "Entity.h"
 #include "Singleton.h"
+
 using namespace std;
 
 class Manager:public Singleton <Manager> {
