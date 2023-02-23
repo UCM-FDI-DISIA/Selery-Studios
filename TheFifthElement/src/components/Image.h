@@ -6,6 +6,7 @@
 #include "../utils/Entity.h"
 #include "InputComponentBEU.h"
 #include "../Entities/PlayerBEU.h"
+#include "../utils/ecs.h"
 class Image : public Component {
 public:
 
@@ -35,29 +36,29 @@ public:
 				tex_ = &SDLUtils::instance()->images().at("p_left");
 				framesTotales_ = 7;
 				//s = SDL_FLIP_NONE;
-				tr_->setW(476);
+				tr_->setW(476-ofset_x);
 			}
 			else if (player_vel.getX() == -1 && player_vel.getY() == 0) {
 				tex_ = &SDLUtils::instance()->images().at("p_right");
 				framesTotales_ = 7;
 				//	s = SDL_FLIP_HORIZONTAL;
-				tr_->setW(476);
+				tr_->setW(476-ofset_x);
 			}
 			else if (player_vel.getY() == -1 && player_vel.getX() == 0) {
 				tex_ = &SDLUtils::instance()->images().at("p_top");
 
 				framesTotales_ = 9;
-				tr_->setW(612);
+				tr_->setW(612-ofset_x);
 			}
 			else if (player_vel.getY() == 1 && player_vel.getX() == 0) {
 				tex_ = &SDLUtils::instance()->images().at("p_down");
 				framesTotales_ = 9;
-				tr_->setW(612);
+				tr_->setW(612-ofset_x);
 			}
 			else {
 				tex_ = &SDLUtils::instance()->images().at("p_idle");
 				framesTotales_ = 7;
-				tr_->setW(519);
+				tr_->setW(519-ofset_x);
 			}
 			s = SDL_FLIP_NONE;
 		}
@@ -102,16 +103,33 @@ public:
 			tex_->render(dest, tr_->getR());
 		}
 		else {
-			SDL_Rect rect;
-			rect.x = tr_->getPos().getX();
-			rect.y = tr_->getPos().getY();
-			rect.h = tr_->getH();
-			rect.w = tr_->getW() / framesTotales_;
-			SDL_Rect src;
-			src.x = i*(tr_->getW() / framesTotales_);
-			src.y = tr_->getH() * fila_;
-			src.h = tr_->getH();
-			src.w = tr_->getW() / framesTotales_;
+
+			
+
+			SDL_Rect rect,src;
+			if (ent_->hasComponent(INPUTCOMPONENT_H)) {
+				rect.x = tr_->getPos().getX();
+				rect.y = tr_->getPos().getY();
+				rect.h = (tr_->getH()+ofset_x) ;
+				rect.w = ((tr_->getW()+ofset_y )/ framesTotales_);
+
+				src.x = i * ((tr_->getW()+ofset_x) / framesTotales_);
+				src.y = (tr_->getH()+ofset_x) * fila_;
+				src.h = tr_->getH()+ofset_x;
+				src.w = (tr_->getW()+ofset_y) / framesTotales_;
+			}
+			else {
+				rect.x = tr_->getPos().getX();
+				rect.y = tr_->getPos().getY();
+				rect.h = tr_->getH();
+				rect.w = tr_->getW() / framesTotales_;
+
+				src.x = i * (tr_->getW() / framesTotales_);
+				src.y = tr_->getH() * fila_;
+				src.h = tr_->getH();
+				src.w = tr_->getW() / framesTotales_;
+			}
+			
 			tex_->render(src, rect,0,nullptr,s);
 			if (cont >= 10) {
 				i++;
@@ -154,5 +172,7 @@ private:
 	SDL_RendererFlip s = SDL_FLIP_NONE;
 	bool is_attaking = false;
 	bool animPlaying = false;
+	int ofset_x = 30;
+	int ofset_y = 30;
 };
 #endif

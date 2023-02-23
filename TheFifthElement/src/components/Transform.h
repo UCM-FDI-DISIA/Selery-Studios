@@ -11,7 +11,7 @@ private:
     float width, height, rotation_;
     SDL_Rect rect;
     int framesTotales_;
-    bool matrix_, demo = true;
+    bool matrix_, demo = false;
 public:
     Transform() {
         //cout << "fdgbxc";
