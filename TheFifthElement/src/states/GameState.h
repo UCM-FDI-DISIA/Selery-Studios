@@ -3,11 +3,9 @@
 #include <list>
 #include "../utils/Manager.h"
 using namespace std;
-class GameStateMachine;
 class GameState: Manager{
 protected:
 	//puntero a la maquina de estados
-	GameStateMachine* gameStMc; 
 public:
 	GameState();
 	virtual ~GameState(); // destructora

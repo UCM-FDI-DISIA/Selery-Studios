@@ -19,7 +19,6 @@ private:
 	Texture* t;
 	Transform* tr;
 	Transform* trPlayer_;
-	GameManager* m;
 	PlayerTD* player_;
 	CheckCollision* ch;
 	int nframes = 7;
@@ -41,12 +40,11 @@ public:
 	}
 
 
-	Enemy(GameManager* gm_, PlayerTD* player, float maxLife) : Entity()
+	Enemy(PlayerTD* player, float maxLife) : Entity()
 	{
 		addComponent<Enemy_movementTD_component>(int(ENEMY_MOVEMENT_TD_H));
 		maxLife_ = maxLife;
 		life_ = maxLife;
-		m = gm_;
 		float a =-1.0f;
 		float lookingRange = 150.0f;
 		float lookingWidth = 100.0f;
@@ -55,7 +53,7 @@ public:
 		player_ = player;
 		trPlayer_ = player_->getComponent<Transform>(int(TRANSFORM_H));
 		//addComponent<LifeComponent>(int(LIFECOMPONENT_H), m, tr, maxLife_);
-		ch = addComponent<CheckCollision>(int(CHECKCOLLISION_H), player_,gm_, lookingRange, lookingWidth, a);
+		ch = addComponent<CheckCollision>(int(CHECKCOLLISION_H), player_, lookingRange, lookingWidth, a);
 		
 		fila_ = 0;
 		addComponent<Image>(int(IMAGE_H), t, nframes, nframes, fila_);

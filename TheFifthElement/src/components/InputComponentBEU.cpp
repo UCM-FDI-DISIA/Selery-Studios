@@ -4,6 +4,7 @@
 #include "../utils/ecs.h"
 #include "../Entities/PlayerBEU.h"
 #include "Image.h"
+#include "../states/BeatEmUpState.h"
 
 InputComponentBEU::InputComponentBEU() :Component() {
 
@@ -49,8 +50,12 @@ void InputComponentBEU::handleEvents(SDL_Event event){
 				im_->setAnim(true, 10, 17, 0, 0);
 				static_cast<PlayerBEU*>(ent_)->setAttack(true);
 			}
+			else if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_M)) {
+				static_cast<BeatEmUpState*>(mngr_)->finishBEU();
+			}
 			else mov_->setDir(Vector2D(0, 0));
 		}
+		
 		else mov_->setDir(Vector2D(0, 0));
 	}
 }

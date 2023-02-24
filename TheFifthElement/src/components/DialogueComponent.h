@@ -11,7 +11,6 @@ class DialogueComponent : public Component
 private:
 	Font* font_;
 	//float speed_ = 0.0f;
-	GameManager* m;
 	int nframes = 0;
 	int fila_;
 	bool matrix_ = false;
@@ -28,7 +27,7 @@ public:
 		fin = stringoriginal.size();
 	}
 	void render() {
-		font_->render(m->getRenderer(), strigsalir, 150, 300, color_);
+		font_->render(GameManager::instance()->getRenderer(), strigsalir, 150, 300, color_);
 
 	}
 	void update() {

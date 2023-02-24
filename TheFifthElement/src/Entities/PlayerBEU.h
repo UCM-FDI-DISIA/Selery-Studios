@@ -17,7 +17,6 @@ private:
 	float PlayerWidth_ = 8064, PlayerHeigth_ = 128, PlayerRotation_ = 1;
 	Texture* t;
 	Transform* tr;
-	GameManager* m;
 	Vector2D dir;
 	MovementComponent* mov = nullptr;
 	int nframes = 7;
@@ -28,7 +27,7 @@ private:
 	bool is_attaking = false;
 
 public:
-	PlayerBEU(GameManager* gm_);
+	PlayerBEU();
 	~PlayerBEU();
 	int returnFramesTot() { return framesT_; }
 	void setAttack(bool a);

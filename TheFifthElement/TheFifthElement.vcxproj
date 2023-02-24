@@ -130,6 +130,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Game.h" />
     <ClInclude Include="src\states\BeatEmUpState.h" />
     <ClInclude Include="src\Entities\Camera.h" />
     <ClInclude Include="src\components\CameraComponent.h" />
@@ -184,6 +185,7 @@
     <ClInclude Include="src\utils\Vector2D.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Game.cpp" />
     <ClCompile Include="src\states\BeatEmUpState.cpp" />
     <ClCompile Include="src\Entities\Camera.cpp" />
     <ClCompile Include="src\components\CameraComponent.cpp" />

@@ -17,7 +17,6 @@ private:
 	Texture* t;
 	Transform* tr;
 	Transform* trPlayer_;
-	GameManager* m;
 	PlayerTD* player_;
 	CheckCollision* ch;
 	int nframes = 1;
@@ -31,9 +30,8 @@ public:
 
 	void Teleport(Vector2D newPlayerPos);
 
-	Portal(GameManager* gm_, PlayerTD* player) : Entity()
+	Portal(PlayerTD* player) : Entity()
 	{
-		m = gm_;
 		player_ = player;
 		tr = addComponent<Transform>(int(TRANSFORM_H), portalPosition_, portalWidth_, portalHeight_, portalRotation_, nframes, false);
 		trPlayer_ = player_->getComponent<Transform>(int(TRANSFORM_H));

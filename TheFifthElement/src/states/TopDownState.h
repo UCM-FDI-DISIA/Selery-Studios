@@ -37,15 +37,14 @@ struct MapInfo {
 
 class TopDownState : public Manager {
 public:
-	virtual string getStateID() { return "top-down"; }; // stringID
+	string getStateID(); // stringID
 	DialogBox* d;
-	TopDownState(GameManager* gm_) {
-		Gm_ = gm_;
+	TopDownState() {
 		LoadMap("assets/MapAssets/MapaInicial.tmx");
-		player_ = addEntity(new PlayerTD(Gm_));
+		player_ = addEntity(new PlayerTD());
 		dialog_ = false;
-		addEntity(new Npc(Gm_, player_,{0,10},&SDLUtils::instance()->images().at("NPC_1")));
-		addEntity(new Npc(Gm_, player_, { 50,10 }, &SDLUtils::instance()->images().at("NPC_2")));
+		addEntity(new Npc(player_,{0,10},&SDLUtils::instance()->images().at("NPC_1")));
+		addEntity(new Npc(player_, { 50,10 }, &SDLUtils::instance()->images().at("NPC_2")));
 		//playerBEU_ = new PlayerBEU(Gm_);
 
 	//	cmpId_type b = int(INPUTCOMPONENTBEU_H);
@@ -55,12 +54,12 @@ public:
 		
 		//addEntity(playerBEU_);
 		//addEntity(new DialogBox(Gm_));
-		addEntity(new Enemy(Gm_, player_, 100));
-		cam_ = addEntity(new Camera(Gm_, player_)); // entidad de camara
-		Portal* p = addEntity(new Portal(Gm_, player_));
-		addEntity(new Element(Gm_, player_, Vector2D(100, 100), p));
-		addEntity(new Element(Gm_, player_, Vector2D(300, 100), p));
-		addEntity(new Element(Gm_, player_, Vector2D(200, 200), p));
+		addEntity(new Enemy(player_, 100));
+		cam_ = addEntity(new Camera(player_)); // entidad de camara
+		Portal* p = addEntity(new Portal(player_));
+		addEntity(new Element(player_, Vector2D(100, 100), p));
+		addEntity(new Element(player_, Vector2D(300, 100), p));
+		addEntity(new Element(player_, Vector2D(200, 200), p));
 		
 	}
 	void LoadMap(string const& filename);
@@ -72,7 +71,7 @@ public:
 			dialog_= false;
 		}
 		else  {
-			d = new DialogBox(Gm_, a);
+			d = new DialogBox(a);
 			addEntity(d);
 			dialog_ = true;
 			cout << "d" << endl;

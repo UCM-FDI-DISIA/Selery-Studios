@@ -1,10 +1,10 @@
 #include "PlayerBEU.h"
 #include "../components/Image.h"
-PlayerBEU::PlayerBEU(GameManager* gm_) : Entity() {
+PlayerBEU::PlayerBEU() : Entity() {
 	cmpId_type z = int(TRANSFORM_H);
 	//int width = PlayerWidth_ / framesT_;
 	tr = addComponent<Transform>(z, PlayerPosition_, PlayerWidth_, PlayerHeigth_, PlayerRotation_, framesT_, matrix_);
-	t = new Texture(gm_->getRenderer(), "./assets/PlayableCharacters/BeatEmUp/Fire/spritesheets/fireMatrix.png");
+	t = new Texture(GameManager::instance()->getRenderer(), "./assets/PlayableCharacters/BeatEmUp/Fire/spritesheets/fireMatrix.png");
 	//cmpId_type x = int(RENDERCOMPONENT_H);
 	//referencia al texture y al transform
 	fila_ = 0;

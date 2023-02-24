@@ -14,9 +14,8 @@ class PlayerTD : public Entity {
 private:
 	//Component* componenete;
 	Vector2D PlayerPosition_{ 10,150 };
-	float speed_ = 1.0f;
+	float speed_ = 3.0f;
 	float PlayerWidth_ = 476, PlayerHeigth_ = 120, PlayerRotation_ = 1;
-	GameManager* gm_;
 	Texture* t;
 	Transform* tr;
 	Vector2D dir;
@@ -40,14 +39,13 @@ public:
 		fila_ = 0;
 		addComponent<Image>(int(IMAGE_H), t, nframes, nframes, fila_);*/
 		cmpId_type k = int(SKINCOMPONENT_H);
-		sk = addComponent<SkinComponent>(k, gm_);
+		sk = addComponent<SkinComponent>(k);
 		cmpId_type s = int(MOVEMENTCOMPONENT_H);
 		mov = addComponent<MovementComponent>(s);
 		cmpId_type w = int(INPUTCOMPONENT_H);
 		addComponent<InputComponent>(w);
 	}
-	PlayerTD(GameManager* gm) : Entity() {
-		gm_ = gm;
+	PlayerTD() : Entity() {
 	
 	}
 	~PlayerTD() {
