@@ -45,15 +45,9 @@ public:
 		dialog_ = false;
 		addEntity(new Npc(player_,{0,10},&SDLUtils::instance()->images().at("NPC_1")));
 		addEntity(new Npc(player_, { 50,10 }, &SDLUtils::instance()->images().at("NPC_2")));
-		//playerBEU_ = new PlayerBEU(Gm_);
-
-	//	cmpId_type b = int(INPUTCOMPONENTBEU_H);
-		//inBEU_ = playerBEU_->getComponent<InputComponentBEU>(b);
+	
 		cmpId_type w = int(INPUTCOMPONENT_H);
 		in_ = player_->getComponent<InputComponent>(w);
-		
-		//addEntity(playerBEU_);
-		//addEntity(new DialogBox(Gm_));
 		addEntity(new Enemy(player_, 100));
 		cam_ = addEntity(new Camera(player_)); // entidad de camara
 		Portal* p = addEntity(new Portal(player_));

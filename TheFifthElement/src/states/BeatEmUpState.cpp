@@ -4,7 +4,6 @@ BeatEmUpState::BeatEmUpState() {
 	player_ = addEntity(new PlayerBEU());
 	dialog_ = false;
 
-	//playerBEU_ = new PlayerBEU(Gm_);
 
 	cmpId_type b = int(INPUTCOMPONENTBEU_H);
 	in_ = player_->getComponent<InputComponentBEU>(b);

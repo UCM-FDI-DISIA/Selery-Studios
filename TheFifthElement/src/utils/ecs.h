@@ -20,6 +20,7 @@ enum cmpId : cmpId_type {
 	OBJECTSCOMPONENT_H = 12,
 	ENEMY_MOVEMENT_TD_H = 13,
 	CAMERACOMPONENT_H = 14,
+	ATTACKBOXCOMPONENT_H = 15,
 	// do not remove this
 	_LAST_CMP_ID
 };

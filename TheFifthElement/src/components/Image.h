@@ -7,6 +7,21 @@
 #include "InputComponentBEU.h"
 #include "../Entities/PlayerBEU.h"
 class Image : public Component {
+
+private:
+	int frames_, fila_, framesTotales_;
+	int i = 0;
+	int cont = 0;
+
+	
+	Transform* tr_; // Consulta las caracteristicas fisicas
+	Texture* tex_;	// Imagen a rederizar
+	bool isPlayerTD = false;
+	bool isPlayerBEU = false;
+	
+	SDL_RendererFlip s = SDL_FLIP_NONE;
+	bool animPlaying = false;
+
 public:
 
 	// Constructora
@@ -24,48 +39,54 @@ public:
 	// Inicializa el componente
 	void initComponent() {
 		tr_ = ent_->getComponent<Transform>(int(TRANSFORM_H));
+		isPlayerTD = ent_->hasComponent(INPUTCOMPONENT_H);
+		isPlayerBEU = ent_->hasComponent(INPUTCOMPONENTBEU_H);
 		assert(tr_ != nullptr);
+
+		
 	}
 
 	void update() {
-		if (ent_->hasComponent(INPUTCOMPONENT_H)) {
-			Vector2D player_vel = tr_->getVel();
+		if (isPlayerTD) {
 			//cout << vel.getX() << " " << vel.getY() << endl;
-			if (player_vel.getX() == 1 && player_vel.getY() == 0) {
+			if (tr_->getVel().getX() == 1 && tr_->getVel().getY() == 0) {
 				tex_ = &SDLUtils::instance()->images().at("p_left");
 				framesTotales_ = 7;
 				//s = SDL_FLIP_NONE;
 				tr_->setW(476);
 			}
-			else if (player_vel.getX() == -1 && player_vel.getY() == 0) {
+			else if (tr_->getVel().getX() == -1 && tr_->getVel().getY() == 0) {
 				tex_ = &SDLUtils::instance()->images().at("p_right");
 				framesTotales_ = 7;
 				//	s = SDL_FLIP_HORIZONTAL;
 				tr_->setW(476);
 			}
-			else if (player_vel.getY() == -1 && player_vel.getX() == 0) {
+			else if (tr_->getVel().getY() == -1 && tr_->getVel().getX() == 0) {
 				tex_ = &SDLUtils::instance()->images().at("p_top");
 
 				framesTotales_ = 9;
 				tr_->setW(612);
 			}
-			else if (player_vel.getY() == 1 && player_vel.getX() == 0) {
+			else if (tr_->getVel().getY() == 1 && tr_->getVel().getX() == 0) {
 				tex_ = &SDLUtils::instance()->images().at("p_down");
 				framesTotales_ = 9;
 				tr_->setW(612);
 			}
 			else {
 				tex_ = &SDLUtils::instance()->images().at("p_idle");
+				if (tex_== &SDLUtils::instance()->images().at("p_idle"))
+				{
+					cout << "si";
+				}
 				framesTotales_ = 7;
 				tr_->setW(519);
 			}
 			s = SDL_FLIP_NONE;
 		}
-		else if (ent_->hasComponent(INPUTCOMPONENTBEU_H) && !animPlaying) {
-			Vector2D player_vel = tr_->getVel();
+		else if (isPlayerBEU && !animPlaying) {
 			
 			if (!(static_cast<PlayerBEU*>(ent_)->getAttack())){
-				if (player_vel.getX() == 1 && (fila_ != 1||s==SDL_FLIP_HORIZONTAL)) {
+				if (tr_->getVel().getX() == 1 && (fila_ != 1||s==SDL_FLIP_HORIZONTAL)) {
 					fila_ = 1;
 					//tex_ = &SDLUtils::instance()->images().at("p_left");
 					frames_ = 8;
@@ -74,7 +95,7 @@ public:
 					i = 0;
 					
 				}
-				else if (player_vel.getX() == -1 && (fila_ != 1||s==SDL_FLIP_NONE)) {
+				else if (tr_->getVel().getX() == -1 && (fila_ != 1||s==SDL_FLIP_NONE)) {
 					//tex_ = &SDLUtils::instance()->images().at("p_right");
 					fila_ = 1;
 					frames_ = 8;
@@ -83,7 +104,7 @@ public:
 					i = 0;
 					
 				}
-				else if (fila_ != 0 && player_vel.getX() == 0) {
+				else if (fila_ != 0 && tr_->getVel().getX() == 0) {
 					//tex_ = &SDLUtils::instance()->images().at("p_idle");
 					fila_ = 0;
 					frames_ = 8;
@@ -113,15 +134,15 @@ public:
 			src.h = tr_->getH();
 			src.w = tr_->getW() / framesTotales_;
 			tex_->render(src, rect,0,nullptr,s);
-			if (cont >= 10) {
+			if (cont >= 5) {
 				i++;
 				cont = 0;
 			}
 			cont++;
 			if (i == frames_) { 
 				i = 0;
-				if (is_attaking) {
-					is_attaking = false;
+				if (static_cast<PlayerBEU*>(ent_)->getAttack()) {
+					
 					//ent_->getComponent<InputComponentBEU>(INPUTCOMPONENTBEU_H)->stop_attack();
 					static_cast<PlayerBEU*>(ent_)->setAttack(false);
 				}
@@ -141,18 +162,11 @@ public:
 		}
 	}
 
+	/*inline Texture* getTexture*/
+
 	bool isAnimPlaying() {
 		return animPlaying;
 	}
 
-private:
-	int frames_, fila_, framesTotales_;
-	int i = 0;
-	int cont = 0;
-	Transform* tr_; // Consulta las caracteristicas fisicas
-	Texture* tex_;	// Imagen a rederizar
-	SDL_RendererFlip s = SDL_FLIP_NONE;
-	bool is_attaking = false;
-	bool animPlaying = false;
 };
 #endif

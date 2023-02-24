@@ -8,6 +8,7 @@
 #include "../components/InputComponent.h"
 #include "../components/InputComponentBEU.h"
 #include "../components/MovementComponent.h"
+#include "../components//AttackBoxComponent.h"
 class PlayerBEU : public Entity
 {
 private:
@@ -18,6 +19,7 @@ private:
 	Texture* t;
 	Transform* tr;
 	Vector2D dir;
+	InputComponentBEU* in_;
 	MovementComponent* mov = nullptr;
 	int nframes = 7;
 	int framesT_ = 28;

@@ -2,7 +2,7 @@
 #include "SDL_ttf.h"
 #include "src/utils/checkML.h"
 #include <fstream>
-#include "Game.h"
+#include "src/Game.h"
 //#include <cstdint>
 using namespace std;
 
