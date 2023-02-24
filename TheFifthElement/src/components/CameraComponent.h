@@ -16,7 +16,6 @@ public:
 	CameraComponent(PlayerTD* player);
 	void initComponent();
 	void update();
-	//inline SDL_Rect getRect() { return build_sdlrect(camTr_->getPos(), camTr_->getW(), camTr_->getH()); }
 	void render();
 };
 #endif

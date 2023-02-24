@@ -1,15 +1,12 @@
 // This file is part of the course TPV2@UCM - Samir Genaim
 
 #include "SDLUtils.h"
-
 #include <cassert>
 #include <memory>
-
 #include "../../json/JSON.h"
 
-
 SDLUtils::SDLUtils() :
-		SDLUtils("El quinto elemento :)", 900, 600, "assets/resources.json") {
+		SDLUtils("El quinto elemento :)", WIN_WIDTH, WIN_HEIGHT, "assets/resources.json") {
 }
 
 SDLUtils::SDLUtils(std::string windowTitle, int width, int height) :

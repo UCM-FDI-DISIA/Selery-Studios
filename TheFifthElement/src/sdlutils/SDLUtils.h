@@ -13,6 +13,8 @@
 #include "SoundEffect.h"
 #include "Texture.h"
 #include "VirtualTimer.h"
+#include "../utils/Constants.h"
+
 class SDLUtils : public Singleton<SDLUtils> {
 
 	friend Singleton<SDLUtils>; // needed to give access to private constructors
