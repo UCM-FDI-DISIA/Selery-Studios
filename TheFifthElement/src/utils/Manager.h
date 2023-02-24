@@ -24,6 +24,6 @@ public:
 	virtual void update();
 	virtual void render();
 	virtual void handleEvents() {};
-	virtual string getStateID() { return "nothing"; };
+	virtual string getStateID() = 0;
 
 };

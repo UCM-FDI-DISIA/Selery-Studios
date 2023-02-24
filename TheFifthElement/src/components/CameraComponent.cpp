@@ -4,9 +4,8 @@
 using namespace std;
 cmpId_type c = int(TRANSFORM_H);
 
-CameraComponent::CameraComponent(GameManager* gm, PlayerTD* player) :Component()
+CameraComponent::CameraComponent(PlayerTD* player) :Component()
 {
-	gm_ = gm;
 	player_ = player;
 }
 void CameraComponent::initComponent() {
@@ -42,6 +41,6 @@ void CameraComponent::update()
 }
 
 void CameraComponent::render() {
-	SDL_RenderDrawRect(gm_->getRenderer(), &camRect_);
-	SDL_SetRenderDrawColor(gm_->getRenderer(), 0, 0, 0, 255);
+	SDL_RenderDrawRect(GameManager::instance()->getRenderer(), &camRect_);
+	SDL_SetRenderDrawColor(GameManager::instance()->getRenderer(), 0, 0, 0, 255);
 }

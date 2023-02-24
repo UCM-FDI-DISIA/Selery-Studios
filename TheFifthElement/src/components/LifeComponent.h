@@ -13,23 +13,21 @@ private:
 	Texture* lifeBarBack;
 	Texture* lifeBarBorder;
 	Vector2D pos_;
-	GameManager* gm_;
 	Entity* entity_;
 	Transform* trEntity;
 	int nframes = 1, i = 0;
 	float life_, maxLife_;
 public:
 
-	LifeComponent(GameManager* gm,  Transform* tr, float maxLife) {
+	LifeComponent(Transform* tr, float maxLife) {
 		life_ = maxLife;
 		maxLife_ = maxLife;
-		gm_ = gm;
 		trEntity = tr;
 	}
 	void initComponent() {
-		lifeBar = new Texture(gm_->getRenderer(), "./assets/LifeBars/Horizontal/Bars/Bar2.png");
-		lifeBarBack = new Texture(gm_->getRenderer(), "./assets/LifeBars/Horizontal/Backs/Back6.png");
-		lifeBarBorder = new Texture(gm_->getRenderer(), "./assets/LifeBars/Horizontal/Boarders/Boarder2.png");
+		lifeBar = new Texture(GameManager::instance()->getRenderer(), "./assets/LifeBars/Horizontal/Bars/Bar2.png");
+		lifeBarBack = new Texture(GameManager::instance()->getRenderer(), "./assets/LifeBars/Horizontal/Backs/Back6.png");
+		lifeBarBorder = new Texture(GameManager::instance()->getRenderer(), "./assets/LifeBars/Horizontal/Boarders/Boarder2.png");
 	}
 
 	void update() {

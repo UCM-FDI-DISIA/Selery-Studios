@@ -4,6 +4,7 @@
 #include "../utils/ecs.h"
 #include "../Entities/PlayerBEU.h"
 #include "Image.h"
+#include "../states/BeatEmUpState.h"
 
 InputComponentBEU::InputComponentBEU() :Component() {
 
@@ -17,16 +18,13 @@ void InputComponentBEU::initComponent() {
 void InputComponentBEU::update() {
 
 }
-
-void InputComponentBEU::stop_attack() {
-	attack = false;
-}
-
 void InputComponentBEU::handleEvents(SDL_Event event){
+
 	InputHandler::instance()->update(event);
 
-	if (InputHandler::instance()->keyDownEvent()){
-		if (!(static_cast<PlayerBEU*>(ent_)->getAttack())) {
+	
+		if (!(static_cast<PlayerBEU*>(ent_)->getAttack())) 
+		{
 			if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_A)) {
 				mov_->setDir(Vector2D(-1, 0));
 			}
@@ -40,17 +38,21 @@ void InputComponentBEU::handleEvents(SDL_Event event){
 				mov_->setDir(Vector2D(0, 1));
 			}
 			else if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_O)) {
-				if (!im_->isAnimPlaying()) SDLUtils::instance()->soundEffects().at("playerAttack").play();
+			    SDLUtils::instance()->soundEffects().at("playerAttack").play();
 				im_->setAnim(true, 7, 10, 0, 0);
 				static_cast<PlayerBEU*>(ent_)->setAttack(true);
 			}
 			else if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_P)) {
-				if(!im_->isAnimPlaying()) SDLUtils::instance()->soundEffects().at("playerSpecialAttack").play();
+			    SDLUtils::instance()->soundEffects().at("playerSpecialAttack").play();
 				im_->setAnim(true, 10, 17, 0, 0);
 				static_cast<PlayerBEU*>(ent_)->setAttack(true);
 			}
+			else if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_M)) {
+				static_cast<BeatEmUpState*>(mngr_)->finishBEU();
+			}
 			else mov_->setDir(Vector2D(0, 0));
 		}
+		
 		else mov_->setDir(Vector2D(0, 0));
-	}
+	
 }

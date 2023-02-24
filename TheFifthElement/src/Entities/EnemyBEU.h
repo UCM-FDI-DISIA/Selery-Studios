@@ -22,7 +22,6 @@ private:
 	Texture* t;
 	Transform* tr;
 	Transform* trPlayer_;
-	GameManager* m;
 	PlayerBEU* player_;
 	CheckCollision* ch;
 	MovementComponent* mov_;
@@ -51,11 +50,10 @@ public:
 
 	}
 
-	EnemyBEU(GameManager* gm_, PlayerBEU* player, float maxLife) : Entity()
+	EnemyBEU(PlayerBEU* player, float maxLife) : Entity()
 	{
 		maxLife_ = maxLife;
 		life_ = maxLife;
-		m = gm_;
 		float a = 1.0f;
 		float lookingRange = 150.0f;
 		float lookingWidth = 100.0f;
@@ -74,7 +72,7 @@ public:
 
 
 
-		addComponent<LifeComponent>(int(LIFECOMPONENT_H), gm_, tr, maxLife_);
+		addComponent<LifeComponent>(int(LIFECOMPONENT_H), tr, maxLife_);
 	}
 
 	PlayerBEU* returnPlayer() {

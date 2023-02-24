@@ -24,21 +24,20 @@ void InputComponent::handleEvents(SDL_Event event)
 
 	InputHandler::instance()->update(event);
 
-
-	if(InputHandler::instance()->keyDownEvent())
+	if (InputHandler::instance()->keyDownEvent())
 	{
 		if (!npccol) {
 			if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_A)) {
-				mov_->setDir(Vector2D(-1, 0));
+				mov_->setDir(Vector2D(-5, 0));
 			}
 			else if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_D)) {
-				mov_->setDir(Vector2D(1, 0));
+				mov_->setDir(Vector2D(5, 0));
 			}
 			else  if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_W)) {
-				mov_->setDir(Vector2D(0, -1));
+				mov_->setDir(Vector2D(0, -5));
 			}
 			else if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_S)) {
-				mov_->setDir(Vector2D(0, 1));
+				mov_->setDir(Vector2D(0, 5));
 			}
 			else mov_->setDir(Vector2D(0, 0));
 
@@ -55,31 +54,22 @@ void InputComponent::handleEvents(SDL_Event event)
 				skin_->changeSkin("earth");
 			}
 		}
-		
-		
+
+
 	}
 	if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_E)) {
-	
-		
-
-
-		if (actionDelay>0) { // The shorterpaddle and biggerpaddle rewards is activated REWARDS_TIME seconds
+		if (actionDelay > 0) { // The shorterpaddle and biggerpaddle rewards is activated REWARDS_TIME seconds
 			int a = static_cast<PlayerTD*>(ent_)->getCol() != -1;
-			
+
 			if (a) {
 				cout << "2";
 				npccol = true;
 				mov_->setDir(Vector2D(0, 0));
 				static_cast<TopDownState*>(mngr_)->dialog(a);
 			}
-		
+
 		}
 		actionDelay = 0;
-	
-		
-			
-		
-	
 	}
-
+	
 }

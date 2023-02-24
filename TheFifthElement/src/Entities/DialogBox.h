@@ -12,16 +12,14 @@ private:
 	Vector2D DialogBoxPosition_{ 20,190 };
 	float DialogBoxWith_ = 520, DialogBoxHeith_ = 252, DialogBoxRotation_ = 0;
 	Texture* t;
-	GameManager* m;
 	int nframes = 0;
 	int fila_;
 	bool matrix_ = false;
 public:
-	DialogBox(GameManager* gm_, int a) {
-		m = gm_;
+	DialogBox(int a) {
 		cmpId_type z = int(TRANSFORM_H);
 		addComponent<Transform>(z, DialogBoxPosition_, DialogBoxWith_, DialogBoxHeith_, DialogBoxRotation_, nframes, matrix_);
-		t = new Texture(gm_->getRenderer(), "./assets/fonts/image.png");
+		t = new Texture(GameManager::instance()->getRenderer(), "./assets/fonts/image.png");
 		cmpId_type x = int(RENDERCOMPONENT_H);
 		//referencia al texture y al transform
 		fila_ = 0;

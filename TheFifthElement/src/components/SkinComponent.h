@@ -10,20 +10,18 @@
 class SkinComponent : public Component
 {
 public:
-    SkinComponent(GameManager* gm)
+    SkinComponent()
     {
-        gm_ = gm;
-        fire = new Texture(gm_->getRenderer(), "./assets/PlayableCharacters/Exploration/Fire/andar.png");
-        air = new Texture(gm_->getRenderer(), "./assets/PlayableCharacters/Exploration/Fire/andararriba.png");
-        water = new Texture(gm_->getRenderer(), "./assets/PlayableCharacters/Exploration/Fire/andar.png");
-        earth = new Texture(gm_->getRenderer(), "./assets/PlayableCharacters/Exploration/Fire/andararriba.png");
+        fire = new Texture(GameManager::instance()->getRenderer(), "./assets/PlayableCharacters/Exploration/Fire/andar.png");
+        air = new Texture(GameManager::instance()->getRenderer(), "./assets/PlayableCharacters/Exploration/Fire/andararriba.png");
+        water = new Texture(GameManager::instance()->getRenderer(), "./assets/PlayableCharacters/Exploration/Fire/andar.png");
+        earth = new Texture(GameManager::instance()->getRenderer(), "./assets/PlayableCharacters/Exploration/Fire/andararriba.png");
         fila_ = 0;
     }
     void initComponent();
     void update();
     void changeSkin(string skin);
 private:
-    GameManager* gm_;
     Texture* fire;
     Texture* air;
     Texture* water;

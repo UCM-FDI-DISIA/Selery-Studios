@@ -8,6 +8,7 @@
 #include "../components/InputComponent.h"
 #include "../components/InputComponentBEU.h"
 #include "../components/MovementComponent.h"
+#include "../components//AttackBoxComponent.h"
 class PlayerBEU : public Entity
 {
 private:
@@ -17,8 +18,8 @@ private:
 	float PlayerWidth_ = 8064, PlayerHeigth_ = 128, PlayerRotation_ = 1;
 	Texture* t;
 	Transform* tr;
-	GameManager* m;
 	Vector2D dir;
+	InputComponentBEU* in_;
 	MovementComponent* mov = nullptr;
 	int nframes = 7;
 	int framesT_ = 28;
@@ -28,7 +29,7 @@ private:
 	bool is_attaking = false;
 
 public:
-	PlayerBEU(GameManager* gm_);
+	PlayerBEU();
 	~PlayerBEU();
 	int returnFramesTot() { return framesT_; }
 	void setAttack(bool a);

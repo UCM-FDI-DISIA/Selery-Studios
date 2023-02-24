@@ -130,6 +130,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\components\AttackBoxComponent.h" />
+    <ClInclude Include="src\Game.h" />
     <ClInclude Include="src\states\BeatEmUpState.h" />
     <ClInclude Include="src\Entities\Camera.h" />
     <ClInclude Include="src\components\CameraComponent.h" />
@@ -185,6 +187,8 @@
     <ClInclude Include="src\utils\Vector2D.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\components\AttackBoxComponent.cpp" />
+    <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\states\BeatEmUpState.cpp" />
     <ClCompile Include="src\Entities\Camera.cpp" />
     <ClCompile Include="src\components\CameraComponent.cpp" />

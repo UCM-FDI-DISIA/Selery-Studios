@@ -11,9 +11,8 @@ public:
     void initComponent();
     void update();
     void handleEvents(SDL_Event event);
-    void stop_attack();
 private:
-    bool attack = false;
+ 
     MovementComponent* mov_ = nullptr;
     Image* im_ = nullptr;
 };

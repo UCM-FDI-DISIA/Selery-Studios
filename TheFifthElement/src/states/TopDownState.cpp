@@ -147,3 +147,7 @@ void TopDownState::render() {
     SDL_RenderCopy(Gm_->getRenderer(), background_, &src, &dst);
     Manager::render();
 }
+
+string TopDownState::getStateID() {
+    return "TopDownState";
+}

@@ -3,7 +3,7 @@
 #include "MainMenuState.h"
 
 GameState::GameState() {
-	gameStMc = static_cast<GameStateMachine*>(GameStateMachine::instance());
+
 }
 
 void GameState::render() {
