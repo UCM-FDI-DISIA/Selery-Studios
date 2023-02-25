@@ -19,7 +19,10 @@ private:
 	GameStateMachine* gameStMc;
 	bool exit;
 	
+<<<<<<< Updated upstream:TheFifthElement/GameManager.h
 
+=======
+>>>>>>> Stashed changes:TheFifthElement/src/Game.h
 public:
 	GameManager() ;
 	virtual ~GameManager();
@@ -31,6 +34,11 @@ public:
 		return SDLUtils::instance()->renderer();
 	}
 	SDL_Window* getWindow() { return window; }
+<<<<<<< Updated upstream:TheFifthElement/GameManager.h
+=======
+	
+};
+>>>>>>> Stashed changes:TheFifthElement/src/Game.h
 
 	void goBeatEmUp();
 };
