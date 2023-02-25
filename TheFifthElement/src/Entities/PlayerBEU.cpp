@@ -28,3 +28,7 @@ PlayerBEU::PlayerBEU() : Entity() {
 PlayerBEU::~PlayerBEU() {
 
 }
+
+void PlayerBEU::update() {
+	Entity::update();
+}

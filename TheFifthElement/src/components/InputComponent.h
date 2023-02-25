@@ -18,6 +18,5 @@ public:
     void initComponent();
     void update();
     void changebool(){ npccol = false; }
-
 };
 #endif

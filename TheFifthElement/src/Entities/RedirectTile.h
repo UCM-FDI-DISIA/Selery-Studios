@@ -6,15 +6,14 @@ class RedirectTile :
     public Entity
 {
 private:
-    
     Vector2D pos_;
     float h_ = 20, w_ = 20;
     Vector2D changeDir_;
     ColliderComponent* col_;
     Npc* npc_;
     MovementComponent* npcM_;
-public:
 
+public:
     RedirectTile(Vector2D dir, Vector2D pos, Npc* npc) {
         npc_ = npc;
         changeDir_ = dir;
@@ -31,6 +30,4 @@ public:
         npcM_ = npc_->getComponent<MovementComponent>(int(MOVEMENTCOMPONENT_H));
         npcM_->setDir(changeDir_);
     }
-
 };
-

@@ -1,6 +1,4 @@
 #pragma once
-#ifndef IMAGE_H
-#define IMAGE_H_
 #include "../sdlutils/Texture.h"
 #include "Transform.h" 
 #include "../utils/Entity.h"
@@ -106,7 +104,7 @@ public:
 			cont++;
 			if (i == frames_) { 
 				i = 0;
-				if (animPlaying) { animPlaying = false; }
+				animPlaying = false; 
 			}
 		}
 	}
@@ -127,4 +125,3 @@ public:
 	void setFlip(SDL_RendererFlip Flip = SDL_FLIP_NONE) { s = Flip; }
 	bool isAnimPlaying() { return animPlaying; }
 };
-#endif

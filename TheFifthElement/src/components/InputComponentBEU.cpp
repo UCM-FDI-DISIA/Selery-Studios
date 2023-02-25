@@ -55,8 +55,4 @@ void InputComponentBEU::update() {
             }
         }
     }
-    else { // Idle
-        tr_->setDir(Vector2D(0, 0));
-        im_->setAnim(false, 0, 8, 0, 0);
-    }
 }

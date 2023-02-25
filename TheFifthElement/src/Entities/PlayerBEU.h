@@ -30,5 +30,6 @@ public:
 	PlayerBEU();
 	~PlayerBEU();
 	int returnFramesTot() { return framesT_; }
-};
+	void update();
 
+};

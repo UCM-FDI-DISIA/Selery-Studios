@@ -1,7 +1,5 @@
 #include "Game.h"
 Game::Game() {
-	//cout << "si";
-
 	SDLUtils::init();
 	SDLUtils::instance()->showCursor();
 	renderer = SDLUtils::instance()->renderer();
@@ -25,25 +23,20 @@ void Game::run()// bucle de juego
 	while (!exit) // bucle de juego
 	{
 		frameTime = SDL_GetTicks() - startTime;
-		if (frameTime >= FRAME_RATE)
-		{
+		if (frameTime >= FRAME_RATE){
 			update();
-
 			//gameStMc->clearStates(); // elimina estados
 			startTime = SDL_GetTicks();
 		}
-		if (!exit)
-		{
+		if (!exit) {
 			SDL_RenderClear(renderer);
 			render();
 			SDL_RenderPresent(renderer);// dibuja en pantalla el estado actual del juego
-			SDL_Delay(10);
 		}
 	}
 }
 
-void Game::update()
-{
+void Game::update(){
 	//update
 	GameManager::instance()->update();
 	//gameStMc->update();// actualiza el juego
