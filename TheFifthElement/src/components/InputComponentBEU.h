@@ -2,6 +2,7 @@
 #include "../utils/Component.h"
 #include "MovementComponent.h"
 #include "SDL_events.h"
+#include "../sdlutils/SDLUtils.h"
 
 class Image;
 class InputComponentBEU : public Component
@@ -11,10 +12,10 @@ public:
     void initComponent();
     void update();
     void handleEvents(SDL_Event event);
+
 private:
- 
-    MovementComponent* mov_ = nullptr;
+    Transform* tr_ = nullptr;
     Image* im_ = nullptr;
-  
+    float downLimit, topLimit;
 };
 

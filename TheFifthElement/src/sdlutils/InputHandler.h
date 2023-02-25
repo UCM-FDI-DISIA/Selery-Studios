@@ -54,6 +54,13 @@ public:
 		}
 	}
 
+	inline void refresh() {
+		SDL_Event event;
+		clearState();
+		while (SDL_PollEvent(&event))
+			update(event);
+	}
+
 	// keyboard
 	inline bool keyDownEvent() {
 		return isKeyDownEvent_;

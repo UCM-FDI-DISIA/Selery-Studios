@@ -26,14 +26,9 @@ private:
 	int fila_;
 	bool matrix_ = true;
 
-	bool is_attaking = false;
-
 public:
 	PlayerBEU();
 	~PlayerBEU();
 	int returnFramesTot() { return framesT_; }
-	void setAttack(bool a);
-	const bool getAttack() const;
-
 };
 
