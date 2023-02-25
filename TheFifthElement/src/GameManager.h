@@ -6,10 +6,6 @@ using namespace std;
 
 using uint = unsigned int;
 
-const uint WIN_WIDTH = 800;// anchura de ventana
-const uint WIN_HEIGHT = 900;// altura de ventana
-const uint FRAME_RATE = 3;// n�mero de frames que tardar� en actualizarse el juego
-
 class GameManager : public Singleton<GameManager>
 {
 private:

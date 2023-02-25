@@ -130,6 +130,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="ColDetectorComponent.h" />
+    <ClInclude Include="ColliderComponent.h" />
+    <ClInclude Include="RedirectTile.h" />
     <ClInclude Include="src\components\AttackBoxComponent.h" />
     <ClInclude Include="src\Game.h" />
     <ClInclude Include="src\states\BeatEmUpState.h" />
@@ -187,6 +190,7 @@
     <ClInclude Include="src\utils\Vector2D.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="ColDetectorComponent.cpp" />
     <ClCompile Include="src\components\AttackBoxComponent.cpp" />
     <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\states\BeatEmUpState.cpp" />

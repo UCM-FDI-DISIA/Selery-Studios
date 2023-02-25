@@ -84,5 +84,6 @@ public:
 			currCmps_[i]->render();
 	}
 
+	virtual void collision() {};
 };
 

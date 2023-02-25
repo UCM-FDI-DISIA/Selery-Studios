@@ -13,6 +13,7 @@
 #include "tmxlite/TileLayer.hpp"
 #include "../sdlutils/SDLUtils.h"
 #include "../Entities/Camera.h"
+#include "../Entities/RedirectTile.h"
 using uint = unsigned int;
 using tileset_map = std::map<std::string, Texture*>; //mapa con CLAVE:string, ARGUMENTO: puntero a textura
 using tilelayer = tmx::TileLayer;
@@ -44,7 +45,7 @@ public:
 		player_ = addEntity(new PlayerTD());
 		dialog_ = false;
 		addEntity(new Npc(player_,{0,10},&SDLUtils::instance()->images().at("NPC_1")));
-		addEntity(new Npc(player_, { 50,10 }, &SDLUtils::instance()->images().at("NPC_2")));
+		npc = addEntity(new Npc(player_, { 50,10 }, &SDLUtils::instance()->images().at("NPC_2")));
 	
 		cmpId_type w = int(INPUTCOMPONENT_H);
 		in_ = player_->getComponent<InputComponent>(w);
@@ -55,6 +56,12 @@ public:
 		addEntity(new Element(player_, Vector2D(300, 100), p));
 		addEntity(new Element(player_, Vector2D(200, 200), p));
 		
+		
+		// PRUEBAS PATHING NPC
+		addEntity(new RedirectTile(Vector2D(1, 0), Vector2D(30, 30), npc)); //der
+		addEntity(new RedirectTile(Vector2D(0, 1), Vector2D(120, 30), npc)); //ab
+		addEntity(new RedirectTile(Vector2D(-1, 0), Vector2D(120, 120), npc)); //iz
+		addEntity(new RedirectTile(Vector2D(0, -1), Vector2D(30, 120), npc)); //arr
 	}
 	void LoadMap(string const& filename);
 	void dialog(int a) {
@@ -86,6 +93,7 @@ public:
 	}
 	void render();
 private:
+	Npc* npc;
 	GameManager* Gm_;
 	PlayerTD* player_;
 	InputComponent* in_;

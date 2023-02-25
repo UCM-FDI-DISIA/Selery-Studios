@@ -1,17 +1,14 @@
 #pragma once
-#include "../utils/Entity.h"
-#include "../components/Transform.h"
-#include "../utils/ecs.h"
-#include "../sdlutils/Texture.h"
 #include "../components/CheckCollision.h"
-#include "../components/Image.h"
-#include "../GameManager.h"
+#include "../../ColliderComponent.h"
 class Npc: public Entity {
 private:
 	//Component* componenete;
 	//Vector2D NpcPosition_{10,0};
-	float NpcWith_ =476,NpcHeith_=120, NpcRotation_=1, npcSpeed=0;
+	float NpcWidth_ =476,NpcHeight_=120, NpcRotation_=1, npcSpeed=0.5f;
 
+
+	MovementComponent* mv_;
 	Transform* tr;
 	int nframes = 7;
 	int fila_;
@@ -26,7 +23,7 @@ private:
 public:
 	Npc(PlayerTD* player, Vector2D NpcPosition_,Texture* t) : Entity() {
 		cmpId_type z=int(TRANSFORM_H);
-	    tr=addComponent<Transform>(z, NpcPosition_, NpcWith_, NpcHeith_, NpcRotation_,npcSpeed, nframes, matrix_);
+	    tr=addComponent<Transform>(z, NpcPosition_, NpcWidth_, NpcHeight_, NpcRotation_,npcSpeed, nframes, matrix_);
 		cmpId_type x = int(RENDERCOMPONENT_H);
 		//referencia al texture y al transform
 		fila_ = 0;
@@ -35,6 +32,8 @@ public:
 		player_ = player;
 		ch = addComponent<CheckCollision>(int(CHECKCOLLISION_H), player_, lookingRange, lookingWidth, a);
 		//addComponent(ecs::TRANSFORM_H, Transform(this, m, Vector2D(0, 0), Vector2D(0, 0), 1, 1, 1));
+		mv_ = addComponent<MovementComponent>(int(MOVEMENTCOMPONENT_H));
+		addComponent<ColliderComponent>(int(COLLIDERCOMPONENT_H), Vector2D(0, 0), NpcHeight_, NpcWidth_ / nframes);
 	}
 	~Npc(){
 

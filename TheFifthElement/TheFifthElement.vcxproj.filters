@@ -38,6 +38,9 @@
     <ClCompile Include="src\components\Enemy_movementTD_component.cpp" />
     <ClCompile Include="src\Entities\Camera.cpp" />
     <ClCompile Include="src\components\CameraComponent.cpp" />
+    <ClCompile Include="src\components\AttackBoxComponent.cpp" />
+    <ClCompile Include="src\Game.cpp" />
+    <ClCompile Include="ColDetectorComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\states\BeatEmUpState.h" />
@@ -93,6 +96,11 @@
     <ClInclude Include="src\Entities\Camera.h" />
     <ClInclude Include="src\components\CameraComponent.h" />
     <ClInclude Include="src\utils\Constants.h" />
+    <ClInclude Include="src\components\AttackBoxComponent.h" />
+    <ClInclude Include="src\Game.h" />
+    <ClInclude Include="RedirectTile.h" />
+    <ClInclude Include="ColliderComponent.h" />
+    <ClInclude Include="ColDetectorComponent.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="TheFifthElement.rc" />
