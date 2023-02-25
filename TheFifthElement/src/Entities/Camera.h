@@ -7,8 +7,8 @@ class Camera : public Entity
 private:
 	Transform* camTr_;
 	PlayerTD* player_;
-	double width = 600;
-	double height = 400;
+	int width = 600;
+	int height = 400;
 
 public:
 	Camera(PlayerTD* player) : Entity()
