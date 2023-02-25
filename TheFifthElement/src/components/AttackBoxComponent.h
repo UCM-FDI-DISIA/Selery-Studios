@@ -14,7 +14,8 @@ private:
     Transform* playerTr = nullptr;
     SDL_Rect box;
     Image* im_;
-    float width, height,boxTime,timerExecution;
+    float width, height, boxTime, timerExecution;
+    float angle = 0;
     bool boxCreated = false;
 public:
     AttackBoxComponent();
@@ -25,6 +26,7 @@ public:
 
     void handleBoxes();
     void moveBox(Vector2D direction,float vel);
+    void moveBoxCurve(Vector2D direction,Vector2D posCenter, float vel,float& angle);
     void GFY();
 
 
