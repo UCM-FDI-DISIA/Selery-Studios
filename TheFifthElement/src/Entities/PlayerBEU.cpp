@@ -28,9 +28,3 @@ PlayerBEU::PlayerBEU() : Entity() {
 PlayerBEU::~PlayerBEU() {
 
 }
-void PlayerBEU::setAttack(bool a) {
-	is_attaking = a;
-}
-const bool PlayerBEU::getAttack() const {
-	return is_attaking;
-}

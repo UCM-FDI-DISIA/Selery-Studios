@@ -79,37 +79,6 @@ public:
 			}
 			s = SDL_FLIP_NONE;
 		}
-		else if (isPlayerBEU && !animPlaying) {
-			
-			if (!(static_cast<PlayerBEU*>(ent_)->getAttack())){
-				if (tr_->getDir().getX() == 1 && (fila_ != 1||s==SDL_FLIP_HORIZONTAL)) {
-					fila_ = 1;
-					//tex_ = &SDLUtils::instance()->images().at("p_left");
-					frames_ = 8;
-					s = SDL_FLIP_NONE;
-					cont = 0;
-					i = 0;
-					
-				}
-				else if (tr_->getDir().getX() == -1 && (fila_ != 1||s==SDL_FLIP_NONE)) {
-					//tex_ = &SDLUtils::instance()->images().at("p_right");
-					fila_ = 1;
-					frames_ = 8;
-					s = SDL_FLIP_HORIZONTAL;
-					cont = 0;
-					i = 0;
-					
-				}
-				else if (fila_ != 0 && tr_->getDir().getX() == 0) {
-					//tex_ = &SDLUtils::instance()->images().at("p_idle");
-					fila_ = 0;
-					frames_ = 8;
-					i = 0;
-					cont = 0;
-					
-				}
-			}
-		}
 	}
 
 	// Dibuja en escena
@@ -137,13 +106,7 @@ public:
 			cont++;
 			if (i == frames_) { 
 				i = 0;
-				if (static_cast<PlayerBEU*>(ent_)->getAttack()) {
-					
-					//ent_->getComponent<InputComponentBEU>(INPUTCOMPONENTBEU_H)->stop_attack();
-					static_cast<PlayerBEU*>(ent_)->setAttack(false);
-				}
-				if (animPlaying) { animPlaying = false;	static_cast<PlayerBEU*>(ent_)->setAttack(false);
-				}
+				if (animPlaying) { animPlaying = false; }
 			}
 		}
 	}
@@ -161,11 +124,7 @@ public:
 		}
 	}
 
-	/*inline Texture* getTexture*/
-
-	bool isAnimPlaying() {
-		return animPlaying;
-	}
-
+	void setFlip(SDL_RendererFlip Flip = SDL_FLIP_NONE) { s = Flip; }
+	bool isAnimPlaying() { return animPlaying; }
 };
 #endif

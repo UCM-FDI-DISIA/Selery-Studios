@@ -11,49 +11,53 @@ InputComponentBEU::InputComponentBEU() :Component() {
 }
 
 void InputComponentBEU::initComponent() {
-	mov_ = ent_->getComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
+	tr_ = ent_->getComponent<Transform>(MOVEMENTCOMPONENT_H);
 	im_ = ent_->getComponent<Image>(IMAGE_H);
 
 }
 
 void InputComponentBEU::update() {
 
-}
-void InputComponentBEU::handleEvents(SDL_Event event){
+	ih().refresh();
+    cout << tr_->getDir().getX() << " " <<tr_->getDir().getY() << endl;
+    if (ih().keyDownEvent()) {
+        if (!(im_->isAnimPlaying())) {
+            if (ih().isKeyDown(SDL_SCANCODE_A)) { // Andar izquierda
+                tr_->setDir(Vector2D(-1, 0));
+                im_->setAnim(false, 1, 8, 0, 0);
+                im_->setFlip(SDL_FLIP_HORIZONTAL);
+            }
+            else if (ih().isKeyDown(SDL_SCANCODE_D)) { // Andar derecha
+                tr_->setDir(Vector2D(1, 0));
+                im_->setAnim(false, 1, 8, 0, 0);
+                im_->setFlip(SDL_FLIP_NONE);
+            }
+            else if (ih().isKeyDown(SDL_SCANCODE_W)) { // Andar arriba
+                tr_->setDir(Vector2D(0, -1));
+            }
+            else if (ih().isKeyDown(SDL_SCANCODE_S)) { // Andar abajo
+                tr_->setDir(Vector2D(0, 1));
+            }
+            else {  // Idle
+                tr_->setDir(Vector2D(0, 0));
+                im_->setAnim(false, 0, 8, 0, 0);
+            }
+            
+            if (ih().isKeyDown(SDL_SCANCODE_SPACE)) { // Salto
 
-	InputHandler::instance()->update(event);
-
-	
-		if (!(static_cast<PlayerBEU*>(ent_)->getAttack())) 
-		{
-			if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_A)) {
-				mov_->setDir(Vector2D(-1, 0));
-			}
-			else if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_D)) {
-				mov_->setDir(Vector2D(1, 0));
-			}
-			else  if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_W)) {
-				mov_->setDir(Vector2D(0, -1));
-			}
-			else if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_S)) {
-				mov_->setDir(Vector2D(0, 1));
-			}
-			else if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_O)) {
-			    SDLUtils::instance()->soundEffects().at("playerAttack").play();
-				im_->setAnim(true, 7, 10, 0, 0);
-				static_cast<PlayerBEU*>(ent_)->setAttack(true);
-			}
-			else if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_P)) {
-			    SDLUtils::instance()->soundEffects().at("playerSpecialAttack").play();
-				im_->setAnim(true, 10, 17, 0, 0);
-				static_cast<PlayerBEU*>(ent_)->setAttack(true);
-			}
-			else if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_M)) {
-				static_cast<BeatEmUpState*>(mngr_)->finishBEU();
-			}
-			else mov_->setDir(Vector2D(0, 0));
-		}
-		
-		else mov_->setDir(Vector2D(0, 0));
-	
+            }
+            else if (ih().isKeyDown(SDL_SCANCODE_O)) { // Ataque normal
+                sdlutils().soundEffects().at("playerAttack").play();
+               im_->setAnim(true, 7, 10, 0, 0);
+            }
+            else if (ih().isKeyDown(SDL_SCANCODE_P)) { // Ataque especial
+                sdlutils().soundEffects().at("playerSpecialAttack").play();
+                im_->setAnim(true, 10, 17, 0, 0);
+            }
+        }
+    }
+    else { // Idle
+        tr_->setDir(Vector2D(0, 0));
+        im_->setAnim(false, 0, 8, 0, 0);
+    }
 }

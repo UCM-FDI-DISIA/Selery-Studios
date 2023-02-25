@@ -19,7 +19,6 @@ public:
 	BeatEmUpState();
 
 	void finishBEU();
-	void handleEvents();
 	~BeatEmUpState() {}
 };
 
