@@ -50,5 +50,9 @@ public:
         r.w = w_;
         r.h = h_;
     }
+
+    void setOffset(Vector2D offset) {
+        offset_ = offset;
+    }
 };
 

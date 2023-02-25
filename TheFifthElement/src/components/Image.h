@@ -115,13 +115,14 @@ public:
 	inline int getRow() { return fila_; }
 	inline int getLastFrame(){ return frames_;}
 
-	void setAnim(bool Anim, int Fila, int Frames, int I, int Cont) { //Metodo generico para cambiar de animacion en BEU
+	void setAnim(bool Anim, int Fila, int Frames, int I, int Cont, Texture* t) { //Metodo generico para cambiar de animacion en BEU
 		if (fila_ != Fila && !animPlaying) { // Si la animacion no es la actual la actualiza
 			animPlaying = Anim;
 			fila_ = Fila;
 			frames_ = Frames;
 			i = I;
 			cont = Cont;
+			tex_ = t;
 		}
 	}
 

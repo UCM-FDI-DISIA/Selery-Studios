@@ -16,6 +16,7 @@ public:
 private:
     Transform* tr_ = nullptr;
     Image* im_ = nullptr;
+    Texture* t_ = nullptr;
     float downLimit, topLimit;
 };
 

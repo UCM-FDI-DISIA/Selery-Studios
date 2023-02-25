@@ -1,6 +1,6 @@
 #include "PlayerBEU.h"
 #include "../components/Image.h"
-#include "../../ColliderComponent.h"
+
 PlayerBEU::PlayerBEU() : Entity() {
 
 	//int width = PlayerWidth_ / framesT_;
@@ -23,6 +23,7 @@ PlayerBEU::PlayerBEU() : Entity() {
 	//Al hacer aquí initComponent la referencia ya es correcta
 	in_->initComponent();
 	
+	addComponent<ColliderComponent>(int(COLLIDERCOMPONENT_H), Vector2D(100, 70), PlayerHeigth_/2, PlayerWidth_/(framesT_*4));
 
 }
 PlayerBEU::~PlayerBEU() {

@@ -5,10 +5,12 @@
 #include "../sdlutils/Texture.h"
 
 #include "../GameManager.h"
-#include "../components/InputComponent.h"
 #include "../components/InputComponentBEU.h"
 #include "../components/MovementComponent.h"
 #include "../components/AttackBoxComponent.h"
+#include "../../ColliderComponent.h"
+
+
 class PlayerBEU : public Entity
 {
 private:
