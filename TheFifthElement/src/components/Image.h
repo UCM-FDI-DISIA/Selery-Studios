@@ -49,35 +49,31 @@ public:
 	void update() {
 		if (isPlayerTD) {
 			//cout << vel.getX() << " " << vel.getY() << endl;
-			if (tr_->getVel().getX() == 1 && tr_->getVel().getY() == 0) {
+			if (tr_->getDir().getX() == 1 && tr_->getDir().getY() == 0) {
 				tex_ = &SDLUtils::instance()->images().at("p_left");
 				framesTotales_ = 7;
 				//s = SDL_FLIP_NONE;
 				tr_->setW(476);
 			}
-			else if (tr_->getVel().getX() == -1 && tr_->getVel().getY() == 0) {
+			else if (tr_->getDir().getX() == -1 && tr_->getDir().getY() == 0) {
 				tex_ = &SDLUtils::instance()->images().at("p_right");
 				framesTotales_ = 7;
 				//	s = SDL_FLIP_HORIZONTAL;
 				tr_->setW(476);
 			}
-			else if (tr_->getVel().getY() == -1 && tr_->getVel().getX() == 0) {
+			else if (tr_->getDir().getY() == -1 && tr_->getDir().getX() == 0) {
 				tex_ = &SDLUtils::instance()->images().at("p_top");
 
 				framesTotales_ = 9;
 				tr_->setW(612);
 			}
-			else if (tr_->getVel().getY() == 1 && tr_->getVel().getX() == 0) {
+			else if (tr_->getDir().getY() == 1 && tr_->getDir().getX() == 0) {
 				tex_ = &SDLUtils::instance()->images().at("p_down");
 				framesTotales_ = 9;
 				tr_->setW(612);
 			}
 			else {
 				tex_ = &SDLUtils::instance()->images().at("p_idle");
-				if (tex_== &SDLUtils::instance()->images().at("p_idle"))
-				{
-					cout << "si";
-				}
 				framesTotales_ = 7;
 				tr_->setW(519);
 			}
@@ -86,7 +82,7 @@ public:
 		else if (isPlayerBEU && !animPlaying) {
 			
 			if (!(static_cast<PlayerBEU*>(ent_)->getAttack())){
-				if (tr_->getVel().getX() == 1 && (fila_ != 1||s==SDL_FLIP_HORIZONTAL)) {
+				if (tr_->getDir().getX() == 1 && (fila_ != 1||s==SDL_FLIP_HORIZONTAL)) {
 					fila_ = 1;
 					//tex_ = &SDLUtils::instance()->images().at("p_left");
 					frames_ = 8;
@@ -95,7 +91,7 @@ public:
 					i = 0;
 					
 				}
-				else if (tr_->getVel().getX() == -1 && (fila_ != 1||s==SDL_FLIP_NONE)) {
+				else if (tr_->getDir().getX() == -1 && (fila_ != 1||s==SDL_FLIP_NONE)) {
 					//tex_ = &SDLUtils::instance()->images().at("p_right");
 					fila_ = 1;
 					frames_ = 8;
@@ -104,7 +100,7 @@ public:
 					i = 0;
 					
 				}
-				else if (fila_ != 0 && tr_->getVel().getX() == 0) {
+				else if (fila_ != 0 && tr_->getDir().getX() == 0) {
 					//tex_ = &SDLUtils::instance()->images().at("p_idle");
 					fila_ = 0;
 					frames_ = 8;
@@ -151,6 +147,9 @@ public:
 			}
 		}
 	}
+
+	inline int getRow() { return fila_; }
+	inline int getLastFrame(){ return frames_;}
 
 	void setAnim(bool Anim, int Fila, int Frames, int I, int Cont) { //Metodo generico para cambiar de animacion en BEU
 		if (fila_ != Fila && !animPlaying) { // Si la animacion no es la actual la actualiza

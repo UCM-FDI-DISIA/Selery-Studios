@@ -13,7 +13,7 @@ public:
 		bool matrix = false;
 		Vector2D v = { 0,0 };
 		int r = 0;
-		addComponent<Transform>(int(TRANSFORM_H), v, w, h,r, f, matrix);
+		addComponent<Transform>(int(TRANSFORM_H), v, w, h,r,0, f, matrix);
 		Texture* t = &SDLUtils::instance()->images().at("fondo");
 		addComponent<Image>(int(IMAGE_H), t,f, f, f);
 		//Texture* tex, int nframes, int framesT, int fila

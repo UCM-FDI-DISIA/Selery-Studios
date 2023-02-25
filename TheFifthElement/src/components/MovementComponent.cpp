@@ -10,6 +10,5 @@ void MovementComponent::initComponent() {
 }
 
 void MovementComponent::update() {
-	tr->setPos(tr->getPos() + tr->getVel());
-
+	tr->setPos(tr->getPos() + tr->getDir() * tr->getVel());
 }

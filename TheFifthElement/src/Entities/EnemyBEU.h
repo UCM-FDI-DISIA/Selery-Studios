@@ -57,7 +57,7 @@ public:
 		float a = 1.0f;
 		float lookingRange = 150.0f;
 		float lookingWidth = 100.0f;
-		tr = addComponent<Transform>(int(TRANSFORM_H), EnemyPosition_, EnemyWidth_, EnemyHeight_, EnemyRotation_, nframes, matrix_);
+		tr = addComponent<Transform>(int(TRANSFORM_H), EnemyPosition_, EnemyWidth_, EnemyHeight_, EnemyRotation_,speed_, nframes, matrix_);
 		t = &SDLUtils::instance()->images().at("BEU_wind_Mushroom");
 		player_ = player;
 		trPlayer_ = player_->getComponent<Transform>(int(TRANSFORM_H));

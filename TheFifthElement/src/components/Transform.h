@@ -7,8 +7,8 @@
 
 class Transform : public Component {
 private:
-    Vector2D position, velocity;
-    float width, height, rotation_;
+    Vector2D position, direction;
+    float width, height, rotation_, vel;
     SDL_Rect rect;
     int framesTotales_;
     bool matrix_, demo = false;
@@ -17,11 +17,12 @@ public:
         //cout << "fdgbxc";
     }
     // Constructora
-    Transform(Vector2D pos, float w, float h, float r, int frames, bool matrix) : Component() {
+    Transform(Vector2D pos, float w, float h, float r, float v, int frames, bool matrix) : Component() {
         position = pos;
         width = w;
         height = h;
         rotation_ = r;
+        vel = v;
         framesTotales_ = frames;
         matrix_ = matrix;
     }
@@ -31,13 +32,15 @@ public:
     // Devuelve su posicion
     inline Vector2D& getPos() { return position; }
     // Devuelve su velocidad
-    inline Vector2D& getVel() { return velocity; }
+    inline Vector2D& getDir() { return direction; }
     // Devuelve su ancho
     inline float getW() { return width; }
     // Devuelve su altura
     inline float getH() { return height; }
     // Devuelve su rotacion
     inline float getR() { return rotation_; }
+
+    inline float getVel() { return vel; }
 
     inline void setR(float valRot) { rotation_ = valRot; }
 
@@ -47,8 +50,10 @@ public:
 
     inline void setPos(Vector2D Position) { position = Position; }
 
-    inline void setVel(Vector2D speed_) { velocity = speed_; }
-
+    inline void setDir(Vector2D dir) { direction = dir; }
+    
+    inline void setVel(float veloc) { vel = veloc; }
+   
 
     void render()
     {
