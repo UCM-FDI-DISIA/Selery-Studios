@@ -6,13 +6,15 @@ EnemyBEUDirectionComponent::EnemyBEUDirectionComponent(PlayerBEU* p) :Component(
 	dir_ = Vector2D(0.0f, 0.0f);
 	player_ = p;
 }
+
 void EnemyBEUDirectionComponent::initComponent() {
 	mov_ = ent_->getComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
 	tr_ = ent_->getComponent<Transform>(TRANSFORM_H);
 	playerTr_ = player_->getComponent<Transform>(TRANSFORM_H);
 }
+
 void EnemyBEUDirectionComponent::update() {
-	Vector2D director_ = Vector2D(playerTr_->getPos().getX()-tr_->getPos().getX(),
+	Vector2D director_ = Vector2D((playerTr_->getPos().getX()+50)-tr_->getPos().getX(),
 		playerTr_->getPos().getY() - tr_->getPos().getY());
 	float dist_ = sqrt(pow(director_.getX(), 2)+(director_.getY(), 2));
 	if (dist_ <= distance_) {

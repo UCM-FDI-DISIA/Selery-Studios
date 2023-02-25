@@ -25,6 +25,7 @@
     <ClCompile Include="sdlutils\SoundEffect.cpp" />
     <ClCompile Include="sdlutils\Texture.cpp" />
     <ClCompile Include="TheFifthElement.cpp" />
+<<<<<<< Updated upstream
     <ClCompile Include="utils\Component.cpp" />
     <ClCompile Include="utils\Entity.cpp" />
     <ClCompile Include="utils\Manager.cpp" />
@@ -32,6 +33,23 @@
     <ClCompile Include="Class.cpp" />
     <ClCompile Include="EnemyBEU.cpp" />
     <ClCompile Include="EnemyBEUDirectionComponent.cpp" />
+=======
+    <ClCompile Include="src\utils\Component.cpp" />
+    <ClCompile Include="src\utils\Entity.cpp" />
+    <ClCompile Include="src\utils\Manager.cpp" />
+    <ClCompile Include="src\utils\Vector2D.cpp" />
+    <ClCompile Include="src\components\EnemyBEUDirectionComponent.cpp" />
+    <ClCompile Include="src\Entities\Portal.cpp" />
+    <ClCompile Include="src\Entities\Element.cpp" />
+    <ClCompile Include="src\Entities\Background.cpp" />
+    <ClCompile Include="src\components\ObjectsComponent.cpp" />
+    <ClCompile Include="src\components\Enemy_movementTD_component.cpp" />
+    <ClCompile Include="src\Entities\Camera.cpp" />
+    <ClCompile Include="src\components\CameraComponent.cpp" />
+    <ClCompile Include="src\components\AttackBoxComponent.cpp" />
+    <ClCompile Include="src\Game.cpp" />
+    <ClCompile Include="ColDetectorComponent.cpp" />
+>>>>>>> Stashed changes
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BeatEmUpState.h" />

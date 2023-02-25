@@ -1,6 +1,7 @@
 #pragma once
 #include "utils/checkML.h"
 #include "states/GameStateMachine.h"
+<<<<<<< Updated upstream:TheFifthElement/GameManager.h
 #include "sdlutils/SDLUtils.h"
 using namespace std;
 
@@ -12,6 +13,12 @@ const uint FRAME_RATE = 3;// número de frames que tardará en actualizarse el jue
 
 
 class GameManager : public Singleton<GameManager>
+=======
+#include "GameManager.h"
+#include "states/TopDownState.h"
+#include "states/BeatEmUpState.h"
+class Game
+>>>>>>> Stashed changes:TheFifthElement/src/Game.h
 {
 private:
 	SDL_Window* window = nullptr;
