@@ -23,7 +23,4 @@ public:
 	virtual void refresh();
 	virtual void update();
 	virtual void render();
-	virtual void handleEvents() {};
-	virtual string getStateID() = 0;
-
 };

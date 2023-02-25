@@ -24,10 +24,6 @@ void Game::run()// bucle de juego
 	startTime = SDL_GetTicks();
 	while (!exit) // bucle de juego
 	{
-		SDL_RenderClear(renderer);
-
-		handleEvents();
-
 		frameTime = SDL_GetTicks() - startTime;
 		if (frameTime >= FRAME_RATE)
 		{
@@ -44,12 +40,6 @@ void Game::run()// bucle de juego
 			SDL_Delay(10);
 		}
 	}
-}
-
-void Game::handleEvents() {
-	// handleEvents
-	GameManager::instance()->handleEvents();
-	//gameStMc->handleEvents();
 }
 
 void Game::update()

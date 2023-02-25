@@ -11,11 +11,9 @@ public:
     InputComponentBEU();
     void initComponent();
     void update();
-    void handleEvents(SDL_Event event);
+    
 private:
- 
     Transform* tr_ = nullptr;
     Image* im_ = nullptr;
-  
 };
 

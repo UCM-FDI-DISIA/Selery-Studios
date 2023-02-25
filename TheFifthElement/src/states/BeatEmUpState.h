@@ -8,7 +8,7 @@
 #include "../Entities/EnemyBEU.h"
 #include "../Entities/Background.h"
 
-class BeatEmUpState	 : public Manager {
+class BeatEmUpState	 : public GameState {
 private:
 	PlayerBEU* player_;
 	InputComponentBEU* in_;
@@ -20,5 +20,8 @@ public:
 
 	void finishBEU();
 	~BeatEmUpState() {}
+
+	void update();
+	void render();
 };
 

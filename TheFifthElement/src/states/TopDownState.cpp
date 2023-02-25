@@ -145,9 +145,13 @@ void TopDownState::render() {
     dst.y -= cam_->getComponent<Transform>(TRANSFORM_H)->getPos().getY();
     SDL_Rect src = { 0, 0, 1600, 1600 };
     SDL_RenderCopy(Gm_->getRenderer(), background_, &src, &dst);
-    Manager::render();
+    GameState::render();
 }
 
 string TopDownState::getStateID() {
     return "TopDownState";
+}
+
+void TopDownState::update() {
+    GameState::update();
 }

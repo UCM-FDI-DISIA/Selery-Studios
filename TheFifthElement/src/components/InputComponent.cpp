@@ -5,25 +5,13 @@
 #include "../Entities/PlayerTD.h"
 #include "../states/TopDownState.h"
 InputComponent::InputComponent():Component() {
+
 }
 void InputComponent::initComponent() {
 	mov_ = ent_->getComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
 	skin_ = ent_->getComponent<SkinComponent>(SKINCOMPONENT_H);
 }
 void InputComponent::update() {
-	
-	//Actualizamos el contador que mide el tiempo
-	unsigned timer = clock();
-	actionDelay = (double(timer) / CLOCKS_PER_SEC);
-
-}
-
-
-void InputComponent::handleEvents(SDL_Event event)
-{
-
-	InputHandler::instance()->update(event);
-
 	if (InputHandler::instance()->keyDownEvent())
 	{
 		if (!npccol) {
@@ -54,10 +42,9 @@ void InputComponent::handleEvents(SDL_Event event)
 				skin_->changeSkin("earth");
 			}
 		}
-
-
 	}
-	if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_E)) {
+	else mov_->setDir(Vector2D(0, 0));
+	if (ih().isKeyDown(SDL_SCANCODE_E)) {
 		if (actionDelay > 0) { // The shorterpaddle and biggerpaddle rewards is activated REWARDS_TIME seconds
 			int a = static_cast<PlayerTD*>(ent_)->getCol() != -1;
 
@@ -65,11 +52,15 @@ void InputComponent::handleEvents(SDL_Event event)
 				cout << "2";
 				npccol = true;
 				mov_->setDir(Vector2D(0, 0));
-				static_cast<TopDownState*>(mngr_)->dialog(a);
+				GameState* g = GameStateMachine::instance()->currentState();
+				static_cast<TopDownState*>(g)->dialog(a);
 			}
 
 		}
 		actionDelay = 0;
 	}
-	
+	//Actualizamos el contador que mide el tiempo
+	unsigned timer = clock();
+	actionDelay = (double(timer) / CLOCKS_PER_SEC);
+
 }

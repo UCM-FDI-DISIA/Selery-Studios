@@ -11,7 +11,6 @@ class GameManager : public Singleton<GameManager>
 private:
 	bool exit;
 public:
-	void handleEvents();
 	void render();
 	void update();
 

@@ -36,32 +36,32 @@ struct MapInfo {
 	}
 };
 
-class TopDownState : public Manager {
+class TopDownState : public GameState {
 public:
 	string getStateID(); // stringID
 	DialogBox* d;
 	TopDownState() {
 		LoadMap("assets/MapAssets/MapaInicial.tmx");
-		player_ = addEntity(new PlayerTD());
+		player_ = mngr_->addEntity(new PlayerTD());
 		dialog_ = false;
-		addEntity(new Npc(player_,{0,10},&SDLUtils::instance()->images().at("NPC_1")));
-		npc = addEntity(new Npc(player_, { 50,10 }, &SDLUtils::instance()->images().at("NPC_2")));
+		mngr_->addEntity(new Npc(player_,{0,10},&SDLUtils::instance()->images().at("NPC_1")));
+		npc = mngr_->addEntity(new Npc(player_, { 50,10 }, &SDLUtils::instance()->images().at("NPC_2")));
 	
 		cmpId_type w = int(INPUTCOMPONENT_H);
 		in_ = player_->getComponent<InputComponent>(w);
-		addEntity(new Enemy(player_, 100));
-		cam_ = addEntity(new Camera(player_)); // entidad de camara
-		Portal* p = addEntity(new Portal(player_));
-		addEntity(new Element(player_, Vector2D(100, 100), p));
-		addEntity(new Element(player_, Vector2D(300, 100), p));
-		addEntity(new Element(player_, Vector2D(200, 200), p));
+		mngr_->addEntity(new Enemy(player_, 100));
+		cam_ = mngr_->addEntity(new Camera(player_)); // entidad de camara
+		Portal* p = mngr_->addEntity(new Portal(player_));
+		mngr_->addEntity(new Element(player_, Vector2D(100, 100), p));
+		mngr_->addEntity(new Element(player_, Vector2D(300, 100), p));
+		mngr_->addEntity(new Element(player_, Vector2D(200, 200), p));
 		
 		
 		// PRUEBAS PATHING NPC
-		addEntity(new RedirectTile(Vector2D(1, 0), Vector2D(30, 30), npc)); //der
-		addEntity(new RedirectTile(Vector2D(0, 1), Vector2D(120, 30), npc)); //ab
-		addEntity(new RedirectTile(Vector2D(-1, 0), Vector2D(120, 120), npc)); //iz
-		addEntity(new RedirectTile(Vector2D(0, -1), Vector2D(30, 120), npc)); //arr
+		mngr_->addEntity(new RedirectTile(Vector2D(1, 0), Vector2D(30, 30), npc)); //der
+		mngr_->addEntity(new RedirectTile(Vector2D(0, 1), Vector2D(120, 30), npc)); //ab
+		mngr_->addEntity(new RedirectTile(Vector2D(-1, 0), Vector2D(120, 120), npc)); //iz
+		mngr_->addEntity(new RedirectTile(Vector2D(0, -1), Vector2D(30, 120), npc)); //arr
 	}
 	void LoadMap(string const& filename);
 	void dialog(int a) {
@@ -73,25 +73,18 @@ public:
 		}
 		else  {
 			d = new DialogBox(a);
-			addEntity(d);
+			mngr_->addEntity(d);
 			dialog_ = true;
 			cout << "d" << endl;
 
 		}
 	}
-	void handleEvents()
-	{
-		SDL_Event event;
-		while (SDL_PollEvent(&event)) 
-		{
-			in_->handleEvents(event);
-			//inBEU_->handleEvents(event);
-;		}
-	}
+
 	~TopDownState() {
 
 	}
 	void render();
+	void update();
 private:
 	Npc* npc;
 	GameManager* Gm_;

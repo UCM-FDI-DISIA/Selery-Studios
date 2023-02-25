@@ -18,7 +18,6 @@ void InputComponentBEU::initComponent() {
 
 void InputComponentBEU::update() {
 
-	ih().refresh();
     cout << tr_->getDir().getX() << " " <<tr_->getDir().getY() << endl;
     if (ih().keyDownEvent()) {
         if (!(im_->isAnimPlaying())) {

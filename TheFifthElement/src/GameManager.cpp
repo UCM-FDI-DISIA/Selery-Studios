@@ -12,15 +12,12 @@
 
 void GameManager::goBeatEmUp()
 {
+	if(dynamic_cast<TopDownState*>(GameStateMachine::instance()->currentState()) != nullptr)
 	GameStateMachine::instance()->pushState(new BeatEmUpState());
 }
 void GameManager::goTopDown()
 {
 	GameStateMachine::instance()->popState();
-}
-void GameManager::handleEvents() {
-	// handleEvents
-	GameStateMachine::instance()->handleEvents();
 }
 
 void GameManager::update()

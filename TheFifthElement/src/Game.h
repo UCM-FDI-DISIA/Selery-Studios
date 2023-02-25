@@ -13,7 +13,6 @@ private:
 public:
 	Game();
 	virtual ~Game();
-	void handleEvents();
 	void render();
 	void update();
 	void run();// blucle de juego

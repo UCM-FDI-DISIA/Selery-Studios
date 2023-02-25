@@ -1,13 +1,13 @@
 #include "BeatEmUpState.h"
 BeatEmUpState::BeatEmUpState() {
-	addEntity(new Background());
-	player_ = addEntity(new PlayerBEU());
+	mngr_->addEntity(new Background());
+	player_ = mngr_->addEntity(new PlayerBEU());
 	dialog_ = false;
 
 
 	cmpId_type b = int(INPUTCOMPONENTBEU_H);
 	in_ = player_->getComponent<InputComponentBEU>(b);
-	addEntity(new EnemyBEU(player_, 100));
+	mngr_->addEntity(new EnemyBEU(player_, 100));
 }
 
 
@@ -18,4 +18,12 @@ void BeatEmUpState::finishBEU() {
 
 string BeatEmUpState::getStateID() {
 	return "BeatEmUpState";
+}
+
+void BeatEmUpState::update() {
+	GameState::update();
+}
+
+void BeatEmUpState::render() {
+	GameState::render();
 }
