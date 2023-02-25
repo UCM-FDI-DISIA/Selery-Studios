@@ -18,6 +18,7 @@ private:
     MovementComponent* mov_;
     Transform* tr_;
     Vector2D dir_;
+   
     PlayerBEU* player_;
     Transform* playerTr_;
     int cont = 1000;

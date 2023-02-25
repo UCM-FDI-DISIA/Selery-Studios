@@ -10,8 +10,7 @@ class Npc: public Entity {
 private:
 	//Component* componenete;
 	//Vector2D NpcPosition_{10,0};
-	Vector2D NpcVelocity_{ 0,0 };
-	float NpcWith_ =476,NpcHeith_=120, NpcRotation_=1;
+	float NpcWith_ =476,NpcHeith_=120, NpcRotation_=1, npcSpeed=0;
 
 	Transform* tr;
 	int nframes = 7;
@@ -27,7 +26,7 @@ private:
 public:
 	Npc(PlayerTD* player, Vector2D NpcPosition_,Texture* t) : Entity() {
 		cmpId_type z=int(TRANSFORM_H);
-	    tr=addComponent<Transform>(z, NpcPosition_, NpcWith_, NpcHeith_, NpcRotation_, nframes, matrix_);
+	    tr=addComponent<Transform>(z, NpcPosition_, NpcWith_, NpcHeith_, NpcRotation_,npcSpeed, nframes, matrix_);
 		cmpId_type x = int(RENDERCOMPONENT_H);
 		//referencia al texture y al transform
 		fila_ = 0;

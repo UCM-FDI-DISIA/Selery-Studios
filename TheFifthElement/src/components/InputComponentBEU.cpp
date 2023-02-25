@@ -13,6 +13,7 @@ InputComponentBEU::InputComponentBEU() :Component() {
 void InputComponentBEU::initComponent() {
 	mov_ = ent_->getComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
 	im_ = ent_->getComponent<Image>(IMAGE_H);
+
 }
 
 void InputComponentBEU::update() {

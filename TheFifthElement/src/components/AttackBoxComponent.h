@@ -8,16 +8,26 @@
 #include "../GameManager.h"
 
 
+class Image;
 class AttackBoxComponent : public Component {
 private:
     Transform* playerTr = nullptr;
     SDL_Rect box;
-    float width, height;
+    Image* im_;
+    float width, height,boxTime,timerExecution;
+    bool boxCreated = false;
 public:
     AttackBoxComponent();
     virtual ~AttackBoxComponent(){}
     void render();
     void update();
     void initComponent();
+
+    void handleBoxes();
+    void moveBox(Vector2D direction,float vel);
+    void GFY();
+
+
+
 };
 #endif

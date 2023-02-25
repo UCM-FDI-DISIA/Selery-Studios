@@ -8,7 +8,7 @@
 #include "../components/InputComponent.h"
 #include "../components/InputComponentBEU.h"
 #include "../components/MovementComponent.h"
-#include "../components//AttackBoxComponent.h"
+#include "../components/AttackBoxComponent.h"
 class PlayerBEU : public Entity
 {
 private:

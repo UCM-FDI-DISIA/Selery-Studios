@@ -14,7 +14,7 @@ class Enemy : public Entity
 {
 private:
 	Vector2D EnemyPosition_{ 700,150 };
-	//float speed_ = 0.0f;
+	float speed_ = 0.0f;
 	float EnemyWidth_ = 476, EnemyHeight_ = 120, EnemyRotation_ = 1;
 	Texture* t;
 	Transform* tr;
@@ -48,7 +48,7 @@ public:
 		float a =-1.0f;
 		float lookingRange = 150.0f;
 		float lookingWidth = 100.0f;
-		tr = addComponent<Transform>(int(TRANSFORM_H), EnemyPosition_, EnemyWidth_, EnemyHeight_, EnemyRotation_, nframes, matrix_);
+		tr = addComponent<Transform>(int(TRANSFORM_H), EnemyPosition_, EnemyWidth_, EnemyHeight_, EnemyRotation_,speed_, nframes, matrix_);
 		t = &SDLUtils::instance()->images().at("TD_wind_mushroom");
 		player_ = player;
 		trPlayer_ = player_->getComponent<Transform>(int(TRANSFORM_H));

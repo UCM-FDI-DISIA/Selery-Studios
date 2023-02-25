@@ -15,5 +15,6 @@ private:
  
     MovementComponent* mov_ = nullptr;
     Image* im_ = nullptr;
+  
 };
 

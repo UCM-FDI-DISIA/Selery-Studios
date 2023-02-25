@@ -9,12 +9,12 @@ class MovementComponent : public Component
 public:
 
 	MovementComponent() {
-		
+	
 	}
 	void initComponent();
 	void update();
 	void setDir(Vector2D direction) {
-		tr->setVel(direction);
+		tr->setDir(direction);
 	}
 private:
 	Transform* tr = nullptr;
