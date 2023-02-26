@@ -61,6 +61,8 @@ public:
 
 	void collision();
 
+	void noCollision();
+
 	PlayerBEU* returnPlayer();
 
 	void setOffset(Vector2D offset);

@@ -2,14 +2,18 @@
 #include "src/Entities/EnemyBEU.h"
 
 void AnimationEnemyBEUComponent::update() {
-	if (currentState_ != nextState_) {
-		updateAnimation();
-	}
+
+	if (currentState_ != nextState_) updateAnimation();
+	else updateAn();
 }
 
 void AnimationEnemyBEUComponent::changeState(AnimationStates newState) 
 {
-	nextState_ = newState;
+	nextState_ = newState;// así se evita que se añada el mismo estado más de una vez
+}
+
+void AnimationEnemyBEUComponent::updateAn() {
+	
 }
 
 void AnimationEnemyBEUComponent::updateAnimation() {

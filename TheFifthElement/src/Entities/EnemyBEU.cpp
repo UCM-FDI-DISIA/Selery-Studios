@@ -43,7 +43,7 @@ EnemyBEU::EnemyBEU(PlayerBEU* player, float maxLife, string enemy, string type) 
 }
 
 void EnemyBEU::collision() {
-	cout << "colisiona" << endl;
+	cout << isAttacking_ << endl;
 	if (!isAttacking_) {
 		//cout << "colisiona" << endl;
 	// animaci�n de ataque y ataque en s�
@@ -53,6 +53,13 @@ void EnemyBEU::collision() {
 		// cuando termine la animaci�n se mueve para permitir al jugador escapar
 		//tr_->setPos(Vector2D(tr_->getPos().getX() + 50, tr_->getPos().getY()));
 		isAttacking_ = true;
+	}
+}
+
+void EnemyBEU::noCollision() {
+	if (!isAttacking_) {
+		// lógica de recibir daño, muerte o movimiento
+		anim_->changeState(AnimationEnemyBEUComponent::Moving);
 	}
 }
 

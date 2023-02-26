@@ -50,6 +50,7 @@ public:
 	void update();
 	void changeState(AnimationStates newState);
 	void updateAnimation();
+	void updateAn();
 
 	void setMovTexture();
 	void setAttackTexture();
