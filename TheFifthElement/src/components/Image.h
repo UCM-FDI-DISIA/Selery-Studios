@@ -25,27 +25,7 @@ private:
 	bool animPlaying = false;
 
 public:
-<<<<<<< Updated upstream
 
-	// Constructora
-	Image(Texture* tex, int nframes, int framesT, int fila) : tr_(nullptr), tex_(tex) {
-		frames_ = nframes;
-		fila_ = fila;
-		framesTotales_ = framesT;
-	}
-	// Destructora
-	virtual ~Image() { }
-	// Inicializa el componente
-	//void initComponent() override;
-	// Dibuja
-	//void render() override;
-	// Inicializa el componente
-	void initComponent() {
-		tr_ = ent_->getComponent<Transform>(int(TRANSFORM_H));
-		isPlayerTD = ent_->hasComponent(INPUTCOMPONENT_H);
-		isPlayerBEU = ent_->hasComponent(INPUTCOMPONENTBEU_H);
-		assert(tr_ != nullptr);
-=======
 	//Constructora
 	Image(Texture* tex, int nframes, int framesT, int fila);//Constructora
 
@@ -53,7 +33,6 @@ public:
 	virtual ~Image();
 
 	void initComponent();
->>>>>>> Stashed changes
 
 	void update();
 
