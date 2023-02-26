@@ -415,6 +415,11 @@
 
       "id": "Ancient Ruins-wall-4",
       "file": "assets/MapAssets/AncientRuins/Tilesets/wall-4 - 3 tiles tall.png"
+    },
+    {
+
+      "id": "PlataformaA",
+      "file": "assets/MapAssets/AncientRuins/Props/generic_estructure2-on flat surface-all details.png"
     }
 
   ]
