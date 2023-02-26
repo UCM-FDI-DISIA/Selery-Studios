@@ -14,6 +14,8 @@ private:
     bool canJump = true;
     Texture* t_ = nullptr;
 
+    float downLimit, topLimit;
+
 public:
     InputComponentBEU();
     void initComponent();

@@ -42,6 +42,8 @@
     <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="ColDetectorComponent.cpp" />
     <ClCompile Include="src\components\LimitBEU.cpp" />
+    <ClCompile Include="src\components\Image.cpp" />
+    <ClCompile Include="AnimationEnemyBEUComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\states\BeatEmUpState.h" />
@@ -103,6 +105,7 @@
     <ClInclude Include="ColliderComponent.h" />
     <ClInclude Include="ColDetectorComponent.h" />
     <ClInclude Include="src\components\LimitBEU.h" />
+    <ClInclude Include="AnimationEnemyBEUComponent.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="TheFifthElement.rc" />

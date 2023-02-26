@@ -41,7 +41,11 @@ void InputComponentBEU::handleEvents(SDL_Event event){
 				im_->setAnim(false, 1, 8, 0, 0, t_);
 			}
 			else if (ih().isKeyDown(SDL_SCANCODE_SPACE) && canJump) { // Salto
+<<<<<<< Updated upstream
 				im_->setAnim(true, 4, 20, 0, 0, t_);
+=======
+				im_->setAnim(true, 4, 20, 0);
+>>>>>>> Stashed changes
 			}
 			else if (ih().isKeyDown(SDL_SCANCODE_O)) { // Ataque
 			    sdlutils().soundEffects().at("playerAttack").play();
@@ -49,7 +53,11 @@ void InputComponentBEU::handleEvents(SDL_Event event){
 			}
 			else if (ih().isKeyDown(SDL_SCANCODE_P)) { // Ataque Especial
 				sdlutils().soundEffects().at("playerSpecialAttack").play();
+<<<<<<< Updated upstream
 				im_->setAnim(true, 10, 18, 0, 0, t_);
+=======
+				im_->setAnim(true, 10, 18, 0);
+>>>>>>> Stashed changes
 			}
 			else if (ih().isKeyDown(SDL_SCANCODE_M)) {
 				static_cast<BeatEmUpState*>(mngr_)->finishBEU();

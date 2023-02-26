@@ -21,6 +21,7 @@ private:
 	bool animPlaying = false;
 
 public:
+<<<<<<< Updated upstream
 	Image(Texture* tex, int nframes, int framesT, int fila) : tr_(nullptr), tex_(tex) { // Constructora
 		frames_ = nframes;
 		fila_ = fila;
@@ -34,10 +35,17 @@ public:
 		isPlayerTD = ent_->hasComponent(INPUTCOMPONENT_H);
 		isPlayerBEU = ent_->hasComponent(INPUTCOMPONENTBEU_H);
 		assert(tr_ != nullptr);
+=======
+
+
+	//Constructora
+	Image(Texture* tex, int nframes, int framesT, int fila);//Constructora
+>>>>>>> Stashed changes
 
 		
 	}
 
+<<<<<<< Updated upstream
 	void update() {
 		if (isPlayerTD) {
 			//cout << vel.getX() << " " << vel.getY() << endl;
@@ -55,6 +63,9 @@ public:
 			}
 			else if (tr_->getDir().getY() == -1 && tr_->getDir().getX() == 0) {
 				tex_ = &SDLUtils::instance()->images().at("p_top");
+=======
+	void initComponent();
+>>>>>>> Stashed changes
 
 				framesTotales_ = 9;
 				tr_->setW(612);

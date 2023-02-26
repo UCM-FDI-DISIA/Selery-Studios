@@ -24,6 +24,10 @@ enum cmpId : cmpId_type {
 	COLLIDERCOMPONENT_H = 16,
 	COLDETECTORCOMPONENT_H = 17,
 	LIMITBEU_H = 18,
+<<<<<<< Updated upstream
+=======
+	ANIMATIONENEMYBEUCOMPONENT_H = 19,
+>>>>>>> Stashed changes
 	// do not remove this
 	_LAST_CMP_ID
 };
