@@ -9,10 +9,9 @@
 #include "../components/MovementComponent.h"
 #include "../components/AttackBoxComponent.h"
 #include "../../ColliderComponent.h"
+#include "../components/LimitBEU.h"
 
-
-class PlayerBEU : public Entity
-{
+class PlayerBEU : public Entity {
 private:
 	//Component* componenete;
 	Vector2D PlayerPosition_{ 30,300 };

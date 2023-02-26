@@ -19,6 +19,8 @@ PlayerBEU::PlayerBEU() : Entity() {
 	addComponent<Image>(int(IMAGE_H), t, nframes, framesT_, fila_);
 	//addComponent<ColliderComponent>(int(COLLIDERCOMPONENT_H), Vector2D(100, 100), 20, 20);
 	addComponent<AttackBoxComponent>(ATTACKBOXCOMPONENT_H);
+
+	addComponent<LimitBEU>(LIMITBEU_H);
 	
 	//Al hacer aquí initComponent la referencia ya es correcta
 	in_->initComponent();

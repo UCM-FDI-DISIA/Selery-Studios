@@ -31,7 +31,7 @@ private:
 
     int cont = 1000;
     bool izq = true;
-    float distance_ = 0.0f;
+    float distance_ = 100.0f;
 
     string type_;
     bool isMoving_;

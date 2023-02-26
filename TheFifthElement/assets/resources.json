@@ -502,29 +502,52 @@
 
   "tilesets": [
     {
-      "id": "wall-6 - 2 tiles tall",
+      "id": "Terrain - Ancient Ruins",
+      "file": "assets/MapAssets/AncientRuins/Tilesets/Tileset-Terrain.png"
+    },
+    {
+      "id": "Atlas-Props",
+      "file": "assets/MapAssets/AncientRuins/Props/Atlas-Props.png"
+    },
+    {
+      "id": "Puentes escaleras",
+      "file": "assets/MapAssets/AncientRuins/Tilesets/Tileset-Terrain2.png"
+    },
+
+
+    {
+      "id": "Ancient Ruins-wall-8",
+      "file": "assets/MapAssets/AncientRuins/Tilesets/wall-8 - 2 tiles tall.png"
+    },
+    {
+      "id": "Ancient Ruins-wall-7",
+      "file": "assets/MapAssets/AncientRuins/Tilesets/wall-7 - 2 tiles tall.png"
+
+    },
+    {
+      "id": "Ancient Ruins-wall-6",
       "file": "assets/MapAssets/AncientRuins/Tilesets/wall-6 - 2 tiles tall.png"
     },
     {
-      "id": "pozo",
-      "file": "assets/MapAssets/GrassLand/Props/water well-rope.png"
-
-    },
-    {
-      "id": "shrine3-empty",
-      "file": "assets/MapAssets/GrassLand/Props/shrine3-empty.png"
+      "id": "Ancient Ruins-wall-3",
+      "file": "assets/MapAssets/AncientRuins/Tilesets/wall-3 - 3 tiles tall.png"
     },
     {
 
-      "id": "altar",
-      "file": "assets/MapAssets/GrassLand/Props/altar.png"
+      "id": "Ancient Ruins-wall-2",
+      "file": "assets/MapAssets/AncientRuins/Tilesets/wall-2 - 3 tiles tall.png"
     },
     {
 
-      "id": "casa",
-      "file": "assets/MapAssets/GrassLand/Props/blacksmith shop(ready to use)_to build another shop, use provided props.png"
+      "id": "Ancient Ruins-wall-4",
+      "file": "assets/MapAssets/AncientRuins/Tilesets/wall-4 - 3 tiles tall.png"
+    },
+    {
+
+      "id": "PlataformaA",
+      "file": "assets/MapAssets/AncientRuins/Props/generic_estructure2-on flat surface-all details.png"
     }
-      
+
   ]
 
 } 
