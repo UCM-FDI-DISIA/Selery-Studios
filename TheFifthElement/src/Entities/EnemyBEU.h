@@ -33,7 +33,7 @@ private:
 #pragma endregion
 
 #pragma region parameters
-	float speed_ = 5.0f;
+	float speed_ = 1.0f;
 #pragma endregion
 
 #pragma region sprites
