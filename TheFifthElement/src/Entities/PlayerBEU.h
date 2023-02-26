@@ -8,17 +8,10 @@
 #include "../components/InputComponentBEU.h"
 #include "../components/MovementComponent.h"
 #include "../components/AttackBoxComponent.h"
-<<<<<<< Updated upstream
 #include "../../ColliderComponent.h"
-
-
-class PlayerBEU : public Entity
-{
-=======
 #include "../components/LimitBEU.h"
 
 class PlayerBEU : public Entity {
->>>>>>> Stashed changes
 private:
 	//Component* componenete;
 	Vector2D PlayerPosition_{ 30,300 };

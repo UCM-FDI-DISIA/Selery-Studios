@@ -1,5 +1,5 @@
 #include "InputComponentBEU.h"
-#include "../sdlutils/InputHandler.h"
+
 #include "../utils/Entity.h"
 #include "../utils/ecs.h"
 #include "../Entities/PlayerBEU.h"
@@ -41,20 +41,15 @@ void InputComponentBEU::handleEvents(SDL_Event event){
 				im_->setAnim(false, 1, 8, 0, 0, t_);
 			}
 			else if (ih().isKeyDown(SDL_SCANCODE_SPACE) && canJump) { // Salto
-				im_->setAnim(true, 4, 20, 0, 0);
+				im_->setAnim(true, 4, 20, 0, 0, t_);
 			}
 			else if (ih().isKeyDown(SDL_SCANCODE_O)) { // Ataque
 			    sdlutils().soundEffects().at("playerAttack").play();
 				im_->setAnim(true, 7, 10, 0, 0, t_);
 			}
 			else if (ih().isKeyDown(SDL_SCANCODE_P)) { // Ataque Especial
-<<<<<<< Updated upstream
-			    SDLUtils::instance()->soundEffects().at("playerSpecialAttack").play();
-				im_->setAnim(true, 10, 18, 0, 0, t_);
-=======
 				sdlutils().soundEffects().at("playerSpecialAttack").play();
-				im_->setAnim(true, 10, 18, 0, 0);
->>>>>>> Stashed changes
+				im_->setAnim(true, 10, 18, 0, 0, t_);
 			}
 			else if (ih().isKeyDown(SDL_SCANCODE_M)) {
 				static_cast<BeatEmUpState*>(mngr_)->finishBEU();
