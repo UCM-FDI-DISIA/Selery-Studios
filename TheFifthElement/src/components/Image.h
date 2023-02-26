@@ -6,8 +6,6 @@
 #include "../utils/Entity.h"
 #include "InputComponentBEU.h"
 #include "../Entities/PlayerBEU.h"
-//#include "../components/ColliderComponent.h"
-//class ColliderComponent;
 class Image : public Component {
 
 private:
@@ -18,7 +16,6 @@ private:
 	
 	Transform* tr_; // Consulta las caracteristicas fisicas
 	Texture* tex_;	// Imagen a rederizar
-	//ColliderComponent* col_ = nullptr;
 	bool isPlayerTD = false;
 	bool isPlayerBEU = false;
 	
@@ -42,9 +39,6 @@ public:
 	// Inicializa el componente
 	void initComponent() {
 		tr_ = ent_->getComponent<Transform>(int(TRANSFORM_H));
-		/*if (ent_->hasComponent(COLLIDERCOMPONENT_H))
-			col_ = ent_->getComponent<ColliderComponent>(int(COLLIDERCOMPONENT_H));*/
-
 		isPlayerTD = ent_->hasComponent(INPUTCOMPONENT_H);
 		isPlayerBEU = ent_->hasComponent(INPUTCOMPONENTBEU_H);
 		assert(tr_ != nullptr);
@@ -66,7 +60,6 @@ public:
 				framesTotales_ = 7;
 				//	s = SDL_FLIP_HORIZONTAL;
 				tr_->setW(476);
-				//if (col_ != nullptr) { col_->setOffset(Vector2D(75, 40)); }
 			}
 			else if (tr_->getDir().getY() == -1 && tr_->getDir().getX() == 0) {
 				tex_ = &SDLUtils::instance()->images().at("p_top");
@@ -85,37 +78,6 @@ public:
 				tr_->setW(519);
 			}
 			s = SDL_FLIP_NONE;
-		}
-		else if (isPlayerBEU && !animPlaying) {
-			
-			if (!(static_cast<PlayerBEU*>(ent_)->getAttack())){
-				if (tr_->getDir().getX() == 1 && (fila_ != 1||s==SDL_FLIP_HORIZONTAL)) {
-					fila_ = 1;
-					//tex_ = &SDLUtils::instance()->images().at("p_left");
-					frames_ = 8;
-					s = SDL_FLIP_NONE;
-					cont = 0;
-					i = 0;
-					
-				}
-				else if (tr_->getDir().getX() == -1 && (fila_ != 1||s==SDL_FLIP_NONE)) {
-					//tex_ = &SDLUtils::instance()->images().at("p_right");
-					fila_ = 1;
-					frames_ = 8;
-					s = SDL_FLIP_HORIZONTAL;
-					cont = 0;
-					i = 0;
-					
-				}
-				else if (fila_ != 0 && tr_->getDir().getX() == 0) {
-					//tex_ = &SDLUtils::instance()->images().at("p_idle");
-					fila_ = 0;
-					frames_ = 8;
-					i = 0;
-					cont = 0;
-					
-				}
-			}
 		}
 	}
 
@@ -142,15 +104,10 @@ public:
 				cont = 0;
 			}
 			cont++;
-			if (i == frames_) { 
+			if (i >= frames_) { 
 				i = 0;
-				if (static_cast<PlayerBEU*>(ent_)->getAttack()) {
-					
-					//ent_->getComponent<InputComponentBEU>(INPUTCOMPONENTBEU_H)->stop_attack();
-					static_cast<PlayerBEU*>(ent_)->setAttack(false);
-				}
-				if (animPlaying) { animPlaying = false;	static_cast<PlayerBEU*>(ent_)->setAttack(false);
-				}
+				animPlaying = false;	
+				fila_ = 0;
 			}
 		}
 	}
@@ -158,21 +115,18 @@ public:
 	inline int getRow() { return fila_; }
 	inline int getLastFrame(){ return frames_;}
 
-	void setAnim(bool Anim, int Fila, int Frames, int I, int Cont) { //Metodo generico para cambiar de animacion en BEU
+	void setAnim(bool Anim, int Fila, int Frames, int I, int Cont, Texture* t) { //Metodo generico para cambiar de animacion en BEU
 		if (fila_ != Fila && !animPlaying) { // Si la animacion no es la actual la actualiza
 			animPlaying = Anim;
 			fila_ = Fila;
 			frames_ = Frames;
 			i = I;
 			cont = Cont;
+			tex_ = t;
 		}
 	}
 
-	/*inline Texture* getTexture*/
-
-	bool isAnimPlaying() {
-		return animPlaying;
-	}
-
+	void setFlip(SDL_RendererFlip Flip = SDL_FLIP_NONE) { s = Flip; }
+	bool isAnimPlaying() { return animPlaying; }
 };
 #endif

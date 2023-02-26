@@ -51,8 +51,8 @@ public:
         r.h = h_;
     }
 
-    void setOffset(Vector2D of) {
-        offset_ = of;
+    void setOffset(Vector2D offset) {
+        offset_ = offset;
     }
 };
 
