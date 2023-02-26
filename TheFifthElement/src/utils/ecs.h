@@ -23,9 +23,9 @@ enum cmpId : cmpId_type {
 	ATTACKBOXCOMPONENT_H = 15,
 	COLLIDERCOMPONENT_H = 16,
 	COLDETECTORCOMPONENT_H = 17,
-	LIMITBEU_H = 18,
 <<<<<<< Updated upstream
 =======
+	LIMITBEU_H = 18,
 	ANIMATIONENEMYBEUCOMPONENT_H = 19,
 >>>>>>> Stashed changes
 	// do not remove this

@@ -10,10 +10,11 @@ class EnemyBEUDirectionComponent :
     public Component
 {
 public:
-    EnemyBEUDirectionComponent(PlayerBEU* p, string type);
+    EnemyBEUDirectionComponent(PlayerBEU* p, string type, bool isMoving);
     void initComponent();
     void update();
     void changeDir(Vector2D d);
+    void setMov(bool isMoving);
 private:
 
     MovementComponent* mov_;
@@ -33,5 +34,6 @@ private:
     float distance_ = 100.0f;
 
     string type_;
+    bool isMoving_;
 };
 

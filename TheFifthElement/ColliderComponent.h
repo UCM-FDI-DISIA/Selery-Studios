@@ -37,9 +37,9 @@ public:
     SDL_Rect getColRect() { return r; }
 
     void render() {
-        SDL_SetRenderDrawColor(sdlutils().renderer(), 255, 0, 255, 0);
-        SDL_RenderDrawRect(sdlutils().renderer(), &r);
         SDL_SetRenderDrawColor(sdlutils().renderer(), 0, 0, 0, 0);
+        SDL_RenderDrawRect(sdlutils().renderer(), &r);
+        //SDL_SetRenderDrawColor(sdlutils().renderer(), 0, 0, 0, 0);
     }
 
     void update() {
@@ -53,6 +53,12 @@ public:
 
     void setOffset(Vector2D offset) {
         offset_ = offset;
+    }
+
+    void setCollider(Vector2D offset, float h, float w) {
+        offset_ = offset;
+        h_ = h;
+        w_ = w;
     }
 };
 

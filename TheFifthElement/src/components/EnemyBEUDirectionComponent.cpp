@@ -3,10 +3,11 @@
 #include "../utils/ecs.h"
 #include "../Entities/EnemyBEU.h"
 
-EnemyBEUDirectionComponent::EnemyBEUDirectionComponent(PlayerBEU* p, string type) :Component() {
+EnemyBEUDirectionComponent::EnemyBEUDirectionComponent(PlayerBEU* p, string type, bool isMoving) :Component() {
 	dir_ = Vector2D(0.0f, 0.0f);
 	player_ = p;
 	type_ = type;
+	isMoving_ = isMoving;
 }
 
 void EnemyBEUDirectionComponent::initComponent() {
@@ -14,7 +15,6 @@ void EnemyBEUDirectionComponent::initComponent() {
 	tr_ = ent_->getComponent<Transform>(TRANSFORM_H);
 	playerTr_ = player_->getComponent<Transform>(TRANSFORM_H);
 	im_ = ent_->getComponent<Image>(IMAGE_H);
-	//t_
 }
 
 void EnemyBEUDirectionComponent::update() {
@@ -22,6 +22,18 @@ void EnemyBEUDirectionComponent::update() {
 		playerTr_->getPos().getY() - tr_->getPos().getY());
 	float dist_ = sqrt(pow(director_.getX(), 2)+(director_.getY(), 2));
 	if (dist_ <= distance_) {
+		if (playerTr_->getPos().getX() + 40 <= tr_->getPos().getX()) 
+		{ 
+			im_->setFlip(SDL_FLIP_HORIZONTAL);
+		}
+		else 
+		{ 
+			/*if (!isMoving_) {
+				if(type_ == "goblin")static_cast<EnemyBEU*>(ent_)->setOffset(Vector2D(40, 70));
+				else if(type_ == "shroom")static_cast<EnemyBEU*>(ent_)->setOffset(Vector2D(45, 55));
+			}*/
+			im_->setFlip(SDL_FLIP_NONE); 
+		}
 		mov_->setDir(director_ * 0.01f);//move
 	}
 
@@ -40,13 +52,13 @@ void EnemyBEUDirectionComponent::update() {
 		{
 			izq = true;// tiene que ir a la izquierda
 			im_->setFlip(SDL_FLIP_HORIZONTAL);
-			if(type_ != "skeleton" && type_ != "bat")static_cast<EnemyBEU*>(ent_)->setOffset(Vector2D(55, 55));
+			if(isMoving_ && type_ != "skeleton" && type_ != "bat")static_cast<EnemyBEU*>(ent_)->setOffset(Vector2D(55, 55));
 		}
 		else if (tr_->getPos().getX() <= 0/*principio de pantalla*/)
 		{
 			izq = false;// tinene que ir a la derecha
 			im_->setFlip(SDL_FLIP_NONE);
-			if (type_ != "skeleton" && type_ != "bat")static_cast<EnemyBEU*>(ent_)->setOffset(Vector2D(50, 55));
+			if (isMoving_ && type_ != "skeleton" && type_ != "bat")static_cast<EnemyBEU*>(ent_)->setOffset(Vector2D(50, 55));
 		}
 
 		if (izq) changeDir(Vector2D(-1.0f, dir_.getY()));
@@ -64,4 +76,8 @@ void EnemyBEUDirectionComponent::update() {
 void EnemyBEUDirectionComponent::changeDir(Vector2D d) 
 {
 	dir_ = d;
+}
+
+void EnemyBEUDirectionComponent::setMov(bool isMoving) {
+	isMoving_ = isMoving;
 }
