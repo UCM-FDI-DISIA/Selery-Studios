@@ -7,8 +7,6 @@
 #include "../states/BeatEmUpState.h"
 
 InputComponentBEU::InputComponentBEU() :Component() {
-	downLimit = sdlutils().height();
-	topLimit = downLimit / 3;
 }
 
 void InputComponentBEU::initComponent() {
@@ -22,10 +20,8 @@ void InputComponentBEU::update() {
 }
 
 void InputComponentBEU::handleEvents(SDL_Event event){
-
 	InputHandler::instance()->update(event);
-		if (!im_->isAnimPlaying()) 
-		{
+		if (!im_->isAnimPlaying()) {
 			if (ih().isKeyDown(SDL_SCANCODE_A)) { // Mover Izquierda
 				tr_->setDir(Vector2D(-1, 0));
 				im_->setAnim(false, 1, 8, 0, 0, t_);
@@ -36,24 +32,29 @@ void InputComponentBEU::handleEvents(SDL_Event event){
 				im_->setAnim(false, 1, 8, 0, 0, t_);
 				im_->setFlip(SDL_FLIP_NONE);
 			}
-			else  if (ih().isKeyDown(SDL_SCANCODE_W) && tr_->getPos().getY() > topLimit) { // Mover Arriba
+			else  if (ih().isKeyDown(SDL_SCANCODE_W)) { // Mover Arriba
 				tr_->setDir(Vector2D(0, -1));
 				im_->setAnim(false, 1, 8, 0, 0, t_);
 			}
-			else if (ih().isKeyDown(SDL_SCANCODE_S) && tr_->getPos().getY() < downLimit - tr_->getH()) { // Mover Abajo
+			else if (ih().isKeyDown(SDL_SCANCODE_S)) { // Mover Abajo
 				tr_->setDir(Vector2D(0, 1));
 				im_->setAnim(false, 1, 8, 0, 0, t_);
 			}
-			else if (ih().isKeyDown(SDL_SCANCODE_SPACE)) { // Salto
-				
+			else if (ih().isKeyDown(SDL_SCANCODE_SPACE) && canJump) { // Salto
+				im_->setAnim(true, 4, 20, 0, 0);
 			}
 			else if (ih().isKeyDown(SDL_SCANCODE_O)) { // Ataque
 			    sdlutils().soundEffects().at("playerAttack").play();
 				im_->setAnim(true, 7, 10, 0, 0, t_);
 			}
 			else if (ih().isKeyDown(SDL_SCANCODE_P)) { // Ataque Especial
+<<<<<<< Updated upstream
 			    SDLUtils::instance()->soundEffects().at("playerSpecialAttack").play();
 				im_->setAnim(true, 10, 18, 0, 0, t_);
+=======
+				sdlutils().soundEffects().at("playerSpecialAttack").play();
+				im_->setAnim(true, 10, 18, 0, 0);
+>>>>>>> Stashed changes
 			}
 			else if (ih().isKeyDown(SDL_SCANCODE_M)) {
 				static_cast<BeatEmUpState*>(mngr_)->finishBEU();

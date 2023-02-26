@@ -23,6 +23,7 @@ enum cmpId : cmpId_type {
 	ATTACKBOXCOMPONENT_H = 15,
 	COLLIDERCOMPONENT_H = 16,
 	COLDETECTORCOMPONENT_H = 17,
+	LIMITBEU_H = 18,
 	// do not remove this
 	_LAST_CMP_ID
 };

@@ -7,11 +7,17 @@
 class Image;
 class InputComponentBEU : public Component
 {
+private:
+    Transform* tr_ = nullptr;
+    Image* im_ = nullptr;
+    bool canJump = true;
+
 public:
     InputComponentBEU();
     void initComponent();
     void update();
     void handleEvents(SDL_Event event);
+<<<<<<< Updated upstream
 
 private:
     Transform* tr_ = nullptr;
@@ -20,3 +26,6 @@ private:
     float downLimit, topLimit;
 };
 
+=======
+};
+>>>>>>> Stashed changes

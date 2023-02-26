@@ -7,12 +7,10 @@
 #include "InputComponentBEU.h"
 #include "../Entities/PlayerBEU.h"
 class Image : public Component {
-
 private:
 	int frames_, fila_, framesTotales_;
 	int i = 0;
 	int cont = 0;
-
 	
 	Transform* tr_; // Consulta las caracteristicas fisicas
 	Texture* tex_;	// Imagen a rederizar
@@ -23,21 +21,15 @@ private:
 	bool animPlaying = false;
 
 public:
-
-	// Constructora
-	Image(Texture* tex, int nframes, int framesT, int fila) : tr_(nullptr), tex_(tex) {
+	Image(Texture* tex, int nframes, int framesT, int fila) : tr_(nullptr), tex_(tex) { // Constructora
 		frames_ = nframes;
 		fila_ = fila;
 		framesTotales_ = framesT;
 	}
 	// Destructora
 	virtual ~Image() { }
-	// Inicializa el componente
-	//void initComponent() override;
-	// Dibuja
-	//void render() override;
-	// Inicializa el componente
-	void initComponent() {
+
+	void initComponent() { 	// Inicializa el componente
 		tr_ = ent_->getComponent<Transform>(int(TRANSFORM_H));
 		isPlayerTD = ent_->hasComponent(INPUTCOMPONENT_H);
 		isPlayerBEU = ent_->hasComponent(INPUTCOMPONENTBEU_H);
