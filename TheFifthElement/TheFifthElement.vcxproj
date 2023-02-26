@@ -130,6 +130,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="AnimationEnemyBEUComponent.h" />
     <ClInclude Include="ColDetectorComponent.h" />
     <ClInclude Include="ColliderComponent.h" />
     <ClInclude Include="RedirectTile.h" />
@@ -190,8 +191,14 @@
     <ClInclude Include="src\utils\Vector2D.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AnimationEnemyBEUComponent.cpp" />
     <ClCompile Include="ColDetectorComponent.cpp" />
     <ClCompile Include="src\components\AttackBoxComponent.cpp" />
+<<<<<<< Updated upstream
+=======
+    <ClCompile Include="src\components\Image.cpp" />
+    <ClCompile Include="src\components\LimitBEU.cpp" />
+>>>>>>> Stashed changes
     <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\states\BeatEmUpState.cpp" />
     <ClCompile Include="src\Entities\Camera.cpp" />

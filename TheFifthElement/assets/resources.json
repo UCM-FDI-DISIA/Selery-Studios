@@ -28,6 +28,8 @@
       "id": "NPC_2",
       "file": "./assets/NPCs/NPC2-Idle-Left.png"
     },
+
+
     {
       "id": "BEU_wind_Mushroom_run",
       "file": "./assets/Enemies/Pack/Wind/WindMushroom/Run.png"
@@ -44,6 +46,12 @@
 
     },
     {
+      "id": "BEU_wind_Mushroom_death",
+      "file": "./assets/Enemies/Pack/Wind/WindMushroom/Death.png"
+
+    },
+
+    {
       "id": "BEU_wind_Bat_fly",
       "file": "./assets/Enemies/Pack/Wind/WindBat/Flight.png"
 
@@ -58,6 +66,12 @@
       "file": "./assets/Enemies/Pack/Wind/WindBat/Take Hit.png"
 
     },
+    {
+      "id": "BEU_wind_Bat_death",
+      "file": "./assets/Enemies/Pack/Wind/WindBat/Death.png"
+
+    },
+
     {
       "id": "BEU_wind_Goblin_run",
       "file": "./assets/Enemies/Pack/Wind/WindGoblin/Run.png"
@@ -74,6 +88,12 @@
 
     },
     {
+      "id": "BEU_wind_Goblin_death",
+      "file": "./assets/Enemies/Pack/Wind/WindGoblin/Death.png"
+
+    },
+
+    {
       "id": "BEU_wind_Skeleton_run",
       "file": "./assets/Enemies/Pack/Wind/WindSkeleton/Walk.png"
 
@@ -88,6 +108,13 @@
       "file": "./assets/Enemies/Pack/Wind/WindSkeleton/Take Hit.png"
 
     },
+    {
+      "id": "BEU_wind_Skeleton_death",
+      "file": "./assets/Enemies/Pack/Wind/WindSkeleton/Death.png"
+
+    },
+
+
     {
       "id": "BEU_water_Mushroom_run",
       "file": "./assets/Enemies/Pack/Water/WaterMushroom/Run.png"
@@ -104,6 +131,12 @@
 
     },
     {
+      "id": "BEU_water_Mushroom_death",
+      "file": "./assets/Enemies/Pack/Water/WaterMushroom/Death.png"
+
+    },
+
+    {
       "id": "BEU_water_Bat_fly",
       "file": "./assets/Enemies/Pack/Water/WaterBat/Flight.png"
 
@@ -118,6 +151,12 @@
       "file": "./assets/Enemies/Pack/Water/WaterBat/Take Hit.png"
 
     },
+    {
+      "id": "BEU_water_Bat_death",
+      "file": "./assets/Enemies/Pack/Water/WaterBat/Death (1).png"
+
+    },
+
     {
       "id": "BEU_water_Goblin_run",
       "file": "./assets/Enemies/Pack/Water/WaterGoblin/Run.png"
@@ -134,8 +173,14 @@
 
     },
     {
+      "id": "BEU_water_Goblin_death",
+      "file": "./assets/Enemies/Pack/Water/WaterGoblin/Death.png"
+
+    },
+
+    {
       "id": "BEU_water_Skeleton_run",
-      "file": "./assets/Enemies/Pack/Water/WaterSkeleton/Idle.png"
+      "file": "./assets/Enemies/Pack/Water/WaterSkeleton/Walk.png"
 
     },
     {
@@ -145,9 +190,16 @@
     },
     {
       "id": "BEU_water_Skeleton_hit",
-      "file": "./assets/Enemies/Pack/Water/WaterSkeleton/Attack2 (3).png"
+      "file": "./assets/Enemies/Pack/Water/WaterSkeleton/Take Hit.png"
 
     },
+    {
+      "id": "BEU_water_Skeleton_death",
+      "file": "./assets/Enemies/Pack/Water/WaterSkeleton/Death.png"
+
+    },
+
+
     {
       "id": "BEU_fire_Mushroom_run",
       "file": "./assets/Enemies/Pack/Fire/FireMushroom/fireShroomRun.png"
@@ -164,6 +216,12 @@
 
     },
     {
+      "id": "BEU_fire_Mushroom_death",
+      "file": "./assets/Enemies/Pack/Fire/FireMushroom/fireShroomDeath.png"
+
+    },
+
+    {
       "id": "BEU_fire_Bat_fly",
       "file": "./assets/Enemies/Pack/Fire/FireBat/Flight.png"
 
@@ -178,6 +236,12 @@
       "file": "./assets/Enemies/Pack/Fire/FireBat/Take Hit.png"
 
     },
+    {
+      "id": "BEU_fire_Bat_death",
+      "file": "./assets/Enemies/Pack/Fire/FireBat/Death (1).png"
+
+    },
+
     {
       "id": "BEU_fire_Goblin_run",
       "file": "./assets/Enemies/Pack/Fire/FireGoblin/Run.png"
@@ -194,6 +258,12 @@
 
     },
     {
+      "id": "BEU_fire_Goblin_death",
+      "file": "./assets/Enemies/Pack/Fire/FireGoblin/Death.png"
+
+    },
+
+    {
       "id": "BEU_fire_Skeleton_run",
       "file": "./assets/Enemies/Pack/Fire/FireSkeleton/Walk.png"
 
@@ -208,6 +278,13 @@
       "file": "./assets/Enemies/Pack/Fire/FireSkeleton/Take Hit.png"
 
     },
+    {
+      "id": "BEU_fire_Skeleton_death",
+      "file": "./assets/Enemies/Pack/Fire/FireSkeleton/Death.png"
+
+    },
+
+
     {
       "id": "BEU_earth_Mushroom_run",
       "file": "./assets/Enemies/Pack/Ground/GroundMushroom/GroundShroomRun.png"
@@ -224,6 +301,12 @@
 
     },
     {
+      "id": "BEU_earth_Mushroom_death",
+      "file": "./assets/Enemies/Pack/Ground/GroundMushroom/GroundShroomDeath.png"
+
+    },
+
+    {
       "id": "BEU_earth_Bat_fly",
       "file": "./assets/Enemies/Pack/Ground/GroundBat/VolarCisco.png"
 
@@ -238,6 +321,12 @@
       "file": "./assets/Enemies/Pack/Ground/GroundBat/HitCisco.png"
 
     },
+    {
+      "id": "BEU_earth_Bat_death",
+      "file": "./assets/Enemies/Pack/Ground/GroundBat/MuerteCisco.png"
+
+    },
+
     {
       "id": "BEU_earth_Goblin_run",
       "file": "./assets/Enemies/Pack/Ground/GroundGoblin/Run.png"
@@ -254,6 +343,12 @@
 
     },
     {
+      "id": "BEU_earth_Goblin_death",
+      "file": "./assets/Enemies/Pack/Ground/GroundGoblin/Death.png"
+
+    },
+
+    {
       "id": "BEU_earth_Skeleton_run",
       "file": "./assets/Enemies/Pack/Ground/GroundSkeleton/Walk.png"
 
@@ -268,6 +363,13 @@
       "file": "./assets/Enemies/Pack/Ground/GroundSkeleton/Take Hit.png"
 
     },
+    {
+      "id": "BEU_earth_Skeleton_death",
+      "file": "./assets/Enemies/Pack/Ground/GroundSkeleton/Death.png"
+
+    },
+
+
     {
       "id": "TD_wind_mushroom",
       "file": "assets/Enemies/TopDown/shroomRunLeft.png"
@@ -303,7 +405,31 @@
     {
       "id": "fondo",
       "file": "assets/backgrounds/bonito/Grassy_Mountains_preview.png"
+    },
+    {
+      "id": "fondo1",
+      "file": "assets/backgrounds/BeatEmUp/DorjeeSofia 873x436.png"
+    },
+
+    {
+      "id": "fondo2",
+      "file": "assets/backgrounds/BeatEmUp/DorjeSofia 400x325.png"
+    },
+
+    {
+      "id": "fondo3",
+      "file": "assets/backgrounds/BeatEmUp/DorjeeSofia180x398.png"
+    },
+
+    {
+      "id": "fondo4",
+      "file": "assets/backgrounds/BeatEmUp/DorjeeSofia1800x900.png"
+    },
+    {
+      "id": "fondoNieve",
+      "file": "assets/backgrounds/BeatEmUp/DorjeeSofia 1500x844.png"
     }
+
   ],
 
   "messages": [

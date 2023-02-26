@@ -6,7 +6,7 @@
 #include "../sdlutils/SDLUtils.h"
 class Background :public Entity {
 public:
-	Background() {
+	Background(string file) {
 		int w = 900;
 		int h = 600;
 		int f = 0;
@@ -14,7 +14,7 @@ public:
 		Vector2D v = { 0,0 };
 		int r = 0;
 		addComponent<Transform>(int(TRANSFORM_H), v, w, h,r,0, f, matrix);
-		Texture* t = &SDLUtils::instance()->images().at("fondo");
+		Texture* t = &SDLUtils::instance()->images().at(file);
 		addComponent<Image>(int(IMAGE_H), t,f, f, f);
 		//Texture* tex, int nframes, int framesT, int fila
 	//		Vector2D pos, float w, float h, float r, int frames, bool matrix
