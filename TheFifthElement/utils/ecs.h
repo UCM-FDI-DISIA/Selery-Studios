@@ -3,24 +3,30 @@
 #define ECS_H_
 
 using cmpId_type = int;
+<<<<<<< Updated upstream
+namespace ecs {
+	enum cmpId : cmpId_type {
+		_TRANSFORM = 0,
+		// ... (compoment ids)
+
+		// do not remove this
+		_LAST_CMP_ID
+	};
+	constexpr cmpId_type maxComponentId = _LAST_CMP_ID;
+}
+
+=======
 enum cmpId : cmpId_type {
+	_TRANSFORM_H_ = 0,
 	// ... (compoment ids)
-	TRANSFORM_H = 0,
 	RENDERCOMPONENT_H = 1,
 	INPUTCOMPONENT_H = 2,
 	MOVEMENTCOMPONENT_H = 3,
 	CHECKCOLLISION_H = 4,
-	LIFECOMPONENT_H = 5,
-	DIALOGBOX_H = 6,
-	IMAGE_H = 7,
-	INPUTCOMPONENTBEU_H = 8,
-	SKINCOMPONENT_H = 9,
-	ENEMYBEUDIRECTIONCOMPONENT_H = 10,
-	DIALOGCOMPONENT_H = 11,
-	OBJECTSCOMPONENT_H = 12,
 	// do not remove this
 	_LAST_CMP_ID
 };
 constexpr cmpId_type maxComponentId = _LAST_CMP_ID;
+>>>>>>> Stashed changes
 
 #endif // !ECS_H_
