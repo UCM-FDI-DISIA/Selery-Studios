@@ -380,7 +380,7 @@
     },
     {
       "id": "p_left",
-      "file": "assets/PlayableCharacters/Exploration/Fire/andar.png"
+      "file": "assets/PlayableCharacters/Exploration/Fire/andarIzquierda.png"
     },
     {
       "id": "p_top",
@@ -392,7 +392,7 @@
     },
     {
       "id": "p_right",
-      "file": "assets/PlayableCharacters/Exploration/Fire/andarIzquierda.png"
+      "file": "assets/PlayableCharacters/Exploration/Fire/andar.png"
     },
     {
       "id": "portal",
