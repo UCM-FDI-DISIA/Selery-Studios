@@ -14,6 +14,44 @@ void AnimationEnemyBEUComponent::changeState(AnimationStates newState)
 
 void AnimationEnemyBEUComponent::updateAn() {
 	//SUGERENCIA DEJAR AL ENEMIGO QUIETO MIENTRAS PEGA
+	if (!set_)
+	{
+		tr_ = ent_->getComponent<Transform>(TRANSFORM_H);
+		im_ = ent_->getComponent<Image>(IMAGE_H);
+		set_ = true;
+	}
+	else {
+		switch (currentState_)
+		{
+		case AnimationEnemyBEUComponent::Moving:
+			if (tr_->getDir().getX() <= 0) {
+				im_->setFlip(SDL_FLIP_HORIZONTAL);
+				if (type_ != "skeleton" && type_ != "bat")
+					static_cast<EnemyBEU*>(ent_)->setOffset(Vector2D(55, 55));
+			}
+			else {
+				im_->setFlip(SDL_FLIP_NONE);
+				if (type_ != "skeleton" && type_ != "bat")
+					static_cast<EnemyBEU*>(ent_)->setOffset(Vector2D(50, 55));
+			}
+
+			break;
+		case AnimationEnemyBEUComponent::Attack:
+			if (tr_->getDir().getX() > 0) {
+				im_->setFlip(SDL_FLIP_NONE);
+				if (type_ == "goblin")static_cast<EnemyBEU*>(ent_)->setOffset(Vector2D(40, 70));
+				else if (type_ == "shroom")static_cast<EnemyBEU*>(ent_)->setOffset(Vector2D(45, 55));
+			}
+			else im_->setFlip(SDL_FLIP_HORIZONTAL);
+			break;
+		case AnimationEnemyBEUComponent::Hit:
+			break;
+		case AnimationEnemyBEUComponent::Death:
+			break;
+		default:
+			break;
+		}
+	}
 }
 
 void AnimationEnemyBEUComponent::updateAnimation() {

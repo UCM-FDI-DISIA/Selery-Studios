@@ -45,7 +45,7 @@ EnemyBEU::EnemyBEU(PlayerBEU* player, float maxLife, string enemy, string type) 
 
 void EnemyBEU::collision() {
 	//cout << isAttacking_ << endl;
-	if (!isAttacking_) {
+	if (!im_->isAnimPlaying()) {
 		//cout << "colisiona" << endl;
 	// animaci�n de ataque y ataque en s�
 //llamar a cambiar estado a attack
@@ -58,7 +58,7 @@ void EnemyBEU::collision() {
 }
 
 void EnemyBEU::noCollision() {
-	if (!isAttacking_) {
+	if (!im_->isAnimPlaying()) {
 		// lógica de recibir daño, muerte o movimiento
 		anim_->changeState(AnimationEnemyBEUComponent::Moving);
 	}
