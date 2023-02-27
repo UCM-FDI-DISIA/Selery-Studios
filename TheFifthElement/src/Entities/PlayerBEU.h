@@ -8,7 +8,7 @@
 #include "../components/InputComponentBEU.h"
 #include "../components/MovementComponent.h"
 #include "../components/AttackBoxComponent.h"
-#include "../../ColliderComponent.h"
+#include "../components/ColliderComponent.h"
 #include "../components/LimitBEU.h"
 
 class PlayerBEU : public Entity {

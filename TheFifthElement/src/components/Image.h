@@ -4,22 +4,15 @@
 #include "../sdlutils/Texture.h"
 #include "Transform.h" 
 #include "../utils/Entity.h"
-#include "../Entities/PlayerBEU.h"
-//#include "../Entities/EnemyBEU.h"
 
 class Image : public Component {
-
 private:
 	int frames_, fila_, framesTotales_;
 	int i = 0;
 	int cont = 0;
 
-	
 	Transform* tr_; // Consulta las caracteristicas fisicas
 	Texture* tex_;	// Imagen a rederizar
-	bool isPlayerTD = false;
-	bool isPlayerBEU = false;
-	bool isEnemyBEU = false;
 	
 	SDL_RendererFlip s = SDL_FLIP_NONE;
 	bool animPlaying = false;
@@ -44,6 +37,7 @@ public:
 
 	//matriz
 	void setAnim(bool Anim, int Fila, int Frames, int I); //Metodo generico para cambiar de animacion en BEU
+	void setAnimTexture(string textureKey, int Frames, int Width);
 
 	//spritesheet
 	void setSpriteAnim(bool Anim, int Frames, int I, Texture* t); //Metodo generico para cambiar de animacion en BEU

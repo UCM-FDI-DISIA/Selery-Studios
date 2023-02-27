@@ -1,6 +1,6 @@
 #include "BeatEmUpState.h"
 BeatEmUpState::BeatEmUpState() {
-	addEntity(new Background("fondo"));
+	addEntity(new Background("airBackground"));
 	player_ = addEntity(new PlayerBEU());
 	dialog_ = false;
 
@@ -8,7 +8,7 @@ BeatEmUpState::BeatEmUpState() {
 	cmpId_type b = int(INPUTCOMPONENTBEU_H);
 	in_ = player_->getComponent<InputComponentBEU>(b);
 	cmpId_type w = int(INPUTCOMPONENT_H);
-	addEntity(new EnemyBEU(player_, 100, "goblin", "earth"));
+	addEntity(new EnemyBEU(player_, 100, "shroom", "water"));
 }
 
 void BeatEmUpState::handleEvents() {

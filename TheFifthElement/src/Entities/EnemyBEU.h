@@ -8,9 +8,9 @@
 #include "../components/LifeComponent.h"
 #include "../components/MovementComponent.h"
 #include "../components/EnemyBEUDirectionComponent.h"
-#include "../../ColliderComponent.h"
-#include "../../ColDetectorComponent.h"
-#include "../../AnimationEnemyBEUComponent.h"
+#include "../components/ColliderComponent.h"
+#include "../components/ColDetectorComponent.h"
+#include "../components/AnimationEnemyBEUComponent.h"
 
 class EnemyBEU :
     public Entity

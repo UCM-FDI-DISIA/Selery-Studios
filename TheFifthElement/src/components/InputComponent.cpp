@@ -8,38 +8,40 @@ InputComponent::InputComponent():Component() {
 }
 void InputComponent::initComponent() {
 	mov_ = ent_->getComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
+	im_ = ent_->getComponent<Image>(IMAGE_H);
 	skin_ = ent_->getComponent<SkinComponent>(SKINCOMPONENT_H);
 }
-void InputComponent::update() {
-	
-	//Actualizamos el contador que mide el tiempo
+void InputComponent::update() { //Actualizamos el contador que mide el tiempo
 	unsigned timer = clock();
 	actionDelay = (double(timer) / CLOCKS_PER_SEC);
-
 }
-
-
 void InputComponent::handleEvents(SDL_Event event)
 {
 
 	InputHandler::instance()->update(event);
 
-	if (InputHandler::instance()->keyDownEvent())
-	{
+	if (ih().keyDownEvent()){
 		if (!npccol) {
 			if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_A)) {
 				mov_->setDir(Vector2D(-1, 0));
+				im_->setAnimTexture("p_left", 7, 476);
 			}
 			else if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_D)) {
 				mov_->setDir(Vector2D(1, 0));
+				im_->setAnimTexture("p_right", 7, 476);
 			}
 			else  if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_W)) {
 				mov_->setDir(Vector2D(0, -1));
+				im_->setAnimTexture("p_top", 9, 612);
 			}
 			else if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_S)) {
 				mov_->setDir(Vector2D(0, 1));
+				im_->setAnimTexture("p_down", 9, 612);
 			}
-			else mov_->setDir(Vector2D(0, 0));
+			else {
+				mov_->setDir(Vector2D(0, 0));
+				im_->setAnimTexture("p_idle", 7, 519);
+			}
 
 			if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_U)) {
 				skin_->changeSkin("fire");
@@ -54,22 +56,25 @@ void InputComponent::handleEvents(SDL_Event event)
 				skin_->changeSkin("earth");
 			}
 		}
+		
+		if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_E)) {
+			
+			if (actionDelay > 0) {
+				int a = static_cast<PlayerTD*>(ent_)->getCol();
+				cout << a;
 
+				if (a != -1) {
 
-	}
-	if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_E)) {
-		if (actionDelay > 0) { // The shorterpaddle and biggerpaddle rewards is activated REWARDS_TIME seconds
-			int a = static_cast<PlayerTD*>(ent_)->getCol() != -1;
+					npccol = true;
+					mov_->setDir(Vector2D(0, 0));
+					static_cast<TopDownState*>(mngr_)->dialog(a);
+				}
 
-			if (a) {
-				cout << "2";
-				npccol = true;
-				mov_->setDir(Vector2D(0, 0));
-				static_cast<TopDownState*>(mngr_)->dialog(a);
 			}
-
+			actionDelay = 0;
 		}
-		actionDelay = 0;
+
 	}
+	
 	
 }

@@ -23,7 +23,7 @@ private:
 	SkinComponent* sk = nullptr;
 	int nframes = 7;
 	int fila_;
-	int collisionNPC = -1;
+	int collisionNPC;
 	bool matrix_ = false;
 public:
 	void setCol(int col) {

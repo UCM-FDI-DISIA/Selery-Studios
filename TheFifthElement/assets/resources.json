@@ -2,11 +2,11 @@
   "dialog": [
     {
       "id": "1",
-      "text": "Carlos Leon trabajando?"
+      "text": "Carlos Leon trabajando? $ imposible $."
     },
     {
       "id": "2",
-      "text": "jose haz lo tuyo "
+      "text": "jose haz lo tuyo $."
     }
   ],
 
@@ -380,7 +380,7 @@
     },
     {
       "id": "p_left",
-      "file": "assets/PlayableCharacters/Exploration/Fire/andar.png"
+      "file": "assets/PlayableCharacters/Exploration/Fire/andarIzquierda.png"
     },
     {
       "id": "p_top",
@@ -392,7 +392,7 @@
     },
     {
       "id": "p_right",
-      "file": "assets/PlayableCharacters/Exploration/Fire/andarIzquierda.png"
+      "file": "assets/PlayableCharacters/Exploration/Fire/andar.png"
     },
     {
       "id": "portal",
@@ -401,6 +401,10 @@
     {
       "id": "fireball",
       "file": "assets/Elements/FireBall/Sheets/IdleLoop-Sheet.png"
+    },
+    {
+      "id": "airBackground",
+      "file": "assets/backgrounds/BeatEmUp/AirBackground.png"
     },
     {
       "id": "fondo",
