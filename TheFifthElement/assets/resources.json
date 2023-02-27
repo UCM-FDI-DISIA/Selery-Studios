@@ -403,6 +403,10 @@
       "file": "assets/Elements/FireBall/Sheets/IdleLoop-Sheet.png"
     },
     {
+      "id": "airBackground",
+      "file": "assets/backgrounds/BeatEmUp/AirBackground.png"
+    },
+    {
       "id": "fondo",
       "file": "assets/backgrounds/bonito/Grassy_Mountains_preview.png"
     },

@@ -1,6 +1,6 @@
 #include "BeatEmUpState.h"
 BeatEmUpState::BeatEmUpState() {
-	addEntity(new Background("fondo"));
+	addEntity(new Background("airBackground"));
 	player_ = addEntity(new PlayerBEU());
 	dialog_ = false;
 
