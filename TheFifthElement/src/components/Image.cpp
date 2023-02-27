@@ -13,7 +13,7 @@ void Image::initComponent() { 	// Inicializa el componente
 	tr_ = ent_->getComponent<Transform>(int(TRANSFORM_H));
 	isPlayerTD = ent_->hasComponent(INPUTCOMPONENT_H);
 	isPlayerBEU = ent_->hasComponent(INPUTCOMPONENTBEU_H);
-	//isEnemyBEU = ent_->hasComponent(ENEMYBEUDIRECTIONCOMPONENT_H);
+	isEnemyBEU = ent_->hasComponent(ENEMYBEUDIRECTIONCOMPONENT_H);
 	assert(tr_ != nullptr);
 
 
@@ -52,7 +52,6 @@ void Image::update() {
 		}
 		s = SDL_FLIP_NONE;
 	}
-	/*if (isEnemyBEU) *///static_cast<EnemyBEU*>(ent_)->setAttackBool(false);
 }
 
 // Dibuja en escena
@@ -82,7 +81,7 @@ void Image::render() {
 			i = 0;
 			animPlaying = false;
 			fila_ = 0;
-			static_cast<EnemyBEU*>(ent_)->setAttackBool(false);
+			if(isEnemyBEU)static_cast<EnemyBEU*>(ent_)->setAttackBool(false);
 		}
 	}
 }

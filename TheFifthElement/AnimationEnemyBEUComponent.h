@@ -3,6 +3,8 @@
 #include "src/utils/Vector2D.h"
 #include "src/sdlutils/SDLUtils.h"
 #include "src/sdlutils/Texture.h"
+#include "src/components/Image.h"
+#include "src/components/Transform.h"
 #include <string>
 using namespace std;
 
@@ -37,7 +39,11 @@ private:
 
 	#pragma region references
 		Texture* t_;
+		Image* im_;
+		Transform* tr_;
 	#pragma endregion
+
+	bool set_ = false;
 
 public:
 	AnimationEnemyBEUComponent(string type, string enemy) {
@@ -46,6 +52,7 @@ public:
 		type_ = type;
 		enemy_ = enemy;
 	}
+
 
 	void update();
 	void changeState(AnimationStates newState);

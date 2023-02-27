@@ -30,9 +30,10 @@ EnemyBEU::EnemyBEU(PlayerBEU* player, float maxLife, string enemy, string type) 
 
 	cmpId_type s = int(MOVEMENTCOMPONENT_H);
 	mov_ = addComponent<MovementComponent>(s);
+	tr_->setDir(Vector2D(1, 0));
 
 	cmpId_type e = int(ENEMYBEUDIRECTIONCOMPONENT_H);
-	eMov_ = addComponent<EnemyBEUDirectionComponent>(e, player, enemy_, isMoving_);
+	eMov_ = addComponent<EnemyBEUDirectionComponent>(e, player, enemy_);
 
 	col_ = addComponent<ColliderComponent>(int(COLLIDERCOMPONENT_H), offset_, ColHeight_, ColWidth_);
 	addComponent<ColDetectorComponent>(int(COLDETECTORCOMPONENT_H), this, player_);
@@ -43,7 +44,7 @@ EnemyBEU::EnemyBEU(PlayerBEU* player, float maxLife, string enemy, string type) 
 }
 
 void EnemyBEU::collision() {
-	cout << isAttacking_ << endl;
+	//cout << isAttacking_ << endl;
 	if (!isAttacking_) {
 		//cout << "colisiona" << endl;
 	// animaci�n de ataque y ataque en s�
@@ -96,3 +97,5 @@ void EnemyBEU::setAttackBool(bool s)
 {
 	isAttacking_ = s;
 }
+
+

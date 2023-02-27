@@ -49,7 +49,6 @@ private:
 	float ColWidth_, ColHeight_;
 
 	bool set_ = false;
-	bool isMoving_;
 	bool isAttacking_ = false;
 #pragma endregion
 
@@ -73,5 +72,8 @@ public:
 		float ColWidth, float ColHeight, Texture* t, bool Anim);
 
 	void setAttackBool(bool s);
+
+	void setSet(bool set) { set_ = set; }
+	bool getSet() { return set_; }
 };
 

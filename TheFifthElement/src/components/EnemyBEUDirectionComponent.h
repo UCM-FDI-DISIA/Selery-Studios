@@ -4,18 +4,18 @@
 #include "Transform.h"
 #include "../utils/Vector2D.h"
 #include "../Entities/PlayerBEU.h"
-#include "Image.h"
 
 class EnemyBEUDirectionComponent :
     public Component
 {
 public:
-    EnemyBEUDirectionComponent(PlayerBEU* p, string type, bool isMoving);
+    EnemyBEUDirectionComponent(PlayerBEU* p, string type);
     void initComponent();
     void update();
     void changeDir(Vector2D d);
-    void setMov(bool isMoving);
 private:
+
+    float screenWidth_ = 750, screenHeight_ = 200;
 
     MovementComponent* mov_;
     Transform* tr_;
@@ -24,7 +24,6 @@ private:
     PlayerBEU* player_;
     Transform* playerTr_;
 
-    Image* im_;
     Texture* t_;
     string enemy_;
 
@@ -34,6 +33,5 @@ private:
     float distance_ = 100.0f;
 
     string type_;
-    bool isMoving_;
 };
 
