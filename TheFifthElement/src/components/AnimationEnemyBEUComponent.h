@@ -1,8 +1,8 @@
 #pragma once
-#include "src/utils/Component.h"
-#include "src/utils/Vector2D.h"
-#include "src/sdlutils/SDLUtils.h"
-#include "src/sdlutils/Texture.h"
+#include "../utils/Component.h"
+#include "../utils/Vector2D.h"
+#include "../sdlutils/SDLUtils.h"
+#include "../sdlutils/Texture.h"
 #include <string>
 using namespace std;
 
