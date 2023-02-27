@@ -1,7 +1,7 @@
 #pragma once
 
-#include "../../ColliderComponent.h"
-#include "../../ColDetectorComponent.h"
+#include "../components/ColliderComponent.h"
+#include "../components/ColDetectorComponent.h"
 class RedirectTile :
     public Entity
 {

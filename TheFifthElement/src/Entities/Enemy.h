@@ -8,7 +8,7 @@
 #include "PlayerTD.h"
 #include "../components/LifeComponent.h"
 #include "../components/Enemy_movementTD_component.h"
-#include "../../ColliderComponent.h"
+#include "../components/ColliderComponent.h"
 
 
 class Enemy : public Entity

@@ -1,5 +1,5 @@
 #include "AnimationEnemyBEUComponent.h"
-#include "src/Entities/EnemyBEU.h"
+#include "../Entities/EnemyBEU.h"
 
 void AnimationEnemyBEUComponent::update() {
 

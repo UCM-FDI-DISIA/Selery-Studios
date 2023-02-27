@@ -1,9 +1,9 @@
 #pragma once
-#include "src/utils/Component.h"
+#include "../utils/Component.h"
 //#include "./src/components/ColliderComponent.h"
 #include "ColliderComponent.h"
-#include "./src/utils/Entity.h"
-#include "src/utils/Collision.h"
+#include "../utils/Entity.h"
+#include "../utils/Collision.h"
 
 class ColDetectorComponent :
     public Component

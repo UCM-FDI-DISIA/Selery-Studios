@@ -1,6 +1,6 @@
 #pragma once
 #include "../components/CheckCollision.h"
-#include "../../ColliderComponent.h"
+#include "../components/ColliderComponent.h"
 class Npc: public Entity {
 private:
 	//Component* componenete;
