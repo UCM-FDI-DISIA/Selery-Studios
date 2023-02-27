@@ -8,13 +8,14 @@
 #include "PlayerTD.h"
 #include "../components/LifeComponent.h"
 #include "../components/Enemy_movementTD_component.h"
+#include "../../ColliderComponent.h"
 
 
 class Enemy : public Entity
 {
 private:
 	Vector2D EnemyPosition_{ 700,150 };
-	float speed_ = 0.0f;
+	float speed_ = 0.5f;
 	float EnemyWidth_ = 476, EnemyHeight_ = 120, EnemyRotation_ = 1;
 	Texture* t;
 	Transform* tr;
@@ -57,6 +58,8 @@ public:
 		
 		fila_ = 0;
 		addComponent<Image>(int(IMAGE_H), t, nframes, nframes, fila_);
+		addComponent<ColliderComponent>(int(COLLIDERCOMPONENT_H), Vector2D(0,0), EnemyHeight_, EnemyWidth_ / 7);
+		addComponent<MovementComponent>(int(MOVEMENTCOMPONENT_H));
 		
 	}
 

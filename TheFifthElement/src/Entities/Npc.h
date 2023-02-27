@@ -5,10 +5,10 @@ class Npc: public Entity {
 private:
 	//Component* componenete;
 	//Vector2D NpcPosition_{10,0};
-	float NpcWidth_ =476,NpcHeight_=120, NpcRotation_=1, npcSpeed=0.5f;
+	float NpcWidth_ =476,NpcHeight_=120, NpcRotation_=1, npcSpeed=0;
 
 
-	MovementComponent* mv_;
+
 	Transform* tr;
 	int nframes = 7;
 	int fila_;
@@ -32,7 +32,6 @@ public:
 		player_ = player;
 		ch = addComponent<CheckCollision>(int(CHECKCOLLISION_H), player_, lookingRange, lookingWidth, a);
 		//addComponent(ecs::TRANSFORM_H, Transform(this, m, Vector2D(0, 0), Vector2D(0, 0), 1, 1, 1));
-		mv_ = addComponent<MovementComponent>(int(MOVEMENTCOMPONENT_H));
 		addComponent<ColliderComponent>(int(COLLIDERCOMPONENT_H), Vector2D(0, 0), NpcHeight_, NpcWidth_ / nframes);
 	}
 	~Npc(){

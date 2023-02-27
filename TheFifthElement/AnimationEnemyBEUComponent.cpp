@@ -13,7 +13,7 @@ void AnimationEnemyBEUComponent::changeState(AnimationStates newState)
 }
 
 void AnimationEnemyBEUComponent::updateAn() {
-	
+	//SUGERENCIA DEJAR AL ENEMIGO QUIETO MIENTRAS PEGA
 }
 
 void AnimationEnemyBEUComponent::updateAnimation() {
@@ -29,6 +29,7 @@ void AnimationEnemyBEUComponent::updateAnimation() {
 	case AnimationEnemyBEUComponent::Attack:
 		setAttackTexture();
 		static_cast<EnemyBEU*>(ent_)->setColAnim(EnemyWidth_, EnemyHeight_, nframes_, offset_, ColWidth_, ColHeight_, t_, true);
+		//SUGERENCIA DEJAR AL ENEMIGO QUIETO
 		break;
 	case AnimationEnemyBEUComponent::Hit:
 		setHitTexture();
