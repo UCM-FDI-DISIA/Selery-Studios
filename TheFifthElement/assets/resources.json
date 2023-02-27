@@ -2,11 +2,11 @@
   "dialog": [
     {
       "id": "1",
-      "text": "Carlos Leon trabajando?"
+      "text": "Carlos Leon trabajando? $ imposible $."
     },
     {
       "id": "2",
-      "text": "jose haz lo tuyo "
+      "text": "jose haz lo tuyo $."
     }
   ],
 

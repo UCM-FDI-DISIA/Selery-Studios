@@ -194,6 +194,7 @@
     <ClCompile Include="src\components\AnimationEnemyBEUComponent.cpp" />
     <ClCompile Include="src\components\ColDetectorComponent.cpp" />
     <ClCompile Include="src\components\AttackBoxComponent.cpp" />
+    <ClCompile Include="src\components\DialogueComponent.cpp" />
     <ClCompile Include="src\components\Image.cpp" />
     <ClCompile Include="src\components\LimitBEU.cpp" />
     <ClCompile Include="src\Game.cpp" />
@@ -248,4 +249,9 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties assets_4resources_1json__JsonSchema=" " />
+    </VisualStudio>
+  </ProjectExtensions>
 </Project>

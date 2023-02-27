@@ -15,8 +15,6 @@ void InputComponent::update() { //Actualizamos el contador que mide el tiempo
 	unsigned timer = clock();
 	actionDelay = (double(timer) / CLOCKS_PER_SEC);
 }
-
-
 void InputComponent::handleEvents(SDL_Event event)
 {
 
@@ -58,22 +56,25 @@ void InputComponent::handleEvents(SDL_Event event)
 				skin_->changeSkin("earth");
 			}
 		}
+		
+		if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_E)) {
+			
+			if (actionDelay > 0) {
+				int a = static_cast<PlayerTD*>(ent_)->getCol();
+				cout << a;
 
+				if (a != -1) {
 
-	}
-	if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_E)) {
-		if (actionDelay > 0) { // The shorterpaddle and biggerpaddle rewards is activated REWARDS_TIME seconds
-			int a = static_cast<PlayerTD*>(ent_)->getCol() != -1;
+					npccol = true;
+					mov_->setDir(Vector2D(0, 0));
+					static_cast<TopDownState*>(mngr_)->dialog(a);
+				}
 
-			if (a) {
-				cout << "2";
-				npccol = true;
-				mov_->setDir(Vector2D(0, 0));
-				static_cast<TopDownState*>(mngr_)->dialog(a);
 			}
-
+			actionDelay = 0;
 		}
-		actionDelay = 0;
+
 	}
+	
 	
 }

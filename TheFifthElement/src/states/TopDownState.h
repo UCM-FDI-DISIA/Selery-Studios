@@ -44,9 +44,8 @@ public:
 		LoadMap("assets/MapAssets/MapaInicial.tmx");
 		player_ = addEntity(new PlayerTD());
 		dialog_ = false;
-		addEntity(new Npc(player_,{0,10},&SDLUtils::instance()->images().at("NPC_1")));
-		addEntity(new Npc(player_, { 50,10 }, &SDLUtils::instance()->images().at("NPC_2")));
-	
+		npc = addEntity(new Npc(player_, { 50,10 }, &SDLUtils::instance()->images().at("NPC_2"), 2));
+		addEntity(new Npc(player_,{0,10},&SDLUtils::instance()->images().at("NPC_1"),1));	
 		cmpId_type w = int(INPUTCOMPONENT_H);
 		in_ = player_->getComponent<InputComponent>(w);
 		enemy_ = addEntity(new Enemy(player_, 100));
@@ -66,10 +65,16 @@ public:
 	void LoadMap(string const& filename);
 	void dialog(int a) {
 		if (dialog_ != false) {
-			in_->changebool();
-			cout << "sd"<<endl;
-			d->~DialogBox();//cris hija haz delete(d)
-			dialog_= false;
+			if (d->getfinish() == true) {
+				in_->changebool();
+				cout << "sd" << endl;
+				d->~DialogBox();//cris hija haz delete(d)
+				dialog_ = false;
+			}
+			else {
+				d->setline();
+			}
+			
 		}
 		else  {
 			d = new DialogBox(a);
