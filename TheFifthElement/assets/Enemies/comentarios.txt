@@ -1,0 +1,2 @@
+La división principal es entre modo TD y BEU
+Dentro de cada modo los enemigos estarán divididos en reinos
