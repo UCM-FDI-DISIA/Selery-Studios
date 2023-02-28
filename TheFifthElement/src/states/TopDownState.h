@@ -44,7 +44,7 @@ public:
 		LoadMap("assets/MapAssets/MapaInicial.tmx");
 		player_ = addEntity(new PlayerTD());
 		dialog_ = false;
-		npc = addEntity(new Npc(player_, { 50,10 }, &SDLUtils::instance()->images().at("NPC_2"), 2));
+		addEntity(new Npc(player_, { 50,10 }, &SDLUtils::instance()->images().at("NPC_2"), 2));
 		addEntity(new Npc(player_,{0,10},&SDLUtils::instance()->images().at("NPC_1"),1));	
 		cmpId_type w = int(INPUTCOMPONENT_H);
 		in_ = player_->getComponent<InputComponent>(w);

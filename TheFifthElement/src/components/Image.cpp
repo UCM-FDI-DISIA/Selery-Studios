@@ -11,47 +11,13 @@ Image::~Image() { }
 
 void Image::initComponent() { 	// Inicializa el componente
 	tr_ = ent_->getComponent<Transform>(int(TRANSFORM_H));
-	isPlayerTD = ent_->hasComponent(INPUTCOMPONENT_H);
-	isPlayerBEU = ent_->hasComponent(INPUTCOMPONENTBEU_H);
-	isEnemyBEU = ent_->hasComponent(ENEMYBEUDIRECTIONCOMPONENT_H);
 	assert(tr_ != nullptr);
 
 
 }
 
 void Image::update() {
-	if (isPlayerTD) {
-		//cout << vel.getX() << " " << vel.getY() << endl;
-		if (tr_->getDir().getX() == 1 && tr_->getDir().getY() == 0) {
-			tex_ = &SDLUtils::instance()->images().at("p_left");
-			framesTotales_ = 7;
-			//s = SDL_FLIP_NONE;
-			tr_->setW(476);
-		}
-		else if (tr_->getDir().getX() == -1 && tr_->getDir().getY() == 0) {
-			tex_ = &SDLUtils::instance()->images().at("p_right");
-			framesTotales_ = 7;
-			//	s = SDL_FLIP_HORIZONTAL;
-			tr_->setW(476);
-		}
-		else if (tr_->getDir().getY() == -1 && tr_->getDir().getX() == 0) {
-			tex_ = &SDLUtils::instance()->images().at("p_top");
-
-			framesTotales_ = 9;
-			tr_->setW(612);
-		}
-		else if (tr_->getDir().getY() == 1 && tr_->getDir().getX() == 0) {
-			tex_ = &SDLUtils::instance()->images().at("p_down");
-			framesTotales_ = 9;
-			tr_->setW(612);
-		}
-		else {
-			tex_ = &SDLUtils::instance()->images().at("p_idle");
-			framesTotales_ = 7;
-			tr_->setW(519);
-		}
-		s = SDL_FLIP_NONE;
-	}
+	
 }
 
 // Dibuja en escena
@@ -81,7 +47,6 @@ void Image::render() {
 			i = 0;
 			animPlaying = false;
 			fila_ = 0;
-			if(isEnemyBEU)static_cast<EnemyBEU*>(ent_)->setAttackBool(false);
 		}
 	}
 }
@@ -95,6 +60,15 @@ void Image::setAnim(bool Anim, int Fila, int Frames, int I) { //Metodo generico 
 		frames_ = Frames;
 		i = I;
 		cont = 0;
+	}
+}
+
+void Image::setAnimTexture(string textureKey, int Frames, int Width) { //Metodo generico para cambiar de Textura (el width es temporal no deberia ser el with de la imagen sino de la entidad)
+	Texture* nT = &sdlutils().images().at(textureKey);
+	if (nT != tex_) { // Si la animacion no es la actual la actualiza
+		tex_ = nT;
+		framesTotales_ = Frames;
+		tr_->setW(Width);
 	}
 }
 
