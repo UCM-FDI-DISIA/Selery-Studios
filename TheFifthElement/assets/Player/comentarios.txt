@@ -1,2 +1,2 @@
 OptionalCharacter estaba en otra carpeta y lo he incluido aquí ya que parece skin de player
-La división consta de characters (con división interna de TD y BEU) y de HUD donde habrá cosas como la ruleta de personajes
+La división consta de TD, BEU, de HUD donde habrá cosas como la ruleta de personajes y de la pequeña carpeta Optional que surje por un character que se encontraba en otras carpetas
