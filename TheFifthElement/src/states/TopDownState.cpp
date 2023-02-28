@@ -160,11 +160,11 @@ void TopDownState::LoadMap(string const& filename) {
 }
 
 void TopDownState::render() {
-    SDL_Rect dst = { 0,0,2000,2000 };
+    SDL_Rect dst = { 0,0,1000,1000 };
     // posición según el transform de la Camara
     dst.x -= cam_->getComponent<Transform>(TRANSFORM_H)->getPos().getX(); 
     dst.y -= cam_->getComponent<Transform>(TRANSFORM_H)->getPos().getY();
-    SDL_Rect src = { 0, 0, 4000, 4000 };
+    SDL_Rect src = { 0, 0, 5000, 5000 };
     SDL_RenderCopy(Gm_->getRenderer(), background_, &src, &dst);
     Manager::render();
 }

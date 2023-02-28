@@ -15,16 +15,18 @@ private:
 	Vector2D PlayerPosition_{ 10,150 };
 	float speed_ = 3.0f;
 	float PlayerWidth_ = 476, PlayerHeigth_ = 120, PlayerRotation_ = 1;
-	Texture* t;
+	Texture* t_;
 	Transform* tr;
 	Vector2D dir;
 	InputComponent* in_;
 	MovementComponent* mov = nullptr;
 	SkinComponent* sk = nullptr;
-	int nframes = 7;
+	Image* im_ = nullptr;
+	int nframes_ = 7;
 	int fila_;
 	int collisionNPC;
 	bool matrix_ = false;
+	bool set_ = false;
 public:
 	void setCol(int col) {
 		collisionNPC = col;
@@ -32,20 +34,26 @@ public:
 	int getCol() {
 		return collisionNPC;
 	}
-	void initEntity() {
+	PlayerTD(string skin) {
+		cmpId_type k = int(SKINCOMPONENT_H);
+		sk = addComponent<SkinComponent>(k, skin);
+		sk->changeState(SkinComponent::Idle);
+		sk->changeMov();
+
 		cmpId_type z = int(TRANSFORM_H);
-		tr = addComponent<Transform>(z, PlayerPosition_, PlayerWidth_, PlayerHeigth_, PlayerRotation_,speed_, nframes, matrix_);
-		/*t = new Texture(gm_->getRenderer(), "./assets/PlayableCharacters/Exploration/Fire/andar.png");
+		tr = addComponent<Transform>(z, PlayerPosition_, PlayerWidth_, PlayerHeigth_, PlayerRotation_,speed_, nframes_, matrix_);
+
+		
 		fila_ = 0;
-		addComponent<Image>(int(IMAGE_H), t, nframes, nframes, fila_);*/
+		im_ = addComponent<Image>(int(IMAGE_H), t_, nframes_, nframes_, fila_);
+
 		cmpId_type w = int(INPUTCOMPONENT_H);
 		in_ = addComponent<InputComponent>(w);
-		cmpId_type k = int(SKINCOMPONENT_H);
-		sk = addComponent<SkinComponent>(k);
+
 		cmpId_type s = int(MOVEMENTCOMPONENT_H);
 		mov = addComponent<MovementComponent>(s);
 		in_->initComponent();
-		
+		set_ = true;
 	}
 	PlayerTD() : Entity() {
 	
@@ -54,7 +62,15 @@ public:
 
 	}
 
-	int returnFramesTot() { return 1; }
+	void setAnim(float w, float h, int nframes, string skin)
+	{
+		PlayerWidth_ = w;
+		PlayerHeigth_ = h;
+		nframes_ = nframes;
+		t_ = &SDLUtils::instance()->images().at(skin);
+		if (set_) im_->setAnimTexture(skin, nframes_, w);
+	}
+
 };
 
 

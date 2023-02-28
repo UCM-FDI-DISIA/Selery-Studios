@@ -24,35 +24,35 @@ void InputComponent::handleEvents(SDL_Event event)
 		if (!npccol) {
 			if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_A)) {
 				mov_->setDir(Vector2D(-1, 0));
-				im_->setAnimTexture("p_left", 7, 476);
+				skin_->changeState(SkinComponent::Left);
 			}
 			else if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_D)) {
 				mov_->setDir(Vector2D(1, 0));
-				im_->setAnimTexture("p_right", 7, 476);
+				skin_->changeState(SkinComponent::Right);
 			}
 			else  if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_W)) {
 				mov_->setDir(Vector2D(0, -1));
-				im_->setAnimTexture("p_top", 9, 612);
+				skin_->changeState(SkinComponent::Up);
 			}
 			else if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_S)) {
 				mov_->setDir(Vector2D(0, 1));
-				im_->setAnimTexture("p_down", 9, 612);
+				skin_->changeState(SkinComponent::Down);
 			}
 			else {
 				mov_->setDir(Vector2D(0, 0));
-				im_->setAnimTexture("p_idle", 7, 519);
+				skin_->changeState(SkinComponent::Idle);
 			}
 
-			if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_U)) {
+			if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_1)) {
 				skin_->changeSkin("fire");
 			}
-			else if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_I)) {
+			else if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_2)) {
 				skin_->changeSkin("air");
 			}
-			else  if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_O)) {
+			else  if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_3)) {
 				skin_->changeSkin("water");
 			}
-			else if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_P)) {
+			else if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_4)) {
 				skin_->changeSkin("earth");
 			}
 		}
