@@ -85,5 +85,6 @@ public:
 	}
 
 	virtual void collision() {};
+	virtual void noCollision() {};
 };
 

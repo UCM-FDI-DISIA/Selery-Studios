@@ -5,12 +5,13 @@
 #include "../sdlutils/Texture.h"
 
 #include "../GameManager.h"
-#include "../components/InputComponent.h"
 #include "../components/InputComponentBEU.h"
 #include "../components/MovementComponent.h"
 #include "../components/AttackBoxComponent.h"
-class PlayerBEU : public Entity
-{
+#include "../components/ColliderComponent.h"
+#include "../components/LimitBEU.h"
+
+class PlayerBEU : public Entity {
 private:
 	//Component* componenete;
 	Vector2D PlayerPosition_{ 30,300 };
@@ -30,6 +31,5 @@ public:
 	PlayerBEU();
 	~PlayerBEU();
 	int returnFramesTot() { return framesT_; }
-	void update();
-
 };
+

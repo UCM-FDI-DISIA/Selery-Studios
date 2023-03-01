@@ -17,6 +17,11 @@ CheckCollision::CheckCollision(PlayerTD* player, float lookingRange, float looki
 	lookingHeight_ = lookingWidth;
 
 }
+CheckCollision::CheckCollision(PlayerTD* player, int npc) :Component() {
+	player_ = player;
+	npc_ = npc;
+
+}
 void CheckCollision::initComponent() {
 	//Hacemos los getComponent de los Transform
 	tr1 = ent_->getComponent<Transform>(p);
@@ -71,11 +76,10 @@ void CheckCollision::update()
 	}
 	else {
 
-		if (Collision::collides(Vector2D(rectPlayer.x, rectPlayer.y), rectPlayer.w, rectPlayer.h, Vector2D(rectNPC.x, rectNPC.y), rectNPC.w, rectNPC.h))					//Aumentado el numero por el que dividimos las alturas y anchuras, tambien aumentamos lo que tarda en detectarnos el enemigo
+		if (Collision::collides(Vector2D(rectPlayer.x, rectPlayer.y), rectPlayer.w, rectPlayer.h, Vector2D(rectNPC.x, rectNPC.y), rectNPC.w, rectNPC.h))
 		{
-
 			//si colisiona con el npc
-			player_->setCol(1);
+			player_->setCol(npc_);
 
 		}
 		else {

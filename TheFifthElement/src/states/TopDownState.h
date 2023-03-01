@@ -36,57 +36,69 @@ struct MapInfo {
 	}
 };
 
-class TopDownState : public GameState {
+class TopDownState : public Manager {
 public:
 	string getStateID(); // stringID
 	DialogBox* d;
 	TopDownState() {
 		LoadMap("assets/MapAssets/MapaInicial.tmx");
-		player_ = mngr_->addEntity(new PlayerTD());
+		player_ = addEntity(new PlayerTD("fire"));
 		dialog_ = false;
-		mngr_->addEntity(new Npc(player_,{0,10},&SDLUtils::instance()->images().at("NPC_1")));
-		npc = mngr_->addEntity(new Npc(player_, { 50,10 }, &SDLUtils::instance()->images().at("NPC_2")));
-	
+		addEntity(new Npc(player_, { 50,10 }, &SDLUtils::instance()->images().at("NPC_2"), 2));
+		addEntity(new Npc(player_,{0,10},&SDLUtils::instance()->images().at("NPC_1"),1));	
 		cmpId_type w = int(INPUTCOMPONENT_H);
 		in_ = player_->getComponent<InputComponent>(w);
-		mngr_->addEntity(new Enemy(player_, 100));
-		cam_ = mngr_->addEntity(new Camera(player_)); // entidad de camara
-		Portal* p = mngr_->addEntity(new Portal(player_));
-		mngr_->addEntity(new Element(player_, Vector2D(100, 100), p));
-		mngr_->addEntity(new Element(player_, Vector2D(300, 100), p));
-		mngr_->addEntity(new Element(player_, Vector2D(200, 200), p));
+		enemy_ = addEntity(new Enemy(player_, 100));
+		cam_ = addEntity(new Camera(player_)); // entidad de camara
+		Portal* p = addEntity(new Portal(player_));
+		addEntity(new Element(player_, Vector2D(100, 100), p));
+		addEntity(new Element(player_, Vector2D(300, 100), p));
+		addEntity(new Element(player_, Vector2D(200, 200), p));
 		
 		
-		// PRUEBAS PATHING NPC
-		mngr_->addEntity(new RedirectTile(Vector2D(1, 0), Vector2D(30, 30), npc)); //der
-		mngr_->addEntity(new RedirectTile(Vector2D(0, 1), Vector2D(120, 30), npc)); //ab
-		mngr_->addEntity(new RedirectTile(Vector2D(-1, 0), Vector2D(120, 120), npc)); //iz
-		mngr_->addEntity(new RedirectTile(Vector2D(0, -1), Vector2D(30, 120), npc)); //arr
+		// PRUEBAS PATHING ENEMIGO
+		addEntity(new RedirectTile(Vector2D(1, 0), Vector2D(680, 170), enemy_)); //der
+		addEntity(new RedirectTile(Vector2D(0, 1), Vector2D(870, 170), enemy_)); //ab
+		addEntity(new RedirectTile(Vector2D(-1, 0), Vector2D(870, 360), enemy_)); //iz
+		addEntity(new RedirectTile(Vector2D(0, -1), Vector2D(680, 360), enemy_)); //arr
 	}
 	void LoadMap(string const& filename);
 	void dialog(int a) {
 		if (dialog_ != false) {
-			in_->changebool();
-			cout << "sd"<<endl;
-			d->~DialogBox();//cris hija haz delete(d)
-			dialog_= false;
+			if (d->getfinish() == true) {
+				in_->changebool();
+				cout << "sd" << endl;
+				d->~DialogBox();//cris hija haz delete(d)
+				dialog_ = false;
+			}
+			else {
+				d->setline();
+			}
+			
 		}
 		else  {
 			d = new DialogBox(a);
-			mngr_->addEntity(d);
+			addEntity(d);
 			dialog_ = true;
 			cout << "d" << endl;
 
 		}
 	}
-
+	void handleEvents()
+	{
+		SDL_Event event;
+		while (SDL_PollEvent(&event)) 
+		{
+			in_->handleEvents(event);
+			//inBEU_->handleEvents(event);
+;		}
+	}
 	~TopDownState() {
 
 	}
 	void render();
-	void update();
 private:
-	Npc* npc;
+	Enemy* enemy_;
 	GameManager* Gm_;
 	PlayerTD* player_;
 	InputComponent* in_;

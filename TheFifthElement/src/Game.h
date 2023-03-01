@@ -4,6 +4,7 @@
 #include "states/GameStateMachine.h"
 #include "GameManager.h"
 #include "states/TopDownState.h"
+#include "states/BeatEmUpState.h"
 class Game
 {
 private:

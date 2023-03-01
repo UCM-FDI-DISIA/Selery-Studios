@@ -2,18 +2,23 @@
 #include "../utils/Component.h"
 #include "MovementComponent.h"
 #include "SDL_events.h"
-#include "Transform.h"
+#include "../sdlutils/SDLUtils.h"
+#include "../sdlutils/InputHandler.h"
 
 class Image;
 class InputComponentBEU : public Component
 {
+private:
+    Transform* tr_ = nullptr;
+    Image* im_ = nullptr;
+    bool canJump = true;
+    Texture* t_ = nullptr;
+
+    float downLimit, topLimit;
+
 public:
     InputComponentBEU();
     void initComponent();
     void update();
-    
-private:
-    Transform* tr_ = nullptr;
-    Image* im_ = nullptr;
+    void handleEvents(SDL_Event event);
 };
-

@@ -9,11 +9,13 @@ class EnemyBEUDirectionComponent :
     public Component
 {
 public:
-    EnemyBEUDirectionComponent(PlayerBEU* p);
+    EnemyBEUDirectionComponent(PlayerBEU* p, string type);
     void initComponent();
     void update();
     void changeDir(Vector2D d);
 private:
+
+    float screenWidth_ = 750, screenHeight_ = 200;
 
     MovementComponent* mov_;
     Transform* tr_;
@@ -21,8 +23,15 @@ private:
    
     PlayerBEU* player_;
     Transform* playerTr_;
+
+    Texture* t_;
+    string enemy_;
+
+
     int cont = 1000;
     bool izq = true;
     float distance_ = 100.0f;
+
+    string type_;
 };
 

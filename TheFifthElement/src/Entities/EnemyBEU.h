@@ -1,82 +1,79 @@
-#pragma once
+ï»¿#pragma once
 #include "../utils/Entity.h"
 #include "../components/Transform.h"
 #include "../utils/ecs.h"
 #include "../sdlutils/SDLUtils.h"
 #include "../GameManager.h"
-#include "../components/CheckCollision.h"
 #include "PlayerBEU.h"
 #include "../components/LifeComponent.h"
 #include "../components/MovementComponent.h"
 #include "../components/EnemyBEUDirectionComponent.h"
+#include "../components/ColliderComponent.h"
+#include "../components/ColDetectorComponent.h"
+#include "../components/AnimationEnemyBEUComponent.h"
+
 class EnemyBEU :
     public Entity
 {
 private:
 
 #pragma region propierties
-	Vector2D EnemyPosition_{ 350,150 };
+	Vector2D EnemyPosition_{ 751,150 };
 #pragma endregion
 
 #pragma region references
-	Texture* t;
-	Transform* tr;
+	Texture* t_;
+	Transform* tr_;
 	Transform* trPlayer_;
 	PlayerBEU* player_;
-	CheckCollision* ch;
 	MovementComponent* mov_;
 	EnemyBEUDirectionComponent* eMov_;
+	ColliderComponent* col_;
+	Image* im_;
+	AnimationEnemyBEUComponent* anim_;
 #pragma endregion
 
 #pragma region parameters
-	float speed_ = 3.0f;
+	float speed_ = 1.0f;
 #pragma endregion
 
 #pragma region sprites
-	float EnemyWidth_ = 600, EnemyHeight_ = 150, EnemyRotation_ = 1;
-	int nframes = 4;
+	string enemy_, type_;
+	float EnemyWidth_, EnemyHeight_, EnemyRotation_ = 1;
+	int nframes_;
 	int fila_ = 0;
 	float life_, maxLife_;
 	bool matrix_ = false;
+
+	Vector2D offset_ = Vector2D(0, 0);
+	float ColWidth_, ColHeight_;
+
+	bool set_ = false;
+	bool isAttacking_ = false;
 #pragma endregion
 
 
 public:
+	~EnemyBEU();
 
+	EnemyBEU(PlayerBEU* player, float maxLife, string enemy, string type);
 
+	void collision();
 
-	~EnemyBEU()
-	{
+	void noCollision();
 
-	}
+	PlayerBEU* returnPlayer();
 
-	EnemyBEU(PlayerBEU* player, float maxLife) : Entity()
-	{
-		maxLife_ = maxLife;
-		life_ = maxLife;
-		float a = 1.0f;
-		float lookingRange = 150.0f;
-		float lookingWidth = 100.0f;
-		tr = addComponent<Transform>(int(TRANSFORM_H), EnemyPosition_, EnemyWidth_, EnemyHeight_, EnemyRotation_,speed_, nframes, matrix_);
-		t = &SDLUtils::instance()->images().at("BEU_wind_Mushroom");
-		player_ = player;
-		trPlayer_ = player_->getComponent<Transform>(int(TRANSFORM_H));
-		//ch = addComponent<CheckCollision>(int(CHECKCOLLISION_H), player_, gm_, lookingRange, lookingWidth, a);
-		// hacer un template para coger a ambos jugadores o algo así
-		addComponent<Image>(int(IMAGE_H), t, nframes, nframes, fila_);
-		cmpId_type s = int(MOVEMENTCOMPONENT_H);
-		mov_ = addComponent<MovementComponent>(s);
-		cmpId_type e = int(ENEMYBEUDIRECTIONCOMPONENT_H);
-		eMov_ = addComponent<EnemyBEUDirectionComponent>(e, player);
-		//addComponent<LifeComponent>(int(LIFECOMPONENT_H), m, tr, maxLife_);
+	void setOffset(Vector2D offset);
 
+	void setCollider(Vector2D offset, float h, float w);
 
+	void setColAnim(float EnemyWidth, float EnemyHeight, int nframes, Vector2D offset,
+		float ColWidth, float ColHeight, Texture* t, bool Anim);
 
-		addComponent<LifeComponent>(int(LIFECOMPONENT_H), tr, maxLife_);
-	}
+	void setAttackBool(bool s);
 
-	PlayerBEU* returnPlayer() {
-		return player_;
-	}
+	void setSet(bool set) { set_ = set; }
+	bool getSet() { return set_; }
 };
 

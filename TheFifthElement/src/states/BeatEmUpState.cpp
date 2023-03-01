@@ -1,15 +1,23 @@
 #include "BeatEmUpState.h"
 BeatEmUpState::BeatEmUpState() {
-	mngr_->addEntity(new Background());
-	player_ = mngr_->addEntity(new PlayerBEU());
+	addEntity(new Background("airBackground"));
+	player_ = addEntity(new PlayerBEU());
 	dialog_ = false;
 
 
 	cmpId_type b = int(INPUTCOMPONENTBEU_H);
 	in_ = player_->getComponent<InputComponentBEU>(b);
-	mngr_->addEntity(new EnemyBEU(player_, 100));
+	cmpId_type w = int(INPUTCOMPONENT_H);
+	addEntity(new EnemyBEU(player_, 100, "shroom", "water"));
 }
 
+void BeatEmUpState::handleEvents() {
+	SDL_Event event;
+	while (SDL_PollEvent(&event))
+	{
+		in_->handleEvents(event);
+	}
+}
 
 void BeatEmUpState::finishBEU() {
 	GameManager::instance()->goTopDown();
@@ -18,12 +26,4 @@ void BeatEmUpState::finishBEU() {
 
 string BeatEmUpState::getStateID() {
 	return "BeatEmUpState";
-}
-
-void BeatEmUpState::update() {
-	GameState::update();
-}
-
-void BeatEmUpState::render() {
-	GameState::render();
 }
