@@ -42,7 +42,7 @@ public:
 	string getStateID(); // stringID
 	DialogBox* d;
 	TopDownState() {
-		LoadMap("assets/MapAssets/MapaInicial.tmx");
+		LoadMap("assets/Scenes/Maps/MapaInicial.tmx");
 		player_ = addEntity(new PlayerTD("fire", this));
 		dialog_ = false;
 		addEntity(new Npc(player_, { 50,10 }, &SDLUtils::instance()->images().at("NPC_2"), 2));
