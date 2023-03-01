@@ -84,6 +84,13 @@ public:
 			currCmps_[i]->render();
 	}
 
+
+	inline void handleEvent(SDL_Event event) {
+		auto n = currCmps_.size();
+		for (auto i = 0u; i < n; i++)
+			currCmps_[i]->handleEvent(event);
+	}
+
 	virtual void collision() {};
 	virtual void noCollision() {};
 };

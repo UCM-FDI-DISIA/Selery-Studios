@@ -5,6 +5,7 @@
 #include "GameManager.h"
 #include "states/TopDownState.h"
 #include "states/BeatEmUpState.h"
+#include "states/MainMenuState.h"
 class Game
 {
 private:

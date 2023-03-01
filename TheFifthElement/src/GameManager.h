@@ -22,5 +22,6 @@ public:
 
 	void goBeatEmUp();
 	void goTopDown();
+	void leaveMainMenu();
 
 };

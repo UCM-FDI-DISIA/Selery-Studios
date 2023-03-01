@@ -19,6 +19,10 @@ void GameManager::goTopDown()
 {
 	GameStateMachine::instance()->popState();
 }
+void GameManager:: leaveMainMenu()
+{
+	GameStateMachine::instance()->pushState(new TopDownState());
+}
 void GameManager::handleEvents() {
 	// handleEvents
 	GameStateMachine::instance()->handleEvents();

@@ -8,7 +8,7 @@ Game::Game() {
 	window = SDLUtils::instance()->window();
 	exit = false;
 	//GameStateMachine::instance()->pushState(new TopDownState());
-	GameStateMachine::instance()->pushState(new TopDownState());
+	GameStateMachine::instance()->pushState(new MainMenuState());
 }
 
 Game::~Game()// destructora
