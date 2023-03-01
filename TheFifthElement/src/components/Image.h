@@ -13,7 +13,9 @@ private:
 
 	Transform* tr_; // Consulta las caracteristicas fisicas
 	Texture* tex_;	// Imagen a rederizar
-	
+	bool isPlayerTD;
+	bool isPlayerBEU;
+	bool isEnemyBEU;
 	SDL_RendererFlip s = SDL_FLIP_NONE;
 	bool animPlaying = false;
 

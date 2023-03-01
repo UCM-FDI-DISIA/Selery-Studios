@@ -11,10 +11,10 @@ class Entity
 {
 private:
 	bool alive_;
-	Manager* mngr_;
 	vector<Component*> currCmps_;
 	array<Component*, maxComponentId> cmps_;
 public:
+	Manager* mngr_;
 	Entity() :mngr_(nullptr), cmps_(), currCmps_(), alive_() {
 
 		currCmps_.reserve(maxComponentId);
