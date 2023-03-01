@@ -16,6 +16,7 @@ Manager* GameStateMachine::currentState() // consulta del estado actual
 
 void GameStateMachine::pushState(Manager* myState) // push del nuevo estado y entra en él 
 {
+	
 	st.push(myState);
 }
 

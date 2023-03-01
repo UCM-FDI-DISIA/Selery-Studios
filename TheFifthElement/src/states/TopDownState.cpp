@@ -36,6 +36,15 @@ void TopDownState::LoadMap(string const& filename) {
         Texture* texture = sdlutils().tilesets().find(name)->second; //PORQUE ASI?????????????
         mapInfo.tilesets.insert(pair<uint, Texture*>(tile.getFirstGID(), texture));  //inserta en el mapa de Map_Info: llamado tilesets el ID del tileset y su textura
     }
+     
+    // Cargar la canción
+    //sdlutils().musics().at("Title").setMusic(30);
+   
+  
+    
+    
+    SDLUtils::instance()->soundEffects().at("Title").play(); 
+
 
     // recorremos cada una de las capas (de momento solo las de tiles) del mapa
     auto& mapLayers = mapInfo.tile_MAP->getLayers();
