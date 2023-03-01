@@ -75,16 +75,20 @@ void CheckCollision::update()
 		}
 	}
 	else {
-
+		//CREAR BOOL PARA SABER SI YA HE COLISIONADO CON ALGO
 		if (Collision::collides(Vector2D(rectPlayer.x, rectPlayer.y), rectPlayer.w, rectPlayer.h, Vector2D(rectNPC.x, rectNPC.y), rectNPC.w, rectNPC.h))
 		{
 			//si colisiona con el npc
-			player_->setCol(npc_);
-
+			if (!player_->hascol()) {
+				player_->setCol(npc_);
+				player_->setCollision(true);
+			}
+			
 		}
 		else {
+			if (!player_->hascol()) {
 			player_->setCol(-1);
-
+			}
 		}
 		
 	}

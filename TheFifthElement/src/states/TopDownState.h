@@ -13,6 +13,7 @@
 #include "tmxlite/TileLayer.hpp"
 #include "../sdlutils/SDLUtils.h"
 #include "../Entities/Camera.h"
+#include "../include/SDL_mixer.h"
 #include "../Entities/RedirectTile.h"
 using uint = unsigned int;
 using tileset_map = std::map<std::string, Texture*>; //mapa con CLAVE:string, ARGUMENTO: puntero a textura
@@ -41,13 +42,12 @@ public:
 	string getStateID(); // stringID
 	DialogBox* d;
 	TopDownState() {
-		LoadMap("assets/Scenes/Maps/MapaInicial.tmx");
-		player_ = addEntity(new PlayerTD("fire"));
+		LoadMap("assets/MapAssets/MapaInicial.tmx");
+		player_ = addEntity(new PlayerTD("fire", this));
 		dialog_ = false;
 		addEntity(new Npc(player_, { 50,10 }, &SDLUtils::instance()->images().at("NPC_2"), 2));
 		addEntity(new Npc(player_,{0,10},&SDLUtils::instance()->images().at("NPC_1"),1));	
-		cmpId_type w = int(INPUTCOMPONENT_H);
-		in_ = player_->getComponent<InputComponent>(w);
+		in_ = player_->getComponent<InputComponent>(INPUTCOMPONENT_H);
 		enemy_ = addEntity(new Enemy(player_, 100));
 		cam_ = addEntity(new Camera(player_)); // entidad de camara
 		Portal* p = addEntity(new Portal(player_));
@@ -67,8 +67,7 @@ public:
 		if (dialog_ != false) {
 			if (d->getfinish() == true) {
 				in_->changebool();
-				cout << "sd" << endl;
-				d->~DialogBox();//cris hija haz delete(d)
+				d->~DialogBox();
 				dialog_ = false;
 			}
 			else {
@@ -83,6 +82,11 @@ public:
 			cout << "d" << endl;
 
 		}
+	}
+	void update() {
+		player_->setCollision(false);
+		Manager::update();
+
 	}
 	void handleEvents()
 	{

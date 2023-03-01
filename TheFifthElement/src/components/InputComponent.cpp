@@ -10,6 +10,7 @@ void InputComponent::initComponent() {
 	mov_ = ent_->getComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
 	im_ = ent_->getComponent<Image>(IMAGE_H);
 	skin_ = ent_->getComponent<SkinComponent>(SKINCOMPONENT_H);
+	//setContext();	
 }
 void InputComponent::update() { //Actualizamos el contador que mide el tiempo
 	unsigned timer = clock();

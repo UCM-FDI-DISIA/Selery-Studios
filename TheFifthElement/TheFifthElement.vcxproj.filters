@@ -44,6 +44,7 @@
     <ClCompile Include="src\components\LimitBEU.cpp" />
     <ClCompile Include="src\components\Image.cpp" />
     <ClCompile Include="src\components\AnimationEnemyBEUComponent.cpp" />
+    <ClCompile Include="src\components\DialogueComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\states\BeatEmUpState.h" />
@@ -115,5 +116,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="assets\resources.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="assets\Sounds\Battle.mp3" />
+    <Media Include="assets\Sounds\Title.mp3" />
+    <Media Include="assets\Sounds\Battle.wav" />
+    <Media Include="assets\Sounds\Title.wav" />
   </ItemGroup>
 </Project>

@@ -26,7 +26,6 @@ void Game::run()// bucle de juego
 	while (!exit) // bucle de juego
 	{
 		SDL_RenderClear(renderer);
-
 		handleEvents();
 
 		frameTime = SDL_GetTicks() - startTime;
@@ -37,13 +36,11 @@ void Game::run()// bucle de juego
 			//gameStMc->clearStates(); // elimina estados
 			startTime = SDL_GetTicks();
 		}
-		if (!exit)
-		{
-			SDL_RenderClear(renderer);
-			render();
-			SDL_RenderPresent(renderer);// dibuja en pantalla el estado actual del juego
-			SDL_Delay(10);
-		}
+		SDL_RenderClear(renderer);
+		render();
+		SDL_RenderPresent(renderer);// dibuja en pantalla el estado actual del juego
+		SDL_Delay(10);
+		
 	}
 }
 

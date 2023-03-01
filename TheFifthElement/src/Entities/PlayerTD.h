@@ -25,16 +25,24 @@ private:
 	int nframes_ = 7;
 	int fila_;
 	int collisionNPC;
+	bool hascollision = false;
 	bool matrix_ = false;
 	bool set_ = false;
 public:
+	void setCollision(bool collision) {
+		hascollision = collision;
+	}
+	bool hascol() {
+		return hascollision;
+	}
 	void setCol(int col) {
 		collisionNPC = col;
 	}
 	int getCol() {
 		return collisionNPC;
 	}
-	PlayerTD(string skin) {
+	PlayerTD(string skin, Manager* m) {
+		//mngr_ = m;
 		cmpId_type k = int(SKINCOMPONENT_H);
 		sk = addComponent<SkinComponent>(k, skin);
 		sk->changeState(SkinComponent::Idle);
@@ -47,12 +55,12 @@ public:
 		fila_ = 0;
 		im_ = addComponent<Image>(int(IMAGE_H), t_, nframes_, nframes_, fila_);
 
-		cmpId_type w = int(INPUTCOMPONENT_H);
-		in_ = addComponent<InputComponent>(w);
+		mov = addComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
 
-		cmpId_type s = int(MOVEMENTCOMPONENT_H);
-		mov = addComponent<MovementComponent>(s);
+		in_ = addComponent<InputComponent>(INPUTCOMPONENT_H);
 		in_->initComponent();
+		in_->setContext(this, m);
+		
 		set_ = true;
 	}
 	PlayerTD() : Entity() {

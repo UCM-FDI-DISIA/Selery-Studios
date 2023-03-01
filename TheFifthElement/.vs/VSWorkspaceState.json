@@ -2,6 +2,8 @@
   "ExpandedNodes": [
     "",
     "\\src",
+    "\\src\\components",
+    "\\src\\Entities",
     "\\src\\states"
   ],
   "SelectedNode": "\\TheFifthElement.sln",
