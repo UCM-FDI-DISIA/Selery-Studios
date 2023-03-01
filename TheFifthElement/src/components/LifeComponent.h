@@ -25,9 +25,9 @@ public:
 		trEntity = tr;
 	}
 	void initComponent() {
-		lifeBar = new Texture(GameManager::instance()->getRenderer(), "./assets/LifeBars/Horizontal/Bars/Bar2.png");
-		lifeBarBack = new Texture(GameManager::instance()->getRenderer(), "./assets/LifeBars/Horizontal/Backs/Back6.png");
-		lifeBarBorder = new Texture(GameManager::instance()->getRenderer(), "./assets/LifeBars/Horizontal/Boarders/Boarder2.png");
+		lifeBar = new Texture(GameManager::instance()->getRenderer(), "./assets/Enemies/HUD/LifeBars/Horizontal/Bars/Bar2.png");
+		lifeBarBack = new Texture(GameManager::instance()->getRenderer(), "./assets/Enemies/HUD/LifeBars/Horizontal/Backs/Back6.png");
+		lifeBarBorder = new Texture(GameManager::instance()->getRenderer(), "./assets/Enemies/HUD/LifeBars/Horizontal/Boarders/Boarder2.png");
 	}
 
 	void update() {

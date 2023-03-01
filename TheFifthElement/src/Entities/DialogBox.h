@@ -23,7 +23,7 @@ public:
 	DialogBox(int a) {
 		cmpId_type z = int(TRANSFORM_H);
 		addComponent<Transform>(z, DialogBoxPosition_, DialogBoxWith_, DialogBoxHeith_, DialogBoxRotation_,speed, nframes, matrix_);
-		t = new Texture(GameManager::instance()->getRenderer(), "./assets/fonts/image.png");
+		t = new Texture(GameManager::instance()->getRenderer(), "./assets/Texts/image.png");
 		cmpId_type x = int(RENDERCOMPONENT_H);
 		//referencia al texture y al transform
 		fila_ = 0;
