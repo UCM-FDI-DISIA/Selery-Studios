@@ -42,6 +42,13 @@
     <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="ColDetectorComponent.cpp" />
     <ClCompile Include="src\components\LimitBEU.cpp" />
+<<<<<<< Updated upstream
+=======
+    <ClCompile Include="src\components\Image.cpp" />
+    <ClCompile Include="src\components\AnimationEnemyBEUComponent.cpp" />
+    <ClCompile Include="src\components\DialogueComponent.cpp" />
+    <ClCompile Include="src\components\ColliderTileComponent.cpp" />
+>>>>>>> Stashed changes
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\states\BeatEmUpState.h" />
@@ -103,6 +110,11 @@
     <ClInclude Include="ColliderComponent.h" />
     <ClInclude Include="ColDetectorComponent.h" />
     <ClInclude Include="src\components\LimitBEU.h" />
+<<<<<<< Updated upstream
+=======
+    <ClInclude Include="src\components\AnimationEnemyBEUComponent.h" />
+    <ClInclude Include="src\components\ColliderTileComponent.h" />
+>>>>>>> Stashed changes
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="TheFifthElement.rc" />

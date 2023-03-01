@@ -19,6 +19,11 @@ private:
 	
 	SDL_RendererFlip s = SDL_FLIP_NONE;
 	bool animPlaying = false;
+	bool isPlayerTD = true;
+	bool isPlayerBEU = false;
+	bool isEnemyBEU = true;
+	
+
 
 public:
 	Image(Texture* tex, int nframes, int framesT, int fila) : tr_(nullptr), tex_(tex) { // Constructora
@@ -107,6 +112,7 @@ public:
 	inline int getRow() { return fila_; }
 	inline int getLastFrame(){ return frames_;}
 
+<<<<<<< Updated upstream
 	void setAnim(bool Anim, int Fila, int Frames, int I, int Cont, Texture* t) { //Metodo generico para cambiar de animacion en BEU
 		if (fila_ != Fila && !animPlaying) { // Si la animacion no es la actual la actualiza
 			animPlaying = Anim;
@@ -122,3 +128,17 @@ public:
 	bool isAnimPlaying() { return animPlaying; }
 };
 #endif
+=======
+	//matriz
+	void setAnim(bool Anim, int Fila, int Frames, int I); //Metodo generico para cambiar de animacion en BEU
+	void setAnimTexture(string textureKey, int Frames, int Width) {}
+
+	//spritesheet
+	void setSpriteAnim(bool Anim, int Frames, int I, Texture* t); //Metodo generico para cambiar de animacion en BEU
+
+	void setFlip(SDL_RendererFlip Flip = SDL_FLIP_NONE) { s = Flip; }
+	inline bool isAnimPlaying() { return animPlaying; }
+};	
+#endif
+
+>>>>>>> Stashed changes

@@ -134,6 +134,7 @@
     <ClInclude Include="ColliderComponent.h" />
     <ClInclude Include="RedirectTile.h" />
     <ClInclude Include="src\components\AttackBoxComponent.h" />
+    <ClInclude Include="src\components\ColliderTileComponent.h" />
     <ClInclude Include="src\components\LimitBEU.h" />
     <ClInclude Include="src\Game.h" />
     <ClInclude Include="src\states\BeatEmUpState.h" />
@@ -193,6 +194,12 @@
   <ItemGroup>
     <ClCompile Include="ColDetectorComponent.cpp" />
     <ClCompile Include="src\components\AttackBoxComponent.cpp" />
+<<<<<<< Updated upstream
+=======
+    <ClCompile Include="src\components\ColliderTileComponent.cpp" />
+    <ClCompile Include="src\components\DialogueComponent.cpp" />
+    <ClCompile Include="src\components\Image.cpp" />
+>>>>>>> Stashed changes
     <ClCompile Include="src\components\LimitBEU.cpp" />
     <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\states\BeatEmUpState.cpp" />

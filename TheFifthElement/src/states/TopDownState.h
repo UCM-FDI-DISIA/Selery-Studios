@@ -14,6 +14,8 @@
 #include "../sdlutils/SDLUtils.h"
 #include "../Entities/Camera.h"
 #include "../Entities/RedirectTile.h"
+#include "../components/ColliderTile.h"
+
 using uint = unsigned int;
 using tileset_map = std::map<std::string, Texture*>; //mapa con CLAVE:string, ARGUMENTO: puntero a textura
 using tilelayer = tmx::TileLayer;
@@ -44,9 +46,14 @@ public:
 		LoadMap("assets/MapAssets/MapaInicial.tmx");
 		player_ = addEntity(new PlayerTD());
 		dialog_ = false;
+<<<<<<< Updated upstream
 		addEntity(new Npc(player_,{0,10},&SDLUtils::instance()->images().at("NPC_1")));
 		npc = addEntity(new Npc(player_, { 50,10 }, &SDLUtils::instance()->images().at("NPC_2")));
 	
+=======
+		addEntity(new Npc(player_, { 50,10 }, &SDLUtils::instance()->images().at("NPC_2"), 2));	
+		addEntity(new Npc(player_,{0,10},&SDLUtils::instance()->images().at("NPC_1"),1));	
+>>>>>>> Stashed changes
 		cmpId_type w = int(INPUTCOMPONENT_H);
 		in_ = player_->getComponent<InputComponent>(w);
 		addEntity(new Enemy(player_, 100));
@@ -104,5 +111,7 @@ private:
 	MapInfo mapInfo;//struct
 	bool dialog_;
 	Camera* cam_;
+
+	vector<ColliderTile> collisions_; //vector colision player-mapa	jeje
 };
 
