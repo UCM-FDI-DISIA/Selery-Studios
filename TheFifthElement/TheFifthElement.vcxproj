@@ -130,9 +130,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+<<<<<<< Updated upstream
     <ClInclude Include="ColDetectorComponent.h" />
     <ClInclude Include="ColliderComponent.h" />
     <ClInclude Include="RedirectTile.h" />
+=======
+    <ClInclude Include="src\components\JumpComponent.h" />
+    <ClInclude Include="src\Entities\Button.h" />
+    <ClInclude Include="src\components\AnimationEnemyBEUComponent.h" />
+    <ClInclude Include="src\components\ColDetectorComponent.h" />
+    <ClInclude Include="src\components\ColliderComponent.h" />
+>>>>>>> Stashed changes
     <ClInclude Include="src\components\AttackBoxComponent.h" />
     <ClInclude Include="src\Game.h" />
     <ClInclude Include="src\states\BeatEmUpState.h" />
@@ -190,7 +198,14 @@
     <ClInclude Include="src\utils\Vector2D.h" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< Updated upstream
     <ClCompile Include="ColDetectorComponent.cpp" />
+=======
+    <ClCompile Include="src\components\JumpComponent.cpp" />
+    <ClCompile Include="src\Entities\Button.cpp" />
+    <ClCompile Include="src\components\AnimationEnemyBEUComponent.cpp" />
+    <ClCompile Include="src\components\ColDetectorComponent.cpp" />
+>>>>>>> Stashed changes
     <ClCompile Include="src\components\AttackBoxComponent.cpp" />
     <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\states\BeatEmUpState.cpp" />

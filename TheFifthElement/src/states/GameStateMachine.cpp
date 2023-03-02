@@ -31,16 +31,28 @@ void GameStateMachine::changeState(GameState* myState) { // cambio de estado
 }
 
 void GameStateMachine::popState() { // pop si la pila no está vacía y salida del estado
+<<<<<<< Updated upstream
 	if (!states.empty()) {
 		statesToDelete.push(states.top());
 		states.pop();
+=======
+	if (!st.empty()) {
+		stToDelete.push(st.top());
+		st.pop();
+>>>>>>> Stashed changes
 	}
 }
 
 void GameStateMachine::clearStates() {
+<<<<<<< Updated upstream
 	while (!statesToDelete.empty()) {
 		delete(statesToDelete.top());// elimina estado
 		statesToDelete.pop();// quita estado de la lista de eliminados
+=======
+	while (!stToDelete.empty()){
+		delete(stToDelete.top());// elimina estado
+		stToDelete.pop();// quita estado de la lista de eliminados
+>>>>>>> Stashed changes
 	}
 }
 

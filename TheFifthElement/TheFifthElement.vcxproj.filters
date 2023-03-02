@@ -1,19 +1,36 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <ClCompile Include="src\Entities\Button.cpp" />
+    <ClCompile Include="src\components\AnimationEnemyBEUComponent.cpp" />
+    <ClCompile Include="src\components\ColDetectorComponent.cpp" />
+    <ClCompile Include="src\components\AttackBoxComponent.cpp" />
+    <ClCompile Include="src\components\DialogueComponent.cpp" />
+    <ClCompile Include="src\components\Image.cpp" />
+    <ClCompile Include="src\components\LimitBEU.cpp" />
+    <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\states\BeatEmUpState.cpp" />
+    <ClCompile Include="src\Entities\Camera.cpp" />
+    <ClCompile Include="src\components\CameraComponent.cpp" />
     <ClCompile Include="src\components\CheckCollision.cpp" />
     <ClCompile Include="src\utils\Collision.cpp" />
+    <ClCompile Include="src\components\Enemy_movementTD_component.cpp" />
     <ClCompile Include="src\Entities\DialogBox.cpp" />
+    <ClCompile Include="src\Entities\Element.cpp" />
     <ClCompile Include="src\Entities\Enemy.cpp" />
+    <ClCompile Include="src\Entities\EnemyBEU.cpp" />
+    <ClCompile Include="src\components\EnemyBEUDirectionComponent.cpp" />
+    <ClCompile Include="src\Entities\Background.cpp" />
     <ClCompile Include="src\GameManager.cpp" />
     <ClCompile Include="src\components\InputComponent.cpp" />
     <ClCompile Include="src\components\InputComponentBEU.cpp" />
     <ClCompile Include="src\components\LifeComponent.cpp" />
     <ClCompile Include="src\components\MovementComponent.cpp" />
     <ClCompile Include="src\Entities\Npc.cpp" />
+    <ClCompile Include="src\components\ObjectsComponent.cpp" />
     <ClCompile Include="src\Entities\PlayerBEU.cpp" />
     <ClCompile Include="src\Entities\PlayerTD.cpp" />
+    <ClCompile Include="src\Entities\Portal.cpp" />
     <ClCompile Include="src\components\SkinComponent.cpp" />
     <ClCompile Include="src\states\GameState.cpp" />
     <ClCompile Include="src\states\GameStateMachine.cpp" />
@@ -29,6 +46,7 @@
     <ClCompile Include="src\utils\Entity.cpp" />
     <ClCompile Include="src\utils\Manager.cpp" />
     <ClCompile Include="src\utils\Vector2D.cpp" />
+<<<<<<< Updated upstream
     <ClCompile Include="src\Entities\EnemyBEU.cpp" />
     <ClCompile Include="src\components\EnemyBEUDirectionComponent.cpp" />
     <ClCompile Include="src\Entities\Portal.cpp" />
@@ -41,13 +59,31 @@
     <ClCompile Include="src\components\AttackBoxComponent.cpp" />
     <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="ColDetectorComponent.cpp" />
+=======
+    <ClCompile Include="src\components\JumpComponent.cpp" />
+>>>>>>> Stashed changes
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Entities\Button.h" />
+    <ClInclude Include="src\components\AnimationEnemyBEUComponent.h" />
+    <ClInclude Include="src\components\ColDetectorComponent.h" />
+    <ClInclude Include="src\components\ColliderComponent.h" />
+    <ClInclude Include="src\components\AttackBoxComponent.h" />
+    <ClInclude Include="src\components\LimitBEU.h" />
+    <ClInclude Include="src\Game.h" />
     <ClInclude Include="src\states\BeatEmUpState.h" />
+    <ClInclude Include="src\Entities\Camera.h" />
+    <ClInclude Include="src\components\CameraComponent.h" />
     <ClInclude Include="src\components\CheckCollision.h" />
     <ClInclude Include="src\utils\Collision.h" />
+    <ClInclude Include="src\components\Enemy_movementTD_component.h" />
     <ClInclude Include="src\Entities\DialogBox.h" />
+    <ClInclude Include="src\components\DialogueComponent.h" />
+    <ClInclude Include="src\Entities\Element.h" />
     <ClInclude Include="src\Entities\Enemy.h" />
+    <ClInclude Include="src\Entities\EnemyBEU.h" />
+    <ClInclude Include="src\components\EnemyBEUDirectionComponent.h" />
+    <ClInclude Include="src\Entities\Background.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="src\GameManager.h" />
     <ClInclude Include="src\components\Image.h" />
@@ -58,6 +94,7 @@
     <ClInclude Include="src\Entities\Npc.h" />
     <ClInclude Include="src\Entities\PlayerBEU.h" />
     <ClInclude Include="src\Entities\PlayerTD.h" />
+    <ClInclude Include="src\Entities\Portal.h" />
     <ClInclude Include="src\components\SkinComponent.h" />
     <ClInclude Include="src\states\GameState.h" />
     <ClInclude Include="src\states\GameStateMachine.h" />
@@ -76,6 +113,7 @@
     <ClInclude Include="src\sdlutils\Texture.h" />
     <ClInclude Include="src\sdlutils\VirtualTimer.h" />
     <ClInclude Include="src\states\TopDownState.h" />
+    <ClInclude Include="src\utils\Constants.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="TheFifthElement.h" />
     <ClInclude Include="src\components\Transform.h" />
@@ -86,6 +124,7 @@
     <ClInclude Include="src\utils\Manager.h" />
     <ClInclude Include="src\utils\Singleton.h" />
     <ClInclude Include="src\utils\Vector2D.h" />
+<<<<<<< Updated upstream
     <ClInclude Include="src\Entities\EnemyBEU.h" />
     <ClInclude Include="src\components\EnemyBEUDirectionComponent.h" />
     <ClInclude Include="src\components\DialogueComponent.h" />
@@ -101,9 +140,18 @@
     <ClInclude Include="RedirectTile.h" />
     <ClInclude Include="ColliderComponent.h" />
     <ClInclude Include="ColDetectorComponent.h" />
+=======
+    <ClInclude Include="src\components\JumpComponent.h" />
+>>>>>>> Stashed changes
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="TheFifthElement.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="assets\Sounds\Battle.mp3" />
+    <Media Include="assets\Sounds\Battle.wav" />
+    <Media Include="assets\Sounds\Title.mp3" />
+    <Media Include="assets\Sounds\Title.wav" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="small.ico" />

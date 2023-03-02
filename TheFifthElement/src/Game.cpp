@@ -25,7 +25,12 @@ void Game::run()// bucle de juego
 		frameTime = SDL_GetTicks() - startTime;
 		if (frameTime >= FRAME_RATE){
 			update();
+<<<<<<< Updated upstream
 			//gameStMc->clearStates(); // elimina estados
+=======
+
+			GameStateMachine::instance()->clearStates(); // elimina estados
+>>>>>>> Stashed changes
 			startTime = SDL_GetTicks();
 		}
 		if (!exit) {

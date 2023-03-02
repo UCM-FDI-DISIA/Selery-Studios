@@ -10,19 +10,24 @@ PlayerBEU::PlayerBEU() : Entity() {
 	//referencia al texture y al transform
 	fila_ = 0;	
 	
-	
 	mov = addComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
-	
-	//igualamos el inputComponent a una variable ya que este necesita una referencia de image que aún no existe, por lo que esa referencia es NULL
-	in_=addComponent<InputComponentBEU>(INPUTCOMPONENTBEU_H);
-
 	addComponent<Image>(int(IMAGE_H), t, nframes, framesT_, fila_);
+	addComponent<JumpComponent>(JUMP_H);
+
+	//igualamos el inputComponent a una variable ya que este necesita una referencia de image que aún no existe, por lo que esa referencia es NULL
+	in_ = addComponent<InputComponentBEU>(INPUTCOMPONENTBEU_H);
+
 	//addComponent<ColliderComponent>(int(COLLIDERCOMPONENT_H), Vector2D(100, 100), 20, 20);
 	addComponent<AttackBoxComponent>(ATTACKBOXCOMPONENT_H);
+<<<<<<< Updated upstream
+=======
+	addComponent<LimitBEU>(LIMITBEU_H);
+>>>>>>> Stashed changes
 	
 	//Al hacer aquí initComponent la referencia ya es correcta
 	in_->initComponent();
 	
+
 
 }
 PlayerBEU::~PlayerBEU() {
