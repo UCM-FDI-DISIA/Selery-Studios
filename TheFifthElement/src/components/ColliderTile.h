@@ -4,7 +4,7 @@
 #include "../utils/Vector2D.h"
 #include "../components/Transform.h"
 #include "../components/ColliderTileComponent.h"
-//#include "PlayerTD.h"
+#include "../Entities/PlayerTD.h"
 
 class Game;
 
@@ -21,10 +21,10 @@ private:
 
 	//Directions chooseDirection(PlayerTD* player);
 public:
-	ColliderTile(Game* g, Vector2D p, double w, double h) : Entity() {	//ya, pero ellos aqui tienen gameObject y mira lo que le pasan
+	ColliderTile(Game* g, Vector2D p, float w, float h,PlayerTD* player) : Entity() {	
 		
-		trans = addComponent<Transform>(TRANSFORM_H, p.getX(),p.getY(),w,h,0,0,0,false);
-		addComponent<ColliderTileComponent>(COLLIDERCOMPONENT_H);
+		trans = addComponent<Transform>(TRANSFORM_H, p, w, h, 0, 0, 0, false);
+		addComponent<ColliderTileComponent>(COLLIDERCOMPONENT_H,player);
 		topLeft_ = p;
 		topRight_ = { p.getX() + w, p.getY() };
 		bottomLeft_ = { p.getX(), p.getY() + h };
@@ -34,7 +34,6 @@ public:
 	void update();
 	void onPlayerCollision();
 	void onPlayerCollisionExit();
-	inline bool isActive() { return isActive_; }
-	inline void setColliding(bool p) { isColliding_ = p; }
+	
 };
 
