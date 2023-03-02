@@ -1,34 +1,19 @@
-//#include ""
-//
-//
-////void ColliderTile::update() {
-////
-////	
-////}
-//void ColliderTile::onPlayerCollision()
-//{
-//	int dir = chooseDirection();
-//	
-//	//p->onCollision(dir);
-//}
-//
-//int ColliderTile::chooseDirection() {
-//	Transform* tp = p->getComponent<Transform>(TRANSFORM_H);
-//
-//	Vector2D pTopLeft = tp->getPos();
-//	Vector2D  pBottomLeft = { pTopLeft.getX(), pTopLeft.getY() + tp->getHeight() };
-//	Vector2D pTopRight = { pTopLeft.getX() + tp->getWidth(), pTopLeft.getY() };
-//
-//	if (bottomLeft_.getY() <= pTopLeft.getY() + margin_) {
-//		return 0;
-//	}
-//	else if (topLeft_.getY() >= pBottomLeft.getY() - margin_) {
-//		return 2;
-//	}
-//	else if (topLeft_.getX() >= pTopRight.getX() - margin_) {
-//		return 1;
-//	}
-//	else { // if (topRight_.getX() <= pTopLeft().getX() + margin_)
-//		return 3;
-//	}
-//}
+#include "ColliderTile.h"
+
+void ColliderTile::update() {
+
+	//tia una cosa, en el bucle de update de entity se llama a que haga el update de los componentes, deberia hacer un componente 
+	//aññadirlo a ColliderTile y ponerle este update, porque si se lo pongo a entity no se va a hacer,no se si me entiendes
+	//yo creo que mejor lo añado como component y asi no modifico entity
+	if (isActive_) {
+		if (collide(game->getPlayer()->getCollider())) {
+			isColliding_ = true;
+			onPlayerCollision();
+		}
+		else if (isColliding_) { // La colisión estaba activa pero ha parado
+
+			isColliding_ = false;
+			onPlayerCollisionExit();
+		}
+	}
+}
