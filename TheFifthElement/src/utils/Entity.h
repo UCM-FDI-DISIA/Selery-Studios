@@ -11,10 +11,10 @@ class Entity
 {
 private:
 	bool alive_;
-	Manager* mngr_;
 	vector<Component*> currCmps_;
 	array<Component*, maxComponentId> cmps_;
 public:
+	Manager* mngr_;
 	Entity() :mngr_(nullptr), cmps_(), currCmps_(), alive_() {
 
 		currCmps_.reserve(maxComponentId);
@@ -71,12 +71,11 @@ public:
 		return cmps_[cId] != nullptr;
 	}
 
-	inline void update() {
+	virtual  void update() {
 		auto n = currCmps_.size();
 		for (auto i = 0u; i < n; i++)
 			currCmps_[i]->update();
 	}
-	
 
 	inline void render() {
 		auto n = currCmps_.size();
@@ -84,5 +83,14 @@ public:
 			currCmps_[i]->render();
 	}
 
+
+	inline void handleEvent(SDL_Event event) {
+		auto n = currCmps_.size();
+		for (auto i = 0u; i < n; i++)
+			currCmps_[i]->handleEvent(event);
+	}
+
+	virtual void collision() {};
+	virtual void noCollision() {};
 };
 

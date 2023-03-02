@@ -7,28 +7,38 @@
 #include <string>
 
 
+
 class SkinComponent : public Component
 {
 public:
-    SkinComponent(GameManager* gm)
+    enum AnimationStates
     {
-        gm_ = gm;
-        fire = new Texture(gm_->getRenderer(), "./assets/PlayableCharacters/Exploration/Fire/andar.png");
-        air = new Texture(gm_->getRenderer(), "./assets/PlayableCharacters/Exploration/Fire/andararriba.png");
-        water = new Texture(gm_->getRenderer(), "./assets/PlayableCharacters/Exploration/Fire/andar.png");
-        earth = new Texture(gm_->getRenderer(), "./assets/PlayableCharacters/Exploration/Fire/andararriba.png");
-        fila_ = 0;
+        Idle, Left, Right, Up, Down, Null
+    };
+private:
+    AnimationStates currentState_;
+    AnimationStates nextState_;
+    string t_;
+    string skin_;
+    int nframes_;
+    int fila_;
+    int w_, h_;
+public:
+
+    SkinComponent(string skin)
+    {
+        skin_ = skin;
     }
+    void setIdle();
+    void setLeft();
+    void setRight();
+    void setUp();
+    void setDown();
     void initComponent();
     void update();
-    void changeSkin(string skin);
-private:
-    GameManager* gm_;
-    Texture* fire;
-    Texture* air;
-    Texture* water;
-    Texture* earth;
-    int nframes = 7;
-    int fila_;
+    void changeMov();
+    void changeState(AnimationStates newState) { nextState_ = newState; }
+    void changeSkin(string skin) { skin_ = skin; }
+
 };
 #endif

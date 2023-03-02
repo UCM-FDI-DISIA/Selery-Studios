@@ -1,6 +1,7 @@
 #pragma once
 #include "../utils/Singleton.h"
 #include <stack>
+#include "../sdlutils/SDLUtils.h"
 #include "../utils/Manager.h"
 
 class GameStateMachine: public Singleton <GameStateMachine> {

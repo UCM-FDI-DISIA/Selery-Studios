@@ -36,6 +36,15 @@ void TopDownState::LoadMap(string const& filename) {
         Texture* texture = sdlutils().tilesets().find(name)->second; //PORQUE ASI?????????????
         mapInfo.tilesets.insert(pair<uint, Texture*>(tile.getFirstGID(), texture));  //inserta en el mapa de Map_Info: llamado tilesets el ID del tileset y su textura
     }
+     
+    // Cargar la canción
+    //sdlutils().musics().at("Title").setMusic(30);
+   
+  
+    
+    
+    SDLUtils::instance()->soundEffects().at("Title").play(); 
+
 
     // recorremos cada una de las capas (de momento solo las de tiles) del mapa
     auto& mapLayers = mapInfo.tile_MAP->getLayers();
@@ -46,7 +55,7 @@ void TopDownState::LoadMap(string const& filename) {
             tmx::TileLayer* tile_layer = dynamic_cast<tmx::TileLayer*>(layer.get());
             string name = tile_layer->getName();
             auto& layer_tiles = tile_layer->getTiles();
-            if (name != "Suelo") {
+            if (name != "Nada") {
                 // recorremos todos los tiles para obtener su informacion
                 for (auto y = 0; y < mapInfo.rows; ++y) {
                     for (auto x = 0; x < mapInfo.cols; ++x) {
@@ -128,6 +137,32 @@ void TopDownState::LoadMap(string const& filename) {
 
 
         }
+        if (layer->getType() == tmx::Layer::Type::Object) {
+            tmx::ObjectGroup* object_layer = dynamic_cast<tmx::ObjectGroup*>(layer.get());
+
+           
+            auto& objs = object_layer->getObjects();
+            
+            for (auto obj : objs) {
+                auto rect = obj.getAABB();
+
+                //   if (obj.getName() == "collision") 
+
+               /* rect.width *= (float)(WIN_WIDTH / cam_->getWidth());
+                rect.height *= (float)(WIN_HEIGHT / cam_->getHeight());
+
+                rect.left *= (float)(WIN_WIDTH / cam_->getWidth());
+                rect.top *= (float)(WIN_HEIGHT / cam_->getHeight());*/
+                if (object_layer->getName() == "Colisions") {
+                    auto a = new ColliderTile(Vector2D(rect.left, rect.top), rect.width, rect.height, player_);
+                    collisions_.push_back(a);
+                }
+                else if (object_layer->getName() == "Interactions") {
+
+                }
+
+            }
+        }
 
     }
     SDL_RenderPresent(Gm_->getRenderer());
@@ -139,11 +174,15 @@ void TopDownState::LoadMap(string const& filename) {
 }
 
 void TopDownState::render() {
-    SDL_Rect dst = { 0, 0, 1600, 1600 };
+    SDL_Rect dst = { 0,0,1000,1000 };
     // posición según el transform de la Camara
     dst.x -= cam_->getComponent<Transform>(TRANSFORM_H)->getPos().getX(); 
     dst.y -= cam_->getComponent<Transform>(TRANSFORM_H)->getPos().getY();
-    SDL_Rect src = { 0, 0, 1600, 1600 };
+    SDL_Rect src = { 0, 0, 5000, 5000 };
     SDL_RenderCopy(Gm_->getRenderer(), background_, &src, &dst);
     Manager::render();
+}
+
+string TopDownState::getStateID() {
+    return "TopDownState";
 }

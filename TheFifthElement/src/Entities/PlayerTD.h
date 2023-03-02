@@ -10,51 +10,84 @@
 #include "../components/Image.h"
 #include "../components/SkinComponent.h"
 
+
 class PlayerTD : public Entity {
 private:
-	//Component* componenete;
 	Vector2D PlayerPosition_{ 10,150 };
-	float speed_ = 1.0f;
+	float speed_ = 3.0f;
 	float PlayerWidth_ = 476, PlayerHeigth_ = 120, PlayerRotation_ = 1;
-	GameManager* gm_;
-	Texture* t;
+	Texture* t_;
 	Transform* tr;
 	Vector2D dir;
+	InputComponent* in_;
 	MovementComponent* mov = nullptr;
 	SkinComponent* sk = nullptr;
-	int nframes = 7;
+	Image* im_ = nullptr;
+	int nframes_ = 7;
 	int fila_;
-	int collisionNPC = -1;
+	int collisionNPC;
+	bool hascollision = false;
 	bool matrix_ = false;
+	bool set_ = false;
 public:
+	void setCollision(bool collision) {
+		hascollision = collision;
+	}
+	bool hascol() {
+		return hascollision;
+	}
 	void setCol(int col) {
 		collisionNPC = col;
 	}
 	int getCol() {
 		return collisionNPC;
 	}
-	void initEntity() {
-		cmpId_type z = int(TRANSFORM_H);
-		tr = addComponent<Transform>(z, PlayerPosition_, PlayerWidth_, PlayerHeigth_, PlayerRotation_, nframes, matrix_);
-		/*t = new Texture(gm_->getRenderer(), "./assets/PlayableCharacters/Exploration/Fire/andar.png");
-		fila_ = 0;
-		addComponent<Image>(int(IMAGE_H), t, nframes, nframes, fila_);*/
+	PlayerTD(string skin, Manager* m) {
+		//mngr_ = m;
 		cmpId_type k = int(SKINCOMPONENT_H);
-		sk = addComponent<SkinComponent>(k, gm_);
-		cmpId_type s = int(MOVEMENTCOMPONENT_H);
-		mov = addComponent<MovementComponent>(s);
-		cmpId_type w = int(INPUTCOMPONENT_H);
-		addComponent<InputComponent>(w);
+		sk = addComponent<SkinComponent>(k, skin);
+		sk->changeState(SkinComponent::Idle);
+		sk->changeMov();
+
+		cmpId_type z = int(TRANSFORM_H);
+		tr = addComponent<Transform>(z, PlayerPosition_, PlayerWidth_, PlayerHeigth_, PlayerRotation_,speed_, nframes_, matrix_);
+
+		
+		fila_ = 0;
+		im_ = addComponent<Image>(int(IMAGE_H), t_, nframes_, nframes_, fila_);
+
+		mov = addComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
+
+		in_ = addComponent<InputComponent>(INPUTCOMPONENT_H);
+		in_->initComponent();
+		in_->setContext(this, m);
+		
+		set_ = true;
 	}
-	PlayerTD(GameManager* gm) : Entity() {
-		gm_ = gm;
+	PlayerTD() : Entity() {
 	
 	}
 	~PlayerTD() {
 
 	}
 
+	void setAnim(float w, float h, int nframes, string skin)
+	{
+		PlayerWidth_ = w;
+		PlayerHeigth_ = h;
+		nframes_ = nframes;
+		t_ = &SDLUtils::instance()->images().at(skin);
+		if (set_) im_->setAnimTexture(skin, nframes_, w);
+	}
+
+	bool collide(SDL_Rect other) {
+		
+		SDL_Rect rect= build_sdlrect(tr->getPos(), tr->getW(), tr->getH());	
+		return SDL_HasIntersection(&rect, &other);
+	}
+
 	int returnFramesTot() { return 1; }
+
 };
 
 

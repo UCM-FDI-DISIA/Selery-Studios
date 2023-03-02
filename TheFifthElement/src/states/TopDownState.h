@@ -13,6 +13,10 @@
 #include "tmxlite/TileLayer.hpp"
 #include "../sdlutils/SDLUtils.h"
 #include "../Entities/Camera.h"
+#include "../include/SDL_mixer.h"
+#include "../Entities/RedirectTile.h"
+#include "../components/ColliderTile.h"
+
 using uint = unsigned int;
 using tileset_map = std::map<std::string, Texture*>; //mapa con CLAVE:string, ARGUMENTO: puntero a textura
 using tilelayer = tmx::TileLayer;
@@ -37,47 +41,61 @@ struct MapInfo {
 
 class TopDownState : public Manager {
 public:
-	virtual string getStateID() { return "top-down"; }; // stringID
+	string getStateID(); // stringID
 	DialogBox* d;
-	TopDownState(GameManager* gm_) {
-		Gm_ = gm_;
-		LoadMap("assets/MapAssets/MapaInicial.tmx");
-		player_ = addEntity(new PlayerTD(Gm_));
+	TopDownState() {
+		player_ = addEntity(new PlayerTD("fire", this));
+		cam_ = addEntity(new Camera(player_)); // entidad de camara
+		LoadMap("assets/Scenes/Maps/MapaInicial.tmx");
+		
 		dialog_ = false;
-		addEntity(new Npc(Gm_, player_,{0,10},&SDLUtils::instance()->images().at("NPC_1")));
-		addEntity(new Npc(Gm_, player_, { 50,10 }, &SDLUtils::instance()->images().at("NPC_2")));
-		//playerBEU_ = new PlayerBEU(Gm_);
 
-	//	cmpId_type b = int(INPUTCOMPONENTBEU_H);
-		//inBEU_ = playerBEU_->getComponent<InputComponentBEU>(b);
-		cmpId_type w = int(INPUTCOMPONENT_H);
-		in_ = player_->getComponent<InputComponent>(w);
+		addEntity(new Npc(player_, { 50,10 }, &SDLUtils::instance()->images().at("NPC_2"), 2));
+		addEntity(new Npc(player_,{0,10},&SDLUtils::instance()->images().at("NPC_1"),1));	
+		in_ = player_->getComponent<InputComponent>(INPUTCOMPONENT_H);
+		enemy_ = addEntity(new Enemy(player_, 100));
+
 		
-		//addEntity(playerBEU_);
-		//addEntity(new DialogBox(Gm_));
-		addEntity(new Enemy(Gm_, player_, 100));
-		cam_ = addEntity(new Camera(Gm_, player_)); // entidad de camara
-		Portal* p = addEntity(new Portal(Gm_, player_));
-		addEntity(new Element(Gm_, player_, Vector2D(100, 100), p));
-		addEntity(new Element(Gm_, player_, Vector2D(300, 100), p));
-		addEntity(new Element(Gm_, player_, Vector2D(200, 200), p));
+		Portal* p = addEntity(new Portal(player_));
+		addEntity(new Element(player_, Vector2D(100, 100), p));
+		addEntity(new Element(player_, Vector2D(300, 100), p));
+		addEntity(new Element(player_, Vector2D(200, 200), p));
 		
+		
+		// PRUEBAS PATHING ENEMIGO
+		addEntity(new RedirectTile(Vector2D(1, 0), Vector2D(680, 170), enemy_)); //der
+		addEntity(new RedirectTile(Vector2D(0, 1), Vector2D(870, 170), enemy_)); //ab
+		addEntity(new RedirectTile(Vector2D(-1, 0), Vector2D(870, 360), enemy_)); //iz
+		addEntity(new RedirectTile(Vector2D(0, -1), Vector2D(680, 360), enemy_)); //arr
 	}
 	void LoadMap(string const& filename);
 	void dialog(int a) {
 		if (dialog_ != false) {
-			in_->changebool();
-			cout << "sd"<<endl;
-			d->~DialogBox();//cris hija haz delete(d)
-			dialog_= false;
+			if (d->getfinish() == true) {
+				in_->changebool();
+				d->~DialogBox();
+				dialog_ = false;
+			}
+			else {
+				d->setline();
+			}
+			
 		}
 		else  {
-			d = new DialogBox(Gm_, a);
+			d = new DialogBox(a);
 			addEntity(d);
 			dialog_ = true;
 			cout << "d" << endl;
 
 		}
+	}
+	void update() {
+		player_->setCollision(false);
+		for (auto p : collisions_) {
+			p->update();
+		}
+		Manager::update();
+
 	}
 	void handleEvents()
 	{
@@ -93,6 +111,7 @@ public:
 	}
 	void render();
 private:
+	Enemy* enemy_;
 	GameManager* Gm_;
 	PlayerTD* player_;
 	InputComponent* in_;
@@ -103,5 +122,6 @@ private:
 	MapInfo mapInfo;//struct
 	bool dialog_;
 	Camera* cam_;
+	vector<ColliderTile*> collisions_; //vector colision player-mapa
 };
 

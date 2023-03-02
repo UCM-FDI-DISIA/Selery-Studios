@@ -4,53 +4,67 @@
 #include "../utils/ecs.h"
 #include "../Entities/PlayerBEU.h"
 #include "Image.h"
+#include "../states/BeatEmUpState.h"
 
 InputComponentBEU::InputComponentBEU() :Component() {
-
+	downLimit = sdlutils().height();
+	topLimit = downLimit / 3;
 }
 
 void InputComponentBEU::initComponent() {
-	mov_ = ent_->getComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
+	tr_ = ent_->getComponent<Transform>(TRANSFORM_H);
 	im_ = ent_->getComponent<Image>(IMAGE_H);
+	t_ = new Texture(GameManager::instance()->getRenderer(), "./assets/Player/BeatEmUp/Fire/spritesheets/fireMatrix.png");
 }
 
 void InputComponentBEU::update() {
 
 }
 
-void InputComponentBEU::stop_attack() {
-	attack = false;
-}
-
 void InputComponentBEU::handleEvents(SDL_Event event){
-	InputHandler::instance()->update(event);
 
-	if (InputHandler::instance()->keyDownEvent()){
-		if (!(static_cast<PlayerBEU*>(ent_)->getAttack())) {
-			if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_A)) {
-				mov_->setDir(Vector2D(-1, 0));
+	InputHandler::instance()->update(event);
+		if (!im_->isAnimPlaying()) 
+		{
+			if (ih().isKeyDown(SDL_SCANCODE_A)) { // Mover Izquierda
+				tr_->setDir(Vector2D(-1, 0));
+				im_->setAnim(false, 1, 8, 0);
+				im_->setFlip(SDL_FLIP_HORIZONTAL);
 			}
-			else if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_D)) {
-				mov_->setDir(Vector2D(1, 0));
+			else if (ih().isKeyDown(SDL_SCANCODE_D)) { // Mover Derecha
+				tr_->setDir(Vector2D(1, 0));
+				im_->setAnim(false, 1, 8, 0);
+				im_->setFlip(SDL_FLIP_NONE);
 			}
-			else  if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_W)) {
-				mov_->setDir(Vector2D(0, -1));
+			else  if (ih().isKeyDown(SDL_SCANCODE_W) && tr_->getPos().getY() > topLimit) { // Mover Arriba
+				tr_->setDir(Vector2D(0, -1));
+				im_->setAnim(false, 1, 8, 0);
 			}
-			else if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_S)) {
-				mov_->setDir(Vector2D(0, 1));
+			else if (ih().isKeyDown(SDL_SCANCODE_S) && tr_->getPos().getY() < downLimit - tr_->getH()) { // Mover Abajo
+				tr_->setDir(Vector2D(0, 1));
+				im_->setAnim(false, 1, 8, 0);
 			}
-			else if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_O)) {
-				if (!im_->isAnimPlaying()) SDLUtils::instance()->soundEffects().at("playerAttack").play();
-				im_->setAnim(true, 7, 10, 0, 0);
-				static_cast<PlayerBEU*>(ent_)->setAttack(true);
+			else if (ih().isKeyDown(SDL_SCANCODE_SPACE) && canJump) { // Salto
+				im_->setAnim(true, 4, 20, 0);
 			}
-			else if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_P)) {
-				if(!im_->isAnimPlaying()) SDLUtils::instance()->soundEffects().at("playerSpecialAttack").play();
-				im_->setAnim(true, 10, 17, 0, 0);
-				static_cast<PlayerBEU*>(ent_)->setAttack(true);
+			else if (ih().isKeyDown(SDL_SCANCODE_O)) { // Ataque
+			    sdlutils().soundEffects().at("playerAttack").play();
+				im_->setAnim(true, 7, 10, 0);
 			}
-			else mov_->setDir(Vector2D(0, 0));
+			else if (ih().isKeyDown(SDL_SCANCODE_P)) { // Ataque Especial
+				sdlutils().soundEffects().at("playerSpecialAttack").play();
+				im_->setAnim(true, 10, 18, 0);
+			}
+			else if (ih().isKeyDown(SDL_SCANCODE_M)) {
+				static_cast<BeatEmUpState*>(mngr_)->finishBEU();
+			}
+			else {
+				tr_->setDir(Vector2D(0, 0));
+				im_->setAnim(false, 0, 8, 0);
+			}
 		}
-		else mov_->setDir(Vector2D(0, 0));
-	}
+		else {
+			tr_->setDir(Vector2D(0, 0));
+			im_->setAnim(false, 0, 8, 0);
+		}
 }

@@ -1,7 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\TheFifthElement",
+    "\\TheFifthElement\\src",
+    "\\TheFifthElement\\src\\components"
   ],
-  "SelectedNode": "\\TheFifthElement.sln",
+  "SelectedNode": "\\TheFifthElement\\src\\components\\Image.cpp",
   "PreviewInSolutionExplorer": false
 }

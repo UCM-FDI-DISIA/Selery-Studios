@@ -2,6 +2,7 @@
 #include <vector>
 #include "Entity.h"
 #include "Singleton.h"
+
 using namespace std;
 
 class Manager:public Singleton <Manager> {
@@ -23,6 +24,6 @@ public:
 	virtual void update();
 	virtual void render();
 	virtual void handleEvents() {};
-	virtual string getStateID() { return "nothing"; };
+	virtual string getStateID() = 0;
 
 };

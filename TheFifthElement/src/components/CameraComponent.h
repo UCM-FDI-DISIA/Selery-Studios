@@ -8,16 +8,14 @@
 class CameraComponent : public Component
 {
 private:
-	GameManager* gm_;
 	Transform* playerTr_;
 	PlayerTD* player_;
 	SDL_Rect camRect_;
 	Transform* camTr_;
 public:
-	CameraComponent(GameManager* gm, PlayerTD* player);
+	CameraComponent(PlayerTD* player);
 	void initComponent();
 	void update();
-	//inline SDL_Rect getRect() { return build_sdlrect(camTr_->getPos(), camTr_->getW(), camTr_->getH()); }
 	void render();
 };
 #endif
