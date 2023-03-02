@@ -10,6 +10,7 @@
 #include "../components/AttackBoxComponent.h"
 #include "../components/ColliderComponent.h"
 #include "../components/LimitBEU.h"
+#include "../components/JumpComponent.h"
 
 class PlayerBEU : public Entity {
 private:

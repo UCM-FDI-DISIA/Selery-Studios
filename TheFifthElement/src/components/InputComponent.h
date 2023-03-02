@@ -18,6 +18,7 @@ private:
 public:
     InputComponent();
     void initComponent();
+    void handleEvents(SDL_Event event);
     void update();
     void changebool(){ npccol = false; }
 };

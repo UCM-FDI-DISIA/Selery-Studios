@@ -3,8 +3,10 @@
     "",
     "\\TheFifthElement",
     "\\TheFifthElement\\src",
-    "\\TheFifthElement\\src\\components"
+    "\\TheFifthElement\\src\\components",
+    "\\TheFifthElement\\src\\Entities",
+    "\\TheFifthElement\\src\\utils"
   ],
-  "SelectedNode": "\\TheFifthElement\\src\\components\\Image.cpp",
+  "SelectedNode": "\\TheFifthElement\\src\\Entities\\PlayerBEU.h",
   "PreviewInSolutionExplorer": false
 }

@@ -180,7 +180,7 @@ void TopDownState::render() {
     dst.y -= cam_->getComponent<Transform>(TRANSFORM_H)->getPos().getY();
     SDL_Rect src = { 0, 0, 5000, 5000 };
     SDL_RenderCopy(Gm_->getRenderer(), background_, &src, &dst);
-    GameState::render();
+    Manager::render();
 }
 
 string TopDownState::getStateID() {
@@ -188,5 +188,5 @@ string TopDownState::getStateID() {
 }
 
 void TopDownState::update() {
-    GameState::update();
+    Manager::update();
 }
