@@ -15,6 +15,8 @@
 #include "../Entities/Camera.h"
 #include "../include/SDL_mixer.h"
 #include "../Entities/RedirectTile.h"
+#include "../components/ColliderTile.h"
+
 using uint = unsigned int;
 using tileset_map = std::map<std::string, Texture*>; //mapa con CLAVE:string, ARGUMENTO: puntero a textura
 using tilelayer = tmx::TileLayer;
@@ -45,10 +47,12 @@ public:
 		LoadMap("assets/Scenes/Maps/MapaInicial.tmx");
 		player_ = addEntity(new PlayerTD("fire", this));
 		dialog_ = false;
+
 		addEntity(new Npc(player_, { 50,10 }, &SDLUtils::instance()->images().at("NPC_2"), 2));
 		addEntity(new Npc(player_,{0,10},&SDLUtils::instance()->images().at("NPC_1"),1));	
 		in_ = player_->getComponent<InputComponent>(INPUTCOMPONENT_H);
 		enemy_ = addEntity(new Enemy(player_, 100));
+
 		cam_ = addEntity(new Camera(player_)); // entidad de camara
 		Portal* p = addEntity(new Portal(player_));
 		addEntity(new Element(player_, Vector2D(100, 100), p));
@@ -113,5 +117,7 @@ private:
 	MapInfo mapInfo;//struct
 	bool dialog_;
 	Camera* cam_;
+
+	vector<ColliderTile> collisions_; //vector colision player-mapa	jeje
 };
 
