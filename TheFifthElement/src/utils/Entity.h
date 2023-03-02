@@ -76,6 +76,7 @@ public:
 		for (auto i = 0u; i < n; i++)
 			currCmps_[i]->update();
 	}
+	
 
 	inline void render() {
 		auto n = currCmps_.size();

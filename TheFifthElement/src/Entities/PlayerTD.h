@@ -10,7 +10,6 @@
 #include "../components/Image.h"
 #include "../components/SkinComponent.h"
 
-
 class PlayerTD : public Entity {
 private:
 	Vector2D PlayerPosition_{ 10,150 };
@@ -79,14 +78,6 @@ public:
 		t_ = &SDLUtils::instance()->images().at(skin);
 		if (set_) im_->setAnimTexture(skin, nframes_, w);
 	}
-
-	bool collide(SDL_Rect other) {
-		
-		SDL_Rect rect= build_sdlrect(tr->getPos(), tr->getW(), tr->getH());	
-		return SDL_HasIntersection(&rect, &other);
-	}
-
-	int returnFramesTot() { return 1; }
 
 };
 
