@@ -44,8 +44,10 @@ public:
 	string getStateID(); // stringID
 	DialogBox* d;
 	TopDownState() {
-		LoadMap("assets/Scenes/Maps/MapaInicial.tmx");
 		player_ = addEntity(new PlayerTD("fire", this));
+		cam_ = addEntity(new Camera(player_)); // entidad de camara
+		LoadMap("assets/Scenes/Maps/MapaInicial.tmx");
+		
 		dialog_ = false;
 
 		addEntity(new Npc(player_, { 50,10 }, &SDLUtils::instance()->images().at("NPC_2"), 2));
@@ -53,7 +55,7 @@ public:
 		in_ = player_->getComponent<InputComponent>(INPUTCOMPONENT_H);
 		enemy_ = addEntity(new Enemy(player_, 100));
 
-		cam_ = addEntity(new Camera(player_)); // entidad de camara
+		
 		Portal* p = addEntity(new Portal(player_));
 		addEntity(new Element(player_, Vector2D(100, 100), p));
 		addEntity(new Element(player_, Vector2D(300, 100), p));
@@ -89,6 +91,9 @@ public:
 	}
 	void update() {
 		player_->setCollision(false);
+		for (auto p : collisions_) {
+			p->update();
+		}
 		Manager::update();
 
 	}
@@ -117,7 +122,6 @@ private:
 	MapInfo mapInfo;//struct
 	bool dialog_;
 	Camera* cam_;
-
-	vector<ColliderTile> collisions_; //vector colision player-mapa	jeje
+	vector<ColliderTile*> collisions_; //vector colision player-mapa
 };
 

@@ -71,7 +71,7 @@ public:
 		return cmps_[cId] != nullptr;
 	}
 
-	inline void update() {
+	virtual  void update() {
 		auto n = currCmps_.size();
 		for (auto i = 0u; i < n; i++)
 			currCmps_[i]->update();

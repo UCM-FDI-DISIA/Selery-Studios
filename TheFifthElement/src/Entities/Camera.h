@@ -27,8 +27,8 @@ public:
 	{
 
 	}
-	inline double getWidth() { return width; };
-	inline double getHeight() { return height; };
+	inline float getWidth() { return width; };
+	inline float getHeight() { return height; };
 };
 
 
