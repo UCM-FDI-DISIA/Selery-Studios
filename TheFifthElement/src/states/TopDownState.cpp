@@ -36,6 +36,15 @@ void TopDownState::LoadMap(string const& filename) {
         Texture* texture = sdlutils().tilesets().find(name)->second; //PORQUE ASI?????????????
         mapInfo.tilesets.insert(pair<uint, Texture*>(tile.getFirstGID(), texture));  //inserta en el mapa de Map_Info: llamado tilesets el ID del tileset y su textura
     }
+     
+    // Cargar la canción
+    //sdlutils().musics().at("Title").setMusic(30);
+   
+  
+    
+    
+    SDLUtils::instance()->soundEffects().at("Title").play(); 
+
 
     // recorremos cada una de las capas (de momento solo las de tiles) del mapa
     auto& mapLayers = mapInfo.tile_MAP->getLayers();
@@ -131,21 +140,26 @@ void TopDownState::LoadMap(string const& filename) {
         if (layer->getType() == tmx::Layer::Type::Object) {
             tmx::ObjectGroup* object_layer = dynamic_cast<tmx::ObjectGroup*>(layer.get());
 
+           
             auto& objs = object_layer->getObjects();
-
+            
             for (auto obj : objs) {
                 auto rect = obj.getAABB();
 
                 //   if (obj.getName() == "collision") 
 
-                rect.width *= (float)(WIN_WIDTH / cam_->getWidth());
+               /* rect.width *= (float)(WIN_WIDTH / cam_->getWidth());
                 rect.height *= (float)(WIN_HEIGHT / cam_->getHeight());
 
                 rect.left *= (float)(WIN_WIDTH / cam_->getWidth());
-                rect.top *= (float)(WIN_HEIGHT / cam_->getHeight());
+                rect.top *= (float)(WIN_HEIGHT / cam_->getHeight());*/
+                if (object_layer->getName() == "Colisions") {
+                    auto a = new ColliderTile(Vector2D(rect.left, rect.top), rect.width, rect.height, player_);
+                    collisions_.push_back(a);
+                }
+                else if (object_layer->getName() == "Interactions") {
 
-                /*auto a = new ColliderTile(this, Vector2D<double>(rect.left, rect.top), rect.width, rect.height);
-                collisions_.push_back(a);*/
+                }
 
             }
         }

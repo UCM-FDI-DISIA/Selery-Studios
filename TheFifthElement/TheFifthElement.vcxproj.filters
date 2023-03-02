@@ -44,6 +44,11 @@
     <ClCompile Include="src\components\LimitBEU.cpp" />
     <ClCompile Include="src\components\Image.cpp" />
     <ClCompile Include="src\components\AnimationEnemyBEUComponent.cpp" />
+    <ClCompile Include="src\components\DialogueComponent.cpp" />
+<<<<<<< Updated upstream
+=======
+    <ClCompile Include="src\Entities\Button.cpp" />
+>>>>>>> Stashed changes
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\states\BeatEmUpState.h" />
@@ -105,6 +110,7 @@
     <ClInclude Include="src\components\ColDetectorComponent.h" />
     <ClInclude Include="src\components\LimitBEU.h" />
     <ClInclude Include="src\components\AnimationEnemyBEUComponent.h" />
+    <ClInclude Include="src\Entities\Button.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="TheFifthElement.rc" />
@@ -115,5 +121,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="assets\resources.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="assets\Sounds\Battle.mp3" />
+    <Media Include="assets\Sounds\Title.mp3" />
+    <Media Include="assets\Sounds\Battle.wav" />
+    <Media Include="assets\Sounds\Title.wav" />
   </ItemGroup>
 </Project>

@@ -1,47 +1,56 @@
 #include "GameStateMachine.h"
-#include "../Game.h"
-
-GameStateMachine::GameStateMachine(Game* Game) {
-	game = Game;
-}
-
-GameStateMachine::~GameStateMachine() {
+GameStateMachine::~GameStateMachine() // destructora
+{
 	clearStates();
-	while (!states.empty()) {
-		delete(states.top());
-		states.pop();
+	while (!st.empty())
+	{
+		delete(st.top());
+		st.pop();
 	}
 }
 
-
-
-GameState* GameStateMachine::currentState() { // Devuelve estado actual
-	return states.top();
+Manager* GameStateMachine::currentState() // consulta del estado actual
+{
+	return st.top();
 }
 
-void GameStateMachine::pushState(GameState* myState) { // Push del nuevo estado
-	states.push(myState);
+void GameStateMachine::pushState(Manager* myState) // push del nuevo estado y entra en él 
+{
+	
+	st.push(myState);
 }
 
-void GameStateMachine::changeState(GameState* myState) { // cambio de estado
+void GameStateMachine::changeState(Manager* myState) // cambio de estado
+{
+	//le pasa el nuevo playState a game para que siempre tenga acceso al último PlayState (es decir el que se está ejecutando)
+	//if (myState->getStateID() == "play") game->ChangePlayState(static_cast<PlayState*>(myState)); // cambio de playState de game
+
 	if (currentState()->getStateID() != myState->getStateID()) {
 		popState();
 		pushState(myState);
 	}
 }
 
-void GameStateMachine::popState() { // pop si la pila no está vacía y salida del estado
-	if (!states.empty()) {
-		statesToDelete.push(states.top());
-		states.pop();
+void GameStateMachine::popState() // pop si la pila no está vacía y salida del estado
+{
+	if (!st.empty())
+	{
+		stToDelete.push(st.top());
+		st.pop();
 	}
 }
 
-void GameStateMachine::clearStates() {
-	while (!statesToDelete.empty()) {
-		delete(statesToDelete.top());// elimina estado
-		statesToDelete.pop();// quita estado de la lista de eliminados
+void GameStateMachine::clearStates()
+{
+	while (!stToDelete.empty())
+	{
+		delete(stToDelete.top());// elimina estado
+		stToDelete.pop();// quita estado de la lista de eliminados
 	}
+}
+
+void GameStateMachine::handleEvents() {
+	currentState()->handleEvents();
 }
 
 void GameStateMachine::update() {

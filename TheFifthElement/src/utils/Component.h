@@ -1,4 +1,5 @@
 #pragma once
+#include <SDL.h>
 class Entity;
 class Manager;
 class Component
@@ -17,6 +18,7 @@ public:
 	virtual void initComponent() { }
 	virtual void update() { }
 	virtual void render() { }
+	virtual void handleEvent(SDL_Event event) { }
 
 };
 

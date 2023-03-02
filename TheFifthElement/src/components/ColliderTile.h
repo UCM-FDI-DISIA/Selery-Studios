@@ -1,36 +1,86 @@
 #pragma once
-//#include "src/utils/Vector2D.h"
-//
-#include "src/utils/Component.h"
-//#include "PlayerTD.h"
 
-class Game;
+#include "../utils/Entity.h"
+#include "../utils/Vector2D.h"
+#include "../components/Transform.h"
+#include "../Entities/PlayerTD.h"
 
-class ColliderTile : public Component
+
+
+class ColliderTile : public Entity
 {
-protected:
-	bool isActive_ = true; // para el libro tutorial, colliders que en algun momento se desactivan
-	bool isColliding_ = false;
 
 private:
 
-	//Vector2D<double> topLeft_, topRight_, bottomLeft_, bottomRight_;
+	Vector2D topLeft_, topRight_, bottomLeft_, bottomRight_;	
+
 	double margin_ = 5.0; // Margen para comprobar por qué lado se está haciendo la colisión
+
+	PlayerTD* p;
+	Transform* tr;
+	bool isActive_ = true;
+	bool isColliding_ = false;
+	
+
 
 	//Directions chooseDirection(PlayerTD* player);
 public:
-	/*ColliderTile(Game* g, Vector2D<double> p, double w, double h) : Component(g, true) {
-		setPosition(p.getX(), p.getY());
-		setDimension(w, h);
-		topLeft_ = p;
-		topRight_ = { p.getX() + w, p.getY() };
-		bottomLeft_ = { p.getX(), p.getY() + h };
-		bottomRight_ = { p.getX() + w, p.getY() + h };
-	};*/
+	ColliderTile( Vector2D pos, float w, float h,PlayerTD* player) : Entity() {	
+		tr = addComponent<Transform>(TRANSFORM_H, pos, w, h, 0, 0, 0, false);
+		topLeft_ = pos;
+		topRight_ = { pos.getX() + w, pos.getY() };
+		bottomLeft_ = { pos.getX(), pos.getY() + h };
+		bottomRight_ = { pos.getX() + w, pos.getY() + h };
+		p = player;
+	};
 
-	void update() override;
+	inline bool isActive() { return isActive_; }
+	inline void setColliding(bool p) { isColliding_ = p; }
 
-	void onPlayerCollision();
-	void onPlayerCollisionExit();
+	void update() {
+		if (isActive_) {
+			SDL_Rect rect = build_sdlrect(tr->getPos(), tr->getW(), tr->getH());
+			if (p->collide(rect)) {
+				isColliding_ = true;
+				onPlayerCollision();
+
+			}
+			else if (isColliding_) { // La colisión estaba activa pero ha parado
+
+				isColliding_ = false;
+				//onPlayerCollisionExit();
+			}
+		}
+	}
+	void onPlayerCollision() {
+		int dir = chooseDirection();
+		cout << dir << endl;
+		
+	}
+	void onPlayerCollisionExit() {
+
+	}
+
+	int chooseDirection() {
+		Transform* tp = p->getComponent<Transform>(TRANSFORM_H);
+
+		Vector2D pTopLeft = tp->getPos();
+		Vector2D  pBottomLeft = { pTopLeft.getX(), pTopLeft.getY() + tp->getH()};
+		Vector2D pTopRight = { pTopLeft.getX() + tp->getW(), pTopLeft.getY() };
+
+		if (bottomLeft_.getY() <= pTopLeft.getY() + margin_) {
+			return 0;
+		}
+		else if (topLeft_.getY() >= pBottomLeft.getY() - margin_) {
+			return 2;
+		}
+		else if (topLeft_.getX() >= pTopRight.getX() - margin_) {
+			return 1;
+		}
+		else { // if (topRight_.getX() <= pTopLeft().getX() + margin_)
+			return 3;
+		}
+	}
+	
 };
 

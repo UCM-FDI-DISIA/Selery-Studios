@@ -6,6 +6,7 @@
 #include "../components/InputComponent.h"
 #include "../Entities/DialogBox.h"
 #include "../Entities/EnemyBEU.h"
+#include "../sdlutils/SDLUtils.h"
 #include "../Entities/Background.h"
 
 class BeatEmUpState	 : public GameState {

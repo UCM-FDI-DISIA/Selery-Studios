@@ -130,6 +130,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Entities\Button.h" />
     <ClInclude Include="src\components\AnimationEnemyBEUComponent.h" />
     <ClInclude Include="src\components\ColDetectorComponent.h" />
     <ClInclude Include="src\components\ColliderComponent.h" />
@@ -191,6 +192,7 @@
     <ClInclude Include="src\utils\Vector2D.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Entities\Button.cpp" />
     <ClCompile Include="src\components\AnimationEnemyBEUComponent.cpp" />
     <ClCompile Include="src\components\ColDetectorComponent.cpp" />
     <ClCompile Include="src\components\AttackBoxComponent.cpp" />
@@ -245,6 +247,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="assets\resources.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="assets\Sounds\Battle.mp3" />
+    <Media Include="assets\Sounds\Battle.wav" />
+    <Media Include="assets\Sounds\Title.mp3" />
+    <Media Include="assets\Sounds\Title.wav" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

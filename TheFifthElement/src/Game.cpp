@@ -1,12 +1,14 @@
 #include "Game.h"
 Game::Game() {
+	//cout << "si";
+
 	SDLUtils::init();
 	SDLUtils::instance()->showCursor();
 	renderer = SDLUtils::instance()->renderer();
 	window = SDLUtils::instance()->window();
 	exit = false;
 	//GameStateMachine::instance()->pushState(new TopDownState());
-	GameStateMachine::instance()->pushState(new TopDownState());
+	GameStateMachine::instance()->pushState(new MainMenuState());
 }
 
 Game::~Game()// destructora
@@ -23,21 +25,33 @@ void Game::run()// bucle de juego
 	startTime = SDL_GetTicks();
 	while (!exit) // bucle de juego
 	{
+		SDL_RenderClear(renderer);
+		handleEvents();
+
 		frameTime = SDL_GetTicks() - startTime;
-		if (frameTime >= FRAME_RATE){
+		if (frameTime >= FRAME_RATE)
+		{
 			update();
+
 			//gameStMc->clearStates(); // elimina estados
 			startTime = SDL_GetTicks();
 		}
-		if (!exit) {
-			SDL_RenderClear(renderer);
-			render();
-			SDL_RenderPresent(renderer);// dibuja en pantalla el estado actual del juego
-		}
+		SDL_RenderClear(renderer);
+		render();
+		SDL_RenderPresent(renderer);// dibuja en pantalla el estado actual del juego
+		SDL_Delay(10);
+		
 	}
 }
 
-void Game::update(){
+void Game::handleEvents() {
+	// handleEvents
+	GameManager::instance()->handleEvents();
+	//gameStMc->handleEvents();
+}
+
+void Game::update()
+{
 	//update
 	GameManager::instance()->update();
 	//gameStMc->update();// actualiza el juego

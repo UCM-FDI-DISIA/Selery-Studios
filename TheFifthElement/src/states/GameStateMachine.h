@@ -1,29 +1,21 @@
 #pragma once
-#include <stack>
 #include "../utils/Singleton.h"
+#include <stack>
+#include "../sdlutils/SDLUtils.h"
 #include "../utils/Manager.h"
-#include "GameState.h"
 
-class Game;
-
-class GameStateMachine : public Singleton <GameStateMachine> {
+class GameStateMachine: public Singleton <GameStateMachine> {
 private:
-	stack<GameState*> states; // pila de escenas
-	stack<GameState*> statesToDelete; // pila de escenas a borrar
-	Game* game;
+	stack<Manager*> st; // pila de escenas
+	stack<Manager*> stToDelete; // pila de escenas a borrar
 public:
-	GameStateMachine() {}
-	GameStateMachine(Game* Game);
-	~GameStateMachine();
-	GameState* currentState();
-
-	void pushState(GameState* myState);
-	void popState();
-
-	void changeState(GameState* myState);
-	void clearStates();
-
-
+	~GameStateMachine(); // destructora
+	Manager* currentState(); // acceso al estado actual
+	void pushState(Manager* myState); // push de un estado de juego
+	void changeState(Manager* myState); // cambio de estado de juego
+	void popState(); // pop de estado de juego
+	void clearStates(); // borrado de pila "stToDelete"
+	void handleEvents();
 	void update();
 	void render();
 };

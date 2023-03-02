@@ -14,7 +14,7 @@ InputComponentBEU::InputComponentBEU() :Component() {
 void InputComponentBEU::initComponent() {
 	tr_ = ent_->getComponent<Transform>(TRANSFORM_H);
 	im_ = ent_->getComponent<Image>(IMAGE_H);
-	t_ = new Texture(GameManager::instance()->getRenderer(), "./assets/PlayableCharacters/BeatEmUp/Fire/spritesheets/fireMatrix.png");
+	t_ = new Texture(GameManager::instance()->getRenderer(), "./assets/Player/BeatEmUp/Fire/spritesheets/fireMatrix.png");
 }
 
 void InputComponentBEU::update() {

@@ -12,12 +12,20 @@
 
 void GameManager::goBeatEmUp()
 {
-	if(dynamic_cast<TopDownState*>(GameStateMachine::instance()->currentState()) != nullptr)
+	SDLUtils::instance()->soundEffects().at("Title").haltChannel();
 	GameStateMachine::instance()->pushState(new BeatEmUpState());
 }
 void GameManager::goTopDown()
 {
 	GameStateMachine::instance()->popState();
+}
+void GameManager:: leaveMainMenu()
+{
+	GameStateMachine::instance()->pushState(new TopDownState());
+}
+void GameManager::handleEvents() {
+	// handleEvents
+	GameStateMachine::instance()->handleEvents();
 }
 
 void GameManager::update()

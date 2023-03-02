@@ -3,8 +3,10 @@
 #include "../utils/Entity.h"
 using namespace std;
 
+
 void MovementComponent::initComponent() {
 	tr = ent_->getComponent<Transform>(TRANSFORM_H);
+
 }
 
 void MovementComponent::update() {
