@@ -18,6 +18,7 @@ void ColliderTileComponent::update(){
 			isColliding_=true;	
 			//onPlayerCollision();
 
+			
 		}
 		else if (isColliding_) { // La colisión estaba activa pero ha parado
 

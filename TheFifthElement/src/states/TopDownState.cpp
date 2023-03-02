@@ -153,7 +153,7 @@ void TopDownState::LoadMap(string const& filename) {
                 rect.left *= (float)(WIN_WIDTH / cam_->getWidth());
                 rect.top *= (float)(WIN_HEIGHT / cam_->getHeight());
 
-               //auto a = new ColliderTile(this, Vector2D(rect.left, rect.top), rect.width, rect.height);
+               // auto a = new ColliderTile(this, Vector2D<double>(rect.left, rect.top), rect.width, rect.height);
                 //collisions_.push_back(a);
 
             }
