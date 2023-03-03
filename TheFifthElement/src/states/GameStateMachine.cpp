@@ -1,6 +1,5 @@
 #include "GameStateMachine.h"
-GameStateMachine::~GameStateMachine() // destructora
-{
+GameStateMachine::~GameStateMachine() { // destructora
 	clearStates();
 	while (!st.empty())
 	{
@@ -9,14 +8,11 @@ GameStateMachine::~GameStateMachine() // destructora
 	}
 }
 
-Manager* GameStateMachine::currentState() // consulta del estado actual
-{
+Manager* GameStateMachine::currentState() { // consulta del estado actual
 	return st.top();
 }
 
-void GameStateMachine::pushState(Manager* myState) // push del nuevo estado y entra en él 
-{
-	
+void GameStateMachine::pushState(Manager* myState) { // push del nuevo estado y entra en él 
 	st.push(myState);
 }
 
@@ -31,19 +27,15 @@ void GameStateMachine::changeState(Manager* myState) // cambio de estado
 	}
 }
 
-void GameStateMachine::popState() // pop si la pila no está vacía y salida del estado
-{
-	if (!st.empty())
-	{
+void GameStateMachine::popState() { // pop si la pila no está vacía y salida del estado
+	if (!st.empty()) {
 		stToDelete.push(st.top());
 		st.pop();
 	}
 }
 
-void GameStateMachine::clearStates()
-{
-	while (!stToDelete.empty())
-	{
+void GameStateMachine::clearStates() {
+	while (!stToDelete.empty()) {
 		delete(stToDelete.top());// elimina estado
 		stToDelete.pop();// quita estado de la lista de eliminados
 	}

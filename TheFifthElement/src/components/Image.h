@@ -35,6 +35,7 @@ public:
 	// Dibuja en escena
 	void render();
 
+	inline int getCol() { return i; }
 	inline int getRow() { return fila_; }
 	inline int getLastFrame(){ return frames_;}
 
