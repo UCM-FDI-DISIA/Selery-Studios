@@ -42,25 +42,26 @@ EnemyBEU::EnemyBEU(PlayerBEU* player, float maxLife, string enemy, string type) 
 	//addComponent<LifeComponent>(int(LIFECOMPONENT_H), tr, maxLife_);
 }
 
-void EnemyBEU::collision() {
-	//cout << isAttacking_ << endl;
-	if (!im_->isAnimPlaying()) {
-		//cout << "colisiona" << endl;
-	// animaci�n de ataque y ataque en s�
-//llamar a cambiar estado a attack
-		anim_->changeState(AnimationEnemyBEUComponent::Attack);
-		//en el hit
-		// cuando termine la animaci�n se mueve para permitir al jugador escapar
-		//tr_->setPos(Vector2D(tr_->getPos().getX() + 50, tr_->getPos().getY()));
-		isAttacking_ = true;
+void EnemyBEU::collision(bool col) {
+	if (col) {
+		//cout << isAttacking_ << endl;
+		if (!im_->isAnimPlaying()) {
+			//cout << "colisiona" << endl;
+		// animaci�n de ataque y ataque en s�
+	//llamar a cambiar estado a attack
+			anim_->changeState(AnimationEnemyBEUComponent::Attack);
+			//en el hit
+			// cuando termine la animaci�n se mueve para permitir al jugador escapar
+			//tr_->setPos(Vector2D(tr_->getPos().getX() + 50, tr_->getPos().getY()));
+		}
 	}
-}
-
-void EnemyBEU::noCollision() {
-	if (!im_->isAnimPlaying()) {
-		// lógica de recibir daño, muerte o movimiento
-		anim_->changeState(AnimationEnemyBEUComponent::Moving);
+	else {
+		if (!im_->isAnimPlaying()) {
+			// lógica de recibir daño, muerte o movimiento
+			anim_->changeState(AnimationEnemyBEUComponent::Moving);
+		}
 	}
+	
 }
 
 PlayerBEU* EnemyBEU::returnPlayer() {
@@ -79,8 +80,8 @@ void EnemyBEU::setCollider(Vector2D offset, float h, float w)
 void EnemyBEU::setColAnim(float EnemyWidth, float EnemyHeight, int nframes, Vector2D offset,
 	float ColWidth, float ColHeight, Texture* t, bool Anim)
 {
-	EnemyWidth_ = EnemyWidth;
-	EnemyHeight_ = EnemyHeight;
+	//EnemyWidth_ = EnemyWidth;
+	//EnemyHeight_ = EnemyHeight;
 	nframes_ = nframes;
 	offset_ = offset;
 	ColWidth_ = ColWidth;
@@ -90,11 +91,6 @@ void EnemyBEU::setColAnim(float EnemyWidth, float EnemyHeight, int nframes, Vect
 		im_->setSpriteAnim(Anim, nframes_, 0, t_);
 		col_->setCollider(offset_, ColHeight_, ColWidth_);
 	}
-}
-
-void EnemyBEU::setAttackBool(bool s)
-{
-	isAttacking_ = s;
 }
 
 

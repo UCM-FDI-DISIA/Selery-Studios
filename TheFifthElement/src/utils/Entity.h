@@ -91,7 +91,6 @@ public:
 			currCmps_[i]->handleEvent(event);
 	}
 
-	virtual void collision() {};
-	virtual void noCollision() {};
+	virtual void collision(bool col) {};
 };
 
