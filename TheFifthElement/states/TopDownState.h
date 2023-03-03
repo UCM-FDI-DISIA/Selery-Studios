@@ -28,7 +28,5 @@ public:
 private:
 	GameManager* Gm_;
 	PlayerTD* player_;
-
->>>>>>> Stashed changes
 };
 
