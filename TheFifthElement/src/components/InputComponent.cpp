@@ -4,8 +4,6 @@
 #include "../utils/ecs.h"
 #include "../Entities/PlayerTD.h"
 #include "../states/TopDownState.h"
-#include <string>
-
 InputComponent::InputComponent():Component() {
 }
 void InputComponent::initComponent() {
