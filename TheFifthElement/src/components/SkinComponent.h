@@ -35,7 +35,7 @@ public:
     void update();
     void changeMov();
     void changeState(AnimationStates newState) { nextState_ = newState; };
-    void changeSkin(string skin) { skin_ = skin; };
+    void changeSkin(string skin);
 
 };
 #endif

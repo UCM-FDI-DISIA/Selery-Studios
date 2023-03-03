@@ -174,3 +174,27 @@ void SkinComponent::setDown() {
 		t_ = "PTD_earth_down";
 	}
 }
+
+void SkinComponent::changeSkin(string skin)
+{
+	skin_ = skin;
+	nframes_ = 7;
+	w_ = 519;
+	h_ = 120;
+
+	if (skin_ == "fire") {
+		t_ = "PTD_fire_idle";
+	}
+
+	else if (skin_ == "air") {
+		t_ = "PTD_air_idle";
+	}
+
+	else if (skin_ == "water") {
+		t_ = "PTD_water_idle";
+	}
+
+	else if (skin_ == "earth") {
+		t_ = "PTD_earth_idle";
+	}
+}
