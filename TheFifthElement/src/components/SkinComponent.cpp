@@ -174,3 +174,5 @@ void SkinComponent::setDown() {
 		//t_ = "PTD_earth_down";
 	}
 }
+
+//void SkinComponent::changeSkin(string skin) {}
