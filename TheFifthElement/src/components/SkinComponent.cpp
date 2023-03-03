@@ -175,26 +175,35 @@ void SkinComponent::setDown() {
 	}
 }
 
-void SkinComponent::changeSkin(string skin)
+void SkinComponent::changeSkin(int index)
 {
-	skin_ = skin;
+	index_+=index;
+	if (index_ < 0) { index_ = 3; }
+	else if (index_ > 3) { index_ = 0; }
 	nframes_ = 7;
 	w_ = 519;
 	h_ = 120;
 
-	if (skin_ == "fire") {
+	//este cambio se hará con un int y un array de nombres
+
+
+	if (skins_[index_] == "fire") {
 		t_ = "PTD_fire_idle";
+		cout << "fire" << endl;
 	}
 
-	else if (skin_ == "air") {
+	else if (skins_[index_] == "air") {
 		t_ = "PTD_air_idle";
+		cout << "air" << endl;
 	}
 
-	else if (skin_ == "water") {
+	else if (skins_[index_] == "water") {
 		t_ = "PTD_water_idle";
+		cout << "water" << endl;
 	}
 
-	else if (skin_ == "earth") {
+	else if (skins_[index_] == "earth") {
 		t_ = "PTD_earth_idle";
+		cout << "earth" << endl;
 	}
 }

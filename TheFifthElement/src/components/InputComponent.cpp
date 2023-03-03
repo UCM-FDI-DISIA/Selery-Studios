@@ -6,8 +6,9 @@
 #include "../states/TopDownState.h"
 #include <string>
 
-InputComponent::InputComponent():Component() {
+InputComponent::InputComponent() :Component() {
 }
+
 void InputComponent::initComponent() {
 	mov_ = ent_->getComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
 	im_ = ent_->getComponent<Image>(IMAGE_H);
@@ -47,17 +48,17 @@ void InputComponent::handleEvents(SDL_Event event)
 			}
 
 			if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_1)) {
-				skin_->changeSkin("fire");
+				skin_->changeSkin(1);
 			}
-			else if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_2)) {
+			/*else if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_2)) {
 				skin_->changeSkin("air");
-			}
+			}*/
 			else  if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_3)) {
-				skin_->changeSkin("water");
+				skin_->changeSkin(-1);
 			}
-			else if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_4)) {
+			/*else if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_4)) {
 				skin_->changeSkin("earth");
-			}
+			}*/
 		}
 		
 		if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_E)) {
