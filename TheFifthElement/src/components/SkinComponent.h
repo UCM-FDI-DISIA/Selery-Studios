@@ -4,6 +4,9 @@
 #include "../utils/Component.h"
 #include "../sdlutils/Texture.h"
 #include "../GameManager.h"
+#include <string>
+
+
 
 class SkinComponent : public Component
 {
@@ -34,8 +37,8 @@ public:
     void initComponent();
     void update();
     void changeMov();
-    void changeState(AnimationStates newState) { nextState_ = newState; };
-    void changeSkin(string skin);
+    void changeState(AnimationStates newState) { nextState_ = newState; }
+    void changeSkin(string skin) { skin_ = skin; }
 
 };
 #endif
