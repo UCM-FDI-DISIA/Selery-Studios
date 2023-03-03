@@ -71,11 +71,12 @@ public:
 		return cmps_[cId] != nullptr;
 	}
 
-	virtual  void update() {
+	inline void update() {
 		auto n = currCmps_.size();
 		for (auto i = 0u; i < n; i++)
 			currCmps_[i]->update();
 	}
+	
 
 	inline void render() {
 		auto n = currCmps_.size();
