@@ -20,10 +20,10 @@ void InputComponentBEU::update() {
 
 }
 
-void InputComponentBEU::handleEvents(SDL_Event event){
+void InputComponentBEU::handleEvents(SDL_Event event) {
 	ih().update(event);
 	if (ih().keyDownEvent()) {
-		if (!im_->isAnimPlaying()){
+		if (!im_->isAnimPlaying()) {
 			if (ih().isKeyDown(SDL_SCANCODE_SPACE) && jmp_->isJumpEnabled()) { // Salto
 				im_->setAnim(true, 4, 14, 0);
 				jmp_->jump();
@@ -62,9 +62,10 @@ void InputComponentBEU::handleEvents(SDL_Event event){
 				im_->setAnim(false, 0, 8, 0);
 			}
 		}
-	}
-	else {
-		tr_->setDir(Vector2D(0, 0));
-		im_->setAnim(false, 0, 8, 0);
+		else if (jmp_->isJumpEnabled()) {
+			tr_->setDir(Vector2D(0, 0));
+			im_->setAnim(false, 0, 8, 0);
+		}
 	}
 }
+
