@@ -12,20 +12,25 @@ void JumpComponent::initComponent() {
 
 void JumpComponent::update() {
     if (!canJump) {
+        cout << im_->getCol();
         // Si el jugador ha alcanzado el punto m�s alto del salto, invertir la velocidad del salto
-        if (im_->getCol() == 7) jumpSpeed = -jumpSpeed;
+        if (im_->getCol() == 3) ctr = true;
+        else if (im_->getCol() == 7 && ctr) {
+            jumpSpeed = -jumpSpeed;
+            ctr = false;
+        }
+        else if (im_->getCol() == 9) ctr = true;
 
         // Actualizar la posici�n vertical del jugador en funci�n de la velocidad del salto
         tr_->setDir(Vector2D(tr_->getDir().getX(), -jumpSpeed));
 
         // Si el jugador ha alcanzado la altura m�xima del salto, establecer canJump en verdadero
-        if (tr_->getPos().getY() >= jumpHeigth) {
+        if (tr_->getPos().getY() >= jumpHeigth && ctr) {
             canJump = true;
-            ctr = false;
+            tr_->setDir(Vector2D(0, 0));
             jumpSpeed = -jumpSpeed;
+            ctr = false;
         }
-
-        ctr = true;
     }
 }
 

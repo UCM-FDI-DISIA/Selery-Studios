@@ -44,8 +44,7 @@ void Game::run()// bucle de juego
 	}
 }
 
-void Game::handleEvents() {
-	// handleEvents
+void Game::handleEvents() { // handleEvents
 	GameManager::instance()->handleEvents();
 	//gameStMc->handleEvents();
 }

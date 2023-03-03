@@ -21,8 +21,7 @@ void MainMenuState::update()
 void MainMenuState::handleEvents()
 {
 	SDL_Event event;
-	while (SDL_PollEvent(&event))
-	{
+	while (SDL_PollEvent(&event)){
 		playButton->handleEvent(event);
 	}
 

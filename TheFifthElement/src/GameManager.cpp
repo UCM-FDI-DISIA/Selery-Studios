@@ -21,7 +21,7 @@ void GameManager::goTopDown()
 }
 void GameManager:: leaveMainMenu()
 {
-	GameStateMachine::instance()->pushState(new TopDownState());
+	GameStateMachine::instance()->pushState(new BeatEmUpState());
 }
 void GameManager::handleEvents() {
 	// handleEvents

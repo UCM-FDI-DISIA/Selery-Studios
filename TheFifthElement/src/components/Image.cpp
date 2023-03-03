@@ -38,7 +38,7 @@ void Image::render() {
 		src.h = tr_->getH();
 		src.w = tr_->getW() / framesTotales_;
 		tex_->render(src, rect, 0, nullptr, s);
-		if (cont >= 10) {
+		if (cont >= 5) {
 			i++;
 			cont = 0;
 		}
