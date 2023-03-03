@@ -15,7 +15,7 @@ class PlayerTD : public Entity {
 private:
 	Vector2D PlayerPosition_{ 10,150 };
 	float speed_ = 3.0f;
-	float PlayerWidth_ = 476, PlayerHeigth_ = 120, PlayerRotation_ = 1;
+	float PlayerWidth_ = PLAYERTD_WIDTH_FRAME, PlayerHeigth_ = PLAYERTD_HEIGHT_FRAME, PlayerRotation_ = 1;
 	Texture* t_;
 	Transform* tr;
 	Vector2D dir;
@@ -43,28 +43,7 @@ public:
 	int getCol() {
 		return collisionNPC;
 	}
-	PlayerTD(string skin, Manager* m) {
-		//mngr_ = m;
-		cmpId_type k = int(SKINCOMPONENT_H);
-		sk = addComponent<SkinComponent>(k, skin);
-		sk->changeState(SkinComponent::Idle);
-		sk->changeMov();
-
-		cmpId_type z = int(TRANSFORM_H);
-		tr = addComponent<Transform>(z, PlayerPosition_, PlayerWidth_, PlayerHeigth_, PlayerRotation_,speed_, nframes_, matrix_);
-
-		
-		fila_ = 0;
-		im_ = addComponent<Image>(int(IMAGE_H), t_, nframes_, nframes_, fila_);
-
-		mov = addComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
-
-		in_ = addComponent<InputComponent>(INPUTCOMPONENT_H);
-		in_->initComponent();
-		in_->setContext(this, m);
-		
-		set_ = true;
-	}
+	PlayerTD(string skin, Manager* m);
 	PlayerTD() : Entity() {
 	
 	}

@@ -16,7 +16,7 @@ PlayerBEU::PlayerBEU() : Entity() {
 	//igualamos el inputComponent a una variable ya que este necesita una referencia de image que aún no existe, por lo que esa referencia es NULL
 	in_=addComponent<InputComponentBEU>(INPUTCOMPONENTBEU_H);
 
-	addComponent<Image>(int(IMAGE_H), t, nframes, framesT_, fila_);
+	addComponent<Image>(int(IMAGE_H), t, nframes, framesT_, fila_, PLAYERBEU_WIDTH_FRAME, PLAYERBEU_HEIGHT_FRAME);
 	//addComponent<ColliderComponent>(int(COLLIDERCOMPONENT_H), Vector2D(100, 100), 20, 20);
 	addComponent<AttackBoxComponent>(ATTACKBOXCOMPONENT_H);
 

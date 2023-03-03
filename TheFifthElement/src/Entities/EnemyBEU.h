@@ -39,7 +39,7 @@ private:
 
 #pragma region sprites
 	string enemy_, type_;
-	float EnemyWidth_, EnemyHeight_, EnemyRotation_ = 1;
+	float EnemyWidthQUESISIRVE_ = ENEMYBEU_WIDTH, EnemyHeightQUESISIRVE_ = ENEMYBEU_HEIGHT, EnemyWidth_, EnemyHeight_, EnemyRotation_ = 1;
 	int nframes_;
 	int fila_ = 0;
 	float life_, maxLife_;
