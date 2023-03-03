@@ -47,8 +47,8 @@ void SkinComponent::changeMov() {
 
 void SkinComponent::setIdle() {
 	nframes_ = 7;
-	w_ = 519;
-	h_ = 120;
+	w_ = PLAYERTD_WIDTH_FRAME;
+	h_ = PLAYERTD_HEIGHT_FRAME;
 
 	//offset_ = Vector2D(55, 55);
 	/*ColHeight_ = EnemyHeight_ / 3;
@@ -73,8 +73,8 @@ void SkinComponent::setIdle() {
 
 void SkinComponent::setLeft() {
 	nframes_ = 7;
-	w_ = 476;
-	h_ = 120;
+	w_ = PLAYERTD_WIDTH_FRAME;
+	h_ = PLAYERTD_HEIGHT_FRAME;
 
 	//offset_ = Vector2D(55, 55);
 	/*ColHeight_ = EnemyHeight_ / 3;
@@ -99,8 +99,8 @@ void SkinComponent::setLeft() {
 
 void SkinComponent::setRight() {
 	nframes_ = 7;
-	w_ = 476;
-	h_ = 120;
+	w_ = PLAYERTD_WIDTH_FRAME;
+	h_ = PLAYERTD_HEIGHT_FRAME;
 
 	//offset_ = Vector2D(55, 55);
 	/*ColHeight_ = EnemyHeight_ / 3;
@@ -125,8 +125,8 @@ void SkinComponent::setRight() {
 
 void SkinComponent::setUp() {
 	nframes_ = 9;
-	w_ = 612;
-	h_ = 120;
+	w_ = PLAYERTD_WIDTH_FRAME;
+	h_ = PLAYERTD_HEIGHT_FRAME;
 
 	//offset_ = Vector2D(55, 55);
 	/*ColHeight_ = EnemyHeight_ / 3;
@@ -151,8 +151,8 @@ void SkinComponent::setUp() {
 
 void SkinComponent::setDown() {
 	nframes_ = 9;
-	w_ = 612;
-	h_ = 120;
+	w_ = PLAYERTD_WIDTH_FRAME;
+	h_ = PLAYERTD_HEIGHT_FRAME;
 
 	//offset_ = Vector2D(55, 55);
 	/*ColHeight_ = EnemyHeight_ / 3;

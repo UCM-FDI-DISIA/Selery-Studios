@@ -25,7 +25,7 @@ public:
     }
 
     void initComponent() {
-        tr_ = ent_->getComponent<Transform>(int(TRANSFORM_H));
+        tr_ = ent_->getComponent<Transform>(TRANSFORM_H);
         pos_ = tr_->getPos();
         pos_ = pos_ + offset_;
         r.x = pos_.getX();
