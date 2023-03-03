@@ -12,7 +12,6 @@ InputComponent::InputComponent() :Component() {
 void InputComponent::initComponent() {
 	mov_ = ent_->getComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
 	skin_ = ent_->getComponent<SkinComponent>(SKINCOMPONENT_H);
-	hud_ = ent_->getComponent<HUDComponent>(HUDCOMPONENT_H);
 	//setContext();	
 }
 void InputComponent::update() { //Actualizamos el contador que mide el tiempo
