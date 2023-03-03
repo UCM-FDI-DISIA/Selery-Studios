@@ -22,5 +22,5 @@ public:
     void update();
 
     void jump();
-    bool isJumpEnable() { return canJump; }
+    bool isJumpEnabled() { return canJump; }
 };
