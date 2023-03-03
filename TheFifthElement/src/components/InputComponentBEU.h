@@ -16,8 +16,6 @@ private:
     JumpComponent* jmp_ = nullptr;
     Texture* t_ = nullptr;
 
-    float downLimit, topLimit;
-
 public:
     InputComponentBEU();
     void initComponent();

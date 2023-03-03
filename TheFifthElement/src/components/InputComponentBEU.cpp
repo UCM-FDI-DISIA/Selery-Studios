@@ -7,8 +7,6 @@
 #include "../states/BeatEmUpState.h"
 
 InputComponentBEU::InputComponentBEU() :Component() {
-	downLimit = sdlutils().height();
-	topLimit = downLimit / 3;
 }
 
 void InputComponentBEU::initComponent() {
@@ -40,11 +38,11 @@ void InputComponentBEU::handleEvents(SDL_Event event){
 				im_->setAnim(false, 1, 8, 0);
 				im_->setFlip(SDL_FLIP_NONE);
 			}
-			else  if (ih().isKeyDown(SDL_SCANCODE_W) && tr_->getPos().getY() > topLimit) { // Mover Arriba
+			else  if (ih().isKeyDown(SDL_SCANCODE_W) && tr_->getPos().getY()) { // Mover Arriba
 				tr_->setDir(Vector2D(0, -1));
 				im_->setAnim(false, 1, 8, 0);
 			}
-			else if (ih().isKeyDown(SDL_SCANCODE_S) && tr_->getPos().getY() < downLimit - tr_->getH()) { // Mover Abajo
+			else if (ih().isKeyDown(SDL_SCANCODE_S) && tr_->getPos().getY()) { // Mover Abajo
 				tr_->setDir(Vector2D(0, 1));
 				im_->setAnim(false, 1, 8, 0);
 			}
@@ -63,16 +61,6 @@ void InputComponentBEU::handleEvents(SDL_Event event){
 				tr_->setDir(Vector2D(0, 0));
 				im_->setAnim(false, 0, 8, 0);
 			}
-		}
-	}
-	else if(jmp_->isJumpEnabled()) { // Mov durante el salto
-		if (ih().isKeyDown(SDL_SCANCODE_A)) { // Mover Izquierda En Salto
-			tr_->setDir(Vector2D(-1, tr_->getDir().getY()));
-			im_->setFlip(SDL_FLIP_HORIZONTAL);
-		}
-		else if (ih().isKeyDown(SDL_SCANCODE_D)) { // Mover Derecha En Salto
-			tr_->setDir(Vector2D(1, tr_->getDir().getY()));
-			im_->setFlip(SDL_FLIP_NONE);
 		}
 	}
 	else {

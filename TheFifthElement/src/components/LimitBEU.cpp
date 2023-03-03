@@ -7,7 +7,7 @@ LimitBEU::LimitBEU() {
 void LimitBEU::initComponent() {
 	tr_ = ent_->getComponent<Transform>(TRANSFORM_H);
 	downLimit = sdlutils().height() - 100 - tr_->getH();
-	topLimit = sdlutils().height() / 3;
+	topLimit = sdlutils().height() / 4;
 }
 
 void LimitBEU::update() {
