@@ -56,7 +56,7 @@ private:
 public:
 	~EnemyBEU();
 
-	EnemyBEU(PlayerBEU* player, float maxLife, string enemy, string type);
+	EnemyBEU(Vector2D pos,PlayerBEU* player, float maxLife, string enemy, string type);
 
 	void collision();
 

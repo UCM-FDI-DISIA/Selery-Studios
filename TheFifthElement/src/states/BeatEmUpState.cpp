@@ -1,4 +1,6 @@
 #include "BeatEmUpState.h"
+
+
 BeatEmUpState::BeatEmUpState() {
 	addEntity(new Background("airBackground"));
 	player_ = addEntity(new PlayerBEU());
@@ -21,21 +23,20 @@ void BeatEmUpState::AddEnemies(int i) {
 		int character = r->nextInt(0, 4);
 
 		int element = r->nextInt(0, 4);
+		Vector2D pos={ (float)r->nextInt(50,WIN_WIDTH - 80),(float)r->nextInt(50,WIN_HEIGHT - 50) };
 		if (character == 0) {
 
-			addEntity(new EnemyBEU(player_, 100, "bat", getEnemyType(element)));
+			addEntity(new EnemyBEU(pos,player_, 100, "bat", getEnemyType(element)));
 		}
 		else if (character == 1) {
-			addEntity(new EnemyBEU(player_, 100, "skeleton", getEnemyType(element)));
+			addEntity(new EnemyBEU(pos,player_, 100, "skeleton", getEnemyType(element)));
 		}
 		else if (character == 2) {
-			addEntity(new EnemyBEU(player_, 100, "shroom", getEnemyType(element)));
+			addEntity(new EnemyBEU(pos,player_, 100, "shroom", getEnemyType(element)));
 		}
 		else {
-			addEntity(new EnemyBEU(player_, 100, "goblin", getEnemyType(element)));
+			addEntity(new EnemyBEU(pos,player_, 100, "goblin", getEnemyType(element)));
 		}
-
-
 
 
 	}
