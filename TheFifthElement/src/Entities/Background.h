@@ -13,8 +13,6 @@ public:
 		int r = 0;
 		addComponent<Transform>(int(TRANSFORM_H), v, WIN_WIDTH, WIN_HEIGHT,r,0, f, matrix);
 		Texture* t = &SDLUtils::instance()->images().at(file);
-		addComponent<Image>(int(IMAGE_H), t,f, f, f);
-		//Texture* tex, int nframes, int framesT, int fila
-	//		Vector2D pos, float w, float h, float r, int frames, bool matrix
+		addComponent<Image>(int(IMAGE_H), t,f, f, f, BACKGROUNDAIR_WIDTH_FRAME, BACKGROUNDAIR_HEIGHT_FRAME);
 	}
 };

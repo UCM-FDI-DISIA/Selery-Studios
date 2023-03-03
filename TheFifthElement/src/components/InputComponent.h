@@ -6,6 +6,7 @@
 #include "Image.h"
 #include "SkinComponent.h"
 #include "SDL_events.h"
+#include <string>
 
 class InputComponent : public Component {
 private:
