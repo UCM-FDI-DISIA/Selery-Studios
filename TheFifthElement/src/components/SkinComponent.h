@@ -20,14 +20,13 @@ private:
     int nframes_;
     int fila_;
     int w_, h_;
-    int index_;
-    string skins_[4] = {"air","fire","earth","water"};
+
 public:
 
     SkinComponent(string skin)
     {
         skin_ = skin;
-        index_ = 0;
+
     }
     void setIdle();
     void setLeft();
@@ -38,7 +37,7 @@ public:
     void update();
     void changeMov();
     void changeState(AnimationStates newState) { nextState_ = newState; };
-    void changeSkin(int index);
+    void changeSkin(string skin);
 
 };
 #endif

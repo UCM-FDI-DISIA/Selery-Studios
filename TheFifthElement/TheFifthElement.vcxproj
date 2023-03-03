@@ -130,7 +130,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="src\Entities\HUD.h" />
+    <ClInclude Include="src\components\HUDIcon.h" />
+    <ClInclude Include="src\components\HUDComponent.h" />
     <ClInclude Include="src\Entities\Button.h" />
     <ClInclude Include="src\components\AnimationEnemyBEUComponent.h" />
     <ClInclude Include="src\components\ColDetectorComponent.h" />
@@ -193,7 +194,8 @@
     <ClInclude Include="src\utils\Vector2D.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Entities\HUD.cpp" />
+    <ClCompile Include="src\components\HUDIcon.cpp" />
+    <ClCompile Include="src\components\HUDComponent.cpp" />
     <ClCompile Include="src\Entities\Button.cpp" />
     <ClCompile Include="src\components\AnimationEnemyBEUComponent.cpp" />
     <ClCompile Include="src\components\ColDetectorComponent.cpp" />

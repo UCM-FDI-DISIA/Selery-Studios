@@ -9,6 +9,7 @@
 #include "../components/MovementComponent.h"
 #include "../components/Image.h"
 #include "../components/SkinComponent.h"
+#include "../components/HUDComponent.h"
 
 class PlayerTD : public Entity {
 private:
@@ -22,6 +23,7 @@ private:
 	MovementComponent* mov = nullptr;
 	SkinComponent* sk = nullptr;
 	Image* im_ = nullptr;
+	HUDComponent* hud_ = nullptr;
 	int nframes_ = 7;
 	int fila_;
 	int collisionNPC;

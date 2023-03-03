@@ -11,8 +11,8 @@ InputComponent::InputComponent() :Component() {
 
 void InputComponent::initComponent() {
 	mov_ = ent_->getComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
-	im_ = ent_->getComponent<Image>(IMAGE_H);
 	skin_ = ent_->getComponent<SkinComponent>(SKINCOMPONENT_H);
+	hud_ = ent_->getComponent<HUDComponent>(HUDCOMPONENT_H);
 	//setContext();	
 }
 void InputComponent::update() { //Actualizamos el contador que mide el tiempo
@@ -48,17 +48,17 @@ void InputComponent::handleEvents(SDL_Event event)
 			}
 
 			if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_1)) {
-				skin_->changeSkin(1);
+				skin_->changeSkin("fire");
 			}
-			/*else if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_2)) {
+			else if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_2)) {
 				skin_->changeSkin("air");
-			}*/
-			else  if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_3)) {
-				skin_->changeSkin(-1);
 			}
-			/*else if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_4)) {
+			else  if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_3)) {
+				skin_->changeSkin("water");
+			}
+			else if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_4)) {
 				skin_->changeSkin("earth");
-			}*/
+			}
 		}
 		
 		if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_E)) {

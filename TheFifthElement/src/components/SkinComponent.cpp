@@ -5,13 +5,11 @@
 #include "../Entities/PlayerTD.h"
 
 void SkinComponent::initComponent() {
-	//ent_->addComponent<Image>(int(IMAGE_H), fire, nframes, nframes, fila_);
 }
 
 void SkinComponent::update() {
 	if (nextState_ != currentState_) changeMov();
 	else;
-	//cout << skin_ << endl;
 }
 
 void SkinComponent::changeMov() {
@@ -175,35 +173,26 @@ void SkinComponent::setDown() {
 	}
 }
 
-void SkinComponent::changeSkin(int index)
+void SkinComponent::changeSkin(string skin)
 {
-	index_+=index;
-	if (index_ < 0) { index_ = 3; }
-	else if (index_ > 3) { index_ = 0; }
+	skin_ = skin;
 	nframes_ = 7;
 	w_ = 519;
 	h_ = 120;
 
-	//este cambio se hará con un int y un array de nombres
-
-
-	if (skins_[index_] == "fire") {
+	if (skin_ == "fire") {
 		t_ = "PTD_fire_idle";
-		cout << "fire" << endl;
 	}
 
-	else if (skins_[index_] == "air") {
+	else if (skin_ == "air") {
 		t_ = "PTD_air_idle";
-		cout << "air" << endl;
 	}
 
-	else if (skins_[index_] == "water") {
+	else if (skin_ == "water") {
 		t_ = "PTD_water_idle";
-		cout << "water" << endl;
 	}
 
-	else if (skins_[index_] == "earth") {
+	else if (skin_ == "earth") {
 		t_ = "PTD_earth_idle";
-		cout << "earth" << endl;
 	}
 }
