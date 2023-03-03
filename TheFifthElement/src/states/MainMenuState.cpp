@@ -26,7 +26,6 @@ void MainMenuState::handleEvents()
 	}
 
 }
-void MainMenuState::render()
-{
+void MainMenuState::render(){
 	Manager::render();
 }

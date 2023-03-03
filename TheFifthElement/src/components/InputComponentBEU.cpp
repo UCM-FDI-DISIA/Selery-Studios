@@ -65,7 +65,7 @@ void InputComponentBEU::handleEvents(SDL_Event event){
 			}
 		}
 	}
-	else if(jmp_->isJumpEnabled()) {
+	else if(jmp_->isJumpEnabled()) { // Mov durante el salto
 		if (ih().isKeyDown(SDL_SCANCODE_A)) { // Mover Izquierda En Salto
 			tr_->setDir(Vector2D(-1, tr_->getDir().getY()));
 			im_->setFlip(SDL_FLIP_HORIZONTAL);

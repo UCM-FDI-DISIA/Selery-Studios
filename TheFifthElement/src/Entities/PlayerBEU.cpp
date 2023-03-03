@@ -10,7 +10,7 @@ PlayerBEU::PlayerBEU() : Entity() {
 	//referencia al texture y al transform
 	fila_ = 0;
 
-	addComponent<Image>(int(IMAGE_H), t, nframes, framesT_, fila_);
+	addComponent<Image>(int(IMAGE_H), t, nframes, framesT_, fila_, PLAYERBEU_WIDTH_FRAME, PLAYERBEU_HEIGHT_FRAME);
 	addComponent<JumpComponent>(JUMP_H);
 
 	//igualamos el inputComponent a una variable ya que este necesita una referencia de image que a�n no existe, por lo que esa referencia es NULL
