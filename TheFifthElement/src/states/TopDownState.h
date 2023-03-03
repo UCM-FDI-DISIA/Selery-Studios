@@ -42,6 +42,7 @@ public:
 	string getStateID(); // stringID
 	DialogBox* d;
 	TopDownState() {
+
 		LoadMap("assets/Scenes/Maps/MapaInicial.tmx");
 		player_ = addEntity(new PlayerTD("air", this));
 		dialog_ = false;
@@ -54,7 +55,8 @@ public:
 		addEntity(new Element(player_, Vector2D(100, 100), p));
 		addEntity(new Element(player_, Vector2D(300, 100), p));
 		addEntity(new Element(player_, Vector2D(200, 200), p));
-		
+		LoadMap("assets/Scenes/Maps/MapaInicial.tmx");
+
 		
 		// PRUEBAS PATHING ENEMIGO
 		addEntity(new RedirectTile(Vector2D(1, 0), Vector2D(680, 170), enemy_)); //der
