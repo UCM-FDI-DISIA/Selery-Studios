@@ -22,21 +22,20 @@ EnemyBEU::EnemyBEU(PlayerBEU* player, float maxLife, string enemy, string type) 
 	anim_->updateAnimation();
 
 
-	tr_ = addComponent<Transform>(int(TRANSFORM_H), EnemyPosition_, EnemyWidth_, EnemyHeight_, EnemyRotation_, speed_, nframes_, matrix_);
-	trPlayer_ = player_->getComponent<Transform>(int(TRANSFORM_H));
+	//tr_ = addComponent<Transform>(TRANSFORM_H, EnemyPosition_, EnemyWidth_, EnemyHeight_, EnemyRotation_, speed_, nframes_, matrix_);
+	tr_ = addComponent<Transform>(TRANSFORM_H, EnemyPosition_, EnemyWidthQUESISIRVE_, EnemyHeightQUESISIRVE_, EnemyRotation_, speed_, nframes_, matrix_);
+	trPlayer_ = player_->getComponent<Transform>(TRANSFORM_H);
 
 
-	im_ = addComponent<Image>(int(IMAGE_H), t_, nframes_, nframes_, fila_);
+	im_ = addComponent<Image>(IMAGE_H, t_, nframes_, nframes_, fila_, ENEMYBEU_WIDTH, ENEMYBEU_HEIGHT);
 
-	cmpId_type s = int(MOVEMENTCOMPONENT_H);
-	mov_ = addComponent<MovementComponent>(s);
+	mov_ = addComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
 	tr_->setDir(Vector2D(1, 0));
 
-	cmpId_type e = int(ENEMYBEUDIRECTIONCOMPONENT_H);
-	eMov_ = addComponent<EnemyBEUDirectionComponent>(e, player, enemy_);
+	eMov_ = addComponent<EnemyBEUDirectionComponent>(ENEMYBEUDIRECTIONCOMPONENT_H, player, enemy_);
 
-	col_ = addComponent<ColliderComponent>(int(COLLIDERCOMPONENT_H), offset_, ColHeight_, ColWidth_);
-	addComponent<ColDetectorComponent>(int(COLDETECTORCOMPONENT_H), this, player_);
+	col_ = addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, offset_, ColHeight_, ColWidth_);
+	addComponent<ColDetectorComponent>(COLDETECTORCOMPONENT_H, this, player_);
 
 	set_ = true;
 

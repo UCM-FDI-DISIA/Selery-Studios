@@ -31,15 +31,7 @@ public:
 
 	void Teleport(Vector2D newPlayerPos);
 
-	Portal(PlayerTD* player) : Entity()
-	{
-		player_ = player;
-		tr = addComponent<Transform>(int(TRANSFORM_H), portalPosition_, portalWidth_, portalHeight_, portalRotation_,portalVel, nframes, false);
-		trPlayer_ = player_->getComponent<Transform>(int(TRANSFORM_H));
-		t = &SDLUtils::instance()->images().at("portal");
-		addComponent<Image>(int(IMAGE_H), t, nframes, nframes, 0);
-		addComponent<ObjectsComponent>(int(OBJECTSCOMPONENT_H));
-	}
+	Portal(PlayerTD* player);
 
 };
 
