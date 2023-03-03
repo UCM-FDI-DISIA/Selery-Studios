@@ -8,17 +8,23 @@
 #include "../Entities/EnemyBEU.h"
 #include "../sdlutils/SDLUtils.h"
 #include "../Entities/Background.h"
-
+#include "../sdlutils/SDLUtils.h"
+#include <unordered_map>
+using name = string;
+using damage = int;
 class BeatEmUpState	 : public Manager {
 private:
 	PlayerBEU* player_;
 	InputComponentBEU* in_;
 	bool dialog_;
+	RandomNumberGenerator* r;
+	int n_enemies = 0;
+
 public:
 	string getStateID(); // stringID
-
 	BeatEmUpState();
-
+	void AddEnemies(int i);
+	string getEnemyType(int i);
 	void finishBEU();
 	void handleEvents();
 	~BeatEmUpState() {}

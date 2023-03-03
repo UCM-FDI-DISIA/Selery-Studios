@@ -18,8 +18,8 @@ private:
 	bool isEnemyBEU;
 	SDL_RendererFlip s = SDL_FLIP_NONE;
 	bool animPlaying = false;
-	int ofset_x = 30;
-	int ofset_y = 30;
+	int ofset_x = 10;
+	int ofset_y = 10;
 public:
 
 	//Constructora
