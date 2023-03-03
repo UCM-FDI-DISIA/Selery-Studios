@@ -395,6 +395,67 @@
       "id": "PTD_fire_right",
       "file": "assets/Player/TopDown/Fire/andar.png"
     },
+    {
+      "id": "PTD_air_idle",
+      "file": "assets/Player/TopDown/Air/idle.png"
+    },
+    {
+      "id": "PTD_air_left",
+      "file": "assets/Player/TopDown/Air/andarIzquierda.png"
+    },
+    {
+      "id": "PTD_air_up",
+      "file": "assets/Player/TopDown/Air/andararriba.png"
+    },
+    {
+      "id": "PTD_air_down",
+      "file": "assets/Player/TopDown/Air/andarfrente.png"
+    },
+    {
+      "id": "PTD_air_right",
+      "file": "assets/Player/TopDown/Air/andar.png"
+    },
+    {
+      "id": "PTD_water_idle",
+      "file": "assets/Player/TopDown/Water/idle.png"
+    },
+    {
+      "id": "PTD_water_left",
+      "file": "assets/Player/TopDown/Water/andarIzquierda.png"
+    },
+    {
+      "id": "PTD_water_up",
+      "file": "assets/Player/TopDown/Water/andararriba.png"
+    },
+    {
+      "id": "PTD_water_down",
+      "file": "assets/Player/TopDown/Water/andarfrente.png"
+    },
+    {
+      "id": "PTD_water_right",
+      "file": "assets/Player/TopDown/Water/andar.png"
+    },
+    {
+      "id": "PTD_earth_idle",
+      "file": "assets/Player/TopDown/Earth/idle.png"
+    },
+    {
+      "id": "PTD_earth_left",
+      "file": "assets/Player/TopDown/Earth/andarIzquierda.png"
+    },
+    {
+      "id": "PTD_earth_up",
+      "file": "assets/Player/TopDown/Earth/andararriba.png"
+    },
+    {
+      "id": "PTD_earth_down",
+      "file": "assets/Player/TopDown/Earth/andarfrente.png"
+    },
+    {
+      "id": "PTD_earth_right",
+      "file": "assets/Player/TopDown/Earth/andar.png"
+    },
+
 
     {
       "id": "portal",
@@ -434,6 +495,34 @@
     {
       "id": "fondoNieve",
       "file": "assets/Scenes/Backgrounds/BeatEmUp/DorjeeSofia 1500x844.png"
+    },
+    {
+      "id": "HUD_WheelAirActive",
+      "file": "assets/Player/HUD/WheelOfPlayer/Active/Air.png"
+    },
+    {
+      "id": "HUD_WheelFireActive",
+      "file": "assets/Player/HUD/WheelOfPlayer/Active/Fire.png"
+    },
+    {
+      "id": "HUD_WheelWaterActive",
+      "file": "assets/Player/HUD/WheelOfPlayer/Active/Water.png"
+    },
+    {
+      "id": "HUD_WheelEarthActive",
+      "file": "assets/Player/HUD/WheelOfPlayer/Active/Earth.png"
+    },
+    {
+      "id": "HUD_WheelFireBlocked",
+      "file": "assets/Player/HUD/WheelOfPlayer/Blocked/Fire.png"
+    },
+    {
+      "id": "HUD_WheelWaterBlocked",
+      "file": "assets/Player/HUD/WheelOfPlayer/Blocked/Water.png"
+    },
+    {
+      "id": "HUD_WheelEarthBlocked",
+      "file": "assets/Player/HUD/WheelOfPlayer/Blocked/Earth.png"
     }
 
   ],

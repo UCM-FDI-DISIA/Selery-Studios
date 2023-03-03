@@ -18,12 +18,12 @@ private:
 	bool isEnemyBEU;
 	SDL_RendererFlip s = SDL_FLIP_NONE;
 	bool animPlaying = false;
-	int ofset_x = 10;
-	int ofset_y = 10;
+	int widthFrame_, heightFrame_;
+
 public:
 
 	//Constructora
-	Image(Texture* tex, int nframes, int framesT, int fila);//Constructora
+	Image(Texture* tex, int nframes, int framesT, int fila, int widthFrame, int heightFrame);//Constructora
 
 	// Destructora
 	virtual ~Image();
@@ -35,11 +35,13 @@ public:
 	// Dibuja en escena
 	void render();
 
+	inline int getCol() { return i; }
 	inline int getRow() { return fila_; }
 	inline int getLastFrame(){ return frames_;}
 
 	//matriz
 	void setAnim(bool Anim, int Fila, int Frames, int I); //Metodo generico para cambiar de animacion en BEU
+
 	void setAnimTexture(string textureKey, int Frames, int Width);
 
 	//spritesheet

@@ -8,6 +8,7 @@ class GameStateMachine: public Singleton <GameStateMachine> {
 private:
 	stack<Manager*> st; // pila de escenas
 	stack<Manager*> stToDelete; // pila de escenas a borrar
+
 public:
 	~GameStateMachine(); // destructora
 	Manager* currentState(); // acceso al estado actual

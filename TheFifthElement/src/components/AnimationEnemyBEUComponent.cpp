@@ -13,7 +13,6 @@ void AnimationEnemyBEUComponent::changeState(AnimationStates newState)
 }
 
 void AnimationEnemyBEUComponent::updateAn() {
-	//SUGERENCIA DEJAR AL ENEMIGO QUIETO MIENTRAS PEGA
 	if (!set_)
 	{
 		tr_ = ent_->getComponent<Transform>(TRANSFORM_H);
@@ -26,21 +25,37 @@ void AnimationEnemyBEUComponent::updateAn() {
 		case AnimationEnemyBEUComponent::Moving:
 			if (tr_->getDir().getX() <= 0) {
 				im_->setFlip(SDL_FLIP_HORIZONTAL);
-				if (type_ != "skeleton" && type_ != "bat")
+				/*if (enemy_ != "skeleton" && enemy_ != "bat")
 					static_cast<EnemyBEU*>(ent_)->setOffset(Vector2D(55, 55));
+				else */if(enemy_ == "skeleton")
+					static_cast<EnemyBEU*>(ent_)->setOffset(Vector2D(60, 45));
+				else if(enemy_ == "bat")
+					static_cast<EnemyBEU*>(ent_)->setOffset(Vector2D(55, 55));
+				else if(enemy_ == "goblin")
+					static_cast<EnemyBEU*>(ent_)->setOffset(Vector2D(65, 55));
+				else if (enemy_ == "shroom")
+					static_cast<EnemyBEU*>(ent_)->setOffset(Vector2D(60, 55));
 			}
 			else {
 				im_->setFlip(SDL_FLIP_NONE);
-				if (type_ != "skeleton" && type_ != "bat")
+				/*if (enemy_ != "skeleton" && enemy_ != "bat")
 					static_cast<EnemyBEU*>(ent_)->setOffset(Vector2D(50, 55));
+				else */if (enemy_ == "skeleton")
+					static_cast<EnemyBEU*>(ent_)->setOffset(Vector2D(60, 45));
+				else if (enemy_ == "bat")
+					static_cast<EnemyBEU*>(ent_)->setOffset(Vector2D(65, 55));
+				else if (enemy_ == "goblin")
+					static_cast<EnemyBEU*>(ent_)->setOffset(Vector2D(55, 55));
+				else if (enemy_ == "shroom")
+					static_cast<EnemyBEU*>(ent_)->setOffset(Vector2D(60, 55));
 			}
 
 			break;
 		case AnimationEnemyBEUComponent::Attack:
 			if (tr_->getDir().getX() > 0) {
 				im_->setFlip(SDL_FLIP_NONE);
-				if (type_ == "goblin")static_cast<EnemyBEU*>(ent_)->setOffset(Vector2D(40, 70));
-				else if (type_ == "shroom")static_cast<EnemyBEU*>(ent_)->setOffset(Vector2D(45, 55));
+				if (enemy_ == "goblin")static_cast<EnemyBEU*>(ent_)->setOffset(Vector2D(40, 70));
+				else if (enemy_ == "shroom")static_cast<EnemyBEU*>(ent_)->setOffset(Vector2D(45, 55));
 			}
 			else im_->setFlip(SDL_FLIP_HORIZONTAL);
 			break;
@@ -89,9 +104,9 @@ void AnimationEnemyBEUComponent::updateAnimation() {
 			EnemyWidth_ = 1200;
 			EnemyHeight_ = 150;
 
-			offset_ = Vector2D(55, 55);
-			ColHeight_ = EnemyHeight_ / 3;
-			ColWidth_ = EnemyWidth_ / 25;
+			offset_ = Vector2D(60, 55);
+			ColHeight_ = ENEMYBEU_HEIGHT / 3;
+			ColWidth_ = ENEMYBEU_WIDTH / 5;
 
 			if (type_ == "fire") {
 				t_ = &SDLUtils::instance()->images().at("BEU_fire_Mushroom_run");
@@ -116,9 +131,9 @@ void AnimationEnemyBEUComponent::updateAnimation() {
 			EnemyWidth_ = 600;
 			EnemyHeight_ = 150;
 
-			offset_ = Vector2D(55, 40);
-			ColHeight_ = EnemyHeight_ / 2;
-			ColWidth_ = EnemyWidth_ / 15;
+			offset_ = Vector2D(60, 45);
+			ColHeight_ = 3*ENEMYBEU_HEIGHT / 7;
+			ColWidth_ = ENEMYBEU_WIDTH / 5;
 
 			if (type_ == "fire") {
 				t_ = &SDLUtils::instance()->images().at("BEU_fire_Skeleton_run");
@@ -143,9 +158,9 @@ void AnimationEnemyBEUComponent::updateAnimation() {
 			EnemyWidth_ = 1200;
 			EnemyHeight_ = 150;
 
-			offset_ = Vector2D(55, 55);
-			ColHeight_ = EnemyHeight_ / 3;
-			ColWidth_ = EnemyWidth_ / 25;
+			offset_ = Vector2D(75, 55);
+			ColHeight_ = ENEMYBEU_HEIGHT / 3;
+			ColWidth_ = ENEMYBEU_WIDTH / 5;
 
 			if (type_ == "fire") {
 				t_ = &SDLUtils::instance()->images().at("BEU_fire_Goblin_run");
@@ -170,9 +185,9 @@ void AnimationEnemyBEUComponent::updateAnimation() {
 			EnemyWidth_ = 1200;
 			EnemyHeight_ = 150;
 
-			offset_ = Vector2D(55, 50);
-			ColHeight_ = EnemyHeight_ / 3;
-			ColWidth_ = EnemyWidth_ / 25;
+			offset_ = Vector2D(55, 55);
+			ColHeight_ = ENEMYBEU_HEIGHT / 4;
+			ColWidth_ = ENEMYBEU_WIDTH / 4;
 
 			if (type_ == "fire") {
 				t_ = &SDLUtils::instance()->images().at("BEU_fire_Bat_fly");

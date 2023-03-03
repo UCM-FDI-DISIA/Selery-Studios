@@ -4,10 +4,8 @@
 #include "Transform.h"
 #include "../utils/Vector2D.h"
 
-class MovementComponent : public Component
-{
+class MovementComponent : public Component {
 public:
-
 	MovementComponent() {
 	
 	}
@@ -18,6 +16,5 @@ public:
 	}
 private:
 	Transform* tr = nullptr;
-	
 };
 #endif

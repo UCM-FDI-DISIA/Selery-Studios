@@ -1,7 +1,12 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\TheFifthElement",
+    "\\TheFifthElement\\src",
+    "\\TheFifthElement\\src\\components",
+    "\\TheFifthElement\\src\\Entities",
+    "\\TheFifthElement\\src\\utils"
   ],
-  "SelectedNode": "\\TheFifthElement.sln",
+  "SelectedNode": "\\TheFifthElement\\src\\Entities\\PlayerBEU.h",
   "PreviewInSolutionExplorer": false
 }
