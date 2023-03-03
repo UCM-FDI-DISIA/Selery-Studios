@@ -4,14 +4,16 @@
 #include "SDL_events.h"
 #include "../sdlutils/SDLUtils.h"
 #include "../sdlutils/InputHandler.h"
+#include "../components/JumpComponent.h"
 
 class Image;
+
 class InputComponentBEU : public Component
 {
 private:
     Transform* tr_ = nullptr;
     Image* im_ = nullptr;
-    bool canJump = true;
+    JumpComponent* jmp_ = nullptr;
     Texture* t_ = nullptr;
 
     float downLimit, topLimit;

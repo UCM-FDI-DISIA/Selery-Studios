@@ -9,7 +9,7 @@
 #include "../sdlutils/SDLUtils.h"
 #include "../Entities/Background.h"
 
-class BeatEmUpState	 : public GameState {
+class BeatEmUpState	 : public Manager {
 private:
 	PlayerBEU* player_;
 	InputComponentBEU* in_;
@@ -20,9 +20,7 @@ public:
 	BeatEmUpState();
 
 	void finishBEU();
+	void handleEvents();
 	~BeatEmUpState() {}
-
-	void update();
-	void render();
 };
 

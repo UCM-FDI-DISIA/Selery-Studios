@@ -1,21 +1,23 @@
 #include "GameStateMachine.h"
 #include "GameState.h"
+#include "MainMenuState.h"
 
 GameState::GameState() {
-	gameStateMachine = static_cast<GameStateMachine*>(GameStateMachine::instance());
-	mngr_ = Manager::instance();
+
 }
 
 void GameState::render() {
-	mngr_->render();
+	for (auto e : ents_) e->render();
+};
+
+GameState::~GameState() // destructora
+{
+	for (auto e : ents_) {
+		delete e;
+	}
 }
 
-GameState::~GameState() {
-	mngr_->~Manager();
-}
-
-void GameState::update() {
-	ih().refresh();
-	mngr_->update();
-	mngr_->refresh();
+void GameState::menuToPlay() // ir a juego
+{
+	
 }

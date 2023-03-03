@@ -1,4 +1,4 @@
-ï»¿#include "PlayerBEU.h"
+#include "PlayerBEU.h"
 #include "../components/Image.h"
 
 PlayerBEU::PlayerBEU() : Entity() {
@@ -9,22 +9,21 @@ PlayerBEU::PlayerBEU() : Entity() {
 	//cmpId_type x = int(RENDERCOMPONENT_H);
 	//referencia al texture y al transform
 	fila_ = 0;	
-	
 	addComponent<Image>(int(IMAGE_H), t, nframes, framesT_, fila_);
 	addComponent<JumpComponent>(JUMP_H);
 
-	//igualamos el inputComponent a una variable ya que este necesita una referencia de image que aï¿½n no existe, por lo que esa referencia es NULL
 	
-	//igualamos el inputComponent a una variable ya que este necesita una referencia de image que aÃºn no existe, por lo que esa referencia es NULL
+	mov = addComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
+	
+	//igualamos el inputComponent a una variable ya que este necesita una referencia de image que aún no existe, por lo que esa referencia es NULL
 	in_=addComponent<InputComponentBEU>(INPUTCOMPONENTBEU_H);
 
-	addComponent<Image>(int(IMAGE_H), t, nframes, framesT_, fila_);
 	//addComponent<ColliderComponent>(int(COLLIDERCOMPONENT_H), Vector2D(100, 100), 20, 20);
 	addComponent<AttackBoxComponent>(ATTACKBOXCOMPONENT_H);
 
 	addComponent<LimitBEU>(LIMITBEU_H);
 	
-	//Al hacer aquÃ­ initComponent la referencia ya es correcta
+	//Al hacer aquí initComponent la referencia ya es correcta
 	in_->initComponent();
 	
 	addComponent<ColliderComponent>(int(COLLIDERCOMPONENT_H), Vector2D(100, 70), PlayerHeigth_/2, PlayerWidth_/(framesT_*4));

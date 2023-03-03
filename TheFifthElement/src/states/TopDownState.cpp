@@ -181,7 +181,3 @@ void TopDownState::render() {
 string TopDownState::getStateID() {
     return "TopDownState";
 }
-
-void TopDownState::update() {
-    Manager::update();
-}

@@ -50,9 +50,7 @@ public:
 
     inline void setPos(Vector2D Position) { position = Position; }
 
-    inline void setDir(Vector2D dir) { 
-        direction = dir;
-    }
+    inline void setDir(Vector2D dir) { direction = dir; }
     
     inline void setVel(float veloc) { vel = veloc; }
    

@@ -2,20 +2,17 @@
 #include <string>
 #include <list>
 #include "../utils/Manager.h"
-#include "../sdlutils/InputHandler.h"
-
-class GameStateMachine;
-
 using namespace std;
-
-class GameState {
+class GameState: Manager{
 protected:
-	GameStateMachine* gameStateMachine;
-	Manager* mngr_;
+	//puntero a la maquina de estados
 public:
 	GameState();
-	virtual ~GameState();
-	virtual void update();
+	virtual ~GameState(); // destructora
+	virtual void update() {};
 	virtual void render();
-	virtual string getStateID() = 0;
+	virtual void handleEvents() {};
+	virtual string getStateID() { return "nothing"; }; // virtual de stringID de cada 
+	static void menuToPlay(); // ir al juego
 };
+
