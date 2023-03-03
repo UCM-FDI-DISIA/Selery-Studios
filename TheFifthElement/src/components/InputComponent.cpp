@@ -21,7 +21,6 @@ void InputComponent::update() { //Actualizamos el contador que mide el tiempo
 }
 void InputComponent::handleEvents(SDL_Event event)
 {
-
 	InputHandler::instance()->update(event);
 
 	if (ih().keyDownEvent()){
@@ -62,7 +61,6 @@ void InputComponent::handleEvents(SDL_Event event)
 		}
 		
 		if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_E)) {
-			
 			if (actionDelay > 0) {
 				int a = static_cast<PlayerTD*>(ent_)->getCol();
 				cout << a;
@@ -77,8 +75,5 @@ void InputComponent::handleEvents(SDL_Event event)
 			}
 			actionDelay = 0;
 		}
-
 	}
-	
-	
 }
