@@ -58,16 +58,16 @@ void SkinComponent::setIdle() {
 		t_ = "PTD_fire_idle";
 	}
 
-	else if (skin_ == "wind") {
-		//t_ = "PTD_wind_idle";
+	else if (skin_ == "air") {
+		t_ = "PTD_air_idle";
 	}
 
 	else if (skin_ == "water") {
-		//t_ = "PTD_water_idle";
+		t_ = "PTD_water_idle";
 	}
 
 	else if (skin_ == "earth") {
-		//t_ = "PTD_earth_idle";
+		t_ = "PTD_earth_idle";
 	}
 }
 
@@ -84,16 +84,16 @@ void SkinComponent::setLeft() {
 		t_ = "PTD_fire_left";
 	}
 
-	else if (skin_ == "wind") {
-		//t_ = "PTD_wind_left";
+	else if (skin_ == "air") {
+		t_ = "PTD_air_left";
 	}
 
 	else if (skin_ == "water") {
-		//t_ = "PTD_water_left";
+		t_ = "PTD_water_left";
 	}
 
 	else if (skin_ == "earth") {
-		//t_ = "PTD_earth_left";
+		t_ = "PTD_earth_left";
 	}
 }
 
@@ -110,16 +110,16 @@ void SkinComponent::setRight() {
 		t_ = "PTD_fire_right";
 	}
 
-	else if (skin_ == "wind") {
-		//t_ = "PTD_wind_right";
+	else if (skin_ == "air") {
+		t_ = "PTD_air_right";
 	}
 
 	else if (skin_ == "water") {
-		//t_ = "PTD_water_right";
+		t_ = "PTD_water_right";
 	}
 
 	else if (skin_ == "earth") {
-		//t_ = "PTD_earth_right";
+		t_ = "PTD_earth_right";
 	}
 }
 
@@ -136,16 +136,16 @@ void SkinComponent::setUp() {
 		t_ = "PTD_fire_up";
 	}
 
-	else if (skin_ == "wind") {
-		//t_ = "PTD_wind_up";
+	else if (skin_ == "air") {
+		t_ = "PTD_air_up";
 	}
 
 	else if (skin_ == "water") {
-		//t_ = "PTD_water_up";
+		t_ = "PTD_water_up";
 	}
 
 	else if (skin_ == "earth") {
-		//t_ = "PTD_earth_up";
+		t_ = "PTD_earth_up";
 	}
 }
 
@@ -162,17 +162,15 @@ void SkinComponent::setDown() {
 		t_ = "PTD_fire_down";
 	}
 
-	else if (skin_ == "wind") {
-		//t_ = "PTD_wind_down";
+	else if (skin_ == "air") {
+		t_ = "PTD_air_down";
 	}
 
 	else if (skin_ == "water") {
-		//t_ = "PTD_water_down";
+		t_ = "PTD_water_down";
 	}
 
 	else if (skin_ == "earth") {
-		//t_ = "PTD_earth_down";
+		t_ = "PTD_earth_down";
 	}
 }
-
-//void SkinComponent::changeSkin(string skin) {}
