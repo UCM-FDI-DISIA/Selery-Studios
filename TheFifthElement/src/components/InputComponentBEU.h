@@ -15,7 +15,7 @@ private:
     Image* im_ = nullptr;
     JumpComponent* jmp_ = nullptr;
     Texture* t_ = nullptr;
-
+    bool alreadyPressed = false;
 public:
     InputComponentBEU();
     void initComponent();
