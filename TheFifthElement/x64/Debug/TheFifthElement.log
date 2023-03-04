@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 ﻿  TheFifthElement.cpp
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.22000.0\ucrt\crtdbg.h(307,1): warning C4005: '_malloca': redefinición de macro
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.22000.0\ucrt\malloc.h(124,1): message : vea la definición anterior de '_malloca'
@@ -679,3 +680,6 @@ C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\uti
   Generando código...
      Creando biblioteca C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\x64\Debug\TheFifthElement.lib y objeto C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\x64\Debug\TheFifthElement.exp
   TheFifthElement.vcxproj -> C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\x64\Debug\TheFifthElement.exe
+=======
+﻿  TheFifthElement.vcxproj -> E:\Selery-Studios\TheFifthElement\x64\Debug\TheFifthElement.exe
+>>>>>>> Stashed changes
