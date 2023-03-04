@@ -47,6 +47,7 @@ void InputComponent::handleEvents(SDL_Event event)
 
 			if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_1)) {
 				skin_->changeSkin("fire");
+				//static_cast<HUD*>(ent_)->
 			}
 			else if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_2)) {
 				skin_->changeSkin("air");
