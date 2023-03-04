@@ -16,13 +16,14 @@ void InputComponentBEU::initComponent() {
 	t_ = new Texture(GameManager::instance()->getRenderer(), "./assets/Player/BeatEmUp/Fire/spritesheets/fireMatrix.png");
 }
 
-void InputComponentBEU::update() {
+void InputComponentBEU::update()
+{
 
 }
 
 void InputComponentBEU::handleEvents(SDL_Event event) {
 	ih().update(event);
-	if (ih().keyDownEvent()) {
+	
 		if (!im_->isAnimPlaying()) {
 			if (ih().isKeyDown(SDL_SCANCODE_SPACE) && jmp_->isJumpEnabled()) { // Salto
 				im_->setAnim(true, 4, 14, 0,100);
@@ -56,9 +57,6 @@ void InputComponentBEU::handleEvents(SDL_Event event) {
 				}// Ataque
 				
 			}
-			else if (ih().isKeyJustUp(SDL_SCANCODE_O)) { // Ataque
-				alreadyPressed = false;
-			}
 			else if (ih().isKeyDown(SDL_SCANCODE_P)) { // Ataque Especial
 				sdlutils().soundEffects().at("playerSpecialAttack").play();
 				im_->setAnim(true, 10, 18, 0,100);
@@ -71,6 +69,7 @@ void InputComponentBEU::handleEvents(SDL_Event event) {
 				im_->setAnim(true, 0, 8, 0,100);
 			}
 		}
+		
 		
 		else if (ih().isKeyJustDown(SDL_SCANCODE_O)) { 
 			
@@ -98,7 +97,7 @@ void InputComponentBEU::handleEvents(SDL_Event event) {
 			im_->setAnim(false, 0, 8, 0, 100);
 		}
 		
-	}
+	
 	
 }
 
