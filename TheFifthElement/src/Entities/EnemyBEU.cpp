@@ -3,7 +3,7 @@
 
 EnemyBEU::~EnemyBEU(){}
 
-EnemyBEU::EnemyBEU(PlayerBEU* player, float maxLife, string enemy, string type) : Entity()
+EnemyBEU::EnemyBEU(Vector2D pos,PlayerBEU* player, float maxLife, string enemy, string type) : Entity()
 {
 	maxLife_ = maxLife;
 	life_ = maxLife;
@@ -22,8 +22,10 @@ EnemyBEU::EnemyBEU(PlayerBEU* player, float maxLife, string enemy, string type) 
 	anim_->updateAnimation();
 
 
+	//tr_ = addComponent<Transform>(int(TRANSFORM_H), pos, EnemyWidth_, EnemyHeight_, EnemyRotation_, speed_, nframes_, matrix_);
+	//trPlayer_ = player_->getComponent<Transform>(int(TRANSFORM_H));
 	//tr_ = addComponent<Transform>(TRANSFORM_H, EnemyPosition_, EnemyWidth_, EnemyHeight_, EnemyRotation_, speed_, nframes_, matrix_);
-	tr_ = addComponent<Transform>(TRANSFORM_H, EnemyPosition_, EnemyWidthQUESISIRVE_, EnemyHeightQUESISIRVE_, EnemyRotation_, speed_, nframes_, matrix_);
+	tr_ = addComponent<Transform>(TRANSFORM_H, pos, EnemyWidthQUESISIRVE_, EnemyHeightQUESISIRVE_, EnemyRotation_, speed_, nframes_, matrix_);
 	trPlayer_ = player_->getComponent<Transform>(TRANSFORM_H);
 
 

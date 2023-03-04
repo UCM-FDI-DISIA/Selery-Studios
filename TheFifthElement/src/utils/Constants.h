@@ -32,6 +32,22 @@ const uint NPC_HEIGHT = 120; // altura de NPC
 const uint PORTAL_WIDTH = 290; // anchura de Portal
 const uint PORTAL_HEIGHT = 192; // altura de Portal
 
+#pragma region enemy_data
+
+const int enemy_fire_dmg = 200;
+const int enemy_water_dmg = 150;
+const int enemy_wind_dmg = 175;
+const int enemy_rock_dmg = 200;
+
+const int enemy_fire_life = 300;
+const int enemy_water_life = 270;
+const int enemy_wind_life = 190;
+const int enemy_rock_life = 200;
+
+#pragma endregion
+
+
+
 /*const string FUEGO = "fire";
 const string AIRE = "wind";
 const string AGUA = "water";

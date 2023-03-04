@@ -24,7 +24,7 @@ void Image::update() {
 
 // Dibuja en escena
 void Image::render() {
-	if (frames_ == 0) { //Cuando la imagen solo tiene un frame (sin animación)
+	if (frames_ == 0) { //Cuando la imagen solo tiene un frame (sin animaciï¿½n)
 		SDL_Rect dest = build_sdlrect(tr_->getPos(), tr_->getW(), tr_->getH());
 		tex_->render(dest, tr_->getR());
 	}
