@@ -41,16 +41,18 @@ private:
 		Texture* t_;
 		Image* im_;
 		Transform* tr_;
+		Transform* playerTr_;
 	#pragma endregion
 
 		bool set_ = false;
 
 public:
-	AnimationEnemyBEUComponent(string type, string enemy) {
+	AnimationEnemyBEUComponent(string type, string enemy, Transform* plTr) {
 		currentState_ = nextState_ = Null;
 
 		type_ = type;
 		enemy_ = enemy;
+		playerTr_ = plTr;
 	}
 
 	void update();

@@ -41,8 +41,6 @@ public:
     void moveBox(Vector2D direction,float vel);
     void moveBoxCurve(float radio, Vector2D posCenter, float vel,float& angle ,float stoppingAngle, int way);
     void GFY();
-
-
-
+    SDL_Rect getBox() { return box; }
 };
 #endif

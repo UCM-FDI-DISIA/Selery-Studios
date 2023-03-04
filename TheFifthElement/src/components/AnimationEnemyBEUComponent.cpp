@@ -52,7 +52,7 @@ void AnimationEnemyBEUComponent::updateAn() {
 
 			break;
 		case AnimationEnemyBEUComponent::Attack:
-			if (tr_->getDir().getX() > 0) {
+			if (playerTr_->getPos().getX() < tr_->getPos().getX()) {
 				im_->setFlip(SDL_FLIP_NONE);
 				if (enemy_ == "goblin")static_cast<EnemyBEU*>(ent_)->setOffset(Vector2D(40, 70));
 				else if (enemy_ == "shroom")static_cast<EnemyBEU*>(ent_)->setOffset(Vector2D(45, 55));

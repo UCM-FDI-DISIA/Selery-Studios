@@ -12,6 +12,7 @@
 #include "../components/ColDetectorComponent.h"
 #include "../components/AnimationEnemyBEUComponent.h"
 #include "../Entities/LifeBar.h"
+#include "../components/AttackBoxComponent.h"
 
 class EnemyBEU :
     public Entity

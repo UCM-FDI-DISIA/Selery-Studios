@@ -16,7 +16,8 @@ EnemyBEU::EnemyBEU(Vector2D pos,PlayerBEU* player, float maxLife, string enemy, 
 	float lookingWidth = 100.0f;
 
 
-	anim_ = addComponent<AnimationEnemyBEUComponent>(ANIMATIONENEMYBEUCOMPONENT_H, type_, enemy_);
+	anim_ = addComponent<AnimationEnemyBEUComponent>(ANIMATIONENEMYBEUCOMPONENT_H, type_, enemy_
+		, player_->getComponent<Transform>(TRANSFORM_H));
 	anim_->changeState(AnimationEnemyBEUComponent::Moving);
 	anim_->updateAnimation();
 
@@ -38,6 +39,9 @@ EnemyBEU::EnemyBEU(Vector2D pos,PlayerBEU* player, float maxLife, string enemy, 
 	col_ = addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, offset_, ColHeight_, ColWidth_);
 	addComponent<ColDetectorComponent>(COLDETECTORCOMPONENT_H, this, player_);
 
+	/*addComponent<ColDetectorComponent>(COLDETECTORCOMPONENT_H, this,
+		player_->getComponent<AttackBoxComponent>(ATTACKBOXCOMPONENT_H)->getBox(), 1);*/
+
 	lifeC_ = addComponent<LifeComponent>(LIFECOMPONENT_H, maxLife_, nullptr);
 
 	set_ = true;
@@ -54,9 +58,8 @@ void EnemyBEU::collision(bool col) {
 		if (col) {
 			if (!im_->isAnimPlaying()) {
 				//animaci�n de ataque y ataque en s�
-				/*anim_->changeState(AnimationEnemyBEUComponent::Attack);
-				eMov_->stop(true);*/
-				Hit(1);
+				anim_->changeState(AnimationEnemyBEUComponent::Attack);
+				eMov_->stop(true);
 
 			}
 		}

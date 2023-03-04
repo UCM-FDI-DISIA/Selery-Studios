@@ -94,5 +94,6 @@ public:
 	virtual void collision(bool col) {};
 
 	virtual void Die() {};
+	virtual void Hit(float damage) {};
 };
 
