@@ -47,14 +47,16 @@ EnemyBEU::EnemyBEU(Vector2D pos,PlayerBEU* player, float maxLife, string enemy, 
 
 void EnemyBEU::collision(bool col) {
 	if (die_) {
-		if (!im_->isAnimPlaying()) setAlive(false);
+		if (!im_->isAnimPlaying()) 
+			setAlive(false);
 	}
 	else {
 		if (col) {
 			if (!im_->isAnimPlaying()) {
 				//animaci�n de ataque y ataque en s�
-				anim_->changeState(AnimationEnemyBEUComponent::Attack);
-				eMov_->stop(true);
+				/*anim_->changeState(AnimationEnemyBEUComponent::Attack);
+				eMov_->stop(true);*/
+				Hit(1);
 
 			}
 		}
@@ -105,9 +107,16 @@ void EnemyBEU::Die() {
 
 void EnemyBEU::Hit(float damage) 
 {
-	lifeC_->subLife(damage);
-	anim_->changeState(AnimationEnemyBEUComponent::Hit);
-	eMov_->stop(true);
+	if (lifeC_->getLife() - damage <= 0) 
+	{ 
+		lifeC_->subLifeDie(damage);
+		Die(); 
+	}
+	else {
+		lifeC_->subLife(damage);
+		anim_->changeState(AnimationEnemyBEUComponent::Hit);
+		eMov_->stop(true);
+	}
 
 
 	//en el hit
