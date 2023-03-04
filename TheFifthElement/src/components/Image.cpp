@@ -44,6 +44,9 @@ void Image::render() {
 			i++;
 			cont = 0;
 		}
+		if (ent_->hasComponent(INPUTCOMPONENTBEU_H)) {
+			cout << animPlaying << endl;
+		}
 		cont++;
 		if (i >= frames_||i>=tope) {
 			i = 0;
@@ -58,14 +61,16 @@ void Image::render() {
 
 
 //matriz
-void Image::setAnim(bool Anim, int Fila, int Frames, int I) { //Metodo generico para cambiar de animacion en BEU
+void Image::setAnim(bool Anim, int Fila, int Frames, int I,int tope) { //Metodo generico para cambiar de animacion en BEU
 	if (fila_ != Fila && !animPlaying) { // Si la animacion no es la actual la actualiza
 		animPlaying = Anim;
 		fila_ = Fila;
 		frames_ = Frames;
 		i = I;
 		cont = 0;
+		this->tope = tope;
 	}
+
 }
 
 void Image::setAnimTexture(string textureKey, int Frames, int Width) { //Metodo generico para cambiar de Textura (el width es temporal no deberia ser el with de la imagen sino de la entidad)
