@@ -20,11 +20,13 @@ private:
     int nframes_;
     int fila_;
     int w_, h_;
+
 public:
 
     SkinComponent(string skin)
     {
         skin_ = skin;
+
     }
     void setIdle();
     void setLeft();

@@ -5,13 +5,11 @@
 #include "../Entities/PlayerTD.h"
 
 void SkinComponent::initComponent() {
-	//ent_->addComponent<Image>(int(IMAGE_H), fire, nframes, nframes, fila_);
 }
 
 void SkinComponent::update() {
 	if (nextState_ != currentState_) changeMov();
 	else;
-	//cout << skin_ << endl;
 }
 
 void SkinComponent::changeMov() {
