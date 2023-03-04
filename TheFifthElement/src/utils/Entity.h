@@ -92,5 +92,7 @@ public:
 	}
 
 	virtual void collision(bool col) {};
+
+	virtual void Die() {};
 };
 

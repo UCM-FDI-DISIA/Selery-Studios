@@ -11,6 +11,7 @@
 #include "../components/ColliderComponent.h"
 #include "../components/ColDetectorComponent.h"
 #include "../components/AnimationEnemyBEUComponent.h"
+#include "../Entities/LifeBar.h"
 
 class EnemyBEU :
     public Entity
@@ -31,10 +32,13 @@ private:
 	ColliderComponent* col_;
 	Image* im_;
 	AnimationEnemyBEUComponent* anim_;
+	LifeBar* lb_;
+	LifeComponent* lifeC_;
 #pragma endregion
 
 #pragma region parameters
 	float speed_ = 1.0f;
+	bool die_ = false;
 #pragma endregion
 
 #pragma region sprites
@@ -58,6 +62,10 @@ public:
 	EnemyBEU(Vector2D pos,PlayerBEU* player, float maxLife, string enemy, string type);
 
 	void collision(bool col);
+
+	void Die();
+
+	void Hit(float damage);
 
 	PlayerBEU* returnPlayer();
 

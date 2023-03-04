@@ -14,5 +14,6 @@ public:
 	void subLife(float damage);
 	void resetLife() { life_ = maxLife_; }
 	void render();
+	void setLifeBar(LifeBar* l) { lifeBar_ = l; }
 };
 
