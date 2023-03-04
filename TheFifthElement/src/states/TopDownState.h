@@ -15,6 +15,8 @@
 #include "../Entities/Camera.h"
 #include "../include/SDL_mixer.h"
 #include "../Entities/RedirectTile.h"
+#include "../components/ColliderTile.h"
+
 using uint = unsigned int;
 using tileset_map = std::map<std::string, Texture*>; //mapa con CLAVE:string, ARGUMENTO: puntero a textura
 using tilelayer = tmx::TileLayer;

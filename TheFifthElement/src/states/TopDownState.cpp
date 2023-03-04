@@ -140,6 +140,7 @@ void TopDownState::LoadMap(string const& filename) {
         if (layer->getType() == tmx::Layer::Type::Object) {
             tmx::ObjectGroup* object_layer = dynamic_cast<tmx::ObjectGroup*>(layer.get());
 
+
             auto& objs = object_layer->getObjects();
 
             for (auto obj : objs) {
@@ -147,17 +148,23 @@ void TopDownState::LoadMap(string const& filename) {
 
                 //   if (obj.getName() == "collision") 
 
-                rect.width *= (float)(WIN_WIDTH / cam_->getWidth());
+               /* rect.width *= (float)(WIN_WIDTH / cam_->getWidth());
                 rect.height *= (float)(WIN_HEIGHT / cam_->getHeight());
 
                 rect.left *= (float)(WIN_WIDTH / cam_->getWidth());
-                rect.top *= (float)(WIN_HEIGHT / cam_->getHeight());
-
-                /*auto a = new ColliderTile(this, Vector2D<double>(rect.left, rect.top), rect.width, rect.height);
-                collisions_.push_back(a);*/
+                rect.top *= (float)(WIN_HEIGHT / cam_->getHeight());*/
+                if (object_layer->getName() == "Colisions") {
+                    auto a = new ColliderTile(Vector2D(rect.left, rect.top), rect.width, rect.height, player_);
+                    collisions_.push_back(a);
+                    cout<<"Colisions"
+                }
+                else if (object_layer->getName() == "Interactions") {
+                    cout << "Interactions";
+                }
 
             }
         }
+
 
     }
     SDL_RenderPresent(Gm_->getRenderer());
