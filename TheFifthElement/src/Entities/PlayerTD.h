@@ -14,7 +14,7 @@ class PlayerTD : public Entity {
 private:
 	Vector2D PlayerPosition_;
 	float speed_ = 3.0f;
-	float PlayerWidth_ = 476, PlayerHeigth_ = 120, PlayerRotation_ = 1;
+	float PlayerWidth_ = PLAYERTD_WIDTH_FRAME, PlayerHeigth_ = PLAYERTD_HEIGHT_FRAME, PlayerRotation_ = 1;
 	Texture* t_;
 	Transform* tr;
 	Vector2D dir;

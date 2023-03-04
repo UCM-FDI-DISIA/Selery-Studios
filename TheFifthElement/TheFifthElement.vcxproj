@@ -132,6 +132,7 @@
   <ItemGroup>
     <ClInclude Include="src\components\ColliderTile.h" />
     <ClInclude Include="src\Entities\HUD.h" />
+    <ClInclude Include="src\components\JumpComponent.h" />
     <ClInclude Include="src\Entities\Button.h" />
     <ClInclude Include="src\components\AnimationEnemyBEUComponent.h" />
     <ClInclude Include="src\components\ColDetectorComponent.h" />
@@ -196,6 +197,7 @@
   <ItemGroup>
     <ClCompile Include="src\components\ColliderTile.cpp" />
     <ClCompile Include="src\Entities\HUD.cpp" />
+    <ClCompile Include="src\components\JumpComponent.cpp" />
     <ClCompile Include="src\Entities\Button.cpp" />
     <ClCompile Include="src\components\AnimationEnemyBEUComponent.cpp" />
     <ClCompile Include="src\components\ColDetectorComponent.cpp" />

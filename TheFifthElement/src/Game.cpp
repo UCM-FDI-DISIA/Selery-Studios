@@ -1,38 +1,32 @@
 #include "Game.h"
 Game::Game() {
-	//cout << "si";
-
 	SDLUtils::init();
 	SDLUtils::instance()->showCursor();
 	renderer = SDLUtils::instance()->renderer();
 	window = SDLUtils::instance()->window();
 	exit = false;
 	//GameStateMachine::instance()->pushState(new TopDownState());
-	GameStateMachine::instance()->pushState(new MainMenuState());
+	//GameStateMachine::instance()->pushState(new MainMenuState());
+	GameStateMachine::instance()->pushState(new BeatEmUpState());
 }
 
-Game::~Game()// destructora
-{
+Game::~Game(){ // destructora
 	GameStateMachine::instance()->~GameStateMachine();
 	SDL_DestroyRenderer(renderer);
 	SDL_DestroyWindow(window);
 	SDL_Quit();
 }
 
-void Game::run()// bucle de juego
-{
+void Game::run(){// bucle de juego
 	uint32_t startTime, frameTime;
 	startTime = SDL_GetTicks();
-	while (!exit) // bucle de juego
-	{
+	while (!exit) {// bucle de juego
 		SDL_RenderClear(renderer);
 		handleEvents();
 
 		frameTime = SDL_GetTicks() - startTime;
-		if (frameTime >= FRAME_RATE)
-		{
+		if (frameTime >= FRAME_RATE) {
 			update();
-
 			//gameStMc->clearStates(); // elimina estados
 			startTime = SDL_GetTicks();
 		}
@@ -40,25 +34,20 @@ void Game::run()// bucle de juego
 		render();
 		SDL_RenderPresent(renderer);// dibuja en pantalla el estado actual del juego
 		SDL_Delay(10);
-		
 	}
 }
 
-void Game::handleEvents() {
-	// handleEvents
+void Game::handleEvents() { // handleEvents
 	GameManager::instance()->handleEvents();
 	//gameStMc->handleEvents();
 }
 
-void Game::update()
-{
-	//update
+void Game::update(){ //update
 	GameManager::instance()->update();
 	//gameStMc->update();// actualiza el juego
 }
 
-void Game::render() {
-	//render
+void Game::render() { //render
 	GameManager::instance()->render();
 	//gameStMc->render();
 }

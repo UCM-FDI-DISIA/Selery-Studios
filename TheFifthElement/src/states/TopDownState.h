@@ -64,6 +64,9 @@ public:
 	TopDownState() {
 		puzzle1 = new PuzzleCopas();
 		//
+
+		player_ = addEntity(new PlayerTD("air", this));
+
 		dialog_ = false;
 		//addEntity(new Npc(player_, { 50,10 }, &SDLUtils::instance()->images().at("NPC_2"), 2));
 		//addEntity(new Npc(player_,{0,10},&SDLUtils::instance()->images().at("NPC_1"),1));	
