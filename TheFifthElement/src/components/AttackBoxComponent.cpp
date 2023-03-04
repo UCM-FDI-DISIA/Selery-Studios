@@ -29,20 +29,19 @@ void AttackBoxComponent::update()
 void AttackBoxComponent::handleBoxes()
 {	
 
-	if (im_->getRow()==7) // Ataque basico de fuego
+	if (im_->getRow()==7) 
 	{
 		if(!boxCreated)
 		{
-			box = build_sdlrect(playerTr->getPos().getX() + ((playerTr->getW() / 2) / 28)-40, playerTr->getPos().getY() + (playerTr->getH() / 1.5f)+30, 10, 10);
+			box = build_sdlrect(playerTr->getPos().getX() + playerTr->getW()/2, playerTr->getPos().getY() + playerTr->getH(),20, 20);
 			boxCreated = true;
-			angle = 270;
+			angle = 180;
 		}
 		else
 		{
-			//trFighter->setVel(trFighter->getVel() + (Vector2D(0, -1).rotate(trFighter->getR()) * acceleration));
-		/*	moveBox(Vector2D(-1,0).rotate(i), 1);*/
+		
 
-			moveBoxCurve(70, Vector2D(playerTr->getPos().getX() + ((playerTr->getW() / 2) / 28) , playerTr->getPos().getY() + (playerTr->getH() / 1.5f) + 30) , 0.07, angle, 1);
+			moveBoxCurve(72, Vector2D(playerTr->getPos().getX() + playerTr->getW()/2, playerTr->getPos().getY() + playerTr->getH()), 0.07, angle, 182, 1);
 			if (im_->getLastFrame() == 10)
 			{
 				unsigned timer = clock();
@@ -51,14 +50,38 @@ void AttackBoxComponent::handleBoxes()
 		}
 		
 	}
+	else if (im_->getRow() == 10)
+	{
+		if (!boxCreated)
+		{
+			box = build_sdlrect(playerTr->getPos().getX() + playerTr->getW() / 2, playerTr->getPos().getY() + playerTr->getH(), 20, 20);
+			boxCreated = true;
+			angle = 180;
+		}
+		else
+		{
+
+
+			moveBoxCurve(72, Vector2D(playerTr->getPos().getX() + playerTr->getW() / 2, playerTr->getPos().getY() + playerTr->getH()), 0.03, angle, 182, 1);
+			if (im_->getLastFrame() == 10)
+			{
+				unsigned timer = clock();
+				boxTime = (double(timer) / CLOCKS_PER_SEC);
+			}
+		}
+
+	}
 	else
 	{
 		boxCreated = false;
-		if (boxTime + 1000/1000 < timerExecution) { // The shorterpaddle and biggerpaddle rewards is activated REWARDS_TIME seconds
+		if (boxTime + 1000/1000 < timerExecution) { 
 			GFY();
 			boxTime = 0;
 		}
 	}
+	
+	
+
 
 }
 
@@ -67,13 +90,17 @@ void AttackBoxComponent::moveBox(Vector2D direction, float vel)
 	box.x += direction.getX() * vel;
 	box.y += direction.getY() * vel;
 }
-void AttackBoxComponent::moveBoxCurve(float radio, Vector2D posCenter, float vel, float& angle, int way)
+void AttackBoxComponent::moveBoxCurve(float radio, Vector2D posCenter, float vel, float& angle,float stoppingAngle, int way)
 {
-	angle += vel * way;
+	if (angle<stoppingAngle)
+	{
+		angle += vel * way;
+	}
+	
 
 	box.x = posCenter.getX() + (int)(radio * cos(angle));
 	box.y = posCenter.getY() + (int)(radio * sin(angle));
-	cout << "BOX X:" << box.x << "BOX Y:" << box.y << endl;
+	cout << "Angle:" << angle << "Stop:" << stoppingAngle << endl;
 }
 
 void AttackBoxComponent::GFY()

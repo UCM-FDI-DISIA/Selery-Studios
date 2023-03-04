@@ -11,10 +11,10 @@ BeatEmUpState::BeatEmUpState() {
 	in_ = player_->getComponent<InputComponentBEU>(b);
 	cmpId_type w = int(INPUTCOMPONENT_H);
 	//addEntity(new EnemyBEU(player_, 100, "bat", "fire"));
-	SDLUtils::instance()->soundEffects().at("Battle").play();
+	/*SDLUtils::instance()->soundEffects().at("Battle").play();*/
 
-	n_enemies = r->nextInt(1, 11);
-	AddEnemies(n_enemies);
+	/*n_enemies = r->nextInt(1, 11);
+	AddEnemies(n_enemies);*/
 
 	
 }
