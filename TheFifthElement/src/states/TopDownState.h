@@ -16,7 +16,8 @@
 #include "../include/SDL_mixer.h"
 #include "../Entities/RedirectTile.h"
 #include "../components/ColliderTile.h"
-
+#include "../components/CollideTileInteraction.h"
+#include "../PuzzleCopas.h"
 using uint = unsigned int;
 using tileset_map = std::map<std::string, Texture*>; //mapa con CLAVE:string, ARGUMENTO: puntero a textura
 using tilelayer = tmx::TileLayer;
@@ -40,22 +41,43 @@ struct MapInfo {
 };
 
 class TopDownState : public Manager {
+private:
+	Enemy* enemy_;
+	GameManager* Gm_;
+	PlayerTD* player_;
+	InputComponent* in_;
+	PlayerBEU* playerBEU_;
+	InputComponentBEU* inBEU_;
+	tileset_map tilesets_; // textures map (string -> texture)
+	SDL_Texture* background_;
+	MapInfo mapInfo;//struct
+	bool dialog_;
+	Camera* cam_;
+	Portal* p;
+	vector<ColliderTile*> collisions_; //vector colision player-mapa
+	vector<ColliderTileInteraction*> interactions_; //vector colision player-mapa
+
 public:
 	string getStateID(); // stringID
 	DialogBox* d;
+	PuzzleCopas* puzzle1;
 	TopDownState() {
-		player_ = addEntity(new PlayerTD("fire", this));
+		puzzle1 = new PuzzleCopas();
+		//
 		dialog_ = false;
-		addEntity(new Npc(player_, { 50,10 }, &SDLUtils::instance()->images().at("NPC_2"), 2));
-		addEntity(new Npc(player_,{0,10},&SDLUtils::instance()->images().at("NPC_1"),1));	
-		in_ = player_->getComponent<InputComponent>(INPUTCOMPONENT_H);
-		enemy_ = addEntity(new Enemy(player_, 100));
-		cam_ = addEntity(new Camera(player_)); // entidad de camara
-		Portal* p = addEntity(new Portal(player_));
+		//addEntity(new Npc(player_, { 50,10 }, &SDLUtils::instance()->images().at("NPC_2"), 2));
+		//addEntity(new Npc(player_,{0,10},&SDLUtils::instance()->images().at("NPC_1"),1));	
+		// 
+		//in_ = player_->getComponent<InputComponent>(INPUTCOMPONENT_H);
+		// 
+		//enemy_ = addEntity(new Enemy(player_, 100));
+		//cam_ = addEntity(new Camera(player_)); // entidad de camara
+		//Portal* p = addEntity(new Portal(player_));
+		LoadMap("assets/Scenes/Maps/MapaInicial.tmx");
+
 		addEntity(new Element(player_, Vector2D(100, 100), p));
 		addEntity(new Element(player_, Vector2D(300, 100), p));
 		addEntity(new Element(player_, Vector2D(200, 200), p));
-		LoadMap("assets/Scenes/Maps/MapaInicial.tmx");
 
 		
 		// PRUEBAS PATHING ENEMIGO
@@ -87,6 +109,12 @@ public:
 	}
 	void update() {
 		player_->setCollision(false);
+		for (auto p : collisions_) {
+			p->update();
+		}
+		for (auto p : interactions_) {
+			p->update();
+		}
 		Manager::update();
 
 	}
@@ -103,17 +131,6 @@ public:
 
 	}
 	void render();
-private:
-	Enemy* enemy_;
-	GameManager* Gm_;
-	PlayerTD* player_;
-	InputComponent* in_;
-	PlayerBEU* playerBEU_;
-	InputComponentBEU* inBEU_;
-	tileset_map tilesets_; // textures map (string -> texture)
-	SDL_Texture* background_;
-	MapInfo mapInfo;//struct
-	bool dialog_;
-	Camera* cam_;
+
 };
 

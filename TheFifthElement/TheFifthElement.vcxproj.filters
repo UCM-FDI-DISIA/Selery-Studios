@@ -128,5 +128,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="assets\resources.json" />
+    <None Include="assets\Scenes\Maps\MapaInicial.tmx" />
   </ItemGroup>
 </Project>

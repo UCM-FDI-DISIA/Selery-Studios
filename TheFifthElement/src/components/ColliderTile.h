@@ -43,7 +43,6 @@ public:
 			if (p->collide(rect)) {
 				isColliding_ = true;
 				onPlayerCollision();
-
 			}
 			else if (isColliding_) { // La colisión estaba activa pero ha parado
 
@@ -54,7 +53,6 @@ public:
 	}
 	void onPlayerCollision() {
 		int dir = chooseDirection();
-		cout << dir << endl;
 
 	}
 	void onPlayerCollisionExit() {

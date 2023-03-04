@@ -12,7 +12,7 @@
 
 class PlayerTD : public Entity {
 private:
-	Vector2D PlayerPosition_{ 10,150 };
+	Vector2D PlayerPosition_;
 	float speed_ = 3.0f;
 	float PlayerWidth_ = 476, PlayerHeigth_ = 120, PlayerRotation_ = 1;
 	Texture* t_;
@@ -41,8 +41,9 @@ public:
 	int getCol() {
 		return collisionNPC;
 	}
-	PlayerTD(string skin, Manager* m) {
+	PlayerTD(string skin, Manager* m, Vector2D pos) {
 		//mngr_ = m;
+		PlayerPosition_ = pos;
 		cmpId_type k = int(SKINCOMPONENT_H);
 		sk = addComponent<SkinComponent>(k, skin);
 		sk->changeState(SkinComponent::Idle);
@@ -68,6 +69,11 @@ public:
 	}
 	~PlayerTD() {
 
+	}
+	bool collide(SDL_Rect other) {
+
+		SDL_Rect rect = build_sdlrect(tr->getPos(), tr->getW(), tr->getH());
+		return SDL_HasIntersection(&rect, &other);
 	}
 
 	void setAnim(float w, float h, int nframes, string skin)

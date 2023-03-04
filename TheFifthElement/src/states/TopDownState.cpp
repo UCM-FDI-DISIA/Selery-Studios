@@ -83,7 +83,7 @@ void TopDownState::LoadMap(string const& filename) {
                         // si no hay tileset valido, continuamos a la siguiente iteracion
                         if (tset_gid == -1) continue;
 
-                        // normalizamos el �ndice            //esto para que es???????????????
+                        // normalizamos el indice            //esto para que es???????????????
                         cur_gid -= tset_gid;
 
                         // calculamos dimensiones del tileset       //NO LAS TENIA YA???
@@ -153,13 +153,32 @@ void TopDownState::LoadMap(string const& filename) {
 
                 rect.left *= (float)(WIN_WIDTH / cam_->getWidth());
                 rect.top *= (float)(WIN_HEIGHT / cam_->getHeight());*/
-                if (object_layer->getName() == "Colisions") {
+                string name = object_layer->getName();
+                if (name == "Colisiones") {
                     auto a = new ColliderTile(Vector2D(rect.left, rect.top), rect.width, rect.height, player_);
                     collisions_.push_back(a);
-                    cout<<"Colisions"
                 }
-                else if (object_layer->getName() == "Interactions") {
-                    cout << "Interactions";
+                else if (name == "Interacctions") {
+                    auto a = new ColliderTileInteraction(Vector2D(rect.left, rect.top), rect.width, rect.height, player_, obj.getUID(), puzzle1);
+                    interactions_.push_back(a);
+                }
+                else if (name == "Player") {
+                   // Vector2D pos(28, 4);
+                    Vector2D pos(obj.getPosition().getX()/2, obj.getPosition().getY()/2);
+                    player_ = addEntity(new PlayerTD("fire", this, pos));
+                    in_ = player_->getComponent<InputComponent>(INPUTCOMPONENT_H);
+                }
+                else if (name == "NPC") {
+                    addEntity(new Npc(player_, { 50,10 }, & SDLUtils::instance()->images().at("NPC_2"), 2));
+                }
+                else if (name == "Enemy") {
+                    enemy_ = addEntity(new Enemy(player_, 100));
+                }
+                else if (name == "Camera") {
+                    cam_ = addEntity(new Camera(player_)); // entidad de camara
+                }
+                else if (name == "Portal") {
+                    p = addEntity(new Portal(player_));
                 }
 
             }
