@@ -48,6 +48,7 @@
     <ClCompile Include="src\utils\Vector2D.cpp" />
     <ClCompile Include="src\components\JumpComponent.cpp" />
     <ClCompile Include="src\Entities\HUD.cpp" />
+    <ClCompile Include="src\components\ColliderTile.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Entities\Button.h" />
@@ -112,6 +113,7 @@
     <ClInclude Include="src\utils\Vector2D.h" />
     <ClInclude Include="src\components\JumpComponent.h" />
     <ClInclude Include="src\Entities\HUD.h" />
+    <ClInclude Include="src\components\ColliderTile.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="TheFifthElement.rc" />
@@ -128,5 +130,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="assets\resources.json" />
+    <None Include="assets\Scenes\Maps\MapaInicial.tmx" />
   </ItemGroup>
 </Project>

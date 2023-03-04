@@ -119,7 +119,7 @@ namespace tmx
         /*!
         \brief Returns the position of the Object in pixels
         */
-        const Vector2f& getPosition() const { return m_position; }
+        const Vector2D& getPosition() const { return m_position; }
         
         /*!
         \brief Returns the global Axis Aligned Bounding Box.
@@ -194,7 +194,7 @@ namespace tmx
         std::uint32_t m_UID;
         std::string m_name;
         std::string m_type;
-        Vector2f m_position;
+        Vector2D m_position;
         FloatRect m_AABB;
         float m_rotation;
         std::uint32_t m_tileID;

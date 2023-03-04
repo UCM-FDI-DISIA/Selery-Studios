@@ -130,6 +130,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\components\ColliderTile.h" />
     <ClInclude Include="src\Entities\HUD.h" />
     <ClInclude Include="src\components\JumpComponent.h" />
     <ClInclude Include="src\Entities\Button.h" />
@@ -194,6 +195,7 @@
     <ClInclude Include="src\utils\Vector2D.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\components\ColliderTile.cpp" />
     <ClCompile Include="src\Entities\HUD.cpp" />
     <ClCompile Include="src\components\JumpComponent.cpp" />
     <ClCompile Include="src\Entities\Button.cpp" />
@@ -251,6 +253,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="assets\resources.json" />
+    <None Include="assets\Scenes\Maps\MapaInicial.tmx" />
   </ItemGroup>
   <ItemGroup>
     <Media Include="assets\Sounds\Battle.mp3" />
