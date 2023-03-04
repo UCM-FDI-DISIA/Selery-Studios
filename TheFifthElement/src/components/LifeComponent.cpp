@@ -15,6 +15,18 @@ void LifeComponent::subLife(float damage) {
 	{
 		lifeBar_->setAlive(false);
 		// llamar a muerte
+		ent_->Die();
+	}
+	lifeBar_->subLife(life_);
+}
+
+void LifeComponent::subLifeDie(float damage) {
+	life_ -= damage;
+	if (life_ <= 0)
+	{
+		lifeBar_->setAlive(false);
+		// llamar a muerte
+		//ent_->Die();
 	}
 	lifeBar_->subLife(life_);
 }

@@ -5,8 +5,7 @@ EnemyBEU::~EnemyBEU(){}
 
 EnemyBEU::EnemyBEU(Vector2D pos,PlayerBEU* player, float maxLife, string enemy, string type) : Entity()
 {
-	maxLife_ = maxLife;
-	life_ = maxLife;
+	maxLife_ = life_ = maxLife;
 	enemy_ = enemy;
 	type_ = type;
 	player_ = player;
@@ -39,28 +38,33 @@ EnemyBEU::EnemyBEU(Vector2D pos,PlayerBEU* player, float maxLife, string enemy, 
 	col_ = addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, offset_, ColHeight_, ColWidth_);
 	addComponent<ColDetectorComponent>(COLDETECTORCOMPONENT_H, this, player_);
 
+	lifeC_ = addComponent<LifeComponent>(LIFECOMPONENT_H, maxLife_, nullptr);
+
 	set_ = true;
 
 	//addComponent<LifeComponent>(int(LIFECOMPONENT_H), tr, maxLife_);
 }
 
 void EnemyBEU::collision(bool col) {
-	if (col) {
-		//cout << isAttacking_ << endl;
-		if (!im_->isAnimPlaying()) {
-			//cout << "colisiona" << endl;
-		// animaci�n de ataque y ataque en s�
-	//llamar a cambiar estado a attack
-			anim_->changeState(AnimationEnemyBEUComponent::Attack);
-			//en el hit
-			// cuando termine la animaci�n se mueve para permitir al jugador escapar
-			//tr_->setPos(Vector2D(tr_->getPos().getX() + 50, tr_->getPos().getY()));
-		}
+	if (die_) {
+		if (!im_->isAnimPlaying()) 
+			setAlive(false);
 	}
 	else {
-		if (!im_->isAnimPlaying()) {
-			// lógica de recibir daño, muerte o movimiento
-			anim_->changeState(AnimationEnemyBEUComponent::Moving);
+		if (col) {
+			if (!im_->isAnimPlaying()) {
+				//animaci�n de ataque y ataque en s�
+				/*anim_->changeState(AnimationEnemyBEUComponent::Attack);
+				eMov_->stop(true);*/
+				Hit(1);
+
+			}
+		}
+		else {
+			if (!im_->isAnimPlaying()) {
+				anim_->changeState(AnimationEnemyBEUComponent::Moving);
+				eMov_->stop(false);
+			}
 		}
 	}
 	
@@ -93,6 +97,31 @@ void EnemyBEU::setColAnim(float EnemyWidth, float EnemyHeight, int nframes, Vect
 		im_->setSpriteAnim(Anim, nframes_, 0, t_);
 		col_->setCollider(offset_, ColHeight_, ColWidth_);
 	}
+}
+
+void EnemyBEU::Die() {
+	die_ = true;
+	anim_->changeState(AnimationEnemyBEUComponent::Death);
+	eMov_->stop(true);
+}
+
+void EnemyBEU::Hit(float damage) 
+{
+	if (lifeC_->getLife() - damage <= 0) 
+	{ 
+		lifeC_->subLifeDie(damage);
+		Die(); 
+	}
+	else {
+		lifeC_->subLife(damage);
+		anim_->changeState(AnimationEnemyBEUComponent::Hit);
+		eMov_->stop(true);
+	}
+
+
+	//en el hit
+	// cuando termine la animaci�n se mueve para permitir al jugador escapar
+	//tr_->setPos(Vector2D(tr_->getPos().getX() + 50, tr_->getPos().getY()));
 }
 
 

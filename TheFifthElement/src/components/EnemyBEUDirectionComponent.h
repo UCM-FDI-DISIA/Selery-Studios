@@ -13,6 +13,7 @@ public:
     void initComponent();
     void update();
     void changeDir(Vector2D d);
+    void stop(bool s);
 private:
 
     float screenWidth_ = 750, screenHeight_ = 200;
@@ -31,7 +32,10 @@ private:
     int cont = 1000;
     bool izq = true;
     float distance_ = 100.0f;
+    float speed = 0.0f;
 
     string type_;
+
+    bool stop_ = false;
 };
 

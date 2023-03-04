@@ -31,6 +31,7 @@ public:
 	string getEnemyType(int i);
 	void finishBEU();
 	void handleEvents();
+	//void update();
 	~BeatEmUpState() {}
 };
 

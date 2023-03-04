@@ -51,7 +51,7 @@ void Image::render() {
 		src.h = heightFrame_;
 		src.w = widthFrame_;
 		tex_->render(src, rect, 0, nullptr, s);
-		if (cont >= 5) {
+		if (cont >= 15) {
 			i++;
 			cont = 0;
 		}

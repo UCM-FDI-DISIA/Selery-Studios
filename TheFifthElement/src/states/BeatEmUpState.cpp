@@ -10,9 +10,10 @@ BeatEmUpState::BeatEmUpState() {
 	cmpId_type b = int(INPUTCOMPONENTBEU_H);
 	in_ = player_->getComponent<InputComponentBEU>(b);
 	cmpId_type w = int(INPUTCOMPONENT_H);
-	/*en_ = addEntity(new EnemyBEU(Vector2D(0, 0), player_, 100, "bat", "fire"));
+	en_ = addEntity(new EnemyBEU(Vector2D(0, 0), player_, 3, "bat", "fire"));
 	lb_ = addEntity(new LifeBar(3, "earth", en_));
-	en_->addComponent<LifeComponent>(LIFECOMPONENT_H, 3, lb_)->subLife(2);*/
+	en_->getComponent<LifeComponent>(LIFECOMPONENT_H)->setLifeBar(lb_);
+	//en_->addComponent<LifeComponent>(LIFECOMPONENT_H, 3, lb_)->subLife(3);
 	/*SDLUtils::instance()->soundEffects().at("Battle").play();*/
 
 	/*n_enemies = r->nextInt(1, 11);
@@ -27,17 +28,24 @@ void BeatEmUpState::AddEnemies(int i) {
 		int element = r->nextInt(0, 4);
 		Vector2D pos={ (float)r->nextInt(50,WIN_WIDTH - 80),(float)r->nextInt(50,WIN_HEIGHT - 50) };
 		if (character == 0) {
-
-			addEntity(new EnemyBEU(pos,player_, 100, "bat", getEnemyType(element)));
+			addEntity(new EnemyBEU(pos,player_, 3, "bat", getEnemyType(element)));
+			lb_ = addEntity(new LifeBar(3, getEnemyType(element), en_));
+			en_->getComponent<LifeComponent>(LIFECOMPONENT_H)->setLifeBar(lb_);
 		}
 		else if (character == 1) {
-			addEntity(new EnemyBEU(pos,player_, 100, "skeleton", getEnemyType(element)));
+			addEntity(new EnemyBEU(pos,player_, 3, "skeleton", getEnemyType(element)));
+			lb_ = addEntity(new LifeBar(3, getEnemyType(element), en_));
+			en_->getComponent<LifeComponent>(LIFECOMPONENT_H)->setLifeBar(lb_);
 		}
 		else if (character == 2) {
-			addEntity(new EnemyBEU(pos,player_, 100, "shroom", getEnemyType(element)));
+			addEntity(new EnemyBEU(pos,player_, 3, "shroom", getEnemyType(element)));
+			lb_ = addEntity(new LifeBar(3, getEnemyType(element), en_));
+			en_->getComponent<LifeComponent>(LIFECOMPONENT_H)->setLifeBar(lb_);
 		}
 		else {
-			addEntity(new EnemyBEU(pos,player_, 100, "goblin", getEnemyType(element)));
+			addEntity(new EnemyBEU(pos,player_, 3, "goblin", getEnemyType(element)));
+			lb_ = addEntity(new LifeBar(3, getEnemyType(element), en_));
+			en_->getComponent<LifeComponent>(LIFECOMPONENT_H)->setLifeBar(lb_);
 		}
 
 
@@ -81,3 +89,7 @@ void BeatEmUpState::finishBEU() {
 string BeatEmUpState::getStateID() {
 	return "BeatEmUpState";
 }
+
+/*void BeatEmUpState::update() {
+	//Manager::refresh();
+}*/

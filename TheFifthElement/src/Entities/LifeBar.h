@@ -49,5 +49,6 @@ public:
 	void chooseTexture();
 	void setAll();
 	void renderAll();
+	float getMaxLife() { return maxLife_; }
 };
 
