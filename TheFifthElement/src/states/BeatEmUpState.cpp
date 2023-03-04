@@ -10,7 +10,9 @@ BeatEmUpState::BeatEmUpState() {
 	cmpId_type b = int(INPUTCOMPONENTBEU_H);
 	in_ = player_->getComponent<InputComponentBEU>(b);
 	cmpId_type w = int(INPUTCOMPONENT_H);
-	//addEntity(new EnemyBEU(player_, 100, "bat", "fire"));
+	/*en_ = addEntity(new EnemyBEU(Vector2D(0, 0), player_, 100, "bat", "fire"));
+	lb_ = addEntity(new LifeBar(3, "earth", en_));
+	en_->addComponent<LifeComponent>(LIFECOMPONENT_H, 3, lb_)->subLife(2);*/
 	/*SDLUtils::instance()->soundEffects().at("Battle").play();*/
 
 	/*n_enemies = r->nextInt(1, 11);

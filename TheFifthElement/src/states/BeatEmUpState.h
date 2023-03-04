@@ -9,6 +9,7 @@
 #include "../sdlutils/SDLUtils.h"
 #include "../Entities/Background.h"
 #include "../sdlutils/SDLUtils.h"
+#include "../Entities/LifeBar.h"
 #include <unordered_map>
 using name = string;
 using damage = int;
@@ -19,6 +20,9 @@ private:
 	bool dialog_;
 	RandomNumberGenerator* r;
 	int n_enemies = 0;
+
+	EnemyBEU* en_;
+	LifeBar* lb_;
 
 public:
 	string getStateID(); // stringID

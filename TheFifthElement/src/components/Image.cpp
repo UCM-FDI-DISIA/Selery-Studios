@@ -1,6 +1,16 @@
 #include "Image.h"
 #include "../Entities/EnemyBEU.h"
 
+Image::Image(Texture* tex, int width, int height, Transform* trans) {
+	frames_ = 0;
+	fila_ = 0;
+	framesTotales_ = 0;
+	widthFrame_ = width;
+	heightFrame_ = height;
+	tr_ = trans;
+	tex_ = tex;
+}
+
 Image::Image(Texture* tex, int nframes, int framesT, int fila, int widthFrame, int heightFrame) : tr_(nullptr), tex_(tex) { // Constructora
 	frames_ = nframes;
 	fila_ = fila;
@@ -12,7 +22,7 @@ Image::Image(Texture* tex, int nframes, int framesT, int fila, int widthFrame, i
 Image::~Image() { }
 
 void Image::initComponent() { 	// Inicializa el componente
-	tr_ = ent_->getComponent<Transform>(int(TRANSFORM_H));
+	if(tr_ == nullptr)tr_ = ent_->getComponent<Transform>(int(TRANSFORM_H));
 	assert(tr_ != nullptr);
 
 
@@ -24,7 +34,8 @@ void Image::update() {
 
 // Dibuja en escena
 void Image::render() {
-	if (frames_ == 0) { //Cuando la imagen solo tiene un frame (sin animaciï¿½n)
+	if (frames_ == 0) { //Cuando la imagen solo tiene un frame (sin animación)
+
 		SDL_Rect dest = build_sdlrect(tr_->getPos(), tr_->getW(), tr_->getH());
 		tex_->render(dest, tr_->getR());
 	}
@@ -44,25 +55,33 @@ void Image::render() {
 			i++;
 			cont = 0;
 		}
+		if (ent_->hasComponent(INPUTCOMPONENTBEU_H)) {
+			cout << animPlaying << endl;
+		}
 		cont++;
-		if (i >= frames_) {
+		if (i >= frames_||i>=tope) {
 			i = 0;
 			animPlaying = false;
 			fila_ = 0;
+			if (ent_->hasComponent(INPUTCOMPONENTBEU_H)) {
+				frames_ = 8;
+			}
 		}
 	}
 }
 
 
 //matriz
-void Image::setAnim(bool Anim, int Fila, int Frames, int I) { //Metodo generico para cambiar de animacion en BEU
+void Image::setAnim(bool Anim, int Fila, int Frames, int I,int tope) { //Metodo generico para cambiar de animacion en BEU
 	if (fila_ != Fila && !animPlaying) { // Si la animacion no es la actual la actualiza
 		animPlaying = Anim;
 		fila_ = Fila;
 		frames_ = Frames;
 		i = I;
 		cont = 0;
+		this->tope = tope;
 	}
+
 }
 
 void Image::setAnimTexture(string textureKey, int Frames, int Width) { //Metodo generico para cambiar de Textura (el width es temporal no deberia ser el with de la imagen sino de la entidad)

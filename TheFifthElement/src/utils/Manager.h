@@ -9,7 +9,6 @@ class Manager:public Singleton <Manager> {
 protected:
 	vector<Entity*> ents_;
 public:
-
 	Manager();
 	virtual ~Manager();
 	template<typename T>

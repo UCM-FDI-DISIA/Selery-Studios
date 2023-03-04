@@ -523,6 +523,59 @@
     {
       "id": "HUD_WheelEarthBlocked",
       "file": "assets/Player/HUD/WheelOfPlayer/Blocked/Earth.png"
+    },
+
+
+    {
+      "id": "Fire_LifeBar",
+      "file": "assets/Enemies/HUD/LifeBars/Horizontal/Bars/Bar2.png"
+    },
+    {
+      "id": "Fire_LifeBarBack",
+      "file": "assets/Enemies/HUD/LifeBars/Horizontal/Backs/Back6.png"
+    },
+    {
+      "id": "Fire_LifeBarBorder",
+      "file": "assets/Enemies/HUD/LifeBars/Horizontal/Boarders/Boarder2.png"
+    },
+
+    {
+      "id": "Water_LifeBar",
+      "file": "assets/Enemies/HUD/LifeBars/Horizontal/Bars/Bar3.png"
+    },
+    {
+      "id": "Water_LifeBarBack",
+      "file": "assets/Enemies/HUD/LifeBars/Horizontal/Backs/Back2.png"
+    },
+    {
+      "id": "Water_LifeBarBorder",
+      "file": "assets/Enemies/HUD/LifeBars/Horizontal/Boarders/Boarder4.png"
+    },
+
+    {
+      "id": "Earth_LifeBar",
+      "file": "assets/Enemies/HUD/LifeBars/Horizontal/Bars/Bar1.png"
+    },
+    {
+      "id": "Earth_LifeBarBack",
+      "file": "assets/Enemies/HUD/LifeBars/Horizontal/Backs/Back1.png"
+    },
+    {
+      "id": "Earth_LifeBarBorder",
+      "file": "assets/Enemies/HUD/LifeBars/Horizontal/Boarders/Boarder3.png"
+    },
+
+    {
+      "id": "Air_LifeBar",
+      "file": "assets/Enemies/HUD/LifeBars/Horizontal/Bars/Bar6.png"
+    },
+    {
+      "id": "Air_LifeBarBack",
+      "file": "assets/Enemies/HUD/LifeBars/Horizontal/Backs/Back6.png"
+    },
+    {
+      "id": "Air_LifeBarBorder",
+      "file": "assets/Enemies/HUD/LifeBars/Horizontal/Boarders/Boarder2.png"
     }
 
   ],
