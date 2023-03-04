@@ -1,6 +1,14 @@
 #include "Image.h"
 #include "../Entities/EnemyBEU.h"
 
+Image::Image(Texture* tex, int width, int height) {
+	frames_ = 0;
+	fila_ = 0;
+	framesTotales_ = 0;
+	widthFrame_ = width;
+	heightFrame_ = height;
+}
+
 Image::Image(Texture* tex, int nframes, int framesT, int fila, int widthFrame, int heightFrame) : tr_(nullptr), tex_(tex) { // Constructora
 	frames_ = nframes;
 	fila_ = fila;
