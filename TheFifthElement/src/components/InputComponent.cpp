@@ -70,6 +70,7 @@ void InputComponent::handleEvents(SDL_Event event)
 					npccol = true;
 					mov_->setDir(Vector2D(0, 0));
 					static_cast<TopDownState*>(mngr_)->dialog(a);
+					SDLUtils::instance()->soundEffects().at("NPC_Chat").play();
 				}
 
 			}

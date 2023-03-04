@@ -652,6 +652,10 @@
     {
       "id": "batDie",
       "file": "assets/sounds/enemy/bat/batDeath.wav"
+    },
+    {
+      "id": "NPC_Chat",
+      "file": "assets/Sounds/NPCs/npcchat.wav"
     }
   ],
 
