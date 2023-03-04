@@ -47,6 +47,7 @@ void InputComponent::handleEvents(SDL_Event event)
 
 			if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_1)) {
 				skin_->changeSkin("fire");
+				//static_cast<HUD*>(ent_)->
 			}
 			else if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_2)) {
 				skin_->changeSkin("air");
@@ -69,6 +70,7 @@ void InputComponent::handleEvents(SDL_Event event)
 					npccol = true;
 					mov_->setDir(Vector2D(0, 0));
 					static_cast<TopDownState*>(mngr_)->dialog(a);
+					SDLUtils::instance()->soundEffects().at("NPC_Chat").play();
 				}
 
 			}
