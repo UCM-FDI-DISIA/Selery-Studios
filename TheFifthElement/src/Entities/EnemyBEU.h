@@ -45,11 +45,10 @@ private:
 	float life_, maxLife_;
 	bool matrix_ = false;
 
-	Vector2D offset_ = Vector2D(0, 0);
+	Vector2D offset_;
 	float ColWidth_, ColHeight_;
 
 	bool set_ = false;
-	bool isAttacking_ = false;
 #pragma endregion
 
 
@@ -58,9 +57,7 @@ public:
 
 	EnemyBEU(PlayerBEU* player, float maxLife, string enemy, string type);
 
-	void collision();
-
-	void noCollision();
+	void collision(bool col);
 
 	PlayerBEU* returnPlayer();
 
@@ -70,10 +67,5 @@ public:
 
 	void setColAnim(float EnemyWidth, float EnemyHeight, int nframes, Vector2D offset,
 		float ColWidth, float ColHeight, Texture* t, bool Anim);
-
-	void setAttackBool(bool s);
-
-	void setSet(bool set) { set_ = set; }
-	bool getSet() { return set_; }
 };
 

@@ -22,7 +22,7 @@ PlayerBEU::PlayerBEU() : Entity() {
 
 	//Al hacer aquí initComponent la referencia ya es correcta
 	in_->initComponent();
-	addComponent<ColliderComponent>(int(COLLIDERCOMPONENT_H), Vector2D(100, 70), PlayerHeigth_ / 2, PlayerWidth_ / (framesT_ * 4));
+	addComponent<ColliderComponent>(int(COLLIDERCOMPONENT_H), Vector2D(120, 70), PlayerHeigth_ / 2, PlayerWidth_ / 7);
 }
 
 PlayerBEU::~PlayerBEU() {
