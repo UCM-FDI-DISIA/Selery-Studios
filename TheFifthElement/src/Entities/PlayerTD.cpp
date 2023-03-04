@@ -1,5 +1,6 @@
 #include "PlayerTD.h"
-PlayerTD::PlayerTD(string skin, Manager* m) : Entity() {
+PlayerTD::PlayerTD(string skin, Manager* m, Vector2D pos) : Entity() {
+	PlayerPosition_ = pos;
 	sk = addComponent<SkinComponent>(SKINCOMPONENT_H, skin);
 	sk->changeState(SkinComponent::Idle);
 	sk->changeMov();

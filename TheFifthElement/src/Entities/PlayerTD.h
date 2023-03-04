@@ -41,29 +41,7 @@ public:
 	int getCol() {
 		return collisionNPC;
 	}
-	PlayerTD(string skin, Manager* m, Vector2D pos) {
-		//mngr_ = m;
-		PlayerPosition_ = pos;
-		cmpId_type k = int(SKINCOMPONENT_H);
-		sk = addComponent<SkinComponent>(k, skin);
-		sk->changeState(SkinComponent::Idle);
-		sk->changeMov();
-
-		cmpId_type z = int(TRANSFORM_H);
-		tr = addComponent<Transform>(z, PlayerPosition_, PlayerWidth_, PlayerHeigth_, PlayerRotation_,speed_, nframes_, matrix_);
-
-		
-		fila_ = 0;
-		im_ = addComponent<Image>(int(IMAGE_H), t_, nframes_, nframes_, fila_);
-
-		mov = addComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
-
-		in_ = addComponent<InputComponent>(INPUTCOMPONENT_H);
-		in_->initComponent();
-		in_->setContext(this, m);
-		
-		set_ = true;
-	}
+	PlayerTD(string skin, Manager* m, Vector2D pos);
 	PlayerTD() : Entity() {
 	
 	}

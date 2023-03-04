@@ -65,7 +65,7 @@ public:
 		puzzle1 = new PuzzleCopas();
 		//
 
-		player_ = addEntity(new PlayerTD("air", this));
+		
 
 		dialog_ = false;
 		//addEntity(new Npc(player_, { 50,10 }, &SDLUtils::instance()->images().at("NPC_2"), 2));

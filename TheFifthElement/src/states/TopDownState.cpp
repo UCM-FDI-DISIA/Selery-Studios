@@ -165,7 +165,7 @@ void TopDownState::LoadMap(string const& filename) {
                 else if (name == "Player") {
                    // Vector2D pos(28, 4);
                     Vector2D pos(obj.getPosition().getX()/2, obj.getPosition().getY()/2);
-                    player_ = addEntity(new PlayerTD("fire", this, pos));
+                    player_ = addEntity(new PlayerTD("air", this, pos));
                     in_ = player_->getComponent<InputComponent>(INPUTCOMPONENT_H);
                 }
                 else if (name == "NPC") {
