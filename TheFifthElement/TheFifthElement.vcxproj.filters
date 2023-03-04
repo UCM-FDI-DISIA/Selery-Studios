@@ -49,6 +49,7 @@
     <ClCompile Include="src\components\JumpComponent.cpp" />
     <ClCompile Include="src\Entities\HUD.cpp" />
     <ClCompile Include="src\components\ColliderTile.cpp" />
+    <ClCompile Include="src\Entities\LifeBar.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Entities\Button.h" />
@@ -114,6 +115,7 @@
     <ClInclude Include="src\components\JumpComponent.h" />
     <ClInclude Include="src\Entities\HUD.h" />
     <ClInclude Include="src\components\ColliderTile.h" />
+    <ClInclude Include="src\Entities\LifeBar.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="TheFifthElement.rc" />
