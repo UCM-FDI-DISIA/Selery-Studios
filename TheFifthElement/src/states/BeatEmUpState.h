@@ -8,11 +8,14 @@
 #include "../Entities/EnemyBEU.h"
 #include "../sdlutils/SDLUtils.h"
 #include "../Entities/Background.h"
+#include "../Entities/LifeBar.h"
 
 class BeatEmUpState	 : public Manager {
 private:
 	PlayerBEU* player_;
 	InputComponentBEU* in_;
+	EnemyBEU* en_;
+	LifeBar* lb_;
 	bool dialog_;
 public:
 	string getStateID(); // stringID

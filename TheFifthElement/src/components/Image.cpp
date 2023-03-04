@@ -1,12 +1,14 @@
 #include "Image.h"
 #include "../Entities/EnemyBEU.h"
 
-Image::Image(Texture* tex, int width, int height) {
+Image::Image(Texture* tex, int width, int height, Transform* trans) {
 	frames_ = 0;
 	fila_ = 0;
 	framesTotales_ = 0;
 	widthFrame_ = width;
 	heightFrame_ = height;
+	tr_ = trans;
+	tex_ = tex;
 }
 
 Image::Image(Texture* tex, int nframes, int framesT, int fila, int widthFrame, int heightFrame) : tr_(nullptr), tex_(tex) { // Constructora
@@ -20,7 +22,7 @@ Image::Image(Texture* tex, int nframes, int framesT, int fila, int widthFrame, i
 Image::~Image() { }
 
 void Image::initComponent() { 	// Inicializa el componente
-	tr_ = ent_->getComponent<Transform>(int(TRANSFORM_H));
+	if(tr_ == nullptr)tr_ = ent_->getComponent<Transform>(int(TRANSFORM_H));
 	assert(tr_ != nullptr);
 
 
@@ -33,6 +35,7 @@ void Image::update() {
 // Dibuja en escena
 void Image::render() {
 	if (frames_ == 0) { //Cuando la imagen solo tiene un frame (sin animación)
+
 		SDL_Rect dest = build_sdlrect(tr_->getPos(), tr_->getW(), tr_->getH());
 		tex_->render(dest, tr_->getR());
 	}

@@ -13,8 +13,17 @@ private:
     int framesTotales_;
     bool matrix_, demo = false;
 public:
+    Transform(Vector2D pos, float w, float h) {
+        position = pos;
+        width = w;
+        height = h;
+        rotation_ = 0;
+        vel = 0;
+        framesTotales_ = 0;
+        matrix_ = false;
+    }
     Transform() {
-        
+
     }
     // Constructora
     Transform(Vector2D pos, float w, float h, float r, float v, int frames, bool matrix) : Component() {

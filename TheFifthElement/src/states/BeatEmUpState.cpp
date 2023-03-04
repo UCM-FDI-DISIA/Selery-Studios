@@ -8,7 +8,7 @@ BeatEmUpState::BeatEmUpState() {
 	cmpId_type b = int(INPUTCOMPONENTBEU_H);
 	in_ = player_->getComponent<InputComponentBEU>(b);
 	cmpId_type w = int(INPUTCOMPONENT_H);
-	addEntity(new EnemyBEU(player_, 100, "shroom", "earth"));
+	en_ = addEntity(new EnemyBEU(player_, 100, "shroom", "earth"));
 	SDLUtils::instance()->soundEffects().at("Battle").play();
 	
 }
