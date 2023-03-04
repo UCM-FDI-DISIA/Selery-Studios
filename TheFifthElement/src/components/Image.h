@@ -23,6 +23,7 @@ private:
 public:
 
 	//Constructora
+	Image(Texture* tex, int width, int height, Transform* trans);
 	Image(Texture* tex, int nframes, int framesT, int fila, int widthFrame, int heightFrame);//Constructora
 
 	// Destructora
