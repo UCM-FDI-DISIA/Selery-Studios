@@ -48,7 +48,7 @@ void InputComponentBEU::handleEvents(SDL_Event event) {
 			}
 			else if (ih().isKeyDown(SDL_SCANCODE_O)) { // Ataque
 				sdlutils().soundEffects().at("playerAttack").play();
-				im_->setAnim(true, 7, 10, 0);
+				im_->setAnim(true, 9, 24, 0);
 			}
 			else if (ih().isKeyDown(SDL_SCANCODE_P)) { // Ataque Especial
 				sdlutils().soundEffects().at("playerSpecialAttack").play();
@@ -59,7 +59,7 @@ void InputComponentBEU::handleEvents(SDL_Event event) {
 			}
 			else { // Idle
 				tr_->setDir(Vector2D(0, 0));
-				im_->setAnim(false, 0, 8, 0);
+				im_->setAnim(true, 0, 8, 0);
 			}
 		}
 		else if (jmp_->isJumpEnabled()) {

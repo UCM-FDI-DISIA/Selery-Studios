@@ -45,10 +45,13 @@ void Image::render() {
 			cont = 0;
 		}
 		cont++;
-		if (i >= frames_) {
+		if (i >= frames_||i>=tope) {
 			i = 0;
 			animPlaying = false;
 			fila_ = 0;
+			if (ent_->hasComponent(INPUTCOMPONENTBEU_H)) {
+				frames_ = 8;
+			}
 		}
 	}
 }
