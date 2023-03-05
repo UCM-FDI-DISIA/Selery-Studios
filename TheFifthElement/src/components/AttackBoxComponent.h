@@ -9,6 +9,9 @@
 
 
 
+
+
+
 //Este método es el usado a la hora de crear rectángulos cuando golpeamos en el modo BeatEmUp y funciona de la siguiente manera:
 //Este componente tiene una referencia al componente Image, el cual gestiona las animaciones.
 //En el update de este componente se llama al metodo handleBoxes, el cual comprueba, dependiendo de nuestro personaje, si se está reproduciendo una animación de golpeo, crea una caja y la setea
@@ -22,14 +25,14 @@
 // y también le asigna el ángulo donde empezará su recorrido
 //Tras crearse, esta se actualizará  a través del método moveBoxCurve, el cual recibe el arco de la circunferencia, el centro, la velocidad, el angulo anteriormente mencionado, el angulo limite y la dirección
 
-
+class BeatEmUpState;
 class Image;
 class AttackBoxComponent : public Component {
 private:
     Transform* playerTr = nullptr;
     SDL_Rect box;
     Image* im_;
-    float width, height, boxTime, timerExecution, angle;
+    float width, height, boxTime, timerExecution, angle,way;
     bool boxCreated = false;
 public:
     AttackBoxComponent();

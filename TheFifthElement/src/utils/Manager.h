@@ -24,5 +24,5 @@ public:
 	virtual void render();
 	virtual void handleEvents() {};
 	virtual string getStateID() = 0;
-
+	inline const auto& getEntities() { return ents_; }
 };

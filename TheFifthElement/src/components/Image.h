@@ -52,6 +52,8 @@ public:
 	void setSpriteAnim(bool Anim, int Frames, int I, Texture* t); //Metodo generico para cambiar de animacion en BEU
 
 	void setFlip(SDL_RendererFlip Flip = SDL_FLIP_NONE) { s = Flip; }
+
+	SDL_RendererFlip  getFlip() { return s; }
 	inline bool isAnimPlaying() { return animPlaying; }
 };
 #endif

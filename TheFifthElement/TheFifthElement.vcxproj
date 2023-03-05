@@ -130,6 +130,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="ColManager.h" />
     <ClInclude Include="src\components\ColliderTile.h" />
     <ClInclude Include="src\Entities\HUD.h" />
     <ClInclude Include="src\components\JumpComponent.h" />
@@ -196,6 +197,7 @@
     <ClInclude Include="src\utils\Vector2D.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="ColManager.cpp" />
     <ClCompile Include="src\components\ColliderTile.cpp" />
     <ClCompile Include="src\Entities\HUD.cpp" />
     <ClCompile Include="src\components\JumpComponent.cpp" />

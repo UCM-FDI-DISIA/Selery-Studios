@@ -50,6 +50,7 @@
     <ClCompile Include="src\Entities\HUD.cpp" />
     <ClCompile Include="src\components\ColliderTile.cpp" />
     <ClCompile Include="src\Entities\LifeBar.cpp" />
+    <ClCompile Include="ColManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Entities\Button.h" />
@@ -116,6 +117,7 @@
     <ClInclude Include="src\Entities\HUD.h" />
     <ClInclude Include="src\components\ColliderTile.h" />
     <ClInclude Include="src\Entities\LifeBar.h" />
+    <ClInclude Include="ColManager.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="TheFifthElement.rc" />

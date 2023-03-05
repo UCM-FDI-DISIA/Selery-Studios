@@ -1,7 +1,7 @@
 #include "AttackBoxComponent.h"
 #include "../utils/Entity.h"
 #include "Image.h"
-
+#include "../states/BeatEmUpState.h"
 
 
 AttackBoxComponent::AttackBoxComponent()
@@ -14,13 +14,14 @@ void AttackBoxComponent::initComponent()
 }
 void AttackBoxComponent::render()
 {
-	SDL_SetRenderDrawColor(GameManager::instance()->getRenderer(), 0, 255, 0, 0);							//Renderizamos el rect?gulo del player
+	SDL_SetRenderDrawColor(GameManager::instance()->getRenderer(), 0, 255, 0, 0);							
 	SDL_RenderDrawRect(GameManager::instance()->getRenderer(), &box);
 }
 
 void AttackBoxComponent::update()
 {
 	handleBoxes();
+	
 	unsigned timer = clock();
 	timerExecution = (double(timer) / CLOCKS_PER_SEC);
 
@@ -29,7 +30,7 @@ void AttackBoxComponent::update()
 void AttackBoxComponent::handleBoxes()
 {	
 
-	if (im_->getRow()==7) 
+	if (im_->getRow()==9) 
 	{
 		if(!boxCreated)
 		{
@@ -39,9 +40,22 @@ void AttackBoxComponent::handleBoxes()
 		}
 		else
 		{
-		
+					
 
-			moveBoxCurve(72, Vector2D(playerTr->getPos().getX() + playerTr->getW()/2, playerTr->getPos().getY() + playerTr->getH()), 0.07, angle, 182, 1);
+			//Para poder cambiar satisfactoriamente la direccion del cuadrado
+			if (im_->getFlip() == SDL_FLIP_NONE)
+			{
+				way = 1;
+			}
+			else
+			{
+				way = -1;
+			}
+
+
+			moveBoxCurve(72, Vector2D(playerTr->getPos().getX() + playerTr->getW()/2, playerTr->getPos().getY() + playerTr->getH()), 0.07, angle, 182, way);
+			static_cast<BeatEmUpState*>(mngr_)->getColManager()->checkCollisionP(box);
+
 			if (im_->getLastFrame() == 10)
 			{
 				unsigned timer = clock();
@@ -63,6 +77,7 @@ void AttackBoxComponent::handleBoxes()
 
 
 			moveBoxCurve(72, Vector2D(playerTr->getPos().getX() + playerTr->getW() / 2, playerTr->getPos().getY() + playerTr->getH()), 0.03, angle, 182, 1);
+			static_cast<BeatEmUpState*>(mngr_)->getColManager()->checkCollisionP(box);
 			if (im_->getLastFrame() == 10)
 			{
 				unsigned timer = clock();
@@ -100,7 +115,7 @@ void AttackBoxComponent::moveBoxCurve(float radio, Vector2D posCenter, float vel
 
 	box.x = posCenter.getX() + (int)(radio * cos(angle));
 	box.y = posCenter.getY() + (int)(radio * sin(angle));
-	cout << "Angle:" << angle << "Stop:" << stoppingAngle << endl;
+	//cout << "Angle:" << angle << "Stop:" << stoppingAngle << endl;
 }
 
 void AttackBoxComponent::GFY()

@@ -7,6 +7,7 @@ LifeComponent::LifeComponent(float maxLife, LifeBar* lifeBar) {
 
 void LifeComponent::update() {
 	lifeBar_->updatePos();
+	cout << life_ << endl;
 }
 
 void LifeComponent::subLife(float damage) {

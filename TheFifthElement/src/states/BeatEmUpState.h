@@ -11,6 +11,8 @@
 #include "../sdlutils/SDLUtils.h"
 #include "../Entities/LifeBar.h"
 #include <unordered_map>
+#include "../../ColManager.h"
+#include "../components/AttackBoxComponent.h"
 using name = string;
 using damage = int;
 class BeatEmUpState	 : public Manager {
@@ -20,9 +22,11 @@ private:
 	bool dialog_;
 	RandomNumberGenerator* r;
 	int n_enemies = 0;
-
+	ColManager* colMan_;
 	EnemyBEU* en_;
 	LifeBar* lb_;
+
+	AttackBoxComponent* atk_;
 
 public:
 	string getStateID(); // stringID
@@ -33,5 +37,8 @@ public:
 	void handleEvents();
 	//void update();
 	~BeatEmUpState() {}
+
+	ColManager* getColManager() { return colMan_; }
+
 };
 

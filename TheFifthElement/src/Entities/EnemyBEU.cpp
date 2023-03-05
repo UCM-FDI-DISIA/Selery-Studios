@@ -11,10 +11,6 @@ EnemyBEU::EnemyBEU(Vector2D pos,PlayerBEU* player, float maxLife, string enemy, 
 	player_ = player;
 
 
-	float a = 1.0f;
-	float lookingRange = 150.0f;
-	float lookingWidth = 100.0f;
-
 
 	anim_ = addComponent<AnimationEnemyBEUComponent>(ANIMATIONENEMYBEUCOMPONENT_H, type_, enemy_
 		, player_->getComponent<Transform>(TRANSFORM_H));

@@ -11,13 +11,21 @@ BeatEmUpState::BeatEmUpState() {
 	in_ = player_->getComponent<InputComponentBEU>(b);
 	cmpId_type w = int(INPUTCOMPONENT_H);
 	en_ = addEntity(new EnemyBEU(Vector2D(0, 0), player_, 3, "bat", "fire"));
+	//addEntity(new EnemyBEU(Vector2D(110, 0), player_, 3, "bat", "fire"));
 	lb_ = addEntity(new LifeBar(3, "earth", en_));
 	en_->getComponent<LifeComponent>(LIFECOMPONENT_H)->setLifeBar(lb_);
+
+	atk_ = player_->getComponent<AttackBoxComponent>(ATTACKBOXCOMPONENT_H);
+
+	/*n_enemies = 1;
+	AddEnemies(n_enemies);*/
+	colMan_ = new ColManager(this);
 	//en_->addComponent<LifeComponent>(LIFECOMPONENT_H, 3, lb_)->subLife(3);
 	/*SDLUtils::instance()->soundEffects().at("Battle").play();*/
 
-	/*n_enemies = r->nextInt(1, 11);
-	AddEnemies(n_enemies);*/
+	
+
+	atk_->setContext(player_, this);
 
 	
 }
@@ -28,24 +36,28 @@ void BeatEmUpState::AddEnemies(int i) {
 		int element = r->nextInt(0, 4);
 		Vector2D pos={ (float)r->nextInt(50,WIN_WIDTH - 80),(float)r->nextInt(50,WIN_HEIGHT - 50) };
 		if (character == 0) {
-			addEntity(new EnemyBEU(pos,player_, 3, "bat", getEnemyType(element)));
+		
 			lb_ = addEntity(new LifeBar(3, getEnemyType(element), en_));
 			en_->getComponent<LifeComponent>(LIFECOMPONENT_H)->setLifeBar(lb_);
+			addEntity(new EnemyBEU(pos, player_, 3, "bat", getEnemyType(element)));
 		}
 		else if (character == 1) {
-			addEntity(new EnemyBEU(pos,player_, 3, "skeleton", getEnemyType(element)));
+			
 			lb_ = addEntity(new LifeBar(3, getEnemyType(element), en_));
 			en_->getComponent<LifeComponent>(LIFECOMPONENT_H)->setLifeBar(lb_);
+			addEntity(new EnemyBEU(pos, player_, 3, "skeleton", getEnemyType(element)));
 		}
 		else if (character == 2) {
-			addEntity(new EnemyBEU(pos,player_, 3, "shroom", getEnemyType(element)));
+			
 			lb_ = addEntity(new LifeBar(3, getEnemyType(element), en_));
 			en_->getComponent<LifeComponent>(LIFECOMPONENT_H)->setLifeBar(lb_);
+			addEntity(new EnemyBEU(pos, player_, 3, "shroom", getEnemyType(element)));
 		}
 		else {
-			addEntity(new EnemyBEU(pos,player_, 3, "goblin", getEnemyType(element)));
+			
 			lb_ = addEntity(new LifeBar(3, getEnemyType(element), en_));
 			en_->getComponent<LifeComponent>(LIFECOMPONENT_H)->setLifeBar(lb_);
+			addEntity(new EnemyBEU(pos, player_, 3, "goblin", getEnemyType(element)));
 		}
 
 

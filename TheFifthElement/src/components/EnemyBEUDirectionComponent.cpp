@@ -55,7 +55,7 @@ void EnemyBEUDirectionComponent::update() {
 			cont++;
 		}
 	}
-	mov_->setDir(dir_ * speed);//move
+	mov_->setDir(dir_ * speed );//move
 }
 
 void EnemyBEUDirectionComponent::changeDir(Vector2D d) 
