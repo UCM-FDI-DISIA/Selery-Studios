@@ -11,6 +11,10 @@ void Button::update() {
 		currentPositionState = MOUSE_OVER;
 		cout << "a";
 	}
+	else 
+	{
+		currentPositionState = MOUSE_OUT;
+	}
 	updateMousePosition();
 }
 
