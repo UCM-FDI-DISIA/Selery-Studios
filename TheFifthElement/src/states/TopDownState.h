@@ -12,7 +12,7 @@
 #include "tmxlite/Map.hpp"
 #include "tmxlite/TileLayer.hpp"
 #include "../sdlutils/SDLUtils.h"
-#include "../Entities/Camera.h"
+//#include "../Entities/Camera.h"
 #include "../include/SDL_mixer.h"
 #include "../Entities/RedirectTile.h"
 #include "../components/ColliderTile.h"
@@ -52,7 +52,7 @@ private:
 	SDL_Texture* background_;
 	MapInfo mapInfo;//struct
 	bool dialog_;
-	Camera* cam_;
+	/*Camera* cam_;*/
 	Portal* p;
 	vector<ColliderTile*> collisions_; //vector colision player-mapa
 	vector<ColliderTileInteraction*> interactions_; //vector colision player-mapa
@@ -119,7 +119,27 @@ public:
 			p->update();
 		}
 		Manager::update();
+		camRect_.x = (player_->getComponent<Transform>(TRANSFORM_H)->getPos().getX() + 40) - WIN_WIDTH / 2;
+		camRect_.y = (player_->getComponent<Transform>(TRANSFORM_H)->getPos().getY() + 40) - WIN_HEIGHT / 2;
+		// Clamp
+		if (camRect_.x < 0) {
+			camRect_.x = 0;
+		}
+		if (camRect_.y < 0) {
+			camRect_.y = 0;
+		}
 
+		/* cout << camRect_.x;
+		 cout << "||";*/
+		 /* cout << camRect_.x << endl;
+		  cout << "|";
+			  cout << (player_->getComponent<Transform>(TRANSFORM_H)->getPos().getX() + 40) - WIN_WIDTH / 2 << endl;*/
+		/*if (camRect_.x > (camRect_.w)) {
+			camRect_.x = camRect_.w;
+		}
+		if (camRect_.y > (camRect_.h)) {
+			camRect_.y = camRect_.h;
+		}*/
 	}
 	void handleEvents()
 	{

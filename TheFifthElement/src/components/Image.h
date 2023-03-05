@@ -20,7 +20,7 @@ private:
 	bool animPlaying = false;
 	int widthFrame_, heightFrame_;
 	int tope = 100;
-
+	Vector2D a;
 public:
 
 	//Constructora

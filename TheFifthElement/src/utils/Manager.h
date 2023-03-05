@@ -25,4 +25,5 @@ public:
 	virtual void handleEvents() {};
 	virtual string getStateID() = 0;
 	inline const auto& getEntities() { return ents_; }
+	static SDL_Rect camRect_;
 };
