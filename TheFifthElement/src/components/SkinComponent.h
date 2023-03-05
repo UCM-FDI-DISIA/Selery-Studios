@@ -17,6 +17,7 @@ private:
     AnimationStates nextState_;
     string t_;
     string skin_;
+    string prevSkin_;
     int nframes_;
     int fila_;
     int w_, h_;
@@ -26,7 +27,7 @@ public:
     SkinComponent(string skin)
     {
         skin_ = skin;
-
+        prevSkin_ = skin;
     }
     void setIdle();
     void setLeft();
@@ -37,7 +38,7 @@ public:
     void update();
     void changeMov();
     void changeState(AnimationStates newState) { nextState_ = newState; };
-    void changeSkin(string skin);
+    void changeSkin(string skin) { skin_ = skin; }
 
 };
 #endif

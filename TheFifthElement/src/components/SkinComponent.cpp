@@ -8,14 +8,13 @@ void SkinComponent::initComponent() {
 }
 
 void SkinComponent::update() {
-	if (nextState_ != currentState_) changeMov();
-	else;
+	if (nextState_ != currentState_ || prevSkin_ != skin_) changeMov();
 }
 
 void SkinComponent::changeMov() {
 	
 	currentState_ = nextState_;
-
+	prevSkin_ = skin_;
 	switch (currentState_)
 	{
 	case SkinComponent::Idle:
@@ -170,29 +169,5 @@ void SkinComponent::setDown() {
 
 	else if (skin_ == "earth") {
 		t_ = "PTD_earth_down";
-	}
-}
-
-void SkinComponent::changeSkin(string skin)
-{
-	skin_ = skin;
-	nframes_ = 7;
-	w_ = 519;
-	h_ = 120;
-
-	if (skin_ == "fire") {
-		t_ = "PTD_fire_idle";
-	}
-
-	else if (skin_ == "air") {
-		t_ = "PTD_air_idle";
-	}
-
-	else if (skin_ == "water") {
-		t_ = "PTD_water_idle";
-	}
-
-	else if (skin_ == "earth") {
-		t_ = "PTD_earth_idle";
 	}
 }
