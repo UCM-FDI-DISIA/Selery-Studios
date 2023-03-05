@@ -1,5 +1,5 @@
 #include "Manager.h"
-SDL_Rect Manager::camRect_ = { 0,0, 900, 800 };
+SDL_Rect Manager::camRect_ = { 0,0, WIN_WIDTH, WIN_HEIGHT };
 Manager::Manager() {
 	ents_.reserve(100);
 	/*for (auto& grpEnts : entsByGroup_) {

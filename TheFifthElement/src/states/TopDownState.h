@@ -56,104 +56,17 @@ private:
 	Portal* p;
 	vector<ColliderTile*> collisions_; //vector colision player-mapa
 	vector<ColliderTileInteraction*> interactions_; //vector colision player-mapa
-
+	float camOffset_ = 60.0f;
 public:
 	string getStateID(); // stringID
 	DialogBox* d;
 	PuzzleCopas* puzzle1;
-	TopDownState() {
-		puzzle1 = new PuzzleCopas();
-		//
-
-		
-
-		dialog_ = false;
-		//addEntity(new Npc(player_, { 50,10 }, &SDLUtils::instance()->images().at("NPC_2"), 2));
-		//addEntity(new Npc(player_,{0,10},&SDLUtils::instance()->images().at("NPC_1"),1));	
-		// 
-		//in_ = player_->getComponent<InputComponent>(INPUTCOMPONENT_H);
-		// 
-		//enemy_ = addEntity(new Enemy(player_, 100));
-		//cam_ = addEntity(new Camera(player_)); // entidad de camara
-		//Portal* p = addEntity(new Portal(player_));
-		LoadMap("assets/Scenes/Maps/MapaInicial.tmx");
-
-		addEntity(new Element(player_, Vector2D(100, 100), p));
-		addEntity(new Element(player_, Vector2D(300, 100), p));
-		addEntity(new Element(player_, Vector2D(200, 200), p));
-
-		
-		// PRUEBAS PATHING ENEMIGO
-		addEntity(new RedirectTile(Vector2D(1, 0), Vector2D(680, 170), enemy_)); //der
-		addEntity(new RedirectTile(Vector2D(0, 1), Vector2D(870, 170), enemy_)); //ab
-		addEntity(new RedirectTile(Vector2D(-1, 0), Vector2D(870, 360), enemy_)); //iz
-		addEntity(new RedirectTile(Vector2D(0, -1), Vector2D(680, 360), enemy_)); //arr
-	}
+	TopDownState();	
+	~TopDownState() {}
 	void LoadMap(string const& filename);
-	void dialog(int a) {
-		if (dialog_ != false) {
-			if (d->getfinish() == true) {
-				in_->changebool();
-				d->~DialogBox();
-				dialog_ = false;
-			}
-			else {
-				d->setline();
-			}
-			
-		}
-		else  {
-			d = new DialogBox(a);
-			addEntity(d);
-			dialog_ = true;
-			cout << "d" << endl;
-
-		}
-	}
-	void update() {
-		player_->setCollision(false);
-		for (auto p : collisions_) {
-			p->update();
-		}
-		for (auto p : interactions_) {
-			p->update();
-		}
-		Manager::update();
-		camRect_.x = (player_->getComponent<Transform>(TRANSFORM_H)->getPos().getX() + 40) - WIN_WIDTH / 2;
-		camRect_.y = (player_->getComponent<Transform>(TRANSFORM_H)->getPos().getY() + 40) - WIN_HEIGHT / 2;
-		// Clamp
-		if (camRect_.x < 0) {
-			camRect_.x = 0;
-		}
-		if (camRect_.y < 0) {
-			camRect_.y = 0;
-		}
-
-		/* cout << camRect_.x;
-		 cout << "||";*/
-		 /* cout << camRect_.x << endl;
-		  cout << "|";
-			  cout << (player_->getComponent<Transform>(TRANSFORM_H)->getPos().getX() + 40) - WIN_WIDTH / 2 << endl;*/
-		/*if (camRect_.x > (camRect_.w)) {
-			camRect_.x = camRect_.w;
-		}
-		if (camRect_.y > (camRect_.h)) {
-			camRect_.y = camRect_.h;
-		}*/
-	}
-	void handleEvents()
-	{
-		SDL_Event event;
-		while (SDL_PollEvent(&event)) 
-		{
-			in_->handleEvents(event);
-			//inBEU_->handleEvents(event);
-;		}
-	}
-	~TopDownState() {
-
-	}
+	void dialog(int a);	
+	void update();	
+	void handleEvents();
 	void render();
-
 };
 

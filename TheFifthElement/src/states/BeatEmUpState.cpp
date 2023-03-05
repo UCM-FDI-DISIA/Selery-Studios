@@ -101,6 +101,17 @@ string BeatEmUpState::getStateID() {
 	return "BeatEmUpState";
 }
 
-/*void BeatEmUpState::update() {
-	//Manager::refresh();
-}*/
+void BeatEmUpState::update() {
+	/*Manager::refresh();*/
+	Manager::update();
+	camRect_.x = (player_->getComponent<Transform>(TRANSFORM_H)->getPos().getX() + camOffset_) - WIN_WIDTH / 2;
+	camRect_.y = (player_->getComponent<Transform>(TRANSFORM_H)->getPos().getY()) - WIN_HEIGHT / 2;
+	// Clamp
+	if (camRect_.x < 0) {
+		camRect_.x = 0;
+	}
+	camRect_.y = 0;
+	if (camRect_.x > (BACKGROUNDAIR_WIDTH_FRAME)) {
+			camRect_.x = BACKGROUNDAIR_WIDTH_FRAME;
+	}
+}

@@ -5,8 +5,7 @@
 #include "../components/Transform.h"
 #include "../utils/Entity.h"
 
-class ColliderComponent :
-    public Component
+class ColliderComponent: public Component
 {
 private:
 
