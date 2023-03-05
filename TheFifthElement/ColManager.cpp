@@ -11,8 +11,6 @@ void ColManager::checkCollisionP(SDL_Rect boxAttack)
 			if(Collision::collides(Vector2D(boxAttack.x,boxAttack.y), boxAttack.w,boxAttack.h,t->getPos(),t->getW(),t->getH()))
 			{
 				it->Hit(1);
-				/*lf_ = it->getComponent<LifeComponent>(LIFECOMPONENT_H);
-				lf_->subLife(1);*/
 			}
 		}
 	}

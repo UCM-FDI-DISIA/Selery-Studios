@@ -13,7 +13,6 @@ class ColManager
 {
 private:
 	Manager* mngr_;
-	LifeComponent* lf_;
 public:
 
 	ColManager(Manager* manager): mngr_(manager) {};
