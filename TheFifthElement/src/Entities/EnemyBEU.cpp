@@ -51,19 +51,19 @@ void EnemyBEU::collision(bool col) {
 			setAlive(false);
 	}
 	else {
-		if (col) {
-			if (!im_->isAnimPlaying()) {
+		if (!im_->isAnimPlaying()) {
+			if (col) {
+
 				//animaci�n de ataque y ataque en s�
 				anim_->changeState(AnimationEnemyBEUComponent::Attack);
 				eMov_->stop(true);
-
 			}
-		}
-		else {
-			if (!im_->isAnimPlaying()) {
+			else {
 				anim_->changeState(AnimationEnemyBEUComponent::Moving);
 				eMov_->stop(false);
+				
 			}
+			if(anim_->currentState_ != AnimationEnemyBEUComponent::Hit)hit = false;
 		}
 	}
 	
@@ -106,17 +106,19 @@ void EnemyBEU::Die() {
 
 void EnemyBEU::Hit(float damage) 
 {
-	if (lifeC_->getLife() - damage <= 0) 
-	{ 
-		lifeC_->subLifeDie(damage);
-		Die(); 
+	if (!hit) {
+		if (lifeC_->getLife() - damage <= 0)
+		{
+			lifeC_->subLifeDie(damage);
+			Die();
+		}
+		else {
+			lifeC_->subLife(damage);
+			anim_->changeState(AnimationEnemyBEUComponent::Hit);
+			eMov_->stop(true);
+		}
+		hit = true;
 	}
-	else {
-		lifeC_->subLife(damage);
-		anim_->changeState(AnimationEnemyBEUComponent::Hit);
-		eMov_->stop(true);
-	}
-
 
 	//en el hit
 	// cuando termine la animaci�n se mueve para permitir al jugador escapar

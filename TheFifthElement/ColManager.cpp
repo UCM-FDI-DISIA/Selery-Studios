@@ -10,9 +10,9 @@ void ColManager::checkCollisionP(SDL_Rect boxAttack)
 			Transform* t = it->getComponent<Transform>(TRANSFORM_H);
 			if(Collision::collides(Vector2D(boxAttack.x,boxAttack.y), boxAttack.w,boxAttack.h,t->getPos(),t->getW(),t->getH()))
 			{
-
-				lf_ = it->getComponent<LifeComponent>(LIFECOMPONENT_H);
-				lf_->subLife(1);
+				it->Hit(1);
+				/*lf_ = it->getComponent<LifeComponent>(LIFECOMPONENT_H);
+				lf_->subLife(1);*/
 			}
 		}
 	}

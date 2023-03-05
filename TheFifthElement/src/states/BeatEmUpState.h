@@ -21,7 +21,7 @@ private:
 	InputComponentBEU* in_;
 	bool dialog_;
 	RandomNumberGenerator* r;
-	int n_enemies = 0;
+	//int n_enemies = 0;
 	ColManager* colMan_;
 	EnemyBEU* en_;
 	LifeBar* lb_;

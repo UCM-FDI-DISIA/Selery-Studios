@@ -40,6 +40,7 @@ private:
 #pragma region parameters
 	float speed_ = 1.0f;
 	bool die_ = false;
+	bool hit = false;
 #pragma endregion
 
 #pragma region sprites
