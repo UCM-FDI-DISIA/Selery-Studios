@@ -4,6 +4,7 @@
 #include "../utils/Vector2D.h"
 #include "../utils/Component.h"
 #include "../sdlutils/SDLUtils.h"
+#include "../utils/Manager.h"
 
 class Transform : public Component {
 private:
@@ -62,7 +63,6 @@ public:
     inline void setDir(Vector2D dir) { direction = dir; }
     
     inline void setVel(float veloc) { vel = veloc; }
-   
 
     void render()
     {
@@ -74,7 +74,9 @@ public:
                 if (framesTotales_ != 0) rect = build_sdlrect(getPos().getX(), getPos().getY(), getW() / framesTotales_, getH());
                 else  rect = build_sdlrect(getPos().getX() + 50, getPos().getY() + 60, 3 * getW() / 4, getH() / 2);
             }
-           rect = build_sdlrect(getPos().getX(), getPos().getY(), getW(), getH());
+            rect = build_sdlrect(getPos().getX(), getPos().getY(), getW(), getH());
+            rect.x -= ent_->mngr_->camRect_.x;
+            rect.y -= ent_->mngr_->camRect_.y;
             SDL_SetRenderDrawColor(sdlutils().renderer(), 255, 0, 255, 0);
             SDL_RenderDrawRect(sdlutils().renderer(), &rect);
             SDL_SetRenderDrawColor(sdlutils().renderer(), 0, 0, 0, 0);

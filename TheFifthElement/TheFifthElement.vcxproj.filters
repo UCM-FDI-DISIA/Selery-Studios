@@ -50,7 +50,8 @@
     <ClCompile Include="src\Entities\HUD.cpp" />
     <ClCompile Include="src\components\ColliderTile.cpp" />
     <ClCompile Include="src\Entities\LifeBar.cpp" />
-    <ClCompile Include="ColManager.cpp" />
+    <ClCompile Include="src\ColManager.cpp" />
+    <ClCompile Include="src\states\PauseMenuState.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Entities\Button.h" />
@@ -117,7 +118,8 @@
     <ClInclude Include="src\Entities\HUD.h" />
     <ClInclude Include="src\components\ColliderTile.h" />
     <ClInclude Include="src\Entities\LifeBar.h" />
-    <ClInclude Include="ColManager.h" />
+    <ClInclude Include="src\ColManager.h" />
+    <ClInclude Include="src\states\PauseMenuState.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="TheFifthElement.rc" />

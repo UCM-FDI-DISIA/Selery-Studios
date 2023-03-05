@@ -11,6 +11,10 @@ void Button::update() {
 		currentPositionState = MOUSE_OVER;
 		cout << "a";
 	}
+	else 
+	{
+		currentPositionState = MOUSE_OUT;
+	}
 	updateMousePosition();
 }
 
@@ -28,8 +32,11 @@ void Button::handleEvent(SDL_Event event)
 				if (identifier == "PLAY"){
 					GameManager::instance()->leaveMainMenu();
 				}
-				else {
-
+				else if (identifier == "RESUME"){
+					GameManager::instance()->goTopDown();					
+				}
+				else if (identifier == "OPTIONS") {
+					// ir a menu de opciones
 				}
 			}
 		}

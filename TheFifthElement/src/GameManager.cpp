@@ -1,6 +1,7 @@
 #include "GameManager.h"
 #include "states/TopDownState.h"
 #include "states/BeatEmUpState.h"
+#include "states/PauseMenuState.h"
 	////LO DE SOFI
 	////gameSTMC=static_cast<GameStateMachine*>(GameStateMachine::Instance())
 	//gameStMc = new GameStateMachine();
@@ -21,6 +22,10 @@ void GameManager::goTopDown() {
 
 void GameManager:: leaveMainMenu() {
 	GameStateMachine::instance()->pushState(new TopDownState());
+}
+
+void GameManager::goPauseMenu() {
+	GameStateMachine::instance()->pushState(new PauseMenuState());
 }
 
 void GameManager::handleEvents() { // handleEvents

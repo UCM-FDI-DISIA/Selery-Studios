@@ -11,11 +11,11 @@
 #include "../sdlutils/SDLUtils.h"
 #include "../Entities/LifeBar.h"
 #include <unordered_map>
-#include "../../ColManager.h"
+#include "../ColManager.h"
 #include "../components/AttackBoxComponent.h"
 using name = string;
 using damage = int;
-class BeatEmUpState	 : public Manager {
+class BeatEmUpState: public Manager {
 private:
 	PlayerBEU* player_;
 	InputComponentBEU* in_;
@@ -25,7 +25,7 @@ private:
 	ColManager* colMan_;
 	EnemyBEU* en_;
 	LifeBar* lb_;
-
+	float camOffset_ = 300.0f;
 	AttackBoxComponent* atk_;
 
 public:
@@ -39,6 +39,6 @@ public:
 	~BeatEmUpState() {}
 
 	ColManager* getColManager() { return colMan_; }
-
+	void update();
 };
 

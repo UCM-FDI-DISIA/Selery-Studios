@@ -6,8 +6,8 @@
 #include "../utils/Collision.h"
 #include "../components/ColliderComponent.h"
 
-class ColDetectorComponent :
-    public Component
+class ColDetectorComponent: public Component
+    
 {
 private:
     bool collider;

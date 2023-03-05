@@ -20,23 +20,23 @@ void InputComponent::update() { //Actualizamos el contador que mide el tiempo
 }
 void InputComponent::handleEvents(SDL_Event event)
 {
-	InputHandler::instance()->update(event);
+	ih().update(event);
 
 	if (ih().keyDownEvent()){
 		if (!npccol) {
-			if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_A)) {
+			if (ih().isKeyDown(SDL_SCANCODE_A)) {
 				mov_->setDir(Vector2D(-1, 0));
 				skin_->changeState(SkinComponent::Left);
 			}
-			else if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_D)) {
+			else if (ih().isKeyDown(SDL_SCANCODE_D)) {
 				mov_->setDir(Vector2D(1, 0));
 				skin_->changeState(SkinComponent::Right);
 			}
-			else  if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_W)) {
+			else  if (ih().isKeyDown(SDL_SCANCODE_W)) {
 				mov_->setDir(Vector2D(0, -1));
 				skin_->changeState(SkinComponent::Up);
 			}
-			else if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_S)) {
+			else if (ih().isKeyDown(SDL_SCANCODE_S)) {
 				mov_->setDir(Vector2D(0, 1));
 				skin_->changeState(SkinComponent::Down);
 			}
@@ -45,22 +45,22 @@ void InputComponent::handleEvents(SDL_Event event)
 				skin_->changeState(SkinComponent::Idle);
 			}
 
-			if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_1)) {
+			if (ih().isKeyDown(SDL_SCANCODE_1)) {
 				skin_->changeSkin("fire");
 				//static_cast<HUD*>(ent_)->
 			}
-			else if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_2)) {
+			else if (ih().isKeyDown(SDL_SCANCODE_2)) {
 				skin_->changeSkin("air");
 			}
-			else  if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_3)) {
+			else  if (ih().isKeyDown(SDL_SCANCODE_3)) {
 				skin_->changeSkin("water");
 			}
-			else if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_4)) {
+			else if (ih().isKeyDown(SDL_SCANCODE_4)) {
 				skin_->changeSkin("earth");
 			}
 		}
 		
-		if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_E)) {
+		if (ih().isKeyDown(SDL_SCANCODE_E)) {
 			if (actionDelay > 0) {
 				int a = static_cast<PlayerTD*>(ent_)->getCol();
 				cout << a;
@@ -75,6 +75,10 @@ void InputComponent::handleEvents(SDL_Event event)
 
 			}
 			actionDelay = 0;
+		}
+
+		if (ih().isKeyDown(SDL_SCANCODE_ESCAPE)) {
+			GameManager::goPauseMenu();
 		}
 	}
 }

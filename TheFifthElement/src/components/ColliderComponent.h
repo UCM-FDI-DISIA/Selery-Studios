@@ -5,8 +5,7 @@
 #include "../components/Transform.h"
 #include "../utils/Entity.h"
 
-class ColliderComponent :
-    public Component
+class ColliderComponent: public Component
 {
 private:
 
@@ -37,6 +36,8 @@ public:
     SDL_Rect getColRect() { return r; }
 
     void render() {
+        r.x -= ent_->mngr_->camRect_.x;
+        r.y -= ent_->mngr_->camRect_.y;
         SDL_SetRenderDrawColor(sdlutils().renderer(), 0, 0, 0, 0);
         SDL_RenderDrawRect(sdlutils().renderer(), &r);
         //SDL_SetRenderDrawColor(sdlutils().renderer(), 0, 0, 0, 0);

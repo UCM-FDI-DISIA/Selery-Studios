@@ -1,16 +1,1 @@
-﻿  SkinComponent.cpp
-D:\GitHub\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(52,30): warning C4101: 'e': variable local sin referencia
-D:\GitHub\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(48,1): message : al compilar la función del miembro clase plantilla "Texture &SDLUtils::map_access_wrapper<Texture>::at(std::string)"
-D:\GitHub\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(205,30): message : Vea la referencia a la creación de una instancia de clase plantilla "SDLUtils::map_access_wrapper<Texture>" que se está compilando
-D:\GitHub\Selery-Studios\TheFifthElement\src\Entities\PlayerTD.h(63,49): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-D:\GitHub\Selery-Studios\TheFifthElement\src\components\SkinComponent.cpp(22,45): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-D:\GitHub\Selery-Studios\TheFifthElement\src\components\SkinComponent.cpp(22,41): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-D:\GitHub\Selery-Studios\TheFifthElement\src\components\SkinComponent.cpp(26,45): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-D:\GitHub\Selery-Studios\TheFifthElement\src\components\SkinComponent.cpp(26,41): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-D:\GitHub\Selery-Studios\TheFifthElement\src\components\SkinComponent.cpp(30,45): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-D:\GitHub\Selery-Studios\TheFifthElement\src\components\SkinComponent.cpp(30,41): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-D:\GitHub\Selery-Studios\TheFifthElement\src\components\SkinComponent.cpp(34,45): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-D:\GitHub\Selery-Studios\TheFifthElement\src\components\SkinComponent.cpp(34,41): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-D:\GitHub\Selery-Studios\TheFifthElement\src\components\SkinComponent.cpp(38,45): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-D:\GitHub\Selery-Studios\TheFifthElement\src\components\SkinComponent.cpp(38,41): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-  TheFifthElement.vcxproj -> D:\GitHub\Selery-Studios\TheFifthElement\x64\Debug\TheFifthElement.exe
+﻿  TheFifthElement.vcxproj -> C:\Selery-Studios\TheFifthElement\x64\Debug\TheFifthElement.exe

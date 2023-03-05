@@ -96,8 +96,9 @@ void InputComponentBEU::handleEvents(SDL_Event event) {
 			tr_->setDir(Vector2D(0, 0));
 			im_->setAnim(false, 0, 8, 0, 100);
 		}
-		
-	
-	
+
+		if (ih().isKeyDown(SDL_SCANCODE_ESCAPE)) {
+			GameManager::goPauseMenu();
+		}
 }
 

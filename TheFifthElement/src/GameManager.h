@@ -23,5 +23,6 @@ public:
 	void goBeatEmUp();
 	void goTopDown();
 	void leaveMainMenu();
+	static void goPauseMenu();
 
 };

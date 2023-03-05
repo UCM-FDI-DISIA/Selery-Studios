@@ -18,7 +18,7 @@ void LifeBar::subLife(float life) {
 
 void LifeBar::updatePos()
 {
-	pos_ = entTransform_->getPos();
+	pos_ = entTransform_->getPos()- Vector2D(this->mngr_->camRect_.x, this->mngr_->camRect_.y);
 
 	/*barTransform_->setPos(pos_);
 	backTransform_->setPos(pos_);
