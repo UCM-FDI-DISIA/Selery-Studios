@@ -441,19 +441,19 @@
     },
     {
       "id": "PTD_earth_left",
-      "file": "assets/Player/TopDown/Earth/andarIzquierda.png"
+      "file": "assets/Player/TopDown/Earth/walkingLeft.png"
     },
     {
       "id": "PTD_earth_up",
-      "file": "assets/Player/TopDown/Earth/andararriba.png"
+      "file": "assets/Player/TopDown/Earth/walkingUp.png"
     },
     {
       "id": "PTD_earth_down",
-      "file": "assets/Player/TopDown/Earth/andarfrente.png"
+      "file": "assets/Player/TopDown/Earth/walkingDown.png"
     },
     {
       "id": "PTD_earth_right",
-      "file": "assets/Player/TopDown/Earth/andar.png"
+      "file": "assets/Player/TopDown/Earth/walkingRight.png"
     },
 
 
