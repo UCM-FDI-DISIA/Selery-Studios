@@ -1,7 +1,37 @@
-#include "BeatEmUpState.h"
+﻿#include "BeatEmUpState.h"
 
 
 BeatEmUpState::BeatEmUpState() {
+	player_ = new Entity();
+	player_->setContext(this);
+	trplayer_ = player_->addComponent<Transform>(TRANSFORM_H, PlayerPosition_, PLAYERBEU_WIDTH_FRAME, PLAYERBEU_HEIGHT_FRAME);
+	sk_ = player_->addComponent<SkinComponent>(SKINCOMPONENT_H, "air");
+	sk_->changeState(SkinComponent::Idle);
+	sk_->changeMov();
+	playerImage_ = player_->addComponent<Image>(IMAGE_H, tplayer_, PLAYERTD_NUMFRAMES, PLAYERTD_NUMFRAMES, 0, PLAYERTD_WIDTH_FRAME, PLAYERTD_HEIGHT_FRAME);
+	player_->addComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
+	in_ = player_->addComponent<InputComponent>(INPUTCOMPONENT_H);
+	addEntity(player_);
+
+	t = new Texture(GameManager::instance()->getRenderer(), "./assets/Player/BeatEmUp/Fire/spritesheets/fireMatrix.png");
+	//cmpId_type x = int(RENDERCOMPONENT_H);
+	//referencia al texture y al transform
+	fila_ = 0;
+
+	addComponent<Image>(int(IMAGE_H), t, nframes, framesT_, fila_, PLAYERBEU_WIDTH_FRAME, PLAYERBEU_HEIGHT_FRAME);
+	addComponent<JumpComponent>(JUMP_H);
+
+	//igualamos el inputComponent a una variable ya que este necesita una referencia de image que a�n no existe, por lo que esa referencia es NULL
+	in_ = addComponent<InputComponentBEU>(INPUTCOMPONENTBEU_H);
+	addComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
+	//addComponent<ColliderComponent>(int(COLLIDERCOMPONENT_H), Vector2D(100, 100), 20, 20);
+	addComponent<AttackBoxComponent>(ATTACKBOXCOMPONENT_H);
+	addComponent<LimitBEU>(LIMITBEU_H);
+
+	//Al hacer aquí initComponent la referencia ya es correcta
+	in_->initComponent();
+	addComponent<ColliderComponent>(int(COLLIDERCOMPONENT_H), Vector2D(120, 70), PlayerHeigth_ / 2, PlayerWidth_ / 7);
+
 	addEntity(new Background("airBackground"));
 	player_ = addEntity(new PlayerBEU());
 	dialog_ = false;
@@ -38,28 +68,21 @@ void BeatEmUpState::AddEnemies(int n_enemies) {
 		int element = r->nextInt(0, 4);
 		Vector2D pos={ (float)r->nextInt(50,WIN_WIDTH - 80),(float)r->nextInt(50,WIN_HEIGHT - 50) };
 		if (character == 0) {
-		
 			en_ = addEntity(new EnemyBEU(pos, player_, 10, "bat", getEnemyType(element)));
-			lb_ = addEntity(new LifeBar(10, getEnemyType(element), en_));
-			en_->getComponent<LifeComponent>(LIFECOMPONENT_H)->setLifeBar(lb_);
 		}
 		else if (character == 1) {
 			en_ = addEntity(new EnemyBEU(pos, player_, 10, "skeleton", getEnemyType(element)));
-			lb_ = addEntity(new LifeBar(10, getEnemyType(element), en_));
-			en_->getComponent<LifeComponent>(LIFECOMPONENT_H)->setLifeBar(lb_);
 		}
 		else if (character == 2) {
 			en_ = addEntity(new EnemyBEU(pos, player_, 10, "shroom", getEnemyType(element)));
-			lb_ = addEntity(new LifeBar(10, getEnemyType(element), en_));
-			en_->getComponent<LifeComponent>(LIFECOMPONENT_H)->setLifeBar(lb_);
 		}
 		else {
 			en_ = addEntity(new EnemyBEU(pos, player_, 10, "goblin", getEnemyType(element)));
-			lb_ = addEntity(new LifeBar(10, getEnemyType(element), en_));
-			en_->getComponent<LifeComponent>(LIFECOMPONENT_H)->setLifeBar(lb_);
+			
 		}
 
-
+		lb_ = addEntity(new LifeBar(10, getEnemyType(element), en_));
+		en_->getComponent<LifeComponent>(LIFECOMPONENT_H)->setLifeBar(lb_);
 	}
 }
 string BeatEmUpState::getEnemyType(int i) {

@@ -1,10 +1,7 @@
 #pragma once
 #include "GameState.h"
-#include "../Entities/Npc.h"
-#include "../Entities/PlayerBEU.h"
 #include "../Entities/Enemy.h"
 #include "../components/InputComponent.h"
-#include "../Entities/DialogBox.h"
 #include "../Entities/EnemyBEU.h"
 #include "../sdlutils/SDLUtils.h"
 #include "../Entities/Background.h"
@@ -17,7 +14,10 @@ using name = string;
 using damage = int;
 class BeatEmUpState: public Manager {
 private:
-	PlayerBEU* player_;
+	//PLAYER
+	Entity* player_;
+	Transform* trplayer_;
+
 	InputComponentBEU* in_;
 	bool dialog_;
 	RandomNumberGenerator* r;

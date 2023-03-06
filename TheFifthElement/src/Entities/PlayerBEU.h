@@ -15,9 +15,8 @@
 class PlayerBEU : public Entity {
 private:
 	//Component* componenete;
-	Vector2D PlayerPosition_{ 30,300 };
-	float speed_ = 1.0f;
-	float PlayerWidth_ = 288, PlayerHeigth_ = 128, PlayerRotation_ = 1;
+	
+
 	Texture* t;
 	Transform* tr;
 	Vector2D dir;
