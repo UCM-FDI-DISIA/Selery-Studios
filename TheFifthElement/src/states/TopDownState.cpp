@@ -134,22 +134,23 @@ void TopDownState::LoadMap(string const& filename) {
                         auto tileTex = mapInfo.tilesets[tset_gid];
 
                         SDL_Rect src;
-                        src.x = region_x; src.y = region_y;
+                        src.x = region_x; 
+                        src.y = region_y;
                         src.w = mapInfo.tile_width;
                         src.h = mapInfo.tile_height;
 
                         SDL_Rect dest;
                         dest.x = x_pos;
-                        dest.y = y_pos;
+                        dest.y = y_pos ;
                         dest.w = src.w;
                         dest.h = src.h;
 
                         int tileRot = layer_tiles[tile_index].flipFlags;
-                        float rotCorrection = 45;
+                        //float rotCorrection = 75;
                         //SDL_RendererFlip tileFlip = SDL_FLIP_NONE;
 
                         //Multiplicamos por 45 porque esta multiplicado por factor de 45 (lo que devuelve rot)
-                        mapInfo.tilesets[tset_gid]->render(src, dest, tileRot * rotCorrection);
+                        mapInfo.tilesets[tset_gid]->render(src, dest, tileRot);
 
                     }
                 }
@@ -185,16 +186,20 @@ void TopDownState::LoadMap(string const& filename) {
                 rect.top *= (float)(WIN_HEIGHT / cam_->getHeight());*/
                 string name = object_layer->getName();
                 if (name == "Colisiones") {
+                    //cout << "colision" << rect.left << " " << rect.top << " " << rect.width << " " << rect.height << endl;
                     auto a = new ColliderTile(Vector2D(rect.left, rect.top), rect.width, rect.height, player_);
                     collisions_.push_back(a);
                 }
                 else if (name == "Interacctions") {
+                  //  cout << "Interaccion" << rect.left << " " << rect.top << " " << rect.width << " " << rect.height << endl;
+
                     auto a = new ColliderTileInteraction(Vector2D(rect.left, rect.top), rect.width, rect.height, player_, obj.getUID(), puzzle1);
                     interactions_.push_back(a);
                 }
                 else if (name == "Player") {
-                   // Vector2D pos(28, 4);
-                    Vector2D pos(obj.getPosition().getX()/2, obj.getPosition().getY()/2);
+                   // cout << "player" << rect.left<<" " << rect.top << " " << rect.width << " " << rect.height << endl;
+
+                    Vector2D pos(obj.getPosition().getX(), obj.getPosition().getY());
                     player_ = addEntity(new PlayerTD("air", this, pos));
                     in_ = player_->getComponent<InputComponent>(INPUTCOMPONENT_H);
                 }
@@ -240,12 +245,13 @@ void TopDownState::dialog(int a) {
         d = new DialogBox(a);
         addEntity(d);
         dialog_ = true;
-        cout << "d" << endl;
+      //  cout << "d" << endl;
 
     }
 }
 
 void TopDownState::update() {
+  //  cout << player_->getComponent<Transform>(TRANSFORM_H)->getPos()<<" " << player_->getComponent<Transform>(TRANSFORM_H)->getW() << " " << player_->getComponent<Transform>(TRANSFORM_H)->getH();
     player_->setCollision(false);
     for (auto p : collisions_) {
         p->update();
@@ -263,12 +269,6 @@ void TopDownState::update() {
     if (camRect_.y < 0) {
         camRect_.y = 0;
     }
-    /*if (camRect_.x > (camRect_.w)) {
-        camRect_.x = camRect_.w;
-    }
-    if (camRect_.y > (camRect_.h)) {
-        camRect_.y = camRect_.h;
-    }*/
 }
 
 void TopDownState::handleEvents() {
@@ -282,6 +282,12 @@ void TopDownState::handleEvents() {
 }
 
 void TopDownState::render() {
+    for (auto p : interactions_) {
+        p->render();
+    }
+    for (auto p : collisions_) {
+        p->render();
+    }
     SDL_Rect dst = { 0,0,1000,1000 };
     // posición según el transform de la Camara
     dst.x -= Manager::camRect_.x/*cam_->getComponent<Transform>(TRANSFORM_H)->getPos().getX()*/;

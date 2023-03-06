@@ -20,6 +20,14 @@ public:
 		ents_.push_back(e);
 		return e;
 	}
+	template<typename T>
+	Entity* addEntity(T* e) {
+		e->setAlive(true);
+		e->setContext(this);
+		e->initEntity();
+		ents_.push_back(e);
+		return e;
+	}
 	virtual void refresh();
 	virtual void update();
 	virtual void render();

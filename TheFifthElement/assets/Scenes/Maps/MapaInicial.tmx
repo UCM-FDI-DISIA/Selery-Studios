@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.9" tiledversion="1.9.2" orientation="orthogonal" renderorder="right-down" width="64" height="73" tilewidth="32" tileheight="32" infinite="0" nextlayerid="15" nextobjectid="39">
+<map version="1.9" tiledversion="1.9.2" orientation="orthogonal" renderorder="right-down" width="64" height="73" tilewidth="32" tileheight="32" infinite="0" nextlayerid="15" nextobjectid="52">
  <tileset firstgid="1" source="AncientRuins/TiledMap Editor/Atlas-Props.tsx"/>
  <tileset firstgid="2501" source="AncientRuins/TiledMap Editor/Terrain - Ancient Ruins.tsx"/>
  <tileset firstgid="4710" source="AncientRuins/TiledMap Editor/Ancient Ruins-Tileset-wall-2.tsx"/>
@@ -411,6 +411,19 @@
   <object id="12" x="534" y="621" width="114" height="246"/>
   <object id="14" x="766" y="603" width="295" height="202"/>
   <object id="16" x="172" y="134" width="484" height="418"/>
+  <object id="39" x="784" y="1111" width="356" height="73"/>
+  <object id="40" x="470" y="1074" width="164" height="131"/>
+  <object id="41" x="449" y="1227" width="153" height="171"/>
+  <object id="42" x="624" y="1292" width="117" height="44"/>
+  <object id="43" x="731" y="1302" width="26" height="168"/>
+  <object id="44" x="881" y="1305" width="12" height="153"/>
+  <object id="45" x="758" y="1431" width="127" height="31"/>
+  <object id="46" x="982" y="1304" width="34" height="164"/>
+  <object id="47" x="997" y="1427" width="373" height="38"/>
+  <object id="48" x="1344" y="1367" width="30" height="90"/>
+  <object id="49" x="463" y="1585" width="168" height="172"/>
+  <object id="50" x="638" y="1574" width="144" height="239"/>
+  <object id="51" x="744" y="1672" width="112" height="177"/>
  </objectgroup>
  <objectgroup id="12" name="Enemy">
   <object id="35" x="1118" y="458">
