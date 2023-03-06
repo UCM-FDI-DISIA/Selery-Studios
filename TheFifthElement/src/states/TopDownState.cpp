@@ -173,15 +173,20 @@ void TopDownState::LoadMap(string const& filename) {
                     Nptr_ = Npc_->addComponent<Transform>(TRANSFORM_H, obj.getPosition(), NPC_WIDTH, NPC_HEIGHT);
                     //referencia al texture y al transform
                     Npc_->addComponent<Image>(IMAGE_H,npcTexture(), NPC_FRAMES, NPC_FRAMES, 0, NPC_WIDTH, NPC_HEIGHT);
-                    Npc_->addComponent<CheckCollision>(CHECKCOLLISION_H, player_, nnpc_);
+                    Npc_->addComponent<CheckCollision>(CHECKCOLLISION_H, player_, number_npc_);
 					Npc_->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(0, 0), NPC_HEIGHT, NPC_WIDTH / NPC_FRAMES);
                     addEntity(Npc_);
-                    nnpc_++;
+                    number_npc_++;
 
                 }
                 else if (name == "Enemy") {
-                    enemy_ = addEntity(new Enemy(pl, 100));
+                    enemy_ = new Entity();
+                    enemy_->addComponent<Enemy_movementTD_component>(ENEMY_MOVEMENT_TD_H);
+                    enemy_->addComponent<Transform>(TRANSFORM_H, obj.getPosition(), EnemyWidth_, EnemyHeight_, EnemyRotation_, speed_, nframes, matrix_);
+                        
+                        addEntity(new Enemy(pl, 100));
                 }
+               
                 else if (name == "Portal") {
                     p = addEntity(new Portal(player_));
                 }

@@ -58,9 +58,11 @@ private:
 	//NPCS
 	Entity* Npc_;
 	Transform* Nptr_;
-	int nnpc_ = 0;
+	int number_npc_ = 0;
 	//ENEMIGOS 
-	Enemy* enemy_;
+	Entity* enemy_;
+
+
 	GameManager* Gm_;
 
 	tileset_map tilesets_; // textures map (string -> texture)
