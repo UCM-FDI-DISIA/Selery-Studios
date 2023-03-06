@@ -16,6 +16,7 @@ private:
     JumpComponent* jmp_ = nullptr;
     Texture* t_ = nullptr;
     bool alreadyPressed = false;
+    bool alreadyPressed2 = false;
 public:
     InputComponentBEU();
     void initComponent();

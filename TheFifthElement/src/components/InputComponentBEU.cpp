@@ -62,7 +62,11 @@ void InputComponentBEU::handleEvents(SDL_Event event) {
 				im_->setAnim(true, 10, 18, 0,100);
 			}
 			else if (ih().isKeyDown(SDL_SCANCODE_M)) {
-				static_cast<BeatEmUpState*>(mngr_)->finishBEU();
+				if (!alreadyPressed2)
+				{
+					alreadyPressed2 = true;
+					static_cast<BeatEmUpState*>(mngr_)->finishBEU();
+				} 
 			}
 			else { // Idle
 				tr_->setDir(Vector2D(0, 0));
@@ -90,6 +94,11 @@ void InputComponentBEU::handleEvents(SDL_Event event) {
 		else if (ih().isKeyJustUp(SDL_SCANCODE_O)) {
 
 			alreadyPressed = false;
+		}
+
+		else if (ih().isKeyJustUp(SDL_SCANCODE_M)) {
+
+			alreadyPressed2 = false;
 		}
 			
 		else if (jmp_->isJumpEnabled()) {

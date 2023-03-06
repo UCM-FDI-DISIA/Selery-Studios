@@ -18,6 +18,7 @@ void GameManager::goBeatEmUp() {
 
 void GameManager::goTopDown() {
 	GameStateMachine::instance()->popState();
+	cout << "asasaa";
 }
 
 void GameManager:: leaveMainMenu() {
