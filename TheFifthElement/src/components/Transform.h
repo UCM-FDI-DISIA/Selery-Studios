@@ -11,7 +11,7 @@ private:
     Vector2D position, direction;
     float width, height, rotation_, vel;
     SDL_Rect rect;
-    int framesTotales_;
+ 
     bool matrix_, demo = false;
 public:
     Transform(Vector2D pos, float w, float h) {
@@ -20,7 +20,7 @@ public:
         height = h;
         rotation_ = 0;
         vel = 0;
-        framesTotales_ = 0;
+       
         matrix_ = false;
     }
     Transform() {
@@ -33,7 +33,7 @@ public:
         height = h;
         rotation_ = r;
         vel = v;
-        framesTotales_ = frames;
+       
         matrix_ = matrix;
     }
 

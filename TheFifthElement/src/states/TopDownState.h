@@ -24,6 +24,7 @@
 #include "../components/MovementComponent.h"
 #include "../components/Image.h"
 #include "../components/SkinComponent.h"
+
 using uint = unsigned int;
 using tileset_map = std::map<std::string, Texture*>; //mapa con CLAVE:string, ARGUMENTO: puntero a textura
 using tilelayer = tmx::TileLayer;
@@ -53,10 +54,11 @@ private:
 	InputComponent* in_;
 	SkinComponent* sk_;
 	Image* playerImage_;
-	Texture* t_;
+	Texture* tplayer_= &SDLUtils::instance()->images().at(sk_->getSkin());
 	//NPCS
 	Entity* Npc_;
 	Transform* Nptr_;
+	int nnpc_ = 0;
 	//ENEMIGOS 
 	Enemy* enemy_;
 	GameManager* Gm_;
@@ -70,6 +72,8 @@ private:
 	vector<ColliderTile*> collisions_; //vector colision player-mapa
 	vector<ColliderTileInteraction*> interactions_; //vector colision player-mapa
 	float camOffset_ = 60.0f;
+
+	int fondowidth_, fondoheight_;
 public:
 	string getStateID(); // stringID
 	DialogBox* d;
@@ -81,5 +85,15 @@ public:
 	void update();	
 	void handleEvents();
 	void render();
+	Texture* npcTexture() {
+		int a = SDLUtils::instance()->rand().nextInt(0, 1);
+		if (a == 0) {
+			return &SDLUtils::instance()->images().at("NPC_1");
+		}
+		else if (a == 1) {
+			return &SDLUtils::instance()->images().at("NPC_2");
+		}
+		
+	}
 };
 

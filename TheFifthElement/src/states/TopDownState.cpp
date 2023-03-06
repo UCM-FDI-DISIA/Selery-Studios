@@ -34,8 +34,8 @@ void TopDownState::LoadMap(string const& filename) {
     mapInfo.tile_height = tilesize_.y;
 
 
-    int fondowidth_ = mapInfo.tile_width * mapInfo.cols;//ancho del fondo= ancho tile * numcols
-    int fondoheight_ = mapInfo.tile_height * mapInfo.rows;//alto del fondo= alto del tile* numrows
+    fondowidth_ = mapInfo.tile_width * mapInfo.cols;//ancho del fondo= ancho tile * numcols
+    fondoheight_ = mapInfo.tile_height * mapInfo.rows;//alto del fondo= alto del tile* numrows
 
 
     // convertir a textura
@@ -49,19 +49,11 @@ void TopDownState::LoadMap(string const& filename) {
 
     for (const tmx::Tileset tile : mapTilesets) {
         string name = tile.getName();
-        //string ruta = tile.getImagePath();
-        //Texture* texture =tilesets_.find(name)->second;
-        //Texture* texture = tilesets_.find(name)->second;;
-        Texture* texture = sdlutils().tilesets().find(name)->second; //PORQUE ASI?????????????
+        Texture* texture = sdlutils().tilesets().find(name)->second; 
         mapInfo.tilesets.insert(pair<uint, Texture*>(tile.getFirstGID(), texture));  //inserta en el mapa de Map_Info: llamado tilesets el ID del tileset y su textura
     }
      
-    // Cargar la canción
-    //sdlutils().musics().at("Title").setMusic(30);
-   
   
-    
-    
     SDLUtils::instance()->soundEffects().at("Title").play(); 
 
 
@@ -88,12 +80,12 @@ void TopDownState::LoadMap(string const& filename) {
                         if (cur_gid == 0) continue;
 
                         // guardamos el tileset que utiliza este tile (nos quedamos con el tileset cuyo gid sea
-                        // el mas cercano, y a la vez menor, al gid del tile)           NO ENTIENDO ESTE COMENTARIO????????
+                        // el mas cercano, y a la vez menor, al gid del tile)         
                         int tset_gid = -1, tsx_file = 0;
                         for (auto& ts : mapInfo.tilesets) {
                             if (ts.first <= cur_gid) {
                                 tset_gid = ts.first;
-                                tsx_file++;     //esto para que es???????????????
+                                tsx_file++;   
                             }
                             else
                                 break;
@@ -102,10 +94,10 @@ void TopDownState::LoadMap(string const& filename) {
                         // si no hay tileset valido, continuamos a la siguiente iteracion
                         if (tset_gid == -1) continue;
 
-                        // normalizamos el indice            //esto para que es???????????????
+                        // normalizamos el indice           
                         cur_gid -= tset_gid;
 
-                        // calculamos dimensiones del tileset       //NO LAS TENIA YA???
+                        // calculamos dimensiones del tileset       
                         auto ts_width = 0;
                         auto ts_height = 0;
                         SDL_QueryTexture(mapInfo.tilesets[tset_gid]->getSDLTexture(),
@@ -135,20 +127,10 @@ void TopDownState::LoadMap(string const& filename) {
                         dest.h = src.h;
 
                         int tileRot = layer_tiles[tile_index].flipFlags;
-                        //float rotCorrection = 75;
-                        //SDL_RendererFlip tileFlip = SDL_FLIP_NONE;
-
-                        //Multiplicamos por 45 porque esta multiplicado por factor de 45 (lo que devuelve rot)
                         mapInfo.tilesets[tset_gid]->render(src, dest, tileRot);
 
                     }
                 }
-
-
-            }
-            else if (name == "Col") {
-
-                //CREAR TILES DE COLISIONES
 
 
             }
@@ -157,47 +139,42 @@ void TopDownState::LoadMap(string const& filename) {
         }
         if (layer->getType() == tmx::Layer::Type::Object) {
             tmx::ObjectGroup* object_layer = dynamic_cast<tmx::ObjectGroup*>(layer.get());
-
-
             auto& objs = object_layer->getObjects();
 
             for (auto obj : objs) {
                 auto rect = obj.getAABB();
                 string name = object_layer->getName();
                 if (name == "Colisiones") {
-                    //cout << "colision" << rect.left << " " << rect.top << " " << rect.width << " " << rect.height << endl;
                     auto a = new ColliderTile(Vector2D(rect.left, rect.top), rect.width, rect.height, player_);
                     collisions_.push_back(a);
                 }
                 else if (name == "Interacctions") {
-                  //  cout << "Interaccion" << rect.left << " " << rect.top << " " << rect.width << " " << rect.height << endl;
-
                     auto a = new ColliderTileInteraction(Vector2D(rect.left, rect.top), rect.width, rect.height, player_, obj.getUID(), puzzle1);
                     interactions_.push_back(a);
                 }
                 else if (name == "Player") {
-                   // cout << "player" << rect.left<<" " << rect.top << " " << rect.width << " " << rect.height << endl;
                     // PLAYER
                     player_ = new Entity();
                     player_->setContext(this);
-                    player_->addComponent<Transform>(TRANSFORM_H, obj.getPosition(), PLAYERTD_WIDTH_FRAME, PLAYERTD_HEIGHT_FRAME, 1, PLAYERTD_SPEED, PLAYERTD_NUMFRAMES, false);
+                    player_->addComponent<Transform>(TRANSFORM_H, obj.getPosition(), PLAYERTD_WIDTH_FRAME, PLAYERTD_HEIGHT_FRAME);
                     sk_ = player_->addComponent<SkinComponent>(SKINCOMPONENT_H, "air");
                     sk_->changeState(SkinComponent::Idle);
                     sk_->changeMov();
-                    playerImage_ = player_->addComponent<Image>(IMAGE_H, t_, PLAYERTD_NUMFRAMES, PLAYERTD_NUMFRAMES,0, PLAYERTD_WIDTH_FRAME, PLAYERTD_HEIGHT_FRAME);
+                    playerImage_ = player_->addComponent<Image>(IMAGE_H, tplayer_, PLAYERTD_NUMFRAMES, PLAYERTD_NUMFRAMES,0, PLAYERTD_WIDTH_FRAME, PLAYERTD_HEIGHT_FRAME);
                     player_->addComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
                     in_ = player_->addComponent<InputComponent>(INPUTCOMPONENT_H);
                     addEntity(player_);
                 }
                 else if (name == "NPC") {
                     Npc_ = new Entity();
-                    Nptr_ = Npc_->addComponent<Transform>(TRANSFORM_H, obj.getPosition(), NpcWidth_, NpcHeight_, NpcRotation_, npcSpeed, nframes, matrix_);
+                    Npc_->setContext(this);
+                    Nptr_ = Npc_->addComponent<Transform>(TRANSFORM_H, obj.getPosition(), NPC_WIDTH, NPC_HEIGHT);
                     //referencia al texture y al transform
-                    Npc_->addComponent<Image>(IMAGE_H, t, nframes, nframes, 0, NPC_WIDTH, NPC_HEIGHT);
-                    player_ = player;
-                    ch = addComponent<CheckCollision>(CHECKCOLLISION_H, player_, a);
-                    addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(0, 0), NpcHeight_, NpcWidth_ / nframes);
-                    addEntity(new Npc(pl, { 50,10 }, & SDLUtils::instance()->images().at("NPC_2"), 2));
+                    Npc_->addComponent<Image>(IMAGE_H,npcTexture(), NPC_FRAMES, NPC_FRAMES, 0, NPC_WIDTH, NPC_HEIGHT);
+                    Npc_->addComponent<CheckCollision>(CHECKCOLLISION_H, player_, nnpc_);
+					Npc_->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(0, 0), NPC_HEIGHT, NPC_WIDTH / NPC_FRAMES);
+                    addEntity(Npc_);
+                    nnpc_++;
                 }
                 else if (name == "Enemy") {
                     enemy_ = addEntity(new Enemy(pl, 100));
@@ -235,7 +212,7 @@ void TopDownState::dialog(int a) {
         d = new DialogBox(a);
         addEntity(d);
         dialog_ = true;
-      //  cout << "d" << endl;
+      
 
     }
 }
@@ -278,11 +255,11 @@ void TopDownState::render() {
     for (auto p : collisions_) {
         p->render();
     }
-    SDL_Rect dst = { 0,0,1000,1000 };
+    SDL_Rect dst = { 0,0,fondowidth_*2,fondoheight_*2 };
     // posición según el transform de la Camara
     dst.x -= Manager::camRect_.x/*cam_->getComponent<Transform>(TRANSFORM_H)->getPos().getX()*/;
     dst.y -= Manager::camRect_.y/*cam_->getComponent<Transform>(TRANSFORM_H)->getPos().getY()*/;
-    SDL_Rect src = { 0, 0, 5000, 5000 };
+    SDL_Rect src = { 0, 0, fondowidth_, fondoheight_ };
     SDL_RenderCopy(Gm_->getRenderer(), background_, &src, &dst);
     Manager::render();
 }

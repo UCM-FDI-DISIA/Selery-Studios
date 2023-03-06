@@ -30,7 +30,7 @@ const uint ENEMYBEU_HEIGHT = 150; // altura de EnemyBEU
 
 const uint NPC_WIDTH = 68; // anchura de NPC
 const uint NPC_HEIGHT = 120; // altura de NPC
-
+const uint NPC_FRAMES = 7; // frame del npcs
 const uint PORTAL_WIDTH = 290; // anchura de Portal
 const uint PORTAL_HEIGHT = 192; // altura de Portal
 
