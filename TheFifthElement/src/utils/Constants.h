@@ -10,6 +10,8 @@ const uint PLAYERBEU_HEIGHT_FRAME = 128; // altura de PlayerBEU
 
 const uint PLAYERTD_WIDTH_FRAME = 68; // anchura de PlayerTD
 const uint PLAYERTD_HEIGHT_FRAME = 120; // altura de PlayerTD
+const float PLAYERTD_SPEED = 3.0f;
+const uint PLAYERTD_NUMFRAMES = 7;
 
 const uint BACKGROUNDAIR_WIDTH_FRAME = 3840; // anchura de BackgroundAir
 const uint BACKGROUNDAIR_HEIGHT_FRAME = 2160; // altura de BackgroundAir

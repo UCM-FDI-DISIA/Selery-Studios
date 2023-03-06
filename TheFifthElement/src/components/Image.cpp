@@ -25,7 +25,6 @@ void Image::initComponent() { 	// Inicializa el componente
 	if(tr_ == nullptr)tr_ = ent_->getComponent<Transform>(int(TRANSFORM_H));
 	assert(tr_ != nullptr);
 
-
 }
 
 void Image::update() {

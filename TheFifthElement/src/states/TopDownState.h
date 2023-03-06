@@ -1,23 +1,29 @@
 #pragma once
+
+#include "tmxlite/Map.hpp"
+#include "tmxlite/TileLayer.hpp"
 #include "GameState.h"
 #include "../Entities/Npc.h"
-#include "../Entities/PlayerTD.h"
 #include "../Entities/Enemy.h"
 #include "../Entities/PlayerBEU.h"
 #include "../components/InputComponent.h"
-#include "../components/InputComponentBEU.h"
 #include "../Entities/DialogBox.h"
 #include "../Entities/Portal.h"
 #include "../Entities/Element.h"
-#include "tmxlite/Map.hpp"
-#include "tmxlite/TileLayer.hpp"
 #include "../sdlutils/SDLUtils.h"
-//#include "../Entities/Camera.h"
 #include "../include/SDL_mixer.h"
 #include "../Entities/RedirectTile.h"
 #include "../components/ColliderTile.h"
 #include "../components/CollideTileInteraction.h"
 #include "../PuzzleCopas.h"
+#include "../components/Transform.h"
+#include "../utils/ecs.h"
+#include "../sdlutils/Texture.h"
+#include "../GameManager.h"
+#include "../components/InputComponent.h"
+#include "../components/MovementComponent.h"
+#include "../components/Image.h"
+#include "../components/SkinComponent.h"
 using uint = unsigned int;
 using tileset_map = std::map<std::string, Texture*>; //mapa con CLAVE:string, ARGUMENTO: puntero a textura
 using tilelayer = tmx::TileLayer;
@@ -42,12 +48,19 @@ struct MapInfo {
 
 class TopDownState : public Manager {
 private:
+	//PLAYER 
+	Entity* player_;
+	InputComponent* in_;
+	SkinComponent* sk_;
+	Image* playerImage_;
+	Texture* t_;
+	//NPCS
+	Entity* Npc_;
+	Transform* Nptr_;
+	//ENEMIGOS 
 	Enemy* enemy_;
 	GameManager* Gm_;
-	PlayerTD* player_;
-	InputComponent* in_;
-	PlayerBEU* playerBEU_;
-	InputComponentBEU* inBEU_;
+
 	tileset_map tilesets_; // textures map (string -> texture)
 	SDL_Texture* background_;
 	MapInfo mapInfo;//struct

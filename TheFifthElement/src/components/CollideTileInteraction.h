@@ -16,7 +16,7 @@ private:
 
 	double margin_ = 5.0; // Margen para comprobar por qué lado se está haciendo la colisión
 	PuzzleCopas* puzzle1;
-	PlayerTD* p;
+	Entity* p;
 	Transform* tr;
 	bool isActive_ = true;
 	bool isColliding_ = false;
@@ -25,7 +25,7 @@ private:
 
 	//Directions chooseDirection(PlayerTD* player);
 public:
-	ColliderTileInteraction(Vector2D pos, float w, float h, PlayerTD* player, int i, PuzzleCopas* puzzle1_) : Entity() {
+	ColliderTileInteraction(Vector2D pos, float w, float h, Entity* player, int i, PuzzleCopas* puzzle1_) : Entity() {
 		tr = addComponent<Transform>(TRANSFORM_H, pos, w, h, 0, 0, 0, false);
 		topLeft_ = pos;
 		topRight_ = { pos.getX() + w, pos.getY() };

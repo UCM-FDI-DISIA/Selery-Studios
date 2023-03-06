@@ -3,7 +3,6 @@
 #include "../utils/Entity.h"
 #include "../utils/Vector2D.h"
 #include "../components/Transform.h"
-#include "../Entities/PlayerTD.h"
 
 
 
@@ -16,7 +15,7 @@ private:
 
 	double margin_ = 5.0; // Margen para comprobar por qué lado se está haciendo la colisión
 
-	PlayerTD* p;
+	Entity* p;
 	Transform* tr;
 	bool isActive_ = true;
 	bool isColliding_ = false;
@@ -25,7 +24,7 @@ private:
 
 	//Directions chooseDirection(PlayerTD* player);
 public:
-	ColliderTile(Vector2D pos, float w, float h, PlayerTD* player) : Entity() {
+	ColliderTile(Vector2D pos, float w, float h, Entity* player) : Entity() {
 		tr = addComponent<Transform>(TRANSFORM_H, pos, w, h, 0, 0, 0, false);
 		topLeft_ = pos;
 		topRight_ = { pos.getX() + w, pos.getY() };

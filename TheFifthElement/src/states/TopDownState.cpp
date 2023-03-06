@@ -3,30 +3,19 @@
 
 TopDownState::TopDownState() {
     puzzle1 = new PuzzleCopas();
-    //
-
-
-    dialog_ = false;
-    //addEntity(new Npc(player_, { 50,10 }, &SDLUtils::instance()->images().at("NPC_2"), 2));
-    //addEntity(new Npc(player_,{0,10},&SDLUtils::instance()->images().at("NPC_1"),1));	
-    // 
-    //in_ = player_->getComponent<InputComponent>(INPUTCOMPONENT_H);
-    // 
-    //enemy_ = addEntity(new Enemy(player_, 100));
-    //cam_ = addEntity(new Camera(player_)); // entidad de camara
-    //Portal* p = addEntity(new Portal(player_));
+     dialog_ = false;
     LoadMap("assets/Scenes/Maps/MapaInicial.tmx");
 
-    addEntity(new Element(player_, Vector2D(100, 100), p));
+   /* addEntity(new Element(player_, Vector2D(100, 100), p));
     addEntity(new Element(player_, Vector2D(300, 100), p));
-    addEntity(new Element(player_, Vector2D(200, 200), p));
+    addEntity(new Element(player_, Vector2D(200, 200), p));*/
 
 
     // PRUEBAS PATHING ENEMIGO
-    addEntity(new RedirectTile(Vector2D(1, 0), Vector2D(680, 170), enemy_)); //der
-    addEntity(new RedirectTile(Vector2D(0, 1), Vector2D(870, 170), enemy_)); //ab
-    addEntity(new RedirectTile(Vector2D(-1, 0), Vector2D(870, 360), enemy_)); //iz
-    addEntity(new RedirectTile(Vector2D(0, -1), Vector2D(680, 360), enemy_)); //arr
+    //addEntity(new RedirectTile(Vector2D(1, 0), Vector2D(680, 170), enemy_)); //der
+    //addEntity(new RedirectTile(Vector2D(0, 1), Vector2D(870, 170), enemy_)); //ab
+    //addEntity(new RedirectTile(Vector2D(-1, 0), Vector2D(870, 360), enemy_)); //iz
+    //addEntity(new RedirectTile(Vector2D(0, -1), Vector2D(680, 360), enemy_)); //arr
 }
 
 void TopDownState::LoadMap(string const& filename) {
@@ -156,8 +145,6 @@ void TopDownState::LoadMap(string const& filename) {
                 }
 
 
-
-
             }
             else if (name == "Col") {
 
@@ -176,14 +163,6 @@ void TopDownState::LoadMap(string const& filename) {
 
             for (auto obj : objs) {
                 auto rect = obj.getAABB();
-
-                //   if (obj.getName() == "collision") 
-
-               /* rect.width *= (float)(WIN_WIDTH / cam_->getWidth());
-                rect.height *= (float)(WIN_HEIGHT / cam_->getHeight());
-
-                rect.left *= (float)(WIN_WIDTH / cam_->getWidth());
-                rect.top *= (float)(WIN_HEIGHT / cam_->getHeight());*/
                 string name = object_layer->getName();
                 if (name == "Colisiones") {
                     //cout << "colision" << rect.left << " " << rect.top << " " << rect.width << " " << rect.height << endl;
@@ -198,20 +177,31 @@ void TopDownState::LoadMap(string const& filename) {
                 }
                 else if (name == "Player") {
                    // cout << "player" << rect.left<<" " << rect.top << " " << rect.width << " " << rect.height << endl;
-
-                    Vector2D pos(obj.getPosition().getX(), obj.getPosition().getY());
-                    player_ = addEntity(new PlayerTD("air", this, pos));
-                    in_ = player_->getComponent<InputComponent>(INPUTCOMPONENT_H);
+                    // PLAYER
+                    player_ = new Entity();
+                    player_->setContext(this);
+                    player_->addComponent<Transform>(TRANSFORM_H, obj.getPosition(), PLAYERTD_WIDTH_FRAME, PLAYERTD_HEIGHT_FRAME, 1, PLAYERTD_SPEED, PLAYERTD_NUMFRAMES, false);
+                    sk_ = player_->addComponent<SkinComponent>(SKINCOMPONENT_H, "air");
+                    sk_->changeState(SkinComponent::Idle);
+                    sk_->changeMov();
+                    playerImage_ = player_->addComponent<Image>(IMAGE_H, t_, PLAYERTD_NUMFRAMES, PLAYERTD_NUMFRAMES,0, PLAYERTD_WIDTH_FRAME, PLAYERTD_HEIGHT_FRAME);
+                    player_->addComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
+                    in_ = player_->addComponent<InputComponent>(INPUTCOMPONENT_H);
+                    addEntity(player_);
                 }
                 else if (name == "NPC") {
-                    addEntity(new Npc(player_, { 50,10 }, & SDLUtils::instance()->images().at("NPC_2"), 2));
+                    Npc_ = new Entity();
+                    Nptr_ = Npc_->addComponent<Transform>(TRANSFORM_H, obj.getPosition(), NpcWidth_, NpcHeight_, NpcRotation_, npcSpeed, nframes, matrix_);
+                    //referencia al texture y al transform
+                    Npc_->addComponent<Image>(IMAGE_H, t, nframes, nframes, 0, NPC_WIDTH, NPC_HEIGHT);
+                    player_ = player;
+                    ch = addComponent<CheckCollision>(CHECKCOLLISION_H, player_, a);
+                    addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(0, 0), NpcHeight_, NpcWidth_ / nframes);
+                    addEntity(new Npc(pl, { 50,10 }, & SDLUtils::instance()->images().at("NPC_2"), 2));
                 }
                 else if (name == "Enemy") {
-                    enemy_ = addEntity(new Enemy(player_, 100));
+                    enemy_ = addEntity(new Enemy(pl, 100));
                 }
-                //else if (name == "Camera") {
-                //    cam_ = addEntity(new Camera(player_)); // entidad de camara
-                //}
                 else if (name == "Portal") {
                     p = addEntity(new Portal(player_));
                 }
