@@ -6,7 +6,9 @@
 #include "../states/TopDownState.h"
 #include <string>
 
-InputComponent::InputComponent() :Component() {
+InputComponent::InputComponent() :Component() 
+{
+	walk = &SDLUtils::instance()->soundEffects().at("walk");
 }
 
 void InputComponent::initComponent() {
@@ -25,22 +27,31 @@ void InputComponent::handleEvents(SDL_Event event)
 	if (ih().keyDownEvent()){
 		if (!npccol) {
 			if (ih().isKeyDown(SDL_SCANCODE_A)) {
+				walk->setVolume(10);
+				walk->play();
 				mov_->setDir(Vector2D(-1, 0));
 				skin_->changeState(SkinComponent::Left);
 			}
 			else if (ih().isKeyDown(SDL_SCANCODE_D)) {
+				walk->setVolume(10);
+				walk->play();
 				mov_->setDir(Vector2D(1, 0));
 				skin_->changeState(SkinComponent::Right);
 			}
 			else  if (ih().isKeyDown(SDL_SCANCODE_W)) {
+				walk->setVolume(10);
+				walk->play();
 				mov_->setDir(Vector2D(0, -1));
 				skin_->changeState(SkinComponent::Up);
 			}
 			else if (ih().isKeyDown(SDL_SCANCODE_S)) {
+				walk->setVolume(10);
+				walk->play();
 				mov_->setDir(Vector2D(0, 1));
 				skin_->changeState(SkinComponent::Down);
 			}
 			else {
+				walk->setVolume(0);
 				mov_->setDir(Vector2D(0, 0));
 				skin_->changeState(SkinComponent::Idle);
 			}
