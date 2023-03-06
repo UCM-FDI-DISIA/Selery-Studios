@@ -161,6 +161,8 @@ void TopDownState::LoadMap(string const& filename) {
                     sk_->changeState(SkinComponent::Idle);
                     sk_->changeMov();
                     playerImage_ = player_->addComponent<Image>(IMAGE_H, tplayer_, PLAYERTD_NUMFRAMES, PLAYERTD_NUMFRAMES,0, PLAYERTD_WIDTH_FRAME, PLAYERTD_HEIGHT_FRAME);
+
+                    
                     player_->addComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
                     in_ = player_->addComponent<InputComponent>(INPUTCOMPONENT_H);
                     addEntity(player_);
@@ -175,6 +177,7 @@ void TopDownState::LoadMap(string const& filename) {
 					Npc_->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(0, 0), NPC_HEIGHT, NPC_WIDTH / NPC_FRAMES);
                     addEntity(Npc_);
                     nnpc_++;
+
                 }
                 else if (name == "Enemy") {
                     enemy_ = addEntity(new Enemy(pl, 100));
