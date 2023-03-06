@@ -45,8 +45,8 @@ void TopDownState::LoadMap(string const& filename) {
     mapInfo.tile_height = tilesize_.y;
 
 
-    int fondowidth_ = mapInfo.tile_width * mapInfo.cols;//ancho del fondo= ancho tile * numcols
-    int fondoheight_ = mapInfo.tile_height * mapInfo.rows;//alto del fondo= alto del tile* numrows
+    fondowidth_ = mapInfo.tile_width * mapInfo.cols;//ancho del fondo= ancho tile * numcols
+    fondoheight_ = mapInfo.tile_height * mapInfo.rows;//alto del fondo= alto del tile* numrows
 
 
     // convertir a textura
@@ -60,22 +60,13 @@ void TopDownState::LoadMap(string const& filename) {
 
     for (const tmx::Tileset tile : mapTilesets) {
         string name = tile.getName();
-        //string ruta = tile.getImagePath();
-        //Texture* texture =tilesets_.find(name)->second;
-        //Texture* texture = tilesets_.find(name)->second;;
-        Texture* texture = sdlutils().tilesets().find(name)->second; //PORQUE ASI?????????????
+        
+        Texture* texture = sdlutils().tilesets().find(name)->second; 
         mapInfo.tilesets.insert(pair<uint, Texture*>(tile.getFirstGID(), texture));  //inserta en el mapa de Map_Info: llamado tilesets el ID del tileset y su textura
     }
      
-    // Cargar la canción
-    //sdlutils().musics().at("Title").setMusic(30);
-   
-  
-    
-    
+    // Cargar la cancióN
     SDLUtils::instance()->soundEffects().at("Title").play(); 
-
-
     // recorremos cada una de las capas (de momento solo las de tiles) del mapa
     auto& mapLayers = mapInfo.tile_MAP->getLayers();
 
@@ -104,7 +95,7 @@ void TopDownState::LoadMap(string const& filename) {
                         for (auto& ts : mapInfo.tilesets) {
                             if (ts.first <= cur_gid) {
                                 tset_gid = ts.first;
-                                tsx_file++;     //esto para que es???????????????
+                                tsx_file++;   
                             }
                             else
                                 break;
@@ -113,10 +104,10 @@ void TopDownState::LoadMap(string const& filename) {
                         // si no hay tileset valido, continuamos a la siguiente iteracion
                         if (tset_gid == -1) continue;
 
-                        // normalizamos el indice            //esto para que es???????????????
+                        // normalizamos el indice           
                         cur_gid -= tset_gid;
 
-                        // calculamos dimensiones del tileset       //NO LAS TENIA YA???
+                        // calculamos dimensiones del tileset       
                         auto ts_width = 0;
                         auto ts_height = 0;
                         SDL_QueryTexture(mapInfo.tilesets[tset_gid]->getSDLTexture(),
@@ -155,12 +146,6 @@ void TopDownState::LoadMap(string const& filename) {
                 }
 
 
-
-
-            }
-            else if (name == "Col") {
-
-                //CREAR TILES DE COLISIONES
 
 
             }
@@ -216,7 +201,7 @@ void TopDownState::LoadMap(string const& filename) {
 
 
     }
-    SDL_RenderPresent(Gm_->getRenderer());
+  //  SDL_RenderPresent(Gm_->getRenderer());
     SDL_SetRenderTarget(Gm_->getRenderer(), nullptr);
 
 
@@ -282,11 +267,12 @@ void TopDownState::handleEvents() {
 }
 
 void TopDownState::render() {
-    SDL_Rect dst = { 0,0,1000,1000 };
+    SDL_Rect dst = { 0,0,fondowidth_*2,fondoheight_*2};
+
     // posición según el transform de la Camara
     dst.x -= Manager::camRect_.x/*cam_->getComponent<Transform>(TRANSFORM_H)->getPos().getX()*/;
     dst.y -= Manager::camRect_.y/*cam_->getComponent<Transform>(TRANSFORM_H)->getPos().getY()*/;
-    SDL_Rect src = { 0, 0, 5000, 5000 };
+    SDL_Rect src = { 0, 0, fondowidth_, fondowidth_ };
     SDL_RenderCopy(Gm_->getRenderer(), background_, &src, &dst);
     Manager::render();
 }

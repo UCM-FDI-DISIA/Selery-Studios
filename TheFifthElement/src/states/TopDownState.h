@@ -57,6 +57,8 @@ private:
 	vector<ColliderTile*> collisions_; //vector colision player-mapa
 	vector<ColliderTileInteraction*> interactions_; //vector colision player-mapa
 	float camOffset_ = 60.0f;
+
+	int fondowidth_, fondoheight_;
 public:
 	string getStateID(); // stringID
 	DialogBox* d;
