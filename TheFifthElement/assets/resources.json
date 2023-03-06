@@ -587,6 +587,12 @@
   "sounds": [
     {
 
+      "id": "walk",
+      "file": "assets/sounds/walkingSound.wav"
+    },
+
+    {
+
       "id": "prueba",
       "file": "assets/sounds/beat.wav"
     },
