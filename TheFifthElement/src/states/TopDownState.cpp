@@ -184,16 +184,16 @@ void TopDownState::LoadMap(string const& filename) {
                     sk_ = player_->addComponent<SkinComponent>(SKINCOMPONENT_H, "air");
                     sk_->changeState(SkinComponent::Idle);
                     sk_->changeMov();
-                    playerImage_ = player_->addComponent<Image>(IMAGE_H, t_, PLAYERTD_NUMFRAMES, PLAYERTD_NUMFRAMES,0, PLAYERTD_WIDTH_FRAME, PLAYERTD_HEIGHT_FRAME);
+                    playerImage_ = player_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("NPC_2"), PLAYERTD_NUMFRAMES, PLAYERTD_NUMFRAMES,0, PLAYERTD_WIDTH_FRAME, PLAYERTD_HEIGHT_FRAME);
                     player_->addComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
                     in_ = player_->addComponent<InputComponent>(INPUTCOMPONENT_H);
                     addEntity(player_);
                 }
                 else if (name == "NPC") {
                     Npc_ = new Entity();
-                    Nptr_ = Npc_->addComponent<Transform>(TRANSFORM_H, obj.getPosition(), NpcWidth_, NpcHeight_, NpcRotation_, npcSpeed, nframes, matrix_);
+                    Nptr_ = Npc_->addComponent<Transform>(TRANSFORM_H, obj.getPosition(), NPC_WIDTH, NPC_HEIGHT, 0, 0, nframes, matrix_);
                     //referencia al texture y al transform
-                    Npc_->addComponent<Image>(IMAGE_H, t, nframes, nframes, 0, NPC_WIDTH, NPC_HEIGHT);
+                    Npc_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("NPC_2"), nframes, nframes, 0, NPC_WIDTH, NPC_HEIGHT);
                     player_ = player;
                     ch = addComponent<CheckCollision>(CHECKCOLLISION_H, player_, a);
                     addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(0, 0), NpcHeight_, NpcWidth_ / nframes);
