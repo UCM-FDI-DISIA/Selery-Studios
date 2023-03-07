@@ -66,8 +66,6 @@ private:
 	Entity* enemy_;
 	float enemy_width, enemy_height;
 
-
-
 	GameManager* Gm_;
 
 	//PORTAL
@@ -129,5 +127,6 @@ public:
 		}
 
 	}
+	Entity* getplayer() { return player_; };
 };
 

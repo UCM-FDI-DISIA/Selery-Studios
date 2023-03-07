@@ -145,12 +145,12 @@ void TopDownState::LoadMap(string const& filename) {
                 auto rect = obj.getAABB();
                 string name = object_layer->getName();
                 if (name == "Colisiones") {
-                    auto a = new ColliderTile(Vector2D(rect.left, rect.top), rect.width, rect.height, player_);
-                    collisions_.push_back(a);
+                   /* auto a = new ColliderTile(Vector2D(rect.left, rect.top), rect.width, rect.height, player_);
+                    collisions_.push_back(a);*/
                 }
                 else if (name == "Interacctions") {
-                    auto a = new ColliderTileInteraction(Vector2D(rect.left, rect.top), rect.width, rect.height, player_, obj.getUID(), puzzle1);
-                    interactions_.push_back(a);
+                    /*auto a = new ColliderTileInteraction(Vector2D(rect.left, rect.top), rect.width, rect.height, player_, obj.getUID(), puzzle1);
+                    interactions_.push_back(a);*/
                 }
                 else if (name == "Player") {
                     // PLAYER
@@ -195,6 +195,7 @@ void TopDownState::LoadMap(string const& filename) {
                     portal_->addComponent<Transform>(TRANSFORM_H, obj.getPosition(), PORTAL_WIDTH, PORTAL_HEIGHT);
                     portal_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("portal"), 1,1, 0, PORTAL_WIDTH, PORTAL_HEIGHT);
                     portal_->addComponent<ObjectsComponent>(OBJECTSCOMPONENT_H);
+                    portal_->addComponent<PortalComponent>(PORTALCOMPONENT_H);
                     addEntity(portal_);
                 }
 
