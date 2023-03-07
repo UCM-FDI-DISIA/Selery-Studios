@@ -5,7 +5,7 @@
 using namespace std;
 cmpId_type p = int(TRANSFORM_H);
 
-CheckCollision::CheckCollision(PlayerTD* player, string id) : Component() {
+CheckCollision::CheckCollision(Entity* player, string id) : Component() {
 	player_ = player;
 	id_ = id;
 }
@@ -100,31 +100,30 @@ void CheckCollision::update()
 
 void CheckCollision::render()
 { 
-	//Nota---->Checkear si hacer comprobaciones aqu?o no
-	if (id_ != "portal" && id_ != "element") {
-		rectPlayer.x -= ent_->mngr_->camRect_.x;
-		rectPlayer.y -= ent_->mngr_->camRect_.y;
-		SDL_SetRenderDrawColor(GameManager::instance()->getRenderer(), 0, 255, 0, 0); // Renderizamos el rectangulo del player						
-		SDL_RenderDrawRect(GameManager::instance()->getRenderer(), &rectPlayer);
-
-		rectDetection.x -= ent_->mngr_->camRect_.x;
-		rectDetection.y -= ent_->mngr_->camRect_.y;
-		SDL_SetRenderDrawColor(GameManager::instance()->getRenderer(), 120, 50, 255, 0); //	Renderizamos el rectangulo de deteccion del enemigo						
-		SDL_RenderDrawRect(GameManager::instance()->getRenderer(), &rectDetection);
-
-		rectFight.x -= ent_->mngr_->camRect_.x;
-		rectFight.y -= ent_->mngr_->camRect_.y;		
-		SDL_SetRenderDrawColor(GameManager::instance()->getRenderer(), 225, 100, 255, 0); // Renderizamos el rectangulo de combate del enemigo
-		SDL_RenderDrawRect(GameManager::instance()->getRenderer(), &rectFight);
-		
-		rectNPC.x -= ent_->mngr_->camRect_.x;
-		rectNPC.y -= ent_->mngr_->camRect_.y;
-		
-		SDL_SetRenderDrawColor(GameManager::instance()->getRenderer(), 225, 100, 255, 0);
-		SDL_RenderDrawRect(GameManager::instance()->getRenderer(), &rectNPC);
-
-		SDL_SetRenderDrawColor(GameManager::instance()->getRenderer(), 0, 0, 0, 255); // ponemos el fondo a negro						
-	}
+//	if (id_ != "portal" && id_ != "element") {
+//		rectPlayer.x -= ent_->mngr_->camRect_.x;
+//		rectPlayer.y -= ent_->mngr_->camRect_.y;
+//		SDL_SetRenderDrawColor(GameManager::instance()->getRenderer(), 0, 255, 0, 0); // Renderizamos el rectangulo del player						
+//		SDL_RenderDrawRect(GameManager::instance()->getRenderer(), &rectPlayer);
+//
+//		rectDetection.x -= ent_->mngr_->camRect_.x;
+//		rectDetection.y -= ent_->mngr_->camRect_.y;
+//		SDL_SetRenderDrawColor(GameManager::instance()->getRenderer(), 120, 50, 255, 0); //	Renderizamos el rectangulo de deteccion del enemigo						
+//		SDL_RenderDrawRect(GameManager::instance()->getRenderer(), &rectDetection);
+//
+//		rectFight.x -= ent_->mngr_->camRect_.x;
+//		rectFight.y -= ent_->mngr_->camRect_.y;		
+//		SDL_SetRenderDrawColor(GameManager::instance()->getRenderer(), 225, 100, 255, 0); // Renderizamos el rectangulo de combate del enemigo
+//		SDL_RenderDrawRect(GameManager::instance()->getRenderer(), &rectFight);
+//		
+//		rectNPC.x -= ent_->mngr_->camRect_.x;
+//		rectNPC.y -= ent_->mngr_->camRect_.y;
+//		
+//		SDL_SetRenderDrawColor(GameManager::instance()->getRenderer(), 225, 100, 255, 0);
+//		SDL_RenderDrawRect(GameManager::instance()->getRenderer(), &rectNPC);
+//
+//		SDL_SetRenderDrawColor(GameManager::instance()->getRenderer(), 0, 0, 0, 255); // ponemos el fondo a negro						
+	//}
 }
 
 void CheckCollision::updateRects()														
