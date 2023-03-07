@@ -598,6 +598,11 @@
     },
 
     {
+      "id": "Menu",
+      "file": "assets/sounds/MainMenu.wav"
+    },
+
+    {
       "id": "Title",
       "file": "assets/sounds/Title.wav"
     },

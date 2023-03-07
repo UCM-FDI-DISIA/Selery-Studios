@@ -22,7 +22,9 @@ void GameManager::goTopDown() {
 }
 
 void GameManager:: leaveMainMenu() {
+	SDLUtils::instance()->soundEffects().at("Menu").haltChannel();
 	GameStateMachine::instance()->pushState(new TopDownState());
+
 }
 
 void GameManager::goPauseMenu() {
