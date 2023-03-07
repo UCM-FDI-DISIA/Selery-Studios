@@ -9,6 +9,7 @@
 #include "../components/MovementComponent.h"
 #include "../components/Image.h"
 #include "../components/SkinComponent.h"
+#include "../components/EconomyComponent.h"
 
 class PlayerTD : public Entity {
 private:
