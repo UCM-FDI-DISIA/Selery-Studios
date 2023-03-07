@@ -14,8 +14,7 @@
 #include "../Entities/LifeBar.h"
 #include "../components/AttackBoxComponent.h"
 
-class EnemyBEU :
-    public Entity
+class EnemyBEU : public Entity
 {
 private:
 

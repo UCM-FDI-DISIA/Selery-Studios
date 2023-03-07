@@ -1,14 +1,3 @@
-#pragma once
-#include "../utils/Entity.h"
-#include "../components/Transform.h"
-#include "../utils/ecs.h"
-#include "../sdlutils/Texture.h"
-#include "../GameManager.h"
-#include "../components/CheckCollision.h"
-#include "PlayerTD.h"
-#include "../components/ObjectsComponent.h"
-
-
 class Portal : public Entity
 {
 private:

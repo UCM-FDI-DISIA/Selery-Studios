@@ -22,6 +22,7 @@
 #include "../components/LifeComponent.h"
 #include "../components/Enemy_movementTD_component.h"
 #include "../components/ColliderComponent.h"
+#include "../components/ObjectsComponent.h"
 using uint = unsigned int;
 using tileset_map = std::map<std::string, Texture*>; //mapa con CLAVE:string, ARGUMENTO: puntero a textura
 using tilelayer = tmx::TileLayer;
