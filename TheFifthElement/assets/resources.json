@@ -374,6 +374,18 @@
       "id": "TD_wind_mushroom",
       "file": "assets/Enemies/TopDown/Mushroom/shroomRunLeft.png"
     },
+    {
+      "id": "TD_wind_goblin",
+      "file": "assets/Enemies/TopDown/Mushroom/shroomRunLeft.png"
+    },
+    {
+      "id": "TD_wind_skeleton",
+      "file": "assets/Enemies/TopDown/Mushroom/shroomRunLeft.png"
+    },
+    {
+      "id": "TD_wind_bat",
+      "file": "assets/Enemies/TopDown/Mushroom/shroomRunLeft.png"
+    },
 
     {
       "id": "PTD_fire_idle",
