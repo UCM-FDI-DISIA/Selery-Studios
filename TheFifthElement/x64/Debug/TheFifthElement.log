@@ -52,12 +52,6 @@ C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\c
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(31,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(32,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(33,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(39,20): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(15): message : vea la declaración de 'Entity::mngr_'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(9): message : vea la declaración de 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(40,20): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(15): message : vea la declaración de 'Entity::mngr_'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(9): message : vea la declaración de 'Entity'
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(49,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(50,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(51,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
@@ -74,12 +68,6 @@ C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\c
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(31,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(32,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(33,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(39,20): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(15): message : vea la declaración de 'Entity::mngr_'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(9): message : vea la declaración de 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(40,20): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(15): message : vea la declaración de 'Entity::mngr_'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(9): message : vea la declaración de 'Entity'
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(49,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(50,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(51,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
@@ -95,12 +83,6 @@ C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\c
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(31,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(32,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(33,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(39,20): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(15): message : vea la declaración de 'Entity::mngr_'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(9): message : vea la declaración de 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(40,20): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(15): message : vea la declaración de 'Entity::mngr_'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(9): message : vea la declaración de 'Entity'
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(49,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(50,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(51,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
@@ -140,12 +122,6 @@ C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\c
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(31,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(32,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(33,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(39,20): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(15): message : vea la declaración de 'Entity::mngr_'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(9): message : vea la declaración de 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(40,20): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(15): message : vea la declaración de 'Entity::mngr_'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(9): message : vea la declaración de 'Entity'
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(49,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(50,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(51,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
@@ -206,17 +182,16 @@ C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\c
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(15): message : vea la declaración de 'Entity::mngr_'
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(9): message : vea la declaración de 'Entity'
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\DialogueComponent.h(11,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\PlayerTD.h(63,49): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\PlayerTD.h(62,49): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Element.h(21,8): error C2143: error de sintaxis: falta ';' delante de '*'
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Element.h(21,8): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Element.h(21,17): error C2238: símbolos (token) inesperados delante de ';'
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Element.h(39,42): error C2061: error de sintaxis: identificador 'Portal'
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Element.h(36,3): error C2065: 'portal_': identificador no declarado
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(30,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(31,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(32,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(33,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(39,20): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(15): message : vea la declaración de 'Entity::mngr_'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(9): message : vea la declaración de 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(40,20): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(15): message : vea la declaración de 'Entity::mngr_'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(9): message : vea la declaración de 'Entity'
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(49,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(50,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(51,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
@@ -233,8 +208,6 @@ C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\E
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Enemy.h(19,22): error C2065: 'ENEMYTD_WIDTH': identificador no declarado
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Enemy.h(19,52): error C3861: 'ENEMYTD_HEIGHT': no se encontró el identificador
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Enemy.h(19,52): error C2065: 'ENEMYTD_HEIGHT': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Portal.h(1,14): error C2011: 'Portal': nueva definición del tipo 'class'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Portal.h(1): message : vea la declaración de 'Portal'
   BeatEmUpState.cpp
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\Transform.h(71,27): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(15): message : vea la declaración de 'Entity::mngr_'
@@ -246,12 +219,6 @@ C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\c
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(31,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(32,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(33,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(39,20): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(15): message : vea la declaración de 'Entity::mngr_'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(9): message : vea la declaración de 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(40,20): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(15): message : vea la declaración de 'Entity::mngr_'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(9): message : vea la declaración de 'Entity'
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(49,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(50,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(51,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
@@ -284,7 +251,19 @@ C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\u
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\Transform.h(72,27): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(15): message : vea la declaración de 'Entity::mngr_'
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(9): message : vea la declaración de 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\PlayerTD.h(63,49): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\PlayerTD.h(62,49): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Element.h(21,8): error C2143: error de sintaxis: falta ';' delante de '*'
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Element.h(21,8): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Element.h(21,17): error C2238: símbolos (token) inesperados delante de ';'
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Element.h(39,42): error C2061: error de sintaxis: identificador 'Portal'
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Element.h(36,3): error C2065: 'portal_': identificador no declarado
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\CheckCollision.cpp(8,17): error C2511: 'CheckCollision::CheckCollision(Entity *,std::string)': la función miembro sobrecargada no se ha encontrado en 'CheckCollision'
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\CheckCollision.h(10): message : vea la declaración de 'CheckCollision'
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\CheckCollision.cpp(8,73): error C2550: 'CheckCollision::{ctor}': las listas de inicializadores de constructor solo se permiten en las definiciones de constructor
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\CheckCollision.cpp(9,2): error C2597: referencia no válida a miembro no static 'CheckCollision::player_'
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\CheckCollision.h(13): message : vea la declaración de 'CheckCollision::player_'
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\CheckCollision.cpp(10,2): error C2597: referencia no válida a miembro no static 'CheckCollision::id_'
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\CheckCollision.h(22): message : vea la declaración de 'CheckCollision::id_'
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\CheckCollision.cpp(15,10): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\CheckCollision.cpp(57,62): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\CheckCollision.cpp(57,49): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
@@ -306,6 +285,7 @@ C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\c
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\CheckCollision.cpp(68,46): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\CheckCollision.cpp(68,89): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\CheckCollision.cpp(68,75): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\CheckCollision.cpp(70,16): error C2061: error de sintaxis: identificador 'Portal'
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\CheckCollision.cpp(74,105): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\CheckCollision.cpp(74,91): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\CheckCollision.cpp(74,134): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
@@ -318,13 +298,6 @@ C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\c
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\CheckCollision.cpp(81,132): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\CheckCollision.cpp(81,89): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\CheckCollision.cpp(81,75): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\CheckCollision.cpp(126,2): error C2143: error de sintaxis: falta ';' delante de '}'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\CheckCollision.cpp(126,2): error C2761: "void CheckCollision::render(void)": no se permite la nueva declaración del miembro
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\CheckCollision.cpp(126,2): error C2059: error de sintaxis: '}'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\CheckCollision.cpp(127,1): error C2143: error de sintaxis: falta ';' delante de '}'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\CheckCollision.cpp(127,1): error C2059: error de sintaxis: '}'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\CheckCollision.cpp(130,1): error C2143: error de sintaxis: falta ';' delante de '{'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\CheckCollision.cpp(130,1): error C2447: '{': falta el encabezado de función (¿lista formal de estilo anterior?)
   PauseMenuState.cpp
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\Transform.h(71,27): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(15): message : vea la declaración de 'Entity::mngr_'
@@ -352,7 +325,15 @@ C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\u
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\Transform.h(72,27): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(15): message : vea la declaración de 'Entity::mngr_'
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(9): message : vea la declaración de 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\PlayerTD.h(63,49): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\PlayerTD.h(62,49): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Element.h(21,8): error C2143: error de sintaxis: falta ';' delante de '*'
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Element.h(21,8): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Element.h(21,17): error C2238: símbolos (token) inesperados delante de ';'
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Element.h(39,42): error C2061: error de sintaxis: identificador 'Portal'
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Element.h(36,3): error C2065: 'portal_': identificador no declarado
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Element.cpp(2,50): error C2061: error de sintaxis: identificador 'Portal'
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Element.cpp(4,2): error C2065: 'portal_': identificador no declarado
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Element.cpp(4,12): error C2065: 'portal': identificador no declarado
   Enemy.cpp
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\Transform.h(71,27): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(15): message : vea la declaración de 'Entity::mngr_'
@@ -360,17 +341,11 @@ C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\u
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\Transform.h(72,27): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(15): message : vea la declaración de 'Entity::mngr_'
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(9): message : vea la declaración de 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\PlayerTD.h(63,49): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\PlayerTD.h(62,49): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(30,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(31,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(32,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(33,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(39,20): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(15): message : vea la declaración de 'Entity::mngr_'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(9): message : vea la declaración de 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(40,20): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(15): message : vea la declaración de 'Entity::mngr_'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(9): message : vea la declaración de 'Entity'
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(49,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(50,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(51,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
@@ -394,12 +369,6 @@ C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\c
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(31,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(32,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(33,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(39,20): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(15): message : vea la declaración de 'Entity::mngr_'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(9): message : vea la declaración de 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(40,20): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(15): message : vea la declaración de 'Entity::mngr_'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(9): message : vea la declaración de 'Entity'
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(49,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(50,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(51,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
@@ -415,12 +384,6 @@ C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\c
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(31,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(32,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(33,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(39,20): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(15): message : vea la declaración de 'Entity::mngr_'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(9): message : vea la declaración de 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(40,20): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(15): message : vea la declaración de 'Entity::mngr_'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(9): message : vea la declaración de 'Entity'
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(49,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(50,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(51,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
@@ -437,17 +400,16 @@ C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\c
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(15): message : vea la declaración de 'Entity::mngr_'
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(9): message : vea la declaración de 'Entity'
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\DialogueComponent.h(11,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\PlayerTD.h(63,49): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\PlayerTD.h(62,49): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Element.h(21,8): error C2143: error de sintaxis: falta ';' delante de '*'
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Element.h(21,8): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Element.h(21,17): error C2238: símbolos (token) inesperados delante de ';'
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Element.h(39,42): error C2061: error de sintaxis: identificador 'Portal'
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Element.h(36,3): error C2065: 'portal_': identificador no declarado
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(30,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(31,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(32,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(33,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(39,20): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(15): message : vea la declaración de 'Entity::mngr_'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(9): message : vea la declaración de 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(40,20): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(15): message : vea la declaración de 'Entity::mngr_'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(9): message : vea la declaración de 'Entity'
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(49,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(50,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(51,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
@@ -467,18 +429,17 @@ C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\u
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\Transform.h(72,27): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(15): message : vea la declaración de 'Entity::mngr_'
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(9): message : vea la declaración de 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\PlayerTD.h(63,49): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\PlayerTD.h(62,49): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\DialogueComponent.h(11,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Element.h(21,8): error C2143: error de sintaxis: falta ';' delante de '*'
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Element.h(21,8): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Element.h(21,17): error C2238: símbolos (token) inesperados delante de ';'
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Element.h(39,42): error C2061: error de sintaxis: identificador 'Portal'
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Element.h(36,3): error C2065: 'portal_': identificador no declarado
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(30,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(31,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(32,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(33,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(39,20): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(15): message : vea la declaración de 'Entity::mngr_'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(9): message : vea la declaración de 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(40,20): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(15): message : vea la declaración de 'Entity::mngr_'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(9): message : vea la declaración de 'Entity'
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(49,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(50,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(51,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
@@ -502,12 +463,6 @@ C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\c
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(31,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(32,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(33,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(39,20): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(15): message : vea la declaración de 'Entity::mngr_'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(9): message : vea la declaración de 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(40,20): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(15): message : vea la declaración de 'Entity::mngr_'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(9): message : vea la declaración de 'Entity'
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(49,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(50,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(51,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
@@ -527,27 +482,6 @@ C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\c
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(15): message : vea la declaración de 'Entity::mngr_'
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(9): message : vea la declaración de 'Entity'
   Npc.cpp
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\Transform.h(71,27): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(15): message : vea la declaración de 'Entity::mngr_'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(9): message : vea la declaración de 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\Transform.h(72,27): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(15): message : vea la declaración de 'Entity::mngr_'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(9): message : vea la declaración de 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\PlayerTD.h(63,49): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(30,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(31,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(32,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(33,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(39,20): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(15): message : vea la declaración de 'Entity::mngr_'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(9): message : vea la declaración de 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(40,20): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(15): message : vea la declaración de 'Entity::mngr_'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(9): message : vea la declaración de 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(49,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(50,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(51,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(52,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
   ObjectsComponent.cpp
   PlayerBEU.cpp
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\Transform.h(71,27): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
@@ -560,12 +494,6 @@ C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\c
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(31,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(32,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(33,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(39,20): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(15): message : vea la declaración de 'Entity::mngr_'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(9): message : vea la declaración de 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(40,20): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(15): message : vea la declaración de 'Entity::mngr_'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(9): message : vea la declaración de 'Entity'
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(49,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(50,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(51,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
@@ -593,76 +521,41 @@ C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\u
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\Transform.h(72,27): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(15): message : vea la declaración de 'Entity::mngr_'
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(9): message : vea la declaración de 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\PlayerTD.h(63,49): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\PlayerTD.h(62,49): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
   Portal.cpp
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Portal.h(2,1): error C2504: 'Entity': clase base sin definir
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Portal.h(4,11): error C3646: 'portalPosition_': especificador de invalidación desconocido
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Portal.h(4,26): error C2059: error de sintaxis: '{'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Portal.h(4,26): error C2334: símbolos (token) inesperados delante de '{'; se pasará por alto el cuerpo de función aparente
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Portal.h(6,9): error C2143: error de sintaxis: falta ';' delante de '*'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Portal.h(6,9): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Portal.h(6,12): error C2238: símbolos (token) inesperados delante de ';'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Portal.h(8,11): error C2143: error de sintaxis: falta ';' delante de '*'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Portal.h(8,11): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Portal.h(8,15): error C2238: símbolos (token) inesperados delante de ';'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Portal.h(9,11): error C2143: error de sintaxis: falta ';' delante de '*'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Portal.h(9,11): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Portal.h(9,22): error C2238: símbolos (token) inesperados delante de ';'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Portal.h(10,10): error C2143: error de sintaxis: falta ';' delante de '*'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Portal.h(10,10): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Portal.h(10,19): error C2238: símbolos (token) inesperados delante de ';'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Portal.h(11,16): error C2143: error de sintaxis: falta ';' delante de '*'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Portal.h(11,16): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Portal.h(11,20): error C2238: símbolos (token) inesperados delante de ';'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Portal.h(21,16): error C2061: error de sintaxis: identificador 'Vector2D'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Portal.h(23,9): error C2061: error de sintaxis: identificador 'PlayerTD'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Portal.cpp(2,9): error C7550: "Portal::{ctor}": el nombre completo en este contexto denomina un constructor, no un tipo.
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Portal.cpp(2,16): error C2065: 'PlayerTD': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Portal.cpp(2,26): error C2065: 'player': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Portal.cpp(2,34): error C2059: error de sintaxis: ':'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Portal.cpp(3,1): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Portal.cpp(4,2): error C2065: 'player_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Portal.cpp(4,12): error C2065: 'player': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Portal.cpp(5,2): error C2065: 'tr': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Portal.cpp(5,7): error C2065: 'addComponent': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Portal.cpp(5,20): error C2065: 'Transform': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Portal.cpp(5,31): error C2065: 'TRANSFORM_H': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Portal.cpp(5,44): error C2065: 'portalPosition_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Portal.cpp(5,61): error C2065: 'portalWidth_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Portal.cpp(5,75): error C2065: 'portalHeight_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Portal.cpp(5,90): error C2065: 'portalRotation_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Portal.cpp(5,107): error C2065: 'portalVel': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Portal.cpp(5,118): error C2065: 'nframes': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Portal.cpp(6,2): error C2065: 'trPlayer_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Portal.cpp(6,14): error C2065: 'player_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Portal.cpp(6,36): error C2065: 'Transform': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Portal.cpp(6,47): error C2065: 'TRANSFORM_H': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Portal.cpp(7,2): error C2065: 't': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Portal.cpp(7,7): error C2653: 'SDLUtils': no es un nombre de clase o espacio de nombres
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Portal.cpp(7,17): error C3861: 'instance': no se encontró el identificador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Portal.cpp(8,2): error C2065: 'addComponent': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Portal.cpp(8,15): error C2065: 'Image': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Portal.cpp(8,22): error C2065: 'IMAGE_H': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Portal.cpp(8,31): error C2065: 't': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Portal.cpp(8,34): error C2065: 'nframes': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Portal.cpp(8,43): error C2065: 'nframes': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Portal.cpp(8,55): error C2065: 'PORTAL_WIDTH': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Portal.cpp(8,69): error C2065: 'PORTAL_HEIGHT': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Portal.cpp(9,2): error C2065: 'addComponent': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Portal.cpp(9,15): error C2065: 'ObjectsComponent': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Portal.cpp(9,33): error C2065: 'OBJECTSCOMPONENT_H': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Portal.cpp(10,1): warning C4508: 'Entity': la función debe devolver un valor; se supone que el tipo de valor devuelto es 'void'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Portal.cpp(14,2): error C2065: 'cout': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Portal.cpp(16,3): error C2065: 'ch': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Portal.cpp(16,8): error C2065: 'addComponent': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Portal.cpp(16,21): error C2065: 'CheckCollision': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Portal.cpp(16,37): error C2065: 'CHECKCOLLISION_H': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Portal.cpp(16,55): error C2065: 'player_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Portal.cpp(20,32): error C2761: "void Portal::Teleport(void)": no se permite la nueva declaración del miembro
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Portal.cpp(20,23): error C2065: 'Vector2D': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Portal.cpp(20,32): error C2146: error de sintaxis: falta ')' delante del identificador 'newPlayerPos'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Portal.cpp(20,46): error C2143: error de sintaxis: falta ';' delante de '{'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Portal.cpp(20,46): error C2447: '{': falta el encabezado de función (¿lista formal de estilo anterior?)
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\Transform.h(71,27): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(15): message : vea la declaración de 'Entity::mngr_'
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(9): message : vea la declaración de 'Entity'
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\Transform.h(72,27): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(15): message : vea la declaración de 'Entity::mngr_'
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(9): message : vea la declaración de 'Entity'
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\DialogueComponent.h(11,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\PlayerTD.h(62,49): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Element.h(21,8): error C2143: error de sintaxis: falta ';' delante de '*'
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Element.h(21,8): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Element.h(21,17): error C2238: símbolos (token) inesperados delante de ';'
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Element.h(39,42): error C2061: error de sintaxis: identificador 'Portal'
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Element.h(36,3): error C2065: 'portal_': identificador no declarado
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(30,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(31,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(32,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(33,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(49,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(50,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(51,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(52,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\RedirectTile.h(14,10): error C2143: error de sintaxis: falta ';' delante de '*'
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\RedirectTile.h(14,10): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\RedirectTile.h(14,18): error C2238: símbolos (token) inesperados delante de ';'
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\RedirectTile.h(18,46): error C2061: error de sintaxis: identificador 'Enemy'
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\RedirectTile.h(19,9): error C2065: 'enemy_': identificador no declarado
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\RedirectTile.h(19,18): error C2065: 'enemy': identificador no declarado
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\RedirectTile.h(26,79): error C2065: 'enemy_': identificador no declarado
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\RedirectTile.h(31,19): error C2065: 'enemy_': identificador no declarado
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Portal.cpp(10,20): error C2084: la función 'PortalComponent::~PortalComponent(void)' ya tiene un cuerpo
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Portal.h(15): message : vea la definición anterior de '{dtor}'
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Portal.cpp(12,24): error C2084: la función 'void PortalComponent::update(void)' ya tiene un cuerpo
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Portal.h(14): message : vea la definición anterior de 'update'
   SkinComponent.cpp
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\Transform.h(71,27): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(15): message : vea la declaración de 'Entity::mngr_'
@@ -670,7 +563,7 @@ C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\u
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\Transform.h(72,27): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(15): message : vea la declaración de 'Entity::mngr_'
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(9): message : vea la declaración de 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\PlayerTD.h(63,49): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\PlayerTD.h(62,49): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\SkinComponent.cpp(22,45): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\SkinComponent.cpp(22,41): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\SkinComponent.cpp(26,45): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
@@ -688,17 +581,11 @@ C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\u
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\Transform.h(72,27): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(15): message : vea la declaración de 'Entity::mngr_'
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(9): message : vea la declaración de 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\PlayerTD.h(63,49): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\PlayerTD.h(62,49): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(30,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(31,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(32,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(33,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(39,20): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(15): message : vea la declaración de 'Entity::mngr_'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(9): message : vea la declaración de 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(40,20): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(15): message : vea la declaración de 'Entity::mngr_'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(9): message : vea la declaración de 'Entity'
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(49,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(50,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(51,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
@@ -708,10 +595,11 @@ C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\E
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Enemy.h(19,52): error C3861: 'ENEMYTD_HEIGHT': no se encontró el identificador
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Enemy.h(19,52): error C2065: 'ENEMYTD_HEIGHT': identificador no declarado
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\DialogueComponent.h(11,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Portal.h(1,14): error C2011: 'Portal': nueva definición del tipo 'class'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Portal.h(1): message : vea la declaración de 'Portal'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Element.h(36,1): error C2027: uso del tipo 'Portal' sin definir
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Portal.h(1): message : vea la declaración de 'Portal'
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Element.h(21,8): error C2143: error de sintaxis: falta ';' delante de '*'
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Element.h(21,8): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Element.h(21,17): error C2238: símbolos (token) inesperados delante de ';'
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Element.h(39,42): error C2061: error de sintaxis: identificador 'Portal'
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Element.h(36,3): error C2065: 'portal_': identificador no declarado
   GameStateMachine.cpp
   MainMenuState.cpp
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\Transform.h(71,27): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
@@ -720,17 +608,11 @@ C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\u
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\Transform.h(72,27): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(15): message : vea la declaración de 'Entity::mngr_'
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(9): message : vea la declaración de 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\PlayerTD.h(63,49): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\PlayerTD.h(62,49): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(30,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(31,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(32,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(33,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(39,20): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(15): message : vea la declaración de 'Entity::mngr_'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(9): message : vea la declaración de 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(40,20): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(15): message : vea la declaración de 'Entity::mngr_'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(9): message : vea la declaración de 'Entity'
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(49,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(50,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(51,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
@@ -740,10 +622,11 @@ C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\E
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Enemy.h(19,52): error C3861: 'ENEMYTD_HEIGHT': no se encontró el identificador
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Enemy.h(19,52): error C2065: 'ENEMYTD_HEIGHT': identificador no declarado
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\DialogueComponent.h(11,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Portal.h(1,14): error C2011: 'Portal': nueva definición del tipo 'class'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Portal.h(1): message : vea la declaración de 'Portal'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Element.h(36,1): error C2027: uso del tipo 'Portal' sin definir
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Portal.h(1): message : vea la declaración de 'Portal'
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Element.h(21,8): error C2143: error de sintaxis: falta ';' delante de '*'
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Element.h(21,8): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Element.h(21,17): error C2238: símbolos (token) inesperados delante de ';'
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Element.h(39,42): error C2061: error de sintaxis: identificador 'Portal'
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Element.h(36,3): error C2065: 'portal_': identificador no declarado
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\states\MainMenuState.cpp(25,32): error C2660: 'Entity::handleEvent': la función no acepta 1 argumentos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(82,15): message : vea la declaración de 'Entity::handleEvent'
   TopDownState.cpp
@@ -759,17 +642,16 @@ C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\c
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(15): message : vea la declaración de 'Entity::mngr_'
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(9): message : vea la declaración de 'Entity'
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\DialogueComponent.h(11,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\PlayerTD.h(63,49): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\PlayerTD.h(62,49): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Element.h(21,8): error C2143: error de sintaxis: falta ';' delante de '*'
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Element.h(21,8): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Element.h(21,17): error C2238: símbolos (token) inesperados delante de ';'
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Element.h(39,42): error C2061: error de sintaxis: identificador 'Portal'
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Element.h(36,3): error C2065: 'portal_': identificador no declarado
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(30,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(31,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(32,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(33,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(39,20): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(15): message : vea la declaración de 'Entity::mngr_'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(9): message : vea la declaración de 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(40,20): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(15): message : vea la declaración de 'Entity::mngr_'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(9): message : vea la declaración de 'Entity'
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(49,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(50,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(51,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
@@ -791,8 +673,8 @@ C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\s
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\lib\tmxlite-1.2.1\include\tmxlite\Object.hpp(83): message : vea la declaración de 'tmx::Object'
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(195,71): error C2039: "getPosition": no es un miembro de "tmx::Object"
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\lib\tmxlite-1.2.1\include\tmxlite\Object.hpp(83): message : vea la declaración de 'tmx::Object'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(245,64): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(246,64): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(247,64): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
   SDLUtils.cpp
   TheFifthElement.cpp
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\crtdbg.h(307,1): warning C4005: '_malloca': redefinición de macro
@@ -804,17 +686,16 @@ C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\c
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(15): message : vea la declaración de 'Entity::mngr_'
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(9): message : vea la declaración de 'Entity'
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\DialogueComponent.h(11,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\PlayerTD.h(63,49): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\PlayerTD.h(62,49): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Element.h(21,8): error C2143: error de sintaxis: falta ';' delante de '*'
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Element.h(21,8): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Element.h(21,17): error C2238: símbolos (token) inesperados delante de ';'
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Element.h(39,42): error C2061: error de sintaxis: identificador 'Portal'
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Element.h(36,3): error C2065: 'portal_': identificador no declarado
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(30,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(31,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(32,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(33,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(39,20): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(15): message : vea la declaración de 'Entity::mngr_'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(9): message : vea la declaración de 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(40,20): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(15): message : vea la declaración de 'Entity::mngr_'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(9): message : vea la declaración de 'Entity'
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(49,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(50,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(51,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
@@ -831,11 +712,8 @@ C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\E
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Enemy.h(19,22): error C2065: 'ENEMYTD_WIDTH': identificador no declarado
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Enemy.h(19,52): error C3861: 'ENEMYTD_HEIGHT': no se encontró el identificador
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Enemy.h(19,52): error C2065: 'ENEMYTD_HEIGHT': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Portal.h(1,14): error C2011: 'Portal': nueva definición del tipo 'class'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\Portal.h(1): message : vea la declaración de 'Portal'
   Generando código...
   Compilando...
-  Component.cpp
   Entity.cpp
   Manager.cpp
   Generando código...
