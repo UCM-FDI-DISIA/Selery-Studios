@@ -21,17 +21,18 @@ private:
 	Entity* player_;
 	Transform* trans_player_;
 	InputComponentBEU* in_;
-	//AttackBoxComponent* atk_;
-	//Background
+	//BACKGROUND
 	Entity* background_;
 	RandomNumberGenerator* random;
 	//ENEMIGOS
 	Entity* enemy_;
+	AnimationEnemyBEUComponent* animation_;
 	//COLISIONES
 	//ColManager* colManager_;
 	
 	LifeBar* lifebar_;
 	float camOffset_ = 300.0f;
+	float enemy_width=0, enemy_height=0;
 	
 
 public:

@@ -11,17 +11,17 @@ EnemyBEU::EnemyBEU(Vector2D pos,PlayerBEU* player, float maxLife, string enemy, 
 
 
 
-	anim_ = addComponent<AnimationEnemyBEUComponent>(ANIMATIONENEMYBEUCOMPONENT_H, type_, enemy_
-		, player_->getComponent<Transform>(TRANSFORM_H));
-	anim_->changeState(AnimationEnemyBEUComponent::Moving);
-	anim_->updateAnimation();
+	/*anim_ = addComponent<AnimationEnemyBEUComponent>(ANIMATIONENEMYBEUCOMPONENT_H, type_, enemy_
+		, player_->getComponent<Transform>(TRANSFORM_H));*/
+	/*anim_->changeState(AnimationEnemyBEUComponent::Moving);
+	anim_->updateAnimation();*/
 
 
 	//tr_ = addComponent<Transform>(int(TRANSFORM_H), pos, EnemyWidth_, EnemyHeight_, EnemyRotation_, speed_, nframes_, matrix_);
 	//trPlayer_ = player_->getComponent<Transform>(int(TRANSFORM_H));
 	//tr_ = addComponent<Transform>(TRANSFORM_H, EnemyPosition_, EnemyWidth_, EnemyHeight_, EnemyRotation_, speed_, nframes_, matrix_);
-	tr_ = addComponent<Transform>(TRANSFORM_H, pos, EnemyWidthQUESISIRVE_, EnemyHeightQUESISIRVE_, EnemyRotation_, speed_, nframes_, matrix_);
-	trPlayer_ = player_->getComponent<Transform>(TRANSFORM_H);
+	//tr_ = addComponent<Transform>(TRANSFORM_H, pos, EnemyWidthQUESISIRVE_, EnemyHeightQUESISIRVE_, EnemyRotation_, speed_, nframes_, matrix_);
+	//trPlayer_ = player_->getComponent<Transform>(TRANSFORM_H);
 
 
 	im_ = addComponent<Image>(IMAGE_H, t_, nframes_, nframes_, fila_, ENEMYBEU_WIDTH, ENEMYBEU_HEIGHT);

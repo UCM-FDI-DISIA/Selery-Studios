@@ -31,25 +31,36 @@ BeatEmUpState::BeatEmUpState() {
 void BeatEmUpState::AddEnemies(int n_enemies) {
 	for (int i = 0; i < n_enemies; ++i) {
 		int character = random->nextInt(0, 4);
-		int element = random->nextInt(0, 4);
+		int type = random->nextInt(0, 4);
 		Vector2D pos={ (float)random->nextInt(50,WIN_WIDTH - 80),(float)random->nextInt(50,WIN_HEIGHT - 50) };
 		if (character == 0) {
 			
 			//enemy_ = addEntity(new EnemyBEU(pos, player_, 10, "bat", getEnemyType(element)));
-			enemy_->addComponent<Transform>(TRANSFORM_H,pos,)
-			addEntity(enemy_);
-		}
-		else if (character == 1) {
-			en_ = addEntity(new EnemyBEU(pos, player_, 10, "skeleton", getEnemyType(element)));
-		}
-		else if (character == 2) {
-			en_ = addEntity(new EnemyBEU(pos, player_, 10, "shroom", getEnemyType(element)));
-		}
-		else {
-			en_ = addEntity(new EnemyBEU(pos, player_, 10, "goblin", getEnemyType(element)));
+			animation_=enemy_->addComponent<AnimationEnemyBEUComponent>(ANIMATIONENEMYBEUCOMPONENT_H, getEnemyType(type), "bat");
+		
+			
 			
 		}
+		else if (character == 1) {
+			animation_=enemy_->addComponent<AnimationEnemyBEUComponent>(ANIMATIONENEMYBEUCOMPONENT_H, getEnemyType(type), "skeleton");
 
+			
+		}
+		else if (character == 2) {
+			animation_ = enemy_->addComponent<AnimationEnemyBEUComponent>(ANIMATIONENEMYBEUCOMPONENT_H, getEnemyType(type), "shroom");
+			
+		}
+		else {
+			//en_ = addEntity(new EnemyBEU(pos, player_, 10, "goblin", getEnemyType(element)));
+			animation_ = enemy_->addComponent<AnimationEnemyBEUComponent>(ANIMATIONENEMYBEUCOMPONENT_H, getEnemyType(type), "goblin");
+			
+		}
+		animation_->changeState(AnimationEnemyBEUComponent::Moving);
+		animation_->updateAnimation();
+
+		enemy_->addComponent<Transform>(TRANSFORM_H, pos, animation_->Get_enemy_Width(), animation_->Get_enemy_Height());
+		enemy->addComponent<Image>(IMAGE_H, t_, nframes_, nframes_, fila_, ENEMYBEU_WIDTH, ENEMYBEU_HEIGHT);
+		addEntity(enemy_);
 		lb_ = addEntity(new LifeBar(10, getEnemyType(element), en_));
 		en_->getComponent<LifeComponent>(LIFECOMPONENT_H)->setLifeBar(lb_);
 	}

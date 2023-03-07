@@ -107,7 +107,7 @@ public:
 		int a = SDLUtils::instance()->rand().nextInt(0, 3);
 		if (a == 0) {
 			return &SDLUtils::instance()->images().at("TD_wind_mushroom");
-			enemy_width = 68;			//habra qeu cambiar el ancho y alto de cada enemigo dependiendo de cual sea
+			enemy_width = 68;			//habra que cambiar el ancho y alto de cada enemigo dependiendo de cual sea
 			enemy_height =120;
 		}
 		else if (a == 1) {

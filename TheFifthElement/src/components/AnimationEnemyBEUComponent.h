@@ -47,12 +47,11 @@ private:
 		bool set_ = false;
 
 public:
-	AnimationEnemyBEUComponent(string type, string enemy, Transform* plTr) {
+	AnimationEnemyBEUComponent(string type, string enemy) {
 		currentState_ = nextState_ = Null;
 
 		type_ = type;
 		enemy_ = enemy;
-		playerTr_ = plTr;
 	}
 
 	void update();
@@ -64,5 +63,7 @@ public:
 	void setAttackTexture();
 	void setHitTexture();
 	void setDeathTexture();
+	inline int Get_enemy_Width() { return EnemyWidth_; }
+	inline int Get_enemy_Height() { return EnemyHeight_; }
 };
 
