@@ -156,13 +156,11 @@ void TopDownState::LoadMap(string const& filename) {
                     // PLAYER
                     player_ = new Entity();
                     player_->setContext(this);
-                    player_->addComponent<Transform>(TRANSFORM_H, obj.getPosition(), PLAYERTD_WIDTH_FRAME, PLAYERTD_HEIGHT_FRAME);
+                   trplayer_= player_->addComponent<Transform>(TRANSFORM_H, obj.getPosition(), PLAYERTD_WIDTH_FRAME, PLAYERTD_HEIGHT_FRAME);
                     sk_ = player_->addComponent<SkinComponent>(SKINCOMPONENT_H, "air");
                     sk_->changeState(SkinComponent::Idle);
                     sk_->changeMov();
                     playerImage_ = player_->addComponent<Image>(IMAGE_H, tplayer_, PLAYERTD_NUMFRAMES, PLAYERTD_NUMFRAMES,0, PLAYERTD_WIDTH_FRAME, PLAYERTD_HEIGHT_FRAME);
-
-                    
                     player_->addComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
                     in_ = player_->addComponent<InputComponent>(INPUTCOMPONENT_H);
                     addEntity(player_);
@@ -173,22 +171,31 @@ void TopDownState::LoadMap(string const& filename) {
                     Nptr_ = Npc_->addComponent<Transform>(TRANSFORM_H, obj.getPosition(), NPC_WIDTH, NPC_HEIGHT);
                     //referencia al texture y al transform
                     Npc_->addComponent<Image>(IMAGE_H,npcTexture(), NPC_FRAMES, NPC_FRAMES, 0, NPC_WIDTH, NPC_HEIGHT);
-                    Npc_->addComponent<CheckCollision>(CHECKCOLLISION_H, player_, number_npc_);
+                    Npc_->addComponent<CheckCollision>(CHECKCOLLISION_H, player_, nnpc_);
 					Npc_->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(0, 0), NPC_HEIGHT, NPC_WIDTH / NPC_FRAMES);
                     addEntity(Npc_);
-                    number_npc_++;
-
+                    nnpc_++;
                 }
                 else if (name == "Enemy") {
                     enemy_ = new Entity();
+                    enemy_->setContext(this);
+                    enemy_->addComponent<Transform>(TRANSFORM_H, obj.getPosition(), ENEMYTD_WIDTH, ENEMYTD_HEIGHT);
                     enemy_->addComponent<Enemy_movementTD_component>(ENEMY_MOVEMENT_TD_H);
-                    enemy_->addComponent<Transform>(TRANSFORM_H, obj.getPosition(), EnemyWidth_, EnemyHeight_, EnemyRotation_, speed_, nframes, matrix_);
-                        
-                        addEntity(new Enemy(pl, 100));
+                    enemy_->addComponent<Image>(IMAGE_H, EnemyTexture(), ENEMYTD_NUMFRAMES, ENEMYTD_NUMFRAMES, 0, ENEMYTD_WIDTH, ENEMYTD_HEIGHT);
+                    float a = -1.0f;
+                    float lookingRange = 150.0f;
+                    float lookingWidth = 100.0f;
+                     enemy_->addComponent<CheckCollision>(CHECKCOLLISION_H, player_, lookingRange, lookingWidth, a);            
+                     enemy_->addComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
+                    addEntity(enemy_);
                 }
-               
                 else if (name == "Portal") {
-                    p = addEntity(new Portal(player_));
+                    portal_ = new Entity();
+                    portal_->setContext(this);
+                    portal_->addComponent<Transform>(TRANSFORM_H, obj.getPosition(), PORTAL_WIDTH, PORTAL_HEIGHT);
+                    portal_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("portal"), 1,1, 0, PORTAL_WIDTH, PORTAL_HEIGHT);
+                    portal_->addComponent<ObjectsComponent>(OBJECTSCOMPONENT_H);
+                    addEntity(portal_);
                 }
 
             }
@@ -227,7 +234,7 @@ void TopDownState::dialog(int a) {
 
 void TopDownState::update() {
   //  cout << player_->getComponent<Transform>(TRANSFORM_H)->getPos()<<" " << player_->getComponent<Transform>(TRANSFORM_H)->getW() << " " << player_->getComponent<Transform>(TRANSFORM_H)->getH();
-    player_->setCollision(false);
+   // player_->setCollision(false);
     for (auto p : collisions_) {
         p->update();
     }
@@ -235,8 +242,8 @@ void TopDownState::update() {
         p->update();
     }
     Manager::update();
-    camRect_.x = (player_->getComponent<Transform>(TRANSFORM_H)->getPos().getX() + camOffset_) - WIN_WIDTH / 2;
-    camRect_.y = (player_->getComponent<Transform>(TRANSFORM_H)->getPos().getY() + camOffset_) - WIN_HEIGHT / 2;
+    camRect_.x = (trplayer_->getPos().getX() + camOffset_) - WIN_WIDTH / 2;
+    camRect_.y = (trplayer_->getPos().getY() + camOffset_) - WIN_HEIGHT / 2;
     // Clamp
     if (camRect_.x < 0) {
         camRect_.x = 0;

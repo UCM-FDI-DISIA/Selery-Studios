@@ -48,7 +48,7 @@ public:
     }
 
     void update() {
-        if (collider) {
+        /*if (collider) {
             obj1_->collision(Collision::collides(Vector2D(col1_->getColRect().x,
                 col1_->getColRect().y), col1_->getColRect().w, col1_->getColRect().h,
                 Vector2D(col2_->getColRect().x, col2_->getColRect().y),
@@ -61,7 +61,7 @@ public:
              obj1_->Hit(damage_);
            
         }
-       
+       */
     }
 
 };

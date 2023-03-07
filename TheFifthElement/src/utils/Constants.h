@@ -7,11 +7,14 @@ const float FRAME_RATE = 3.0f; // número de frames que tardará en actualizarse e
 
 const uint PLAYERBEU_WIDTH_FRAME = 288; // anchura de PlayerBEU
 const uint PLAYERBEU_HEIGHT_FRAME = 128; // altura de PlayerBEU
+const Vector2D PlayerPosition_{ 30,300 }; //pos inicial de PlayerBEU
+const float speed_ = 1.0f; //velocidad PlayerBEU
+
 
 const uint PLAYERTD_WIDTH_FRAME = 68; // anchura de PlayerTD
 const uint PLAYERTD_HEIGHT_FRAME = 120; // altura de PlayerTD
-const float PLAYERTD_SPEED = 3.0f;
-const uint PLAYERTD_NUMFRAMES = 7;
+const float PLAYERTD_SPEED = 3.0f; //velocidad PlayerTD
+const uint PLAYERTD_NUMFRAMES = 7; //numero de frames PlayerTD
 
 const uint BACKGROUNDAIR_WIDTH_FRAME = 3840; // anchura de BackgroundAir
 const uint BACKGROUNDAIR_HEIGHT_FRAME = 2160; // altura de BackgroundAir
@@ -24,6 +27,7 @@ const uint ELEMENT_HEIGHT = 64; // altura de Element
 
 const uint ENEMYTD_WIDTH = 68; // anchura de EnemyTD
 const uint ENEMYTD_HEIGHT = 120; // altura de EnemyTD
+const uint ENEMYTD_NUMFRAMES = 7; //numero de frames EnemyTD
 
 const uint ENEMYBEU_WIDTH = 150; // anchura de EnemyBEU
 const uint ENEMYBEU_HEIGHT = 150; // altura de EnemyBEU
@@ -31,6 +35,7 @@ const uint ENEMYBEU_HEIGHT = 150; // altura de EnemyBEU
 const uint NPC_WIDTH = 68; // anchura de NPC
 const uint NPC_HEIGHT = 120; // altura de NPC
 const uint NPC_FRAMES = 7; // frame del npcs
+
 const uint PORTAL_WIDTH = 290; // anchura de Portal
 const uint PORTAL_HEIGHT = 192; // altura de Portal
 

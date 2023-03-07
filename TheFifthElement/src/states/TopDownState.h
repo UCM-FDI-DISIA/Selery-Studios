@@ -1,14 +1,9 @@
 #pragma once
-
 #include "tmxlite/Map.hpp"
 #include "tmxlite/TileLayer.hpp"
 #include "GameState.h"
-#include "../Entities/Npc.h"
-#include "../Entities/Enemy.h"
-#include "../Entities/PlayerBEU.h"
 #include "../components/InputComponent.h"
 #include "../Entities/DialogBox.h"
-#include "../Entities/Portal.h"
 #include "../Entities/Element.h"
 #include "../sdlutils/SDLUtils.h"
 #include "../include/SDL_mixer.h"
@@ -17,14 +12,16 @@
 #include "../components/CollideTileInteraction.h"
 #include "../PuzzleCopas.h"
 #include "../components/Transform.h"
-#include "../utils/ecs.h"
 #include "../sdlutils/Texture.h"
 #include "../GameManager.h"
 #include "../components/InputComponent.h"
 #include "../components/MovementComponent.h"
 #include "../components/Image.h"
 #include "../components/SkinComponent.h"
-
+#include "../components/CheckCollision.h"
+#include "../components/LifeComponent.h"
+#include "../components/Enemy_movementTD_component.h"
+#include "../components/ColliderComponent.h"
 using uint = unsigned int;
 using tileset_map = std::map<std::string, Texture*>; //mapa con CLAVE:string, ARGUMENTO: puntero a textura
 using tilelayer = tmx::TileLayer;
@@ -49,28 +46,32 @@ struct MapInfo {
 
 class TopDownState : public Manager {
 private:
+	//TILE
+	tileset_map tilesets_; // textures map (string -> texture)
+	SDL_Texture* background_;
+	MapInfo mapInfo;//struct
 	//PLAYER 
 	Entity* player_;
 	InputComponent* in_;
 	SkinComponent* sk_;
 	Image* playerImage_;
 	Texture* tplayer_= &SDLUtils::instance()->images().at(sk_->getSkin());
+	Transform* trplayer_;
 	//NPCS
 	Entity* Npc_;
 	Transform* Nptr_;
-	int number_npc_ = 0;
+	int nnpc_ = 0;
 	//ENEMIGOS 
 	Entity* enemy_;
-
-
 	GameManager* Gm_;
 
-	tileset_map tilesets_; // textures map (string -> texture)
-	SDL_Texture* background_;
-	MapInfo mapInfo;//struct
+	//PORTAL
+	Entity* portal_;
+
+	//DIALOGO
 	bool dialog_;
-	/*Camera* cam_;*/
-	Portal* p;
+
+	//COLISIONES TILE-PLAYER
 	vector<ColliderTile*> collisions_; //vector colision player-mapa
 	vector<ColliderTileInteraction*> interactions_; //vector colision player-mapa
 	float camOffset_ = 60.0f;
@@ -96,6 +97,13 @@ public:
 			return &SDLUtils::instance()->images().at("NPC_2");
 		}
 		
+	}
+	Texture* EnemyTexture() {
+		int a = SDLUtils::instance()->rand().nextInt(0, 1);
+		if (a == 0) {
+			return &SDLUtils::instance()->images().at("TD_wind_mushroom");
+		}
+
 	}
 };
 

@@ -40,19 +40,19 @@ public:
 	inline void setColliding(bool p) { isColliding_ = p; }
 
 	void update() {
-		if (isActive_) {
-			SDL_Rect rect = build_sdlrect(tr->getPos(), tr->getW(), tr->getH());
-			if (p->collide(rect)) {
-				if (isColliding_==false)puzzle1->add(id);
-				isColliding_ = true;
-				onPlayerCollision();
-			}
-			else if (isColliding_) { // La colisión estaba activa pero ha parado
+		//if (isActive_) {
+		//	SDL_Rect rect = build_sdlrect(tr->getPos(), tr->getW(), tr->getH());
+		//	if (p->collide(rect)) {
+		//		if (isColliding_==false)puzzle1->add(id);
+		//		isColliding_ = true;
+		//		onPlayerCollision();
+		//	}
+		//	else if (isColliding_) { // La colisión estaba activa pero ha parado
 
-				isColliding_ = false;
-				//onPlayerCollisionExit();
-			}
-		}
+		//		isColliding_ = false;
+		//		//onPlayerCollisionExit();
+		//	}
+		//}
 	}
 	void onPlayerCollision() {
 		//int dir = chooseDirection();
