@@ -1,5 +1,4 @@
 ﻿#include "EnemyBEU.h"
-#include "../components/Image.h"
 
 EnemyBEU::~EnemyBEU(){}
 

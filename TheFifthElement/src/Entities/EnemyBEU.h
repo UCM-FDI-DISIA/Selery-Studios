@@ -3,7 +3,7 @@
 #include "../components/Transform.h"
 #include "../utils/ecs.h"
 #include "../sdlutils/SDLUtils.h"
-#include "../GameManager.h"
+
 #include "PlayerBEU.h"
 #include "../components/LifeComponent.h"
 #include "../components/MovementComponent.h"

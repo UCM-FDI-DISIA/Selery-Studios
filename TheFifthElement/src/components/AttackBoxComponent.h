@@ -5,7 +5,6 @@
 #include "../utils/Component.h"
 #include "../sdlutils/SDLUtils.h"
 #include "Transform.h"
-#include "../GameManager.h"
 
 
 

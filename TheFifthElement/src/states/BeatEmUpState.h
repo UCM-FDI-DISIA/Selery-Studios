@@ -1,13 +1,12 @@
 #pragma once
 #include "GameState.h"
+#include "../sdlutils/SDLUtils.h"
 #include "../Entities/Enemy.h"
 #include "../components/InputComponent.h"
 #include "../Entities/EnemyBEU.h"
-#include "../sdlutils/SDLUtils.h"
 #include "../Entities/Background.h"
 #include "../sdlutils/SDLUtils.h"
 #include "../Entities/LifeBar.h"
-#include <unordered_map>
 #include "../ColManager.h"
 #include "../components/AttackBoxComponent.h"
 using name = string;
@@ -17,7 +16,8 @@ private:
 	//PLAYER
 	Entity* player_;
 	Transform* trplayer_;
-
+	//Background
+	Entity* background_;
 	InputComponentBEU* in_;
 	bool dialog_;
 	RandomNumberGenerator* r;

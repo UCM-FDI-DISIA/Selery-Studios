@@ -2333,6 +2333,12 @@ C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\c
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(62,14): error C2065: 'w': identificador no declarado
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\PlayerBEU.h(22,11): error C3646: 'dir': especificador de invalidación desconocido
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\PlayerBEU.h(22,14): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\PlayerBEU.cpp(7,61): error C2065: 'PlayerWidth_': identificador no declarado
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\PlayerBEU.cpp(7,75): error C2065: 'PlayerHeigth_': identificador no declarado
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\PlayerBEU.cpp(7,90): error C2065: 'PlayerRotation_': identificador no declarado
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\PlayerBEU.cpp(25,60): error C2064: el término no se evalúa como una función con 2 argumentos
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\PlayerBEU.cpp(25,79): error C2065: 'PlayerHeigth_': identificador no declarado
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\Entities\PlayerBEU.cpp(25,98): error C2065: 'PlayerWidth_': identificador no declarado
   PlayerTD.cpp
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Constants.h(10,16): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Constants.h(10,16): error C2146: error de sintaxis: falta ';' delante del identificador 'PlayerPosition_'

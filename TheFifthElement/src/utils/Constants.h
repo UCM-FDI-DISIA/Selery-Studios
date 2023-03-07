@@ -7,7 +7,8 @@ const float FRAME_RATE = 3.0f; // número de frames que tardará en actualizarse e
 
 const uint PLAYERBEU_WIDTH_FRAME = 288; // anchura de PlayerBEU
 const uint PLAYERBEU_HEIGHT_FRAME = 128; // altura de PlayerBEU
-const Vector2D PlayerPosition_{ 30,300 }; //pos inicial de PlayerBEU
+const uint PlayerPosition_X =30; //pos inicial de PlayerBEU
+const uint PlayerPosition_Y = 300;
 const float speed_ = 1.0f; //velocidad PlayerBEU
 
 

@@ -3,8 +3,6 @@
 #include "../components/Transform.h"
 #include "../utils/ecs.h"
 #include "../sdlutils/Texture.h"
-
-#include "../GameManager.h"
 #include "../components/InputComponentBEU.h"
 #include "../components/MovementComponent.h"
 #include "../components/AttackBoxComponent.h"
