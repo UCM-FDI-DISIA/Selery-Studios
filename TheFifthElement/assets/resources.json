@@ -125,7 +125,6 @@
     {"id": "Air_LifeBarBack", "file": "assets/Enemies/HUD/LifeBars/Horizontal/Backs/Back6.png" },
     {"id": "Air_LifeBarBorder", "file": "assets/Enemies/HUD/LifeBars/Horizontal/Boarders/Boarder2.png"},
     {"id":  "Player_BEU", "file": "./assets/Player/BeatEmUp/Fire/spritesheets/fireMatrix.png"}
-
   ],
 
   "messages": [

@@ -47,22 +47,26 @@ struct MapInfo {
 class TopDownState : public Manager {
 private:
 	//TILE
-	tileset_map tilesets_; // textures map (string -> texture)
+	tileset_map tilesets_;	// textures map (string -> texture)
 	SDL_Texture* background_;
-	MapInfo mapInfo;//struct
+	MapInfo mapInfo;	//struct
 	//PLAYER 
 	Entity* player_;
+	Transform* trans_player_;
 	InputComponent* in_;
 	SkinComponent* sk_;
-	Image* playerImage_;
-	Texture* tplayer_= &SDLUtils::instance()->images().at(sk_->getSkin());
-	Transform* trplayer_;
+	Texture* texture_player_= &SDLUtils::instance()->images().at(sk_->getSkin());
+	
 	//NPCS
 	Entity* Npc_;
-	Transform* Nptr_;
-	int nnpc_ = 0;
+	//Transform* Nptr_;
+	int number_npc_ = 0;
 	//ENEMIGOS 
 	Entity* enemy_;
+	float enemy_width, enemy_height;
+
+
+
 	GameManager* Gm_;
 
 	//PORTAL
@@ -99,9 +103,28 @@ public:
 		
 	}
 	Texture* EnemyTexture() {
-		int a = SDLUtils::instance()->rand().nextInt(0, 1);
+		int a = SDLUtils::instance()->rand().nextInt(0, 3);
 		if (a == 0) {
 			return &SDLUtils::instance()->images().at("TD_wind_mushroom");
+			enemy_width = 68;			//habra qeu cambiar el ancho y alto de cada enemigo dependiendo de cual sea
+			enemy_height =120;
+		}
+		else if (a == 1) {
+			return &SDLUtils::instance()->images().at("TD_wind_goblin");
+			enemy_width = 68;
+			enemy_height = 120;
+		}
+		else if (a == 2) {
+			return &SDLUtils::instance()->images().at("TD_wind_bat");
+			enemy_width = 68;
+			enemy_height = 120;
+
+		}
+		else if (a == 3) {
+			return &SDLUtils::instance()->images().at("TD_wind_skeleton");
+			enemy_width = 68;
+			enemy_height = 120;
+
 		}
 
 	}
