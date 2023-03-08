@@ -70,7 +70,8 @@ private:
 
 	//PORTAL
 	Entity* portal_;
-
+	//ELEMENT
+	Entity* element_;
 	//DIALOGO
 	bool dialog_;
 

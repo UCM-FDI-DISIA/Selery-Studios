@@ -198,6 +198,14 @@ void TopDownState::LoadMap(string const& filename) {
                     portal_->addComponent<PortalComponent>(PORTALCOMPONENT_H);
                     addEntity(portal_);
                 }
+                else if (name == "Element") {
+                  /*  element_ = new Entity();
+                    element_->addComponent<Transform>(TRANSFORM_H, obj.getPosition(), elementWidth_, elementHeight_);
+                    element_->addComponent<Image>(t, nframes, nframes, 0, ELEMENT_WIDTH, ELEMENT_HEIGHT);
+                    t = &SDLUtils::instance()->images().at("fireball");
+                    element_->addComponent<ObjectsComponent>(OBJECTSCOMPONENT_H);
+                    element_->addComponent<CheckCollision>(CHECKCOLLISION_H, player_, "element");*/
+                }
 
             }
         }
