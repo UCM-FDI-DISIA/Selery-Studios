@@ -11,11 +11,6 @@ TopDownState::TopDownState() {
     addEntity(new Element(player_, Vector2D(200, 200), p));*/
 
 
-    // PRUEBAS PATHING ENEMIGO
-    //addEntity(new RedirectTile(Vector2D(1, 0), Vector2D(680, 170), enemy_)); //der
-    //addEntity(new RedirectTile(Vector2D(0, 1), Vector2D(870, 170), enemy_)); //ab
-    //addEntity(new RedirectTile(Vector2D(-1, 0), Vector2D(870, 360), enemy_)); //iz
-    //addEntity(new RedirectTile(Vector2D(0, -1), Vector2D(680, 360), enemy_)); //arr
 }
 
 void TopDownState::LoadMap(string const& filename) {

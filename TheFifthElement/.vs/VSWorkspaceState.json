@@ -4,6 +4,7 @@
     "\\src",
     "\\src\\components",
     "\\src\\Entities",
+    "\\src\\sdlutils",
     "\\src\\states",
     "\\src\\utils"
   ],
