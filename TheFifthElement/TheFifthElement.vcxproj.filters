@@ -51,7 +51,6 @@
     <ClCompile Include="src\Entities\LifeBar.cpp" />
     <ClCompile Include="src\ColManager.cpp" />
     <ClCompile Include="src\states\PauseMenuState.cpp" />
-    <ClCompile Include="src\components\EconomyComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Entities\Button.h" />
@@ -119,8 +118,6 @@
     <ClInclude Include="src\Entities\LifeBar.h" />
     <ClInclude Include="src\ColManager.h" />
     <ClInclude Include="src\states\PauseMenuState.h" />
-    <ClInclude Include="EconomyComponent.h" />
-    <ClInclude Include="src\components\EconomyComponent.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="TheFifthElement.rc" />

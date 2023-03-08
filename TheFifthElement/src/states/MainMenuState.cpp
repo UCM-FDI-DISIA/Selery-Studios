@@ -12,7 +12,6 @@ MainMenuState::MainMenuState()
 	playButton->addComponent<Transform>(TRANSFORM_H,playButtonPos,playButtonWidth,playButtonHeight,1,0,1,false);
 	playButton->addComponent<Button>(BUTTON_H,"PLAY");
     addEntity(playButton);
-	SDLUtils::instance()->soundEffects().at("Menu").play();
 }
 
 void MainMenuState::update()

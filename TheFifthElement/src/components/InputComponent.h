@@ -14,7 +14,6 @@ private:
     double actionDelay;
     MovementComponent* mov_ = nullptr;
     SkinComponent* skin_ = nullptr;
-    SoundEffect* walk;
 
 public:
     InputComponent();

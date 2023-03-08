@@ -1,9 +1,1 @@
-﻿  Image.cpp
-C:\Selery-Studios\TheFifthElement\src\components\Image.cpp(43,33): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Selery-Studios\TheFifthElement\src\components\Image.cpp(44,33): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Selery-Studios\TheFifthElement\src\components\Image.cpp(45,21): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Selery-Studios\TheFifthElement\src\components\Image.cpp(46,21): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(52,30): warning C4101: 'e': variable local sin referencia
-C:\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(48,1): message : al compilar la función del miembro clase plantilla "Texture &SDLUtils::map_access_wrapper<Texture>::at(std::string)"
-C:\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(205,30): message : Vea la referencia a la creación de una instancia de clase plantilla "SDLUtils::map_access_wrapper<Texture>" que se está compilando
-  TheFifthElement.vcxproj -> C:\Selery-Studios\TheFifthElement\x64\Debug\TheFifthElement.exe
+﻿  TheFifthElement.vcxproj -> C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\x64\Debug\TheFifthElement.exe

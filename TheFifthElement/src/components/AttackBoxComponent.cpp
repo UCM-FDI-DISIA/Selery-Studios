@@ -36,24 +36,21 @@ void AttackBoxComponent::handleBoxes()
 		{
 			box = build_sdlrect(playerTr->getPos().getX() + playerTr->getW()/2, playerTr->getPos().getY() + playerTr->getH(),20, 20);
 			boxCreated = true;
-			
-			//Para poder cambiar satisfactoriamente la direccion del cuadrado
-			if (im_->getFlip() == SDL_FLIP_NONE)
-			{
-				way = 1;
-				angle = 180;
-			}
-			else
-			{
-				way = -1;
-				angle = 0;
-			}
+			angle = 180;
 		}
 		else
 		{
 					
 
-		
+			//Para poder cambiar satisfactoriamente la direccion del cuadrado
+			if (im_->getFlip() == SDL_FLIP_NONE)
+			{
+				way = 1;
+			}
+			else
+			{
+				way = -1;
+			}
 
 
 			moveBoxCurve(72, Vector2D(playerTr->getPos().getX() + playerTr->getW()/2, playerTr->getPos().getY() + playerTr->getH()), 0.07, angle, 182, way);
