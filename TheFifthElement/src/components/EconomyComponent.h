@@ -22,6 +22,7 @@ protected:
 	string money;
 	SDL_Color color = { 50,50,0 };
 	bool playAnim = true;
+	SoundEffect* gainMoney=&SDLUtils::instance()->soundEffects().at("coin");
 	inline void setAnim();
 public:
 	virtual void initComponent();

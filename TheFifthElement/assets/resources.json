@@ -671,6 +671,9 @@
     {
       "id": "NPC_Chat",
       "file": "assets/Sounds/NPCs/npcchat.wav"
+    },{
+      "id":"coin",
+      "file":"assets/sounds/Retro PickUp Coin 04.wav"
     }
   ],
 
