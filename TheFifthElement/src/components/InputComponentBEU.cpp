@@ -1,4 +1,4 @@
-#include "InputComponentBEU.h"
+﻿#include "InputComponentBEU.h"
 #include "../sdlutils/InputHandler.h"
 #include "../utils/Entity.h"
 #include "../utils/ecs.h"
@@ -19,95 +19,134 @@ void InputComponentBEU::initComponent() {
 void InputComponentBEU::update()
 {
 
+
+
+	cout << jump << endl;
+	//if (jump)
+	//{
+	//	im_->setAnim(true, 4, 14, 0, 100);
+	//	jmp_->jump();
+
+	//}
+	if (moveLeft)
+	{
+		tr_->setDir(Vector2D(-1, 0));
+		im_->setAnim(false, 1, 8, 0, 100);
+		im_->setFlip(SDL_FLIP_HORIZONTAL);
+	}
+	else if (moveRight)
+	{
+		tr_->setDir(Vector2D(1, 0));
+		im_->setAnim(false, 1, 8, 0, 100);
+		im_->setFlip(SDL_FLIP_NONE);
+	}
+	else if (moveUp)
+	{
+		tr_->setDir(Vector2D(0, -1));
+		im_->setAnim(false, 1, 8, 0, 100);
+	}
+	else if (moveDown)
+	{
+		tr_->setDir(Vector2D(0, 1));
+		im_->setAnim(false, 1, 8, 0, 100);
+	}
+	else
+	{
+		tr_->setDir(Vector2D(0, 0));
+	}
 }
 
 void InputComponentBEU::handleEvents(SDL_Event event) {
+
+
 	ih().update(event);
-	
-		if (!im_->isAnimPlaying()) {
-			if (ih().isKeyDown(SDL_SCANCODE_SPACE) && jmp_->isJumpEnabled()) { // Salto
-				im_->setAnim(true, 4, 14, 0,100);
-				jmp_->jump();
-			}
-			if (ih().isKeyDown(SDL_SCANCODE_A)) { // Mover Izquierda
-				tr_->setDir(Vector2D(-1, 0));
-				im_->setAnim(false, 1, 8, 0,100);
-				im_->setFlip(SDL_FLIP_HORIZONTAL);
-			}
-			else if (ih().isKeyDown(SDL_SCANCODE_D)) { // Mover Derecha
-				tr_->setDir(Vector2D(1, 0));
-				im_->setAnim(false, 1, 8, 0,100);
-				im_->setFlip(SDL_FLIP_NONE);
-			}
-			else  if (ih().isKeyDown(SDL_SCANCODE_W) && tr_->getPos().getY()) { // Mover Arriba
-				tr_->setDir(Vector2D(0, -1));
-				im_->setAnim(false, 1, 8, 0,100);
-			}
-			else if (ih().isKeyDown(SDL_SCANCODE_S) && tr_->getPos().getY()) { // Mover Abajo
-				tr_->setDir(Vector2D(0, 1));
-				im_->setAnim(false, 1, 8, 0,100);
-			}
-			else if (ih().isKeyJustDown(SDL_SCANCODE_O)) {
-				
-				if (!alreadyPressed)
-				{
-					sdlutils().soundEffects().at("playerAttack").play();
-					alreadyPressed = true;
-					im_->setAnim(true, 9, 24, 0, 8);
-				}// Ataque
-				
-			}
-			else if (ih().isKeyDown(SDL_SCANCODE_P)) { // Ataque Especial
-				sdlutils().soundEffects().at("playerSpecialAttack").play();
-				im_->setAnim(true, 10, 18, 0,100);
-			}
-			else if (ih().isKeyDown(SDL_SCANCODE_M)) {
-				if (!alreadyPressed2)
-				{
-					alreadyPressed2 = true;
-					static_cast<BeatEmUpState*>(mngr_)->finishBEU();
-				} 
-			}
-			else { // Idle
-				tr_->setDir(Vector2D(0, 0));
-				im_->setAnim(true, 0, 8, 0,100);
-			}
-		}
-		
-		
-		else if (ih().isKeyJustDown(SDL_SCANCODE_O)) { 
-			
-			if (!alreadyPressed)
-			{
-				sdlutils().soundEffects().at("playerAttack").play();
-				if (im_->getRow() == 9) {
-					if (im_->getTope() < 3 * 8) {
-						im_->setTope(im_->getTope() + 8);
-					}
-				}
-				else {
-					im_->setAnim(true, 9, 24, 0, 8);
-				}
 
-			}
-		}
-		else if (ih().isKeyJustUp(SDL_SCANCODE_O)) {
-
-			alreadyPressed = false;
-		}
-
-		else if (ih().isKeyJustUp(SDL_SCANCODE_M)) {
-
-			alreadyPressed2 = false;
-		}
-			
-		else if (jmp_->isJumpEnabled()) {
+	if (ih().isKeyDown(SDL_SCANCODE_SPACE) && jmp_->isJumpEnabled()) { // Salto
+		im_->setAnim(true, 4, 14, 0, 100);
+		jmp_->jump();
+	}
+	/*	else if (jmp_->isJumpEnabled()) {
 			tr_->setDir(Vector2D(0, 0));
 			im_->setAnim(false, 0, 8, 0, 100);
-		}
+		}*/
 
-		if (ih().isKeyDown(SDL_SCANCODE_ESCAPE)) {
-			GameManager::goPauseMenu();
+	if (ih().isKeyDown(SDL_SCANCODE_A))
+	{ // Mover Izquierda
+		moveLeft = true;
+	}
+	else if (ih().isKeyUp(SDL_SCANCODE_A))	moveLeft = false;
+
+	if (ih().isKeyDown(SDL_SCANCODE_D))
+	{ // Mover Izquierda
+		moveRight = true;
+	}
+	else if (ih().isKeyUp(SDL_SCANCODE_D))	moveRight = false;
+
+	if (ih().isKeyDown(SDL_SCANCODE_W))
+	{ // Mover Izquierda
+		moveUp = true;
+	}
+	else if (ih().isKeyUp(SDL_SCANCODE_W))	moveUp = false;
+
+
+	if (ih().isKeyDown(SDL_SCANCODE_S))
+	{ // Mover Izquierda
+		moveDown = true;
+	}
+	else if (ih().isKeyUp(SDL_SCANCODE_S))	moveDown = false;
+
+	if (ih().isKeyJustDown(SDL_SCANCODE_O))
+	{
+		if (!alreadyPressedBasic)
+		{
+			sdlutils().soundEffects().at("playerAttack").play();
+			alreadyPressedBasic = true;
+			if (im_->getRow() == 9) {
+				if (im_->getTope() < 3 * 8) {
+					im_->setTope(im_->getTope() + 8);
+				}
+			}
+			else {
+				im_->setAnim(true, 9, 24, 0, 8);
+			}	
 		}
+	}
+	else if (ih().isKeyJustUp(SDL_SCANCODE_O)) alreadyPressedBasic = false;
+
+	if (ih().isKeyDown(SDL_SCANCODE_P) && !alreadyPressedBasic)
+	{
+		// Ataque Especial
+		if (!alreadyPressedSpecial)
+		{
+			alreadyPressedSpecial = true;
+			sdlutils().soundEffects().at("playerSpecialAttack").play();
+			im_->setAnim(true, 10, 18, 0, 100);
+		}
+		
+	}
+	else if (ih().isKeyJustUp(SDL_SCANCODE_P)) alreadyPressedSpecial = false;
+
+     if (ih().isKeyJustDown(SDL_SCANCODE_M))
+	{
+		if (!alreadyPressed2)
+		{
+			alreadyPressed2 = true;
+			static_cast<BeatEmUpState*>(mngr_)->finishBEU();
+		}
+	}
+	else if (ih().isKeyJustUp(SDL_SCANCODE_M))
+	{
+		alreadyPressed2 = false;
+	}
+
+	/*else if (jmp_->isJumpEnabled()) {
+		tr_->setDir(Vector2D(0, 0));
+		im_->setAnim(false, 0, 8, 0, 100);
+
+	}*/
+	if (ih().isKeyDown(SDL_SCANCODE_ESCAPE))
+	{
+		GameManager::goPauseMenu();
+	}
+
 }
-
