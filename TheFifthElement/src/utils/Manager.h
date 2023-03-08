@@ -2,7 +2,6 @@
 #include <vector>
 #include "Entity.h"
 #include "Singleton.h"
-#include "../utils/Constants.h"
 
 using namespace std;
 
@@ -13,10 +12,10 @@ public:
 	Manager();
 	virtual ~Manager();
 	template<typename T>
-	T* addEntity(T* e) {
+	Entity* addEntity(T* e) {
 		e->setAlive(true);
 		e->setContext(this);
-		e->initEntity();
+		//e->initEntity();
 		ents_.push_back(e);
 		return e;
 	}

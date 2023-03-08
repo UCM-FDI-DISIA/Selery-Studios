@@ -1,5 +1,4 @@
 #pragma once
-#pragma once
 #include "../utils/Entity.h"
 #include "../components/Transform.h"
 #include "../utils/ecs.h"
@@ -9,7 +8,6 @@
 #include "../components/MovementComponent.h"
 #include "../components/Image.h"
 #include "../components/SkinComponent.h"
-#include "../components/EconomyComponent.h"
 
 class PlayerTD : public Entity {
 private:

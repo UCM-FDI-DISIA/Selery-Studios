@@ -1,24 +1,29 @@
 #pragma once
-#include "GameState.h"
-#include "../Entities/Npc.h"
-#include "../Entities/PlayerTD.h"
-#include "../Entities/Enemy.h"
-#include "../Entities/PlayerBEU.h"
-#include "../components/InputComponent.h"
-#include "../components/InputComponentBEU.h"
-#include "../Entities/DialogBox.h"
-#include "../Entities/Portal.h"
-#include "../Entities/Element.h"
 #include "tmxlite/Map.hpp"
 #include "tmxlite/TileLayer.hpp"
+#include "GameState.h"
+#include "../components/InputComponent.h"
+#include "../Entities/DialogBox.h"
+#include "../Entities/Element.h"
 #include "../sdlutils/SDLUtils.h"
-//#include "../Entities/Camera.h"
 #include "../include/SDL_mixer.h"
-#include "../Entities/RedirectTile.h"
+#include "../Entities/PortalComponent.h"
 #include "../components/ColliderTile.h"
 #include "../components/CollideTileInteraction.h"
 #include "../PuzzleCopas.h"
 #include "../Entities/HUDTD.h"
+#include "../components/Transform.h"
+#include "../sdlutils/Texture.h"
+#include "../GameManager.h"
+#include "../components/InputComponent.h"
+#include "../components/MovementComponent.h"
+#include "../components/Image.h"
+#include "../components/SkinComponent.h"
+#include "../components/CheckCollision.h"
+#include "../components/LifeComponent.h"
+#include "../components/Enemy_movementTD_component.h"
+#include "../components/ColliderComponent.h"
+#include "../components/ObjectsComponent.h"
 using uint = unsigned int;
 using tileset_map = std::map<std::string, Texture*>; //mapa con CLAVE:string, ARGUMENTO: puntero a textura
 using tilelayer = tmx::TileLayer;
@@ -43,18 +48,31 @@ struct MapInfo {
 
 class TopDownState : public Manager {
 private:
-	Enemy* enemy_;
-	GameManager* Gm_;
-	PlayerTD* player_;
-	InputComponent* in_;
-	PlayerBEU* playerBEU_;
-	InputComponentBEU* inBEU_;
-	tileset_map tilesets_; // textures map (string -> texture)
+	//TILE
+	tileset_map tilesets_;	// textures map (string -> texture)
 	SDL_Texture* background_;
-	MapInfo mapInfo;//struct
+	MapInfo mapInfo;	//struct
+	//PLAYER 
+	Entity* player_;
+	Transform* trans_player_;
+	InputComponent* in_;
+	SkinComponent* sk_;
+	Texture* texture_player_;
+	
+	//NPCS
+	Entity* Npc_;
+	//Transform* Nptr_;
+	int number_npc_ = 0;
+	//ENEMIGOS 
+	Entity* enemy_;
+	float enemy_width, enemy_height;
+
+	GameManager* Gm_;
+	
+	//DIALOGO
 	bool dialog_;
-	/*Camera* cam_;*/
-	Portal* p;
+
+	//COLISIONES TILE-PLAYER
 	vector<ColliderTile*> collisions_; //vector colision player-mapa
 	vector<ColliderTileInteraction*> interactions_; //vector colision player-mapa
 	float camOffset_ = 60.0f;
@@ -73,5 +91,43 @@ public:
 	void update();	
 	void handleEvents();
 	void render();
+	Texture* npcTexture() {
+		int a = SDLUtils::instance()->rand().nextInt(0, 1);
+		if (a == 0) {
+			return &SDLUtils::instance()->images().at("NPC_1");
+		}
+		else if (a == 1) {
+			return &SDLUtils::instance()->images().at("NPC_2");
+		}
+		
+	}
+	Texture* EnemyTexture() {
+		int a = SDLUtils::instance()->rand().nextInt(0, 3);
+		if (a == 0) {
+			return &SDLUtils::instance()->images().at("TD_wind_mushroom");
+			enemy_width = 68;			//habra que cambiar el ancho y alto de cada enemigo dependiendo de cual sea
+			enemy_height =120;
+		}
+		else if (a == 1) {
+			return &SDLUtils::instance()->images().at("TD_wind_goblin");
+			enemy_width = 68;
+			enemy_height = 120;
+		}
+		else if (a == 2) {
+			return &SDLUtils::instance()->images().at("TD_wind_bat");
+			enemy_width = 68;
+			enemy_height = 120;
+
+		}
+		else if (a == 3) {
+			return &SDLUtils::instance()->images().at("TD_wind_skeleton");
+			enemy_width = 68;
+			enemy_height = 120;
+
+		}
+
+	}
+	Entity* getplayer() { return player_; };
+
 };
 

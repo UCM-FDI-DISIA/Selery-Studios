@@ -1,4 +1,3 @@
-
 #pragma once
 #include "../utils/Component.h"
 #include "MovementComponent.h"
@@ -16,16 +15,10 @@ private:
     Image* im_ = nullptr;
     JumpComponent* jmp_ = nullptr;
     Texture* t_ = nullptr;
-    bool alreadyPressedBasic = false;
-    bool alreadyPressedSpecial = false;
-    bool alreadyPressed2 = false;
-    bool moveLeft, moveRight, moveUp, moveDown, jump;
+    bool alreadyPressed = false;
 public:
     InputComponentBEU();
     void initComponent();
     void update();
     void handleEvents(SDL_Event event);
 };
-
-
-
