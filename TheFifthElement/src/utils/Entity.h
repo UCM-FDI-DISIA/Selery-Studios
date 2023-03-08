@@ -79,5 +79,9 @@ public:
 			currCmps_[i]->render();
 	}
 	// Manejo de los eventos a traves del InputHandler
-	virtual void handleEvent() {}
+	virtual void handleEvent(SDL_Event event) {
+		auto n = currCmps_.size();
+		for (auto i = 0u; i < n; i++)
+			currCmps_[i]->handleEvent(event);
+	}
 };
