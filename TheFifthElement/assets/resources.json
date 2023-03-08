@@ -92,10 +92,10 @@
     {"id": "PTD_water_down","file": "assets/Player/TopDown/Water/andarfrente.png" },
     {"id": "PTD_water_right", "file": "assets/Player/TopDown/Water/andar.png"},
     {"id": "PTD_earth_idle", "file": "assets/Player/TopDown/Earth/idle.png" },
-    {"id": "PTD_earth_left", "file": "assets/Player/TopDown/Earth/andarIzquierda.png" },
-    {"id": "PTD_earth_up", "file": "assets/Player/TopDown/Earth/andararriba.png" },
-    {"id": "PTD_earth_down","file": "assets/Player/TopDown/Earth/andarfrente.png"},
-    {"id": "PTD_earth_right",  "file": "assets/Player/TopDown/Earth/andar.png" },
+    {"id": "PTD_earth_left", "file": "assets/Player/TopDown/Earth/walkingLeft.png" },
+    {"id": "PTD_earth_up", "file": "assets/Player/TopDown/Earth/walkingUp.png" },
+    {"id": "PTD_earth_down","file": "assets/Player/TopDown/Earth/walkingDown.png"},
+    {"id": "PTD_earth_right",  "file": "assets/Player/TopDown/Earth/walkingRight.png" },
     {"id": "portal","file": "assets/Scenes/Maps/AncientRuins/Props/portal.png" },
     {"id": "fireball", "file": "assets/Unknown/Elements/FireBall/Sheets/IdleLoop-Sheet.png"},
     {"id": "airBackground", "file": "assets/Scenes/Backgrounds/BeatEmUp/AirBackground.png" },
@@ -136,6 +136,7 @@
 
   "sounds": [
     {"id": "prueba", "file": "assets/sounds/beat.wav"},
+    {"id": "Menu", "file": "assets/sounds/MainMenu.wav"},
     {"id": "Title", "file": "assets/sounds/Title.wav" },
     {"id": "Battle",  "file": "assets/sounds/Battle.wav" },
     {"id": "playerAttack",  "file": "assets/sounds/player/attack/playerAttack.wav"  },
