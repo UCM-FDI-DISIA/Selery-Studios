@@ -104,7 +104,7 @@ void BeatEmUpState::update() {
 	/*Manager::refresh();*/
 	Manager::update();
 	camRect_.x = (trans_player_->getPos().getX() + camOffset_) - WIN_WIDTH / 2;
-	camRect_.y = (trans_player_->getPos().getY() - WIN_HEIGHT / 2;
+	camRect_.y = (trans_player_->getPos().getY() - WIN_HEIGHT / 2);
 	// Clamp
 	if (camRect_.x < 0) {
 		camRect_.x = 0;
