@@ -10,14 +10,14 @@ CheckCollision::CheckCollision(Entity* player, string id) : Component() {
 	id_ = id;
 }
 
-CheckCollision::CheckCollision(PlayerTD* player, float lookingRange, float lookingWidth, float side) :Component() {
+CheckCollision::CheckCollision(Entity* player, float lookingRange, float lookingWidth, float side) :Component() {
 	player_ = player;
 	side_ = side;								//side==-1 ------>mira a la derecha					//			side==1-------->mira a la izquierda
 	lookingRange_ = lookingRange;
 	lookingHeight_ = lookingWidth;
 
 }
-CheckCollision::CheckCollision(PlayerTD* player, int npc) :Component() {
+CheckCollision::CheckCollision(Entity* player, int npc) :Component() {
 	player_ = player;
 	npc_ = npc;
 
@@ -77,7 +77,7 @@ void CheckCollision::update()
 		}
 	}
 	else {
-		//CREAR BOOL PARA SABER SI YA HE COLISIONADO CON ALGO
+		
 		if (Collision::collides(Vector2D(rectPlayer.x, rectPlayer.y), rectPlayer.w, rectPlayer.h, Vector2D(rectNPC.x, rectNPC.y), rectNPC.w, rectNPC.h))
 		{
 			//si colisiona con el npc

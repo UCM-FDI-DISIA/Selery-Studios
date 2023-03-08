@@ -8,6 +8,7 @@
 #include "../sdlutils/SDLUtils.h"
 #include "../include/SDL_mixer.h"
 #include "../Entities/RedirectTile.h"
+#include "../Entities/PortalComponent.h"
 #include "../components/ColliderTile.h"
 #include "../components/CollideTileInteraction.h"
 #include "../PuzzleCopas.h"
