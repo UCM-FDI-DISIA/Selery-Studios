@@ -1,7 +1,10 @@
 #pragma once
 #include <SDL.h>
+#include "../utils/ecs.h"
+#include "../utils/Constants.h"
 class Entity;
 class Manager;
+using namespace std;
 class Component
 {
 protected:
@@ -14,7 +17,6 @@ public:
 		ent_ = ent;
 		mngr_ = mngr;
 	}
-
 	virtual void initComponent() { }
 	virtual void update() { }
 	virtual void render() { }

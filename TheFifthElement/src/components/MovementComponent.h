@@ -1,6 +1,5 @@
 #pragma once
-#ifndef MOVEMENTCOMPONENT_H
-#define MOVEMENTCOMPONENT_H_
+
 #include "Transform.h"
 #include "../utils/Vector2D.h"
 
@@ -9,6 +8,7 @@ public:
 	MovementComponent() {
 	
 	}
+	virtual ~MovementComponent() {}
 	void initComponent();
 	void update();
 	void setDir(Vector2D direction) {
@@ -17,4 +17,3 @@ public:
 private:
 	Transform* tr = nullptr;
 };
-#endif

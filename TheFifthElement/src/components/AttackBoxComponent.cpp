@@ -57,7 +57,7 @@ void AttackBoxComponent::handleBoxes()
 
 
 			moveBoxCurve(72, Vector2D(playerTr->getPos().getX() + playerTr->getW()/2, playerTr->getPos().getY() + playerTr->getH()), 0.07, angle, 182, way);
-			static_cast<BeatEmUpState*>(mngr_)->getColManager()->checkCollisionP(box);
+			//static_cast<BeatEmUpState*>(mngr_)->getColManager()->checkCollisionP(box);
 
 			if (im_->getLastFrame() == 10)
 			{
@@ -80,7 +80,7 @@ void AttackBoxComponent::handleBoxes()
 
 
 			moveBoxCurve(72, Vector2D(playerTr->getPos().getX() + playerTr->getW() / 2, playerTr->getPos().getY() + playerTr->getH()), 0.03, angle, 182, 1);
-			static_cast<BeatEmUpState*>(mngr_)->getColManager()->checkCollisionP(box);
+			//static_cast<BeatEmUpState*>(mngr_)->getColManager()->checkCollisionP(box);
 			if (im_->getLastFrame() == 10)
 			{
 				unsigned timer = clock();

@@ -4,7 +4,9 @@
     "\\src",
     "\\src\\components",
     "\\src\\Entities",
-    "\\src\\states"
+    "\\src\\sdlutils",
+    "\\src\\states",
+    "\\src\\utils"
   ],
   "SelectedNode": "\\TheFifthElement.sln",
   "PreviewInSolutionExplorer": false

@@ -3,7 +3,7 @@
 
 void ColManager::checkCollisionP(SDL_Rect boxAttack)
 {
-	for(auto it: mngr_->getEntities())
+	/*for(auto it: mngr_->getEntities())
 	{
 		if (it->hasComponent(ENEMYBEUDIRECTIONCOMPONENT_H))
 		{
@@ -13,5 +13,5 @@ void ColManager::checkCollisionP(SDL_Rect boxAttack)
 				it->Hit(1);
 			}
 		}
-	}
+	}*/
 }

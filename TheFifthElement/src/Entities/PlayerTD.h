@@ -1,5 +1,4 @@
 #pragma once
-#pragma once
 #include "../utils/Entity.h"
 #include "../components/Transform.h"
 #include "../utils/ecs.h"

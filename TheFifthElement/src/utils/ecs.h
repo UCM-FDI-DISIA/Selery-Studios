@@ -27,8 +27,7 @@ enum cmpId : cmpId_type {
 	ANIMATIONENEMYBEUCOMPONENT_H = 19,
 	BUTTON_H = 20,
 	COLLIDERTILE_H = 21,
-	ECONOMYCOMPONENT_H=22,
-
+	PORTALCOMPONENT_H =22,
 	// do not remove this
 	_LAST_CMP_ID
 };

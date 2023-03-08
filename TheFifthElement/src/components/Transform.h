@@ -2,6 +2,7 @@
 #ifndef TRANSFORM_H_
 #define TRANSFORM_H_
 #include "../utils/Vector2D.h"
+
 #include "../utils/Component.h"
 #include "../sdlutils/SDLUtils.h"
 #include "../utils/Manager.h"
@@ -11,7 +12,7 @@ private:
     Vector2D position, direction;
     float width, height, rotation_, vel;
     SDL_Rect rect;
-    int framesTotales_;
+ 
     bool matrix_, demo = false;
 public:
     Transform(Vector2D pos, float w, float h) {
@@ -20,7 +21,7 @@ public:
         height = h;
         rotation_ = 0;
         vel = 0;
-        framesTotales_ = 0;
+       
         matrix_ = false;
     }
     Transform() {
@@ -33,7 +34,7 @@ public:
         height = h;
         rotation_ = r;
         vel = v;
-        framesTotales_ = frames;
+       
         matrix_ = matrix;
     }
 
@@ -67,16 +68,9 @@ public:
     void render()
     {
         if (!demo) {
-           if (matrix_)
-                rect = build_sdlrect(getPos().getX() + 120, getPos().getY() + 70, getW() / (5 * framesTotales_), getH() / 2);
-            else
-            {
-                if (framesTotales_ != 0) rect = build_sdlrect(getPos().getX(), getPos().getY(), getW() / framesTotales_, getH());
-                else  rect = build_sdlrect(getPos().getX() + 50, getPos().getY() + 60, 3 * getW() / 4, getH() / 2);
-            }
             rect = build_sdlrect(getPos().getX(), getPos().getY(), getW(), getH());
-            rect.x -= ent_->mngr_->camRect_.x;
-            rect.y -= ent_->mngr_->camRect_.y;
+            rect.x -= mngr_->camRect_.x;
+            rect.y -= mngr_->camRect_.y;
             SDL_SetRenderDrawColor(sdlutils().renderer(), 255, 0, 255, 0);
             SDL_RenderDrawRect(sdlutils().renderer(), &rect);
             SDL_SetRenderDrawColor(sdlutils().renderer(), 0, 0, 0, 0);

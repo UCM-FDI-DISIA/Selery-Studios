@@ -3,7 +3,6 @@
 #include "../utils/Entity.h"
 #include "../utils/Vector2D.h"
 #include "../components/Transform.h"
-#include "../Entities/PlayerTD.h"
 
 
 
@@ -16,7 +15,7 @@ private:
 
 	double margin_ = 5.0; // Margen para comprobar por qué lado se está haciendo la colisión
 
-	PlayerTD* p;
+	Entity* p;
 	Transform* tr;
 	bool isActive_ = true;
 	bool isColliding_ = false;
@@ -25,7 +24,7 @@ private:
 
 	//Directions chooseDirection(PlayerTD* player);
 public:
-	ColliderTile(Vector2D pos, float w, float h, PlayerTD* player) : Entity() {
+	ColliderTile(Vector2D pos, float w, float h, Entity* player) : Entity() {
 		tr = addComponent<Transform>(TRANSFORM_H, pos, w, h, 0, 0, 0, false);
 		topLeft_ = pos;
 		topRight_ = { pos.getX() + w, pos.getY() };
@@ -38,18 +37,18 @@ public:
 	inline void setColliding(bool p) { isColliding_ = p; }
 
 	void update() {
-		if (isActive_) {
-			SDL_Rect rect = build_sdlrect(tr->getPos(), tr->getW(), tr->getH());
-			if (p->collide(rect)) {
-				isColliding_ = true;
-				onPlayerCollision();
-			}
-			else if (isColliding_) { // La colisión estaba activa pero ha parado
+		//if (isActive_) {
+		//	SDL_Rect rect = build_sdlrect(tr->getPos(), tr->getW(), tr->getH());
+		//	if (p->collide(rect)) {
+		//		isColliding_ = true;
+		//		onPlayerCollision();
+		//	}
+		//	else if (isColliding_) { // La colisión estaba activa pero ha parado
 
-				isColliding_ = false;
-				//onPlayerCollisionExit();
-			}
-		}
+		//		isColliding_ = false;
+		//		//onPlayerCollisionExit();
+		//	}
+		//}
 	}
 	void onPlayerCollision() {
 		int dir = chooseDirection();

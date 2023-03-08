@@ -25,7 +25,6 @@ void Image::initComponent() { 	// Inicializa el componente
 	if(tr_ == nullptr)tr_ = ent_->getComponent<Transform>(int(TRANSFORM_H));
 	assert(tr_ != nullptr);
 
-
 }
 
 void Image::update() {
@@ -35,14 +34,14 @@ void Image::update() {
 // Dibuja en escena
 void Image::render() {
 	if (frames_ == 0) { //Cuando la imagen solo tiene un frame (sin animación)
-		a = { tr_->getPos().getX() - ent_->mngr_->camRect_.x, tr_->getPos().getY() - ent_->mngr_->camRect_.y };
+		a = { tr_->getPos().getX() - mngr_->camRect_.x, tr_->getPos().getY() - mngr_->camRect_.y };
 		SDL_Rect dest = build_sdlrect(a, tr_->getW(), tr_->getH());
 		tex_->render(dest, tr_->getR());
 	}
 	else {
 		SDL_Rect rect;
-		rect.x = tr_->getPos().getX() - ent_->mngr_->camRect_.x;
-		rect.y = tr_->getPos().getY() - ent_->mngr_->camRect_.y;
+		rect.x = tr_->getPos().getX() - mngr_->camRect_.x;
+		rect.y = tr_->getPos().getY() - mngr_->camRect_.y;
 		rect.h = tr_->getH();
 		rect.w = tr_->getW();
 		SDL_Rect src;

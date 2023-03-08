@@ -20,7 +20,6 @@
     <ClCompile Include="src\Entities\Enemy.cpp" />
     <ClCompile Include="src\Entities\EnemyBEU.cpp" />
     <ClCompile Include="src\components\EnemyBEUDirectionComponent.cpp" />
-    <ClCompile Include="src\Entities\Background.cpp" />
     <ClCompile Include="src\GameManager.cpp" />
     <ClCompile Include="src\components\InputComponent.cpp" />
     <ClCompile Include="src\components\InputComponentBEU.cpp" />
@@ -30,7 +29,7 @@
     <ClCompile Include="src\components\ObjectsComponent.cpp" />
     <ClCompile Include="src\Entities\PlayerBEU.cpp" />
     <ClCompile Include="src\Entities\PlayerTD.cpp" />
-    <ClCompile Include="src\Entities\Portal.cpp" />
+    <ClCompile Include="src\Entities\PortalComponent.cpp" />
     <ClCompile Include="src\components\SkinComponent.cpp" />
     <ClCompile Include="src\states\GameState.cpp" />
     <ClCompile Include="src\states\GameStateMachine.cpp" />
@@ -74,7 +73,6 @@
     <ClInclude Include="src\Entities\Enemy.h" />
     <ClInclude Include="src\Entities\EnemyBEU.h" />
     <ClInclude Include="src\components\EnemyBEUDirectionComponent.h" />
-    <ClInclude Include="src\Entities\Background.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="src\GameManager.h" />
     <ClInclude Include="src\components\Image.h" />
@@ -85,7 +83,7 @@
     <ClInclude Include="src\Entities\Npc.h" />
     <ClInclude Include="src\Entities\PlayerBEU.h" />
     <ClInclude Include="src\Entities\PlayerTD.h" />
-    <ClInclude Include="src\Entities\Portal.h" />
+    <ClInclude Include="src\Entities\PortalComponent.h" />
     <ClInclude Include="src\components\SkinComponent.h" />
     <ClInclude Include="src\states\GameState.h" />
     <ClInclude Include="src\states\GameStateMachine.h" />
