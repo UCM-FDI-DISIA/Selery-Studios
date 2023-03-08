@@ -274,6 +274,7 @@ void TopDownState::render() {
     dst.y -= Manager::camRect_.y/*cam_->getComponent<Transform>(TRANSFORM_H)->getPos().getY()*/;
     SDL_Rect src = { 0, 0, fondowidth_, fondowidth_ };
     SDL_RenderCopy(Gm_->getRenderer(), background_, &src, &dst);
+    hudTD->render();
     Manager::render();
 }
 

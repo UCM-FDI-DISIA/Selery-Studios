@@ -18,6 +18,7 @@
 #include "../components/ColliderTile.h"
 #include "../components/CollideTileInteraction.h"
 #include "../PuzzleCopas.h"
+#include "../Entities/HUDTD.h"
 using uint = unsigned int;
 using tileset_map = std::map<std::string, Texture*>; //mapa con CLAVE:string, ARGUMENTO: puntero a textura
 using tilelayer = tmx::TileLayer;
@@ -59,6 +60,8 @@ private:
 	float camOffset_ = 60.0f;
 
 	int fondowidth_, fondoheight_;
+
+	HUDTD* hudTD = new HUDTD();
 public:
 	string getStateID(); // stringID
 	DialogBox* d;

@@ -6,7 +6,7 @@
 #include "../utils/Entity.h"
 #include "../components/LifeComponent.h"
 
-class HUD
+class HUDTD
 {
 private:
 	string skins_[4] = { "air","fire","water","earth" };
@@ -14,11 +14,14 @@ private:
 	Vector2D backIcon_ = { 50,50 };
 	Vector2D leftIcon_ = { 50,50 };
 	Vector2D rightIcon_ = { 50,50 };
+	
 public:
 	//debería tener una constructora
-	HUD();
+	HUDTD() {}
+	~HUDTD() {}
 	void indexSkin(string skin);
 	void rotateWheel(int index);
+	void render();
 	//debería generar al menos la lifebar
 	//debe generar 4 iconos para los personajes
 	//podría generar un espacio para escribir texto de las misiones

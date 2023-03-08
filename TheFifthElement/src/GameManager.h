@@ -6,6 +6,8 @@ using namespace std;
 
 using uint = unsigned int;
 
+
+
 class GameManager : public Singleton<GameManager>
 {
 private:
