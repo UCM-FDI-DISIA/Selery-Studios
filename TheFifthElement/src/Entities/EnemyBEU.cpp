@@ -1,48 +1,48 @@
-﻿//#include "EnemyBEU.h"
-//
-//EnemyBEU::~EnemyBEU(){}
-//
-//EnemyBEU::EnemyBEU(Vector2D pos,PlayerBEU* player, float maxLife, string enemy, string type) : Entity()
-//{
-//	maxLife_ = life_ = maxLife;
-//	enemy_ = enemy;
-//	type_ = type;
-//	player_ = player;
-//
-//
-//
-//	/*anim_ = addComponent<AnimationEnemyBEUComponent>(ANIMATIONENEMYBEUCOMPONENT_H, type_, enemy_
-//		, player_->getComponent<Transform>(TRANSFORM_H));*/
-//	/*anim_->changeState(AnimationEnemyBEUComponent::Moving);
-//	anim_->updateAnimation();*/
-//
-//
-//	//tr_ = addComponent<Transform>(int(TRANSFORM_H), pos, EnemyWidth_, EnemyHeight_, EnemyRotation_, speed_, nframes_, matrix_);
-//	//trPlayer_ = player_->getComponent<Transform>(int(TRANSFORM_H));
-//	//tr_ = addComponent<Transform>(TRANSFORM_H, EnemyPosition_, EnemyWidth_, EnemyHeight_, EnemyRotation_, speed_, nframes_, matrix_);
-//	//tr_ = addComponent<Transform>(TRANSFORM_H, pos, EnemyWidthQUESISIRVE_, EnemyHeightQUESISIRVE_, EnemyRotation_, speed_, nframes_, matrix_);
-//	//trPlayer_ = player_->getComponent<Transform>(TRANSFORM_H);
-//
-//
-//	im_ = addComponent<Image>(IMAGE_H, t_, nframes_, nframes_, fila_, ENEMYBEU_WIDTH, ENEMYBEU_HEIGHT);
-//
-//	//mov_ = addComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
-//	tr_->setDir(Vector2D(1, 0));		//PARA QUE ESTO??
-//
-//	//eMov_ = addComponent<EnemyBEUDirectionComponent>(ENEMYBEUDIRECTIONCOMPONENT_H, player, enemy_);
-//
-//	col_ = addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, offset_, ColHeight_, ColWidth_);
-//	addComponent<ColDetectorComponent>(COLDETECTORCOMPONENT_H, this, player_);
-//
-//	
-//
-//	lifeC_ = addComponent<LifeComponent>(LIFECOMPONENT_H, maxLife_, nullptr);
-//
-//	set_ = true;
-//
-//	//addComponent<LifeComponent>(int(LIFECOMPONENT_H), tr, maxLife_);
-//}
-//
+﻿////#include "EnemyBEU.h"
+////
+////EnemyBEU::~EnemyBEU(){}
+////
+////EnemyBEU::EnemyBEU(Vector2D pos,PlayerBEU* player, float maxLife, string enemy, string type) : Entity()
+////{
+////	maxLife_ = life_ = maxLife;
+////	enemy_ = enemy;
+////	type_ = type;
+////	player_ = player;
+////
+////
+////
+////	/*anim_ = addComponent<AnimationEnemyBEUComponent>(ANIMATIONENEMYBEUCOMPONENT_H, type_, enemy_
+////		, player_->getComponent<Transform>(TRANSFORM_H));*/
+////	/*anim_->changeState(AnimationEnemyBEUComponent::Moving);
+////	anim_->updateAnimation();*/
+////
+////
+////	//tr_ = addComponent<Transform>(int(TRANSFORM_H), pos, EnemyWidth_, EnemyHeight_, EnemyRotation_, speed_, nframes_, matrix_);
+////	//trPlayer_ = player_->getComponent<Transform>(int(TRANSFORM_H));
+////	//tr_ = addComponent<Transform>(TRANSFORM_H, EnemyPosition_, EnemyWidth_, EnemyHeight_, EnemyRotation_, speed_, nframes_, matrix_);
+////	//tr_ = addComponent<Transform>(TRANSFORM_H, pos, EnemyWidthQUESISIRVE_, EnemyHeightQUESISIRVE_, EnemyRotation_, speed_, nframes_, matrix_);
+////	//trPlayer_ = player_->getComponent<Transform>(TRANSFORM_H);
+////
+////
+////	im_ = addComponent<Image>(IMAGE_H, t_, nframes_, nframes_, fila_, ENEMYBEU_WIDTH, ENEMYBEU_HEIGHT);
+////
+////	//mov_ = addComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
+////	tr_->setDir(Vector2D(1, 0));		//PARA QUE ESTO??
+////
+////	//eMov_ = addComponent<EnemyBEUDirectionComponent>(ENEMYBEUDIRECTIONCOMPONENT_H, player, enemy_);
+////
+////	col_ = addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, offset_, ColHeight_, ColWidth_);
+////	addComponent<ColDetectorComponent>(COLDETECTORCOMPONENT_H, this, player_);
+////
+////	
+////
+////	lifeC_ = addComponent<LifeComponent>(LIFECOMPONENT_H, maxLife_, nullptr);
+////
+////	set_ = true;
+////
+////	//addComponent<LifeComponent>(int(LIFECOMPONENT_H), tr, maxLife_);
+////}
+////
 //void EnemyBEU::collision(bool col) {
 //	if (die_) {
 //		if (!im_->isAnimPlaying()) 
@@ -123,4 +123,4 @@
 //	//tr_->setPos(Vector2D(tr_->getPos().getX() + 50, tr_->getPos().getY()));
 //}
 //
-//
+////

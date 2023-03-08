@@ -15,7 +15,7 @@ public:
 	Entity* addEntity(T* e) {
 		e->setAlive(true);
 		e->setContext(this);
-		e->initEntity();
+		//e->initEntity();
 		ents_.push_back(e);
 		return e;
 	}
