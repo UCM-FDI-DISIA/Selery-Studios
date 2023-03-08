@@ -3,14 +3,13 @@
 #define CHECKCOLLISION_H_
 #include "Transform.h"
 #include "../utils/Vector2D.h"
-#include "../Entities/PlayerTD.h"
 #include "../utils/Collision.h"
 #include "../sdlutils/SDLUtils.h"
 #include "../GameManager.h"
 class CheckCollision : public Component
 {
 private:
-	PlayerTD* player_;
+	Entity* player_;
 	Transform* tr1;
 	Transform* tr2;
 	SDL_Rect rectFight, rectDetection, rectPlayer, rectNPC;
@@ -22,13 +21,13 @@ private:
 	string id_;
 	int npc_ = -1;
 public:
-	CheckCollision(PlayerTD* player, string id);
+	CheckCollision(Entity* player, string id);
 
 	//Constructora de CheckCollision, esta recibe tanto el player como el manager, para tomar referencias
 	//Y como valores el looking range, que es lo ancho que van a ser los rectangulos (el espacio que abarcan), el alto y la direcci?, side
 	//Este ?ltimo valor toma dos ?nicos valores, 1 si mira a la derecha y -1 si mira a la izquierda
-	CheckCollision(PlayerTD* player, float lookingRange, float lookingWidth, float side);
-	CheckCollision(PlayerTD* player,int npc);
+	CheckCollision(Entity* player, float lookingRange, float lookingWidth, float side);
+	CheckCollision(Entity* player,int npc);
 
 	//M?odo en el que iniciamos y seteamos los valores necesarios desde un principio
 	void initComponent();

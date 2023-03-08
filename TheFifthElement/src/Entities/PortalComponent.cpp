@@ -1,4 +1,4 @@
-#include "Portal.h"
+#include "PortalComponent.h"
 #include "../states/TopDownState.h"
 	PortalComponent::PortalComponent() {
 
