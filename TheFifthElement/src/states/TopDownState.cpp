@@ -151,7 +151,7 @@ void TopDownState::LoadMap(string const& filename) {
                     // PLAYER
                     player_ = new Entity();
                     player_->setContext(this);
-                    trans_player_= player_->addComponent<Transform>(TRANSFORM_H, obj.getPosition(), PLAYERTD_WIDTH_FRAME, PLAYERTD_HEIGHT_FRAME);
+                    trans_player_= player_->addComponent<Transform>(TRANSFORM_H, Vector2D(obj.getPosition().x, obj.getPosition().y), PLAYERTD_WIDTH_FRAME, PLAYERTD_HEIGHT_FRAME);
                     sk_ = player_->addComponent<SkinComponent>(SKINCOMPONENT_H, "air");
                     sk_->changeState(SkinComponent::Idle);
                     sk_->changeMov();
@@ -163,7 +163,7 @@ void TopDownState::LoadMap(string const& filename) {
                 else if (name == "NPC") {
                     Npc_ = new Entity();
                     Npc_->setContext(this);
-                    Npc_->addComponent<Transform>(TRANSFORM_H, obj.getPosition(), NPC_WIDTH, NPC_HEIGHT);
+                    Npc_->addComponent<Transform>(TRANSFORM_H,Vector2D(obj.getPosition().x, obj.getPosition().y), NPC_WIDTH, NPC_HEIGHT);
                     Npc_->addComponent<Image>(IMAGE_H,npcTexture(), NPC_FRAMES, NPC_FRAMES, 0, NPC_WIDTH, NPC_HEIGHT);
                     Npc_->addComponent<CheckCollision>(CHECKCOLLISION_H, player_, number_npc_);
 					Npc_->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(0, 0), NPC_HEIGHT, NPC_WIDTH / NPC_FRAMES);
@@ -174,7 +174,7 @@ void TopDownState::LoadMap(string const& filename) {
                 else if (name == "Enemy") {
                     enemy_ = new Entity();
                     enemy_->setContext(this);
-                    enemy_->addComponent<Transform>(TRANSFORM_H, obj.getPosition(),enemy_width, enemy_height);
+                    enemy_->addComponent<Transform>(TRANSFORM_H, Vector2D(obj.getPosition().x, obj.getPosition().y),enemy_width, enemy_height);
                     enemy_->addComponent<Enemy_movementTD_component>(ENEMY_MOVEMENT_TD_H);
                     enemy_->addComponent<Image>(IMAGE_H, EnemyTexture(), ENEMYTD_NUMFRAMES, ENEMYTD_NUMFRAMES, 0, enemy_width, enemy_height);
                     float a = -1.0f;
@@ -187,7 +187,7 @@ void TopDownState::LoadMap(string const& filename) {
                 else if (name == "Portal") {
                     portal_ = new Entity();
                     portal_->setContext(this);
-                    portal_->addComponent<Transform>(TRANSFORM_H, obj.getPosition(), PORTAL_WIDTH, PORTAL_HEIGHT);
+                    portal_->addComponent<Transform>(TRANSFORM_H, Vector2D(obj.getPosition().x, obj.getPosition().y), PORTAL_WIDTH, PORTAL_HEIGHT);
                     portal_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("portal"), 1,1, 0, PORTAL_WIDTH, PORTAL_HEIGHT);
                     portal_->addComponent<ObjectsComponent>(OBJECTSCOMPONENT_H);
                     portal_->addComponent<PortalComponent>(PORTALCOMPONENT_H);
@@ -195,7 +195,7 @@ void TopDownState::LoadMap(string const& filename) {
                 }
                 else if (name == "Element") {
                   /*  element_ = new Entity();
-                    element_->addComponent<Transform>(TRANSFORM_H, obj.getPosition(), elementWidth_, elementHeight_);
+                    element_->addComponent<Transform>(TRANSFORM_H, Vector2D(obj.getPosition().x, obj.getPosition().y), elementWidth_, elementHeight_);
                     element_->addComponent<Image>(t, nframes, nframes, 0, ELEMENT_WIDTH, ELEMENT_HEIGHT);
                     t = &SDLUtils::instance()->images().at("fireball");
                     element_->addComponent<ObjectsComponent>(OBJECTSCOMPONENT_H);
