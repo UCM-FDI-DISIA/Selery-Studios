@@ -21,8 +21,3 @@ void PortalComponent::elementEarned() {
 void PortalComponent::Teleport(Vector2D newPlayerPos) {
 	trPlayer_->setPos(newPlayerPos);
 }
-
-
-
-
-
