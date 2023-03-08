@@ -6,12 +6,16 @@
 #include "../utils/Collision.h"
 #include "../sdlutils/SDLUtils.h"
 #include "../GameManager.h"
+#include "ObjectsComponent.h"
+#include "../Entities/PortalComponent.h"
 class CheckCollision : public Component
 {
 private:
 	Entity* player_;
 	Transform* tr1;
 	Transform* tr2;
+	ObjectsComponent* obj;
+	PortalComponent* portal;
 	SDL_Rect rectFight, rectDetection, rectPlayer, rectNPC;
 	float lookingRange_;
 	float lookingHeight_;

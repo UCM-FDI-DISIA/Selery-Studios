@@ -67,11 +67,7 @@ private:
 	float enemy_width, enemy_height;
 
 	GameManager* Gm_;
-
-	//PORTAL
-	Entity* portal_;
-	//ELEMENT
-	Entity* element_;
+	
 	//DIALOGO
 	bool dialog_;
 
@@ -129,5 +125,6 @@ public:
 
 	}
 	Entity* getplayer() { return player_; };
+
 };
 
