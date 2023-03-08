@@ -15,6 +15,6 @@ PlayerTD::PlayerTD(string skin, Manager* m, Vector2D pos) : Entity() {
 	in_ = addComponent<InputComponent>(INPUTCOMPONENT_H);
 	in_->initComponent();
 	in_->setContext(this, m);
-
+	addComponent<EconomyComponent>(ECONOMYCOMPONENT_H);
 	set_ = true;
 }
