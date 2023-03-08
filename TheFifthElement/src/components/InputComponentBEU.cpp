@@ -108,8 +108,7 @@ void InputComponentBEU::handleEvents(SDL_Event event) {
 			}
 			else {
 				im_->setAnim(true, 9, 24, 0, 8);
-			}
-			
+			}	
 		}
 	}
 	else if (ih().isKeyJustUp(SDL_SCANCODE_O)) alreadyPressedBasic = false;
