@@ -68,8 +68,8 @@ public:
     {
         if (!demo) {
             rect = build_sdlrect(getPos().getX(), getPos().getY(), getW(), getH());
-            rect.x -= ent_->mngr_->camRect_.x;
-            rect.y -= ent_->mngr_->camRect_.y;
+            rect.x -= mngr_->camRect_.x;
+            rect.y -= mngr_->camRect_.y;
             SDL_SetRenderDrawColor(sdlutils().renderer(), 255, 0, 255, 0);
             SDL_RenderDrawRect(sdlutils().renderer(), &rect);
             SDL_SetRenderDrawColor(sdlutils().renderer(), 0, 0, 0, 0);
