@@ -27,11 +27,11 @@ private:
 	//ENEMIGOS
 	Entity* enemy_;
 	AnimationEnemyBEUComponent* animation_;
-	Texture* enemy_texture=  &SDLUtils::instance()->images().at(sk_->getSkin())
+	Texture* enemy_texture;
 	//COLISIONES
 	//ColManager* colManager_;
 	
-	LifeBar* lifebar_;
+	Entity* lifebar_;
 	float camOffset_ = 300.0f;
 	float enemy_width=0, enemy_height=0;
 	

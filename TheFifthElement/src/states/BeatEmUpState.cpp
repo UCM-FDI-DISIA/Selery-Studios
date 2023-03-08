@@ -37,10 +37,6 @@ void BeatEmUpState::AddEnemies(int n_enemies) {
 			
 			//enemy_ = addEntity(new EnemyBEU(pos, player_, 10, "bat", getEnemyType(element)));
 			animation_=enemy_->addComponent<AnimationEnemyBEUComponent>(ANIMATIONENEMYBEUCOMPONENT_H, getEnemyType(type), "bat");
-			
-		
-			
-			
 		}
 		else if (character == 1) {
 			animation_=enemy_->addComponent<AnimationEnemyBEUComponent>(ANIMATIONENEMYBEUCOMPONENT_H, getEnemyType(type), "skeleton");
@@ -66,8 +62,10 @@ void BeatEmUpState::AddEnemies(int n_enemies) {
 		enemy_->addComponent<LifeComponent>(LIFECOMPONENT_H, ENEMYBEU_MAXLIFE, nullptr);
 		//enemy->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, offset_, ColHeight_, ColWidth_);
 		addEntity(enemy_);
-		lb_ = addEntity(new LifeBar(10, getEnemyType(element), en_));
-		en_->getComponent<LifeComponent>(LIFECOMPONENT_H)->setLifeBar(lb_);
+
+		
+	
+		//en_->getComponent<LifeComponent>(LIFECOMPONENT_H)->setLifeBar(lb_);
 	}
 }
 string BeatEmUpState::getEnemyType(int i) {
@@ -85,7 +83,6 @@ string BeatEmUpState::getEnemyType(int i) {
 	}
 
 }
-
 void BeatEmUpState::handleEvents() {
 	SDL_Event event;
 	while (SDL_PollEvent(&event)) { in_->handleEvents(event); }
