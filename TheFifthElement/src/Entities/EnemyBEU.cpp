@@ -26,16 +26,15 @@ EnemyBEU::EnemyBEU(Vector2D pos,PlayerBEU* player, float maxLife, string enemy, 
 
 	im_ = addComponent<Image>(IMAGE_H, t_, nframes_, nframes_, fila_, ENEMYBEU_WIDTH, ENEMYBEU_HEIGHT);
 
-	mov_ = addComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
-	tr_->setDir(Vector2D(1, 0));
+	//mov_ = addComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
+	tr_->setDir(Vector2D(1, 0));		//PARA QUE ESTO??
 
-	eMov_ = addComponent<EnemyBEUDirectionComponent>(ENEMYBEUDIRECTIONCOMPONENT_H, player, enemy_);
+	//eMov_ = addComponent<EnemyBEUDirectionComponent>(ENEMYBEUDIRECTIONCOMPONENT_H, player, enemy_);
 
 	col_ = addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, offset_, ColHeight_, ColWidth_);
 	addComponent<ColDetectorComponent>(COLDETECTORCOMPONENT_H, this, player_);
 
-	/*addComponent<ColDetectorComponent>(COLDETECTORCOMPONENT_H, this,
-		player_->getComponent<AttackBoxComponent>(ATTACKBOXCOMPONENT_H)->getBox(), 1);*/
+	
 
 	lifeC_ = addComponent<LifeComponent>(LIFECOMPONENT_H, maxLife_, nullptr);
 

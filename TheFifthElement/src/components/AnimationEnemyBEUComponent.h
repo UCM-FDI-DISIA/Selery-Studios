@@ -65,5 +65,9 @@ public:
 	void setDeathTexture();
 	inline int Get_enemy_Width() { return EnemyWidth_; }
 	inline int Get_enemy_Height() { return EnemyHeight_; }
-};
+	inline Texture* Get_enemy_Texture() { return t_; }
+	inline string Get_enemy() { return enemy_; }
+	inline string Get_type() { return type_; }
+}
+
 

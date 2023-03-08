@@ -37,6 +37,7 @@ void BeatEmUpState::AddEnemies(int n_enemies) {
 			
 			//enemy_ = addEntity(new EnemyBEU(pos, player_, 10, "bat", getEnemyType(element)));
 			animation_=enemy_->addComponent<AnimationEnemyBEUComponent>(ANIMATIONENEMYBEUCOMPONENT_H, getEnemyType(type), "bat");
+			
 		
 			
 			
@@ -59,7 +60,11 @@ void BeatEmUpState::AddEnemies(int n_enemies) {
 		animation_->updateAnimation();
 
 		enemy_->addComponent<Transform>(TRANSFORM_H, pos, animation_->Get_enemy_Width(), animation_->Get_enemy_Height());
-		enemy->addComponent<Image>(IMAGE_H, t_, nframes_, nframes_, fila_, ENEMYBEU_WIDTH, ENEMYBEU_HEIGHT);
+		//enemy->addComponent<Image>(IMAGE_H, animation_->Get_enemy_Texture(), nframes_, nframes_, fila_, ENEMYBEU_WIDTH, ENEMYBEU_HEIGHT);
+		enemy_->addComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
+		enemy_->addComponent<EnemyBEUDirectionComponent>(ENEMYBEUDIRECTIONCOMPONENT_H, player_, animation_->Get_enemy());
+		enemy_->addComponent<LifeComponent>(LIFECOMPONENT_H, ENEMYBEU_MAXLIFE, nullptr);
+		//enemy->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, offset_, ColHeight_, ColWidth_);
 		addEntity(enemy_);
 		lb_ = addEntity(new LifeBar(10, getEnemyType(element), en_));
 		en_->getComponent<LifeComponent>(LIFECOMPONENT_H)->setLifeBar(lb_);

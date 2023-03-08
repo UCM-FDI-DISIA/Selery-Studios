@@ -29,6 +29,7 @@ const uint ELEMENT_HEIGHT = 64; // altura de Element
 //const uint ENEMYTD_WIDTH = 68; // anchura de EnemyTD
 //const uint ENEMYTD_HEIGHT = 120; // altura de EnemyTD
 const uint ENEMYTD_NUMFRAMES = 7; //numero de frames EnemyTD
+const uint ENEMYBEU_MAXLIFE = 10;//maxima vida de enemigos
 
 const uint ENEMYBEU_WIDTH = 150; // anchura de EnemyBEU
 const uint ENEMYBEU_HEIGHT = 150; // altura de EnemyBEU

@@ -27,6 +27,7 @@ private:
 	//ENEMIGOS
 	Entity* enemy_;
 	AnimationEnemyBEUComponent* animation_;
+	Texture* enemy_texture=  &SDLUtils::instance()->images().at(sk_->getSkin())
 	//COLISIONES
 	//ColManager* colManager_;
 	
