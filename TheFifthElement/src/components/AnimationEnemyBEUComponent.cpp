@@ -1,5 +1,5 @@
 #include "AnimationEnemyBEUComponent.h"
-#include "../Entities/EnemyBEU.h"
+
 
 void AnimationEnemyBEUComponent::update() {
 
@@ -25,37 +25,37 @@ void AnimationEnemyBEUComponent::updateAn() {
 		case AnimationEnemyBEUComponent::Moving:
 			if (tr_->getDir().getX() <= 0) {
 				im_->setFlip(SDL_FLIP_HORIZONTAL);
-				/*if (enemy_ != "skeleton" && enemy_ != "bat")
-					static_cast<EnemyBEU*>(ent_)->setOffset(Vector2D(55, 55));
-				else */if(enemy_ == "skeleton")
-					static_cast<EnemyBEU*>(ent_)->setOffset(Vector2D(60, 45));
-				else if(enemy_ == "bat")
-					static_cast<EnemyBEU*>(ent_)->setOffset(Vector2D(55, 55));
-				else if(enemy_ == "goblin")
-					static_cast<EnemyBEU*>(ent_)->setOffset(Vector2D(65, 55));
-				else if (enemy_ == "shroom")
-					static_cast<EnemyBEU*>(ent_)->setOffset(Vector2D(60, 55));
+				///*if (enemy_ != "skeleton" && enemy_ != "bat")
+				//	static_cast<EnemyBEU*>(ent_)->setOffset(Vector2D(55, 55));
+				//else */if(enemy_ == "skeleton")
+				//	static_cast<EnemyBEU*>(ent_)->setOffset(Vector2D(60, 45));
+				//else if(enemy_ == "bat")
+				//	static_cast<EnemyBEU*>(ent_)->setOffset(Vector2D(55, 55));
+				//else if(enemy_ == "goblin")
+				//	static_cast<EnemyBEU*>(ent_)->setOffset(Vector2D(65, 55));
+				//else if (enemy_ == "shroom")
+				//	static_cast<EnemyBEU*>(ent_)->setOffset(Vector2D(60, 55));
 			}
 			else {
 				im_->setFlip(SDL_FLIP_NONE);
-				/*if (enemy_ != "skeleton" && enemy_ != "bat")
-					static_cast<EnemyBEU*>(ent_)->setOffset(Vector2D(50, 55));
-				else */if (enemy_ == "skeleton")
-					static_cast<EnemyBEU*>(ent_)->setOffset(Vector2D(60, 45));
-				else if (enemy_ == "bat")
-					static_cast<EnemyBEU*>(ent_)->setOffset(Vector2D(65, 55));
-				else if (enemy_ == "goblin")
-					static_cast<EnemyBEU*>(ent_)->setOffset(Vector2D(55, 55));
-				else if (enemy_ == "shroom")
-					static_cast<EnemyBEU*>(ent_)->setOffset(Vector2D(60, 55));
+				///*if (enemy_ != "skeleton" && enemy_ != "bat")
+				//	static_cast<EnemyBEU*>(ent_)->setOffset(Vector2D(50, 55));
+				//else */if (enemy_ == "skeleton")
+				//	static_cast<EnemyBEU*>(ent_)->setOffset(Vector2D(60, 45));
+				//else if (enemy_ == "bat")
+				//	static_cast<EnemyBEU*>(ent_)->setOffset(Vector2D(65, 55));
+				//else if (enemy_ == "goblin")
+				//	static_cast<EnemyBEU*>(ent_)->setOffset(Vector2D(55, 55));
+				//else if (enemy_ == "shroom")
+				//	static_cast<EnemyBEU*>(ent_)->setOffset(Vector2D(60, 55));
 			}
 
 			break;
 		case AnimationEnemyBEUComponent::Attack:
 			if (playerTr_->getPos().getX() < tr_->getPos().getX()) {
 				im_->setFlip(SDL_FLIP_NONE);
-				if (enemy_ == "goblin")static_cast<EnemyBEU*>(ent_)->setOffset(Vector2D(40, 70));
-				else if (enemy_ == "shroom")static_cast<EnemyBEU*>(ent_)->setOffset(Vector2D(45, 55));
+				/*if (enemy_ == "goblin")static_cast<EnemyBEU*>(ent_)->setOffset(Vector2D(40, 70));
+				else if (enemy_ == "shroom")static_cast<EnemyBEU*>(ent_)->setOffset(Vector2D(45, 55));*/
 			}
 			else im_->setFlip(SDL_FLIP_HORIZONTAL);
 			break;
@@ -77,20 +77,20 @@ void AnimationEnemyBEUComponent::updateAnimation() {
 	{
 	case AnimationEnemyBEUComponent::Moving:
 		setMovTexture();
-		static_cast<EnemyBEU*>(ent_)->setColAnim(EnemyWidth_, EnemyHeight_, nframes_, offset_, ColWidth_, ColHeight_, t_, false);
+		//static_cast<EnemyBEU*>(ent_)->setColAnim(EnemyWidth_, EnemyHeight_, nframes_, offset_, ColWidth_, ColHeight_, t_, false);
 		break;
 	case AnimationEnemyBEUComponent::Attack:
 		setAttackTexture();
-		static_cast<EnemyBEU*>(ent_)->setColAnim(EnemyWidth_, EnemyHeight_, nframes_, offset_, ColWidth_, ColHeight_, t_, true);
+		//static_cast<EnemyBEU*>(ent_)->setColAnim(EnemyWidth_, EnemyHeight_, nframes_, offset_, ColWidth_, ColHeight_, t_, true);
 		//SUGERENCIA DEJAR AL ENEMIGO QUIETO
 		break;
 	case AnimationEnemyBEUComponent::Hit:
 		setHitTexture();
-		static_cast<EnemyBEU*>(ent_)->setColAnim(EnemyWidth_, EnemyHeight_, nframes_, offset_, ColWidth_, ColHeight_, t_, true);
+		//static_cast<EnemyBEU*>(ent_)->setColAnim(EnemyWidth_, EnemyHeight_, nframes_, offset_, ColWidth_, ColHeight_, t_, true);
 		break;
 	case AnimationEnemyBEUComponent::Death:
 		setDeathTexture();
-		static_cast<EnemyBEU*>(ent_)->setColAnim(EnemyWidth_, EnemyHeight_, nframes_, offset_, ColWidth_, ColHeight_, t_, true);
+		//static_cast<EnemyBEU*>(ent_)->setColAnim(EnemyWidth_, EnemyHeight_, nframes_, offset_, ColWidth_, ColHeight_, t_, true);
 		break;
 	default:
 		break;

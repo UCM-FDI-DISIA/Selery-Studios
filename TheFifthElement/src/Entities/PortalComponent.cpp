@@ -8,7 +8,7 @@
 		trPlayer_ = static_cast<TopDownState*> (mngr_)->getplayer()->getComponent<Transform>(TRANSFORM_H);
 	}
 	
-	void PortalComponent::update() {}
+
 
 	void PortalComponent::elementEarned() {
 		++elementsCollected;
