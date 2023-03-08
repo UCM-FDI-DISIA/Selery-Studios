@@ -56,7 +56,7 @@ private:
 	Transform* trans_player_;
 	InputComponent* in_;
 	SkinComponent* sk_;
-	Texture* texture_player_= &SDLUtils::instance()->images().at(sk_->getSkin());
+	Texture* texture_player_;
 	
 	//NPCS
 	Entity* Npc_;

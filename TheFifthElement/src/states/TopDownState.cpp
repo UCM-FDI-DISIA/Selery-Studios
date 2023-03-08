@@ -158,6 +158,7 @@ void TopDownState::LoadMap(string const& filename) {
                     player_->addComponent<Image>(IMAGE_H, texture_player_, PLAYERTD_NUMFRAMES, PLAYERTD_NUMFRAMES,0, PLAYERTD_WIDTH_FRAME, PLAYERTD_HEIGHT_FRAME);
                     player_->addComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
                     in_ = player_->addComponent<InputComponent>(INPUTCOMPONENT_H);
+                    texture_player_ = &SDLUtils::instance()->images().at(sk_->getSkin());
                     addEntity(player_);
                 }
                 else if (name == "NPC") {
