@@ -18,10 +18,13 @@ void GameManager::goBeatEmUp() {
 
 void GameManager::goTopDown() {
 	GameStateMachine::instance()->popState();
+	cout << "asasaa";
 }
 
 void GameManager:: leaveMainMenu() {
+	SDLUtils::instance()->soundEffects().at("Menu").haltChannel();
 	GameStateMachine::instance()->pushState(new TopDownState());
+
 }
 
 void GameManager::goPauseMenu() {

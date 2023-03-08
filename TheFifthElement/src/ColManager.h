@@ -3,6 +3,7 @@
 #include "utils/Collision.h"
 #include "components/Transform.h"
 #include "components/LifeComponent.h"
+#include "components/ColliderComponent.h"
 
 
 //Este manager existira en la escena y sera el encargado de gestionar los ataques jugador->enemigo y enemigo->jugador
@@ -13,6 +14,7 @@ class ColManager
 {
 private:
 	Manager* mngr_;
+	ColliderComponent* col_;
 public:
 
 	ColManager(Manager* manager): mngr_(manager) {};
