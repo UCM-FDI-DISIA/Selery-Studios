@@ -62,20 +62,5 @@ public:
 	~EnemyBEU();
 
 	EnemyBEU(Vector2D pos,PlayerBEU* player, float maxLife, string enemy, string type);
-
-	void collision(bool col);
-
-	void Die();
-
-	void Hit(float damage);
-
-	PlayerBEU* returnPlayer();
-
-	void setOffset(Vector2D offset);
-
-	void setCollider(Vector2D offset, float h, float w);
-
-	void setColAnim(float EnemyWidth, float EnemyHeight, int nframes, Vector2D offset,
-		float ColWidth, float ColHeight, Texture* t, bool Anim);
 };
 
