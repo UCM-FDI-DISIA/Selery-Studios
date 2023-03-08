@@ -5,7 +5,6 @@
 #include <iostream>
 #include <SDL.h>
 #include <array>
-
 #include "../utils/Singleton.h"
 
 // Instead of a Singleton class, we could make it part of
@@ -208,7 +207,6 @@ private:
 
 // This macro defines a compact way for using the singleton InputHandler, instead of
 // writing InputHandler::instance()->method() we write ih().method()
-//
 inline InputHandler& ih() {
     return *InputHandler::instance();
 }

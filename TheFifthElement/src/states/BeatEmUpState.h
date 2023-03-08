@@ -12,6 +12,9 @@
 #include "../components/EnemyBEUDirectionComponent.h"
 #include "../components/ColliderComponent.h"
 #include "../components/ColDetectorComponent.h"
+#include "../components/JumpComponent.h"
+#include "../components/InputComponentBEU.h"
+#include "../components/LimitBEU.h"
 
 using name = string;
 using damage = int;

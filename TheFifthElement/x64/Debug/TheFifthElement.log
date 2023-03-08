@@ -1,40 +1,21 @@
 ﻿  ColManager.cpp
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\Transform.h(71,27): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(15,11): message : vea la declaración de 'Entity::mngr_'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(9,7): message : vea la declaración de 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\Transform.h(72,27): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(15,11): message : vea la declaración de 'Entity::mngr_'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(9,7): message : vea la declaración de 'Entity'
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\ColManager.cpp : fatal  error C1041: no puede abrir la base de datos de programa 'C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\x64\Debug\vc143.idb'. Si varios CL.EXE escriben en el mismo archivo .PDB, use /FS.
   ColliderTile.cpp
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\Transform.h(71,27): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(15,11): message : vea la declaración de 'Entity::mngr_'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(9,7): message : vea la declaración de 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\Transform.h(72,27): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(15,11): message : vea la declaración de 'Entity::mngr_'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(9,7): message : vea la declaración de 'Entity'
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(34,27): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
+          with
+          [
+              _Ty=int
+          ]
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderTile.h(28,1): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Entity::addComponent<Transform,Vector2D&,float&,float&,int,int,int,bool>(cmpId_type,Vector2D &,float &,float &,int &&,int &&,int &&,bool &&)" que se está compilando
+          with
+          [
+              T=Transform
+          ]
   HUD.cpp
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\Transform.h(71,27): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(15,11): message : vea la declaración de 'Entity::mngr_'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(9,7): message : vea la declaración de 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\Transform.h(72,27): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(15,11): message : vea la declaración de 'Entity::mngr_'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(9,7): message : vea la declaración de 'Entity'
   JumpComponent.cpp
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\Transform.h(71,27): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(15,11): message : vea la declaración de 'Entity::mngr_'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(9,7): message : vea la declaración de 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\Transform.h(72,27): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(15,11): message : vea la declaración de 'Entity::mngr_'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(9,7): message : vea la declaración de 'Entity'
   Button.cpp
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\crtdbg.h(307,1): warning C4005: '_malloca': redefinición de macro
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\malloc.h(124,1): message : vea la definición anterior de '_malloca'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\Transform.h(71,27): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(15,11): message : vea la declaración de 'Entity::mngr_'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(9,7): message : vea la declaración de 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\Transform.h(72,27): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(15,11): message : vea la declaración de 'Entity::mngr_'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(9,7): message : vea la declaración de 'Entity'
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\Button.cpp(8,50): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\Button.cpp(8,38): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\Button.cpp(9,131): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
@@ -42,44 +23,29 @@ C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\Button.cpp(23,33): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\Button.cpp(23,22): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
   AnimationEnemyBEUComponent.cpp
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\Transform.h(71,27): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(15,11): message : vea la declaración de 'Entity::mngr_'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(9,7): message : vea la declaración de 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\Transform.h(72,27): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(15,11): message : vea la declaración de 'Entity::mngr_'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(9,7): message : vea la declaración de 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\MovementComponent.h(7,1): error C2236: token inesperado 'class'. Compruebe si olvidó un ';'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\MovementComponent.h(7,25): error C2059: error de sintaxis: ':'
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\AnimationEnemyBEUComponent.cpp(4,1): error C2628: 'AnimationEnemyBEUComponent' seguido de 'void' no es válido (¿ha olvidado ';'?)
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\AnimationEnemyBEUComponent.cpp(4,43): error C2556: 'AnimationEnemyBEUComponent AnimationEnemyBEUComponent::update(void)': la función sobrecargada solo se diferencia de 'void AnimationEnemyBEUComponent::update(void)' por el tipo de valor devuelto
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\AnimationEnemyBEUComponent.h(57,7): message : vea la declaración de 'AnimationEnemyBEUComponent::update'
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\AnimationEnemyBEUComponent.cpp(4,34): error C2371: 'AnimationEnemyBEUComponent::update': nueva definición; tipos básicos distintos
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\AnimationEnemyBEUComponent.h(57,7): message : vea la declaración de 'AnimationEnemyBEUComponent::update'
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\AnimationEnemyBEUComponent.h(66,40): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\AnimationEnemyBEUComponent.h(67,41): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\MovementComponent.h(7,27): error C2059: error de sintaxis: 'public'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\MovementComponent.h(7,44): error C2143: error de sintaxis: falta ';' delante de '{'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\MovementComponent.h(7,44): error C2447: '{': falta el encabezado de función (¿lista formal de estilo anterior?)
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(30,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(31,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(32,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(33,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(49,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(50,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(51,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(52,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\PlayerBEU.h(22,19): error C2143: error de sintaxis: falta ';' delante de '*'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\PlayerBEU.h(22,19): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\PlayerBEU.h(22,34): error C2238: símbolos (token) inesperados delante de ';'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.h(21,22): error C2143: error de sintaxis: falta ';' delante de '*'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.h(21,22): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.h(21,28): error C2238: símbolos (token) inesperados delante de ';'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\EnemyBEU.h(30,19): error C2143: error de sintaxis: falta ';' delante de '*'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\EnemyBEU.h(30,19): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\EnemyBEU.h(30,25): error C2238: símbolos (token) inesperados delante de ';'
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\AnimationEnemyBEUComponent.cpp(31,18): error C2061: error de sintaxis: identificador 'EnemyBEU'
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\AnimationEnemyBEUComponent.cpp(33,18): error C2061: error de sintaxis: identificador 'EnemyBEU'
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\AnimationEnemyBEUComponent.cpp(35,18): error C2061: error de sintaxis: identificador 'EnemyBEU'
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\AnimationEnemyBEUComponent.cpp(37,18): error C2061: error de sintaxis: identificador 'EnemyBEU'
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\AnimationEnemyBEUComponent.cpp(44,18): error C2061: error de sintaxis: identificador 'EnemyBEU'
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\AnimationEnemyBEUComponent.cpp(46,18): error C2061: error de sintaxis: identificador 'EnemyBEU'
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\AnimationEnemyBEUComponent.cpp(48,18): error C2061: error de sintaxis: identificador 'EnemyBEU'
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\AnimationEnemyBEUComponent.cpp(50,18): error C2061: error de sintaxis: identificador 'EnemyBEU'
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\AnimationEnemyBEUComponent.cpp(57,40): error C2061: error de sintaxis: identificador 'EnemyBEU'
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\AnimationEnemyBEUComponent.cpp(58,45): error C2061: error de sintaxis: identificador 'EnemyBEU'
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\AnimationEnemyBEUComponent.cpp(80,15): error C2061: error de sintaxis: identificador 'EnemyBEU'
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\AnimationEnemyBEUComponent.cpp(84,15): error C2061: error de sintaxis: identificador 'EnemyBEU'
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\AnimationEnemyBEUComponent.cpp(89,15): error C2061: error de sintaxis: identificador 'EnemyBEU'
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\AnimationEnemyBEUComponent.cpp(93,15): error C2061: error de sintaxis: identificador 'EnemyBEU'
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\AnimationEnemyBEUComponent.cpp(245,36): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
   ColDetectorComponent.cpp
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\Transform.h(71,27): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(15,11): message : vea la declaración de 'Entity::mngr_'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(9,7): message : vea la declaración de 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\Transform.h(72,27): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(15,11): message : vea la declaración de 'Entity::mngr_'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(9,7): message : vea la declaración de 'Entity'
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(30,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(31,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(32,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
@@ -89,12 +55,6 @@ C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(51,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(52,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
   AttackBoxComponent.cpp
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\Transform.h(71,27): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(15,11): message : vea la declaración de 'Entity::mngr_'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(9,7): message : vea la declaración de 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\Transform.h(72,27): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(15,11): message : vea la declaración de 'Entity::mngr_'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(9,7): message : vea la declaración de 'Entity'
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\MovementComponent.h(7,1): error C2236: token inesperado 'class'. Compruebe si olvidó un ';'
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\MovementComponent.h(7,25): error C2059: error de sintaxis: ':'
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\AnimationEnemyBEUComponent.h(66,40): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
@@ -105,6 +65,13 @@ C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\InputComponent.h(15,22): error C2143: error de sintaxis: falta ';' delante de '*'
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\InputComponent.h(15,22): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\InputComponent.h(15,38): error C2238: símbolos (token) inesperados delante de ';'
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.h(12,32): error C2061: error de sintaxis: identificador 'PlayerBEU'
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.h(21,22): error C2143: error de sintaxis: falta ';' delante de '*'
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.h(21,22): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.h(21,28): error C2238: símbolos (token) inesperados delante de ';'
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.h(25,14): error C2143: error de sintaxis: falta ';' delante de '*'
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.h(25,14): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.h(25,23): error C2238: símbolos (token) inesperados delante de ';'
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(30,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(31,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(32,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
@@ -113,21 +80,15 @@ C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(50,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(51,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(52,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\PlayerBEU.h(22,19): error C2143: error de sintaxis: falta ';' delante de '*'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\PlayerBEU.h(22,19): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\PlayerBEU.h(22,34): error C2238: símbolos (token) inesperados delante de ';'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.h(21,22): error C2143: error de sintaxis: falta ';' delante de '*'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.h(21,22): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.h(21,28): error C2238: símbolos (token) inesperados delante de ';'
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(26,34): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(56,143): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(56,146): warning C4305: 'argumento': truncamiento de 'double' a 'float'
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(57,40): error C2039: "getColManager": no es un miembro de "BeatEmUpState"
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\states\BeatEmUpState.h(18,7): message : vea la declaración de 'BeatEmUpState'
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\states\BeatEmUpState.h(21,7): message : vea la declaración de 'BeatEmUpState'
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(62,30): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(79,146): warning C4305: 'argumento': truncamiento de 'double' a 'float'
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(80,40): error C2039: "getColManager": no es un miembro de "BeatEmUpState"
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\states\BeatEmUpState.h(18,7): message : vea la declaración de 'BeatEmUpState'
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\states\BeatEmUpState.h(21,7): message : vea la declaración de 'BeatEmUpState'
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(84,30): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(105,28): warning C4244: '+=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(106,28): warning C4244: '+=': conversión de 'float' a 'int'; posible pérdida de datos
@@ -135,68 +96,23 @@ C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(117,27): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
   DialogueComponent.cpp
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\DialogueComponent.h(11,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\Transform.h(71,27): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(15,11): message : vea la declaración de 'Entity::mngr_'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(9,7): message : vea la declaración de 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\Transform.h(72,27): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(15,11): message : vea la declaración de 'Entity::mngr_'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(9,7): message : vea la declaración de 'Entity'
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(52,30): warning C4101: 'e': variable local sin referencia
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(48,1): message : al compilar la función del miembro clase plantilla "Font &SDLUtils::map_access_wrapper<Font>::at(std::string)"
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(204,27): message : Vea la referencia a la creación de una instancia de clase plantilla "SDLUtils::map_access_wrapper<Font>" que se está compilando
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\DialogueComponent.cpp(24,29): warning C4267: '=': conversión de 'size_t' a 'int'; posible pérdida de datos
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\DialogueComponent.cpp(45,32): warning C4267: '=': conversión de 'size_t' a 'int'; posible pérdida de datos
   Image.cpp
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\Transform.h(71,27): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(15,11): message : vea la declaración de 'Entity::mngr_'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(9,7): message : vea la declaración de 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\Transform.h(72,27): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(15,11): message : vea la declaración de 'Entity::mngr_'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(9,7): message : vea la declaración de 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(30,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(31,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(32,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(33,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(49,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(50,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(51,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(52,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\EnemyBEU.h(17,1): error C2236: token inesperado 'class'. Compruebe si olvidó un ';'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\EnemyBEU.h(17,16): error C2059: error de sintaxis: ':'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\AnimationEnemyBEUComponent.h(66,40): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\AnimationEnemyBEUComponent.h(67,41): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\EnemyBEU.h(17,18): error C2059: error de sintaxis: 'public'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\EnemyBEU.h(18,1): error C2143: error de sintaxis: falta ';' delante de '{'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\EnemyBEU.h(18,1): error C2447: '{': falta el encabezado de función (¿lista formal de estilo anterior?)
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\Image.cpp(37,36): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(15,11): message : vea la declaración de 'Entity::mngr_'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(9,7): message : vea la declaración de 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\Image.cpp(37,84): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(15,11): message : vea la declaración de 'Entity::mngr_'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(9,7): message : vea la declaración de 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\Image.cpp(43,39): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(15,11): message : vea la declaración de 'Entity::mngr_'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(9,7): message : vea la declaración de 'Entity'
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\Image.cpp(43,33): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\Image.cpp(44,39): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(15,11): message : vea la declaración de 'Entity::mngr_'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(9,7): message : vea la declaración de 'Entity'
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\Image.cpp(44,33): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\Image.cpp(45,21): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\Image.cpp(46,21): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(52,30): warning C4101: 'e': variable local sin referencia
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(48,1): message : al compilar la función del miembro clase plantilla "Texture &SDLUtils::map_access_wrapper<Texture>::at(std::string)"
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(205,30): message : Vea la referencia a la creación de una instancia de clase plantilla "SDLUtils::map_access_wrapper<Texture>" que se está compilando
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\Image.cpp(91,13): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
   LimitBEU.cpp
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\Transform.h(71,27): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(15,11): message : vea la declaración de 'Entity::mngr_'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(9,7): message : vea la declaración de 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\Transform.h(72,27): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(15,11): message : vea la declaración de 'Entity::mngr_'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(9,7): message : vea la declaración de 'Entity'
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\LimitBEU.cpp(10,33): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
   LifeBar.cpp
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\Transform.h(71,27): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(15,11): message : vea la declaración de 'Entity::mngr_'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(9,7): message : vea la declaración de 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\Transform.h(72,27): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(15,11): message : vea la declaración de 'Entity::mngr_'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(9,7): message : vea la declaración de 'Entity'
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\LifeBar.cpp(21,47): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(15,11): message : vea la declaración de 'Entity::mngr_'
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(9,7): message : vea la declaración de 'Entity'
@@ -214,12 +130,6 @@ C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\LifeBar.cpp(49,11): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\LifeBar.cpp(50,11): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
   Game.cpp
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\Transform.h(71,27): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(15,11): message : vea la declaración de 'Entity::mngr_'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(9,7): message : vea la declaración de 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\Transform.h(72,27): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(15,11): message : vea la declaración de 'Entity::mngr_'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(9,7): message : vea la declaración de 'Entity'
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\DialogueComponent.h(11,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(30,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(31,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
@@ -238,35 +148,14 @@ C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\RedirectTile.h(26,79): error C2065: 'enemy_': identificador no declarado
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\RedirectTile.h(31,19): error C2065: 'enemy_': identificador no declarado
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\PlayerTD.h(62,49): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\sdlutils\InputHandler.h(14,1): error C2236: token inesperado 'class'. Compruebe si olvidó un ';'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\sdlutils\InputHandler.h(14,20): error C2059: error de sintaxis: ':'
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.h(8,1): error C2236: token inesperado 'class'. Compruebe si olvidó un ';'
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.h(8,34): error C2059: error de sintaxis: ':'
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\AnimationEnemyBEUComponent.h(66,40): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\AnimationEnemyBEUComponent.h(67,41): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\sdlutils\InputHandler.h(14,22): error C2059: error de sintaxis: 'public'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\sdlutils\InputHandler.h(14,39): error C2065: 'InputHandler': identificador no declarado
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\sdlutils\InputHandler.h(14,29): error C2923: 'Singleton': 'InputHandler' no es un argumento de tipo plantilla válido para el parámetro 'T'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\sdlutils\InputHandler.h(14,39): message : vea la declaración de 'InputHandler'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\sdlutils\InputHandler.h(14,53): error C2143: error de sintaxis: falta ';' delante de '{'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\sdlutils\InputHandler.h(14,53): error C2447: '{': falta el encabezado de función (¿lista formal de estilo anterior?)
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\sdlutils\InputHandler.h(212,20): error C2143: error de sintaxis: falta ';' delante de '&'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\sdlutils\InputHandler.h(212,8): error C7525: las variables inline requieren al menos "/std:c++17"
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\sdlutils\InputHandler.h(212,20): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\sdlutils\InputHandler.h(212,27): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\sdlutils\InputHandler.h(212,27): error C2059: error de sintaxis: '{'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\sdlutils\InputHandler.h(212,27): error C2143: error de sintaxis: falta ';' delante de '{'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\sdlutils\InputHandler.h(212,27): error C2447: '{': falta el encabezado de función (¿lista formal de estilo anterior?)
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\Enemy.h(19,22): error C3861: 'ENEMYTD_WIDTH': no se encontró el identificador
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\Enemy.h(19,22): error C2065: 'ENEMYTD_WIDTH': identificador no declarado
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\Enemy.h(19,52): error C3861: 'ENEMYTD_HEIGHT': no se encontró el identificador
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\Enemy.h(19,52): error C2065: 'ENEMYTD_HEIGHT': identificador no declarado
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\states\MainMenuState.h(10,10): fatal  error C1083: No se puede abrir el archivo incluir: '../Entities/Portal.h': No such file or directory
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.h(9,5): error C2059: error de sintaxis: 'public'
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.h(10,1): error C2143: error de sintaxis: falta ';' delante de '{'
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.h(10,1): error C2447: '{': falta el encabezado de función (¿lista formal de estilo anterior?)
   BeatEmUpState.cpp
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\Transform.h(71,27): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(15,11): message : vea la declaración de 'Entity::mngr_'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(9,7): message : vea la declaración de 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\Transform.h(72,27): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(15,11): message : vea la declaración de 'Entity::mngr_'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(9,7): message : vea la declaración de 'Entity'
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\MovementComponent.h(7,1): error C2236: token inesperado 'class'. Compruebe si olvidó un ';'
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\MovementComponent.h(7,25): error C2059: error de sintaxis: ':'
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\AnimationEnemyBEUComponent.h(66,40): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
@@ -277,6 +166,13 @@ C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\InputComponent.h(15,22): error C2143: error de sintaxis: falta ';' delante de '*'
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\InputComponent.h(15,22): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\InputComponent.h(15,38): error C2238: símbolos (token) inesperados delante de ';'
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.h(12,32): error C2061: error de sintaxis: identificador 'PlayerBEU'
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.h(21,22): error C2143: error de sintaxis: falta ';' delante de '*'
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.h(21,22): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.h(21,28): error C2238: símbolos (token) inesperados delante de ';'
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.h(25,14): error C2143: error de sintaxis: falta ';' delante de '*'
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.h(25,14): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.h(25,23): error C2238: símbolos (token) inesperados delante de ';'
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(30,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(31,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(32,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
@@ -285,12 +181,6 @@ C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(50,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(51,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(52,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\PlayerBEU.h(22,19): error C2143: error de sintaxis: falta ';' delante de '*'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\PlayerBEU.h(22,19): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\PlayerBEU.h(22,34): error C2238: símbolos (token) inesperados delante de ';'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.h(21,22): error C2143: error de sintaxis: falta ';' delante de '*'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.h(21,22): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.h(21,28): error C2238: símbolos (token) inesperados delante de ';'
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\states\BeatEmUpState.cpp(11,24): error C2065: 'MovementComponent': identificador no declarado
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\states\BeatEmUpState.cpp(11,9): error C2672: 'Entity::addComponent': no se encontró una función sobrecargada que coincida
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(33,12): message : puede ser 'T *Entity::addComponent(cmpId_type,Ts &&...)'
@@ -302,12 +192,6 @@ C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\states\BeatEmUpState.cpp(106,61): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\states\BeatEmUpState.cpp(107,47): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
   CheckCollision.cpp
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\Transform.h(71,27): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(15,11): message : vea la declaración de 'Entity::mngr_'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(9,7): message : vea la declaración de 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\Transform.h(72,27): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(15,11): message : vea la declaración de 'Entity::mngr_'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(9,7): message : vea la declaración de 'Entity'
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\CheckCollision.cpp(15,10): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\CheckCollision.cpp(57,62): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\CheckCollision.cpp(57,49): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
@@ -329,57 +213,34 @@ C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\CheckCollision.cpp(68,46): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\CheckCollision.cpp(68,89): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\CheckCollision.cpp(68,75): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\CheckCollision.cpp(70,16): error C2061: error de sintaxis: identificador 'Portal'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\CheckCollision.cpp(74,20): error C2061: error de sintaxis: identificador 'Element'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\CheckCollision.cpp(75,3): error C2143: error de sintaxis: falta ';' delante de '{'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\CheckCollision.cpp(76,16): error C2061: error de sintaxis: identificador 'Element'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\CheckCollision.cpp(81,60): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\CheckCollision.cpp(81,46): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\CheckCollision.cpp(81,120): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\CheckCollision.cpp(81,109): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\CheckCollision.cpp(81,143): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\CheckCollision.cpp(81,132): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\CheckCollision.cpp(81,89): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\CheckCollision.cpp(81,75): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\CheckCollision.cpp(84,18): error C2039: "hascol": no es un miembro de "Entity"
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(9,7): message : vea la declaración de 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\CheckCollision.cpp(85,14): error C2039: "setCol": no es un miembro de "Entity"
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(9,7): message : vea la declaración de 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\CheckCollision.cpp(86,14): error C2039: "setCollision": no es un miembro de "Entity"
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(9,7): message : vea la declaración de 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\CheckCollision.cpp(91,18): error C2039: "hascol": no es un miembro de "Entity"
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(9,7): message : vea la declaración de 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\CheckCollision.cpp(92,13): error C2039: "setCol": no es un miembro de "Entity"
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(9,7): message : vea la declaración de 'Entity'
   PauseMenuState.cpp
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\Transform.h(71,27): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(15,11): message : vea la declaración de 'Entity::mngr_'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(9,7): message : vea la declaración de 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\Transform.h(72,27): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(15,11): message : vea la declaración de 'Entity::mngr_'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(9,7): message : vea la declaración de 'Entity'
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\states\PauseMenuState.cpp(9,85): warning C4244: 'argumento': conversión de 'uint' a 'float'; posible pérdida de datos
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\states\PauseMenuState.cpp(9,50): warning C4244: 'argumento': conversión de 'uint' a 'float'; posible pérdida de datos
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\states\PauseMenuState.cpp(24,16): error C2660: 'Entity::handleEvent': la función no acepta 1 argumentos
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(82,15): message : vea la declaración de 'Entity::handleEvent'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\states\PauseMenuState.cpp(24,16): message : al hacer coincidir la lista de argumentos '(SDL_Event)'
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(34,27): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
+          with
+          [
+              _Ty=int
+          ]
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\states\PauseMenuState.cpp(10,127): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Entity::addComponent<Transform,Vector2D&,float&,float&,int,int,int,bool>(cmpId_type,Vector2D &,float &,float &,int &&,int &&,int &&,bool &&)" que se está compilando
+          with
+          [
+              T=Transform
+          ]
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Manager.h(18,6): error C2039: "initEntity": no es un miembro de "Entity"
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(9,7): message : vea la declaración de 'Entity'
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\states\PauseMenuState.cpp(13,25): message : Vea la referencia a la creación de una instancia de la función plantilla "Entity *Manager::addEntity<Entity>(T *)" que se está compilando
+          with
+          [
+              T=Entity
+          ]
   Enemy_movementTD_component.cpp
   DialogBox.cpp
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\Transform.h(71,27): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(15,11): message : vea la declaración de 'Entity::mngr_'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(9,7): message : vea la declaración de 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\Transform.h(72,27): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(15,11): message : vea la declaración de 'Entity::mngr_'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(9,7): message : vea la declaración de 'Entity'
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\DialogueComponent.h(11,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
   Element.cpp
   Enemy.cpp
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\Transform.h(71,27): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(15,11): message : vea la declaración de 'Entity::mngr_'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(9,7): message : vea la declaración de 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\Transform.h(72,27): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(15,11): message : vea la declaración de 'Entity::mngr_'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(9,7): message : vea la declaración de 'Entity'
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(52,30): warning C4101: 'e': variable local sin referencia
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(48,1): message : al compilar la función del miembro clase plantilla "Texture &SDLUtils::map_access_wrapper<Texture>::at(std::string)"
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(205,30): message : Vea la referencia a la creación de una instancia de clase plantilla "SDLUtils::map_access_wrapper<Texture>" que se está compilando
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\PlayerTD.h(62,49): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(30,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(31,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
@@ -397,139 +258,25 @@ C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\Enemy.cpp(17,74): error C2065: 'ENEMYTD_HEIGHT': identificador no declarado
   Generando código...
   Compilando...
-  EnemyBEU.cpp
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\Transform.h(71,27): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(15,11): message : vea la declaración de 'Entity::mngr_'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(9,7): message : vea la declaración de 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\Transform.h(72,27): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(15,11): message : vea la declaración de 'Entity::mngr_'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(9,7): message : vea la declaración de 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(30,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(31,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(32,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(33,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(49,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(50,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(51,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(52,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\EnemyBEU.h(17,1): error C2236: token inesperado 'class'. Compruebe si olvidó un ';'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\EnemyBEU.h(17,16): error C2059: error de sintaxis: ':'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\AnimationEnemyBEUComponent.h(66,40): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\AnimationEnemyBEUComponent.h(67,41): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\EnemyBEU.h(17,18): error C2059: error de sintaxis: 'public'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\EnemyBEU.h(18,1): error C2143: error de sintaxis: falta ';' delante de '{'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\EnemyBEU.h(18,1): error C2447: '{': falta el encabezado de función (¿lista formal de estilo anterior?)
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\EnemyBEU.cpp(3,1): error C2653: 'EnemyBEU': no es un nombre de clase o espacio de nombres
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\EnemyBEU.cpp(3,22): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\EnemyBEU.cpp(3,23): warning C4508: 'EnemyBEU': la función debe devolver un valor; se supone que el tipo de valor devuelto es 'void'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\EnemyBEU.cpp(5,1): error C2653: 'EnemyBEU': no es un nombre de clase o espacio de nombres
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\EnemyBEU.cpp(5,94): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\EnemyBEU.cpp(6,1): error C2550: 'EnemyBEU': las listas de inicializadores de constructor solo se permiten en las definiciones de constructor
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\EnemyBEU.cpp(7,2): error C2065: 'maxLife_': identificador no declarado
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\EnemyBEU.cpp(7,13): error C2065: 'life_': identificador no declarado
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\EnemyBEU.cpp(8,2): error C2065: 'enemy_': identificador no declarado
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\EnemyBEU.cpp(9,2): error C2065: 'type_': identificador no declarado
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\EnemyBEU.cpp(10,2): error C2065: 'player_': identificador no declarado
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\EnemyBEU.cpp(27,2): error C2065: 'im_': identificador no declarado
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\EnemyBEU.cpp(27,8): error C2065: 'addComponent': identificador no declarado
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\EnemyBEU.cpp(27,21): error C2275: 'Image': se esperaba una expresión en lugar de un tipo
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\EnemyBEU.cpp(27,37): error C2065: 't_': identificador no declarado
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\EnemyBEU.cpp(27,41): error C2065: 'nframes_': identificador no declarado
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\EnemyBEU.cpp(27,51): error C2065: 'nframes_': identificador no declarado
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\EnemyBEU.cpp(27,61): error C2065: 'fila_': identificador no declarado
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\EnemyBEU.cpp(30,2): error C2065: 'tr_': identificador no declarado
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\EnemyBEU.cpp(34,2): error C2065: 'col_': identificador no declarado
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\EnemyBEU.cpp(34,9): error C2065: 'addComponent': identificador no declarado
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\EnemyBEU.cpp(34,22): error C2275: 'ColliderComponent': se esperaba una expresión en lugar de un tipo
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\EnemyBEU.cpp(34,62): error C2065: 'offset_': identificador no declarado
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\EnemyBEU.cpp(34,71): error C2065: 'ColHeight_': identificador no declarado
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\EnemyBEU.cpp(34,83): error C2065: 'ColWidth_': identificador no declarado
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\EnemyBEU.cpp(35,2): error C2065: 'addComponent': identificador no declarado
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\EnemyBEU.cpp(35,15): error C2275: 'ColDetectorComponent': se esperaba una expresión en lugar de un tipo
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\EnemyBEU.cpp(35,61): error C2355: 'this': solo se puede hacer referencia a this en funciones miembro no estáticas o inicializadores de miembro de datos no estáticos
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\EnemyBEU.cpp(35,67): error C2065: 'player_': identificador no declarado
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\EnemyBEU.cpp(39,2): error C2065: 'lifeC_': identificador no declarado
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\EnemyBEU.cpp(39,11): error C2065: 'addComponent': identificador no declarado
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\EnemyBEU.cpp(39,24): error C2275: 'LifeComponent': se esperaba una expresión en lugar de un tipo
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\EnemyBEU.cpp(39,56): error C2065: 'maxLife_': identificador no declarado
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\EnemyBEU.cpp(41,2): error C2065: 'set_': identificador no declarado
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\EnemyBEU.cpp(44,1): warning C4508: 'EnemyBEU': la función debe devolver un valor; se supone que el tipo de valor devuelto es 'void'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\EnemyBEU.cpp(46,6): error C2653: 'EnemyBEU': no es un nombre de clase o espacio de nombres
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\EnemyBEU.cpp(47,6): error C2065: 'die_': identificador no declarado
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\EnemyBEU.cpp(48,8): error C2065: 'im_': identificador no declarado
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\EnemyBEU.cpp(49,4): error C3861: 'setAlive': no se encontró el identificador
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\EnemyBEU.cpp(52,8): error C2065: 'im_': identificador no declarado
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\EnemyBEU.cpp(56,5): error C2065: 'anim_': identificador no declarado
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\EnemyBEU.cpp(57,5): error C2065: 'eMov_': identificador no declarado
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\EnemyBEU.cpp(60,5): error C2065: 'anim_': identificador no declarado
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\EnemyBEU.cpp(61,5): error C2065: 'eMov_': identificador no declarado
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\EnemyBEU.cpp(64,7): error C2065: 'anim_': identificador no declarado
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\EnemyBEU.cpp(64,63): error C2065: 'hit': identificador no declarado
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\EnemyBEU.cpp(70,12): error C2653: 'EnemyBEU': no es un nombre de clase o espacio de nombres
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\EnemyBEU.cpp(71,9): error C2065: 'player_': identificador no declarado
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\EnemyBEU.cpp(74,6): error C2653: 'EnemyBEU': no es un nombre de clase o espacio de nombres
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\EnemyBEU.cpp(75,2): error C2065: 'col_': identificador no declarado
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\EnemyBEU.cpp(78,6): error C2653: 'EnemyBEU': no es un nombre de clase o espacio de nombres
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\EnemyBEU.cpp(80,2): error C2065: 'col_': identificador no declarado
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\EnemyBEU.cpp(83,6): error C2653: 'EnemyBEU': no es un nombre de clase o espacio de nombres
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\EnemyBEU.cpp(88,2): error C2065: 'nframes_': identificador no declarado
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\EnemyBEU.cpp(89,2): error C2065: 'offset_': identificador no declarado
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\EnemyBEU.cpp(90,2): error C2065: 'ColWidth_': identificador no declarado
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\EnemyBEU.cpp(91,2): error C2065: 'ColHeight_': identificador no declarado
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\EnemyBEU.cpp(92,2): error C2065: 't_': identificador no declarado
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\EnemyBEU.cpp(93,6): error C2065: 'set_': identificador no declarado
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\EnemyBEU.cpp(94,3): error C2065: 'im_': identificador no declarado
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\EnemyBEU.cpp(94,28): error C2065: 'nframes_': identificador no declarado
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\EnemyBEU.cpp(94,41): error C2065: 't_': identificador no declarado
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\EnemyBEU.cpp(95,3): error C2065: 'col_': identificador no declarado
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\EnemyBEU.cpp(95,21): error C2065: 'offset_': identificador no declarado
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\EnemyBEU.cpp(95,30): error C2065: 'ColHeight_': identificador no declarado
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\EnemyBEU.cpp(95,42): error C2065: 'ColWidth_': identificador no declarado
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\EnemyBEU.cpp(99,6): error C2653: 'EnemyBEU': no es un nombre de clase o espacio de nombres
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\EnemyBEU.cpp(100,2): error C2065: 'die_': identificador no declarado
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\EnemyBEU.cpp(101,2): error C2065: 'anim_': identificador no declarado
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\EnemyBEU.cpp(102,2): error C2065: 'eMov_': identificador no declarado
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\EnemyBEU.cpp(105,6): error C2653: 'EnemyBEU': no es un nombre de clase o espacio de nombres
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\EnemyBEU.cpp(107,7): error C2065: 'hit': identificador no declarado
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\EnemyBEU.cpp(108,7): error C2065: 'lifeC_': identificador no declarado
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\EnemyBEU.cpp(110,4): error C2065: 'lifeC_': identificador no declarado
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\EnemyBEU.cpp(114,4): error C2065: 'lifeC_': identificador no declarado
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\EnemyBEU.cpp(115,4): error C2065: 'anim_': identificador no declarado
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\EnemyBEU.cpp(116,4): error C2065: 'eMov_': identificador no declarado
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\EnemyBEU.cpp(118,3): error C2065: 'hit': identificador no declarado
   EnemyBEUDirectionComponent.cpp
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\Transform.h(71,27): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(15,11): message : vea la declaración de 'Entity::mngr_'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(9,7): message : vea la declaración de 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\Transform.h(72,27): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(15,11): message : vea la declaración de 'Entity::mngr_'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(9,7): message : vea la declaración de 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(30,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(31,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(32,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(33,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(49,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(50,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(51,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(52,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\EnemyBEU.h(17,1): error C2236: token inesperado 'class'. Compruebe si olvidó un ';'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\EnemyBEU.h(17,16): error C2059: error de sintaxis: ':'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\AnimationEnemyBEUComponent.h(66,40): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\AnimationEnemyBEUComponent.h(67,41): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\EnemyBEU.h(17,18): error C2059: error de sintaxis: 'public'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\EnemyBEU.h(18,1): error C2143: error de sintaxis: falta ';' delante de '{'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\EnemyBEU.h(18,1): error C2447: '{': falta el encabezado de función (¿lista formal de estilo anterior?)
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.h(12,32): error C2061: error de sintaxis: identificador 'PlayerBEU'
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.h(25,14): error C2143: error de sintaxis: falta ';' delante de '*'
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.h(25,14): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.h(25,23): error C2238: símbolos (token) inesperados delante de ';'
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.cpp(6,29): error C7550: "EnemyBEUDirectionComponent::{ctor}": el nombre completo en este contexto denomina un constructor, no un tipo.
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.cpp(6,56): error C2065: 'PlayerBEU': identificador no declarado
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.cpp(6,67): error C2065: 'p': identificador no declarado
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.cpp(6,70): error C2275: 'std::string': se esperaba una expresión en lugar de un tipo
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.cpp(6,77): error C2146: error de sintaxis: falta ')' delante del identificador 'type'
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.cpp(6,94): error C2059: error de sintaxis: ')'
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.cpp(6,96): error C2143: error de sintaxis: falta ';' delante de '{'
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.cpp(6,96): error C2447: '{': falta el encabezado de función (¿lista formal de estilo anterior?)
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.cpp(15,14): error C2065: 'player_': identificador no declarado
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.cpp(22,15): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.cpp(33,15): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
   Background.cpp
 c1xx : fatal  error C1083: No se puede abrir el archivo origen: 'src\Entities\Background.cpp': No such file or directory
   GameManager.cpp
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\Transform.h(71,27): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(15,11): message : vea la declaración de 'Entity::mngr_'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(9,7): message : vea la declaración de 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\Transform.h(72,27): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(15,11): message : vea la declaración de 'Entity::mngr_'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(9,7): message : vea la declaración de 'Entity'
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\DialogueComponent.h(11,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(30,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(31,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
@@ -548,30 +295,17 @@ C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\RedirectTile.h(26,79): error C2065: 'enemy_': identificador no declarado
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\RedirectTile.h(31,19): error C2065: 'enemy_': identificador no declarado
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\PlayerTD.h(62,49): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\sdlutils\InputHandler.h(14,1): error C2236: token inesperado 'class'. Compruebe si olvidó un ';'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\sdlutils\InputHandler.h(14,20): error C2059: error de sintaxis: ':'
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.h(8,1): error C2236: token inesperado 'class'. Compruebe si olvidó un ';'
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.h(8,34): error C2059: error de sintaxis: ':'
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\AnimationEnemyBEUComponent.h(66,40): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\AnimationEnemyBEUComponent.h(67,41): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\sdlutils\InputHandler.h(14,22): error C2059: error de sintaxis: 'public'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\sdlutils\InputHandler.h(14,39): error C2065: 'InputHandler': identificador no declarado
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\sdlutils\InputHandler.h(14,29): error C2923: 'Singleton': 'InputHandler' no es un argumento de tipo plantilla válido para el parámetro 'T'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\sdlutils\InputHandler.h(14,39): message : vea la declaración de 'InputHandler'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\sdlutils\InputHandler.h(14,53): error C2143: error de sintaxis: falta ';' delante de '{'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\sdlutils\InputHandler.h(14,53): error C2447: '{': falta el encabezado de función (¿lista formal de estilo anterior?)
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\sdlutils\InputHandler.h(212,20): error C2143: error de sintaxis: falta ';' delante de '&'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\sdlutils\InputHandler.h(212,8): error C7525: las variables inline requieren al menos "/std:c++17"
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\sdlutils\InputHandler.h(212,20): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\sdlutils\InputHandler.h(212,27): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\sdlutils\InputHandler.h(212,27): error C2059: error de sintaxis: '{'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\sdlutils\InputHandler.h(212,27): error C2143: error de sintaxis: falta ';' delante de '{'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\sdlutils\InputHandler.h(212,27): error C2447: '{': falta el encabezado de función (¿lista formal de estilo anterior?)
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.h(9,5): error C2059: error de sintaxis: 'public'
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.h(10,1): error C2143: error de sintaxis: falta ';' delante de '{'
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.h(10,1): error C2447: '{': falta el encabezado de función (¿lista formal de estilo anterior?)
   InputComponent.cpp
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\Transform.h(71,27): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(15,11): message : vea la declaración de 'Entity::mngr_'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(9,7): message : vea la declaración de 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\Transform.h(72,27): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(15,11): message : vea la declaración de 'Entity::mngr_'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(9,7): message : vea la declaración de 'Entity'
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(52,30): warning C4101: 'e': variable local sin referencia
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(48,1): message : al compilar la función del miembro clase plantilla "Texture &SDLUtils::map_access_wrapper<Texture>::at(std::string)"
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(205,30): message : Vea la referencia a la creación de una instancia de clase plantilla "SDLUtils::map_access_wrapper<Texture>" que se está compilando
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\PlayerTD.h(62,49): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\DialogueComponent.h(11,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(30,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
@@ -591,20 +325,6 @@ C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\RedirectTile.h(26,79): error C2065: 'enemy_': identificador no declarado
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\RedirectTile.h(31,19): error C2065: 'enemy_': identificador no declarado
   InputComponentBEU.cpp
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\Transform.h(71,27): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(15,11): message : vea la declaración de 'Entity::mngr_'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(9,7): message : vea la declaración de 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\Transform.h(72,27): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(15,11): message : vea la declaración de 'Entity::mngr_'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(9,7): message : vea la declaración de 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(30,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(31,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(32,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(33,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(49,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(50,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(51,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(52,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\deque(24,1): error C2059: error de sintaxis: 'namespace'
 C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\deque(24,1): error C2143: error de sintaxis: falta ';' delante de '{'
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\AnimationEnemyBEUComponent.h(66,40): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
@@ -618,27 +338,10 @@ C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src
 C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\stack(26,13): message : vea la declaración de 'std::stack'
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\states\GameStateMachine.h(10,2): error C2974: "std::stack": argumento plantilla no válido para "_Container", tipo esperado
 C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\stack(26,13): message : vea la declaración de 'std::stack'
-  LifeComponent.cpp
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\Transform.h(71,27): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(15,11): message : vea la declaración de 'Entity::mngr_'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(9,7): message : vea la declaración de 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\Transform.h(72,27): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(15,11): message : vea la declaración de 'Entity::mngr_'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(9,7): message : vea la declaración de 'Entity'
-  MovementComponent.cpp
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\Transform.h(71,27): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(15,11): message : vea la declaración de 'Entity::mngr_'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(9,7): message : vea la declaración de 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\Transform.h(72,27): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(15,11): message : vea la declaración de 'Entity::mngr_'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(9,7): message : vea la declaración de 'Entity'
-  PlayerBEU.cpp
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\Transform.h(71,27): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(15,11): message : vea la declaración de 'Entity::mngr_'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(9,7): message : vea la declaración de 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\Transform.h(72,27): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(15,11): message : vea la declaración de 'Entity::mngr_'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(9,7): message : vea la declaración de 'Entity'
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.h(12,32): error C2061: error de sintaxis: identificador 'PlayerBEU'
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.h(25,14): error C2143: error de sintaxis: falta ';' delante de '*'
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.h(25,14): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.h(25,23): error C2238: símbolos (token) inesperados delante de ';'
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(30,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(31,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(32,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
@@ -647,39 +350,15 @@ C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(50,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(51,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(52,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\PlayerBEU.cpp(7,44): error C2065: 'PlayerPosition_': identificador no declarado
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\PlayerBEU.cpp(7,61): error C2065: 'PlayerWidth_': identificador no declarado
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\PlayerBEU.cpp(7,75): error C2065: 'PlayerHeigth_': identificador no declarado
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\PlayerBEU.cpp(7,90): error C2065: 'PlayerRotation_': identificador no declarado
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\PlayerBEU.cpp(8,18): error C2653: 'GameManager': no es un nombre de clase o espacio de nombres
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\PlayerBEU.cpp(8,31): error C3861: 'instance': no se encontró el identificador
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\PlayerBEU.cpp(8,17): error C2665: 'Texture::Texture':ninguna función sobrecargada pudo convertir todos los tipos de argumento
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\sdlutils\Texture.h(17,2): message : puede ser 'Texture::Texture(const Texture &)'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\PlayerBEU.cpp(8,17): message : 'Texture::Texture(const Texture &)': el argumento 1 no puede convertirse de 'const char [58]' a 'const Texture &'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\PlayerBEU.cpp(8,58): message : Razón: no se puede realizar la conversión de 'const char [58]' a 'const Texture'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\PlayerBEU.cpp(8,58): message : Ningún constructor ha podido aceptar el tipo de origen o bien la resolución de sobrecarga del constructor era ambigua
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\sdlutils\Texture.h(22,2): message : o       'Texture::Texture(Texture &&) noexcept'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\PlayerBEU.cpp(8,17): message : 'Texture::Texture(Texture &&) noexcept': el argumento 1 no puede convertirse de 'const char [58]' a 'Texture &&'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\PlayerBEU.cpp(8,58): message : Razón: no se puede realizar la conversión de 'const char [58]' a 'Texture'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\PlayerBEU.cpp(8,58): message : Ningún constructor ha podido aceptar el tipo de origen o bien la resolución de sobrecarga del constructor era ambigua
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\PlayerBEU.cpp(8,17): message : al hacer coincidir la lista de argumentos '(const char [58])'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\PlayerBEU.cpp(25,79): error C2065: 'PlayerHeigth_': identificador no declarado
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\PlayerBEU.cpp(25,98): error C2065: 'PlayerWidth_': identificador no declarado
+  LifeComponent.cpp
+  MovementComponent.cpp
+  Npc.cpp
   PlayerTD.cpp
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\Transform.h(71,27): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(15,11): message : vea la declaración de 'Entity::mngr_'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(9,7): message : vea la declaración de 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\Transform.h(72,27): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(15,11): message : vea la declaración de 'Entity::mngr_'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(9,7): message : vea la declaración de 'Entity'
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(52,30): warning C4101: 'e': variable local sin referencia
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(48,1): message : al compilar la función del miembro clase plantilla "Texture &SDLUtils::map_access_wrapper<Texture>::at(std::string)"
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(205,30): message : Vea la referencia a la creación de una instancia de clase plantilla "SDLUtils::map_access_wrapper<Texture>" que se está compilando
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\PlayerTD.h(62,49): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
   PortalComponent.cpp
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\Transform.h(71,27): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(15,11): message : vea la declaración de 'Entity::mngr_'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(9,7): message : vea la declaración de 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\Transform.h(72,27): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(15,11): message : vea la declaración de 'Entity::mngr_'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(9,7): message : vea la declaración de 'Entity'
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\DialogueComponent.h(11,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(30,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(31,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
@@ -698,17 +377,12 @@ C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\RedirectTile.h(26,79): error C2065: 'enemy_': identificador no declarado
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\RedirectTile.h(31,19): error C2065: 'enemy_': identificador no declarado
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\PlayerTD.h(62,49): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\PortalComponent.cpp(10,20): error C2084: la función 'PortalComponent::~PortalComponent(void)' ya tiene un cuerpo
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\PortalComponent.h(15,11): message : vea la definición anterior de '{dtor}'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\PortalComponent.cpp(12,24): error C2084: la función 'void PortalComponent::update(void)' ya tiene un cuerpo
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\PortalComponent.cpp(11,24): error C2084: la función 'void PortalComponent::update(void)' ya tiene un cuerpo
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\PortalComponent.h(14,7): message : vea la definición anterior de 'update'
   SkinComponent.cpp
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\Transform.h(71,27): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(15,11): message : vea la declaración de 'Entity::mngr_'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(9,7): message : vea la declaración de 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\Transform.h(72,27): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(15,11): message : vea la declaración de 'Entity::mngr_'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(9,7): message : vea la declaración de 'Entity'
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(52,30): warning C4101: 'e': variable local sin referencia
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(48,1): message : al compilar la función del miembro clase plantilla "Texture &SDLUtils::map_access_wrapper<Texture>::at(std::string)"
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(205,30): message : Vea la referencia a la creación de una instancia de clase plantilla "SDLUtils::map_access_wrapper<Texture>" que se está compilando
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\PlayerTD.h(62,49): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\SkinComponent.cpp(22,45): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\SkinComponent.cpp(22,41): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
@@ -721,35 +395,9 @@ C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\SkinComponent.cpp(38,45): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\SkinComponent.cpp(38,41): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
   GameState.cpp
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\Transform.h(71,27): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(15,11): message : vea la declaración de 'Entity::mngr_'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(9,7): message : vea la declaración de 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\Transform.h(72,27): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(15,11): message : vea la declaración de 'Entity::mngr_'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(9,7): message : vea la declaración de 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\PlayerTD.h(62,49): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(30,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(31,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(32,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(33,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(49,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(50,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(51,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(52,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\Enemy.h(19,22): error C3861: 'ENEMYTD_WIDTH': no se encontró el identificador
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\Enemy.h(19,22): error C2065: 'ENEMYTD_WIDTH': identificador no declarado
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\Enemy.h(19,52): error C3861: 'ENEMYTD_HEIGHT': no se encontró el identificador
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\Enemy.h(19,52): error C2065: 'ENEMYTD_HEIGHT': identificador no declarado
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\DialogueComponent.h(11,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\states\MainMenuState.h(10,10): fatal  error C1083: No se puede abrir el archivo incluir: '../Entities/Portal.h': No such file or directory
+  GameStateMachine.cpp
   MainMenuState.cpp
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\Transform.h(71,27): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(15,11): message : vea la declaración de 'Entity::mngr_'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(9,7): message : vea la declaración de 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\Transform.h(72,27): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(15,11): message : vea la declaración de 'Entity::mngr_'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(9,7): message : vea la declaración de 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\PlayerTD.h(62,49): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\DialogueComponent.h(11,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(30,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(31,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(32,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
@@ -758,24 +406,28 @@ C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(50,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(51,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(52,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\Enemy.h(19,22): error C3861: 'ENEMYTD_WIDTH': no se encontró el identificador
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\Enemy.h(19,22): error C2065: 'ENEMYTD_WIDTH': identificador no declarado
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\Enemy.h(19,52): error C3861: 'ENEMYTD_HEIGHT': no se encontró el identificador
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\Enemy.h(19,52): error C2065: 'ENEMYTD_HEIGHT': identificador no declarado
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\DialogueComponent.h(11,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\states\MainMenuState.h(10,10): fatal  error C1083: No se puede abrir el archivo incluir: '../Entities/Portal.h': No such file or directory
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\RedirectTile.h(14,10): error C2143: error de sintaxis: falta ';' delante de '*'
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\RedirectTile.h(14,10): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\RedirectTile.h(14,18): error C2238: símbolos (token) inesperados delante de ';'
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\RedirectTile.h(18,46): error C2061: error de sintaxis: identificador 'Enemy'
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\RedirectTile.h(19,9): error C2065: 'enemy_': identificador no declarado
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\RedirectTile.h(19,18): error C2065: 'enemy': identificador no declarado
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\RedirectTile.h(26,79): error C2065: 'enemy_': identificador no declarado
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\RedirectTile.h(31,19): error C2065: 'enemy_': identificador no declarado
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\PlayerTD.h(62,49): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.h(8,1): error C2236: token inesperado 'class'. Compruebe si olvidó un ';'
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.h(8,34): error C2059: error de sintaxis: ':'
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\AnimationEnemyBEUComponent.h(66,40): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\AnimationEnemyBEUComponent.h(67,41): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.h(9,5): error C2059: error de sintaxis: 'public'
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.h(10,1): error C2143: error de sintaxis: falta ';' delante de '{'
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.h(10,1): error C2447: '{': falta el encabezado de función (¿lista formal de estilo anterior?)
   TopDownState.cpp
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\lib\tmxlite-1.2.1\include\tmxlite\Object.hpp(122,23): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\lib\tmxlite-1.2.1\include\tmxlite\Object.hpp(122,23): error C2143: error de sintaxis: falta ';' delante de '&'
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\lib\tmxlite-1.2.1\include\tmxlite\Object.hpp(122,45): error C2334: símbolos (token) inesperados delante de '{'; se pasará por alto el cuerpo de función aparente
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\lib\tmxlite-1.2.1\include\tmxlite\Object.hpp(197,18): error C3646: 'm_position': especificador de invalidación desconocido
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\lib\tmxlite-1.2.1\include\tmxlite\Object.hpp(197,28): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\Transform.h(71,27): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(15,11): message : vea la declaración de 'Entity::mngr_'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(9,7): message : vea la declaración de 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\Transform.h(72,27): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(15,11): message : vea la declaración de 'Entity::mngr_'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(9,7): message : vea la declaración de 'Entity'
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\DialogueComponent.h(11,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(30,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(31,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
@@ -809,12 +461,6 @@ C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src
   TheFifthElement.cpp
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\crtdbg.h(307,1): warning C4005: '_malloca': redefinición de macro
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\malloc.h(124,1): message : vea la definición anterior de '_malloca'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\Transform.h(71,27): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(15,11): message : vea la declaración de 'Entity::mngr_'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(9,7): message : vea la declaración de 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\Transform.h(72,27): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(15,11): message : vea la declaración de 'Entity::mngr_'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(9,7): message : vea la declaración de 'Entity'
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\DialogueComponent.h(11,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(30,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(31,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
@@ -833,26 +479,11 @@ C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\RedirectTile.h(26,79): error C2065: 'enemy_': identificador no declarado
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\RedirectTile.h(31,19): error C2065: 'enemy_': identificador no declarado
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\PlayerTD.h(62,49): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\sdlutils\InputHandler.h(14,1): error C2236: token inesperado 'class'. Compruebe si olvidó un ';'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\sdlutils\InputHandler.h(14,20): error C2059: error de sintaxis: ':'
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.h(8,1): error C2236: token inesperado 'class'. Compruebe si olvidó un ';'
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.h(8,34): error C2059: error de sintaxis: ':'
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\AnimationEnemyBEUComponent.h(66,40): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\AnimationEnemyBEUComponent.h(67,41): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\sdlutils\InputHandler.h(14,22): error C2059: error de sintaxis: 'public'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\sdlutils\InputHandler.h(14,39): error C2065: 'InputHandler': identificador no declarado
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\sdlutils\InputHandler.h(14,29): error C2923: 'Singleton': 'InputHandler' no es un argumento de tipo plantilla válido para el parámetro 'T'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\sdlutils\InputHandler.h(14,39): message : vea la declaración de 'InputHandler'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\sdlutils\InputHandler.h(14,53): error C2143: error de sintaxis: falta ';' delante de '{'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\sdlutils\InputHandler.h(14,53): error C2447: '{': falta el encabezado de función (¿lista formal de estilo anterior?)
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\sdlutils\InputHandler.h(212,20): error C2143: error de sintaxis: falta ';' delante de '&'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\sdlutils\InputHandler.h(212,8): error C7525: las variables inline requieren al menos "/std:c++17"
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\sdlutils\InputHandler.h(212,20): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\sdlutils\InputHandler.h(212,27): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\sdlutils\InputHandler.h(212,27): error C2059: error de sintaxis: '{'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\sdlutils\InputHandler.h(212,27): error C2143: error de sintaxis: falta ';' delante de '{'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\sdlutils\InputHandler.h(212,27): error C2447: '{': falta el encabezado de función (¿lista formal de estilo anterior?)
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\Enemy.h(19,22): error C3861: 'ENEMYTD_WIDTH': no se encontró el identificador
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\Enemy.h(19,22): error C2065: 'ENEMYTD_WIDTH': identificador no declarado
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\Enemy.h(19,52): error C3861: 'ENEMYTD_HEIGHT': no se encontró el identificador
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\Enemy.h(19,52): error C2065: 'ENEMYTD_HEIGHT': identificador no declarado
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\states\MainMenuState.h(10,10): fatal  error C1083: No se puede abrir el archivo incluir: '../Entities/Portal.h': No such file or directory
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.h(9,5): error C2059: error de sintaxis: 'public'
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.h(10,1): error C2143: error de sintaxis: falta ';' delante de '{'
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.h(10,1): error C2447: '{': falta el encabezado de función (¿lista formal de estilo anterior?)
   Generando código...

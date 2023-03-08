@@ -67,31 +67,31 @@ void CheckCollision::update()
 	else if (objects_ && id_ == "portal") {
 		if (Collision::collides(Vector2D(rectPlayer.x, rectPlayer.y), rectPlayer.w, rectPlayer.h, Vector2D(tr1->getPos().getX(), tr1->getPos().getY()), tr1->getW(), tr1->getH()))					//Aumentado el numero por el que dividimos las alturas y anchuras, tambien aumentamos lo que tarda en detectarnos el enemigo
 		{
-			static_cast<Portal*>(ent_)->Teleport(Vector2D(700, 400));
+			//static_cast<Portal*>(ent_)->Teleport(Vector2D(700, 400));
 		}
 	}
 	else if (objects_ && id_ == "element") {
-		if (!static_cast<Element*>(ent_)->GetPicked() && Collision::collides(Vector2D(rectPlayer.x, rectPlayer.y), rectPlayer.w, rectPlayer.h, Vector2D(tr1->getPos().getX(), tr1->getPos().getY()), tr1->getW(), tr1->getH()))					//Aumentado el numero por el que dividimos las alturas y anchuras, tambien aumentamos lo que tarda en detectarnos el enemigo
-		{
-			static_cast<Element*>(ent_)->SetPicked(true);
-		}
+		//if (!static_cast<Element*>(ent_)->GetPicked() && Collision::collides(Vector2D(rectPlayer.x, rectPlayer.y), rectPlayer.w, rectPlayer.h, Vector2D(tr1->getPos().getX(), tr1->getPos().getY()), tr1->getW(), tr1->getH()))					//Aumentado el numero por el que dividimos las alturas y anchuras, tambien aumentamos lo que tarda en detectarnos el enemigo
+		//{
+		//	static_cast<Element*>(ent_)->SetPicked(true);
+		//}
 	}
 	else {
 		
-		if (Collision::collides(Vector2D(rectPlayer.x, rectPlayer.y), rectPlayer.w, rectPlayer.h, Vector2D(rectNPC.x, rectNPC.y), rectNPC.w, rectNPC.h))
-		{
-			//si colisiona con el npc
-			if (!player_->hascol()) {
-				player_->setCol(npc_);
-				player_->setCollision(true);
-			}
-			
-		}
-		else {
-			if (!player_->hascol()) {
-			player_->setCol(-1);
-			}
-		}
+		//if (Collision::collides(Vector2D(rectPlayer.x, rectPlayer.y), rectPlayer.w, rectPlayer.h, Vector2D(rectNPC.x, rectNPC.y), rectNPC.w, rectNPC.h))
+		//{
+		//	//si colisiona con el npc
+		//	if (!player_->hascol()) {
+		//		player_->setCol(npc_);
+		//		player_->setCollision(true);
+		//	}
+		//	
+		//}
+		//else {
+		//	if (!player_->hascol()) {
+		//	player_->setCol(-1);
+		//	}
+		//}
 		
 	}
 	updateRects();
