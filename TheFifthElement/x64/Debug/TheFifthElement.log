@@ -1,27 +1,4 @@
 ﻿  ColManager.cpp
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\ColManager.cpp : fatal  error C1041: no puede abrir la base de datos de programa 'C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\x64\Debug\vc143.idb'. Si varios CL.EXE escriben en el mismo archivo .PDB, use /FS.
-  ColliderTile.cpp
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(34,27): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
-          with
-          [
-              _Ty=int
-          ]
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderTile.h(28,1): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Entity::addComponent<Transform,Vector2D&,float&,float&,int,int,int,bool>(cmpId_type,Vector2D &,float &,float &,int &&,int &&,int &&,bool &&)" que se está compilando
-          with
-          [
-              T=Transform
-          ]
-  HUD.cpp
-  JumpComponent.cpp
-  Button.cpp
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\crtdbg.h(307,1): warning C4005: '_malloca': redefinición de macro
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\malloc.h(124,1): message : vea la definición anterior de '_malloca'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\Button.cpp(8,50): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\Button.cpp(8,38): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\Button.cpp(9,131): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\Button.cpp(9,119): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\Button.cpp(23,33): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\Button.cpp(23,22): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
   AnimationEnemyBEUComponent.cpp
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\AnimationEnemyBEUComponent.cpp(4,1): error C2628: 'AnimationEnemyBEUComponent' seguido de 'void' no es válido (¿ha olvidado ';'?)
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\AnimationEnemyBEUComponent.cpp(4,43): error C2556: 'AnimationEnemyBEUComponent AnimationEnemyBEUComponent::update(void)': la función sobrecargada solo se diferencia de 'void AnimationEnemyBEUComponent::update(void)' por el tipo de valor devuelto
@@ -65,13 +42,9 @@ C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\InputComponent.h(15,22): error C2143: error de sintaxis: falta ';' delante de '*'
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\InputComponent.h(15,22): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\InputComponent.h(15,38): error C2238: símbolos (token) inesperados delante de ';'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.h(12,32): error C2061: error de sintaxis: identificador 'PlayerBEU'
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.h(21,22): error C2143: error de sintaxis: falta ';' delante de '*'
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.h(21,22): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.h(21,28): error C2238: símbolos (token) inesperados delante de ';'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.h(25,14): error C2143: error de sintaxis: falta ';' delante de '*'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.h(25,14): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.h(25,23): error C2238: símbolos (token) inesperados delante de ';'
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(30,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(31,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(32,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
@@ -101,17 +74,6 @@ C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(204,27): message : Vea la referencia a la creación de una instancia de clase plantilla "SDLUtils::map_access_wrapper<Font>" que se está compilando
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\DialogueComponent.cpp(24,29): warning C4267: '=': conversión de 'size_t' a 'int'; posible pérdida de datos
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\DialogueComponent.cpp(45,32): warning C4267: '=': conversión de 'size_t' a 'int'; posible pérdida de datos
-  Image.cpp
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\Image.cpp(43,33): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\Image.cpp(44,33): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\Image.cpp(45,21): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\Image.cpp(46,21): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(52,30): warning C4101: 'e': variable local sin referencia
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(48,1): message : al compilar la función del miembro clase plantilla "Texture &SDLUtils::map_access_wrapper<Texture>::at(std::string)"
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(205,30): message : Vea la referencia a la creación de una instancia de clase plantilla "SDLUtils::map_access_wrapper<Texture>" que se está compilando
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\Image.cpp(91,13): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-  LimitBEU.cpp
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\LimitBEU.cpp(10,33): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
   LifeBar.cpp
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\LifeBar.cpp(21,47): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(15,11): message : vea la declaración de 'Entity::mngr_'
@@ -131,6 +93,10 @@ C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\LifeBar.cpp(50,11): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
   Game.cpp
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\DialogueComponent.h(11,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(52,30): warning C4101: 'e': variable local sin referencia
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(48,1): message : al compilar la función del miembro clase plantilla "Texture &SDLUtils::map_access_wrapper<Texture>::at(std::string)"
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(205,30): message : Vea la referencia a la creación de una instancia de clase plantilla "SDLUtils::map_access_wrapper<Texture>" que se está compilando
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\PlayerTD.h(62,49): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(30,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(31,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(32,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
@@ -139,15 +105,6 @@ C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(50,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(51,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(52,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\RedirectTile.h(14,10): error C2143: error de sintaxis: falta ';' delante de '*'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\RedirectTile.h(14,10): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\RedirectTile.h(14,18): error C2238: símbolos (token) inesperados delante de ';'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\RedirectTile.h(18,46): error C2061: error de sintaxis: identificador 'Enemy'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\RedirectTile.h(19,9): error C2065: 'enemy_': identificador no declarado
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\RedirectTile.h(19,18): error C2065: 'enemy': identificador no declarado
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\RedirectTile.h(26,79): error C2065: 'enemy_': identificador no declarado
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\RedirectTile.h(31,19): error C2065: 'enemy_': identificador no declarado
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\PlayerTD.h(62,49): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.h(8,1): error C2236: token inesperado 'class'. Compruebe si olvidó un ';'
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.h(8,34): error C2059: error de sintaxis: ':'
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\AnimationEnemyBEUComponent.h(66,40): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
@@ -166,13 +123,9 @@ C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\InputComponent.h(15,22): error C2143: error de sintaxis: falta ';' delante de '*'
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\InputComponent.h(15,22): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\InputComponent.h(15,38): error C2238: símbolos (token) inesperados delante de ';'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.h(12,32): error C2061: error de sintaxis: identificador 'PlayerBEU'
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.h(21,22): error C2143: error de sintaxis: falta ';' delante de '*'
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.h(21,22): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.h(21,28): error C2238: símbolos (token) inesperados delante de ';'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.h(25,14): error C2143: error de sintaxis: falta ';' delante de '*'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.h(25,14): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.h(25,23): error C2238: símbolos (token) inesperados delante de ';'
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(30,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(31,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(32,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
@@ -234,9 +187,6 @@ C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src
               T=Entity
           ]
   Enemy_movementTD_component.cpp
-  DialogBox.cpp
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\DialogueComponent.h(11,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
-  Element.cpp
   Enemy.cpp
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(52,30): warning C4101: 'e': variable local sin referencia
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(48,1): message : al compilar la función del miembro clase plantilla "Texture &SDLUtils::map_access_wrapper<Texture>::at(std::string)"
@@ -256,13 +206,7 @@ C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\Enemy.h(19,52): error C2065: 'ENEMYTD_HEIGHT': identificador no declarado
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\Enemy.cpp(17,59): error C2065: 'ENEMYTD_WIDTH': identificador no declarado
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\Enemy.cpp(17,74): error C2065: 'ENEMYTD_HEIGHT': identificador no declarado
-  Generando código...
-  Compilando...
   EnemyBEUDirectionComponent.cpp
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.h(12,32): error C2061: error de sintaxis: identificador 'PlayerBEU'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.h(25,14): error C2143: error de sintaxis: falta ';' delante de '*'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.h(25,14): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.h(25,23): error C2238: símbolos (token) inesperados delante de ';'
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.cpp(6,29): error C7550: "EnemyBEUDirectionComponent::{ctor}": el nombre completo en este contexto denomina un constructor, no un tipo.
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.cpp(6,56): error C2065: 'PlayerBEU': identificador no declarado
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.cpp(6,67): error C2065: 'p': identificador no declarado
@@ -271,13 +215,16 @@ C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.cpp(6,94): error C2059: error de sintaxis: ')'
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.cpp(6,96): error C2143: error de sintaxis: falta ';' delante de '{'
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.cpp(6,96): error C2447: '{': falta el encabezado de función (¿lista formal de estilo anterior?)
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.cpp(15,14): error C2065: 'player_': identificador no declarado
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.cpp(22,15): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.cpp(33,15): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
   Background.cpp
 c1xx : fatal  error C1083: No se puede abrir el archivo origen: 'src\Entities\Background.cpp': No such file or directory
   GameManager.cpp
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\DialogueComponent.h(11,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(52,30): warning C4101: 'e': variable local sin referencia
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(48,1): message : al compilar la función del miembro clase plantilla "Texture &SDLUtils::map_access_wrapper<Texture>::at(std::string)"
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(205,30): message : Vea la referencia a la creación de una instancia de clase plantilla "SDLUtils::map_access_wrapper<Texture>" que se está compilando
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\PlayerTD.h(62,49): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(30,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(31,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(32,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
@@ -286,15 +233,6 @@ C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(50,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(51,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(52,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\RedirectTile.h(14,10): error C2143: error de sintaxis: falta ';' delante de '*'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\RedirectTile.h(14,10): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\RedirectTile.h(14,18): error C2238: símbolos (token) inesperados delante de ';'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\RedirectTile.h(18,46): error C2061: error de sintaxis: identificador 'Enemy'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\RedirectTile.h(19,9): error C2065: 'enemy_': identificador no declarado
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\RedirectTile.h(19,18): error C2065: 'enemy': identificador no declarado
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\RedirectTile.h(26,79): error C2065: 'enemy_': identificador no declarado
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\RedirectTile.h(31,19): error C2065: 'enemy_': identificador no declarado
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\PlayerTD.h(62,49): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.h(8,1): error C2236: token inesperado 'class'. Compruebe si olvidó un ';'
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.h(8,34): error C2059: error de sintaxis: ':'
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\AnimationEnemyBEUComponent.h(66,40): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
@@ -316,14 +254,16 @@ C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(50,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(51,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(52,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\RedirectTile.h(14,10): error C2143: error de sintaxis: falta ';' delante de '*'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\RedirectTile.h(14,10): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\RedirectTile.h(14,18): error C2238: símbolos (token) inesperados delante de ';'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\RedirectTile.h(18,46): error C2061: error de sintaxis: identificador 'Enemy'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\RedirectTile.h(19,9): error C2065: 'enemy_': identificador no declarado
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\RedirectTile.h(19,18): error C2065: 'enemy': identificador no declarado
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\RedirectTile.h(26,79): error C2065: 'enemy_': identificador no declarado
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\RedirectTile.h(31,19): error C2065: 'enemy_': identificador no declarado
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(34,27): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
+          with
+          [
+              _Ty=int
+          ]
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderTile.h(28,1): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Entity::addComponent<Transform,Vector2D&,float&,float&,int,int,int,bool>(cmpId_type,Vector2D &,float &,float &,int &&,int &&,int &&,bool &&)" que se está compilando
+          with
+          [
+              T=Transform
+          ]
   InputComponentBEU.cpp
 C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\deque(24,1): error C2059: error de sintaxis: 'namespace'
 C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\deque(24,1): error C2143: error de sintaxis: falta ';' delante de '{'
@@ -338,10 +278,6 @@ C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src
 C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\stack(26,13): message : vea la declaración de 'std::stack'
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\states\GameStateMachine.h(10,2): error C2974: "std::stack": argumento plantilla no válido para "_Container", tipo esperado
 C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\stack(26,13): message : vea la declaración de 'std::stack'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.h(12,32): error C2061: error de sintaxis: identificador 'PlayerBEU'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.h(25,14): error C2143: error de sintaxis: falta ';' delante de '*'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.h(25,14): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.h(25,23): error C2238: símbolos (token) inesperados delante de ';'
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(30,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(31,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(32,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
@@ -350,16 +286,12 @@ C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(50,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(51,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(52,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-  LifeComponent.cpp
-  MovementComponent.cpp
-  Npc.cpp
-  PlayerTD.cpp
+  PortalComponent.cpp
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\DialogueComponent.h(11,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(52,30): warning C4101: 'e': variable local sin referencia
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(48,1): message : al compilar la función del miembro clase plantilla "Texture &SDLUtils::map_access_wrapper<Texture>::at(std::string)"
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(205,30): message : Vea la referencia a la creación de una instancia de clase plantilla "SDLUtils::map_access_wrapper<Texture>" que se está compilando
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\PlayerTD.h(62,49): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-  PortalComponent.cpp
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\DialogueComponent.h(11,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(30,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(31,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(32,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
@@ -368,15 +300,6 @@ C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(50,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(51,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(52,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\RedirectTile.h(14,10): error C2143: error de sintaxis: falta ';' delante de '*'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\RedirectTile.h(14,10): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\RedirectTile.h(14,18): error C2238: símbolos (token) inesperados delante de ';'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\RedirectTile.h(18,46): error C2061: error de sintaxis: identificador 'Enemy'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\RedirectTile.h(19,9): error C2065: 'enemy_': identificador no declarado
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\RedirectTile.h(19,18): error C2065: 'enemy': identificador no declarado
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\RedirectTile.h(26,79): error C2065: 'enemy_': identificador no declarado
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\RedirectTile.h(31,19): error C2065: 'enemy_': identificador no declarado
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\PlayerTD.h(62,49): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\PortalComponent.cpp(11,24): error C2084: la función 'void PortalComponent::update(void)' ya tiene un cuerpo
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\PortalComponent.h(14,7): message : vea la definición anterior de 'update'
   SkinComponent.cpp
@@ -394,10 +317,12 @@ C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\SkinComponent.cpp(34,41): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\SkinComponent.cpp(38,45): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\SkinComponent.cpp(38,41): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-  GameState.cpp
-  GameStateMachine.cpp
   MainMenuState.cpp
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\DialogueComponent.h(11,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(52,30): warning C4101: 'e': variable local sin referencia
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(48,1): message : al compilar la función del miembro clase plantilla "Texture &SDLUtils::map_access_wrapper<Texture>::at(std::string)"
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(205,30): message : Vea la referencia a la creación de una instancia de clase plantilla "SDLUtils::map_access_wrapper<Texture>" que se está compilando
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\PlayerTD.h(62,49): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(30,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(31,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(32,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
@@ -406,15 +331,6 @@ C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(50,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(51,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(52,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\RedirectTile.h(14,10): error C2143: error de sintaxis: falta ';' delante de '*'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\RedirectTile.h(14,10): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\RedirectTile.h(14,18): error C2238: símbolos (token) inesperados delante de ';'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\RedirectTile.h(18,46): error C2061: error de sintaxis: identificador 'Enemy'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\RedirectTile.h(19,9): error C2065: 'enemy_': identificador no declarado
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\RedirectTile.h(19,18): error C2065: 'enemy': identificador no declarado
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\RedirectTile.h(26,79): error C2065: 'enemy_': identificador no declarado
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\RedirectTile.h(31,19): error C2065: 'enemy_': identificador no declarado
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\PlayerTD.h(62,49): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.h(8,1): error C2236: token inesperado 'class'. Compruebe si olvidó un ';'
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.h(8,34): error C2059: error de sintaxis: ':'
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\AnimationEnemyBEUComponent.h(66,40): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
@@ -422,6 +338,8 @@ C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.h(9,5): error C2059: error de sintaxis: 'public'
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.h(10,1): error C2143: error de sintaxis: falta ';' delante de '{'
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.h(10,1): error C2447: '{': falta el encabezado de función (¿lista formal de estilo anterior?)
+  Generando código...
+  Compilando...
   TopDownState.cpp
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\lib\tmxlite-1.2.1\include\tmxlite\Object.hpp(122,23): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\lib\tmxlite-1.2.1\include\tmxlite\Object.hpp(122,23): error C2143: error de sintaxis: falta ';' delante de '&'
@@ -429,6 +347,7 @@ C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\lib
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\lib\tmxlite-1.2.1\include\tmxlite\Object.hpp(197,18): error C3646: 'm_position': especificador de invalidación desconocido
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\lib\tmxlite-1.2.1\include\tmxlite\Object.hpp(197,28): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\DialogueComponent.h(11,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\PlayerTD.h(62,49): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(30,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(31,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(32,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
@@ -437,15 +356,6 @@ C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(50,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(51,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(52,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\RedirectTile.h(14,10): error C2143: error de sintaxis: falta ';' delante de '*'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\RedirectTile.h(14,10): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\RedirectTile.h(14,18): error C2238: símbolos (token) inesperados delante de ';'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\RedirectTile.h(18,46): error C2061: error de sintaxis: identificador 'Enemy'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\RedirectTile.h(19,9): error C2065: 'enemy_': identificador no declarado
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\RedirectTile.h(19,18): error C2065: 'enemy': identificador no declarado
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\RedirectTile.h(26,79): error C2065: 'enemy_': identificador no declarado
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\RedirectTile.h(31,19): error C2065: 'enemy_': identificador no declarado
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\PlayerTD.h(62,49): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(86,42): warning C4018: '<=': no coinciden signed/unsigned
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(159,86): error C2039: "getPosition": no es un miembro de "tmx::Object"
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\lib\tmxlite-1.2.1\include\tmxlite\Object.hpp(83,30): message : vea la declaración de 'tmx::Object'
@@ -457,11 +367,14 @@ C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\lib\tmxlite-1.2.1\include\tmxlite\Object.hpp(83,30): message : vea la declaración de 'tmx::Object'
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(254,64): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(255,64): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-  SDLUtils.cpp
   TheFifthElement.cpp
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\crtdbg.h(307,1): warning C4005: '_malloca': redefinición de macro
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\malloc.h(124,1): message : vea la definición anterior de '_malloca'
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\DialogueComponent.h(11,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(52,30): warning C4101: 'e': variable local sin referencia
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(48,1): message : al compilar la función del miembro clase plantilla "Texture &SDLUtils::map_access_wrapper<Texture>::at(std::string)"
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(205,30): message : Vea la referencia a la creación de una instancia de clase plantilla "SDLUtils::map_access_wrapper<Texture>" que se está compilando
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\PlayerTD.h(62,49): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(30,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(31,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(32,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
@@ -470,15 +383,6 @@ C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(50,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(51,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(52,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\RedirectTile.h(14,10): error C2143: error de sintaxis: falta ';' delante de '*'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\RedirectTile.h(14,10): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\RedirectTile.h(14,18): error C2238: símbolos (token) inesperados delante de ';'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\RedirectTile.h(18,46): error C2061: error de sintaxis: identificador 'Enemy'
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\RedirectTile.h(19,9): error C2065: 'enemy_': identificador no declarado
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\RedirectTile.h(19,18): error C2065: 'enemy': identificador no declarado
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\RedirectTile.h(26,79): error C2065: 'enemy_': identificador no declarado
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\RedirectTile.h(31,19): error C2065: 'enemy_': identificador no declarado
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\PlayerTD.h(62,49): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.h(8,1): error C2236: token inesperado 'class'. Compruebe si olvidó un ';'
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.h(8,34): error C2059: error de sintaxis: ':'
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\AnimationEnemyBEUComponent.h(66,40): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos

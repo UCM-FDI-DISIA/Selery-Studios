@@ -11,11 +11,11 @@
 //    float h_ = 20, w_ = 20;
 //    Vector2D changeDir_;
 //    ColliderComponent* col_;
-//   
+//    Enemy* enemy_;
 //    MovementComponent* enemyM_;
 //public:
 //
-//    RedirectTile(Vector2D dir, Vector2D pos) {
+//    RedirectTile(Vector2D dir, Vector2D pos, Enemy* enemy) {
 //        enemy_ = enemy;
 //        changeDir_ = dir;
 //        pos_ = pos;
