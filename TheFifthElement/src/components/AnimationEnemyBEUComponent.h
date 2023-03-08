@@ -5,7 +5,6 @@
 #include "../sdlutils/Texture.h"
 #include "../components/Transform.h"
 #include "../components/Image.h"
-#include "../components/ColliderComponent.h"
 #include <string>
 using namespace std;
 
@@ -43,7 +42,6 @@ private:
 		Image* im_;
 		Transform* tr_;
 		Transform* playerTr_;
-		ColliderComponent* col_;
 	#pragma endregion
 
 		bool set_ = false;
@@ -66,11 +64,5 @@ public:
 	void setAttackTexture();
 	void setHitTexture();
 	void setDeathTexture();
-
-	int getNFrames() { return nframes_; }
-	Texture* getTexture() { return t_; }
-	Vector2D getOffset() { return offset_; }
-	int getColWidth() { return ColWidth_; }
-	int getColHeight() { return ColHeight_; }
 };
 

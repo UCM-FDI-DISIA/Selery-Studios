@@ -14,7 +14,6 @@ class ColManager
 {
 private:
 	Manager* mngr_;
-	LifeComponent* lifeC_;
 	ColliderComponent* col_;
 public:
 
