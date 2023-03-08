@@ -300,7 +300,7 @@ C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(33,12): message : puede ser 'T *Entity::addComponent(cmpId_type,Ts &&...)'
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\states\BeatEmUpState.cpp(60,24): message : "Entity::addComponent": argumento plantilla no válido para "T", tipo esperado
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\states\BeatEmUpState.cpp(106,61): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\states\BeatEmUpState.cpp(107,63): error C2059: error de sintaxis: ';'
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\states\BeatEmUpState.cpp(107,47): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
   CheckCollision.cpp
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\Transform.h(71,27): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(15,11): message : vea la declaración de 'Entity::mngr_'
@@ -742,7 +742,6 @@ C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\Entities\Enemy.h(19,52): error C2065: 'ENEMYTD_HEIGHT': identificador no declarado
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\DialogueComponent.h(11,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\states\MainMenuState.h(10,10): fatal  error C1083: No se puede abrir el archivo incluir: '../Entities/Portal.h': No such file or directory
-  GameStateMachine.cpp
   MainMenuState.cpp
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\Transform.h(71,27): error C2248: 'Entity::mngr_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\utils\Entity.h(15,11): message : vea la declaración de 'Entity::mngr_'
