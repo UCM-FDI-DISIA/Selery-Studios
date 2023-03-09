@@ -26,7 +26,7 @@ void JumpComponent::update() {
         // Si el jugador ha alcanzado la altura m�xima del salto, establecer canJump en verdadero
         if (tr_->getPos().getY() >= jumpHeigth && ctr) {
             canJump = true;
-            tr_->setDir(Vector2D(0, 0));
+            tr_->setDir(Vector2D(tr_->getDir().getX(), 0));
             jumpSpeed = -jumpSpeed;
             ctr = false;
         }
