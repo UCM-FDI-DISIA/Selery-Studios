@@ -29,19 +29,23 @@ BeatEmUpState::BeatEmUpState() {
 	
 }
 void BeatEmUpState::AddEnemies(int n_enemies) {
+	float maxLife_ = 10;
 	for (int i = 0; i < n_enemies; ++i) {
+
+		LifeBar* lb_;
+
 		int character = random->nextInt(0, 4);
 		int type = random->nextInt(0, 4);
 		Vector2D pos={ (float)random->nextInt(50,WIN_WIDTH - 80),(float)random->nextInt(50,WIN_HEIGHT - 50) };
+
+		//enemy_ = this->addEntity();
+
 		if (character == 0) {
 			
-			//enemy_ = addEntity(new EnemyBEU(pos, player_, 10, "bat", getEnemyType(element)));
 			animation_=enemy_->addComponent<AnimationEnemyBEUComponent>(ANIMATIONENEMYBEUCOMPONENT_H, getEnemyType(type), "bat");
 		}
 		else if (character == 1) {
 			animation_=enemy_->addComponent<AnimationEnemyBEUComponent>(ANIMATIONENEMYBEUCOMPONENT_H, getEnemyType(type), "skeleton");
-
-			
 		}
 		else if (character == 2) {
 			animation_ = enemy_->addComponent<AnimationEnemyBEUComponent>(ANIMATIONENEMYBEUCOMPONENT_H, getEnemyType(type), "shroom");
@@ -55,17 +59,32 @@ void BeatEmUpState::AddEnemies(int n_enemies) {
 		animation_->changeState(AnimationEnemyBEUComponent::Moving);
 		animation_->updateAnimation();
 
-		enemy_->addComponent<Transform>(TRANSFORM_H, pos, animation_->Get_enemy_Width(), animation_->Get_enemy_Height());
-		//enemy->addComponent<Image>(IMAGE_H, animation_->Get_enemy_Texture(), nframes_, nframes_, fila_, ENEMYBEU_WIDTH, ENEMYBEU_HEIGHT);
+		float nframes_ = animation_->getNFrames();
+
+		Transform* tr_ = enemy_->addComponent<Transform>(TRANSFORM_H, pos, ENEMYBEU_WIDTH, ENEMYBEU_HEIGHT, 0, speed_, nframes_, false);
+		Transform* trPlayer_ = player_->getComponent<Transform>(TRANSFORM_H);
+
+		Texture* t_ = animation_->getTexture();
+		int fila_ = 0;
+
+		enemy_->addComponent<Image>(IMAGE_H, t_, nframes_, nframes_, fila_, ENEMYBEU_WIDTH, ENEMYBEU_HEIGHT);
+
 		enemy_->addComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
-		enemy_->addComponent<EnemyBEUDirectionComponent>(ENEMYBEUDIRECTIONCOMPONENT_H, player_, animation_->Get_enemy());
-		enemy_->addComponent<LifeComponent>(LIFECOMPONENT_H, ENEMYBEU_MAXLIFE, nullptr);
-		//enemy->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, offset_, ColHeight_, ColWidth_);
+		tr_->setDir(Vector2D(1, 0));
+
+		enemy_->addComponent<EnemyBEUDirectionComponent>(ENEMYBEUDIRECTIONCOMPONENT_H, player_, enemy_);
+		enemy_->addComponent<LifeComponent>(LIFECOMPONENT_H, ENEMYBEU_MAXLIFE, nullptr, true);
+
+		Vector2D offset_ = animation_->getOffset();
+		float ColHeight_ = animation_->getColHeight();
+		float ColWidth_ = animation_->getColWidth();
+
+		enemy_->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, offset_, ColHeight_, ColWidth_);
+		enemy_->addComponent<ColDetectorComponent>(COLDETECTORCOMPONENT_H, this, player_);
+
 		addEntity(enemy_);
 
-		
-	
-		//en_->getComponent<LifeComponent>(LIFECOMPONENT_H)->setLifeBar(lb_);
+		//enemy_->getComponent<LifeComponent>(LIFECOMPONENT_H)->setLifeBar(lb_);
 	}
 }
 string BeatEmUpState::getEnemyType(int i) {
