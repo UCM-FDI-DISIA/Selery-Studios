@@ -160,33 +160,28 @@
   "tilesets": [
     {"id": "Atlas-Props", "file": "assets/Scenes/Maps/AncientRuins/Props/Atlas-Props.png"},
     { "id": "Ancient Ruins-wall-2","file": "assets/Scenes/Maps/AncientRuins/Tilesets/wall-2 - 3 tiles tall.png" },
-     { "id": "Ancient Ruins-wall-8","file": "assets/Scenes/Maps/AncientRuins/Tilesets/wall-8 - 2 tiles tall.png"},
-     {"id": "Puentes escaleras","file": "assets/Scenes/Maps/AncientRuins/Tilesets/Tileset-Terrain2.png" },
-      {"id": "Ancient Ruins-wall-3","file": "assets/Scenes/Maps/AncientRuins/Tilesets/wall-3 - 3 tiles tall.png"},
-      {"id": "Ancient Ruins-wall-6","file": "assets/Scenes/Maps/AncientRuins/Tilesets/wall-6 - 2 tiles tall.png" },
+    { "id": "Ancient Ruins-wall-8","file": "assets/Scenes/Maps/AncientRuins/Tilesets/wall-8 - 2 tiles tall.png"},
+    {"id": "Puentes escaleras","file": "assets/Scenes/Maps/AncientRuins/Tilesets/Tileset-Terrain2.png" },
+    {"id": "Ancient Ruins-wall-3","file": "assets/Scenes/Maps/AncientRuins/Tilesets/wall-3 - 3 tiles tall.png"},
+    {"id": "Ancient Ruins-wall-6","file": "assets/Scenes/Maps/AncientRuins/Tilesets/wall-6 - 2 tiles tall.png" },
     {"id": "Terrain - Ancient Ruins","file": "assets/Scenes/Maps/AncientRuins/Tilesets/Tileset-Terrain.png" },
     {"id": "PlataformaA", "file": "assets/Scenes/Maps/AncientRuins/Props/generic_estructure2-on flat surface-all details.png" },
     {"id": "feet", "file": "assets/Scenes/Maps/AncientRuins/Props/giant statues-feet-2-on flat surface.png" },
     { "id": "Tileset-Terrain2Transparente","file": "assets/Scenes/Maps/AncientRuins/Tilesets/The same tiles but with transparency instead of flat color/Tileset-Terrain2.png" },
     {"id": "Tileset-Terrain", "file": "assets/Scenes/Maps/AncientRuins/Tilesets/Tileset-Terrain.png"},
-     {"id": "Ancient Ruins-Animated Terrains1-8 frames", "file": "assets/Scenes/Maps/AncientRuins/Tilesets/Tileset-Animated Terrains-8 frames.png"},
-     {"id": "Ancient Ruins-Animated Terrains-16 frames", "file": "assets/Scenes/Maps/AncientRuins/Tilesets/Tileset-Animated Terrains-16 frames.png"},
-      {"id": "Ancient Ruins-Animated Terrains2-8 frames", "file": "assets/Scenes/Maps/AncientRuins/Tilesets/Tileset-Animated Terrains2-8 frames.png"},
-       {"id": "Ancient Ruins-Animated Terrains2-16 frames", "file": "assets/Scenes/Maps/AncientRuins/Tilesets/Tileset-Animated Terrains2-16 frames.png"},
-        {"id": "Ancient Ruins-Animated Terrains2-16 frames-with transparency", "file": "assets/Scenes/Maps/AncientRuins/Tilesets/The same tiles but with transparency instead of flat color/Tileset-Animated Terrains2-16 frames-with transparency.png"},
+    {"id": "Ancient Ruins-Animated Terrains1-8 frames", "file": "assets/Scenes/Maps/AncientRuins/Tilesets/Tileset-Animated Terrains-8 frames.png"},
+    {"id": "Ancient Ruins-Animated Terrains-16 frames", "file": "assets/Scenes/Maps/AncientRuins/Tilesets/Tileset-Animated Terrains-16 frames.png"},
+    {"id": "Ancient Ruins-Animated Terrains2-8 frames", "file": "assets/Scenes/Maps/AncientRuins/Tilesets/Tileset-Animated Terrains2-8 frames.png"},
+    {"id": "Ancient Ruins-Animated Terrains2-16 frames", "file": "assets/Scenes/Maps/AncientRuins/Tilesets/Tileset-Animated Terrains2-16 frames.png"},
+    {"id": "Ancient Ruins-Animated Terrains2-16 frames-with transparency", "file": "assets/Scenes/Maps/AncientRuins/Tilesets/The same tiles but with transparency instead of flat color/Tileset-Animated Terrains2-16 frames-with transparency.png"},
+    {"id": "Tileset-Props","file": "assets/Scenes/Maps/GrassLand/Tilesets/Tileset-Props.png" },
+    {"id": "generic_estructure1-1-on grass","file": "assets/Scenes/Maps/AncientRuins/Props/generic_estructure1-1-on grass.png" },
+    {"id": "generic_estructure1-1-on grass-topdown","file": "assets/Scenes/Maps/AncientRuins/Props/generic_estructure1-1-on grass-topdown.png" },
+    {"id": "generic_estructure1-2-on grass","file": "assets/Scenes/Maps/AncientRuins/Props/generic_estructure1-2-on grass.png" }
+  
+   
     
    
-
-
-
-    { "id": "Ancient Ruins-wall-7","file": "assets/Scenes/Maps/AncientRuins/Tilesets/wall-7 - 2 tiles tall.png" },
-    
-   
-   
-    {"id": "Ancient Ruins-wall-4","file": "assets/Scenes/Maps/AncientRuins/Tilesets/wall-4 - 3 tiles tall.png"}
-    
-
-
 
   ]
 

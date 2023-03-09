@@ -276,7 +276,7 @@ void TopDownState::render() {
     for (auto p : collisions_) {
         p->render();
     }
-    SDL_Rect dst = { 0,0,fondowidth_*2,fondoheight_*2 };
+    SDL_Rect dst = { 0,0,2*fondowidth_,2*fondoheight_};
     // posición según el transform de la Camara
     dst.x -= Manager::camRect_.x/*cam_->getComponent<Transform>(TRANSFORM_H)->getPos().getX()*/;
     dst.y -= Manager::camRect_.y/*cam_->getComponent<Transform>(TRANSFORM_H)->getPos().getY()*/;
