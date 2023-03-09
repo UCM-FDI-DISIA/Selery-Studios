@@ -177,12 +177,12 @@
     {"id": "Tileset-Props","file": "assets/Scenes/Maps/GrassLand/Tilesets/Tileset-Props.png" },
     {"id": "generic_estructure1-1-on grass","file": "assets/Scenes/Maps/AncientRuins/Props/generic_estructure1-1-on grass.png" },
     {"id": "generic_estructure1-1-on grass-topdown","file": "assets/Scenes/Maps/AncientRuins/Props/generic_estructure1-1-on grass-topdown.png" },
-    {"id": "generic_estructure1-2-on grass","file": "assets/Scenes/Maps/AncientRuins/Props/generic_estructure1-2-on grass.png" }
-  
-   
-    
-   
-
+    {"id": "generic_estructure1-2-on grass","file": "assets/Scenes/Maps/AncientRuins/Props/generic_estructure1-2-on grass.png" },
+    { "id": "blacksmith shop(ready to use)_to build another shop, use provided props", "file": "assets/Scenes/Maps/GrassLand/Props/blacksmith shop(ready to use)_to build another shop, use provided props.png" },
+    {"id": "Tileset-TerrainGrassLand","file": "assets/Scenes/Maps/GrassLand/Tilesets/Tileset-Terrain.png"},
+    {"id": "shrine or fountain-blood- 160x128-on grass","file": "assets/Scenes/Maps/AncientRuins/Props/shrine or fountain-blood- 160x128-on grass.png" },
+    {"id": "little fountain1 by the wall-Blood","file": "assets/Scenes/Maps/AncientRuins/Props/little fountain1 by the wall-Blood.png" }
+ 
   ]
 
 } 
