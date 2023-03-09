@@ -4,6 +4,7 @@
 #include "Transform.h"
 #include "../utils/Vector2D.h"
 #include "../Entities/PlayerBEU.h"
+#include "ColliderComponent.h"
 
 class EnemyBEUDirectionComponent :
     public Component
@@ -37,5 +38,9 @@ private:
     string type_;
 
     bool stop_ = false;
+    bool set_ = false;
+
+    ColliderComponent* col_;
+    ColliderComponent* playerCol_;
 };
 

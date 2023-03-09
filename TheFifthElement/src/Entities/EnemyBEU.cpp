@@ -12,8 +12,7 @@ EnemyBEU::EnemyBEU(Vector2D pos,PlayerBEU* player, float maxLife, string enemy, 
 
 
 
-	anim_ = addComponent<AnimationEnemyBEUComponent>(ANIMATIONENEMYBEUCOMPONENT_H, type_, enemy_
-		, player_->getComponent<Transform>(TRANSFORM_H));
+	anim_ = addComponent<AnimationEnemyBEUComponent>(ANIMATIONENEMYBEUCOMPONENT_H, type_, enemy_, player_);
 	anim_->changeState(AnimationEnemyBEUComponent::Moving);
 	anim_->updateAnimation();
 

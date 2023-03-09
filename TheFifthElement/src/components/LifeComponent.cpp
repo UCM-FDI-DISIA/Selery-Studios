@@ -44,7 +44,6 @@ void LifeComponent::update() {
 		}
 	}
 }
-
 void LifeComponent::Death() {
 	die_ = true;
 	if (enemy_) {// enemy 
@@ -103,3 +102,4 @@ void LifeComponent::subLifeDie(float damage) {
 void LifeComponent::render() {
 	lifeBar_->renderAll();
 }
+

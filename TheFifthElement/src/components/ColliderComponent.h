@@ -61,5 +61,9 @@ public:
         h_ = h;
         w_ = w;
     }
+
+    int getColHeight() { return h_; }
+    int getColWidth() { return w_; }
+    Vector2D getOffset() { return offset_; }
 };
 
