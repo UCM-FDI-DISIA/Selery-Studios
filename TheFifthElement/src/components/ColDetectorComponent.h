@@ -17,8 +17,7 @@ private:
     ColliderComponent* col1_ = nullptr;
     ColliderComponent* col2_ = nullptr;
     SDL_Rect rect_; 
-    float damage_ = 0.0f;
-    float margin = 12.0f;
+    float damage_ = 0;
     bool enemy = false;
 
     LifeComponent* lifeC_ = nullptr;
@@ -60,7 +59,7 @@ public:
                 if (Collision::collides(Vector2D(col1_->getColRect().x,
                     col1_->getColRect().y), col1_->getColRect().w, col1_->getColRect().h,
                     Vector2D(col2_->getColRect().x, col2_->getColRect().y),
-                    col2_->getColRect().w, col2_->getColRect().h) && sideCol())
+                    col2_->getColRect().w, col2_->getColRect().h))
                     lifeC_->setCollision(true);
             }
             else if (Collision::collides(Vector2D(col1_->getColRect().x,
@@ -78,25 +77,6 @@ public:
                 Vector2D(col2_->getColRect().x, col2_->getColRect().y),
                 col2_->getColRect().w, col2_->getColRect().h));
        
-    }
-
-    bool sideCol() {
-
-        Transform* tr_ = obj1_->getComponent<Transform>(TRANSFORM_H);
-        Transform* playerTr_ = obj2_->getComponent<Transform>(TRANSFORM_H);
-
-        Vector2D offset_ = col2_->getOffset();// player offset
-        float ch_ = col2_->getColHeight();// player collider height
-
-        float playerFloor = playerTr_->getPos().getY() + offset_.getY() + ch_;// player pos Y (floor)
-
-        offset_ = col1_->getOffset();// enemy offset
-        ch_ = col1_->getColHeight();// enemy collider height
-
-        float posY = tr_->getPos().getY();// enemy pos Y
-        float targetY = playerFloor - offset_.getY() - ch_;// target point Y
-
-        return ((targetY - margin <= posY) && (targetY + margin >= posY));
     }
 
 };

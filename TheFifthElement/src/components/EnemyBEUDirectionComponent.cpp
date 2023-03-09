@@ -1,9 +1,9 @@
 #include "EnemyBEUDirectionComponent.h"
 #include "../utils/Entity.h"
 #include "../utils/ecs.h"
-#include "../Entities/EnemyBEU.h"
 
-EnemyBEUDirectionComponent::EnemyBEUDirectionComponent(PlayerBEU* p, string type) :Component() {
+
+EnemyBEUDirectionComponent::EnemyBEUDirectionComponent(Entity* p, string type) :Component() {
 	dir_ = Vector2D(0.0f, 0.0f);
 	player_ = p;
 	type_ = type;
@@ -13,41 +13,16 @@ void EnemyBEUDirectionComponent::initComponent() {
 	mov_ = ent_->getComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
 	tr_ = ent_->getComponent<Transform>(TRANSFORM_H);
 	playerTr_ = player_->getComponent<Transform>(TRANSFORM_H);
-	playerCol_ = player_->getComponent<ColliderComponent>(COLLIDERCOMPONENT_H);
 }
 
 void EnemyBEUDirectionComponent::update() {
-	if (!set_) {
-		col_ = ent_->getComponent<ColliderComponent>(COLLIDERCOMPONENT_H);
-		set_ = true;
-	}
 	if (!stop_) {
-
-		Vector2D offset_ = playerCol_->getOffset();// player offset
-		float w_ = playerTr_->getW();// player frame width
-		float h_ = playerTr_->getH();// player frame height
-		float cw_ = playerCol_->getColWidth();// player collider width
-		float ch_ = playerCol_->getColHeight();// player collider height
-
-		float playerPosX = playerTr_->getPos().getX() + offset_.getX() + cw_ / 2;// player pos X
-		float playerFloor = playerTr_->getPos().getY() + offset_.getY() + ch_;// player pos Y (floor)
-
-		offset_ = col_->getOffset();// enemy offset
-		w_ = tr_->getW();// enemy frame width
-		h_ = tr_->getH();// enemy frame height
-		cw_ = col_->getColWidth();// enemy collider width
-		ch_ = col_->getColHeight();// enemy collider height
-
-		float posX = tr_->getPos().getX() + offset_.getX();// enemy pos X
-		float posY = tr_->getPos().getY();// enemy pos Y
-		float targetY = playerFloor - offset_.getY() - ch_;// target point Y
-
-		Vector2D director_ = Vector2D(playerPosX - posX, targetY - posY);
-
-		float dist_ = sqrt(pow(director_.getX(), 2) + (director_.getY(), 2));// distancia
+		Vector2D director_ = Vector2D((playerTr_->getPos().getX() + 50) - tr_->getPos().getX(),
+			playerTr_->getPos().getY() - tr_->getPos().getY());
+		float dist_ = sqrt(pow(director_.getX(), 2) + (director_.getY(), 2));
 		if (dist_ <= distance_)
 		{
-			speed = 0.005f;
+			speed = 0.01f;
 			changeDir(director_);
 		}
 

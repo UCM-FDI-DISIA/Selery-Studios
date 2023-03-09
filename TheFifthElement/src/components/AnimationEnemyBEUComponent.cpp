@@ -18,8 +18,6 @@ void AnimationEnemyBEUComponent::updateAn() {
 		tr_ = ent_->getComponent<Transform>(TRANSFORM_H);
 		im_ = ent_->getComponent<Image>(IMAGE_H);
 		col_ = ent_->getComponent<ColliderComponent>(COLLIDERCOMPONENT_H);
-		playerTr_ = player_->getComponent<Transform>(TRANSFORM_H);
-		playerCol_ = player_->getComponent<ColliderComponent>(COLLIDERCOMPONENT_H);
 		set_ = true;
 	}
 	else {
@@ -55,9 +53,7 @@ void AnimationEnemyBEUComponent::updateAn() {
 
 			break;
 		case AnimationEnemyBEUComponent::Attack:
-			posX = tr_->getPos().getX() + offset_.getX();
-			playerPosX = playerTr_->getPos().getX() + playerCol_->getOffset().getX() + playerCol_->getColWidth() / 2;
-			if (posX < playerPosX) {
+			if (playerTr_->getPos().getX() < tr_->getPos().getX()) {
 				im_->setFlip(SDL_FLIP_NONE);
 				if (enemy_ == "goblin")col_->setOffset(Vector2D(40, 70));
 				else if (enemy_ == "shroom")col_->setOffset(Vector2D(45, 55));

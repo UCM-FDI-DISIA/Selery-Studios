@@ -39,29 +39,22 @@ private:
 	#pragma endregion
 
 	#pragma region references
-		Entity* player_;
-
 		Texture* t_;
 		Image* im_;
 		Transform* tr_;
 		Transform* playerTr_;
 		ColliderComponent* col_;
-		ColliderComponent* playerCol_;
 	#pragma endregion
 
-	#pragma region parameters
 		bool set_ = false;
-		float posX, playerPosX;
-	#pragma endregion
-
 
 public:
-	AnimationEnemyBEUComponent(string type, string enemy, Entity* player) {
+	AnimationEnemyBEUComponent(string type, string enemy, Transform* plTr) {
 		currentState_ = nextState_ = Null;
 
 		type_ = type;
 		enemy_ = enemy;
-		player_ = player;
+		playerTr_ = plTr;
 	}
 
 	void update();
