@@ -397,23 +397,23 @@
     },
     {
       "id": "PTD_air_idle",
-      "file": "assets/Player/TopDown/Air/idle.png"
+      "file": "assets/Player/TopDown/Air/airIdle.png"
     },
     {
       "id": "PTD_air_left",
-      "file": "assets/Player/TopDown/Air/andarIzquierda.png"
+      "file": "assets/Player/TopDown/Air/airWalkLeft.png"
     },
     {
       "id": "PTD_air_up",
-      "file": "assets/Player/TopDown/Air/andararriba.png"
+      "file": "assets/Player/TopDown/Air/airWalkUp.png"
     },
     {
       "id": "PTD_air_down",
-      "file": "assets/Player/TopDown/Air/andarfrente.png"
+      "file": "assets/Player/TopDown/Air/airWalkDown.png"
     },
     {
       "id": "PTD_air_right",
-      "file": "assets/Player/TopDown/Air/andar.png"
+      "file": "assets/Player/TopDown/Air/airWalkRight.png"
     },
     {
       "id": "PTD_water_idle",

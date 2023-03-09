@@ -20,8 +20,7 @@ void InputComponent::update() { //Actualizamos el contador que mide el tiempo
 	unsigned timer = clock();
 	actionDelay = (double(timer) / CLOCKS_PER_SEC);
 }
-void InputComponent::handleEvents(SDL_Event event)
-{
+void InputComponent::handleEvents(SDL_Event event) {
 	ih().update(event);
 
 	if (ih().keyDownEvent()){
