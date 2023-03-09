@@ -36,8 +36,8 @@ public:
     SDL_Rect getColRect() { return r; }
 
     void render() {
-        r.x -= mngr_->camRect_.x;
-        r.y -= mngr_->camRect_.y;
+        r.x -= ent_->mngr_->camRect_.x;
+        r.y -= ent_->mngr_->camRect_.y;
         SDL_SetRenderDrawColor(sdlutils().renderer(), 0, 0, 0, 0);
         SDL_RenderDrawRect(sdlutils().renderer(), &r);
         //SDL_SetRenderDrawColor(sdlutils().renderer(), 0, 0, 0, 0);
@@ -61,5 +61,9 @@ public:
         h_ = h;
         w_ = w;
     }
+
+    int getColHeight() { return h_; }
+    int getColWidth() { return w_; }
+    Vector2D getOffset() { return offset_; }
 };
 
