@@ -11,7 +11,7 @@
 #include "../components/ColliderTile.h"
 #include "../components/CollideTileInteraction.h"
 #include "../PuzzleCopas.h"
-#include "../Entities/HUDTD.h"
+//#include "../Entities/HUDTD.h"
 #include "../components/Transform.h"
 #include "../sdlutils/Texture.h"
 #include "../GameManager.h"
@@ -79,7 +79,7 @@ private:
 
 	int fondowidth_, fondoheight_;
 
-	HUDTD* hudTD = new HUDTD();
+	//HUDTD* hudTD = new HUDTD();
 public:
 	string getStateID(); // stringID
 	DialogBox* d;
