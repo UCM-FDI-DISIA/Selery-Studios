@@ -46,6 +46,5 @@ EnemyBEU::EnemyBEU(Vector2D pos,PlayerBEU* player, float maxLife, string enemy, 
 		player_->getComponent<AttackBoxComponent>(ATTACKBOXCOMPONENT_H)->getBox(), 1);*/
 
 
-	set_ = true;
 }
 

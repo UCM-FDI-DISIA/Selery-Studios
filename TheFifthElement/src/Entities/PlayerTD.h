@@ -28,7 +28,6 @@ private:
 	int collisionNPC;
 	bool hascollision = false;
 	bool matrix_ = false;
-	bool set_ = false;
 public:
 	void setCollision(bool collision) {
 		hascollision = collision;
@@ -55,14 +54,6 @@ public:
 		return SDL_HasIntersection(&rect, &other);
 	}
 
-	void setAnim(float w, float h, int nframes, string skin)
-	{
-		PlayerWidth_ = w;
-		PlayerHeigth_ = h;
-		nframes_ = nframes;
-		t_ = &SDLUtils::instance()->images().at(skin);
-		if (set_) im_->setAnimTexture(skin, nframes_, w);
-	}
 
 };
 

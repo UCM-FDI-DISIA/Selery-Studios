@@ -54,7 +54,6 @@ private:
 	Vector2D offset_;
 	float ColWidth_, ColHeight_;
 
-	bool set_ = false;
 #pragma endregion
 
 

@@ -56,11 +56,11 @@ void InputComponent::handleEvents(SDL_Event event) {
 			}
 
 			if (ih().isKeyDown(SDL_SCANCODE_1)) {
-				skin_->changeSkin("fire");
+				skin_->changeSkin("air");
 				//static_cast<HUD*>(ent_)->
 			}
 			else if (ih().isKeyDown(SDL_SCANCODE_2)) {
-				skin_->changeSkin("air");
+				skin_->changeSkin("fire");
 			}
 			else  if (ih().isKeyDown(SDL_SCANCODE_3)) {
 				skin_->changeSkin("water");

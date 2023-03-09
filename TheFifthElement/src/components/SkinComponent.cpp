@@ -1,7 +1,6 @@
 #include "SkinComponent.h"
 #include "../utils/Entity.h"
 #include "../utils/ecs.h"
-#include "Image.h"
 #include "../Entities/PlayerTD.h"
 
 void SkinComponent::initComponent() {
@@ -9,37 +8,43 @@ void SkinComponent::initComponent() {
 
 void SkinComponent::update() {
 	if (nextState_ != currentState_ || prevSkin_ != skin_) changeMov();
+	if (!set_)
+	{
+		im_ = ent_->getComponent<Image>(IMAGE_H);
+		set_ = true;
+	}
 }
 
 void SkinComponent::changeMov() {
+
+		currentState_ = nextState_;
+		prevSkin_ = skin_;
+		switch (currentState_)
+		{
+		case SkinComponent::Idle:
+			setIdle();
+			if(set_) im_->setAnimTexture(t_, nframes_, w_);
+			break;
+		case SkinComponent::Left:
+			setLeft();
+			if (set_) im_->setAnimTexture(t_, nframes_, w_);
+			break;
+		case SkinComponent::Right:
+			setRight();
+			if (set_) im_->setAnimTexture(t_, nframes_, w_);
+			break;
+		case SkinComponent::Up:
+			setUp();
+			if (set_) im_->setAnimTexture(t_, nframes_, w_);
+			break;
+		case SkinComponent::Down:
+			setDown();
+			if (set_) im_->setAnimTexture(t_, nframes_, w_);
+			break;
+		default:
+			break;
+		}
 	
-	currentState_ = nextState_;
-	prevSkin_ = skin_;
-	switch (currentState_)
-	{
-	case SkinComponent::Idle:
-		setIdle();
-		static_cast<PlayerTD*>(ent_)->setAnim(w_, h_, nframes_, t_);
-		break;
-	case SkinComponent::Left:
-		setLeft();
-		static_cast<PlayerTD*>(ent_)->setAnim(w_, h_, nframes_, t_);
-		break;
-	case SkinComponent::Right:
-		setRight();
-		static_cast<PlayerTD*>(ent_)->setAnim(w_, h_, nframes_, t_);
-		break;
-	case SkinComponent::Up:
-		setUp();
-		static_cast<PlayerTD*>(ent_)->setAnim(w_, h_, nframes_, t_);
-		break;
-	case SkinComponent::Down:
-		setDown();
-		static_cast<PlayerTD*>(ent_)->setAnim(w_, h_, nframes_, t_);
-		break;
-	default:
-		break;
-	}
 }
 
 void SkinComponent::setIdle() {

@@ -4,6 +4,8 @@
 #include "../utils/Component.h"
 #include "../sdlutils/Texture.h"
 #include "../GameManager.h"
+#include "Image.h"
+
 
 class SkinComponent : public Component
 {
@@ -21,7 +23,8 @@ private:
     int nframes_;
     int fila_;
     int w_, h_;
-
+    Image* im_;
+    bool set_ = false;
 public:
 
     SkinComponent(string skin)
@@ -39,6 +42,6 @@ public:
     void changeMov();
     void changeState(AnimationStates newState) { nextState_ = newState; };
     void changeSkin(string skin) { skin_ = skin; }
-
+    string getTexture() { return t_; }
 };
 #endif
