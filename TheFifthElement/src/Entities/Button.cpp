@@ -30,15 +30,19 @@ void Button::handleEvent(SDL_Event event)
 			if (currentPositionState == 1) 
 			{
 				if (identifier == "PLAY"){
+					SDLUtils::instance()->soundEffects().at("pruebaBoton").play();
 					GameManager::instance()->leaveMainMenu();
 				}
 				else if (identifier == "RESUME"){
+					SDLUtils::instance()->soundEffects().at("pruebaBoton").play();
 					GameManager::instance()->goTopDown();					
 				}
 				else if (identifier == "OPTIONS") {
+					SDLUtils::instance()->soundEffects().at("pruebaBoton").play(); 
 					// ir a menu de opciones
 				}
 				else if (identifier == "MAINMENU") {
+					SDLUtils::instance()->soundEffects().at("pruebaBoton").play(); 
 					GameManager::instance()->backToMainMenu();
 				}
 			}
