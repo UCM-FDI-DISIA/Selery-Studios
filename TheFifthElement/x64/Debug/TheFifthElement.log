@@ -1,1 +1,27 @@
-﻿  TheFifthElement.vcxproj -> C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\x64\Debug\TheFifthElement.exe
+﻿  Game.cpp
+E:\Selery-Studios\TheFifthElement\src\components\DialogueComponent.h(11,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
+E:\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(52,30): warning C4101: 'e': variable local sin referencia
+E:\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(48,1): message : al compilar la función del miembro clase plantilla "Texture &SDLUtils::map_access_wrapper<Texture>::at(std::string)"
+E:\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(205,30): message : Vea la referencia a la creación de una instancia de clase plantilla "SDLUtils::map_access_wrapper<Texture>" que se está compilando
+E:\Selery-Studios\TheFifthElement\src\Entities\PlayerTD.h(62,49): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+E:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(30,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+E:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(31,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+E:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(32,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+E:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(33,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+E:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(49,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+E:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(50,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+E:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(51,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+E:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(52,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+E:\Selery-Studios\TheFifthElement\src\components\AnimationEnemyBEUComponent.h(66,40): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+E:\Selery-Studios\TheFifthElement\src\components\AnimationEnemyBEUComponent.h(67,41): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+E:\Selery-Studios\TheFifthElement\src\utils\Entity.h(34,27): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
+          with
+          [
+              _Ty=int
+          ]
+E:\Selery-Studios\TheFifthElement\src\components\ColliderTile.h(28,1): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Entity::addComponent<Transform,Vector2D&,float&,float&,int,int,int,bool>(cmpId_type,Vector2D &,float &,float &,int &&,int &&,int &&,bool &&)" que se está compilando
+          with
+          [
+              T=Transform
+          ]
+  TheFifthElement.vcxproj -> E:\Selery-Studios\TheFifthElement\x64\Debug\TheFifthElement.exe

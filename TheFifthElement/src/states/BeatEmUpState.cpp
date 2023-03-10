@@ -24,7 +24,7 @@ BeatEmUpState::BeatEmUpState() {
 
 	
 
-	//colMan_ = new ColManager(this);
+	colManager_ = new ColManager(this);
 
 	
 }

@@ -5,6 +5,7 @@
 #include "../utils/Component.h"
 #include "../sdlutils/SDLUtils.h"
 #include "Transform.h"
+#include "../GameManager.h"
 
 
 
@@ -29,20 +30,22 @@ class Image;
 class AttackBoxComponent : public Component {
 private:
     Transform* playerTr = nullptr;
-    SDL_Rect box;
+    vector<SDL_Rect> boxes;
+    float angles[100];
+    SDL_Rect box, box2;
     Image* im_;
-    float width, height, boxTime, timerExecution, angle,way;
+    float width, height, boxTime, timerExecution, angle, way, stoppingAngle;
     bool boxCreated = false;
 public:
     AttackBoxComponent();
-    virtual ~AttackBoxComponent(){}
+    virtual ~AttackBoxComponent() {}
     void render();
     void update();
     void initComponent();
     void handleBoxes();
-    void moveBox(Vector2D direction,float vel);
-    void moveBoxCurve(float radio, Vector2D posCenter, float vel,float& angle ,float stoppingAngle, int way);
-    void GFY();
-    SDL_Rect getBox() { return box; }
+    void moveBox(SDL_Rect& box, Vector2D direction, float vel);
+    void moveBoxCurve(SDL_Rect& box, float radio, Vector2D posCenter, float vel, float& angle, float stoppingAngle, int way);
+
+
 };
 #endif

@@ -32,7 +32,7 @@ private:
 	AnimationEnemyBEUComponent* animation_;
 	Texture* enemy_texture;
 	//COLISIONES
-	//ColManager* colManager_;
+	ColManager* colManager_;
 	
 	Entity* lifebar_;
 	float camOffset_ = 300.0f;
@@ -47,7 +47,7 @@ public:
 	string getEnemyType(int i);
 	void finishBEU();
 	void handleEvents();
-	//ColManager* getColManager() { return colManager_; }
+	ColManager* getColManager() { return colManager_; }
 	void update();
 };
 
