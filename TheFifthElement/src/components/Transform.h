@@ -13,8 +13,9 @@ private:
     SDL_Rect rect;
     int framesTotales_;
     bool matrix_, demo = false;
+    float size_ = 1.0f;
 public:
-    Transform(Vector2D pos, float w, float h) {
+    Transform(Vector2D pos, float w, float h, float size = 1.0f) {
         position = pos;
         width = w;
         height = h;
@@ -22,12 +23,13 @@ public:
         vel = 0;
         framesTotales_ = 0;
         matrix_ = false;
+        size_ = size;
     }
     Transform() {
 
     }
     // Constructora
-    Transform(Vector2D pos, float w, float h, float r, float v, int frames, bool matrix) : Component() {
+    Transform(Vector2D pos, float w, float h, float r, float v, int frames, bool matrix, float size = 1.0f) : Component() {
         position = pos;
         width = w;
         height = h;
@@ -35,6 +37,7 @@ public:
         vel = v;
         framesTotales_ = frames;
         matrix_ = matrix;
+        size_ = size;
     }
 
     // Destructora
@@ -52,6 +55,8 @@ public:
 
     inline float getVel() { return vel; }
 
+    inline float getS() { return size_; }
+
     inline void setR(float valRot) { rotation_ = valRot; }
 
     inline void setH(float valHei) { height = valHei; }
@@ -64,17 +69,19 @@ public:
     
     inline void setVel(float veloc) { vel = veloc; }
 
+    inline void setSize(float size) { size_ = size; }
+
     void render()
     {
         if (!demo) {
            if (matrix_)
-                rect = build_sdlrect(getPos().getX() + 120, getPos().getY() + 70, getW() / (5 * framesTotales_), getH() / 2);
+                rect = build_sdlrect(getPos().getX() + 120, getPos().getY() + 70, (getW()*size_) / (5 * framesTotales_), (getH() * size_) / 2);
             else
             {
-                if (framesTotales_ != 0) rect = build_sdlrect(getPos().getX(), getPos().getY(), getW() / framesTotales_, getH());
-                else  rect = build_sdlrect(getPos().getX() + 50, getPos().getY() + 60, 3 * getW() / 4, getH() / 2);
+                if (framesTotales_ != 0) rect = build_sdlrect(getPos().getX(), getPos().getY(), (getW() * size_) / framesTotales_, (getH() * size_));
+                else  rect = build_sdlrect(getPos().getX() + 50, getPos().getY() + 60, 3 * (getW() * size_) / 4, (getH() * size_) / 2);
             }
-            rect = build_sdlrect(getPos().getX(), getPos().getY(), getW(), getH());
+            rect = build_sdlrect(getPos().getX(), getPos().getY(), (getW() * size_), (getH() * size_));
             rect.x -= ent_->mngr_->camRect_.x;
             rect.y -= ent_->mngr_->camRect_.y;
             SDL_SetRenderDrawColor(sdlutils().renderer(), 255, 0, 255, 0);

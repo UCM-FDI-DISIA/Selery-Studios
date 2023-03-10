@@ -496,6 +496,56 @@
       "id": "fondoNieve",
       "file": "assets/Scenes/Backgrounds/BeatEmUp/DorjeeSofia 1500x844.png"
     },
+
+    {
+      "id": "fondoMainMenu",
+      "file": "assets/Scenes/Backgrounds/Menu/fondoMainMenu.png"
+    },
+    {
+      "id": "fondoMainMenu1",
+      "file": "assets/Scenes/Backgrounds/Menu/fondoMainMenu1.png"
+    },
+    {
+      "id": "fondoMainMenu2",
+      "file": "assets/Scenes/Backgrounds/Menu/fondoMainMenu2.png"
+    },
+    {
+      "id": "PlayButton",
+      "file": "assets/Scenes/Backgrounds/Menu/Buttons/PlayButton.png"
+    },
+    {
+      "id": "PlayButtonPressed",
+      "file": "assets/Scenes/Backgrounds/Menu/Buttons/PlayButtonPress.png"
+    },
+    {
+      "id": "ExitButton",
+      "file": "assets/Scenes/Backgrounds/Menu/Buttons/ExitButton.png"
+    },
+    {
+      "id": "ExitButtonPressed",
+      "file": "assets/Scenes/Backgrounds/Menu/Buttons/ExitButtonPress.png"
+    },
+    {
+      "id": "OptionsButton",
+      "file": "assets/Scenes/Backgrounds/Menu/Buttons/OptionsButton.png"
+    },
+    {
+      "id": "OptionsButtonPressed",
+      "file": "assets/Scenes/Backgrounds/Menu/Buttons/OptionsButtonPress.png"
+    },
+    {
+      "id": "campfire",
+      "file": "assets/Scenes/Maps/GrassLand/Props/campfire 2-1.png"
+    },
+    {
+      "id": "hole",
+      "file": "assets/Scenes/Maps/GrassLand/Props/water well animation-empty bucket.png"
+    },
+    {
+      "id": "treasure",
+      "file": "assets/Scenes/Maps/GrassLand/Props/treasure chest lvl 3-opening animation-standard style.png"
+    },
+
     {
       "id": "HUD_WheelAirActive",
       "file": "assets/Player/HUD/WheelOfPlayer/Active/Air.png"
@@ -552,8 +602,8 @@
       "file": "assets/Enemies/HUD/LifeBars/Horizontal/Boarders/Boarder4.png"
     },
     {
-      "id":"coin",
-      "file":"./assets/HUD/coin.png"
+      "id": "coin",
+      "file": "./assets/HUD/coin.png"
     },
 
     {

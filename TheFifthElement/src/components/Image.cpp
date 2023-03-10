@@ -43,15 +43,15 @@ void Image::render() {
 		SDL_Rect rect;
 		rect.x = tr_->getPos().getX() - ent_->mngr_->camRect_.x;
 		rect.y = tr_->getPos().getY() - ent_->mngr_->camRect_.y;
-		rect.h = tr_->getH();
-		rect.w = tr_->getW();
+		rect.h = tr_->getH() * tr_->getS();
+		rect.w = tr_->getW() * tr_->getS();
 		SDL_Rect src;
 		src.x = i * widthFrame_;
 		src.y = heightFrame_ * fila_;
 		src.h = heightFrame_;
 		src.w = widthFrame_;
 		tex_->render(src, rect, 0, nullptr, s);
-		if (cont >= 5) {
+		if (cont >= 10) {
 			i++;
 			cont = 0;
 		}

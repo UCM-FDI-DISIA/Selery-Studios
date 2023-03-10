@@ -29,7 +29,7 @@ void EnemyBEUDirectionComponent::update() {
 		float cw_ = playerCol_->getColWidth();// player collider width
 		float ch_ = playerCol_->getColHeight();// player collider height
 
-		float playerPosX = playerTr_->getPos().getX() + offset_.getX() + cw_ / 2;// player pos X
+		float playerPosX = playerTr_->getPos().getX() + offset_.getX() /* + cw_ / 2*/;// player pos X
 		float playerFloor = playerTr_->getPos().getY() + offset_.getY() + ch_;// player pos Y (floor)
 
 		offset_ = col_->getOffset();// enemy offset

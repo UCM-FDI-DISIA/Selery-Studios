@@ -131,6 +131,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="EconomyComponent.h" />
+    <ClInclude Include="src\Entities\NewEntity.h" />
     <ClInclude Include="src\ColManager.h" />
     <ClInclude Include="src\components\ColliderTile.h" />
     <ClInclude Include="src\components\EconomyComponent.h" />
@@ -200,6 +201,7 @@
     <ClInclude Include="src\utils\Vector2D.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Entities\NewEntity.cpp" />
     <ClCompile Include="src\ColManager.cpp" />
     <ClCompile Include="src\components\ColliderTile.cpp" />
     <ClCompile Include="src\components\EconomyComponent.cpp" />
