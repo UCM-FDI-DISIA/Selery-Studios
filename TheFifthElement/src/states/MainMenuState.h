@@ -20,14 +20,14 @@ class MainMenuState: public Manager
 
 
 private:
-	virtual string getStateID() { return "MainMenu"; }; // stringID
+	
 	Entity* playButton;
 	float playButtonWidth, playButtonHeight;
 	Vector2D playButtonPos;
 public:
 	MainMenuState();
 	~MainMenuState() {};
-
+	virtual string getStateID() { return "MainMenu"; }; // stringID
 	void update();
 	void handleEvents();
 	void render();

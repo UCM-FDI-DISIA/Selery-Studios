@@ -30,7 +30,11 @@ void GameManager:: leaveMainMenu() {
 void GameManager::goPauseMenu() {
 	GameStateMachine::instance()->pushState(new PauseMenuState());
 }
+void GameManager::backToMainMenu() {
+	GameStateMachine::instance()->popState();
+	GameStateMachine::instance()->popState();
 
+}
 void GameManager::handleEvents() { // handleEvents
 	GameStateMachine::instance()->handleEvents();
 }

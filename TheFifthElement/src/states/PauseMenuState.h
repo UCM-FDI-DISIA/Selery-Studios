@@ -9,8 +9,9 @@ class PauseMenuState: public Manager {
 private:
 	virtual string getStateID() { return "PauseMenu"; }; // stringID
 	Entity* resumeButton_;
-	float resumeButtonWidth_, resumeButtonHeight_;
-	Vector2D resumeButtonPos_;
+	Entity* mainMenuButton_;
+	float resumeButtonWidth_, resumeButtonHeight_, mainMenuButtonWidth_, mainMenuButtonHeight_;
+	Vector2D resumeButtonPos_, mainMenuButtonPos_;
 public:
 	PauseMenuState();
 	~PauseMenuState() {};

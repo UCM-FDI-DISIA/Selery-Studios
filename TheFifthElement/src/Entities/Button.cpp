@@ -38,6 +38,9 @@ void Button::handleEvent(SDL_Event event)
 				else if (identifier == "OPTIONS") {
 					// ir a menu de opciones
 				}
+				else if (identifier == "MAINMENU") {
+					GameManager::instance()->backToMainMenu();
+				}
 			}
 		}
 	}

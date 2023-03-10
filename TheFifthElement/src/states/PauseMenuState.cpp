@@ -2,6 +2,17 @@
 
 PauseMenuState::PauseMenuState()
 {
+
+	mainMenuButton_ = new Entity();
+	mainMenuButtonWidth_ = 300;
+	mainMenuButtonHeight_ = 100;
+
+	mainMenuButtonPos_ = Vector2D(100, 200);
+	mainMenuButton_->addComponent<Transform>(TRANSFORM_H, mainMenuButtonPos_, mainMenuButtonWidth_, mainMenuButtonHeight_, 1, 0, 1, false);
+	mainMenuButton_->addComponent<Button>(BUTTON_H, "MAINMENU");
+
+	addEntity(mainMenuButton_);
+
 	resumeButton_ = new Entity();
 	resumeButtonWidth_ = 300;
 	resumeButtonHeight_ = 100;
@@ -22,6 +33,8 @@ void PauseMenuState::handleEvents()
 	SDL_Event event;
 	while (SDL_PollEvent(&event)) {
 		resumeButton_->handleEvent(event);
+		mainMenuButton_->handleEvent(event);
+
 	}
 
 }
