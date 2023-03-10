@@ -6,11 +6,6 @@
 	////gameSTMC=static_cast<GameStateMachine*>(GameStateMachine::Instance())
 	//gameStMc = new GameStateMachine();
 
-	////Audio de prueba
-	////SDLUtils::instance()->soundEffects().at("prueba").play();
-	//gameStMc->pushState(new TopDownState());
-	////gameStMc->pushState(new BeatEmUpState(this));
-
 void GameManager::goBeatEmUp() {
 	SDLUtils::instance()->soundEffects().at("Title").haltChannel();
 	GameStateMachine::instance()->pushState(new BeatEmUpState());
@@ -18,7 +13,6 @@ void GameManager::goBeatEmUp() {
 
 void GameManager::goTopDown() {
 	GameStateMachine::instance()->popState();
-	cout << "asasaa";
 }
 
 void GameManager:: leaveMainMenu() {
@@ -30,7 +24,13 @@ void GameManager:: leaveMainMenu() {
 void GameManager::goPauseMenu() {
 	GameStateMachine::instance()->pushState(new PauseMenuState());
 }
+void GameManager::backToMainMenu() {
+	SDLUtils::instance()->soundEffects().at("Title").haltChannel();
+	SDLUtils::instance()->soundEffects().at("Menu").play();
+	GameStateMachine::instance()->popState();
+	GameStateMachine::instance()->popState();
 
+}
 void GameManager::handleEvents() { // handleEvents
 	GameStateMachine::instance()->handleEvents();
 }

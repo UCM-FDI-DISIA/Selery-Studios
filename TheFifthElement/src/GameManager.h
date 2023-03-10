@@ -24,5 +24,6 @@ public:
 	void goTopDown();
 	void leaveMainMenu();
 	static void goPauseMenu();
+	static void backToMainMenu();
 
 };

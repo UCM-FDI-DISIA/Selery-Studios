@@ -700,7 +700,10 @@
       "id": "skeletonDie",
       "file": "assets/sounds/enemy/skeleton/skeletonDeath.wav"
     },
-
+    {
+      "id": "pruebaBoton",
+      "file": "assets/sounds/pruebaBoton.wav"
+    },
     {
       "id": "goblinDamage",
       "file": "assets/sounds/enemy/goblin/goblinDamage.wav"
@@ -721,9 +724,10 @@
     {
       "id": "NPC_Chat",
       "file": "assets/Sounds/NPCs/npcchat.wav"
-    },{
-      "id":"coin",
-      "file":"assets/sounds/Retro PickUp Coin 04.wav"
+    },
+    {
+      "id": "coin",
+      "file": "assets/sounds/Retro PickUp Coin 04.wav"
     }
   ],
 

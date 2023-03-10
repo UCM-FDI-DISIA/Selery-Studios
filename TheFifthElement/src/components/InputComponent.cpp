@@ -89,6 +89,7 @@ void InputComponent::handleEvents(SDL_Event event) {
 
 		if (ih().isKeyDown(SDL_SCANCODE_ESCAPE)) {
 			GameManager::goPauseMenu();
+			SDLUtils::instance()->soundEffects().at("Title").pauseChannel();
 		}
 	}
 }

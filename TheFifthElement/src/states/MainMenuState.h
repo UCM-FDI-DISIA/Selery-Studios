@@ -21,7 +21,7 @@ class MainMenuState: public Manager
 
 
 private:
-	virtual string getStateID() { return "MainMenu"; }; // stringID
+	
 	Entity* playButton;
 	Entity* exitButton;
 	Entity* optionsButton;
@@ -29,7 +29,7 @@ private:
 public:
 	MainMenuState();
 	~MainMenuState() {};
-
+	virtual string getStateID() { return "MainMenu"; }; // stringID
 	void update();
 	void handleEvents();
 	void render();
