@@ -35,6 +35,7 @@ void Button::handleEvent(SDL_Event event)
 				}
 				else if (identifier == "RESUME"){
 					SDLUtils::instance()->soundEffects().at("pruebaBoton").play();
+					SDLUtils::instance()->soundEffects().at("Title").resumeChannel();
 					GameManager::instance()->goTopDown();					
 				}
 				else if (identifier == "OPTIONS") {
