@@ -5,7 +5,7 @@ void Button::initComponent(){
 }
 
 void Button::update() {
-	mouseRect = build_sdlrect(mousePos, mouseWidth, mouseHeight);
+	mouseRect = build_sdlrect(mousePosX + mngr_->camRect_.x, mousePosY + mngr_->camRect_.y, mouseWidth, mouseHeight);
 	if (Collision::collides(buttonTransform->getPos(),buttonTransform->getW(),buttonTransform->getH(), mousePos,mouseRect.w,mouseRect.h))
 	{
 		currentPositionState = MOUSE_OVER;
@@ -20,7 +20,7 @@ void Button::update() {
 
 void Button::updateMousePosition() {
 	SDL_GetMouseState(&mousePosX, &mousePosY);
-	mousePos = Vector2D(mousePosX, mousePosY);
+	mousePos = Vector2D(mousePosX + mngr_->camRect_.x, mousePosY + mngr_->camRect_.y);
 }
 
 void Button::handleEvent(SDL_Event event)
