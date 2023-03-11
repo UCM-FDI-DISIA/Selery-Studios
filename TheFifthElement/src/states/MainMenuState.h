@@ -1,7 +1,7 @@
 #pragma once
 #include "GameState.h"
 #include "../sdlutils/SDLUtils.h"
-#include "../Entities/Button.h"
+#include "../components/Button.h"
 class MainMenuState: public Manager
 {
 private:

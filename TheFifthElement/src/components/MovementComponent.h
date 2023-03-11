@@ -12,8 +12,8 @@ public:
 	void initComponent();
 	void update();
 	void setDir(Vector2D direction) {
-		tr->setDir(direction);
+		tr_->setDir(direction);
 	}
 private:
-	Transform* tr = nullptr;
+	Transform* tr_ = nullptr;
 };

@@ -151,7 +151,7 @@ void TopDownState::LoadMap(string const& filename) {
                     // PLAYER
                     player_ = new Entity();
                     player_->setContext(this);
-                    trans_player_= player_->addComponent<Transform>(TRANSFORM_H, Vector2D(obj.getPosition().x, obj.getPosition().y), PLAYERTD_WIDTH_FRAME, PLAYERTD_HEIGHT_FRAME);
+                    trans_player_= player_->addComponent<Transform>(TRANSFORM_H, Vector2D(obj.getPosition().x, obj.getPosition().y), PLAYERTD_WIDTH_FRAME, PLAYERTD_HEIGHT_FRAME);                
                     sk_ = player_->addComponent<SkinComponent>(SKINCOMPONENT_H, "air");
                     sk_->changeState(SkinComponent::Idle);
                     sk_->changeMov();
@@ -256,7 +256,7 @@ void TopDownState::update() {
     }
     if (camRect_.y < 0) {
         camRect_.y = 0;
-    }
+    }   
 }
 
 void TopDownState::handleEvents() {

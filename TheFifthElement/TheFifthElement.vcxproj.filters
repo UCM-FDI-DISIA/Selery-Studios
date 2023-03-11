@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="src\Entities\Button.cpp" />
+    <ClCompile Include="src\components\Button.cpp" />
     <ClCompile Include="src\components\AnimationEnemyBEUComponent.cpp" />
     <ClCompile Include="src\components\ColDetectorComponent.cpp" />
     <ClCompile Include="src\components\AttackBoxComponent.cpp" />
@@ -52,7 +52,7 @@
     <ClCompile Include="src\states\PauseMenuState.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Entities\Button.h" />
+    <ClInclude Include="src\components\Button.h" />
     <ClInclude Include="src\components\AnimationEnemyBEUComponent.h" />
     <ClInclude Include="src\components\ColDetectorComponent.h" />
     <ClInclude Include="src\components\ColliderComponent.h" />
