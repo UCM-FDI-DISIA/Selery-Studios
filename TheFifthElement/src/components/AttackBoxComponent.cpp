@@ -231,6 +231,7 @@ void AttackBoxComponent::moveBox(SDL_Rect& box, Vector2D direction, float vel)
 	box.y += direction.getY() * vel;
 
 }
+
 void AttackBoxComponent::moveBoxCurve(SDL_Rect& box, float radio, Vector2D posCenter, float vel, float& angle, float stoppingAngle, int way)
 {
 

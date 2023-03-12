@@ -18,7 +18,7 @@ private:
 	float life_, maxLife_;
 	float speed_ = 1.0f;
 	bool die_ = false;
-	bool hit = false;
+	bool hit_ = false;
 	bool collision = false;
 	bool enemy_ = false;
 	string type_;

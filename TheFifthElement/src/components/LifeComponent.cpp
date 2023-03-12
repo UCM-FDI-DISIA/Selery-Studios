@@ -44,7 +44,7 @@ void LifeComponent::update() {
 					eMov_->stop(false);
 
 				}
-				if (anim_->currentState_ != AnimationEnemyBEUComponent::Hit)hit = false;
+				if (anim_->currentState_ != AnimationEnemyBEUComponent::Hit)hit_ = false;
 			}
 			else {//player
 
@@ -66,7 +66,7 @@ void LifeComponent::Death() {
 
 void LifeComponent::Hit(float damage)
 {
-	if (!hit) {
+	if (!hit_) {
 		if (getLife() - damage > 0) {
 			if (enemy_) {// enemy
 				anim_->changeState(AnimationEnemyBEUComponent::Hit);
@@ -77,7 +77,7 @@ void LifeComponent::Hit(float damage)
 			}
 		}
 		subLife(damage);
-		hit = true;
+		hit_ = true;
 	}
 
 	//en el hit
@@ -87,10 +87,10 @@ void LifeComponent::Hit(float damage)
 
 void LifeComponent::subLife(float damage) {
 	life_ -= damage;
-	if (life_ <= 0) 
+	if (life_ <= 0)
 	{
 		life_ = 0;
-		Death(); 
+		Death();
 	}
 	playDamageSound();
 	barWidth_ = ((life_ * backWidth_) / maxLife_);
