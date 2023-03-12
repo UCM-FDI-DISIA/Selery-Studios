@@ -22,10 +22,6 @@ void LifeComponent::initComponent() {
 	}
 }
 
-void LifeComponent::initComponent() {
-	enemyIm = ent_->getComponent<AnimationEnemyBEUComponent>(ANIMATIONENEMYBEUCOMPONENT_H);
-}
-
 void LifeComponent::update() {
 	pos_ = entTransform_->getPos() - Vector2D(this->mngr_->camRect_.x, this->mngr_->camRect_.y);
 	//cout << life_ << endl;
@@ -153,25 +149,25 @@ void LifeComponent::chooseTexture() {
 }
 
 void LifeComponent::playDamageSound() {
-	if (enemyIm == nullptr) { sdlutils().soundEffects().at("playerDamage").play(); }
+	if (!enemy_) { sdlutils().soundEffects().at("playerDamage").play(); }
 	else {
-		string type = enemyIm->Get_enemy();
+		string type = anim_->getEnemy();
 
-		if ("bat") { sdlutils().soundEffects().at("batDamage").play(); }
-		else if ("shroom") { sdlutils().soundEffects().at("shroomDamage").play(); }
-		else if ("goblin") { sdlutils().soundEffects().at("goblinDamage").play(); }
-		else if ("skeleton") { sdlutils().soundEffects().at("skeletonDamage").play(); }
+		if (type == "bat") { sdlutils().soundEffects().at("batDamage").play(); }
+		else if (type == "shroom") { sdlutils().soundEffects().at("shroomDamage").play(); }
+		else if (type == "goblin") { sdlutils().soundEffects().at("goblinDamage").play(); }
+		else if (type == "skeleton") { sdlutils().soundEffects().at("skeletonDamage").play(); }
 	}
 }
 
 void LifeComponent::playDieSound() {
-	if (enemyIm == nullptr) { sdlutils().soundEffects().at("playerDie").play(); }
+	if (!enemy_) { sdlutils().soundEffects().at("playerDie").play(); }
 	else {
-		string type = enemyIm->Get_enemy();
+		string type = anim_->getEnemy();
 
-		if ("bat") { sdlutils().soundEffects().at("batDie").play(); }
-		else if ("shroom") { sdlutils().soundEffects().at("shroomDie").play(); }
-		else if ("goblin") { sdlutils().soundEffects().at("goblinDie").play(); }
-		else if ("skeleton") { sdlutils().soundEffects().at("skeletonDie").play(); }
+		if (type == "bat") { sdlutils().soundEffects().at("batDie").play(); }
+		else if (type == "shroom") { sdlutils().soundEffects().at("shroomDie").play(); }
+		else if (type == "goblin") { sdlutils().soundEffects().at("goblinDie").play(); }
+		else if (type == "skeleton") { sdlutils().soundEffects().at("skeletonDie").play(); }
 	}
 }
