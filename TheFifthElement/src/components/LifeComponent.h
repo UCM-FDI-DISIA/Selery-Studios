@@ -4,8 +4,7 @@
 #include "../components/InputComponentBEU.h"
 #include "../components/Image.h"
 
-class LifeComponent : public Component
-{
+class LifeComponent : public Component {
 private:
 #pragma region references
 	AnimationEnemyBEUComponent* anim_ = nullptr;
@@ -62,5 +61,8 @@ public:
 	void setCollision(bool col) { collision = col; }
 
 	void chooseTexture();
+	
+	void playDamageSound();
+	void playDieSound();
 };
 

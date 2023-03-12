@@ -9,13 +9,10 @@
 #include <string>
 using namespace std;
 
-class AnimationEnemyBEUComponent :
-	public Component
-{
+class AnimationEnemyBEUComponent : public Component {
 public:
 #pragma region EnumAnims
-	enum AnimationStates
-	{
+	enum AnimationStates{
 		Moving, Attack, Hit, Death, Null
 	};
 

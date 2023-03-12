@@ -133,7 +133,7 @@
     <ClInclude Include="src\ColManager.h" />
     <ClInclude Include="src\components\ColliderTile.h" />
     <ClInclude Include="src\components\JumpComponent.h" />
-    <ClInclude Include="src\Entities\Button.h" />
+    <ClInclude Include="src\components\Button.h" />
     <ClInclude Include="src\components\AnimationEnemyBEUComponent.h" />
     <ClInclude Include="src\components\ColDetectorComponent.h" />
     <ClInclude Include="src\components\ColliderComponent.h" />
@@ -199,7 +199,7 @@
     <ClCompile Include="src\ColManager.cpp" />
     <ClCompile Include="src\components\ColliderTile.cpp" />
     <ClCompile Include="src\components\JumpComponent.cpp" />
-    <ClCompile Include="src\Entities\Button.cpp" />
+    <ClCompile Include="src\components\Button.cpp" />
     <ClCompile Include="src\components\AnimationEnemyBEUComponent.cpp" />
     <ClCompile Include="src\components\ColDetectorComponent.cpp" />
     <ClCompile Include="src\components\AttackBoxComponent.cpp" />
