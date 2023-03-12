@@ -3,10 +3,16 @@
 
 BeatEmUpState::BeatEmUpState() {
 	random = &SDLUtils::instance()->rand();
+
+	background_ = new Entity();
+	background_->addComponent<Transform>(int(TRANSFORM_H), Vector2D(0,0), WIN_WIDTH, WIN_HEIGHT);
+	background_->addComponent<Image>(int(IMAGE_H), &SDLUtils::instance()->images().at("airBackground"), 0, 0, 0, BACKGROUNDAIR_WIDTH_FRAME, BACKGROUNDAIR_HEIGHT_FRAME);
+	addEntity(background_);
+
 	player_ = new Entity();
 	player_->setContext(this);
-	trans_player_ = player_->addComponent<Transform>(TRANSFORM_H,Vector2D( PlayerPosition_X, PlayerPosition_Y), PLAYERBEU_WIDTH_FRAME, PLAYERBEU_HEIGHT_FRAME);
-	player_->addComponent<Image>(int(IMAGE_H), &SDLUtils::instance()->images().at("Player_BEU") , 7, 28, 0, PLAYERBEU_WIDTH_FRAME, PLAYERBEU_HEIGHT_FRAME);
+	trans_player_ = player_->addComponent<Transform>(TRANSFORM_H, Vector2D(PlayerPosition_X, PlayerPosition_Y), PLAYERBEU_WIDTH_FRAME, PLAYERBEU_HEIGHT_FRAME);
+	player_->addComponent<Image>(int(IMAGE_H), &SDLUtils::instance()->images().at("Player_BEU"), 7, 28, 0, PLAYERBEU_WIDTH_FRAME, PLAYERBEU_HEIGHT_FRAME);
 	player_->addComponent<JumpComponent>(JUMP_H);
 	in_ = player_->addComponent<InputComponentBEU>(INPUTCOMPONENTBEU_H);
 	player_->addComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
@@ -15,11 +21,6 @@ BeatEmUpState::BeatEmUpState() {
 	player_->addComponent<ColliderComponent>(int(COLLIDERCOMPONENT_H), Vector2D(120, 70), PLAYERBEU_HEIGHT_FRAME / 2, PLAYERBEU_WIDTH_FRAME / 7);
 	player_->getComponent<AttackBoxComponent>(ATTACKBOXCOMPONENT_H);
 	addEntity(player_);
-
-	background_ = new Entity();
-	background_->addComponent<Transform>(int(TRANSFORM_H), Vector2D(0,0), WIN_WIDTH, WIN_HEIGHT);
-	background_->addComponent<Image>(int(IMAGE_H), &SDLUtils::instance()->images().at("airBackground"), 0, 0, 0, BACKGROUNDAIR_WIDTH_FRAME, BACKGROUNDAIR_HEIGHT_FRAME);
-	addEntity(background_);
 	
 	AddEnemies(3);
 
