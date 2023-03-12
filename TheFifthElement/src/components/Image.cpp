@@ -22,10 +22,10 @@ Image::Image(Texture* tex, int nframes, int framesT, int fila, int widthFrame, i
 Image::~Image() { }
 
 void Image::initComponent() { 	// Inicializa el componente
-	if(tr_ == nullptr)tr_ = ent_->getComponent<Transform>(int(TRANSFORM_H));
+	if (tr_ == nullptr)tr_ = ent_->getComponent<Transform>(int(TRANSFORM_H));
 	assert(tr_ != nullptr);
 
-	
+
 }
 
 void Image::update() {
@@ -43,15 +43,15 @@ void Image::render() {
 		SDL_Rect rect;
 		rect.x = tr_->getPos().getX() - mngr_->camRect_.x;
 		rect.y = tr_->getPos().getY() - mngr_->camRect_.y;
-		rect.h = tr_->getH();
-		rect.w = tr_->getW();
+		rect.h = tr_->getH() * tr_->getS();
+		rect.w = tr_->getW() * tr_->getS();
 		SDL_Rect src;
 		src.x = i * widthFrame_;
 		src.y = heightFrame_ * fila_;
 		src.h = heightFrame_;
 		src.w = widthFrame_;
 		tex_->render(src, rect, 0, nullptr, s);
-		if (cont >= 5) {
+		if (cont >= 10) {
 			i++;
 			cont = 0;
 		}
@@ -59,7 +59,7 @@ void Image::render() {
 			cout << animPlaying << endl;
 		}
 		cont++;
-		if (i >= frames_||i>=tope) {
+		if (i >= frames_ || i >= tope) {
 			i = 0;
 			animPlaying = false;
 			fila_ = 0;
@@ -72,7 +72,7 @@ void Image::render() {
 
 
 //matriz
-void Image::setAnim(bool Anim, int Fila, int Frames, int I,int tope) { //Metodo generico para cambiar de animacion en BEU
+void Image::setAnim(bool Anim, int Fila, int Frames, int I, int tope) { //Metodo generico para cambiar de animacion en BEU
 	if (fila_ != Fila && !animPlaying) { // Si la animacion no es la actual la actualiza
 		animPlaying = Anim;
 		fila_ = Fila;

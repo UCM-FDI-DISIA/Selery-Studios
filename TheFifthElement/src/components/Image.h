@@ -39,12 +39,12 @@ public:
 
 	inline int getCol() { return i; }
 	inline int getRow() { return fila_; }
-	inline int getLastFrame(){ return frames_;}
+	inline int getLastFrame() { return frames_; }
 	inline void setTope(int i) { tope = i; }
 	inline int getTope() const { return tope; }
 
 	//matriz
-	void setAnim(bool Anim, int Fila, int Frames, int I,int tope); //Metodo generico para cambiar de animacion en BEU
+	void setAnim(bool Anim, int Fila, int Frames, int I, int tope); //Metodo generico para cambiar de animacion en BEU
 
 	void setAnimTexture(string textureKey, int Frames, int Width);
 

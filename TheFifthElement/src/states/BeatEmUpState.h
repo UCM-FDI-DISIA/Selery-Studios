@@ -15,6 +15,7 @@
 #include "../components/JumpComponent.h"
 #include "../components/InputComponentBEU.h"
 #include "../components/LimitBEU.h"
+#include "../components/Image.h"
 
 using name = string;
 using damage = int;

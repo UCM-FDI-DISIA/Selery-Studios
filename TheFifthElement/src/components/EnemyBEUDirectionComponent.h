@@ -3,7 +3,8 @@
 #include "MovementComponent.h"
 #include "Transform.h"
 #include "../utils/Vector2D.h"
-
+#include "../Entities/PlayerBEU.h"
+#include "ColliderComponent.h"
 
 class EnemyBEUDirectionComponent :
     public Component
@@ -21,7 +22,7 @@ private:
     MovementComponent* mov_;
     Transform* tr_;
     Vector2D dir_;
-   
+
     Entity* player_;
     Transform* playerTr_;
 
@@ -37,5 +38,9 @@ private:
     string type_;
 
     bool stop_ = false;
+    bool set_ = false;
+
+    ColliderComponent* col_;
+    ColliderComponent* playerCol_;
 };
 

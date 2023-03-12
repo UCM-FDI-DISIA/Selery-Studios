@@ -5,6 +5,7 @@
 #include "../sdlutils/Texture.h"
 #include "../components/Transform.h"
 #include "../components/Image.h"
+#include "../components/ColliderComponent.h"
 #include <string>
 using namespace std;
 
@@ -38,20 +39,29 @@ private:
 #pragma endregion
 
 #pragma region references
+	Entity* player_;
+
 	Texture* t_;
 	Image* im_;
 	Transform* tr_;
 	Transform* playerTr_;
+	ColliderComponent* col_;
+	ColliderComponent* playerCol_;
 #pragma endregion
 
+#pragma region parameters
 	bool set_ = false;
+	float posX, playerPosX;
+#pragma endregion
+
 
 public:
-	AnimationEnemyBEUComponent(string type, string enemy) {
+	AnimationEnemyBEUComponent(string type, string enemy, Entity* player) {
 		currentState_ = nextState_ = Null;
 
 		type_ = type;
 		enemy_ = enemy;
+		player_ = player;
 	}
 
 	void update();
@@ -63,11 +73,15 @@ public:
 	void setAttackTexture();
 	void setHitTexture();
 	void setDeathTexture();
-	inline int Get_enemy_Width() { return EnemyWidth_; }
-	inline int Get_enemy_Height() { return EnemyHeight_; }
-	inline Texture* Get_enemy_Texture() { return t_; }
-	inline string Get_enemy() { return enemy_; }
-	inline string Get_type() { return type_; }
-};
 
+	int getNFrames() { return nframes_; }
+	Texture* getTexture() { return t_; }
+	Vector2D getOffset() { return offset_; }
+	int getColWidth() { return ColWidth_; }
+	int getColHeight() { return ColHeight_; }
+	inline string getEnemy() { return enemy_; }
+	inline string getType() { return type_; }
+	inline float getWidth() { return EnemyWidth_; }
+	inline float getHeight() { return EnemyHeight_; }
+};
 
