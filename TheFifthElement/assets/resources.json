@@ -185,7 +185,11 @@
     {"id": "Tileset-TerrainGrassLand","file": "assets/Scenes/Maps/GrassLand/Tilesets/Tileset-Terrain.png"},
     {"id": "shrine or fountain-blood- 160x128-on grass","file": "assets/Scenes/Maps/AncientRuins/Props/shrine or fountain-blood- 160x128-on grass.png"},
     {"id": "little fountain1 by the wall-Blood","file": "assets/Scenes/Maps/AncientRuins/Props/little fountain1 by the wall-Blood.png"},
-    {"id": "giant statues-sword-2","file": "assets/Scenes/Maps/AncientRuins/Props/giant statues-sword-2.png"}
+    {"id": "giant statues-sword-2","file": "assets/Scenes/Maps/AncientRuins/Props/giant statues-sword-2.png"},
+    {"id": "generic_estructure2-statue1-1","file": "assets/Scenes/Maps/AncientRuins/Props/generic_estructure2-statue1-1.png"},
+    {"id": "generic_estructure2-topdown-on grass-pillars","file": "assets/Scenes/Maps/AncientRuins/Props/generic_estructure2-topdown-on grass-pillars.png"},
+    {"id": "generic_estructure2-topdown-on grass-basic structure2","file": "assets/Scenes/Maps/AncientRuins/Props/generic_estructure2-topdown-on grass-basic structure2.png"},
+    {"id": "Obelisk3-animation2-deactivating-70x150","file": "assets/Scenes/Maps/AncientRuins/Props/Obelisk3-animation2-deactivating-70x150.png"}
  
   ]
 
