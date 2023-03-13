@@ -1,4 +1,5 @@
 #include "GameManager.h"
+#include "states/MainMenuState.h"
 #include "states/TopDownState.h"
 #include "states/BeatEmUpState.h"
 #include "states/PauseMenuState.h"
@@ -21,8 +22,7 @@ void GameManager::goTopDown() {
 }
 
 void GameManager::backToMainMenu() {
-	GameStateMachine::instance()->popState();
-	GameStateMachine::instance()->popState(); 
+	GameStateMachine::instance()->changeState(new MainMenuState());
 }
 
 void GameManager:: leaveMainMenu() {
