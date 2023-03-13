@@ -1,7 +1,7 @@
 ﻿#include "BeatEmUpState.h"
 
 
-BeatEmUpState::BeatEmUpState() {
+BeatEmUpState::BeatEmUpState(bool boss, string typeBoss) {
 	random = &SDLUtils::instance()->rand();
 
 	background_ = new Entity();
@@ -22,9 +22,18 @@ BeatEmUpState::BeatEmUpState() {
 	//player_->getComponent<AttackBoxComponent>(ATTACKBOXCOMPONENT_H);
 	addEntity(player_);
 	
-	AddEnemies(3);
-
-	
+	if (!boss) {
+		AddEnemies(3);
+	}
+	else if (boss && typeBoss == "earth") {
+		AddEarthBoss();
+	}
+	else if (boss && typeBoss == "air") {
+		AddAirBoss();
+	}
+	else if (boss && typeBoss == "fire") {
+		AddFireBoss();
+	}
 
 	colManager_ = new ColManager(this);
 
@@ -67,6 +76,15 @@ void BeatEmUpState::AddEnemies(int n_enemies) {
 	
 		//en_->getComponent<LifeComponent>(LIFECOMPONENT_H)->setLifeBar(lb_);
 	}
+}
+void BeatEmUpState::AddFireBoss() {
+	
+}
+void BeatEmUpState::AddEarthBoss() {
+
+}
+void BeatEmUpState::AddAirBoss() {
+
 }
 string BeatEmUpState::getEnemyType(int i) {
 	if (i == 0) {

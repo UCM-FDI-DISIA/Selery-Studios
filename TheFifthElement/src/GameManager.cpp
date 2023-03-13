@@ -14,7 +14,7 @@
 
 void GameManager::goBeatEmUp() {
 	SDLUtils::instance()->soundEffects().at("Title").haltChannel();
-	GameStateMachine::instance()->pushState(new BeatEmUpState());
+	GameStateMachine::instance()->pushState(new BeatEmUpState(false));
 }
 
 void GameManager::goTopDown() {
@@ -27,7 +27,7 @@ void GameManager::backToMainMenu() {
 
 void GameManager:: leaveMainMenu() {
 	//GameStateMachine::instance()->pushState(new TopDownState());
-	GameStateMachine::instance()->pushState(new BeatEmUpState());
+	GameStateMachine::instance()->pushState(new BeatEmUpState(false));
 }
 
 void GameManager::goPauseMenu() {

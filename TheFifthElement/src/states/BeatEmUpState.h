@@ -41,10 +41,13 @@ private:
 	
 
 public:
-	BeatEmUpState();
+	BeatEmUpState(bool boss, string typeBoss = "");
 	~BeatEmUpState() {}
 	string getStateID(); // stringID
 	void AddEnemies(int i);
+	void AddFireBoss();
+	void AddAirBoss();
+	void AddEarthBoss();
 	string getEnemyType(int i);
 	void finishBEU();
 	void handleEvents();
