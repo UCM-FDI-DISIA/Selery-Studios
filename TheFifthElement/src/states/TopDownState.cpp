@@ -48,7 +48,9 @@ void TopDownState::LoadMap(string const& filename) {
         mapInfo.tilesets.insert(pair<uint, Texture*>(tile.getFirstGID(), texture));  //inserta en el mapa de Map_Info: llamado tilesets el ID del tileset y su textura
     }
      
-  
+
+    /*Mix_VolumeMusic(0);
+    Mix_Volume(MIX_CHANNELS, 0);*/
     SDLUtils::instance()->soundEffects().at("Title").play(); 
 
 
