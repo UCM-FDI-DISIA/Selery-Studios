@@ -5,6 +5,7 @@
 #include "../sdlutils/SDLUtils.h"
 #include "../sdlutils/InputHandler.h"
 #include "../components/JumpComponent.h"
+#include "../components/LifeComponent.h"
 class Image;
 
 class InputComponentBEU : public Component {
@@ -13,6 +14,8 @@ private:
     Image* im_ = nullptr;
     JumpComponent* jmp_ = nullptr;
     Texture* t_ = nullptr;
+    LifeComponent* lifeC_ = nullptr;
+
     bool alreadyPressedBasic = false;
     bool alreadyPressedSpecial = false;
     bool alreadyPressed2 = false;

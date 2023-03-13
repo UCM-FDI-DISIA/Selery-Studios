@@ -4,11 +4,19 @@ LifeComponent::LifeComponent(float maxLife, bool enemy,string type, Entity* ent)
 	life_ = maxLife_ = maxLife;
 	enemy_ = enemy;
 	type_ = type;
-	entTransform_ = ent->getComponent<Transform>(TRANSFORM_H);
-	barWidth_ = backWidth_ = borderWidth_ = entTransform_->getW() / 4;
-	barHeight_ = backHeight_ = borderHeight_ = entTransform_->getH() / 11;
+	if (enemy_) {
+		entTransform_ = ent->getComponent<Transform>(TRANSFORM_H);
+		barWidth_ = backWidth_ = borderWidth_ = entTransform_->getW() / 4;
+		barHeight_ = backHeight_ = borderHeight_ = entTransform_->getH() / 11;
+		pos_ = entTransform_->getPos();
+	}
+	else {
+		barWidth_ = backWidth_ = borderWidth_ = 300;
+		barHeight_ = backHeight_ = borderHeight_ = 50;
+	}
 	chooseTexture();
-	pos_ = entTransform_->getPos();
+
+	for (int i = 0; i < 4; i++) types[i] = -1.0f;
 }
 
 void LifeComponent::initComponent() {
@@ -23,7 +31,7 @@ void LifeComponent::initComponent() {
 }
 
 void LifeComponent::update() {
-	pos_ = entTransform_->getPos() - Vector2D(this->mngr_->camRect_.x, this->mngr_->camRect_.y);
+	if(enemy_)pos_ = entTransform_->getPos() - Vector2D(this->mngr_->camRect_.x, this->mngr_->camRect_.y);
 	//cout << life_ << endl;
 	if (die_) {
 		if (!im_->isAnimPlaying())
@@ -96,30 +104,79 @@ void LifeComponent::subLife(float damage) {
 	barWidth_ = ((life_ * backWidth_) / maxLife_);
 }
 
+void LifeComponent::chageType(string type, float maxLife) {
+	if (type_ == "fire") types[0] = life_;
+	else if (type_ == "wind")types[1] = life_;
+	else if (type_ == "water")types[2] = life_;
+	else if (type_ == "earth")types[3] = life_;
+	
+	type_ = type;
+	maxLife_ = maxLife;
+
+	if (type_ == "fire") {
+		if (types[0] == -1)types[0] = maxLife;
+		life_ = types[0];
+	}
+	else if (type_ == "wind") {
+		if (types[1] == -1)types[1] = maxLife;
+		life_ = types[1];
+	}
+	else if (type_ == "water") {
+		if (types[2] == -1)types[2] = maxLife;
+		life_ = types[2];
+	}
+	else if (type_ == "earth") {
+		if (types[3] == -1)types[3] = maxLife;
+		life_ = types[3];
+	}
+	
+	chooseTexture();
+	barWidth_ = ((life_ * backWidth_) / maxLife_);
+
+}
+
 void LifeComponent::render() {
-	SDL_Rect src;
-	src.x = 0;
-	src.y = 0;
-	src.h = 50;
-	src.w = 400;
+		SDL_Rect src;
+		src.x = 0;
+		src.y = 0;
+		src.h = 50;
+		src.w = 400;
 
-	SDL_Rect dest;
-
-	dest.x = pos_.getX() + 55;
-	dest.y = pos_.getY() + 35;
-	dest.h = backHeight_;
-	dest.w = backWidth_;
-	backTexture_->render(src, dest);
-
-
-	dest.h = barHeight_;
-	dest.w = barWidth_;
-	barTexture_->render(src, dest);
+		SDL_Rect dest;
+	if(enemy_){
+		dest.x = pos_.getX() + 55;
+		dest.y = pos_.getY() + 35;
+		dest.h = backHeight_;
+		dest.w = backWidth_;
+		backTexture_->render(src, dest);
 
 
-	dest.h = borderHeight_;
-	dest.w = borderWidth_;
-	borderTexture_->render(src, dest);
+		dest.h = barHeight_;
+		dest.w = barWidth_;
+		barTexture_->render(src, dest);
+
+
+		dest.h = borderHeight_;
+		dest.w = borderWidth_;
+		borderTexture_->render(src, dest);
+	}
+	else {
+		dest.x = 100;
+		dest.y = 35;
+		dest.h = backHeight_;
+		dest.w = backWidth_;
+		backTexture_->render(src, dest);
+
+
+		dest.h = barHeight_;
+		dest.w = barWidth_;
+		barTexture_->render(src, dest);
+
+
+		dest.h = borderHeight_;
+		dest.w = borderWidth_;
+		borderTexture_->render(src, dest);
+	}
 }
 
 void LifeComponent::chooseTexture() {

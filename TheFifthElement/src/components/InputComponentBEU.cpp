@@ -14,6 +14,7 @@ void InputComponentBEU::initComponent() {
 	im_ = ent_->getComponent<Image>(IMAGE_H);
 	jmp_ = ent_->getComponent<JumpComponent>(JUMP_H);
 	t_ = new Texture(GameManager::instance()->getRenderer(), "./assets/Player/BeatEmUp/Fire/spritesheets/fireMatrix.png");
+	lifeC_ = ent_->getComponent<LifeComponent>(LIFECOMPONENT_H);
 }
 
 void InputComponentBEU::update() {
@@ -87,18 +88,22 @@ void InputComponentBEU::handleEvents(SDL_Event event) {
 
 	/*if (ih().isKeyDown(SDL_SCANCODE_1)) {
 		im_->setSpriteAnim(false, 8, 0, &SDLUtils::instance()->images().at("Player_BEU_air"));
+		lifeC_->chageType("wind", 10);
 	}*/
 
 	if (ih().isKeyDown(SDL_SCANCODE_2)) {
 		im_->setSpriteAnim(false, 8, 0, &SDLUtils::instance()->images().at("Player_BEU_fire"));
+		lifeC_->chageType("fire", 10);
 	}
 
 	/*if (ih().isKeyDown(SDL_SCANCODE_3)) {
 		im_->setSpriteAnim(false, 8, 0, &SDLUtils::instance()->images().at("Player_BEU_water"));
+		lifeC_->chageType("water", 10);
 	}*/
 
 	if (ih().isKeyDown(SDL_SCANCODE_4)) {
 		im_->setSpriteAnim(false, 8, 0, &SDLUtils::instance()->images().at("Player_BEU_earth"));
+		lifeC_->chageType("earth", 10);
 	}
 
 
