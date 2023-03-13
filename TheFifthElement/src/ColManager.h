@@ -1,7 +1,7 @@
 #pragma once
 #include "utils/Manager.h"
 #include "utils/Collision.h"
-#include "components/Transform.h"
+#include "components/ColliderComponent.h"
 #include "components/LifeComponent.h"
 
 
@@ -16,7 +16,7 @@ private:
 public:
 
 	ColManager(Manager* manager): mngr_(manager) {};
-	void checkCollisionP(SDL_Rect boxAttack);
+	void checkCollisionP(SDL_Rect boxAttack,string type);
 
 };
 

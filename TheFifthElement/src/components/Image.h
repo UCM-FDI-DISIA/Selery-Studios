@@ -21,11 +21,14 @@ private:
 	int widthFrame_, heightFrame_;
 	int tope = 100;
 	Vector2D a;
+
+	string type_;
 public:
 
 	//Constructora
 	Image(Texture* tex, int width, int height, Transform* trans);
 	Image(Texture* tex, int nframes, int framesT, int fila, int widthFrame, int heightFrame);//Constructora
+	Image(Texture* tex, int nframes, int framesT, int fila, int widthFrame, int heightFrame, string type);//Constructora
 
 	// Destructora
 	virtual ~Image();
@@ -42,6 +45,8 @@ public:
 	inline int getLastFrame() { return frames_; }
 	inline void setTope(int i) { tope = i; }
 	inline int getTope() const { return tope; }
+
+	inline string getType() { return type_; }
 
 	//matriz
 	void setAnim(bool Anim, int Fila, int Frames, int I, int tope); //Metodo generico para cambiar de animacion en BEU

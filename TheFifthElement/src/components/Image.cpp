@@ -9,6 +9,19 @@ Image::Image(Texture* tex, int width, int height, Transform* trans) {
 	heightFrame_ = height;
 	tr_ = trans;
 	tex_ = tex;
+
+
+	
+}
+
+
+Image::Image(Texture* tex, int nframes, int framesT, int fila, int widthFrame, int heightFrame,string type) : tr_(nullptr), tex_(tex) { // Constructora
+	frames_ = nframes;
+	fila_ = fila;
+	framesTotales_ = framesT;
+	widthFrame_ = widthFrame;
+	heightFrame_ = heightFrame;
+	type_ = type;
 }
 
 Image::Image(Texture* tex, int nframes, int framesT, int fila, int widthFrame, int heightFrame) : tr_(nullptr), tex_(tex) { // Constructora
@@ -51,7 +64,7 @@ void Image::render() {
 		src.h = heightFrame_;
 		src.w = widthFrame_;
 		tex_->render(src, rect, 0, nullptr, s);
-		if (cont >= 10) {
+		if (cont >= 5) {
 			i++;
 			cont = 0;
 		}

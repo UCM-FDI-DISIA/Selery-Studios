@@ -1,16 +1,32 @@
 #include "ColManager.h"
 
 
-void ColManager::checkCollisionP(SDL_Rect boxAttack)
+void ColManager::checkCollisionP(SDL_Rect boxAttack,string type)
 {
 	for(auto it: mngr_->getEntities())
 	{
 		if (it->hasComponent(ENEMYBEUDIRECTIONCOMPONENT_H))
 		{
-			Transform* t = it->getComponent<Transform>(TRANSFORM_H);
-			if(Collision::collides(Vector2D(boxAttack.x,boxAttack.y), boxAttack.w,boxAttack.h,t->getPos(),t->getW(),t->getH()))
+			ColliderComponent* col = it->getComponent<ColliderComponent>(COLLIDERCOMPONENT_H);
+			if(Collision::collides(Vector2D(boxAttack.x,boxAttack.y), boxAttack.w,boxAttack.h,Vector2D(col->getColRect().x, col->getColRect().y), col->getColRect().w, col->getColRect().h))
 			{
-				it->getComponent<LifeComponent>(LIFECOMPONENT_H)->Hit(1);
+				cout << it->getComponent<AnimationEnemyBEUComponent>(ANIMATIONENEMYBEUCOMPONENT_H)->getType() << endl;
+
+
+				string typeHitted = it->getComponent<AnimationEnemyBEUComponent>(ANIMATIONENEMYBEUCOMPONENT_H)->getType();
+
+				if (type == typeHitted  || typeHitted == "fire" && type == "earth"|| typeHitted == "water" && type == "fire" || typeHitted == "earth" && type == "water")
+				{
+					it->getComponent<LifeComponent>(LIFECOMPONENT_H)->Hit(0.5);
+				}
+				
+				else if (typeHitted == "fire" && type == "water" || typeHitted == "water" && type == "earth" || typeHitted == "earth" && type == "fire")
+				{
+					it->getComponent<LifeComponent>(LIFECOMPONENT_H)->Hit(2);
+				}
+
+				else it->getComponent<LifeComponent>(LIFECOMPONENT_H)->Hit(1);
+				
 			}
 		}
 	}

@@ -85,17 +85,17 @@ void InputComponentBEU::handleEvents(SDL_Event event) {
 	else if (ih().isKeyUp(SDL_SCANCODE_S)) { moveDown = false; }
 
 
-	if (ih().isKeyDown(SDL_SCANCODE_1)) {
+	/*if (ih().isKeyDown(SDL_SCANCODE_1)) {
 		im_->setSpriteAnim(false, 8, 0, &SDLUtils::instance()->images().at("Player_BEU_air"));
-	}
+	}*/
 
 	if (ih().isKeyDown(SDL_SCANCODE_2)) {
 		im_->setSpriteAnim(false, 8, 0, &SDLUtils::instance()->images().at("Player_BEU_fire"));
 	}
 
-	if (ih().isKeyDown(SDL_SCANCODE_3)) {
+	/*if (ih().isKeyDown(SDL_SCANCODE_3)) {
 		im_->setSpriteAnim(false, 8, 0, &SDLUtils::instance()->images().at("Player_BEU_water"));
-	}
+	}*/
 
 	if (ih().isKeyDown(SDL_SCANCODE_4)) {
 		im_->setSpriteAnim(false, 8, 0, &SDLUtils::instance()->images().at("Player_BEU_earth"));
