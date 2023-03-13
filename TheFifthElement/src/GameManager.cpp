@@ -20,6 +20,11 @@ void GameManager::goTopDown() {
 	GameStateMachine::instance()->popState();
 }
 
+void GameManager::backToMainMenu() {
+	GameStateMachine::instance()->popState();
+	GameStateMachine::instance()->popState(); 
+}
+
 void GameManager:: leaveMainMenu() {
 	//GameStateMachine::instance()->pushState(new TopDownState());
 	GameStateMachine::instance()->pushState(new BeatEmUpState());
