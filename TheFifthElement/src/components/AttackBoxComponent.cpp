@@ -155,7 +155,7 @@ void AttackBoxComponent::handleBoxes()
 	{
 		if (!boxCreated)
 		{
-
+			boxes.clear();
 			boxes.push_back(build_sdlrect(entityTr->getPos().getX() - mngr_->camRect_.x - 30 + entityTr->getW() / 2, entityTr->getPos().getY() + entityTr->getH() / 2, 70, 60));
 			boxCreated = true;
 
@@ -190,6 +190,7 @@ void AttackBoxComponent::handleBoxes()
 
 	else if (im_->getRow() == 10)
 	{
+		
 		if (!boxCreated)
 		{
 			boxes.clear();

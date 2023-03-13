@@ -1,0 +1,87 @@
+﻿  ColManager.cpp
+E:\Selery-Studios\TheFifthElement\src\utils\Component.h(2,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SDL.h': No such file or directory
+  ColliderTile.cpp
+E:\Selery-Studios\TheFifthElement\src\utils\Component.h(2,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SDL.h': No such file or directory
+  JumpComponent.cpp
+E:\Selery-Studios\TheFifthElement\src\utils\Component.h(2,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SDL.h': No such file or directory
+  Button.cpp
+E:\Selery-Studios\TheFifthElement\src\utils\Component.h(2,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SDL.h': No such file or directory
+  AnimationEnemyBEUComponent.cpp
+E:\Selery-Studios\TheFifthElement\src\utils\Component.h(2,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SDL.h': No such file or directory
+  ColDetectorComponent.cpp
+E:\Selery-Studios\TheFifthElement\src\utils\Component.h(2,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SDL.h': No such file or directory
+  AttackBoxComponent.cpp
+E:\Selery-Studios\TheFifthElement\src\utils\Component.h(2,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SDL.h': No such file or directory
+  DialogueComponent.cpp
+E:\Selery-Studios\TheFifthElement\src\utils\Component.h(2,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SDL.h': No such file or directory
+  Image.cpp
+E:\Selery-Studios\TheFifthElement\src\sdlutils\Texture.h(5,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SDL.h': No such file or directory
+  LimitBEU.cpp
+E:\Selery-Studios\TheFifthElement\src\utils\Component.h(2,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SDL.h': No such file or directory
+  LifeBar.cpp
+  Game.cpp
+E:\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(5,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SDL.h': No such file or directory
+  BeatEmUpState.cpp
+E:\Selery-Studios\TheFifthElement\src\utils\Component.h(2,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SDL.h': No such file or directory
+  Camera.cpp
+  CameraComponent.cpp
+  CheckCollision.cpp
+E:\Selery-Studios\TheFifthElement\src\utils\Component.h(2,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SDL.h': No such file or directory
+  PauseMenuState.cpp
+E:\Selery-Studios\TheFifthElement\src\utils\Component.h(2,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SDL.h': No such file or directory
+  Collision.cpp
+  Enemy_movementTD_component.cpp
+E:\Selery-Studios\TheFifthElement\src\utils\Component.h(2,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SDL.h': No such file or directory
+  DialogBox.cpp
+E:\Selery-Studios\TheFifthElement\src\utils\Component.h(2,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SDL.h': No such file or directory
+  Compilando...
+  Element.cpp
+  Enemy.cpp
+  EnemyBEU.cpp
+  EnemyBEUDirectionComponent.cpp
+E:\Selery-Studios\TheFifthElement\src\utils\Component.h(2,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SDL.h': No such file or directory
+  GameManager.cpp
+E:\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(5,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SDL.h': No such file or directory
+  InputComponent.cpp
+E:\Selery-Studios\TheFifthElement\src\utils\Component.h(2,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SDL.h': No such file or directory
+  InputComponentBEU.cpp
+E:\Selery-Studios\TheFifthElement\src\utils\Component.h(2,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SDL.h': No such file or directory
+  LifeComponent.cpp
+E:\Selery-Studios\TheFifthElement\src\utils\Component.h(2,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SDL.h': No such file or directory
+  MovementComponent.cpp
+E:\Selery-Studios\TheFifthElement\src\utils\Component.h(2,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SDL.h': No such file or directory
+  Npc.cpp
+  ObjectsComponent.cpp
+E:\Selery-Studios\TheFifthElement\src\utils\Component.h(2,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SDL.h': No such file or directory
+  PlayerBEU.cpp
+  PlayerTD.cpp
+E:\Selery-Studios\TheFifthElement\src\utils\Component.h(2,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SDL.h': No such file or directory
+  PortalComponent.cpp
+E:\Selery-Studios\TheFifthElement\src\utils\Component.h(2,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SDL.h': No such file or directory
+  SkinComponent.cpp
+E:\Selery-Studios\TheFifthElement\src\utils\Component.h(2,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SDL.h': No such file or directory
+  GameState.cpp
+E:\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(5,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SDL.h': No such file or directory
+  GameStateMachine.cpp
+E:\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(5,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SDL.h': No such file or directory
+  MainMenuState.cpp
+E:\Selery-Studios\TheFifthElement\src\utils\Component.h(2,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SDL.h': No such file or directory
+  TopDownState.cpp
+E:\Selery-Studios\TheFifthElement\src\states\TopDownState.h(2,10): fatal  error C1083: No se puede abrir el archivo incluir: 'tmxlite/Map.hpp': No such file or directory
+  JSON.cpp
+  Compilando...
+  JSONValue.cpp
+  SDLUtils.cpp
+E:\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(5,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SDL.h': No such file or directory
+  SoundEffect.cpp
+E:\Selery-Studios\TheFifthElement\src\sdlutils\SoundEffect.h(6,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SDL_mixer.h': No such file or directory
+  Texture.cpp
+E:\Selery-Studios\TheFifthElement\src\sdlutils\Texture.h(5,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SDL.h': No such file or directory
+  TheFifthElement.cpp
+E:\Selery-Studios\TheFifthElement\TheFifthElement.cpp(1,9): fatal  error C1083: No se puede abrir el archivo incluir: 'SDL.h': No such file or directory
+  Component.cpp
+  Entity.cpp
+E:\Selery-Studios\TheFifthElement\src\utils\Component.h(2,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SDL.h': No such file or directory
+  Manager.cpp
+E:\Selery-Studios\TheFifthElement\src\utils\Component.h(2,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SDL.h': No such file or directory
+  Vector2D.cpp
