@@ -142,7 +142,16 @@
     {"id": "OptionsButtonPressed", "file": "assets/Scenes/Backgrounds/Menu/Buttons/OptionsButtonPress.png"},
     {"id": "campfire", "file": "assets/Scenes/Maps/GrassLand/Props/campfire 2-1.png"},
     {"id": "hole", "file": "assets/Scenes/Maps/GrassLand/Props/water well animation-empty bucket.png"},
-    {"id": "treasure", "file": "assets/Scenes/Maps/GrassLand/Props/treasure chest lvl 3-opening animation-standard style.png"}
+    {"id": "treasure", "file": "assets/Scenes/Maps/GrassLand/Props/treasure chest lvl 3-opening animation-standard style.png"},
+    {"id": "coin", "file": "assets/HUD/coin.png"},
+    {"id": "WaterAvatar", "file": "assets/HUD/tienda/water_priestess.png"},
+    {"id": "FireAvatar", "file": "assets/HUD/tienda/fire_knight.png"},
+    {"id": "GroundAvatar", "file": "assets/HUD/tienda/ground_monk.png"},
+    {"id": "AirAvatar", "file": "assets/HUD/tienda/wind_hashashin.png"},
+    {"id": "UpturnButton", "file": "assets/HUD/tienda/botonmejoratienda.png"},
+    {"id": "ExitShop", "file": "assets/HUD/tienda/botonsalirtienda.png"},
+    {"id": "ShopBackground", "file": "assets/HUD/tienda/fondotienda.png"},
+    {"id": "ShopFrame", "file": "assets/HUD/tienda/marcotienda.png"}
   ],
 
   "messages": [
@@ -166,7 +175,7 @@
     {"id": "batDamage", "file": "assets/sounds/enemy/bat/batDamage.wav"},
     {"id": "batDie", "file": "assets/sounds/enemy/bat/batDeath.wav"},
     {"id": "NPC_Chat", "file": "assets/Sounds/NPCs/npcchat.wav"},
-    {"id": "coin", "file": "assets/Sounds/objects/coin.wav"},
+    {"id": "coinSound", "file": "assets/Sounds/objects/coin.wav"},
     {"id": "magic", "file": "assets/Sounds/objects/magic.wav"}
 
   ],
