@@ -139,6 +139,7 @@
     <ClInclude Include="src\components\ColliderComponent.h" />
     <ClInclude Include="src\components\AttackBoxComponent.h" />
     <ClInclude Include="src\components\LimitBEU.h" />
+    <ClInclude Include="src\components\ShopComponent.h" />
     <ClInclude Include="src\Entities\LifeBar.h" />
     <ClInclude Include="src\Game.h" />
     <ClInclude Include="src\states\BeatEmUpState.h" />
@@ -206,6 +207,7 @@
     <ClCompile Include="src\components\DialogueComponent.cpp" />
     <ClCompile Include="src\components\Image.cpp" />
     <ClCompile Include="src\components\LimitBEU.cpp" />
+    <ClCompile Include="src\components\ShopComponent.cpp" />
     <ClCompile Include="src\Entities\LifeBar.cpp" />
     <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\states\BeatEmUpState.cpp" />
