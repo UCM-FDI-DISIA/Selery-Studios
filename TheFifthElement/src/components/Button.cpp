@@ -40,7 +40,7 @@ void Button::handleEvent(SDL_Event event)
 					GameManager::instance()->leaveMainMenu();
 				}
 				else if (identifier == "RESUME") {
-					SDLUtils::instance()->soundEffects().at("pruebaBoton").play();
+					SDLUtils::instance()->soundEffects().at("prueba").play();
 					SDLUtils::instance()->soundEffects().at("Title").resumeChannel();
 					GameManager::instance()->goTopDown();
 				}
@@ -56,6 +56,10 @@ void Button::handleEvent(SDL_Event event)
 				else if (identifier == "EXIT") {
 					//salir del juego
 					cout << "salir";
+				}
+
+				else if (identifier == "UPTURN") {
+					cout << "1";
 				}
 			}
 		}

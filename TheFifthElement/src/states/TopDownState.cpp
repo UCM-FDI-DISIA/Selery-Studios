@@ -204,8 +204,18 @@ void TopDownState::LoadMap(string const& filename) {
                     element_->addComponent<ObjectsComponent>(OBJECTSCOMPONENT_H);
                     element_->addComponent<CheckCollision>(CHECKCOLLISION_H, player_, "element");
                     addEntity(element_);
+                    
                 }
-
+                /*else if (name == "Shop") {
+                    Entity* shop_ = new Entity();
+                    upturnButton_ = new Entity();
+                    Transform* shopTr_ = shop_->addComponent<Transform>(TRANSFORM_H, Vector2D(obj.getPosition().x, obj.getPosition().y), SHOP_WIDTH/2, SHOP_HEIGHT/2, 1);
+                    shop_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("ShopBackground"), SHOP_WIDTH, SHOP_HEIGHT, shopTr_);
+                    shop_->addComponent<ShopComponent>(SHOPCOMPONENT_H, upturnButton_);
+                    
+                    addEntity(shop_);
+                    addEntity(upturnButton_);
+                }*/
             }
         }
 
@@ -266,6 +276,7 @@ void TopDownState::handleEvents() {
     while (SDL_PollEvent(&event))
     {
         in_->handleEvents(event);
+        //upturnButton_->handleEvent(event); // botón en la tienda
         //inBEU_->handleEvents(event);
         ;
     }
@@ -280,8 +291,8 @@ void TopDownState::render() {
     }
     SDL_Rect dst = { 0,0,fondowidth_,fondoheight_};
     // posición según el transform de la Camara
-    dst.x -= Manager::camRect_.x/*cam_->getComponent<Transform>(TRANSFORM_H)->getPos().getX()*/;
-    dst.y -= Manager::camRect_.y/*cam_->getComponent<Transform>(TRANSFORM_H)->getPos().getY()*/;
+    dst.x -= Manager::camRect_.x;
+    dst.y -= Manager::camRect_.y;
     SDL_Rect src = { 0, 0, fondowidth_, fondoheight_ };
     SDL_RenderCopy(Gm_->getRenderer(), background_, &src, &dst);
     //hudTD->render();
