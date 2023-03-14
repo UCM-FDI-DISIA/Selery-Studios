@@ -24,6 +24,8 @@
 #include "../components/Enemy_movementTD_component.h"
 #include "../components/ColliderComponent.h"
 #include "../components/ObjectsComponent.h"
+#include "../components/Button.h"
+#include "../components/ShopComponent.h"
 using uint = unsigned int;
 using tileset_map = std::map<std::string, Texture*>; //mapa con CLAVE:string, ARGUMENTO: puntero a textura
 using tilelayer = tmx::TileLayer;
@@ -79,6 +81,8 @@ private:
 
 	int fondowidth_, fondoheight_;
 
+	// SHOP
+	Entity* upturnButton_;
 	//HUDTD* hudTD = new HUDTD();
 public:
 	string getStateID(); // stringID

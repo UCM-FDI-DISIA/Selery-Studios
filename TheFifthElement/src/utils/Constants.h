@@ -55,8 +55,11 @@ const int enemy_rock_life = 200;
 
 #pragma endregion
 
-
-
+// SHOP
+const uint SHOP_WIDTH = 747;
+const uint SHOP_HEIGHT = 876;
+const uint UPTURNBUTTON_WIDTH = 88;
+const uint UPTURNBUTTON_HEIGHT = 84;
 /*const string FUEGO = "fire";
 const string AIRE = "wind";
 const string AGUA = "water";
