@@ -131,6 +131,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="src\ColManager.h" />
+    <ClInclude Include="src\components\AnimationEarthBossComponent.h" />
     <ClInclude Include="src\components\ColliderTile.h" />
     <ClInclude Include="src\components\JumpComponent.h" />
     <ClInclude Include="src\components\Button.h" />
@@ -138,7 +139,10 @@
     <ClInclude Include="src\components\ColDetectorComponent.h" />
     <ClInclude Include="src\components\ColliderComponent.h" />
     <ClInclude Include="src\components\AttackBoxComponent.h" />
+    <ClInclude Include="src\components\LifeEarthBossComponent.h" />
     <ClInclude Include="src\components\LimitBEU.h" />
+    <ClInclude Include="src\components\MovementEarthBossComponent.h" />
+    <ClInclude Include="src\components\ObjectsComponent.h" />
     <ClInclude Include="src\components\ShopComponent.h" />
     <ClInclude Include="src\Entities\LifeBar.h" />
     <ClInclude Include="src\Game.h" />
@@ -198,6 +202,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ColManager.cpp" />
+    <ClCompile Include="src\components\AnimationEarthBossComponent.cpp" />
     <ClCompile Include="src\components\ColliderTile.cpp" />
     <ClCompile Include="src\components\JumpComponent.cpp" />
     <ClCompile Include="src\components\Button.cpp" />
@@ -206,7 +211,9 @@
     <ClCompile Include="src\components\AttackBoxComponent.cpp" />
     <ClCompile Include="src\components\DialogueComponent.cpp" />
     <ClCompile Include="src\components\Image.cpp" />
+    <ClCompile Include="src\components\LifeEarthBossComponent.cpp" />
     <ClCompile Include="src\components\LimitBEU.cpp" />
+    <ClCompile Include="src\components\MovementEarthBossComponent.cpp" />
     <ClCompile Include="src\components\ShopComponent.cpp" />
     <ClCompile Include="src\Entities\LifeBar.cpp" />
     <ClCompile Include="src\Game.cpp" />
