@@ -1,17 +1,3 @@
-﻿  AnimationEnemyBEUComponent.cpp
-C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(32,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(33,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(34,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(35,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(51,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(52,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(53,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(54,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(67,33): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(68,32): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\components\AnimationEnemyBEUComponent.h(79,29): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\components\AnimationEnemyBEUComponent.h(80,30): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(52,30): warning C4101: 'e': variable local sin referencia
-C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(48,1): message : al compilar la función del miembro clase plantilla "Texture &SDLUtils::map_access_wrapper<Texture>::at(std::string)"
-C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(205,30): message : Vea la referencia a la creación de una instancia de clase plantilla "SDLUtils::map_access_wrapper<Texture>" que se está compilando
-  TheFifthElement.vcxproj -> C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\x64\Debug\TheFifthElement.exe
+﻿  LifeEarthBossComponent.cpp
+C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\LifeEarthBossComponent.cpp(11,17): warning C4244: '-=': conversión de 'float' a 'int'; posible pérdida de datos
+  TheFifthElement.vcxproj -> C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\x64\Debug\TheFifthElement.exe

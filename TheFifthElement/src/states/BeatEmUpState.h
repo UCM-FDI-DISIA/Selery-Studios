@@ -17,6 +17,7 @@
 #include "../components/LimitBEU.h"
 #include "../components/Image.h"
 #include "../../MovementEarthBossComponent.h"
+#include "../../AnimationEarthBossComponent.h"
 
 using name = string;
 using damage = int;
