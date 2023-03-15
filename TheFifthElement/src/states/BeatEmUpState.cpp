@@ -1,6 +1,5 @@
 ﻿#include "BeatEmUpState.h"
 
-
 BeatEmUpState::BeatEmUpState(bool boss, string typeBoss) {
 	random = &SDLUtils::instance()->rand();
 	scale = WIN_WIDTH / 900;
@@ -126,7 +125,7 @@ string BeatEmUpState::getEnemyType(int i) {
 		return "earth";
 	}
 	else {
-		return "wind";
+		return "air";
 	}
 
 }

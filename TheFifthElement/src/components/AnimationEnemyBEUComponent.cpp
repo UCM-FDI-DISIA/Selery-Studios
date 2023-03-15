@@ -110,8 +110,8 @@ void AnimationEnemyBEUComponent::setMovTexture() {
 			t_ = &SDLUtils::instance()->images().at("BEU_fire_Mushroom_run");
 		}
 
-		else if (type_ == "wind") {
-			t_ = &SDLUtils::instance()->images().at("BEU_wind_Mushroom_run");
+		else if (type_ == "air") {
+			t_ = &SDLUtils::instance()->images().at("BEU_air_Mushroom_run");
 		}
 
 		else if (type_ == "water") {
@@ -137,8 +137,8 @@ void AnimationEnemyBEUComponent::setMovTexture() {
 			t_ = &SDLUtils::instance()->images().at("BEU_fire_Skeleton_run");
 		}
 
-		else if (type_ == "wind") {
-			t_ = &SDLUtils::instance()->images().at("BEU_wind_Skeleton_run");
+		else if (type_ == "air") {
+			t_ = &SDLUtils::instance()->images().at("BEU_air_Skeleton_run");
 		}
 
 		else if (type_ == "water") {
@@ -164,8 +164,8 @@ void AnimationEnemyBEUComponent::setMovTexture() {
 			t_ = &SDLUtils::instance()->images().at("BEU_fire_Goblin_run");
 		}
 
-		else if (type_ == "wind") {
-			t_ = &SDLUtils::instance()->images().at("BEU_wind_Goblin_run");
+		else if (type_ == "air") {
+			t_ = &SDLUtils::instance()->images().at("BEU_air_Goblin_run");
 		}
 
 		else if (type_ == "water") {
@@ -191,8 +191,8 @@ void AnimationEnemyBEUComponent::setMovTexture() {
 			t_ = &SDLUtils::instance()->images().at("BEU_fire_Bat_fly");
 		}
 
-		else if (type_ == "wind") {
-			t_ = &SDLUtils::instance()->images().at("BEU_wind_Bat_fly");
+		else if (type_ == "air") {
+			t_ = &SDLUtils::instance()->images().at("BEU_air_Bat_fly");
 		}
 
 		else if (type_ == "water") {
@@ -220,8 +220,8 @@ void AnimationEnemyBEUComponent::setAttackTexture() {
 			t_ = &SDLUtils::instance()->images().at("BEU_fire_Mushroom_attack");
 		}
 
-		else if (type_ == "wind") {
-			t_ = &SDLUtils::instance()->images().at("BEU_wind_Mushroom_attack");
+		else if (type_ == "air") {
+			t_ = &SDLUtils::instance()->images().at("BEU_air_Mushroom_attack");
 		}
 
 		else if (type_ == "water") {
@@ -247,8 +247,8 @@ void AnimationEnemyBEUComponent::setAttackTexture() {
 			t_ = &SDLUtils::instance()->images().at("BEU_fire_Skeleton_attack");
 		}
 
-		else if (type_ == "wind") {
-			t_ = &SDLUtils::instance()->images().at("BEU_wind_Skeleton_attack");
+		else if (type_ == "air") {
+			t_ = &SDLUtils::instance()->images().at("BEU_air_Skeleton_attack");
 		}
 
 		else if (type_ == "water") {
@@ -274,8 +274,8 @@ void AnimationEnemyBEUComponent::setAttackTexture() {
 			t_ = &SDLUtils::instance()->images().at("BEU_fire_Goblin_attack");
 		}
 
-		else if (type_ == "wind") {
-			t_ = &SDLUtils::instance()->images().at("BEU_wind_Goblin_attack");
+		else if (type_ == "air") {
+			t_ = &SDLUtils::instance()->images().at("BEU_air_Goblin_attack");
 		}
 
 		else if (type_ == "water") {
@@ -301,8 +301,8 @@ void AnimationEnemyBEUComponent::setAttackTexture() {
 			t_ = &SDLUtils::instance()->images().at("BEU_fire_Bat_attack");
 		}
 
-		else if (type_ == "wind") {
-			t_ = &SDLUtils::instance()->images().at("BEU_wind_Bat_attack");
+		else if (type_ == "air") {
+			t_ = &SDLUtils::instance()->images().at("BEU_air_Bat_attack");
 		}
 
 		else if (type_ == "water") {
@@ -331,8 +331,8 @@ void AnimationEnemyBEUComponent::setHitTexture()
 			t_ = &SDLUtils::instance()->images().at("BEU_fire_Mushroom_hit");
 		}
 
-		else if (type_ == "wind") {
-			t_ = &SDLUtils::instance()->images().at("BEU_wind_Mushroom_hit");
+		else if (type_ == "air") {
+			t_ = &SDLUtils::instance()->images().at("BEU_air_Mushroom_hit");
 		}
 
 		else if (type_ == "water") {
@@ -358,8 +358,8 @@ void AnimationEnemyBEUComponent::setHitTexture()
 			t_ = &SDLUtils::instance()->images().at("BEU_fire_Skeleton_hit");
 		}
 
-		else if (type_ == "wind") {
-			t_ = &SDLUtils::instance()->images().at("BEU_wind_Skeleton_hit");
+		else if (type_ == "air") {
+			t_ = &SDLUtils::instance()->images().at("BEU_air_Skeleton_hit");
 		}
 
 		else if (type_ == "water") {
@@ -385,8 +385,8 @@ void AnimationEnemyBEUComponent::setHitTexture()
 			t_ = &SDLUtils::instance()->images().at("BEU_fire_Goblin_hit");
 		}
 
-		else if (type_ == "wind") {
-			t_ = &SDLUtils::instance()->images().at("BEU_wind_Goblin_hit");
+		else if (type_ == "air") {
+			t_ = &SDLUtils::instance()->images().at("BEU_air_Goblin_hit");
 		}
 
 		else if (type_ == "water") {
@@ -412,8 +412,8 @@ void AnimationEnemyBEUComponent::setHitTexture()
 			t_ = &SDLUtils::instance()->images().at("BEU_fire_Bat_hit");
 		}
 
-		else if (type_ == "wind") {
-			t_ = &SDLUtils::instance()->images().at("BEU_wind_Bat_hit");
+		else if (type_ == "air") {
+			t_ = &SDLUtils::instance()->images().at("BEU_air_Bat_hit");
 		}
 
 		else if (type_ == "water") {
@@ -442,8 +442,8 @@ void AnimationEnemyBEUComponent::setDeathTexture()
 			t_ = &SDLUtils::instance()->images().at("BEU_fire_Mushroom_death");
 		}
 
-		else if (type_ == "wind") {
-			t_ = &SDLUtils::instance()->images().at("BEU_wind_Mushroom_death");
+		else if (type_ == "air") {
+			t_ = &SDLUtils::instance()->images().at("BEU_air_Mushroom_death");
 		}
 
 		else if (type_ == "water") {
@@ -469,8 +469,8 @@ void AnimationEnemyBEUComponent::setDeathTexture()
 			t_ = &SDLUtils::instance()->images().at("BEU_fire_Skeleton_death");
 		}
 
-		else if (type_ == "wind") {
-			t_ = &SDLUtils::instance()->images().at("BEU_wind_Skeleton_death");
+		else if (type_ == "air") {
+			t_ = &SDLUtils::instance()->images().at("BEU_air_Skeleton_death");
 		}
 
 		else if (type_ == "water") {
@@ -496,8 +496,8 @@ void AnimationEnemyBEUComponent::setDeathTexture()
 			t_ = &SDLUtils::instance()->images().at("BEU_fire_Goblin_death");
 		}
 
-		else if (type_ == "wind") {
-			t_ = &SDLUtils::instance()->images().at("BEU_wind_Goblin_death");
+		else if (type_ == "air") {
+			t_ = &SDLUtils::instance()->images().at("BEU_air_Goblin_death");
 		}
 
 		else if (type_ == "water") {
@@ -523,8 +523,8 @@ void AnimationEnemyBEUComponent::setDeathTexture()
 			t_ = &SDLUtils::instance()->images().at("BEU_fire_Bat_death");
 		}
 
-		else if (type_ == "wind") {
-			t_ = &SDLUtils::instance()->images().at("BEU_wind_Bat_death");
+		else if (type_ == "air") {
+			t_ = &SDLUtils::instance()->images().at("BEU_air_Bat_death");
 		}
 
 		else if (type_ == "water") {

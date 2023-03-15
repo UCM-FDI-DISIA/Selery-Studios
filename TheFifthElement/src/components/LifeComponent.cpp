@@ -107,7 +107,7 @@ void LifeComponent::subLife(float damage) {
 
 void LifeComponent::chageType(string type, float maxLife) {
 	if (type_ == "fire") types[0] = life_;
-	else if (type_ == "wind")types[1] = life_;
+	else if (type_ == "air")types[1] = life_;
 	else if (type_ == "water")types[2] = life_;
 	else if (type_ == "earth")types[3] = life_;
 	
@@ -118,7 +118,7 @@ void LifeComponent::chageType(string type, float maxLife) {
 		if (types[0] == -1)types[0] = maxLife;
 		life_ = types[0];
 	}
-	else if (type_ == "wind") {
+	else if (type_ == "air") {
 		if (types[1] == -1)types[1] = maxLife;
 		life_ = types[1];
 	}
@@ -187,7 +187,7 @@ void LifeComponent::chooseTexture() {
 		borderTexture_ = &SDLUtils::instance()->images().at("Fire_LifeBarBorder");
 	}
 
-	else if (type_ == "wind") {
+	else if (type_ == "air") {
 		barTexture_ = &SDLUtils::instance()->images().at("Air_LifeBar");
 		backTexture_ = &SDLUtils::instance()->images().at("Air_LifeBarBack");
 		borderTexture_ = &SDLUtils::instance()->images().at("Air_LifeBarBorder");
