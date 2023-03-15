@@ -5,8 +5,8 @@ Game::Game() {
 	renderer = SDLUtils::instance()->renderer();
 	window = SDLUtils::instance()->window();
 	exit = false;
-	//GameStateMachine::instance()->pushState(new TopDownState());
-	GameStateMachine::instance()->pushState(new MainMenuState());
+	GameStateMachine::instance()->pushState(new TopDownState());
+	//GameStateMachine::instance()->pushState(new MainMenuState());
 	//GameStateMachine::instance()->pushState(new BeatEmUpState(true, "earth"));
 }
 

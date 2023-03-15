@@ -136,6 +136,7 @@
     <ClInclude Include="AnimationEarthBossComponent.h" />
     <ClInclude Include="LifeEarthBossComponent.h" />
     <ClInclude Include="MovementEarthBossComponent.h" />
+    <ClInclude Include="src\components\RedirectEnemy.h" />
     <ClInclude Include="src\ColManager.h" />
     <ClInclude Include="src\components\ColliderTile.h" />
     <ClInclude Include="src\components\JumpComponent.h" />
@@ -206,6 +207,7 @@
     <ClCompile Include="AnimationEarthBossComponent.cpp" />
     <ClCompile Include="LifeEarthBossComponent.cpp" />
     <ClCompile Include="MovementEarthBossComponent.cpp" />
+    <ClCompile Include="src\components\RedirectEnemy.cpp" />
     <ClCompile Include="src\ColManager.cpp" />
     <ClCompile Include="src\components\ColliderTile.cpp" />
     <ClCompile Include="src\components\JumpComponent.cpp" />
