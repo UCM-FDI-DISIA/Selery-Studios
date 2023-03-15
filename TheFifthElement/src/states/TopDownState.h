@@ -116,22 +116,22 @@ public:
 		if (a == 0) {
 			enemy_width = 68;            //habra que cambiar el ancho y alto de cada enemigo dependiendo de cual sea
 			enemy_height = 120;
-			return &SDLUtils::instance()->images().at("TD_wind_mushroom");
+			return &SDLUtils::instance()->images().at("TD_air_mushroom");
 		}
 		else if (a == 1) {
 			enemy_width = 68;
 			enemy_height = 120;
-			return &SDLUtils::instance()->images().at("TD_wind_goblin");
+			return &SDLUtils::instance()->images().at("TD_air_goblin");
 		}
 		else if (a == 2) {
 			enemy_width = 68;
 			enemy_height = 120;
-			return &SDLUtils::instance()->images().at("TD_wind_bat");
+			return &SDLUtils::instance()->images().at("TD_air_bat");
 		}
 		else if (a == 3) {
 			enemy_width = 68;
 			enemy_height = 120;
-			return &SDLUtils::instance()->images().at("TD_wind_skeleton");
+			return &SDLUtils::instance()->images().at("TD_air_skeleton");
 		}
 
 	}
