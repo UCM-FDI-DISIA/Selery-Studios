@@ -1,10 +1,10 @@
 #pragma once
 #ifndef LIFEEARTHBOSSCOMPONENT_H_
 #define LIFEEARTHBOSSCOMPONENT_H_
-#include "src/utils/Vector2D.h"
-#include "src/utils/Component.h"
-#include "src/utils/Entity.h"
-#include "AnimationEarthBossComponent.h"
+#include "../utils/Vector2D.h"
+#include "../utils/Component.h"
+#include "../utils/Entity.h"
+#include "../components/AnimationEarthBossComponent.h"
 class LifeEarthBossComponent : public Component
 {
 private:

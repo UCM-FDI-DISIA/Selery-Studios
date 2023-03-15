@@ -51,9 +51,9 @@
     <ClCompile Include="src\ColManager.cpp" />
     <ClCompile Include="src\states\PauseMenuState.cpp" />
     <ClCompile Include="src\components\ShopComponent.cpp" />
-    <ClCompile Include="MovementEarthBossComponent.cpp" />
-    <ClCompile Include="LifeEarthBossComponent.cpp" />
-    <ClCompile Include="AnimationEarthBossComponent.cpp" />
+    <ClCompile Include="src\components\LifeEarthBossComponent.cpp" />
+    <ClCompile Include="src\components\AnimationEarthBossComponent.cpp" />
+    <ClCompile Include="src\components\MovementEarthBossComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\components\Button.h" />
@@ -121,9 +121,10 @@
     <ClInclude Include="src\ColManager.h" />
     <ClInclude Include="src\states\PauseMenuState.h" />
     <ClInclude Include="src\components\ShopComponent.h" />
-    <ClInclude Include="MovementEarthBossComponent.h" />
-    <ClInclude Include="LifeEarthBossComponent.h" />
-    <ClInclude Include="AnimationEarthBossComponent.h" />
+    <ClInclude Include="src\components\LifeEarthBossComponent.h" />
+    <ClInclude Include="src\components\AnimationEarthBossComponent.h" />
+    <ClInclude Include="src\components\MovementEarthBossComponent.h" />
+    <ClInclude Include="src\components\ObjectsComponent.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="TheFifthElement.rc" />
