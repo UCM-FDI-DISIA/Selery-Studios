@@ -175,17 +175,58 @@ void TopDownState::LoadMap(string const& filename) {
                     
                 }
                 else if (name == "Enemy") {
-                    enemy_ = new Entity();
-                    enemy_->setContext(this);
-                    enemy_->addComponent<Transform>(TRANSFORM_H, Vector2D(obj.getPosition().x, obj.getPosition().y),enemy_width, enemy_height);
-                    enemy_->addComponent<Enemy_movementTD_component>(ENEMY_MOVEMENT_TD_H);
-                    enemy_->addComponent<Image>(IMAGE_H, EnemyTexture(), ENEMYTD_NUMFRAMES, ENEMYTD_NUMFRAMES, 0, enemy_width, enemy_height);
-                    float a = -1.0f;
-                    float lookingRange = 150.0f;
-                    float lookingWidth = 100.0f;
-                    enemy_->addComponent<CheckCollision>(CHECKCOLLISION_H, player_, lookingRange, lookingWidth, a);            
-                    enemy_->addComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
-                    addEntity(enemy_);
+                    if (obj.getName() == "") {
+                        enemy_ = new Entity();
+                        enemy_->setContext(this);
+                        Texture* enemyT_ = EnemyTexture();
+                        enemy_->addComponent<Transform>(TRANSFORM_H, Vector2D(obj.getPosition().x, obj.getPosition().y), enemy_width, enemy_height);
+                        enemy_->addComponent<Enemy_movementTD_component>(ENEMY_MOVEMENT_TD_H);
+                        enemy_->addComponent<Image>(IMAGE_H, enemyT_, ENEMYTD_NUMFRAMES, ENEMYTD_NUMFRAMES, 0, enemy_width, enemy_height);
+                        float a = -1.0f;
+                        float lookingRange = 150.0f;
+                        float lookingWidth = 100.0f;
+                        enemy_->addComponent<CheckCollision>(CHECKCOLLISION_H, player_, lookingRange, lookingWidth, a);
+                        enemy_->addComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
+                        enemy_->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(0, 0), enemy_height, enemy_width);
+                        addEntity(enemy_);
+                        enemies_.push_back(enemy_);
+                    }
+                    else if (obj.getName() == "left") {
+                        redirect_ = new Entity();
+                        redBox_.x = obj.getPosition().x;
+                        redBox_.y = obj.getPosition().y;
+                        redBox_.w = 10;
+                        redBox_.h = 10;
+                        redirect_->addComponent<RedirectEnemy>(REDIRECTENEMY_H, Vector2D(-1, 0), redBox_, enemies_);
+                        addEntity(redirect_);
+                    }
+                    else if (obj.getName() == "right") {
+                        redirect_ = new Entity();
+                        redBox_.x = obj.getPosition().x;
+                        redBox_.y = obj.getPosition().y;
+                        redBox_.w = 10;
+                        redBox_.h = 10;
+                        redirect_->addComponent<RedirectEnemy>(REDIRECTENEMY_H, Vector2D(1, 0), redBox_, enemies_);
+                        addEntity(redirect_);
+                    }
+                    else if (obj.getName() == "up") {
+                        redirect_ = new Entity();
+                        redBox_.x = obj.getPosition().x;
+                        redBox_.y = obj.getPosition().y;
+                        redBox_.w = 10;
+                        redBox_.h = 10;
+                        redirect_->addComponent<RedirectEnemy>(REDIRECTENEMY_H, Vector2D(0, -1), redBox_, enemies_);
+                        addEntity(redirect_);
+                    }
+                    else if (obj.getName() == "down") {
+                        redirect_ = new Entity();
+                        redBox_.x = obj.getPosition().x;
+                        redBox_.y = obj.getPosition().y;
+                        redBox_.w = 10;
+                        redBox_.h = 10;
+                        redirect_->addComponent<RedirectEnemy>(REDIRECTENEMY_H, Vector2D(0, 1), redBox_, enemies_);
+                        addEntity(redirect_);
+                    }
                 }
                 else if (name == "Portal") {
                     Entity* portal_ = new Entity();

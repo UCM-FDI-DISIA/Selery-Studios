@@ -26,6 +26,7 @@
 #include "../components/ObjectsComponent.h"
 #include "../components/Button.h"
 #include "../components/ShopComponent.h"
+#include "../components/RedirectEnemy.h"
 using uint = unsigned int;
 using tileset_map = std::map<std::string, Texture*>; //mapa con CLAVE:string, ARGUMENTO: puntero a textura
 using tilelayer = tmx::TileLayer;
@@ -66,6 +67,9 @@ private:
 	//Transform* Nptr_;
 	int number_npc_ = 0;
 	//ENEMIGOS 
+	vector<Entity*> enemies_;
+	Entity* redirect_;
+	SDL_Rect redBox_;
 	Entity* enemy_;
 	float enemy_width, enemy_height;
 
@@ -108,26 +112,24 @@ public:
 	Texture* EnemyTexture() {
 		int a = SDLUtils::instance()->rand().nextInt(0, 3);
 		if (a == 0) {
+			enemy_width = 68;            //habra que cambiar el ancho y alto de cada enemigo dependiendo de cual sea
+			enemy_height = 120;
 			return &SDLUtils::instance()->images().at("TD_wind_mushroom");
-			enemy_width = 68;			//habra que cambiar el ancho y alto de cada enemigo dependiendo de cual sea
-			enemy_height =120;
 		}
 		else if (a == 1) {
-			return &SDLUtils::instance()->images().at("TD_wind_goblin");
 			enemy_width = 68;
 			enemy_height = 120;
+			return &SDLUtils::instance()->images().at("TD_wind_goblin");
 		}
 		else if (a == 2) {
-			return &SDLUtils::instance()->images().at("TD_wind_bat");
 			enemy_width = 68;
 			enemy_height = 120;
-
+			return &SDLUtils::instance()->images().at("TD_wind_bat");
 		}
 		else if (a == 3) {
-			return &SDLUtils::instance()->images().at("TD_wind_skeleton");
 			enemy_width = 68;
 			enemy_height = 120;
-
+			return &SDLUtils::instance()->images().at("TD_wind_skeleton");
 		}
 
 	}

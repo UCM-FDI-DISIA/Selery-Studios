@@ -54,6 +54,7 @@
     <ClCompile Include="MovementEarthBossComponent.cpp" />
     <ClCompile Include="LifeEarthBossComponent.cpp" />
     <ClCompile Include="AnimationEarthBossComponent.cpp" />
+    <ClCompile Include="src\components\RedirectEnemy.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\components\Button.h" />
@@ -124,6 +125,7 @@
     <ClInclude Include="MovementEarthBossComponent.h" />
     <ClInclude Include="LifeEarthBossComponent.h" />
     <ClInclude Include="AnimationEarthBossComponent.h" />
+    <ClInclude Include="src\components\RedirectEnemy.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="TheFifthElement.rc" />
