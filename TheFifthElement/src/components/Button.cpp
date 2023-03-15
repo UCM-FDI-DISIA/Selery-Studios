@@ -59,6 +59,7 @@ void Button::handleEvent(SDL_Event event)
 				}
 
 				else if (identifier == "UPTURN") {
+					SDLUtils::instance()->soundEffects().at("pruebaBoton").play();
 					cout << "1";
 				}
 			}
