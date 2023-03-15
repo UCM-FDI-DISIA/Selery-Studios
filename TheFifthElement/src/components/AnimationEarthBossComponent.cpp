@@ -6,24 +6,32 @@ void AnimationEarthBossComponent::initComponent() {
 void AnimationEarthBossComponent::newAnimation(Animations newAnim) {
 	switch (newAnim)
 	{
-	case AnimationEarthBossComponent::Idle:
-		imBoss->setAnim(true, 0, 8, 0, 100);
+	case Idle:
+		imBoss->setAnim(false, 0, 8, 0, 100);
 		break;
-	case AnimationEarthBossComponent::Moving:
-		imBoss->setAnim(true, 1, 8, 0, 100);
+	case Moving:
+		imBoss->setAnim(false, 1, 8, 0, 100);
 		break;
-	case AnimationEarthBossComponent::Attack:
+	case Attack:
 		imBoss->setAnim(true, 2, 17, 0, 100);
 		break;
-	case AnimationEarthBossComponent::Hit:
+	case Hit:
 		imBoss->setAnim(true, 3, 12, 0, 100);
 		break;
-	case AnimationEarthBossComponent::Death:
+	case Death:
 		imBoss->setAnim(true, 4, 13, 0, 100);
 		break;
-	case AnimationEarthBossComponent::IdleProtection:
+	case IdleProtection:
 		break;
-	case AnimationEarthBossComponent::Protection:
+	case Protection:
 		break;
 	}
+	currentAnimation = newAnim;
+}
+
+void AnimationEarthBossComponent::update() {
+	/*if (!imBoss->isAnimPlaying() && currentAnimation != Idle) {
+		newAnimation(Idle);
+		cout << "Cambio" << endl;
+	}*/
 }
