@@ -55,6 +55,13 @@ const int enemy_rock_life = 200;
 
 #pragma endregion
 
+#pragma region WaterBoss_data
+
+const int WATERBOSS_WIDTH = 192;
+const int WATERBOSS_HEIGHT = 128;
+
+#pragma endregion
+
 #pragma region EarthBoss_data
 
 const int EARTHBOSS_WIDTH = 224;

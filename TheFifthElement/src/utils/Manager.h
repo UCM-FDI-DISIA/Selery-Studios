@@ -11,6 +11,15 @@ protected:
 public:
 	Manager();
 	virtual ~Manager();
+
+	Entity* addEntity() {
+		Entity* e = new Entity();
+		e->setAlive(true);
+		e->setContext(this);
+		ents_.push_back(e);
+		return e;
+	}
+
 	template<typename T>
 	Entity* addEntity(T* e) {
 		e->setAlive(true);
@@ -19,6 +28,7 @@ public:
 		ents_.push_back(e);
 		return e;
 	}
+
 	virtual void refresh();
 	virtual void update();
 	virtual void render();

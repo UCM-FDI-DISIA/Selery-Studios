@@ -50,6 +50,7 @@ public:
 	~BeatEmUpState() {}
 	string getStateID(); // stringID
 	void AddEnemies(int i);
+	void AddWaterBoss();
 	void AddFireBoss();
 	void AddAirBoss();
 	void AddEarthBoss();

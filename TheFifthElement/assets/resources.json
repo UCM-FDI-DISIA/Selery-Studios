@@ -151,7 +151,8 @@
     {"id": "ExitShop", "file": "assets/HUD/tienda/botonsalirtienda.png"},
     {"id": "ShopBackground", "file": "assets/HUD/tienda/fondotienda.png"},
     {"id": "ShopFrame", "file": "assets/HUD/tienda/marcotienda.png"},
-    {"id": "GolemFase1", "file": "assets/Enemies/BeatEmUp/Bosses/GroundBoss/Stone-golem-all animations-224x192.png"}
+    {"id": "GolemFase1", "file": "assets/Enemies/BeatEmUp/Bosses/GroundBoss/Stone-golem-all animations-224x192.png"},
+    {"id":  "waterBoss", "file":  "assets/Enemies/BeatEmUp/Bosses/WaterBoss/frost_guardian_free_192x128_SpriteSheet.png"}
   ],
 
   "messages": [
@@ -177,7 +178,6 @@
     {"id": "NPC_Chat", "file": "assets/Sounds/NPCs/npcchat.wav"},
     {"id": "coinSound", "file": "assets/Sounds/objects/coin.wav"},
     {"id": "magic", "file": "assets/Sounds/objects/magic.wav"}
-
   ],
 
   "musics": [
@@ -214,8 +214,5 @@
     {"id": "generic_estructure2-topdown-on grass-pillars","file": "assets/Scenes/Maps/AncientRuins/Props/generic_estructure2-topdown-on grass-pillars.png"},
     {"id": "generic_estructure2-topdown-on grass-basic structure2","file": "assets/Scenes/Maps/AncientRuins/Props/generic_estructure2-topdown-on grass-basic structure2.png"},
     {"id": "Obelisk3-animation2-deactivating-70x150","file": "assets/Scenes/Maps/AncientRuins/Props/Obelisk3-animation2-deactivating-70x150.png"}
- 
   ]
-
 } 
- 

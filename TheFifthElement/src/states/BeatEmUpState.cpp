@@ -24,9 +24,12 @@ BeatEmUpState::BeatEmUpState(bool boss, string typeBoss) {
 	player_->addComponent<ColliderComponent>(int(COLLIDERCOMPONENT_H), Vector2D(90, 80), 1.2*PLAYERBEU_HEIGHT_FRAME / 3, PLAYERBEU_WIDTH_FRAME / 7);
 	//player_->getComponent<AttackBoxComponent>(ATTACKBOXCOMPONENT_H);
 	addEntity(player_);
-	
+
 	if (!boss) {
 		AddEnemies(3);
+	}
+	else if (boss && typeBoss == "water") {
+		AddWaterBoss();
 	}
 	else if (boss && typeBoss == "earth") {
 		AddEarthBoss();
@@ -40,7 +43,7 @@ BeatEmUpState::BeatEmUpState(bool boss, string typeBoss) {
 
 	colManager_ = new ColManager(this);
 
-	
+
 }
 
 void BeatEmUpState::AddEnemies(int n_enemies) {
@@ -50,7 +53,7 @@ void BeatEmUpState::AddEnemies(int n_enemies) {
 		Vector2D pos={ (float)random->nextInt(50,WIN_WIDTH - 80),(float)random->nextInt(50,WIN_HEIGHT - 50) };
 		enemy_ = new Entity();
 		if (character == 0) {
-			
+
 			//enemy_ = addEntity(new EnemyBEU(pos, player_, 10, "bat", getEnemyType(element)));
 			animation_=enemy_->addComponent<AnimationEnemyBEUComponent>(ANIMATIONENEMYBEUCOMPONENT_H, getEnemyType(type), "bat", player_);
 		}
@@ -62,7 +65,7 @@ void BeatEmUpState::AddEnemies(int n_enemies) {
 		}
 		else {
 			animation_ = enemy_->addComponent<AnimationEnemyBEUComponent>(ANIMATIONENEMYBEUCOMPONENT_H, getEnemyType(type), "goblin", player_);
-			
+
 		}
 		animation_->changeState(AnimationEnemyBEUComponent::Moving);
 		animation_->updateAnimation();
@@ -76,14 +79,23 @@ void BeatEmUpState::AddEnemies(int n_enemies) {
 		enemy_->addComponent<ColDetectorComponent>(COLDETECTORCOMPONENT_H, enemy_, player_);
 		addEntity(enemy_);
 
-		
-	
+
+
 		//en_->getComponent<LifeComponent>(LIFECOMPONENT_H)->setLifeBar(lb_);
 	}
 }
 
+void BeatEmUpState::AddWaterBoss() {
+	Vector2D position = Vector2D(sdlutils().width()/2 , sdlutils().height()/2);
+
+	Entity* waterBoss = addEntity();
+	waterBoss->addComponent<Transform>(TRANSFORM_H, position, WATERBOSS_WIDTH*1.2, WATERBOSS_HEIGHT*1.2);
+	waterBoss->addComponent<Image>(IMAGE_H, &sdlutils().images().at("waterBoss"), 6, 16, 0, WATERBOSS_WIDTH, WATERBOSS_HEIGHT);
+	waterBoss->addComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
+}
+
 void BeatEmUpState::AddFireBoss() {
-	
+
 }
 
 void BeatEmUpState::AddEarthBoss() {
@@ -123,13 +135,13 @@ void BeatEmUpState::handleEvents() {
 	SDL_Event event;
 	while (SDL_PollEvent(&event)) { in_->handleEvents(event); }
 	if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_V)) { finishBEU(); };
-	
+
 }
 
 void BeatEmUpState::finishBEU() {
 	GameManager::instance()->goTopDown();
 	SDLUtils::instance()->soundEffects().at("Battle").haltChannel();
-	
+
 }
 
 string BeatEmUpState::getStateID() {
