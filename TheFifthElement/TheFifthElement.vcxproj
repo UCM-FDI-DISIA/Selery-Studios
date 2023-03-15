@@ -130,6 +130,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\components\EconomyComponent.h" />
     <ClInclude Include="src\ColManager.h" />
     <ClInclude Include="src\components\ColliderTile.h" />
     <ClInclude Include="src\components\JumpComponent.h" />
@@ -198,6 +199,7 @@
   <ItemGroup>
     <ClCompile Include="src\ColManager.cpp" />
     <ClCompile Include="src\components\ColliderTile.cpp" />
+    <ClCompile Include="src\components\EconomyComponent.cpp" />
     <ClCompile Include="src\components\JumpComponent.cpp" />
     <ClCompile Include="src\components\Button.cpp" />
     <ClCompile Include="src\components\AnimationEnemyBEUComponent.cpp" />

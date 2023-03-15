@@ -1,63 +1,12 @@
-﻿  BeatEmUpState.cpp
-C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\P2\TheFifthElement\src\components\ColliderComponent.h(30,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\P2\TheFifthElement\src\components\ColliderComponent.h(31,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\P2\TheFifthElement\src\components\ColliderComponent.h(32,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\P2\TheFifthElement\src\components\ColliderComponent.h(33,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\P2\TheFifthElement\src\components\ColliderComponent.h(49,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\P2\TheFifthElement\src\components\ColliderComponent.h(50,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\P2\TheFifthElement\src\components\ColliderComponent.h(51,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\P2\TheFifthElement\src\components\ColliderComponent.h(52,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\P2\TheFifthElement\src\components\ColliderComponent.h(65,33): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\P2\TheFifthElement\src\components\ColliderComponent.h(66,32): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\P2\TheFifthElement\src\components\AnimationEnemyBEUComponent.h(77,29): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\P2\TheFifthElement\src\components\AnimationEnemyBEUComponent.h(78,30): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\P2\TheFifthElement\src\components\ColDetectorComponent.h(61,40): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\P2\TheFifthElement\src\components\ColDetectorComponent.h(60,69): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\P2\TheFifthElement\src\components\ColDetectorComponent.h(62,72): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\P2\TheFifthElement\src\components\ColDetectorComponent.h(62,49): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\P2\TheFifthElement\src\components\ColDetectorComponent.h(63,63): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\P2\TheFifthElement\src\components\ColDetectorComponent.h(63,40): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\P2\TheFifthElement\src\components\ColDetectorComponent.h(61,87): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\P2\TheFifthElement\src\components\ColDetectorComponent.h(61,64): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\P2\TheFifthElement\src\components\ColDetectorComponent.h(67,36): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\P2\TheFifthElement\src\components\ColDetectorComponent.h(66,70): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\P2\TheFifthElement\src\components\ColDetectorComponent.h(68,40): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\P2\TheFifthElement\src\components\ColDetectorComponent.h(68,31): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\P2\TheFifthElement\src\components\ColDetectorComponent.h(68,59): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\P2\TheFifthElement\src\components\ColDetectorComponent.h(68,50): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\P2\TheFifthElement\src\components\ColDetectorComponent.h(67,83): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\P2\TheFifthElement\src\components\ColDetectorComponent.h(67,60): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\P2\TheFifthElement\src\components\ColDetectorComponent.h(89,19): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\P2\TheFifthElement\src\components\ColDetectorComponent.h(94,34): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\P2\TheFifthElement\src\sdlutils\SDLUtils.h(52,30): warning C4101: 'e': variable local sin referencia
-C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\P2\TheFifthElement\src\sdlutils\SDLUtils.h(48,1): message : al compilar la función del miembro clase plantilla "Texture &SDLUtils::map_access_wrapper<Texture>::at(std::string)"
-C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\P2\TheFifthElement\src\sdlutils\SDLUtils.h(205,30): message : Vea la referencia a la creación de una instancia de clase plantilla "SDLUtils::map_access_wrapper<Texture>" que se está compilando
-C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\P2\TheFifthElement\src\states\BeatEmUpState.cpp(126,61): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\P2\TheFifthElement\src\states\BeatEmUpState.cpp(127,47): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\P2\TheFifthElement\src\utils\Entity.h(34,27): warning C4244: 'argumento': conversión de 'const uint' a 'float'; posible pérdida de datos
-C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\P2\TheFifthElement\src\states\BeatEmUpState.cpp(8,93): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Entity::addComponent<Transform,Vector2D,const uint&,const uint&>(cmpId_type,Vector2D &&,const uint &,const uint &)" que se está compilando
-          with
-          [
-              T=Transform
-          ]
-C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\P2\TheFifthElement\src\utils\Entity.h(34,27): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
-          with
-          [
-              _Ty=int
-          ]
-C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\P2\TheFifthElement\src\states\BeatEmUpState.cpp(17,82): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Entity::addComponent<LifeComponent,int,bool,const char(&)[5],Entity*&>(cmpId_type,int &&,bool &&,const char (&)[5],Entity *&)" que se está compilando
-          with
-          [
-              T=LifeComponent
-          ]
-C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\P2\TheFifthElement\src\utils\Entity.h(34,27): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
-          with
-          [
-              _Ty=uint
-          ]
-C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\P2\TheFifthElement\src\states\BeatEmUpState.cpp(23,141): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Entity::addComponent<ColliderComponent,Vector2D,uint,uint>(cmpId_type,Vector2D &&,uint &&,uint &&)" que se está compilando
-          with
-          [
-              T=ColliderComponent
-          ]
-  TheFifthElement.vcxproj -> C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\P2\TheFifthElement\x64\Debug\TheFifthElement.exe
+﻿  EconomyComponent.cpp
+C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(52,30): warning C4101: 'e': variable local sin referencia
+C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(48): message : al compilar la función del miembro clase plantilla "Texture &SDLUtils::map_access_wrapper<Texture>::at(std::string)"
+C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(205): message : Vea la referencia a la creación de una instancia de clase plantilla "SDLUtils::map_access_wrapper<Texture>" que se está compilando
+C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\components\EconomyComponent.cpp(7,33): warning C4838: la conversión de 'float' en 'int' requiere una conversión de restricción
+C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\components\EconomyComponent.cpp(7,33): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\components\EconomyComponent.cpp(7,49): warning C4838: la conversión de 'float' en 'int' requiere una conversión de restricción
+C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\components\EconomyComponent.cpp(7,49): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\components\EconomyComponent.cpp(30,96): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\components\EconomyComponent.cpp(30,69): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+     Creando biblioteca C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\x64\Debug\TheFifthElement.lib y objeto C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\x64\Debug\TheFifthElement.exp
+  TheFifthElement.vcxproj -> C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\x64\Debug\TheFifthElement.exe
