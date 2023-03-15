@@ -52,7 +52,7 @@ void LifeComponent::update() {
 					eMov_->stop(false);
 
 				}
-				if (anim_->currentState_ != AnimationEnemyBEUComponent::Hit)hit_ = false;
+				if (anim_->currentState_ != AnimationEnemyBEUComponent::Hit) hit_ = false;
 			}
 			else {//player
 

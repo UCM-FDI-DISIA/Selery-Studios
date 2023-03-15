@@ -1,3 +1,4 @@
-﻿  LifeEarthBossComponent.cpp
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\LifeEarthBossComponent.cpp(11,17): warning C4244: '-=': conversión de 'float' a 'int'; posible pérdida de datos
+﻿  MovementEarthBossComponent.cpp
+C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\MovementEarthBossComponent.cpp(13,81): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\MovementEarthBossComponent.cpp(14,40): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
   TheFifthElement.vcxproj -> C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\x64\Debug\TheFifthElement.exe
