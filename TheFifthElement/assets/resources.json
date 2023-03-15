@@ -32,7 +32,7 @@
     {"id": "BEU_water_Mushroom_hit", "file": "./assets/Enemies/BeatEmUP/Water/Mushroom/Take Hit.png"},
     {"id": "BEU_water_Mushroom_death","file": "./assets/Enemies/BeatEmUP/Water/Mushroom/Death.png"},
     {"id": "BEU_water_Bat_fly","file": "./assets/Enemies/BeatEmUP/Water/Bat/Flight.png"},
-    {"id": "BEU_wind_Bat_attack", "file": "./assets/Enemies/BeatEmUP/Water/Bat/Attack.png"},
+    {"id": "BEU_water_Bat_attack", "file": "./assets/Enemies/BeatEmUP/Water/Bat/Attack.png"},
     {"id": "BEU_water_Bat_hit", "file": "./assets/Enemies/BeatEmUP/Water/Bat/Take Hit.png"},
     {"id": "BEU_water_Bat_death","file": "./assets/Enemies/BeatEmUP/Water/Bat/Death (1).png"},
     {"id": "BEU_water_Goblin_run","file": "./assets/Enemies/BeatEmUP/Water/Goblin/Run.png"},
@@ -132,6 +132,7 @@
     {"id": "fondoMainMenu", "file": "assets/Scenes/Backgrounds/Menu/fondoMainMenu.png"},
     {"id": "fondoMainMenu1", "file": "assets/Scenes/Backgrounds/Menu/fondoMainMenu1.png"},
     {"id": "fondoMainMenu2", "file": "assets/Scenes/Backgrounds/Menu/fondoMainMenu2.png"},
+    {"id": "fondoMainMenu3", "file": "assets/Scenes/Backgrounds/Menu/fondoMainMenu3.png"},
     {"id": "PlayButton", "file": "assets/Scenes/Backgrounds/Menu/Buttons/PlayButton.png"},
     {"id": "PlayButtonPressed", "file": "assets/Scenes/Backgrounds/Menu/Buttons/PlayButtonPress.png"},
     {"id": "ExitButton", "file": "assets/Scenes/Backgrounds/Menu/Buttons/ExitButton.png"},
@@ -149,7 +150,8 @@
     {"id": "UpturnButton", "file": "assets/HUD/tienda/botonmejoratienda.png"},
     {"id": "ExitShop", "file": "assets/HUD/tienda/botonsalirtienda.png"},
     {"id": "ShopBackground", "file": "assets/HUD/tienda/fondotienda.png"},
-    {"id": "ShopFrame", "file": "assets/HUD/tienda/marcotienda.png"}
+    {"id": "ShopFrame", "file": "assets/HUD/tienda/marcotienda.png"},
+    {"id": "GolemFase1", "file": "assets/Enemies/BeatEmUp/Bosses/GroundBoss/Stone-golem-all animations-224x192.png"}
   ],
 
   "messages": [

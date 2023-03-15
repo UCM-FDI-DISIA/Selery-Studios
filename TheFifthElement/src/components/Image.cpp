@@ -9,9 +9,6 @@ Image::Image(Texture* tex, int width, int height, Transform* trans) {
 	heightFrame_ = height;
 	tr_ = trans;
 	tex_ = tex;
-
-
-	
 }
 
 
@@ -69,7 +66,11 @@ void Image::render() {
 			cont = 0;
 		}
 		if (ent_->hasComponent(INPUTCOMPONENTBEU_H)) {
-			cout << animPlaying << endl;
+			//cout << animPlaying << endl;
+		}
+		else if (ent_->hasComponent(MOVEMENTEARTHBOSSCOMPONENT_H)) {
+			/*cout << "hola" << endl;
+			cout << ent_->getComponent<Transform>(TRANSFORM_H)->getPos();*/
 		}
 		cont++;
 		if (i >= frames_ || i >= tope) {

@@ -23,6 +23,7 @@ private:
 	bool collision = false;
 	bool enemy_ = false;
 	string type_;
+	float scale;
 #pragma endregion
 
 #pragma region propierties

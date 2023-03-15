@@ -10,14 +10,14 @@ void Button::update() {
 	if (Collision::collides(buttonTransform->getPos(), buttonTransform->getW(), buttonTransform->getH(), mousePos, mouseRect.w, mouseRect.h))
 	{
 		currentPositionState = MOUSE_OVER;
-		if (identifier == "PLAY")im_->setAnimTexture("PlayButtonPressed", 1, 288);
-		else if (identifier == "EXIT")im_->setAnimTexture("ExitButtonPressed", 1, 288);
+		if (identifier == "PLAY")im_->setAnimTexture("PlayButtonPressed", 1, 289);
+		else if (identifier == "EXIT")im_->setAnimTexture("ExitButtonPressed", 1, 289);
 		else if (identifier == "OPTIONS")im_->setAnimTexture("OptionsButtonPressed", 1, 95);
 	}
 	else
 	{
-		if (identifier == "PLAY")im_->setAnimTexture("PlayButton", 1, 288);
-		else if (identifier == "EXIT")im_->setAnimTexture("ExitButton", 1, 288);
+		if (identifier == "PLAY")im_->setAnimTexture("PlayButton", 1, 289);
+		else if (identifier == "EXIT")im_->setAnimTexture("ExitButton", 1, 289);
 		else if (identifier == "OPTIONS")im_->setAnimTexture("OptionsButton", 1, 95);
 		currentPositionState = MOUSE_OUT;
 	}
@@ -36,11 +36,11 @@ void Button::handleEvent(SDL_Event event)
 			if (currentPositionState == 1)
 			{
 				if (identifier == "PLAY") {
-					SDLUtils::instance()->soundEffects().at("pruebaBoton").play();
+					//SDLUtils::instance()->soundEffects().at("pruebaBoton").play();
 					GameManager::instance()->leaveMainMenu();
 				}
 				else if (identifier == "RESUME") {
-					SDLUtils::instance()->soundEffects().at("pruebaBoton").play();
+					SDLUtils::instance()->soundEffects().at("prueba").play();
 					SDLUtils::instance()->soundEffects().at("Title").resumeChannel();
 					GameManager::instance()->goTopDown();
 				}
@@ -56,6 +56,11 @@ void Button::handleEvent(SDL_Event event)
 				else if (identifier == "EXIT") {
 					//salir del juego
 					cout << "salir";
+				}
+
+				else if (identifier == "UPTURN") {
+					SDLUtils::instance()->soundEffects().at("pruebaBoton").play();
+					cout << "1";
 				}
 			}
 		}

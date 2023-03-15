@@ -5,7 +5,7 @@ const uint WIN_WIDTH = 900; // anchura de ventana
 const uint WIN_HEIGHT = 600; // altura de ventana
 const float FRAME_RATE = 3.0f; // número de frames que tardará en actualizarse el juego
 
-const uint PLAYERBEU_WIDTH_FRAME = 288; // anchura de PlayerBEU
+const uint PLAYERBEU_WIDTH_FRAME = 208; // anchura de PlayerBEU
 const uint PLAYERBEU_HEIGHT_FRAME = 128; // altura de PlayerBEU
 const uint PlayerPosition_X =30; //pos inicial de PlayerBEU
 const uint PlayerPosition_Y = 300;
@@ -55,8 +55,18 @@ const int enemy_rock_life = 200;
 
 #pragma endregion
 
+#pragma region EarthBoss_data
 
+const int EARTHBOSS_WIDTH = 224;
+const int EARTHBOSS_HEIGHT = 192;
 
+#pragma endregion
+
+// SHOP
+const uint SHOP_WIDTH = 747;
+const uint SHOP_HEIGHT = 876;
+const uint UPTURNBUTTON_WIDTH = 88;
+const uint UPTURNBUTTON_HEIGHT = 84;
 /*const string FUEGO = "fire";
 const string AIRE = "wind";
 const string AGUA = "water";

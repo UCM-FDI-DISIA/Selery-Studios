@@ -24,6 +24,7 @@ private:
 #pragma region ColliderData
 	Vector2D offset_ = Vector2D(0, 0);
 	float ColWidth_, ColHeight_;
+	float scale;
 #pragma endregion
 
 #pragma region spritesData
@@ -59,6 +60,7 @@ public:
 		type_ = type;
 		enemy_ = enemy;
 		player_ = player;
+		scale = WIN_WIDTH / 900;
 	}
 
 	void update();

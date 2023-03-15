@@ -4189,8 +4189,8 @@
    <point/>
   </object>
  </objectgroup>
- <objectgroup id="13" name="Camera" locked="1">
-  <object id="36" x="4138" y="182">
+ <objectgroup id="13" name="Shop">
+  <object id="36" x="5800" y="680">
    <point/>
   </object>
  </objectgroup>

@@ -3,7 +3,7 @@
 MainMenuState::MainMenuState()
 {
 
-	Background("fondoMainMenu2");
+	Background("fondoMainMenu3");
 
 
 	addNewEntity("campfire", 1024, 128, Vector2D(4 * WIN_WIDTH / 9, 3 * WIN_HEIGHT / 4), 8, false);
@@ -72,10 +72,10 @@ void MainMenuState::Background(string file) {
 }
 
 void MainMenuState::createButtons() {
-	playButton = addNewEntity("PlayButton", 288, 81, Vector2D(5 * WIN_WIDTH / 90, 28 * WIN_HEIGHT / 60), 1, false);
+	playButton = addNewEntity("PlayButton", 289, 86, Vector2D(5 * WIN_WIDTH / 90, 28 * WIN_HEIGHT / 60), 1, false);
 	playButton->addComponent<Button>(BUTTON_H, "PLAY");
 
-	exitButton = addNewEntity("ExitButton", 288, 81, Vector2D(5 * WIN_WIDTH / 90, 40 * WIN_HEIGHT / 60), 1, false);
+	exitButton = addNewEntity("ExitButton", 289, 86, Vector2D(5 * WIN_WIDTH / 90, 40 * WIN_HEIGHT / 60), 1, false);
 	exitButton->addComponent<Button>(BUTTON_H, "EXIT");
 
 	optionsButton = addNewEntity("OptionsButton", 95, 97, Vector2D(8 * WIN_WIDTH / 9, 2 * WIN_HEIGHT / 60), 1, false);
