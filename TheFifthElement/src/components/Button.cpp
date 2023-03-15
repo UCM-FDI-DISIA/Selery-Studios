@@ -54,7 +54,7 @@ void Button::handleEvent(SDL_Event event)
 					GameManager::instance()->backToMainMenu();
 				}
 				else if (identifier == "EXIT") {
-					//salir del juego
+					SDL_Quit();
 					cout << "salir";
 				}
 
