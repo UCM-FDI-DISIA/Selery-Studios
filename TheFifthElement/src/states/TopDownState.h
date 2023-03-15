@@ -66,6 +66,8 @@ private:
 	Entity* Npc_;
 	//Transform* Nptr_;
 	int number_npc_ = 0;
+	
+	
 	//ENEMIGOS 
 	vector<Entity*> enemies_;
 	Entity* redirect_;

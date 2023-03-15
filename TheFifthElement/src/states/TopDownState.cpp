@@ -319,7 +319,6 @@ void TopDownState::handleEvents() {
         in_->handleEvents(event);
         //upturnButton_->handleEvent(event); // botón en la tienda
         //inBEU_->handleEvents(event);
-        ;
     }
 }
 
