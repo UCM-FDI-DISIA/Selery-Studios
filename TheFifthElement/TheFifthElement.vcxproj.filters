@@ -51,6 +51,8 @@
     <ClCompile Include="src\ColManager.cpp" />
     <ClCompile Include="src\states\PauseMenuState.cpp" />
     <ClCompile Include="src\components\ShopComponent.cpp" />
+    <ClCompile Include="MovementEarthBossComponent.cpp" />
+    <ClCompile Include="LifeEarthBossComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\components\Button.h" />
@@ -118,6 +120,8 @@
     <ClInclude Include="src\ColManager.h" />
     <ClInclude Include="src\states\PauseMenuState.h" />
     <ClInclude Include="src\components\ShopComponent.h" />
+    <ClInclude Include="MovementEarthBossComponent.h" />
+    <ClInclude Include="LifeEarthBossComponent.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="TheFifthElement.rc" />

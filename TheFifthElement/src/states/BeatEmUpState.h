@@ -16,6 +16,7 @@
 #include "../components/InputComponentBEU.h"
 #include "../components/LimitBEU.h"
 #include "../components/Image.h"
+#include "../../MovementEarthBossComponent.h"
 
 using name = string;
 using damage = int;
@@ -39,6 +40,8 @@ private:
 	float camOffset_ = 300.0f;
 	float enemy_width=0, enemy_height=0;
 	
+	//BOSSES
+	Entity* boss_;
 
 public:
 	BeatEmUpState(bool boss, string typeBoss = "");

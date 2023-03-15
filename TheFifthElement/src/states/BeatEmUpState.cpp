@@ -83,7 +83,15 @@ void BeatEmUpState::AddFireBoss() {
 	
 }
 void BeatEmUpState::AddEarthBoss() {
-
+	//Vector2D pos = { WIN_WIDTH , WIN_HEIGHT / 2 };
+	Vector2D pos = { 200 , 200 };
+	boss_ = new Entity();
+	Transform* t = boss_->addComponent<Transform>(TRANSFORM_H, pos, EARTHBOSS_WIDTH * 2, EARTHBOSS_HEIGHT * 2);
+	boss_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("GolemFase1"), 8, 58, 0, EARTHBOSS_WIDTH, EARTHBOSS_HEIGHT);
+	boss_->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(10, 10), (EARTHBOSS_HEIGHT * 2) - 20, (EARTHBOSS_WIDTH * 2) - 20);
+	boss_->addComponent<MovementEarthBossComponent>(MOVEMENTEARTHBOSSCOMPONENT_H);
+	boss_->addComponent<LifeEarthBossComponent>(LIFEEARTHBOSSCOMPONENT_H);
+	addEntity(boss_);
 }
 void BeatEmUpState::AddAirBoss() {
 

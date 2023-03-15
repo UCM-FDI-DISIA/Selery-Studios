@@ -3,7 +3,7 @@
 #include "utils/Collision.h"
 #include "components/ColliderComponent.h"
 #include "components/LifeComponent.h"
-
+#include "../LifeEarthBossComponent.h"
 
 //Este manager existira en la escena y sera el encargado de gestionar los ataques jugador->enemigo y enemigo->jugador
 //Su constructora recibe un puntero al manager para acceder a lalista de entidades, como hacemos en TPV2.

@@ -150,7 +150,8 @@
     {"id": "UpturnButton", "file": "assets/HUD/tienda/botonmejoratienda.png"},
     {"id": "ExitShop", "file": "assets/HUD/tienda/botonsalirtienda.png"},
     {"id": "ShopBackground", "file": "assets/HUD/tienda/fondotienda.png"},
-    {"id": "ShopFrame", "file": "assets/HUD/tienda/marcotienda.png"}
+    {"id": "ShopFrame", "file": "assets/HUD/tienda/marcotienda.png"},
+    {"id": "GolemFase1", "file": "assets/Enemies/BeatEmUp/Bosses/GroundBoss/Stone-golem-all animations-224x192.png"}
   ],
 
   "messages": [

@@ -55,6 +55,13 @@ const int enemy_rock_life = 200;
 
 #pragma endregion
 
+#pragma region EarthBoss_data
+
+const int EARTHBOSS_WIDTH = 224;
+const int EARTHBOSS_HEIGHT = 192;
+
+#pragma endregion
+
 // SHOP
 const uint SHOP_WIDTH = 747;
 const uint SHOP_HEIGHT = 876;
