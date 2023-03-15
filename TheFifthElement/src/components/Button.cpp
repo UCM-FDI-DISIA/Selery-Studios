@@ -36,7 +36,7 @@ void Button::handleEvent(SDL_Event event)
 			if (currentPositionState == 1)
 			{
 				if (identifier == "PLAY") {
-					SDLUtils::instance()->soundEffects().at("pruebaBoton").play();
+					//SDLUtils::instance()->soundEffects().at("pruebaBoton").play();
 					GameManager::instance()->leaveMainMenu();
 				}
 				else if (identifier == "RESUME") {

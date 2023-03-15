@@ -4,15 +4,16 @@ LifeComponent::LifeComponent(float maxLife, bool enemy,string type, Entity* ent)
 	life_ = maxLife_ = maxLife;
 	enemy_ = enemy;
 	type_ = type;
+	scale = WIN_WIDTH / 900;
 	if (enemy_) {
 		entTransform_ = ent->getComponent<Transform>(TRANSFORM_H);
-		barWidth_ = backWidth_ = borderWidth_ = entTransform_->getW() / 4;
-		barHeight_ = backHeight_ = borderHeight_ = entTransform_->getH() / 11;
-		pos_ = entTransform_->getPos();
+		barWidth_ = backWidth_ = borderWidth_ = (entTransform_->getW() / 4)*scale;
+		barHeight_ = backHeight_ = borderHeight_ = (entTransform_->getH() / 11)*scale;
+		pos_ = Vector2D(entTransform_->getPos().getX(), entTransform_->getPos().getY());
 	}
 	else {
-		barWidth_ = backWidth_ = borderWidth_ = 300;
-		barHeight_ = backHeight_ = borderHeight_ = 50;
+		barWidth_ = backWidth_ = borderWidth_ = 300 * scale;
+		barHeight_ = backHeight_ = borderHeight_ = 50 * scale;
 	}
 	chooseTexture();
 
@@ -31,7 +32,7 @@ void LifeComponent::initComponent() {
 }
 
 void LifeComponent::update() {
-	if(enemy_)pos_ = entTransform_->getPos() - Vector2D(this->mngr_->camRect_.x, this->mngr_->camRect_.y);
+	if(enemy_)pos_ = Vector2D(entTransform_->getPos().getX(), entTransform_->getPos().getY()) - Vector2D(this->mngr_->camRect_.x, this->mngr_->camRect_.y);
 	//cout << life_ << endl;
 	if (die_) {
 		if (!im_->isAnimPlaying())
@@ -144,8 +145,8 @@ void LifeComponent::render() {
 
 		SDL_Rect dest;
 	if(enemy_){
-		dest.x = pos_.getX() + 55;
-		dest.y = pos_.getY() + 35;
+		dest.x = pos_.getX() + (60*scale);
+		dest.y = pos_.getY() + (35*scale);
 		dest.h = backHeight_;
 		dest.w = backWidth_;
 		backTexture_->render(src, dest);
@@ -161,8 +162,8 @@ void LifeComponent::render() {
 		borderTexture_->render(src, dest);
 	}
 	else {
-		dest.x = 100;
-		dest.y = 35;
+		dest.x = 100*scale;
+		dest.y = 35*scale;
 		dest.h = backHeight_;
 		dest.w = backWidth_;
 		backTexture_->render(src, dest);

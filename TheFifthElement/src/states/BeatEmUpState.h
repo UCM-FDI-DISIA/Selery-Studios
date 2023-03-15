@@ -39,6 +39,7 @@ private:
 	Entity* lifebar_;
 	float camOffset_ = 300.0f;
 	float enemy_width=0, enemy_height=0;
+	float scale;
 	
 	//BOSSES
 	Entity* boss_;
