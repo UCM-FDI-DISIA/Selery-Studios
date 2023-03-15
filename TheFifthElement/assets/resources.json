@@ -27,11 +27,8 @@
     {"id": "BEU_air_Skeleton_attack", "file": "./assets/Enemies/BeatEmUP/Air/Skeleton/Attack.png"},
     {"id": "BEU_air_Skeleton_hit", "file": "./assets/Enemies/BeatEmUP/Air/Skeleton/Take Hit.png"},
     {"id": "BEU_air_Skeleton_death", "file": "./assets/Enemies/BeatEmUP/Air/Skeleton/Death.png"},
-<<<<<<< Updated upstream
     {"id": "BEU_water_Mushroom_run",  "file": "./assets/Enemies/BeatEmUP/Water/Mushroom/Run.png"},
-=======
     {"id": "BEU_air_Mushroom_run",  "file": "./assets/Enemies/BeatEmUP/Water/Mushroom/Run.png"},
->>>>>>> Stashed changes
     {"id": "BEU_water_Mushroom_attack", "file": "./assets/Enemies/BeatEmUP/Water/Mushroom/Attack.png"},
     {"id": "BEU_water_Mushroom_hit", "file": "./assets/Enemies/BeatEmUP/Water/Mushroom/Take Hit.png"},
     {"id": "BEU_water_Mushroom_death","file": "./assets/Enemies/BeatEmUP/Water/Mushroom/Death.png"},
@@ -80,12 +77,9 @@
     {"id": "BEU_earth_Skeleton_hit", "file": "./assets/Enemies/BeatEmUP/Earth/Skeleton/Take Hit.png"},
     {"id": "BEU_earth_Skeleton_death","file": "./assets/Enemies/BeatEmUP/Earth/Skeleton/Death.png"},
     {"id": "TD_air_mushroom","file": "assets/Enemies/TopDown/Mushroom/shroomRunLeft.png"},
-<<<<<<< Updated upstream
-=======
     {"id": "TD_air_goblin", "file": "assets/Enemies/TopDown/Mushroom/shroomRunLeft.png"},
     {"id": "TD_air_skeleton","file": "assets/Enemies/TopDown/Mushroom/shroomRunLeft.png"},
     {"id": "TD_air_bat", "file": "assets/Enemies/TopDown/Mushroom/shroomRunLeft.png"},
->>>>>>> Stashed changes
     {"id": "PTD_fire_idle", "file": "assets/Player/TopDown/Fire/idle.png"},
     {"id": "PTD_fire_left", "file": "assets/Player/TopDown/Fire/andarIzquierda.png"},
     {"id": "PTD_fire_up","file": "assets/Player/TopDown/Fire/andararriba.png"},
@@ -109,12 +103,6 @@
     {"id": "portal","file": "assets/Scenes/Maps/AncientRuins/Props/portal.png"},
     {"id": "fireball", "file": "assets/Unknown/Elements/FireBall/Sheets/IdleLoop-Sheet.png"},
     {"id": "airBackground", "file": "assets/Scenes/Backgrounds/BeatEmUp/AirBackground.png" },
-<<<<<<< Updated upstream
-    {"id": "TD_air_goblin", "file": "assets/Enemies/TopDown/Mushroom/shroomRunLeft.png"},
-    {"id": "TD_air_skeleton","file": "assets/Enemies/TopDown/Mushroom/shroomRunLeft.png"},
-    {"id": "TD_air_bat", "file": "assets/Enemies/TopDown/Mushroom/shroomRunLeft.png"},
-=======
->>>>>>> Stashed changes
     {"id": "fondo",  "file": "assets/Scenes/Backgrounds/GrassyMountains/Grassy_Mountains_preview.png"},
     {"id": "fondo1", "file": "assets/Scenes/Backgrounds/BeatEmUp/DorjeeSofia 873x436.png"},
     {"id": "fondo2","file": "assets/Scenes/Backgrounds/BeatEmUp/DorjeSofia 400x325.png"},
