@@ -95,6 +95,7 @@ void Image::setAnim(bool Anim, int Fila, int Frames, int I, int tope) { //Metodo
 		cont = 0;
 		this->tope = tope;
 	}
+
 }
 
 void Image::setAnimTexture(string textureKey, int Frames, int Width) { //Metodo generico para cambiar de Textura (el width es temporal no deberia ser el with de la imagen sino de la entidad)
