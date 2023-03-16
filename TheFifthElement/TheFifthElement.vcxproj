@@ -133,6 +133,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\components\PointOfFightComponent.h" />
     <ClInclude Include="src\components\RedirectEnemy.h" />
     <ClInclude Include="src\ColManager.h" />
     <ClInclude Include="src\components\AnimationEarthBossComponent.h" />
@@ -205,6 +206,7 @@
     <ClInclude Include="src\utils\Vector2D.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\components\PointOfFightComponent.cpp" />
     <ClCompile Include="src\components\RedirectEnemy.cpp" />
     <ClCompile Include="src\ColManager.cpp" />
     <ClCompile Include="src\components\AnimationEarthBossComponent.cpp" />
