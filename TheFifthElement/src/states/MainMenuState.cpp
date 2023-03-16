@@ -32,6 +32,7 @@ MainMenuState::MainMenuState()
 void MainMenuState::update()
 {
 	Manager::update();
+	cout << slider->getComponent<sliderComponent>(SLIDERCOMPONENT_H)->getValue() << endl;
 }
 void MainMenuState::handleEvents()
 {
@@ -40,6 +41,7 @@ void MainMenuState::handleEvents()
 		playButton->handleEvent(event);
 		exitButton->handleEvent(event);
 		optionsButton->handleEvent(event);
+		slider->handleEvent(event);
 	}
 
 }
@@ -80,4 +82,9 @@ void MainMenuState::createButtons() {
 
 	optionsButton = addNewEntity("OptionsButton", 95, 97, Vector2D(8 * WIN_WIDTH / 9, 2 * WIN_HEIGHT / 60), 1, false);
 	optionsButton->addComponent<Button>(BUTTON_H, "OPTIONS");
+
+
+	slider = addEntity(new Entity());
+	slider->addComponent<Transform>(TRANSFORM_H, Vector2D(220,10), 20, 20, 1);
+	slider->addComponent<sliderComponent>(SLIDERCOMPONENT_H,valor);
 }
