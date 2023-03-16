@@ -15,13 +15,14 @@ BeatEmUpState::BeatEmUpState(bool boss, string typeBoss) {
 	player_->addComponent<Image>(int(IMAGE_H), &SDLUtils::instance()->images().at("Player_BEU_fire"), 7, 28, 0, PLAYERBEU_WIDTH_FRAME, PLAYERBEU_HEIGHT_FRAME,"fire");
 	player_->addComponent<JumpComponent>(JUMP_H);
 	player_->addComponent<LifeComponent>(LIFECOMPONENT_H, 10, false, "fire", player_);
-
+	player_->addComponent<ShadowComponent>(SHADOWCOMPONENT_H, player_);
 	in_ = player_->addComponent<InputComponentBEU>(INPUTCOMPONENTBEU_H);
 	player_->addComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
 	player_->addComponent<AttackBoxComponent>(ATTACKBOXCOMPONENT_H);
 	player_->addComponent<LimitBEU>(LIMITBEU_H);
 	player_->addComponent<ColliderComponent>(int(COLLIDERCOMPONENT_H), Vector2D(90, 80), 1.2*PLAYERBEU_HEIGHT_FRAME / 3, PLAYERBEU_WIDTH_FRAME / 7);
 	//player_->getComponent<AttackBoxComponent>(ATTACKBOXCOMPONENT_H);
+	
 	addEntity(player_);
 
 	if (!boss) {

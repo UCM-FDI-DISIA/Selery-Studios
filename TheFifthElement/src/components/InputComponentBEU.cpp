@@ -6,6 +6,7 @@
 #include "Image.h"
 #include "../states/BeatEmUpState.h"
 
+
 InputComponentBEU::InputComponentBEU() :Component() {
 }
 
@@ -15,6 +16,8 @@ void InputComponentBEU::initComponent() {
 	jmp_ = ent_->getComponent<JumpComponent>(JUMP_H);
 	t_ = new Texture(GameManager::instance()->getRenderer(), "./assets/Player/BeatEmUp/Fire/spritesheets/fireMatrix.png");
 	lifeC_ = ent_->getComponent<LifeComponent>(LIFECOMPONENT_H);
+	shadow = ent_->getComponent<ShadowComponent>(SHADOWCOMPONENT_H);
+	assert(shadow != nullptr);
 }
 
 void InputComponentBEU::update() {
@@ -62,6 +65,8 @@ void InputComponentBEU::handleEvents(SDL_Event event) {
 	if (ih().isKeyDown(SDL_SCANCODE_SPACE) && !im_->isAnimPlaying() && jmp_->isJumpEnabled()) { // Salto
 		jmp_->jump();
 		im_->setAnim(true, 4, 15, 0, 100); // A lo mejor 15 cambia porque se le pueden dar o puede necesitar mas frames de salto
+
+		shadow->Setpos_y(tr_->getPos().getY());
 	}
 
 	if (ih().isKeyDown(SDL_SCANCODE_A)) { // Mover Izquierda

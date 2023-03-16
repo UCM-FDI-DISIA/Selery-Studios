@@ -1,1 +1,11 @@
-﻿  TheFifthElement.vcxproj -> C:\Selery-Studios\TheFifthElement\x64\Debug\TheFifthElement.exe
+﻿  ShadowComponent.cpp
+C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(52,30): warning C4101: 'e': variable local sin referencia
+C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(48): message : al compilar la función del miembro clase plantilla "Texture &SDLUtils::map_access_wrapper<Texture>::at(std::string)"
+C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(205): message : Vea la referencia a la creación de una instancia de clase plantilla "SDLUtils::map_access_wrapper<Texture>" que se está compilando
+C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\components\ShadowComponent.cpp(22,89): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\components\ShadowComponent.cpp(23,85): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\components\ShadowComponent.cpp(25,37): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\components\ShadowComponent.cpp(37,4): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\components\ShadowComponent.cpp(38,67): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\components\ShadowComponent.cpp(40,106): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+  TheFifthElement.vcxproj -> C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\x64\Debug\TheFifthElement.exe

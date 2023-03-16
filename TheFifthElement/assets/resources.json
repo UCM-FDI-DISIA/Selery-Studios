@@ -153,7 +153,8 @@
     {"id": "ShopBackground", "file": "assets/HUD/tienda/fondotienda.png"},
     {"id": "ShopFrame", "file": "assets/HUD/tienda/marcotienda.png"},
     {"id": "GolemFase1", "file": "assets/Enemies/BeatEmUp/Bosses/EarthBoss/Stone-golem-all animations-224x192.png"},
-    {"id":  "waterBoss", "file":  "assets/Enemies/BeatEmUp/Bosses/WaterBoss/frost_guardian_free_192x128_SpriteSheet.png"}
+    {"id":  "waterBoss", "file":  "assets/Enemies/BeatEmUp/Bosses/WaterBoss/frost_guardian_free_192x128_SpriteSheet.png"},
+    {"id": "shadow","file": "assets/Enemies/BeatEmUp/Bosses/EarthBoss/golem-shadow.png"}
   ],
 
   "messages": [

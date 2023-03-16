@@ -18,6 +18,7 @@
 #include "../components/Image.h"
 #include "../components/MovementEarthBossComponent.h"
 #include "../components/AnimationEarthBossComponent.h"
+#include "../components/ShadowComponent.h"
 
 using name = string;
 using damage = int;
