@@ -133,7 +133,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="SliderComponent.h" />
+    <ClInclude Include="src\components\brightSliderComponent.h" />
+    <ClInclude Include="src\states\OptionsState.h" />
+    <ClInclude Include="src\components\SliderComponent.h" />
     <ClInclude Include="src\components\PointOfFightComponent.h" />
     <ClInclude Include="src\components\RedirectEnemy.h" />
     <ClInclude Include="src\ColManager.h" />
@@ -208,7 +210,8 @@
     <ClInclude Include="src\utils\Vector2D.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="sliderComponent.cpp" />
+    <ClCompile Include="src\states\OptionsState.cpp" />
+    <ClCompile Include="src\components\sliderComponent.cpp" />
     <ClCompile Include="src\components\PointOfFightComponent.cpp" />
     <ClCompile Include="src\components\RedirectEnemy.cpp" />
     <ClCompile Include="src\ColManager.cpp" />

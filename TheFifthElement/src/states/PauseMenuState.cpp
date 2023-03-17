@@ -1,7 +1,6 @@
 #include "PauseMenuState.h"
 
-PauseMenuState::PauseMenuState()
-{
+PauseMenuState::PauseMenuState() {
 	resumeButton_ = new Entity();
 	resumeButtonWidth_ = 300;
 	resumeButtonHeight_ = 100;

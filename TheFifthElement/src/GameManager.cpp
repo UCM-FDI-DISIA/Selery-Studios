@@ -34,6 +34,10 @@ void GameManager::goPauseMenu() {
 	GameStateMachine::instance()->pushState(new PauseMenuState());
 }
 
+void GameManager::goOptionsMenu() {
+	GameStateMachine::instance()->pushState(new OptionsState());
+}
+
 void GameManager::handleEvents() { // handleEvents
 	GameStateMachine::instance()->handleEvents();
 }

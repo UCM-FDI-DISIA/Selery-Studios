@@ -46,7 +46,7 @@ void Button::handleEvent(SDL_Event event)
 				}
 				else if (identifier == "OPTIONS") {
 					SDLUtils::instance()->soundEffects().at("pruebaBoton").play();
-					// ir a menu de opciones
+					GameManager::instance()->goOptionsMenu();
 					cout << "opciones";
 				}
 				else if (identifier == "MAINMENU") {

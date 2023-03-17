@@ -34,13 +34,10 @@ void AttackBoxComponent::render()
 
 }
 
-void AttackBoxComponent::update()
-{
+void AttackBoxComponent::update(){
 	handleBoxes();
-	//cout << im_->getCol() << endl;
 	unsigned timer = clock();
 	timerExecution = (double(timer) / CLOCKS_PER_SEC);
-
 }
 
 void AttackBoxComponent::handleBoxes()

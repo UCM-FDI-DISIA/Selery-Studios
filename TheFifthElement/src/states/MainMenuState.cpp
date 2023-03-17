@@ -29,8 +29,7 @@ MainMenuState::MainMenuState()
 
 }
 
-void MainMenuState::update()
-{
+void MainMenuState::update() {
 	Manager::update();
 	cout << slider->getComponent<sliderComponent>(SLIDERCOMPONENT_H)->getValue() << endl;
 }
@@ -86,5 +85,6 @@ void MainMenuState::createButtons() {
 
 	slider = addEntity(new Entity());
 	slider->addComponent<Transform>(TRANSFORM_H, Vector2D(220,10), 20, 20, 1);
+	slider->addComponent<brightSliderComponent>(BRIGHTSLIDER_H);
 	slider->addComponent<sliderComponent>(SLIDERCOMPONENT_H);
 }
