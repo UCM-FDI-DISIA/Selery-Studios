@@ -19,6 +19,7 @@
 #include "../components/MovementEarthBossComponent.h"
 #include "../components/AnimationEarthBossComponent.h"
 #include "../components/ShadowComponent.h"
+#include "../components/PointOfFightComponent.h"
 
 using name = string;
 using damage = int;
