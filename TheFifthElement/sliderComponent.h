@@ -20,11 +20,9 @@ private:
 
 	bool clicked;
 public:
-	sliderComponent(float valor_)
+	sliderComponent()
 	{
 		currentPositionState = MOUSE_OUT;
-		valor = valor_;
-
 	};
 	virtual ~sliderComponent() {};
 	void update();

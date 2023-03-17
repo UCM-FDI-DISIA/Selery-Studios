@@ -3,8 +3,8 @@ void sliderComponent::initComponent()
 {
 	sliderTransform = ent_->getComponent<Transform>(TRANSFORM_H);
 	im_ = ent_->getComponent<Image>(IMAGE_H);
-	topeDer = sliderTransform->getPos().getX() + 100;
-	topeIzq = sliderTransform->getPos().getX() - 100;
+	topeDer = sliderTransform->getPos().getX() + 60;
+	topeIzq = sliderTransform->getPos().getX() - 60;
 }
 
 void sliderComponent::updateMousePosition() {
@@ -34,7 +34,7 @@ void sliderComponent::update() {
 	{
 		//Actualizar sonido o lo que sea.
 
-		valor = sliderTransform->getPos().getX();
+		valor = sliderTransform->getPos().getX() - sliderTransform->getW()/2 - topeIzq;
 	
 	}
 

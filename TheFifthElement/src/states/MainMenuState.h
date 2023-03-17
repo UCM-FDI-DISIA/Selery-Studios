@@ -11,8 +11,6 @@ private:
 	Entity* optionsButton;
 	Entity* slider;
 	Image* im_;
-
-	float valor=0;
 public:
 	MainMenuState();
 	~MainMenuState() {};

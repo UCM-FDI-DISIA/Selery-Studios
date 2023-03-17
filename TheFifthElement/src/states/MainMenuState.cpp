@@ -86,5 +86,5 @@ void MainMenuState::createButtons() {
 
 	slider = addEntity(new Entity());
 	slider->addComponent<Transform>(TRANSFORM_H, Vector2D(220,10), 20, 20, 1);
-	slider->addComponent<sliderComponent>(SLIDERCOMPONENT_H,valor);
+	slider->addComponent<sliderComponent>(SLIDERCOMPONENT_H);
 }
