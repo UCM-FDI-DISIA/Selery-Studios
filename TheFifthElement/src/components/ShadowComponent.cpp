@@ -1,16 +1,15 @@
 #include "ShadowComponent.h"
 
-ShadowComponent::ShadowComponent(Entity* player) {
-	p = player;
+ShadowComponent::ShadowComponent() {
 	
 }
 ShadowComponent::~ShadowComponent() {
 	
 }
 void ShadowComponent::initComponent() {
-	trans_player = p->getComponent<Transform>(TRANSFORM_H);
+	trans_player = ent_->getComponent<Transform>(TRANSFORM_H);
 	assert(trans_player != nullptr);
-	Jump_player = p->getComponent<JumpComponent>(JUMP_H);
+	Jump_player = ent_->getComponent<JumpComponent>(JUMP_H);
 	assert(Jump_player != nullptr);
  }
 void ShadowComponent::update() {

@@ -16,7 +16,7 @@ protected:
 	int jump_poss_y;
 
 public:
-	ShadowComponent(Entity* player);
+	ShadowComponent();
 	virtual ~ShadowComponent();
 	virtual void initComponent();
 	virtual void update();

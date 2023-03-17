@@ -57,6 +57,7 @@
     <ClCompile Include="src\components\RedirectEnemy.cpp" />
     <ClCompile Include="src\components\PointOfFightComponent.cpp" />
     <ClCompile Include="sliderComponent.cpp" />
+    <ClCompile Include="src\components\ShadowComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\components\Button.h" />
@@ -131,6 +132,7 @@
     <ClInclude Include="src\components\RedirectEnemy.h" />
     <ClInclude Include="src\components\PointOfFightComponent.h" />
     <ClInclude Include="SliderComponent.h" />
+    <ClInclude Include="src\components\ShadowComponent.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="TheFifthElement.rc" />
