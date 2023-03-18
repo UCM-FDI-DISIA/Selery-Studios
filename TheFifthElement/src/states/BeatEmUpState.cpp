@@ -1,4 +1,5 @@
 ﻿#include "BeatEmUpState.h"
+#include "../components/SkinBEUComponent.h"
 
 BeatEmUpState::BeatEmUpState(bool boss, string typeBoss) {
 	random = &SDLUtils::instance()->rand();

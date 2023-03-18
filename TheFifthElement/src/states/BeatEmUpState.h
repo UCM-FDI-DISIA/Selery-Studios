@@ -21,10 +21,12 @@
 
 #include "../components/PointOfFightComponent.h"
 #include "../components/ShadowComponent.h"
-#include "../components/SkinBEUComponent.h"
 
 using name = string;
 using damage = int;
+
+
+class SkinBEUComponent;
 class BeatEmUpState: public Manager {
 private:
 	//PLAYER

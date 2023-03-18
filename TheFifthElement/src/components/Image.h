@@ -48,6 +48,7 @@ public:
 
 	inline void setType(string type) { type_ = type; }
 	inline string getType() { return type_; }
+	
 
 	//matriz
 	void setAnim(bool Anim, int Fila, int Frames, int I, int tope); //Metodo generico para cambiar de animacion en BEU
