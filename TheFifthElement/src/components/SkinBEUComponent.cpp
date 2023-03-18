@@ -1,6 +1,7 @@
 #include "SkinBEUComponent.h"
 #include "../utils/Entity.h"
 #include "../utils/ecs.h"
+#include "LifeComponent.h"
 
 void SkinBEUComponent::initComponent() {
 	t_ = "Player_BEU_" + skin_;
@@ -12,8 +13,16 @@ void SkinBEUComponent::update() {
 	if (!set_)
 	{
 		im_ = ent_->getComponent<Image>(IMAGE_H);
+		lifeC_ = ent_->getComponent<LifeComponent>(LIFECOMPONENT_H);
 		set_ = true;
 	}
+}
+
+void SkinBEUComponent::changeSkin(string skin)
+{
+	skin_ = skin;
+	im_->setType(skin_);
+	lifeC_->chageType(10);
 }
 
 void SkinBEUComponent::setTexture() {

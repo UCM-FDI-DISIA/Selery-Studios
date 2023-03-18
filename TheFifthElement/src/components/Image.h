@@ -46,6 +46,7 @@ public:
 	inline void setTope(int i) { tope = i; }
 	inline int getTope() const { return tope; }
 
+	inline void setType(string type) { type_ = type; }
 	inline string getType() { return type_; }
 
 	//matriz

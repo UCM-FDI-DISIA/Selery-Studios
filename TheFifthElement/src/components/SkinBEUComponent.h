@@ -4,6 +4,8 @@
 #include "../GameManager.h"
 #include "Image.h"
 
+class LifeComponent;
+
 class SkinBEUComponent : public Component
 {
 public:
@@ -11,9 +13,9 @@ public:
     {
         Idle, Left, Right, Vertical, Jump, Hit, Death, Null
     };
-private:
     AnimationStates currentState_;
     AnimationStates nextState_;
+private:
     string t_;
     string skin_;
     string prevSkin_;
@@ -21,6 +23,7 @@ private:
     int fila_;
     int w_, h_;
     Image* im_;
+    LifeComponent* lifeC_ = nullptr;
     bool set_ = false;
 
 public:
@@ -42,7 +45,7 @@ public:
     void changeMov();
     void changeState(AnimationStates newState) { nextState_ = newState; };
     void setTexture();
-    void changeSkin(string skin) { skin_ = skin; }
+    void changeSkin(string skin);
     inline string getSkin() { return t_; }
 
 };
