@@ -30,7 +30,7 @@ BeatEmUpState::BeatEmUpState(bool boss, string typeBoss) {
 	addEntity(player_);
 
 	if (!boss) {
-		AddEnemies(3);
+		//AddEnemies(3);
 	}
 	else if (boss && typeBoss == "water") {
 		AddWaterBoss();

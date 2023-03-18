@@ -43,7 +43,7 @@ void AttackBoxComponent::update(){
 
 void AttackBoxComponent::handleBoxes()
 {
-	if (im_->getRow() == 10 )
+	if (im_->getRow() == 9 )
 	{
 		cout << "COL: " << im_->getCol() << endl;
 	}
@@ -63,6 +63,7 @@ void AttackBoxComponent::handleBoxes()
 					boxes.push_back(build_sdlrect(entityTr->getPos().getX() - mngr_->camRect_.x + entityTr->getW() / 2, entityTr->getPos().getY() + entityTr->getH(), 10, 10));
 				}
 				boxCreated = true;
+		
 
 				//Para poder cambiar satisfactoriamente la direccion del cuadrado
 				if (im_->getFlip() == SDL_FLIP_NONE)
@@ -79,17 +80,19 @@ void AttackBoxComponent::handleBoxes()
 					way = -1;
 					for (int i = 0; i < boxes.size(); i++)
 					{
-						angles[i] = 0;
+						angles[i] = 5;
 					}
-					stoppingAngle = -3.1;
+					stoppingAngle = 3.5;
 				}
 			}
 			else
 			{
+
+				cout << angles[0] << endl;
 				for (int i = 0; i < boxes.size(); i++)
 				{
 
-					moveBoxCurve(boxes[i], 40 + 10 * i, Vector2D(entityTr->getPos().getX() - mngr_->camRect_.x + entityTr->getW() / 2, entityTr->getPos().getY() + entityTr->getH()), 0.095, angles[i], stoppingAngle, way);
+					moveBoxCurve(boxes[i], 40 + 10 * i, Vector2D(entityTr->getPos().getX() - mngr_->camRect_.x + entityTr->getW() / 2, entityTr->getPos().getY() + entityTr->getH()), 0.075, angles[i], stoppingAngle, way);
 					static_cast<BeatEmUpState*>(mngr_)->getColManager()->checkCollisionP(boxes[i], type);
 				}
 
@@ -107,8 +110,6 @@ void AttackBoxComponent::handleBoxes()
 
 		else if (im_->getRow() == 9 && im_->getCol() <= 15)
 		{
-
-
 			if (!boxCreated)
 			{
 
@@ -148,23 +149,25 @@ void AttackBoxComponent::handleBoxes()
 					static_cast<BeatEmUpState*>(mngr_)->getColManager()->checkCollisionP(boxes[0], type);
 				}
 
-				if (im_->getCol() == 16)
+				if (im_->getCol() == 15)
 				{
 					unsigned timer = clock();
 					boxTime = (double(timer) / CLOCKS_PER_SEC);
 					boxes.clear();
 					boxCreated = false;
+			
 				}
 			}
 		}
 
-		else if (im_->getRow() == 9 && im_->getCol() <= 24)
+		else if (im_->getRow() == 9 && im_->getCol()>15 && im_->getCol() <= 24 )
 		{
 			if (!boxCreated)
 			{
 				boxes.clear();
 				boxes.push_back(build_sdlrect(entityTr->getPos().getX() - mngr_->camRect_.x - 30 + entityTr->getW() / 2, entityTr->getPos().getY() + entityTr->getH() / 2, 70, 60));
 				boxCreated = true;
+				
 
 				//Para poder cambiar satisfactoriamente la direccion del cuadrado
 				if (im_->getFlip() == SDL_FLIP_NONE)
@@ -179,7 +182,6 @@ void AttackBoxComponent::handleBoxes()
 			else
 			{
 				moveBox(boxes[0], Vector2D(1, 0) * way, 2);
-
 				static_cast<BeatEmUpState*>(mngr_)->getColManager()->checkCollisionP(boxes[0], type);
 				if (im_->getCol() == 24)
 				{
@@ -187,6 +189,7 @@ void AttackBoxComponent::handleBoxes()
 					boxTime = (double(timer) / CLOCKS_PER_SEC);
 					boxes.clear();
 					boxCreated = false;
+					
 				}
 			}
 		}
