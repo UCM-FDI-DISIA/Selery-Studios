@@ -93,22 +93,18 @@ void InputComponentBEU::handleEvents(SDL_Event event) {
 
 	if (ih().isKeyDown(SDL_SCANCODE_1) && !im_->isAnimPlaying()) {
 		sk_->changeSkin("air");
-		im_->setType("air");
 	}
 
 	if (ih().isKeyDown(SDL_SCANCODE_2) && !im_->isAnimPlaying()) {
 		sk_->changeSkin("fire");
-		im_->setType("fire");
 	}
 
 	if (ih().isKeyDown(SDL_SCANCODE_3) && !im_->isAnimPlaying()) {
 		sk_->changeSkin("water");
-		im_->setType("water");
 	}
 
 	if (ih().isKeyDown(SDL_SCANCODE_4) && !im_->isAnimPlaying()) {
 		sk_->changeSkin("earth");
-		im_->setType("earth");
 	}
 
 

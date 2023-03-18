@@ -32,8 +32,6 @@ void AttackBoxComponent::render()
 		SDL_SetRenderDrawColor(GameManager::instance()->getRenderer(), 0, 255, 0, 0);
 		SDL_RenderDrawRect(GameManager::instance()->getRenderer(), &it);
 	}
-
-
 }
 
 void AttackBoxComponent::update(){
