@@ -51,7 +51,7 @@ public:
 	//matriz
 	void setAnim(bool Anim, int Fila, int Frames, int I, int tope); //Metodo generico para cambiar de animacion en BEU
 
-	void setAnimTexture(string textureKey, int Frames, int Width);
+	void setAnimTexture(string textureKey, int Frames, int Width, int Fila = 0);
 
 	//spritesheet
 	void setSpriteAnim(bool Anim, int Frames, int I, Texture* t); //Metodo generico para cambiar de animacion en BEU

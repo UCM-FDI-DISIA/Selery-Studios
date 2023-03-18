@@ -21,6 +21,7 @@
 
 #include "../components/PointOfFightComponent.h"
 #include "../components/ShadowComponent.h"
+#include "../components/SkinBEUComponent.h"
 
 using name = string;
 using damage = int;
@@ -28,8 +29,10 @@ class BeatEmUpState: public Manager {
 private:
 	//PLAYER
 	Entity* player_;
+	SkinBEUComponent* sk_;
 	Transform* trans_player_;
 	InputComponentBEU* in_;
+	Texture* texture_player_;
 	//BACKGROUND
 	Entity* background_;
 	RandomNumberGenerator* random;
