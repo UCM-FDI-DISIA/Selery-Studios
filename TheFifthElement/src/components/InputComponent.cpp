@@ -7,36 +7,40 @@
 #include <string>
 
 InputComponent::InputComponent() :Component() {
+	d = NONE;
 }
 
 void InputComponent::initComponent() {
 	mov_ = ent_->getComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
 	skin_ = ent_->getComponent<SkinComponent>(SKINCOMPONENT_H);
+	 dialog = ent_->getComponent<DialogueComponent>(DIALOGCOMPONENT_H);
 	//setContext();	
 }
 void InputComponent::update() { //Actualizamos el contador que mide el tiempo
 	unsigned timer = clock();
 	actionDelay = (double(timer) / CLOCKS_PER_SEC);
 }
+
+
 void InputComponent::handleEvents(SDL_Event event)
 {
 	ih().update(event);
 
 	if (ih().keyDownEvent()){
 		if (!npccol) {
-			if (ih().isKeyDown(SDL_SCANCODE_A)) {
+			if (ih().isKeyDown(SDL_SCANCODE_A)&& d!= LEFT) {
 				mov_->setDir(Vector2D(-1, 0));
 				skin_->changeState(SkinComponent::Left);
 			}
-			else if (ih().isKeyDown(SDL_SCANCODE_D)) {
+			else if (ih().isKeyDown(SDL_SCANCODE_D) && d!=RIGHT) {
 				mov_->setDir(Vector2D(1, 0));
 				skin_->changeState(SkinComponent::Right);
 			}
-			else  if (ih().isKeyDown(SDL_SCANCODE_W)) {
+			else  if (ih().isKeyDown(SDL_SCANCODE_W)&&d!=UP) {
 				mov_->setDir(Vector2D(0, -1));
 				skin_->changeState(SkinComponent::Up);
 			}
-			else if (ih().isKeyDown(SDL_SCANCODE_S)) {
+			else if (ih().isKeyDown(SDL_SCANCODE_S)&&d!=DOWN) {
 				mov_->setDir(Vector2D(0, 1));
 				skin_->changeState(SkinComponent::Down);
 			}
@@ -62,7 +66,8 @@ void InputComponent::handleEvents(SDL_Event event)
 		
 		if (ih().isKeyDown(SDL_SCANCODE_E)) {
 			if (actionDelay > 0) {
-				int a = static_cast<PlayerTD*>(ent_)->getCol();
+				dialog->inicombe();
+				/*int a = static_cast<PlayerTD*>(ent_)->getCol();
 				cout << a;
 
 				if (a != -1) {
@@ -71,7 +76,7 @@ void InputComponent::handleEvents(SDL_Event event)
 					mov_->setDir(Vector2D(0, 0));
 					static_cast<TopDownState*>(mngr_)->dialog(a);
 					SDLUtils::instance()->soundEffects().at("NPC_Chat").play();
-				}
+				}*/
 
 			}
 			actionDelay = 0;

@@ -16,11 +16,6 @@ CheckCollision::CheckCollision(Entity* player, float lookingRange, float looking
 	lookingHeight_ = lookingWidth;
 
 }
-CheckCollision::CheckCollision(Entity* player, int npc) :Component() {
-	player_ = player;
-	npc_ = npc;
-
-}
 void CheckCollision::initComponent() {
 	//Hacemos los getComponent de los Transform
 	tr1 = ent_->getComponent<Transform>(TRANSFORM_H);
@@ -39,9 +34,6 @@ void CheckCollision::initComponent() {
 	{
 		rectFight = getRectFight();
 		rectDetection = getRectDetection();
-	}
-	else {
-		rectNPC = getRectNPC();
 	}
 	rectPlayer = getPlayerRect();
 
@@ -83,24 +75,6 @@ void CheckCollision::update()
 			portal->elementEarned();
 		}
 	}
-	else {
-		
-		//if (Collision::collides(Vector2D(rectPlayer.x, rectPlayer.y), rectPlayer.w, rectPlayer.h, Vector2D(rectNPC.x, rectNPC.y), rectNPC.w, rectNPC.h))
-		//{
-		//	//si colisiona con el npc
-		//	if (!player_->hascol()) {
-		//		player_->setCol(npc_);
-		//		player_->setCollision(true);
-		//	}
-		//	
-		//}
-		//else {
-		//	if (!player_->hascol()) {
-		//	player_->setCol(-1);
-		//	}
-		//}
-		
-	}
 	updateRects();
 }
 
@@ -139,7 +113,6 @@ void CheckCollision::updateRects()
 	rectPlayer = getPlayerRect();
 	rectFight = getRectFight();
 	rectDetection = getRectDetection();
-	rectNPC = getRectNPC();
 	/*if (ent_->hasComponent(LIFECOMPONENT_H))
 	{		
 		rectFight = getRectFight();		
