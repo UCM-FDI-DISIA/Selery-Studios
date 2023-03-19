@@ -160,15 +160,18 @@ void TopDownState::LoadMap(string const& filename) {
                     texture_player_ = &SDLUtils::instance()->images().at(sk_->getSkin());
                     player_->addComponent<Image>(IMAGE_H, texture_player_, PLAYERTD_NUMFRAMES, PLAYERTD_NUMFRAMES,0, PLAYERTD_WIDTH_FRAME, PLAYERTD_HEIGHT_FRAME);
                     player_->addComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
+                    Playernpc_ = player_->addComponent<PlayerNPC>(PLAYERNPC_H);
+                    player_->addComponent <DialogueComponent>(DIALOGCOMPONENT_H);
                     in_ = player_->addComponent<InputComponent>(INPUTCOMPONENT_H);
                     addEntity(player_);
                 }
                 else if (name == "NPC") {
+                    contnpc++;
                     Npc_ = new Entity();
                     Npc_->setContext(this);
                     Npc_->addComponent<Transform>(TRANSFORM_H,Vector2D(obj.getPosition().x, obj.getPosition().y), NPC_WIDTH, NPC_HEIGHT);
                     Npc_->addComponent<Image>(IMAGE_H,npcTexture(), NPC_FRAMES, NPC_FRAMES, 0, NPC_WIDTH, NPC_HEIGHT);
-                    Npc_->addComponent<CheckCollision>(CHECKCOLLISION_H, player_, number_npc_);
+                    Npc_->addComponent<NPCcollisioncomponent>(NPCCOLLISIONCOMPONENTT, player_,  contnpc );
 					Npc_->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(0, 0), NPC_HEIGHT, NPC_WIDTH / NPC_FRAMES);
                     number_npc_++;
                     addEntity(Npc_);
@@ -271,7 +274,7 @@ void TopDownState::LoadMap(string const& filename) {
 }
 
 void TopDownState::dialog(int a) {
-    if (dialog_ != false) {
+   /* if (dialog_ != false) {
         if (d->getfinish() == true) {
             in_->changebool();
             d->~DialogBox();
@@ -288,12 +291,13 @@ void TopDownState::dialog(int a) {
         dialog_ = true;
       
 
-    }
+    }*/
 }
 
 void TopDownState::update() {
   //  cout << player_->getComponent<Transform>(TRANSFORM_H)->getPos()<<" " << player_->getComponent<Transform>(TRANSFORM_H)->getW() << " " << player_->getComponent<Transform>(TRANSFORM_H)->getH();
    // player_->setCollision(false);
+    Playernpc_->setcol();
     for (auto p : collisions_) {
         p->update();
     }

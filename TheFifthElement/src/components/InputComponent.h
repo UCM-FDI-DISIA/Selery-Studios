@@ -6,7 +6,7 @@
 #include "SkinComponent.h"
 #include "SDL_events.h"
 #include <string>
-
+#include "DialogueComponent.h"
 
 class InputComponent : public Component {
 private:
@@ -14,7 +14,7 @@ private:
     double actionDelay;
     MovementComponent* mov_ = nullptr;
     SkinComponent* skin_ = nullptr;
-
+    DialogueComponent* dialog = nullptr;
 public:
     InputComponent();
     void initComponent();

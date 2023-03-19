@@ -1,6 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\src",
+    "\\src\\components",
+    "\\src\\Entities"
   ],
   "SelectedNode": "\\TheFifthElement.sln",
   "PreviewInSolutionExplorer": false

@@ -55,6 +55,7 @@
     <ClCompile Include="src\components\AnimationEarthBossComponent.cpp" />
     <ClCompile Include="src\components\MovementEarthBossComponent.cpp" />
     <ClCompile Include="src\components\RedirectEnemy.cpp" />
+    <ClCompile Include="src\components\NPCcollisioncomponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\components\Button.h" />
@@ -127,6 +128,8 @@
     <ClInclude Include="src\components\MovementEarthBossComponent.h" />
     <ClInclude Include="src\components\ObjectsComponent.h" />
     <ClInclude Include="src\components\RedirectEnemy.h" />
+    <ClInclude Include="src\components\NPCcollisioncomponent.h" />
+    <ClInclude Include="src\components\Playernpc.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="TheFifthElement.rc" />

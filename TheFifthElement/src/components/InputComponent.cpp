@@ -12,6 +12,7 @@ InputComponent::InputComponent() :Component() {
 void InputComponent::initComponent() {
 	mov_ = ent_->getComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
 	skin_ = ent_->getComponent<SkinComponent>(SKINCOMPONENT_H);
+	 dialog = ent_->getComponent<DialogueComponent>(DIALOGCOMPONENT_H);
 	//setContext();	
 }
 void InputComponent::update() { //Actualizamos el contador que mide el tiempo
@@ -62,7 +63,8 @@ void InputComponent::handleEvents(SDL_Event event)
 		
 		if (ih().isKeyDown(SDL_SCANCODE_E)) {
 			if (actionDelay > 0) {
-				int a = static_cast<PlayerTD*>(ent_)->getCol();
+				dialog->inicombe();
+				/*int a = static_cast<PlayerTD*>(ent_)->getCol();
 				cout << a;
 
 				if (a != -1) {
@@ -71,7 +73,7 @@ void InputComponent::handleEvents(SDL_Event event)
 					mov_->setDir(Vector2D(0, 0));
 					static_cast<TopDownState*>(mngr_)->dialog(a);
 					SDLUtils::instance()->soundEffects().at("NPC_Chat").play();
-				}
+				}*/
 
 			}
 			actionDelay = 0;

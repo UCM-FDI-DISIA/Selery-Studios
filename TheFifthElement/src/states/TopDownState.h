@@ -2,6 +2,7 @@
 #include "tmxlite/Map.hpp"
 #include "tmxlite/TileLayer.hpp"
 #include "GameState.h"
+#include "../components/Playernpc.h"
 #include "../components/InputComponent.h"
 #include "../Entities/DialogBox.h"
 #include "../Entities/Element.h"
@@ -11,7 +12,7 @@
 #include "../components/ColliderTile.h"
 #include "../components/CollideTileInteraction.h"
 #include "../PuzzleCopas.h"
-//#include "../Entities/HUDTD.h"
+#include "../components/NPCcollisioncomponent.h"
 #include "../components/Transform.h"
 #include "../sdlutils/Texture.h"
 #include "../GameManager.h"
@@ -27,6 +28,7 @@
 #include "../components/Button.h"
 #include "../components/ShopComponent.h"
 #include "../components/RedirectEnemy.h"
+#include "../components/DialogueComponent.h"
 using uint = unsigned int;
 using tileset_map = std::map<std::string, Texture*>; //mapa con CLAVE:string, ARGUMENTO: puntero a textura
 using tilelayer = tmx::TileLayer;
@@ -61,7 +63,8 @@ private:
 	InputComponent* in_;
 	SkinComponent* sk_;
 	Texture* texture_player_;
-	
+	PlayerNPC* Playernpc_;
+	int contnpc = 0;
 	//NPCS
 	Entity* Npc_;
 	//Transform* Nptr_;
@@ -92,7 +95,7 @@ private:
 	//HUDTD* hudTD = new HUDTD();
 public:
 	string getStateID(); // stringID
-	DialogBox* d;
+	//DialogBox* d;
 	PuzzleCopas* puzzle1;
 	TopDownState();	
 	~TopDownState() {}
