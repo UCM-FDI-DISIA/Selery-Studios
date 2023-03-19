@@ -7,6 +7,7 @@
 #include "../sdlutils/SDLUtils.h"
 #include "../GameManager.h"
 #include "../components/Playernpc.h"
+#include "../utils/Entity.h"
 class NPCcollisioncomponent : public Component
 {
 private:
@@ -17,18 +18,45 @@ private:
 	SDL_Rect rectPlayer, rectNPC;
 	int npc_ = -1;
 public:
-	NPCcollisioncomponent(Entity* player, int npc);
-
-	//M?odo en el que iniciamos y seteamos los valores necesarios desde un principio
-	void initComponent();
-
+	//NPCcollisioncomponent(Entity* player, int npc);
+	virtual ~NPCcollisioncomponent() {};
+	/*void initComponent();
 	void update();
-	void updateRects();
+	void updateRects();*/
 
 	//M?odo para crear el rect?gulo, en caso de ser un NPC
 	inline SDL_Rect getRectNPC() { return build_sdlrect(tr1->getPos(), tr1->getW(), tr1->getH()); }
 
 	//Equivalente para el personaje
 	inline SDL_Rect getPlayerRect() { return build_sdlrect(tr2->getPos(), tr2->getW(), tr2->getH()); }
+	NPCcollisioncomponent(Entity* player, int npc) {
+		player_ = player;
+		npc_ = npc;
+	}
+	void initComponent() {
+		//Hacemos los getComponent de los Transform
+		tr1 = ent_->getComponent<Transform>(TRANSFORM_H);
+		tr2 = player_->getComponent<Transform>(TRANSFORM_H);
+		plynpc = player_->getComponent<PlayerNPC>(PLAYERNPC_H);
+		rectNPC = getRectNPC();
+		rectPlayer = getPlayerRect();
+
+	}
+	void update()
+	{
+
+		if (Collision::collides(Vector2D(rectPlayer.x, rectPlayer.y), rectPlayer.w, rectPlayer.h, Vector2D(rectNPC.x, rectNPC.y), rectNPC.w, rectNPC.h))
+		{
+			plynpc->setcolnpc(npc_);
+
+		}
+		updateRects();
+	}
+	void updateRects()
+	{
+		//Modo para actualizar los rect?gulos
+		rectPlayer = getPlayerRect();
+		rectNPC = getRectNPC();
+	}
 };
 #endif

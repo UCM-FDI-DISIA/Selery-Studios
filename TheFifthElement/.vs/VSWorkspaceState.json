@@ -3,7 +3,8 @@
     "",
     "\\src",
     "\\src\\components",
-    "\\src\\Entities"
+    "\\src\\Entities",
+    "\\src\\states"
   ],
   "SelectedNode": "\\TheFifthElement.sln",
   "PreviewInSolutionExplorer": false
