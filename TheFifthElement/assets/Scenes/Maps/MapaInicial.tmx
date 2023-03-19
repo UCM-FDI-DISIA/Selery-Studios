@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.9" tiledversion="1.9.2" orientation="orthogonal" renderorder="right-down" width="309" height="176" tilewidth="32" tileheight="32" infinite="0" nextlayerid="39" nextobjectid="706">
+<map version="1.9" tiledversion="1.9.2" orientation="orthogonal" renderorder="right-down" width="309" height="176" tilewidth="32" tileheight="32" infinite="0" nextlayerid="40" nextobjectid="715">
  <tileset firstgid="1" source="AncientRuins/TiledMap Editor/Atlas-Props.tsx"/>
  <tileset firstgid="2501" source="AncientRuins/TiledMap Editor/Terrain - Ancient Ruins.tsx"/>
  <tileset firstgid="4710" source="AncientRuins/TiledMap Editor/Ancient Ruins-Tileset-wall-2.tsx"/>
@@ -3809,70 +3809,6 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <objectgroup id="10" name="Player">
-  <object id="38" x="4206.33" y="793.333">
-   <point/>
-  </object>
- </objectgroup>
- <objectgroup id="11" name="NPC">
-  <object id="32" x="3458" y="840">
-   <point/>
-  </object>
-  <object id="33" x="3642" y="976">
-   <point/>
-  </object>
-  <object id="237" x="1713.33" y="2880">
-   <point/>
-  </object>
-  <object id="244" x="1356" y="2892">
-   <point/>
-  </object>
-  <object id="245" x="1534" y="4838">
-   <point/>
-  </object>
- </objectgroup>
- <objectgroup id="12" name="Enemy">
-  <object id="35" x="4384" y="448">
-   <point/>
-  </object>
-  <object id="238" x="2004" y="3074.67">
-   <point/>
-  </object>
-  <object id="239" x="1994" y="3794">
-   <point/>
-  </object>
-  <object id="241" x="2188" y="3920">
-   <point/>
-  </object>
-  <object id="242" x="1260" y="4060">
-   <point/>
-  </object>
-  <object id="243" x="1478" y="3732">
-   <point/>
-  </object>
-  <object id="650" name="right" x="4384" y="448">
-   <point/>
-  </object>
-  <object id="651" name="down" x="4384" y="192">
-   <point/>
-  </object>
-  <object id="652" name="left" x="4736" y="192">
-   <point/>
-  </object>
-  <object id="653" name="up" x="4736" y="448">
-   <point/>
-  </object>
- </objectgroup>
- <objectgroup id="13" name="Shop">
-  <object id="36" x="5800" y="680">
-   <point/>
-  </object>
- </objectgroup>
- <objectgroup id="14" name="Portal">
-  <object id="37" x="4994" y="998">
-   <point/>
-  </object>
- </objectgroup>
  <layer id="38" name="PlataformaReinoDeAgua" width="309" height="176">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,26163,26164,26165,26166,26167,26168,26169,26170,26171,26172,26173,26174,26175,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -4053,6 +3989,16 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
+ <objectgroup id="13" name="Shop">
+  <object id="36" x="5800" y="680">
+   <point/>
+  </object>
+ </objectgroup>
+ <objectgroup id="14" name="Portal">
+  <object id="37" x="4994" y="998">
+   <point/>
+  </object>
+ </objectgroup>
  <objectgroup id="9" name="Interacctions">
   <object id="24" x="2845.33" y="100" width="444" height="126.667"/>
   <object id="25" x="3354.67" y="48.667" width="452" height="128"/>
@@ -4531,21 +4477,73 @@
   <object id="689" x="3685" y="649" width="37" height="48">
    <ellipse/>
   </object>
-  <object id="692" x="3723.33" y="652">
-   <polygon points="0,0 -0.666667,60 14.6667,80.6667 49.3333,103.333 54.6667,126.667 96.6667,146 96.6667,166.667 117.333,167.333 117.333,202.667 306,205.333 306,151.333 281.333,150.667 282,178 140.667,170.667 140,55.3333 120.667,51.3333 120,2.66667"/>
-  </object>
   <object id="693" x="3776.67" y="816" width="32.6667" height="34.6667">
    <ellipse/>
-  </object>
-  <object id="696" x="4063.33" y="610">
-   <polygon points="0,0 -38,41.3333 -56,100 -56.6667,189.333 -34,190.667 -35.3333,152.667 18,154.667 16,130.667 46,113.333 40.6667,54 25.3333,20 732,26 750.667,28 752,-0.666667"/>
   </object>
   <object id="698" x="3846" y="910" width="35" height="185"/>
   <object id="700" x="3845" y="902" width="185" height="43"/>
   <object id="701" x="3991" y="915" width="45" height="203"/>
   <object id="702" x="4008" y="1098" width="362" height="14"/>
-  <object id="704" x="4109" y="842">
-   <polygon points="0,0 -45,76 -27,129 2,137 -4,191 93,192 84,126 75,109 85,66 37,3"/>
+  <object id="706" x="3745.33" y="653.333" width="124" height="201.333"/>
+  <object id="707" x="4000" y="844"/>
+  <object id="708" x="3854.67" y="829.333" width="169.333" height="28"/>
+  <object id="709" x="4002.67" y="612" width="94.6667" height="234.667"/>
+ </objectgroup>
+ <objectgroup id="39" name="COM">
+  <object id="713" x="3165.33" y="869.333" width="349.333" height="381.333"/>
+ </objectgroup>
+ <objectgroup id="10" name="Player">
+  <object id="38" x="3686.33" y="807.333">
+   <point/>
+  </object>
+ </objectgroup>
+ <objectgroup id="12" name="Enemy">
+  <object id="35" x="4384" y="448">
+   <point/>
+  </object>
+  <object id="238" x="2004" y="3074.67">
+   <point/>
+  </object>
+  <object id="239" x="1994" y="3794">
+   <point/>
+  </object>
+  <object id="241" x="2188" y="3920">
+   <point/>
+  </object>
+  <object id="242" x="1260" y="4060">
+   <point/>
+  </object>
+  <object id="243" x="1478" y="3732">
+   <point/>
+  </object>
+  <object id="650" name="right" x="4384" y="448">
+   <point/>
+  </object>
+  <object id="651" name="down" x="4384" y="192">
+   <point/>
+  </object>
+  <object id="652" name="left" x="4736" y="192">
+   <point/>
+  </object>
+  <object id="653" name="up" x="4736" y="448">
+   <point/>
+  </object>
+ </objectgroup>
+ <objectgroup id="11" name="NPC">
+  <object id="32" x="3458" y="840">
+   <point/>
+  </object>
+  <object id="33" x="3642" y="976">
+   <point/>
+  </object>
+  <object id="237" x="1713.33" y="2880">
+   <point/>
+  </object>
+  <object id="244" x="1356" y="2892">
+   <point/>
+  </object>
+  <object id="245" x="1534" y="4838">
+   <point/>
   </object>
  </objectgroup>
 </map>

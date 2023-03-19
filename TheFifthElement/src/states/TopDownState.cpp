@@ -142,7 +142,7 @@ void TopDownState::LoadMap(string const& filename) {
                 auto rect = obj.getAABB();
                 string name = object_layer->getName();
                 
-                if (name == "Colisiones") {
+                if (name == "COM") {
                     Entity* colision = new Entity();
                     colision->addComponent<Transform>(TRANSFORM_H, Vector2D(rect.left, rect.top), rect.width, rect.height);
                     collisions_.push_back(colision);

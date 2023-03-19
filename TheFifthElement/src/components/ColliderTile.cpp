@@ -6,10 +6,7 @@ ColliderTile::ColliderTile(vector<Entity*> colisions) :Component() {
 void ColliderTile::initComponent() {
 	trans_player = ent_->getComponent<Transform>(TRANSFORM_H);
 	input = ent_->getComponent<InputComponent>(INPUTCOMPONENT_H);
-	pTopLeft = trans_player->getPos();
-	pBottomLeft = { pTopLeft.getX(), pTopLeft.getY() + trans_player->getH() };
-	pTopRight = { pTopLeft.getX() + trans_player->getW(), pTopLeft.getY() };
-	pBottonRight = { pTopRight.getX(), pTopRight.getY() + trans_player->getH() };
+	
 }
 void ColliderTile::update() {
 
@@ -21,9 +18,16 @@ void ColliderTile::update() {
 		bottomRight_ = { trans_col->getPos().getX() + trans_col->getW(), trans_col->getPos().getY() + trans_col->getH() };
 		if (Collision::collides(trans_player->getPos(), trans_player->getW(),
 			trans_player->getH(), trans_col->getPos(), trans_col->getW(), trans_col->getH())) {
+			pTopLeft = trans_player->getPos();
+			pBottomLeft = { pTopLeft.getX(), pTopLeft.getY() + trans_player->getH() };
+			pTopRight = { pTopLeft.getX() + trans_player->getW(), pTopLeft.getY() };
+			pBottonRight = { pTopRight.getX(), pTopRight.getY() + trans_player->getH() };
 			input->setDirection(chooseDirection());
 		}
-		input->setDirection(-1);
+		else{
+			input->setDirection(-1);
+		}
+		
 	}
 	//if (isActive_) {
 	//	SDL_Rect rect = build_sdlrect(tr->getPos(), tr->getW(), tr->getH());
@@ -59,7 +63,7 @@ int ColliderTile::chooseDirection() {
 
 		return 3;
 	}
-	else { // if (topRight_.getX() <= pTopLeft().getX() + margin_)
+	else  if (topRight_.getX() <= pTopLeft.getX() + margin_){
 
 		return 2;
 	}
