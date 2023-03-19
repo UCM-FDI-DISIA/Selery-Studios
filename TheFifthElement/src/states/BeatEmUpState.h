@@ -22,6 +22,8 @@
 #include "../components/PointOfFightComponent.h"
 #include "../components/ShadowComponent.h"
 
+#include "../components/AttackEarthBossComponent.h"
+
 using name = string;
 using damage = int;
 

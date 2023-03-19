@@ -1,6 +1,6 @@
 #pragma once
 #ifndef ANIMATIONEARTHBOSSCOMPONENT_H_
-#define ANIMATIONBOSSCOMPONENT_H_
+#define ANIMATIONEARTHBOSSCOMPONENT_H_
 #include "../utils/Vector2D.h"
 #include "../utils/Component.h"
 #include "../utils/Entity.h"

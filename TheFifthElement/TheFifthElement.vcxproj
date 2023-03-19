@@ -133,6 +133,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\components\AttackEarthBossComponent.h" />
     <ClInclude Include="src\components\SkinBEUComponent.h" />
     <ClInclude Include="src\components\brightSliderComponent.h" />
     <ClInclude Include="src\states\OptionsState.h" />
@@ -211,6 +212,7 @@
     <ClInclude Include="src\utils\Vector2D.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\components\AttackEarthBossComponent.cpp" />
     <ClCompile Include="src\components\SkinBEUComponent.cpp" />
     <ClCompile Include="src\states\OptionsState.cpp" />
     <ClCompile Include="src\components\sliderComponent.cpp" />

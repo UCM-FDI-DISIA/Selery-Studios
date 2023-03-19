@@ -10,9 +10,9 @@ class PointOfFightComponent : public Component
 private:
 	Transform* tr_;
 	Vector2D pointLeftFight, pointRightFight, center;
-	float margin;
+	float margin, height; // Margen a los lados y altura a la que estan dichos puntos de combate
 public:
-	PointOfFightComponent(float margin_);
+	PointOfFightComponent(float margin_, float height_);
 	virtual ~PointOfFightComponent() {}
 	void initComponent();
 	void update();

@@ -26,11 +26,11 @@ BeatEmUpState::BeatEmUpState(bool boss, string typeBoss) {
 	player_->addComponent<AttackBoxComponent>(ATTACKBOXCOMPONENT_H);
 	player_->addComponent<LimitBEU>(LIMITBEU_H);
 	player_->addComponent<ColliderComponent>(int(COLLIDERCOMPONENT_H), Vector2D(90, 80), 1.2*PLAYERBEU_HEIGHT_FRAME / 3, PLAYERBEU_WIDTH_FRAME / 7);
-	player_->addComponent<PointOfFightComponent>(POINTOFFIGHTCOMPONENT_H, 30);
+	player_->addComponent<PointOfFightComponent>(POINTOFFIGHTCOMPONENT_H, 30, 10);
 	addEntity(player_);
 
 	if (!boss) {
-		//AddEnemies(3);
+		AddEnemies(3);
 	}
 	else if (boss && typeBoss == "water") {
 		AddWaterBoss();
@@ -108,10 +108,14 @@ void BeatEmUpState::AddEarthBoss() {
 	boss_ = new Entity();
 	Transform* t = boss_->addComponent<Transform>(TRANSFORM_H, pos, EARTHBOSS_WIDTH * 2, EARTHBOSS_HEIGHT * 2);
 	boss_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("GolemFase1"), 8, 58, 0, EARTHBOSS_WIDTH, EARTHBOSS_HEIGHT);
-	boss_->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(10, 10), (EARTHBOSS_HEIGHT * 2) - 20, (EARTHBOSS_WIDTH * 2) - 20);
-	boss_->addComponent<MovementEarthBossComponent>(MOVEMENTEARTHBOSSCOMPONENT_H, player_);
+	boss_->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(150, 120), (EARTHBOSS_HEIGHT * 2) - 240, (EARTHBOSS_WIDTH * 2) - 300);
+	boss_->addComponent<PointOfFightComponent>(POINTOFFIGHTCOMPONENT_H, 60, 140);
 	boss_->addComponent<AnimationEarthBossComponent>(ANIMATIONEARTHBOSSCOMPONENT_H);
+	boss_->addComponent<MovementEarthBossComponent>(MOVEMENTEARTHBOSSCOMPONENT_H, player_);
 	boss_->addComponent<LifeEarthBossComponent>(LIFEEARTHBOSSCOMPONENT_H);
+	boss_->addComponent<AttackEarthBossComponent>(ATTACKEARTHBOSSCOMPONENT_H);
+	//boss_->addComponent<AttackBoxComponent>(ATTACKBOXCOMPONENT_H);
+	
 	addEntity(boss_);
 }
 

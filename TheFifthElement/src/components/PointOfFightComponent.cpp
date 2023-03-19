@@ -1,6 +1,7 @@
 #include "PointOfFightComponent.h"
-PointOfFightComponent::PointOfFightComponent(float margin_) {
+PointOfFightComponent::PointOfFightComponent(float margin_, float height_) {
 	margin = margin_;
+	height = height_;
 }
 
 void PointOfFightComponent::initComponent() {
@@ -8,7 +9,7 @@ void PointOfFightComponent::initComponent() {
 }
 
 void PointOfFightComponent::update() {
-	center = Vector2D(tr_->getPos().getX() + tr_->getW() / 2, tr_->getPos().getY() + tr_->getH());
+	center = Vector2D(tr_->getPos().getX() + tr_->getW() / 2, tr_->getPos().getY() + tr_->getH() - height);
 	pointLeftFight = center - Vector2D(margin, 0);
 	pointRightFight = center + Vector2D(margin, 0);
 }

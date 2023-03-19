@@ -38,6 +38,7 @@ enum cmpId : cmpId_type {
 	BRIGHTSLIDER_H = 30,
 	SLIDERCOMPONENT_H = 31,
 	SKINBEUCOMPONENT_H = 32,
+	ATTACKEARTHBOSSCOMPONENT_H = 33,
 
 
 	// do not remove this

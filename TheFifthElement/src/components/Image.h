@@ -22,7 +22,7 @@ private:
 	int tope = 100;
 	Vector2D a;
 
-	string type_;
+	string type_ = "";
 public:
 
 	//Constructora

@@ -38,6 +38,7 @@ private:
     float width, height, boxTime, timerExecution, angle, way, stoppingAngle;
     bool boxCreated = false;
 
+    bool isPlayer = true;
     string type;
 public:
     AttackBoxComponent();
