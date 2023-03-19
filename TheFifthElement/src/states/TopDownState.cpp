@@ -143,9 +143,9 @@ void TopDownState::LoadMap(string const& filename) {
                 string name = object_layer->getName();
                 
                 if (name == "Colisiones") {
-                   // Entity* colision = new Entity();
-                   /* colision->addComponent<Transform>(TRANSFORM_H, Vector2D(rect.left, rect.top), rect.width, rect.height);
-                    collisions_.push_back(colision);*/
+                    Entity* colision = new Entity();
+                    colision->addComponent<Transform>(TRANSFORM_H, Vector2D(rect.left, rect.top), rect.width, rect.height);
+                    collisions_.push_back(colision);
                    // collisions_.push_back(collidertile);
                 }
                 else if (name == "Interacctions") {

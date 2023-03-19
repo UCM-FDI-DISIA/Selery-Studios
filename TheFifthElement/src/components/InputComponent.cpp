@@ -7,6 +7,7 @@
 #include <string>
 
 InputComponent::InputComponent() :Component() {
+	d = NONE;
 }
 
 void InputComponent::initComponent() {
@@ -18,25 +19,27 @@ void InputComponent::update() { //Actualizamos el contador que mide el tiempo
 	unsigned timer = clock();
 	actionDelay = (double(timer) / CLOCKS_PER_SEC);
 }
+
+
 void InputComponent::handleEvents(SDL_Event event)
 {
 	ih().update(event);
 
 	if (ih().keyDownEvent()){
 		if (!npccol) {
-			if (ih().isKeyDown(SDL_SCANCODE_A)) {
+			if (ih().isKeyDown(SDL_SCANCODE_A)&& d!= LEFT) {
 				mov_->setDir(Vector2D(-1, 0));
 				skin_->changeState(SkinComponent::Left);
 			}
-			else if (ih().isKeyDown(SDL_SCANCODE_D)) {
+			else if (ih().isKeyDown(SDL_SCANCODE_D) && d!=RIGHT) {
 				mov_->setDir(Vector2D(1, 0));
 				skin_->changeState(SkinComponent::Right);
 			}
-			else  if (ih().isKeyDown(SDL_SCANCODE_W)) {
+			else  if (ih().isKeyDown(SDL_SCANCODE_W)&&d!=UP) {
 				mov_->setDir(Vector2D(0, -1));
 				skin_->changeState(SkinComponent::Up);
 			}
-			else if (ih().isKeyDown(SDL_SCANCODE_S)) {
+			else if (ih().isKeyDown(SDL_SCANCODE_S)&&d!=DOWN) {
 				mov_->setDir(Vector2D(0, 1));
 				skin_->changeState(SkinComponent::Down);
 			}
