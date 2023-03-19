@@ -141,9 +141,12 @@ void TopDownState::LoadMap(string const& filename) {
             for (auto obj : objs) {
                 auto rect = obj.getAABB();
                 string name = object_layer->getName();
+                
                 if (name == "Colisiones") {
-                   /* auto a = new ColliderTile(Vector2D(rect.left, rect.top), rect.width, rect.height, player_);
-                    collisions_.push_back(a);*/
+                   // Entity* colision = new Entity();
+                   /* colision->addComponent<Transform>(TRANSFORM_H, Vector2D(rect.left, rect.top), rect.width, rect.height);
+                    collisions_.push_back(colision);*/
+                   // collisions_.push_back(collidertile);
                 }
                 else if (name == "Interacctions") {
                     /*auto a = new ColliderTileInteraction(Vector2D(rect.left, rect.top), rect.width, rect.height, player_, obj.getUID(), puzzle1);
@@ -161,6 +164,7 @@ void TopDownState::LoadMap(string const& filename) {
                     player_->addComponent<Image>(IMAGE_H, texture_player_, PLAYERTD_NUMFRAMES, PLAYERTD_NUMFRAMES,0, PLAYERTD_WIDTH_FRAME, PLAYERTD_HEIGHT_FRAME);
                     player_->addComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
                     in_ = player_->addComponent<InputComponent>(INPUTCOMPONENT_H);
+                    player_->addComponent<ColliderTile>(COLLIDERTILE_H, collisions_);
                     addEntity(player_);
                 }
                 else if (name == "NPC") {
