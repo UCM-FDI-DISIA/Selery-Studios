@@ -1,15 +1,22 @@
 #pragma once
-#include "../components/AnimationEnemyBEUComponent.h"
-#include "../components/EnemyBEUDirectionComponent.h"
+#include "AnimationEnemyBEUComponent.h"
+#include "EnemyBEUDirectionComponent.h"
 //#include "../components/InputComponentBEU.h"
-#include "../components/Image.h"
+#include "SkinBEUComponent.h"
+#include "Image.h"
 #include <array>
+
+struct player {
+	float life;
+	bool alive;
+};
 
 class LifeComponent : public Component {
 private:
 #pragma region references
 	AnimationEnemyBEUComponent* anim_ = nullptr;
 	EnemyBEUDirectionComponent* eMov_ = nullptr;
+	SkinBEUComponent* skin_ = nullptr;
 	//InputComponentBEU* inp_ = nullptr;
 	Image* im_ = nullptr;
 	Transform* entTransform_ = nullptr;
@@ -28,7 +35,7 @@ private:
 
 #pragma region propierties
 	Vector2D pos_;
-	float types[4];
+	player types[4];
 #pragma endregion
 
 #pragma region LifeBar
@@ -48,7 +55,7 @@ private:
 
 public:
 
-	LifeComponent(float maxLife, bool enemy, string type, Entity* ent);
+	LifeComponent(float maxLife);
 	void initComponent();
 
 	void render();
@@ -62,7 +69,7 @@ public:
 	void resetLife() { life_ = maxLife_; }
 	float getLife() { return life_; }
 	void setCollision(bool col) { collision = col; }
-	void chageType(string type, float maxLife);
+	void chageType(float maxLife);
 
 	void chooseTexture();
 	

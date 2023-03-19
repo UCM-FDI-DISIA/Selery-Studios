@@ -130,6 +130,8 @@
     {"id": "Air_LifeBarBorder", "file": "assets/Enemies/HUD/LifeBars/Horizontal/Boarders/Boarder2.png"},
     {"id": "Player_BEU_fire", "file": "assets/Player/BeatEmUp/Fire/spritesheets/fireMatrix.png"},
     {"id": "Player_BEU_earth", "file": "assets/Player/BeatEmUp/Earth/earthMatrix.png"},
+    {"id": "Player_BEU_water", "file": "assets/Player/BeatEmUp/Water/waterMatrix.png"},
+    {"id": "Player_BEU_air", "file": "assets/Player/BeatEmUp/Air/airMatrix.png"},
     {"id": "fondoMainMenu", "file": "assets/Scenes/Backgrounds/Menu/fondoMainMenu.png"},
     {"id": "fondoMainMenu1", "file": "assets/Scenes/Backgrounds/Menu/fondoMainMenu1.png"},
     {"id": "fondoMainMenu2", "file": "assets/Scenes/Backgrounds/Menu/fondoMainMenu2.png"},
@@ -153,7 +155,8 @@
     {"id": "ShopBackground", "file": "assets/HUD/tienda/fondotienda.png"},
     {"id": "ShopFrame", "file": "assets/HUD/tienda/marcotienda.png"},
     {"id": "GolemFase1", "file": "assets/Enemies/BeatEmUp/Bosses/EarthBoss/Stone-golem-all animations-224x192.png"},
-    {"id":  "waterBoss", "file":  "assets/Enemies/BeatEmUp/Bosses/WaterBoss/frost_guardian_free_192x128_SpriteSheet.png"}
+    {"id":  "waterBoss", "file":  "assets/Enemies/BeatEmUp/Bosses/WaterBoss/frost_guardian_free_192x128_SpriteSheet.png"},
+    {"id": "shadow","file": "assets/Enemies/BeatEmUp/Bosses/EarthBoss/golem-shadow.png"}
   ],
 
   "messages": [

@@ -19,14 +19,22 @@
 #include "../components/MovementEarthBossComponent.h"
 #include "../components/AnimationEarthBossComponent.h"
 
+#include "../components/PointOfFightComponent.h"
+#include "../components/ShadowComponent.h"
+
 using name = string;
 using damage = int;
+
+
+class SkinBEUComponent;
 class BeatEmUpState: public Manager {
 private:
 	//PLAYER
 	Entity* player_;
+	SkinBEUComponent* sk_;
 	Transform* trans_player_;
 	InputComponentBEU* in_;
+	Texture* texture_player_;
 	//BACKGROUND
 	Entity* background_;
 	RandomNumberGenerator* random;

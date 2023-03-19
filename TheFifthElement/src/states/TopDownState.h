@@ -84,7 +84,7 @@ private:
 	bool dialog_;
 
 	//COLISIONES TILE-PLAYER
-	vector<ColliderTile*> collisions_; //vector colision player-mapa
+	vector<Entity*> collisions_; //vector colision player-mapa
 	vector<ColliderTileInteraction*> interactions_; //vector colision player-mapa
 	float camOffset_ = 60.0f;
 

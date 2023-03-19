@@ -4,19 +4,20 @@
 #include "../utils/Vector2D.h"
 #include "../utils/Component.h"
 #include "../components/Transform.h"
+#include "../components/PointOfFightComponent.h"
 
 class MovementEarthBossComponent : public Component
 {
 private:
 	Transform* playerTransform;
 	Transform* bossTransform;
-	Vector2D pointLeftFight, pointRightFight;
+	PointOfFightComponent* fightPlayerComp;
+	Entity* player_;
 public:
-	MovementEarthBossComponent(Transform* tr);
+	MovementEarthBossComponent(Entity* player);
 	virtual ~MovementEarthBossComponent() {}
 	void initComponent();
 	void update();
-	void render();
 };
 #endif
 

@@ -8,8 +8,14 @@
 #include <string>
 #include "DialogueComponent.h"
 
+enum Directions {
+    NONE=-1,
+    UP=0, DOWN=1, LEFT=2, RIGHT=3
+};
+
 class InputComponent : public Component {
 private:
+    Directions d;
     bool npccol = false;
     double actionDelay;
     MovementComponent* mov_ = nullptr;
@@ -21,5 +27,8 @@ public:
     void update();
     void handleEvents(SDL_Event event);
     void changebool(){ npccol = false; }
+    inline void setDirection(int dd) {
+        d = Directions(dd);
+    }
 };
 #endif

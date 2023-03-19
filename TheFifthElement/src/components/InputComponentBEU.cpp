@@ -6,6 +6,7 @@
 #include "Image.h"
 #include "../states/BeatEmUpState.h"
 
+
 InputComponentBEU::InputComponentBEU() :Component() {
 }
 
@@ -15,36 +16,38 @@ void InputComponentBEU::initComponent() {
 	jmp_ = ent_->getComponent<JumpComponent>(JUMP_H);
 	t_ = new Texture(GameManager::instance()->getRenderer(), "./assets/Player/BeatEmUp/Fire/spritesheets/fireMatrix.png");
 	lifeC_ = ent_->getComponent<LifeComponent>(LIFECOMPONENT_H);
+	shadow = ent_->getComponent<ShadowComponent>(SHADOWCOMPONENT_H);
+	assert(shadow != nullptr);
+	sk_ = ent_->getComponent<SkinBEUComponent>(SKINBEUCOMPONENT_H);
 }
 
 void InputComponentBEU::update() {
-	if (!im_->isAnimPlaying()) { // Si no esta realizando ninguna acción no cancelable
+	if (!im_->isAnimPlaying()) { // Si no esta realizando ninguna acciï¿½n no cancelable
 		if (moveLeft) {
 			tr_->setDir(Vector2D(-1, 0));
-			im_->setAnim(false, 1, 8, 0, 100);
-			im_->setFlip(SDL_FLIP_HORIZONTAL);
+			sk_->changeState(SkinBEUComponent::Left);
 		}
 		else if (moveRight) {
 			tr_->setDir(Vector2D(1, 0));
-			im_->setAnim(false, 1, 8, 0, 100);
-			im_->setFlip(SDL_FLIP_NONE);
+			sk_->changeState(SkinBEUComponent::Right);
 		}
 		else if (moveUp) {
 			tr_->setDir(Vector2D(0, -1));
-			im_->setAnim(false, 1, 8, 0, 100);
+			sk_->changeState(SkinBEUComponent::Vertical);
 		}
 		else if (moveDown) {
 			tr_->setDir(Vector2D(0, 1));
-			im_->setAnim(false, 1, 8, 0, 100);
+			sk_->changeState(SkinBEUComponent::Vertical);
 		}
 		else {
 			tr_->setDir(Vector2D(0, 0));
+			sk_->changeState(SkinBEUComponent::Idle);
 		}
 	}
-	else if (jmp_->isJumpEnabled()) { // Esta realizando una acción no cancelable (distinta del salto)
+	else if (jmp_->isJumpEnabled()) { // Esta realizando una acciï¿½n no cancelable (distinta del salto)
 		tr_->setDir(Vector2D(0, 0));
 	}
-	else { // Está saltando
+	else { // Estï¿½ saltando
 		if (moveLeft) {
 			tr_->setDir(Vector2D(-1, tr_->getDir().getY()));
 			im_->setFlip(SDL_FLIP_HORIZONTAL);
@@ -61,7 +64,9 @@ void InputComponentBEU::handleEvents(SDL_Event event) {
 
 	if (ih().isKeyDown(SDL_SCANCODE_SPACE) && !im_->isAnimPlaying() && jmp_->isJumpEnabled()) { // Salto
 		jmp_->jump();
-		im_->setAnim(true, 4, 15, 0, 100); // A lo mejor 15 cambia porque se le pueden dar o puede necesitar mas frames de salto
+		sk_->changeState(SkinBEUComponent::Jump); // A lo mejor 15 cambia porque se le pueden dar o puede necesitar mas frames de salto
+
+		shadow->Setpos_y(tr_->getPos().getY());
 	}
 
 	if (ih().isKeyDown(SDL_SCANCODE_A)) { // Mover Izquierda
@@ -86,24 +91,20 @@ void InputComponentBEU::handleEvents(SDL_Event event) {
 	else if (ih().isKeyUp(SDL_SCANCODE_S)) { moveDown = false; }
 
 
-	/*if (ih().isKeyDown(SDL_SCANCODE_1)) {
-		im_->setSpriteAnim(false, 8, 0, &SDLUtils::instance()->images().at("Player_BEU_air"));
-		lifeC_->chageType("wind", 10);
-	}*/
-
-	if (ih().isKeyDown(SDL_SCANCODE_2)) {
-		im_->setSpriteAnim(false, 8, 0, &SDLUtils::instance()->images().at("Player_BEU_fire"));
-		lifeC_->chageType("fire", 10);
+	if (ih().isKeyDown(SDL_SCANCODE_1) && !im_->isAnimPlaying()) {
+		sk_->changeSkin("air");
 	}
 
-	/*if (ih().isKeyDown(SDL_SCANCODE_3)) {
-		im_->setSpriteAnim(false, 8, 0, &SDLUtils::instance()->images().at("Player_BEU_water"));
-		lifeC_->chageType("water", 10);
-	}*/
+	if (ih().isKeyDown(SDL_SCANCODE_2) && !im_->isAnimPlaying()) {
+		sk_->changeSkin("fire");
+	}
 
-	if (ih().isKeyDown(SDL_SCANCODE_4)) {
-		im_->setSpriteAnim(false, 8, 0, &SDLUtils::instance()->images().at("Player_BEU_earth"));
-		lifeC_->chageType("earth", 10);
+	if (ih().isKeyDown(SDL_SCANCODE_3) && !im_->isAnimPlaying()) {
+		sk_->changeSkin("water");
+	}
+
+	if (ih().isKeyDown(SDL_SCANCODE_4) && !im_->isAnimPlaying()) {
+		sk_->changeSkin("earth");
 	}
 
 

@@ -2,6 +2,7 @@
 #include "utils/checkML.h"
 #include "states/GameStateMachine.h"
 #include "sdlutils/SDLUtils.h"
+#include "states/OptionsState.h"
 using namespace std;
 
 using uint = unsigned int;
@@ -27,5 +28,6 @@ public:
 	void backToMainMenu();
 	void leaveMainMenu();
 	static void goPauseMenu();
+	void goOptionsMenu();
 
 };

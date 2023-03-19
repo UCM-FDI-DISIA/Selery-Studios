@@ -76,10 +76,10 @@ void Image::render() {
 		if (i >= frames_ || i >= tope) {
 			i = 0;
 			animPlaying = false;
-			fila_ = 0;
+			/*fila_ = 0;
 			if (ent_->hasComponent(INPUTCOMPONENTBEU_H)) {
 				frames_ = 8;
-			}
+			}*/
 		}
 	}
 }
@@ -97,12 +97,13 @@ void Image::setAnim(bool Anim, int Fila, int Frames, int I, int tope) { //Metodo
 	}
 }
 
-void Image::setAnimTexture(string textureKey, int Frames, int Width) { //Metodo generico para cambiar de Textura (el width es temporal no deberia ser el with de la imagen sino de la entidad)
+void Image::setAnimTexture(string textureKey, int Frames, int Width, int Fila) { //Metodo generico para cambiar de Textura (el width es temporal no deberia ser el with de la imagen sino de la entidad)
 	Texture* nT = &sdlutils().images().at(textureKey);
 	if (nT != tex_) { // Si la animacion no es la actual la actualiza
 		tex_ = nT;
-		framesTotales_ = Frames;
+		frames_ = Frames;
 		tr_->setW(Width);
+		fila_ = Fila;
 	}
 }
 

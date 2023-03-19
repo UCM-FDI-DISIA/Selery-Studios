@@ -2,12 +2,14 @@
 #include "GameState.h"
 #include "../sdlutils/SDLUtils.h"
 #include "../components/Button.h"
+#include "../components/sliderComponent.h"
 class MainMenuState : public Manager
 {
 private:
 	Entity* playButton;
 	Entity* exitButton;
 	Entity* optionsButton;
+	Entity* slider;
 	Image* im_;
 public:
 	MainMenuState();

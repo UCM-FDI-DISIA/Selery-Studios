@@ -1,33 +1,35 @@
 ﻿#include "LifeComponent.h"
 
-LifeComponent::LifeComponent(float maxLife, bool enemy,string type, Entity* ent) {
+LifeComponent::LifeComponent(float maxLife) {
 	life_ = maxLife_ = maxLife;
-	enemy_ = enemy;
-	type_ = type;
+}
+
+void LifeComponent::initComponent() {
+	im_ = ent_->getComponent<Image>(IMAGE_H);
+	type_ = im_->getType();
+
+	enemy_ = ent_->hasComponent(ANIMATIONENEMYBEUCOMPONENT_H);
 	scale = WIN_WIDTH / 900;
+
 	if (enemy_) {
-		entTransform_ = ent->getComponent<Transform>(TRANSFORM_H);
-		barWidth_ = backWidth_ = borderWidth_ = (entTransform_->getW() / 4)*scale;
-		barHeight_ = backHeight_ = borderHeight_ = (entTransform_->getH() / 11)*scale;
+		anim_ = ent_->getComponent<AnimationEnemyBEUComponent>(ANIMATIONENEMYBEUCOMPONENT_H);
+		eMov_ = ent_->getComponent<EnemyBEUDirectionComponent>(ENEMYBEUDIRECTIONCOMPONENT_H);
+		entTransform_ = ent_->getComponent<Transform>(TRANSFORM_H);
+		barWidth_ = backWidth_ = borderWidth_ = (entTransform_->getW() / 4) * scale;
+		barHeight_ = backHeight_ = borderHeight_ = (entTransform_->getH() / 11) * scale;
 		pos_ = Vector2D(entTransform_->getPos().getX(), entTransform_->getPos().getY());
 	}
 	else {
 		barWidth_ = backWidth_ = borderWidth_ = 300 * scale;
 		barHeight_ = backHeight_ = borderHeight_ = 50 * scale;
+		skin_ = ent_->getComponent<SkinBEUComponent>(SKINBEUCOMPONENT_H);
 	}
 	chooseTexture();
 
-	for (int i = 0; i < 4; i++) types[i] = -1.0f;
-}
-
-void LifeComponent::initComponent() {
-	im_ = ent_->getComponent<Image>(IMAGE_H);
-	if (enemy_) {
-		anim_ = ent_->getComponent<AnimationEnemyBEUComponent>(ANIMATIONENEMYBEUCOMPONENT_H);
-		eMov_ = ent_->getComponent<EnemyBEUDirectionComponent>(ENEMYBEUDIRECTIONCOMPONENT_H);
-	}
-	else {
-
+	for (int i = 0; i < 4; i++)
+	{
+		types[i].life = -1.0f;
+		types[i].alive = true;
 	}
 }
 
@@ -35,8 +37,19 @@ void LifeComponent::update() {
 	if(enemy_)pos_ = Vector2D(entTransform_->getPos().getX(), entTransform_->getPos().getY()) - Vector2D(this->mngr_->camRect_.x, this->mngr_->camRect_.y);
 	//cout << life_ << endl;
 	if (die_) {
-		if (!im_->isAnimPlaying())
-			ent_->setAlive(false);
+		if (!im_->isAnimPlaying())ent_->setAlive(false);
+		else {
+			// falta bloquear la skin para que no la pueda acceder
+
+			bool end = true;
+			int i = 0;
+			while (end && i < 4) {
+				if (types[i].alive) end = false;
+				i++;
+			}
+			if (end) ent_->setAlive(false);
+			else die_ = false;
+		}
 	}
 	else {
 		if (!im_->isAnimPlaying()) {
@@ -56,7 +69,7 @@ void LifeComponent::update() {
 				if (anim_->currentState_ != AnimationEnemyBEUComponent::Hit) hit_ = false;
 			}
 			else {//player
-
+				if (skin_->currentState_ != SkinBEUComponent::Hit) hit_ = false;
 			}
 		}
 	}
@@ -69,7 +82,11 @@ void LifeComponent::Death() {
 		eMov_->stop(true);
 	}
 	else {// player
-
+		skin_->changeState(SkinBEUComponent::Death);
+		if (type_ == "fire") types[0].alive = false;
+		else if (type_ == "air")types[1].alive = false;
+		else if (type_ == "water")types[2].alive = false;
+		else if (type_ == "earth") types[3].alive = false;
 	}
 }
 
@@ -82,7 +99,7 @@ void LifeComponent::Hit(float damage)
 				eMov_->stop(true);
 			}
 			else {// player
-
+				skin_->changeState(SkinBEUComponent::Hit);
 			}
 		}
 		subLife(damage);
@@ -105,30 +122,32 @@ void LifeComponent::subLife(float damage) {
 	barWidth_ = ((life_ * backWidth_) / maxLife_);
 }
 
-void LifeComponent::chageType(string type, float maxLife) {
-	if (type_ == "fire") types[0] = life_;
-	else if (type_ == "air")types[1] = life_;
-	else if (type_ == "water")types[2] = life_;
-	else if (type_ == "earth")types[3] = life_;
+void LifeComponent::chageType(float maxLife) {
+	hit_ = false;
+	die_ = false;
+	if (type_ == "fire") types[0].life = life_;
+	else if (type_ == "air")types[1].life = life_;
+	else if (type_ == "water")types[2].life = life_;
+	else if (type_ == "earth")types[3].life = life_;
 	
-	type_ = type;
+	type_ = im_->getType();
 	maxLife_ = maxLife;
 
 	if (type_ == "fire") {
-		if (types[0] == -1)types[0] = maxLife;
-		life_ = types[0];
+		if (types[0].life == -1)types[0].life = maxLife;
+		life_ = types[0].life;
 	}
 	else if (type_ == "air") {
-		if (types[1] == -1)types[1] = maxLife;
-		life_ = types[1];
+		if (types[1].life == -1)types[1].life = maxLife;
+		life_ = types[1].life;
 	}
 	else if (type_ == "water") {
-		if (types[2] == -1)types[2] = maxLife;
-		life_ = types[2];
+		if (types[2].life == -1)types[2].life = maxLife;
+		life_ = types[2].life;
 	}
 	else if (type_ == "earth") {
-		if (types[3] == -1)types[3] = maxLife;
-		life_ = types[3];
+		if (types[3].life == -1)types[3].life = maxLife;
+		life_ = types[3].life;
 	}
 	
 	chooseTexture();
