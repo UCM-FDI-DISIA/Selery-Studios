@@ -35,7 +35,7 @@ void MovementEarthBossComponent::update() {
 			animator->newAnimation(AnimationEarthBossComponent::Moving);
 			im_->setFlip(SDL_FLIP_HORIZONTAL);
 			bossTransform->setVel(1);
-			
+
 		}
 		else if (atLeft) {
 			bossTransform->setDir(Vector2D(1, 0));
@@ -47,22 +47,24 @@ void MovementEarthBossComponent::update() {
 	if (!attack && !im_->isAnimPlaying()) {
 		bossTransform->setPos(bossTransform->getPos() + bossTransform->getDir() * bossTransform->getVel());
 	}
-	
+
 	if (atRight && abs(fightPlayerComp->getPointRightFight().getX() - fightBossComp->getPointLeftFight().getX()) < marginToAttack) {
 		attack = true;
+		im_->setFlip(SDL_FLIP_HORIZONTAL);
 	}
 	else if (atLeft && abs(fightPlayerComp->getPointLeftFight().getX() - fightBossComp->getPointRightFight().getX()) < marginToAttack) {
 		attack = true;
+		im_->setFlip();
 	}
-	else if (!atRight && !atLeft) {
+	else if (!atRight && !atLeft && abs(verticalDistance) < marginToMove) {
 		attack = true;
 	}
 	else {
 		attack = false;
 	}
-	cout << atRight << endl;
+	/*cout << atRight << endl;
 	cout << atLeft << endl;
-	cout << " "  << endl;
+	cout << " "  << endl;*/
 	//bossTransform->setDir(playerTransform->getPos() - bossTransform->getPos());
 	//bossTransform->setPos(bossTransform->getPos() + (bossTransform->getDir() / sqrt(pow(bossTransform->getPos().getX(), 2) + pow(bossTransform->getPos().getY(), 2))) * bossTransform->getVel());
 	//cout << bossTransform->getDir() / sqrt(pow(bossTransform->getPos().getX(), 2) + pow(bossTransform->getPos().getY(), 2)) << endl;

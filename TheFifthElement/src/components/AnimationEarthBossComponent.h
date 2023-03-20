@@ -12,9 +12,10 @@ private:
 	Image* imBoss;
 public:
 	enum Animations {
-		Idle, Moving, Attack, Hit, Death, IdleProtection, Protection
+		Idle, Moving, Attack, Hit, Death, IdleProtection, Protection, Null
 	};
 	Animations currentAnimation;
+	Animations nextAnimation;
 
 	AnimationEarthBossComponent() {};
 	virtual ~AnimationEarthBossComponent() {}

@@ -4,17 +4,21 @@
 #include "../utils/Vector2D.h"
 #include "../utils/Component.h"
 #include "../utils/Entity.h"
-#include "../components/AnimationEarthBossComponent.h"
+#include "AnimationEarthBossComponent.h"
+#include "ObjectsComponent.h"
 class LifeEarthBossComponent : public Component
 {
 private:
 	AnimationEarthBossComponent* animEarthBoss;
-	int life, maxLife;
+	Image* bossImage;
+	Transform* bossTransform;
+	int life, maxLife, stage = 1;
 public:
 	LifeEarthBossComponent();
 	virtual ~LifeEarthBossComponent() {}
 	void receiveDamage(float damage, float mul);
 	void initComponent();
+	void stageTwo();
 };
 #endif
 

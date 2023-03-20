@@ -30,8 +30,5 @@ void AnimationEarthBossComponent::newAnimation(Animations newAnim) {
 }
 
 void AnimationEarthBossComponent::update() {
-	/*if (!imBoss->isAnimPlaying() && currentAnimation != Idle) {
-		newAnimation(Idle);
-		cout << "Cambio" << endl;
-	}*/
+
 }

@@ -29,6 +29,8 @@ BeatEmUpState::BeatEmUpState(bool boss, string typeBoss) {
 	player_->addComponent<PointOfFightComponent>(POINTOFFIGHTCOMPONENT_H, 30, 10);
 	addEntity(player_);
 
+	colManager_ = new ColManager(this);
+
 	if (!boss) {
 		AddEnemies(3);
 	}
@@ -44,10 +46,6 @@ BeatEmUpState::BeatEmUpState(bool boss, string typeBoss) {
 	else if (boss && typeBoss == "fire") {
 		AddFireBoss();
 	}
-
-	colManager_ = new ColManager(this);
-
-
 }
 
 void BeatEmUpState::AddEnemies(int n_enemies) {
@@ -106,6 +104,7 @@ void BeatEmUpState::AddEarthBoss() {
 	//Vector2D pos = { WIN_WIDTH , WIN_HEIGHT / 2 };
 	Vector2D pos = { 200 , 200 };
 	boss_ = new Entity();
+	boss_->setContext(this);
 	Transform* t = boss_->addComponent<Transform>(TRANSFORM_H, pos, EARTHBOSS_WIDTH * 2, EARTHBOSS_HEIGHT * 2);
 	boss_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("GolemFase1"), 8, 58, 0, EARTHBOSS_WIDTH, EARTHBOSS_HEIGHT);
 	boss_->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(150, 120), (EARTHBOSS_HEIGHT * 2) - 240, (EARTHBOSS_WIDTH * 2) - 300);
@@ -114,7 +113,7 @@ void BeatEmUpState::AddEarthBoss() {
 	boss_->addComponent<MovementEarthBossComponent>(MOVEMENTEARTHBOSSCOMPONENT_H, player_);
 	boss_->addComponent<LifeEarthBossComponent>(LIFEEARTHBOSSCOMPONENT_H);
 	boss_->addComponent<AttackEarthBossComponent>(ATTACKEARTHBOSSCOMPONENT_H);
-	//boss_->addComponent<AttackBoxComponent>(ATTACKBOXCOMPONENT_H);
+	boss_->addComponent<AttackBoxComponent>(ATTACKBOXCOMPONENT_H);
 	
 	addEntity(boss_);
 }

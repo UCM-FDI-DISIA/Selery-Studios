@@ -155,6 +155,13 @@
     {"id": "ShopBackground", "file": "assets/HUD/tienda/fondotienda.png"},
     {"id": "ShopFrame", "file": "assets/HUD/tienda/marcotienda.png"},
     {"id": "GolemFase1", "file": "assets/Enemies/BeatEmUp/Bosses/EarthBoss/Stone-golem-all animations-224x192.png"},
+    {"id": "GolemFase2", "file": "assets/Enemies/BeatEmUp/Bosses/EarthBoss/Stone-golem v2-all animations-224x192.png"},
+    {"id": "stone", "file": "assets/Enemies/BeatEmUp/Bosses/EarthBoss/stone.png"},
+    {"id": "stone2", "file": "assets/Enemies/BeatEmUp/Bosses/EarthBoss/stone2.png"},
+    {"id": "stone3", "file": "assets/Enemies/BeatEmUp/Bosses/EarthBoss/stone3.png"},
+    {"id": "stone4", "file": "assets/Enemies/BeatEmUp/Bosses/EarthBoss/stone4.png"},
+    {"id": "stone5", "file": "assets/Enemies/BeatEmUp/Bosses/EarthBoss/stone5.png"},
+    {"id": "stone6", "file": "assets/Enemies/BeatEmUp/Bosses/EarthBoss/stone6.png"},
     {"id":  "waterBoss", "file":  "assets/Enemies/BeatEmUp/Bosses/WaterBoss/frost_guardian_free_192x128_SpriteSheet.png"},
     {"id": "shadow","file": "assets/Enemies/BeatEmUp/Bosses/EarthBoss/golem-shadow.png"}
   ],
