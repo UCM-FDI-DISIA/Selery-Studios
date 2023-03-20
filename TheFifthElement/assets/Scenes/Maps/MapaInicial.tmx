@@ -3990,7 +3990,7 @@
 </data>
  </layer>
  <objectgroup id="13" name="Shop">
-  <object id="36" x="5800" y="680">
+  <object id="36" x="3000" y="400">
    <point/>
   </object>
  </objectgroup>

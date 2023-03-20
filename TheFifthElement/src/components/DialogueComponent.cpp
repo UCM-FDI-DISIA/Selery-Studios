@@ -66,6 +66,7 @@ void DialogueComponent::inicombe() {
 					conespacios.pop_back();
 
 				}
+
 			}
 		}
 	}
