@@ -1,6 +1,5 @@
 #pragma once
 #include "Component.h"
-#include "ecs.h"
 #include <array>
 #include <vector>
 #include <bitset>
@@ -13,13 +12,11 @@ private:
 	bool alive_;
 	vector<Component*> currCmps_;
 	array<Component*, maxComponentId> cmps_;
-public:
 	Manager* mngr_;
-	Entity() :mngr_(nullptr), cmps_(), currCmps_(), alive_() {
-
-		currCmps_.reserve(maxComponentId);
-	}
-	virtual void initEntity() { }
+public:
+	// Constructora
+	Entity() : mngr_(nullptr), cmps_(), currCmps_(), alive_() { currCmps_.reserve(maxComponentId); }
+	// Destructora
 	virtual ~Entity() {
 		for (auto c : currCmps_) {
 			delete c;
@@ -28,19 +25,15 @@ public:
 	// Asigna a la entidad su manager
 	inline void setContext(Manager* mngr) { mngr_ = mngr; }
 	// Devuelve si esta vivo
-	inline bool isAlive() {
-		return alive_;
-	}
-
-	inline void setAlive(bool alive) {
-		alive_ = alive;
-	}
+	inline bool isAlive() { return alive_; }
+	// Establece si esta vivo o no
+	inline void setAlive(bool alive) { alive_ = alive; }
 	// Crea un componente
 	template<typename T, typename ...Ts>
 	inline T* addComponent(cmpId_type cId, Ts && ...args) {
 		T* c = new T(forward<Ts>(args)...);
-		// Borra el componente actual de la posici�n cId en caso 
-		// de encontrar el componeent
+		// Borra el componente actual de la posicion cId en caso 
+		// de encontrar el component
 		removeComponent(cId);
 		// Anade al array y a la lista de componentes
 		currCmps_.push_back(c);
@@ -50,50 +43,45 @@ public:
 		c->initComponent();
 		return c;
 	}
-
+	// Quita un componente
 	inline void removeComponent(cmpId_type cId) {
+		// Si hay componente en la posición  
 		if (cmps_[cId] != nullptr) {
-			auto iter = std::find(currCmps_.begin(),
-				currCmps_.end(),
-				cmps_[cId]);
+			// Busca en el array de todos los componentes
+			auto iter = find(currCmps_.begin(), currCmps_.end(), cmps_[cId]);
+			// Lo borra de la lista de componentes 
 			currCmps_.erase(iter);
+			// Lo borra del objeto
 			delete cmps_[cId];
+			// Lo quita del array de componentes
 			cmps_[cId] = nullptr;
 		}
 	}
-
+	// Devuelve el componente
 	template<typename T>
 	inline T* getComponent(cmpId_type cId) {
 		return static_cast<T*>(cmps_[cId]);
 	}
-
+	// Comprueba si tiene un componente
 	inline bool hasComponent(cmpId_type cId) {
 		return cmps_[cId] != nullptr;
 	}
-
+	// Actualiza recorriendo la lista de componentes
 	inline void update() {
 		auto n = currCmps_.size();
 		for (auto i = 0u; i < n; i++)
 			currCmps_[i]->update();
 	}
-	
-
+	// Dibuja recorriendo la lista de componentes
 	inline void render() {
 		auto n = currCmps_.size();
 		for (auto i = 0u; i < n; i++)
 			currCmps_[i]->render();
 	}
-
-
-	inline void handleEvent(SDL_Event event) {
+	// Manejo de los eventos a traves del InputHandler
+	virtual void handleEvent(SDL_Event event) {
 		auto n = currCmps_.size();
 		for (auto i = 0u; i < n; i++)
 			currCmps_[i]->handleEvent(event);
 	}
-
-	virtual void collision(bool col) {};
-
-	virtual void Die() {};
-	virtual void Hit(float damage) {};
 };
-

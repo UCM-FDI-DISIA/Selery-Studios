@@ -10,7 +10,7 @@ class EnemyBEUDirectionComponent :
     public Component
 {
 public:
-    EnemyBEUDirectionComponent(PlayerBEU* p, string type);
+    EnemyBEUDirectionComponent(Entity* p, string type);
     void initComponent();
     void update();
     void changeDir(Vector2D d);
@@ -22,8 +22,8 @@ private:
     MovementComponent* mov_;
     Transform* tr_;
     Vector2D dir_;
-   
-    PlayerBEU* player_;
+
+    Entity* player_;
     Transform* playerTr_;
 
     Texture* t_;

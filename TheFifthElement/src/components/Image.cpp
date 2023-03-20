@@ -11,6 +11,16 @@ Image::Image(Texture* tex, int width, int height, Transform* trans) {
 	tex_ = tex;
 }
 
+
+Image::Image(Texture* tex, int nframes, int framesT, int fila, int widthFrame, int heightFrame,string type) : tr_(nullptr), tex_(tex) { // Constructora
+	frames_ = nframes;
+	fila_ = fila;
+	framesTotales_ = framesT;
+	widthFrame_ = widthFrame;
+	heightFrame_ = heightFrame;
+	type_ = type;
+}
+
 Image::Image(Texture* tex, int nframes, int framesT, int fila, int widthFrame, int heightFrame) : tr_(nullptr), tex_(tex) { // Constructora
 	frames_ = nframes;
 	fila_ = fila;
@@ -22,7 +32,7 @@ Image::Image(Texture* tex, int nframes, int framesT, int fila, int widthFrame, i
 Image::~Image() { }
 
 void Image::initComponent() { 	// Inicializa el componente
-	if(tr_ == nullptr)tr_ = ent_->getComponent<Transform>(int(TRANSFORM_H));
+	if (tr_ == nullptr)tr_ = ent_->getComponent<Transform>(int(TRANSFORM_H));
 	assert(tr_ != nullptr);
 
 
@@ -34,15 +44,15 @@ void Image::update() {
 
 // Dibuja en escena
 void Image::render() {
-	if (frames_ == 0) { //Cuando la imagen solo tiene un frame (sin animación)
-		a = { tr_->getPos().getX() - ent_->mngr_->camRect_.x, tr_->getPos().getY() - ent_->mngr_->camRect_.y };
+	if (frames_ == 0) { //Cuando la imagen solo tiene un frame (sin animaciï¿½n)
+		a = { tr_->getPos().getX() - mngr_->camRect_.x, tr_->getPos().getY() - mngr_->camRect_.y };
 		SDL_Rect dest = build_sdlrect(a, tr_->getW(), tr_->getH());
 		tex_->render(dest, tr_->getR());
 	}
 	else {
 		SDL_Rect rect;
-		rect.x = tr_->getPos().getX() - ent_->mngr_->camRect_.x;
-		rect.y = tr_->getPos().getY() - ent_->mngr_->camRect_.y;
+		rect.x = tr_->getPos().getX() - mngr_->camRect_.x;
+		rect.y = tr_->getPos().getY() - mngr_->camRect_.y;
 		rect.h = tr_->getH() * tr_->getS();
 		rect.w = tr_->getW() * tr_->getS();
 		SDL_Rect src;
@@ -51,28 +61,32 @@ void Image::render() {
 		src.h = heightFrame_;
 		src.w = widthFrame_;
 		tex_->render(src, rect, 0, nullptr, s);
-		if (cont >= 10) {
+		if (cont >= 5) {
 			i++;
 			cont = 0;
 		}
 		if (ent_->hasComponent(INPUTCOMPONENTBEU_H)) {
-			cout << animPlaying << endl;
+			//cout << animPlaying << endl;
+		}
+		else if (ent_->hasComponent(MOVEMENTEARTHBOSSCOMPONENT_H)) {
+			/*cout << "hola" << endl;
+			cout << ent_->getComponent<Transform>(TRANSFORM_H)->getPos();*/
 		}
 		cont++;
-		if (i >= frames_||i>=tope) {
+		if (i >= frames_ || i >= tope) {
 			i = 0;
 			animPlaying = false;
-			fila_ = 0;
+			/*fila_ = 0;
 			if (ent_->hasComponent(INPUTCOMPONENTBEU_H)) {
 				frames_ = 8;
-			}
+			}*/
 		}
 	}
 }
 
 
 //matriz
-void Image::setAnim(bool Anim, int Fila, int Frames, int I,int tope) { //Metodo generico para cambiar de animacion en BEU
+void Image::setAnim(bool Anim, int Fila, int Frames, int I, int tope) { //Metodo generico para cambiar de animacion en BEU
 	if (fila_ != Fila && !animPlaying) { // Si la animacion no es la actual la actualiza
 		animPlaying = Anim;
 		fila_ = Fila;
@@ -81,15 +95,15 @@ void Image::setAnim(bool Anim, int Fila, int Frames, int I,int tope) { //Metodo 
 		cont = 0;
 		this->tope = tope;
 	}
-
 }
 
-void Image::setAnimTexture(string textureKey, int Frames, int Width) { //Metodo generico para cambiar de Textura (el width es temporal no deberia ser el with de la imagen sino de la entidad)
+void Image::setAnimTexture(string textureKey, int Frames, int Width, int Fila) { //Metodo generico para cambiar de Textura (el width es temporal no deberia ser el with de la imagen sino de la entidad)
 	Texture* nT = &sdlutils().images().at(textureKey);
 	if (nT != tex_) { // Si la animacion no es la actual la actualiza
 		tex_ = nT;
-		framesTotales_ = Frames;
+		frames_ = Frames;
 		tr_->setW(Width);
+		fila_ = Fila;
 	}
 }
 

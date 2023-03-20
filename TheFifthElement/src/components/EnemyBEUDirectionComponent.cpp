@@ -1,9 +1,9 @@
-#include "EnemyBEUDirectionComponent.h"
+ï»¿#include "EnemyBEUDirectionComponent.h"
 #include "../utils/Entity.h"
 #include "../utils/ecs.h"
 #include "../Entities/EnemyBEU.h"
 
-EnemyBEUDirectionComponent::EnemyBEUDirectionComponent(PlayerBEU* p, string type) :Component() {
+EnemyBEUDirectionComponent::EnemyBEUDirectionComponent(Entity* p, string type) :Component() {
 	dir_ = Vector2D(0.0f, 0.0f);
 	player_ = p;
 	type_ = type;
@@ -26,21 +26,24 @@ void EnemyBEUDirectionComponent::update() {
 		Vector2D offset_ = playerCol_->getOffset();// player offset
 		float w_ = playerTr_->getW();// player frame width
 		float h_ = playerTr_->getH();// player frame height
-		float cw_ = playerCol_->getColWidth();// player collider width
-		float ch_ = playerCol_->getColHeight();// player collider height
+		float pcw_ = playerCol_->getColWidth();// player collider width
+		float pch_ = playerCol_->getColHeight();// player collider height
 
 		float playerPosX = playerTr_->getPos().getX() + offset_.getX() /* + cw_ / 2*/;// player pos X
-		float playerFloor = playerTr_->getPos().getY() + offset_.getY() + ch_;// player pos Y (floor)
+		float playerFloor = playerTr_->getPos().getY() + offset_.getY() + pch_;// player pos Y (floor)
 
 		offset_ = col_->getOffset();// enemy offset
 		w_ = tr_->getW();// enemy frame width
 		h_ = tr_->getH();// enemy frame height
-		cw_ = col_->getColWidth();// enemy collider width
-		ch_ = col_->getColHeight();// enemy collider height
+		float cw_ = col_->getColWidth();// enemy collider width
+		float ch_ = col_->getColHeight();// enemy collider height
 
 		float posX = tr_->getPos().getX() + offset_.getX();// enemy pos X
 		float posY = tr_->getPos().getY();// enemy pos Y
 		float targetY = playerFloor - offset_.getY() - ch_;// target point Y
+
+		if (posX > playerPosX) playerPosX += pcw_;
+		else playerPosX -= pcw_/2;
 
 		Vector2D director_ = Vector2D(playerPosX - posX, targetY - posY);
 
@@ -51,7 +54,7 @@ void EnemyBEUDirectionComponent::update() {
 			changeDir(director_);
 		}
 
-		else //cuando el personaje no está dentro del rango de detección del enemigo
+		else //cuando el personaje no estï¿½ dentro del rango de detecciï¿½n del enemigo
 		{
 			if (cont >= 100)
 			{
@@ -80,10 +83,10 @@ void EnemyBEUDirectionComponent::update() {
 			cont++;
 		}
 	}
-	mov_->setDir(dir_ * speed );//move
+	mov_->setDir(dir_ * speed);//move
 }
 
-void EnemyBEUDirectionComponent::changeDir(Vector2D d) 
+void EnemyBEUDirectionComponent::changeDir(Vector2D d)
 {
 	dir_ = d;
 }

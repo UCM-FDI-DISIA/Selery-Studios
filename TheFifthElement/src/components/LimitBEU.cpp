@@ -1,6 +1,7 @@
 #include "LimitBEU.h"
 
 LimitBEU::LimitBEU() {
+
 }
 
 void LimitBEU::initComponent() {
@@ -13,4 +14,5 @@ void LimitBEU::initComponent() {
 void LimitBEU::update() {
 	if (tr_->getPos().getY() < topLimit && jmp_->isJumpEnabled()) { tr_->setPos(Vector2D(tr_->getPos().getX(), topLimit)); }
 	else if (tr_->getPos().getY() > downLimit) { tr_->setPos(Vector2D(tr_->getPos().getX(), downLimit)); }
+	if (tr_->getPos().getX() < -75) { tr_->setPos(Vector2D(-75, tr_->getPos().getY())); }
 }

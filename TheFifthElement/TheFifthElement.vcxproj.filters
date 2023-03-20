@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="src\Entities\Button.cpp" />
+    <ClCompile Include="src\components\Button.cpp" />
     <ClCompile Include="src\components\AnimationEnemyBEUComponent.cpp" />
     <ClCompile Include="src\components\ColDetectorComponent.cpp" />
     <ClCompile Include="src\components\AttackBoxComponent.cpp" />
@@ -20,7 +20,6 @@
     <ClCompile Include="src\Entities\Enemy.cpp" />
     <ClCompile Include="src\Entities\EnemyBEU.cpp" />
     <ClCompile Include="src\components\EnemyBEUDirectionComponent.cpp" />
-    <ClCompile Include="src\Entities\Background.cpp" />
     <ClCompile Include="src\GameManager.cpp" />
     <ClCompile Include="src\components\InputComponent.cpp" />
     <ClCompile Include="src\components\InputComponentBEU.cpp" />
@@ -30,7 +29,7 @@
     <ClCompile Include="src\components\ObjectsComponent.cpp" />
     <ClCompile Include="src\Entities\PlayerBEU.cpp" />
     <ClCompile Include="src\Entities\PlayerTD.cpp" />
-    <ClCompile Include="src\Entities\Portal.cpp" />
+    <ClCompile Include="src\Entities\PortalComponent.cpp" />
     <ClCompile Include="src\components\SkinComponent.cpp" />
     <ClCompile Include="src\states\GameState.cpp" />
     <ClCompile Include="src\states\GameStateMachine.cpp" />
@@ -47,16 +46,25 @@
     <ClCompile Include="src\utils\Manager.cpp" />
     <ClCompile Include="src\utils\Vector2D.cpp" />
     <ClCompile Include="src\components\JumpComponent.cpp" />
-    <ClCompile Include="src\Entities\HUD.cpp" />
     <ClCompile Include="src\components\ColliderTile.cpp" />
     <ClCompile Include="src\Entities\LifeBar.cpp" />
     <ClCompile Include="src\ColManager.cpp" />
     <ClCompile Include="src\states\PauseMenuState.cpp" />
+    <ClCompile Include="src\components\ShopComponent.cpp" />
+    <ClCompile Include="src\components\LifeEarthBossComponent.cpp" />
+    <ClCompile Include="src\components\AnimationEarthBossComponent.cpp" />
+    <ClCompile Include="src\components\MovementEarthBossComponent.cpp" />
+    <ClCompile Include="src\components\RedirectEnemy.cpp" />
+    <ClCompile Include="src\components\PointOfFightComponent.cpp" />
+    <ClCompile Include="src\components\sliderComponent.cpp" />
+    <ClCompile Include="src\components\ShadowComponent.cpp" />
+    <ClCompile Include="src\states\OptionsState.cpp" />
+    <ClCompile Include="src\components\SkinBEUComponent.cpp" />
+    <ClCompile Include="src\components\AttackEarthBossComponent.cpp" />
     <ClCompile Include="src\components\EconomyComponent.cpp" />
-    <ClCompile Include="src\Entities\NewEntity.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Entities\Button.h" />
+    <ClInclude Include="src\components\Button.h" />
     <ClInclude Include="src\components\AnimationEnemyBEUComponent.h" />
     <ClInclude Include="src\components\ColDetectorComponent.h" />
     <ClInclude Include="src\components\ColliderComponent.h" />
@@ -75,7 +83,6 @@
     <ClInclude Include="src\Entities\Enemy.h" />
     <ClInclude Include="src\Entities\EnemyBEU.h" />
     <ClInclude Include="src\components\EnemyBEUDirectionComponent.h" />
-    <ClInclude Include="src\Entities\Background.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="src\GameManager.h" />
     <ClInclude Include="src\components\Image.h" />
@@ -86,7 +93,7 @@
     <ClInclude Include="src\Entities\Npc.h" />
     <ClInclude Include="src\Entities\PlayerBEU.h" />
     <ClInclude Include="src\Entities\PlayerTD.h" />
-    <ClInclude Include="src\Entities\Portal.h" />
+    <ClInclude Include="src\Entities\PortalComponent.h" />
     <ClInclude Include="src\components\SkinComponent.h" />
     <ClInclude Include="src\states\GameState.h" />
     <ClInclude Include="src\states\GameStateMachine.h" />
@@ -117,14 +124,24 @@
     <ClInclude Include="src\utils\Singleton.h" />
     <ClInclude Include="src\utils\Vector2D.h" />
     <ClInclude Include="src\components\JumpComponent.h" />
-    <ClInclude Include="src\Entities\HUD.h" />
     <ClInclude Include="src\components\ColliderTile.h" />
     <ClInclude Include="src\Entities\LifeBar.h" />
     <ClInclude Include="src\ColManager.h" />
     <ClInclude Include="src\states\PauseMenuState.h" />
-    <ClInclude Include="EconomyComponent.h" />
+    <ClInclude Include="src\components\ShopComponent.h" />
+    <ClInclude Include="src\components\LifeEarthBossComponent.h" />
+    <ClInclude Include="src\components\AnimationEarthBossComponent.h" />
+    <ClInclude Include="src\components\MovementEarthBossComponent.h" />
+    <ClInclude Include="src\components\ObjectsComponent.h" />
+    <ClInclude Include="src\components\RedirectEnemy.h" />
+    <ClInclude Include="src\components\PointOfFightComponent.h" />
+    <ClInclude Include="src\components\SliderComponent.h" />
+    <ClInclude Include="src\components\ShadowComponent.h" />
+    <ClInclude Include="src\states\OptionsState.h" />
+    <ClInclude Include="src\components\brightSliderComponent.h" />
+    <ClInclude Include="src\components\SkinBEUComponent.h" />
+    <ClInclude Include="src\components\AttackEarthBossComponent.h" />
     <ClInclude Include="src\components\EconomyComponent.h" />
-    <ClInclude Include="src\Entities\NewEntity.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="TheFifthElement.rc" />

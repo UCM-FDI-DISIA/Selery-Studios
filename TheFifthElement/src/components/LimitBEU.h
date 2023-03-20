@@ -4,7 +4,7 @@
 #include "Transform.h"
 #include "JumpComponent.h"
 
-class LimitBEU : public Component{
+class LimitBEU : public Component {
 private:
     Transform* tr_ = nullptr;
     JumpComponent* jmp_ = nullptr;

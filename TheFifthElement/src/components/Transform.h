@@ -66,7 +66,7 @@ public:
     inline void setPos(Vector2D Position) { position = Position; }
 
     inline void setDir(Vector2D dir) { direction = dir; }
-    
+
     inline void setVel(float veloc) { vel = veloc; }
 
     inline void setSize(float size) { size_ = size; }
@@ -74,16 +74,16 @@ public:
     void render()
     {
         if (!demo) {
-           if (matrix_)
-                rect = build_sdlrect(getPos().getX() + 120, getPos().getY() + 70, (getW()*size_) / (5 * framesTotales_), (getH() * size_) / 2);
+            /*if (matrix_)
+                rect = build_sdlrect(getPos().getX() + 120, getPos().getY() + 70, (getW() * size_) / (5 * framesTotales_), (getH() * size_) / 2);
             else
             {
                 if (framesTotales_ != 0) rect = build_sdlrect(getPos().getX(), getPos().getY(), (getW() * size_) / framesTotales_, (getH() * size_));
                 else  rect = build_sdlrect(getPos().getX() + 50, getPos().getY() + 60, 3 * (getW() * size_) / 4, (getH() * size_) / 2);
-            }
+            }*/
             rect = build_sdlrect(getPos().getX(), getPos().getY(), (getW() * size_), (getH() * size_));
-            rect.x -= ent_->mngr_->camRect_.x;
-            rect.y -= ent_->mngr_->camRect_.y;
+            rect.x -= mngr_->camRect_.x;
+            rect.y -= mngr_->camRect_.y;
             SDL_SetRenderDrawColor(sdlutils().renderer(), 255, 0, 255, 0);
             SDL_RenderDrawRect(sdlutils().renderer(), &rect);
             SDL_SetRenderDrawColor(sdlutils().renderer(), 0, 0, 0, 0);

@@ -17,34 +17,34 @@ void SkinComponent::update() {
 
 void SkinComponent::changeMov() {
 
-		currentState_ = nextState_;
-		prevSkin_ = skin_;
-		switch (currentState_)
-		{
-		case SkinComponent::Idle:
-			setIdle();
-			if(set_) im_->setAnimTexture(t_, nframes_, w_);
-			break;
-		case SkinComponent::Left:
-			setLeft();
-			if (set_) im_->setAnimTexture(t_, nframes_, w_);
-			break;
-		case SkinComponent::Right:
-			setRight();
-			if (set_) im_->setAnimTexture(t_, nframes_, w_);
-			break;
-		case SkinComponent::Up:
-			setUp();
-			if (set_) im_->setAnimTexture(t_, nframes_, w_);
-			break;
-		case SkinComponent::Down:
-			setDown();
-			if (set_) im_->setAnimTexture(t_, nframes_, w_);
-			break;
-		default:
-			break;
-		}
-	
+	currentState_ = nextState_;
+	prevSkin_ = skin_;
+	switch (currentState_)
+	{
+	case SkinComponent::Idle:
+		setIdle();
+		if (set_) im_->setAnimTexture(t_, nframes_, w_);
+		break;
+	case SkinComponent::Left:
+		setLeft();
+		if (set_) im_->setAnimTexture(t_, nframes_, w_);
+		break;
+	case SkinComponent::Right:
+		setRight();
+		if (set_) im_->setAnimTexture(t_, nframes_, w_);
+		break;
+	case SkinComponent::Up:
+		setUp();
+		if (set_) im_->setAnimTexture(t_, nframes_, w_);
+		break;
+	case SkinComponent::Down:
+		setDown();
+		if (set_) im_->setAnimTexture(t_, nframes_, w_);
+		break;
+	default:
+		break;
+	}
+
 }
 
 void SkinComponent::setIdle() {

@@ -7,8 +7,8 @@
 #include "../components/ColliderComponent.h"
 #include "../components/LifeComponent.h"
 
-class ColDetectorComponent: public Component
-    
+class ColDetectorComponent : public Component
+
 {
 private:
     bool collider;
@@ -16,7 +16,7 @@ private:
     Entity* obj2_ = nullptr;
     ColliderComponent* col1_ = nullptr;
     ColliderComponent* col2_ = nullptr;
-    SDL_Rect rect_; 
+    SDL_Rect rect_;
     float damage_ = 0.0f;
     float margin = 12.0f;
     bool enemy = false;
@@ -49,7 +49,7 @@ public:
 
     void initComponent() {
         col1_ = obj1_->getComponent<ColliderComponent>(int(COLLIDERCOMPONENT_H));
-        if(obj2_ != nullptr)col2_ = obj2_->getComponent<ColliderComponent>(int(COLLIDERCOMPONENT_H));
+        if (obj2_ != nullptr)col2_ = obj2_->getComponent<ColliderComponent>(int(COLLIDERCOMPONENT_H));
         if (obj1_->hasComponent(LIFECOMPONENT_H))lifeC_ = obj1_->getComponent<LifeComponent>(LIFECOMPONENT_H);
         else lifeC_ = nullptr;
     }
@@ -72,12 +72,12 @@ public:
 
             }
         }
-        else if(collider)
+       /* else if (collider)
             obj1_->collision(Collision::collides(Vector2D(col1_->getColRect().x,
                 col1_->getColRect().y), col1_->getColRect().w, col1_->getColRect().h,
                 Vector2D(col2_->getColRect().x, col2_->getColRect().y),
-                col2_->getColRect().w, col2_->getColRect().h));
-       
+                col2_->getColRect().w, col2_->getColRect().h));*/
+
     }
 
     bool sideCol() {

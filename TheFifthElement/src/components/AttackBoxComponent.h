@@ -6,9 +6,8 @@
 #include "../sdlutils/SDLUtils.h"
 #include "Transform.h"
 #include "../GameManager.h"
-
-
-
+#include "AnimationEnemyBEUComponent.h"
+#include "SkinBEUComponent.h"
 
 
 
@@ -29,21 +28,28 @@ class BeatEmUpState;
 class Image;
 class AttackBoxComponent : public Component {
 private:
-    Transform* playerTr = nullptr;
-    SDL_Rect box;
+    Transform* entityTr = nullptr;
+    vector<SDL_Rect> boxes;
+    float angles[100];
+    SDL_Rect box, box2;
     Image* im_;
-    float width, height, boxTime, timerExecution, angle,way;
+    AnimationEnemyBEUComponent* anim_;
+    SkinBEUComponent* sk_;
+    float width, height, boxTime, timerExecution, angle, way, stoppingAngle;
     bool boxCreated = false;
+
+    bool isPlayer = true;
+    string type;
 public:
     AttackBoxComponent();
-    virtual ~AttackBoxComponent(){}
+    virtual ~AttackBoxComponent() {}
     void render();
     void update();
     void initComponent();
     void handleBoxes();
-    void moveBox(Vector2D direction,float vel);
-    void moveBoxCurve(float radio, Vector2D posCenter, float vel,float& angle ,float stoppingAngle, int way);
-    void GFY();
-    SDL_Rect getBox() { return box; }
+    void moveBox(SDL_Rect& box, Vector2D direction, float vel);
+    void moveBoxCurve(SDL_Rect& box, float radio, Vector2D posCenter, float vel, float& angle, float stoppingAngle, int way);
+
+
 };
 #endif

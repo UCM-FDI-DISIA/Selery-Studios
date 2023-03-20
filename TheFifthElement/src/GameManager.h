@@ -2,9 +2,12 @@
 #include "utils/checkML.h"
 #include "states/GameStateMachine.h"
 #include "sdlutils/SDLUtils.h"
+#include "states/OptionsState.h"
 using namespace std;
 
 using uint = unsigned int;
+
+
 
 class GameManager : public Singleton<GameManager>
 {
@@ -22,8 +25,9 @@ public:
 
 	void goBeatEmUp();
 	void goTopDown();
+	void backToMainMenu();
 	void leaveMainMenu();
 	static void goPauseMenu();
-	static void backToMainMenu();
+	void goOptionsMenu();
 
 };
