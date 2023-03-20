@@ -29,5 +29,6 @@ public:
 	void leaveMainMenu();
 	static void goPauseMenu();
 	void goOptionsMenu();
+	void Pop();
 
 };

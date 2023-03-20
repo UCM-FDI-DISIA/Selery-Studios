@@ -133,6 +133,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\states\PauseState.h" />
     <ClInclude Include="src\components\AttackEarthBossComponent.h" />
     <ClInclude Include="src\components\EconomyComponent.h" />
     <ClInclude Include="src\components\SkinBEUComponent.h" />
@@ -213,6 +214,7 @@
     <ClInclude Include="src\utils\Vector2D.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\states\PauseState.cpp" />
     <ClCompile Include="src\components\AttackEarthBossComponent.cpp" />
     <ClCompile Include="src\components\EconomyComponent.cpp" />
     <ClCompile Include="src\components\SkinBEUComponent.cpp" />

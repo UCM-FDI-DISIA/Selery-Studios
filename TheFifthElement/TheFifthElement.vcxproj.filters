@@ -62,6 +62,7 @@
     <ClCompile Include="src\components\SkinBEUComponent.cpp" />
     <ClCompile Include="src\components\AttackEarthBossComponent.cpp" />
     <ClCompile Include="src\components\EconomyComponent.cpp" />
+    <ClCompile Include="src\states\PauseState.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\components\Button.h" />
@@ -142,6 +143,7 @@
     <ClInclude Include="src\components\SkinBEUComponent.h" />
     <ClInclude Include="src\components\AttackEarthBossComponent.h" />
     <ClInclude Include="src\components\EconomyComponent.h" />
+    <ClInclude Include="src\states\PauseState.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="TheFifthElement.rc" />
