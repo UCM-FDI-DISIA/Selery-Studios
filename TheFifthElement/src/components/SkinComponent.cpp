@@ -126,7 +126,6 @@ void SkinComponent::setRight() {
 }
 
 void SkinComponent::setUp() {
-	nframes_ = 9;
 	w_ = PLAYERTD_WIDTH_FRAME;
 	h_ = PLAYERTD_HEIGHT_FRAME;
 
@@ -135,24 +134,28 @@ void SkinComponent::setUp() {
 	ColWidth_ = EnemyWidth_ / 25;*/
 
 	if (skin_ == "fire") {
+		nframes_ = 9;
 		t_ = "PTD_fire_up";
 	}
 
 	else if (skin_ == "air") {
+		nframes_ = 7;
 		t_ = "PTD_air_up";
 	}
 
 	else if (skin_ == "water") {
+		nframes_ = 9;
 		t_ = "PTD_water_up";
 	}
 
 	else if (skin_ == "earth") {
+		nframes_ = 9;
 		t_ = "PTD_earth_up";
 	}
 }
 
 void SkinComponent::setDown() {
-	nframes_ = 9;
+
 	w_ = PLAYERTD_WIDTH_FRAME;
 	h_ = PLAYERTD_HEIGHT_FRAME;
 
@@ -161,18 +164,22 @@ void SkinComponent::setDown() {
 	ColWidth_ = EnemyWidth_ / 25;*/
 
 	if (skin_ == "fire") {
+		nframes_ = 9;
 		t_ = "PTD_fire_down";
 	}
 
 	else if (skin_ == "air") {
+		nframes_ = 7;
 		t_ = "PTD_air_down";
 	}
 
 	else if (skin_ == "water") {
+		nframes_ = 9;
 		t_ = "PTD_water_down";
 	}
 
 	else if (skin_ == "earth") {
+		nframes_ = 9;
 		t_ = "PTD_earth_down";
 	}
 }
