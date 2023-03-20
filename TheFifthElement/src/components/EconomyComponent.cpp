@@ -30,25 +30,26 @@ void EconomyComponent::render() {
 	f->render(SDLUtils::instance()->renderer(), money, position.getY() + ofset_x, position.getY() + ofset_y, color);
 }
 
- 
+
 #pragma region properties
- inline int EconomyComponent::getMoney() const {
-	 return current_money;
- }
- inline bool EconomyComponent::can_Substract(int cuantity) {
-	 if (cuantity < current_money) {
-		 current_money -= cuantity;
-		 return true;
-	 }
-	 return false;
- }
- inline void EconomyComponent::addMoney(int cuantity) {
-	 if (cuantity + current_money < 999) {
-		 current_money += cuantity;
-		 setAnim();
-	 }
- }
- inline void EconomyComponent::setAnim() {
-	 playAnim = true;
-	 row = 0;
- }
+int EconomyComponent::getMoney() const {
+	return current_money;
+}
+bool EconomyComponent::can_Substract(int cuantity) {
+	bool a = false;
+	if (cuantity <= current_money) {
+		current_money -= cuantity;
+		a = true;
+	}
+	return a;
+}
+inline void EconomyComponent::addMoney(int cuantity) {
+	if (cuantity + current_money < 999) {
+		current_money += cuantity;
+		setAnim();
+	}
+}
+inline void EconomyComponent::setAnim() {
+	playAnim = true;
+	row = 0;
+}

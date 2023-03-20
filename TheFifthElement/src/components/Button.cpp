@@ -57,10 +57,12 @@ void Button::handleEvent(SDL_Event event)
 					SDL_Quit();
 					cout << "salir";
 				}
-
 				else if (identifier == "UPTURN") {
 					SDLUtils::instance()->soundEffects().at("pruebaBoton").play();
-					cout << "1";
+					isClicked_ = true;
+				}
+				else if (identifier == "EXITSHOP") {
+					cout << "salir tienda";
 				}
 			}
 		}
@@ -71,4 +73,9 @@ void Button::render() {
 	SDL_SetRenderDrawColor(GameManager::instance()->getRenderer(), 0, 250, 0, 0);
 	SDL_RenderDrawRect(GameManager::instance()->getRenderer(), &mouseRect);
 	SDL_SetRenderDrawColor(GameManager::instance()->getRenderer(), 0, 0, 0, 255);
+	isClicked_ = false;
+}
+
+bool Button::getBool() {
+	return isClicked_;
 }

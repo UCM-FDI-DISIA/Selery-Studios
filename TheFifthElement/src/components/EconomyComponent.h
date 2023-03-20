@@ -1,12 +1,13 @@
 #pragma once
+#ifndef ECONOMYCOMPONENT_H
+#define ECONOMYCOMPONENT_H_
 #include "../utils/Component.h"
 #include "../sdlutils/SDLUtils.h"
-#include "../utils/Constants.h"
 #include <string>
 #include <iostream>
 using namespace std;
 class EconomyComponent : public Component {
-protected:
+private:
 	Vector2D position = { 40,WIN_HEIGHT / 12 };
 	Texture* coin_texture = &SDLUtils::instance()->images().at("coin");
 	int width = 20, height = 20;
@@ -25,8 +26,9 @@ public:
 	virtual void render();
 	virtual ~EconomyComponent() {};
 #pragma region properties
-	inline int getMoney() const;
-	inline bool can_Substract(int cuantity);
+	int getMoney() const;
+	bool can_Substract(int cuantity);
 	inline void addMoney(int cuantity);
 #pragma endregion
 };
+#endif

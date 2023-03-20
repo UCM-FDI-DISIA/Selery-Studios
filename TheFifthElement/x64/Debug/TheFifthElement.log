@@ -1,1 +1,980 @@
-﻿  TheFifthElement.vcxproj -> C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\x64\Debug\TheFifthElement.exe
+﻿  TheFifthElement.cpp
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\crtdbg.h(307,1): warning C4005: '_malloca': redefinición de macro
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\malloc.h(124,1): message : vea la definición anterior de '_malloca'
+C:\Selery-Studios\TheFifthElement\src\components\DialogueComponent.h(10,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
+C:\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(52,30): warning C4101: 'e': variable local sin referencia
+C:\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(48,1): message : al compilar la función del miembro clase plantilla "Texture &SDLUtils::map_access_wrapper<Texture>::at(std::string)"
+C:\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(205,30): message : Vea la referencia a la creación de una instancia de clase plantilla "SDLUtils::map_access_wrapper<Texture>" que se está compilando
+C:\Selery-Studios\TheFifthElement\src\Entities\PlayerTD.h(62,49): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\NPCcollisioncomponent.h(48,60): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\NPCcollisioncomponent.h(48,46): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\NPCcollisioncomponent.h(48,120): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\NPCcollisioncomponent.h(48,109): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\NPCcollisioncomponent.h(48,143): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\NPCcollisioncomponent.h(48,132): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\NPCcollisioncomponent.h(48,89): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\NPCcollisioncomponent.h(48,75): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(32,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(33,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(34,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(35,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(51,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(52,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(53,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(54,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(67,33): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(68,32): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\AnimationEnemyBEUComponent.h(79,29): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\AnimationEnemyBEUComponent.h(80,30): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\RedirectEnemy.h(26,68): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\RedirectEnemy.h(26,57): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\RedirectEnemy.h(27,68): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\RedirectEnemy.h(27,47): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\RedirectEnemy.h(27,111): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\RedirectEnemy.h(27,90): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\RedirectEnemy.h(26,91): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\RedirectEnemy.h(26,80): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(61,40): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(60,69): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(62,72): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(62,49): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(63,63): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(63,40): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(61,87): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(61,64): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(67,36): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(66,70): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(68,40): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(68,31): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(68,59): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(68,50): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(67,83): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(67,60): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(89,19): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(94,34): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\utils\Entity.h(34,27): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
+          with
+          [
+              _Ty=int
+          ]
+C:\Selery-Studios\TheFifthElement\src\components\CollideTileInteraction.h(29,1): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Entity::addComponent<Transform,Vector2D&,float&,float&,int,int,int,bool>(cmpId_type,Vector2D &,float &,float &,int &&,int &&,int &&,bool &&)" que se está compilando
+          with
+          [
+              T=Transform
+          ]
+  ColManager.cpp
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(32,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(33,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(34,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(35,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(51,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(52,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(53,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(54,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(67,33): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(68,32): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\AnimationEnemyBEUComponent.h(79,29): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\AnimationEnemyBEUComponent.h(80,30): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\ColManager.cpp(11,57): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\ColManager.cpp(11,45): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\ColManager.cpp(11,133): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\ColManager.cpp(11,112): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\ColManager.cpp(11,176): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\ColManager.cpp(11,155): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\ColManager.cpp(11,83): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\ColManager.cpp(11,71): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\ColManager.cpp(34,59): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\ColManager.cpp(34,46): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\ColManager.cpp(34,137): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\ColManager.cpp(34,116): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\ColManager.cpp(34,180): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\ColManager.cpp(34,159): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\ColManager.cpp(34,86): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\ColManager.cpp(34,73): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+  DialogBox.cpp
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\crtdbg.h(307,1): warning C4005: '_malloca': redefinición de macro
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\malloc.h(124,1): message : vea la definición anterior de '_malloca'
+  PlayerTD.cpp
+C:\Selery-Studios\TheFifthElement\src\components\DialogueComponent.h(10,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
+C:\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(52,30): warning C4101: 'e': variable local sin referencia
+C:\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(48,1): message : al compilar la función del miembro clase plantilla "Texture &SDLUtils::map_access_wrapper<Texture>::at(std::string)"
+C:\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(205,30): message : Vea la referencia a la creación de una instancia de clase plantilla "SDLUtils::map_access_wrapper<Texture>" que se está compilando
+C:\Selery-Studios\TheFifthElement\src\Entities\PlayerTD.h(62,49): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+  PortalComponent.cpp
+C:\Selery-Studios\TheFifthElement\src\components\DialogueComponent.h(10,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
+C:\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(52,30): warning C4101: 'e': variable local sin referencia
+C:\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(48,1): message : al compilar la función del miembro clase plantilla "Texture &SDLUtils::map_access_wrapper<Texture>::at(std::string)"
+C:\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(205,30): message : Vea la referencia a la creación de una instancia de clase plantilla "SDLUtils::map_access_wrapper<Texture>" que se está compilando
+C:\Selery-Studios\TheFifthElement\src\Entities\PlayerTD.h(62,49): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\NPCcollisioncomponent.h(48,60): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\NPCcollisioncomponent.h(48,46): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\NPCcollisioncomponent.h(48,120): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\NPCcollisioncomponent.h(48,109): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\NPCcollisioncomponent.h(48,143): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\NPCcollisioncomponent.h(48,132): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\NPCcollisioncomponent.h(48,89): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\NPCcollisioncomponent.h(48,75): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(32,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(33,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(34,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(35,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(51,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(52,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(53,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(54,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(67,33): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(68,32): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\AnimationEnemyBEUComponent.h(79,29): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\AnimationEnemyBEUComponent.h(80,30): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\RedirectEnemy.h(26,68): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\RedirectEnemy.h(26,57): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\RedirectEnemy.h(27,68): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\RedirectEnemy.h(27,47): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\RedirectEnemy.h(27,111): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\RedirectEnemy.h(27,90): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\RedirectEnemy.h(26,91): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\RedirectEnemy.h(26,80): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\utils\Entity.h(34,27): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
+          with
+          [
+              _Ty=int
+          ]
+C:\Selery-Studios\TheFifthElement\src\components\CollideTileInteraction.h(29,1): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Entity::addComponent<Transform,Vector2D&,float&,float&,int,int,int,bool>(cmpId_type,Vector2D &,float &,float &,int &&,int &&,int &&,bool &&)" que se está compilando
+          with
+          [
+              T=Transform
+          ]
+  Game.cpp
+C:\Selery-Studios\TheFifthElement\src\components\DialogueComponent.h(10,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
+C:\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(52,30): warning C4101: 'e': variable local sin referencia
+C:\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(48,1): message : al compilar la función del miembro clase plantilla "Texture &SDLUtils::map_access_wrapper<Texture>::at(std::string)"
+C:\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(205,30): message : Vea la referencia a la creación de una instancia de clase plantilla "SDLUtils::map_access_wrapper<Texture>" que se está compilando
+C:\Selery-Studios\TheFifthElement\src\Entities\PlayerTD.h(62,49): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\NPCcollisioncomponent.h(48,60): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\NPCcollisioncomponent.h(48,46): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\NPCcollisioncomponent.h(48,120): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\NPCcollisioncomponent.h(48,109): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\NPCcollisioncomponent.h(48,143): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\NPCcollisioncomponent.h(48,132): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\NPCcollisioncomponent.h(48,89): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\NPCcollisioncomponent.h(48,75): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(32,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(33,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(34,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(35,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(51,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(52,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(53,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(54,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(67,33): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(68,32): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\AnimationEnemyBEUComponent.h(79,29): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\AnimationEnemyBEUComponent.h(80,30): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\RedirectEnemy.h(26,68): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\RedirectEnemy.h(26,57): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\RedirectEnemy.h(27,68): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\RedirectEnemy.h(27,47): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\RedirectEnemy.h(27,111): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\RedirectEnemy.h(27,90): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\RedirectEnemy.h(26,91): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\RedirectEnemy.h(26,80): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(61,40): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(60,69): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(62,72): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(62,49): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(63,63): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(63,40): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(61,87): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(61,64): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(67,36): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(66,70): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(68,40): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(68,31): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(68,59): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(68,50): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(67,83): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(67,60): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(89,19): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(94,34): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\utils\Entity.h(34,27): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
+          with
+          [
+              _Ty=int
+          ]
+C:\Selery-Studios\TheFifthElement\src\components\CollideTileInteraction.h(29,1): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Entity::addComponent<Transform,Vector2D&,float&,float&,int,int,int,bool>(cmpId_type,Vector2D &,float &,float &,int &&,int &&,int &&,bool &&)" que se está compilando
+          with
+          [
+              T=Transform
+          ]
+  GameManager.cpp
+C:\Selery-Studios\TheFifthElement\src\components\DialogueComponent.h(10,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
+C:\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(52,30): warning C4101: 'e': variable local sin referencia
+C:\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(48,1): message : al compilar la función del miembro clase plantilla "Texture &SDLUtils::map_access_wrapper<Texture>::at(std::string)"
+C:\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(205,30): message : Vea la referencia a la creación de una instancia de clase plantilla "SDLUtils::map_access_wrapper<Texture>" que se está compilando
+C:\Selery-Studios\TheFifthElement\src\Entities\PlayerTD.h(62,49): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\NPCcollisioncomponent.h(48,60): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\NPCcollisioncomponent.h(48,46): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\NPCcollisioncomponent.h(48,120): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\NPCcollisioncomponent.h(48,109): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\NPCcollisioncomponent.h(48,143): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\NPCcollisioncomponent.h(48,132): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\NPCcollisioncomponent.h(48,89): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\NPCcollisioncomponent.h(48,75): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(32,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(33,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(34,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(35,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(51,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(52,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(53,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(54,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(67,33): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(68,32): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\AnimationEnemyBEUComponent.h(79,29): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\AnimationEnemyBEUComponent.h(80,30): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\RedirectEnemy.h(26,68): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\RedirectEnemy.h(26,57): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\RedirectEnemy.h(27,68): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\RedirectEnemy.h(27,47): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\RedirectEnemy.h(27,111): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\RedirectEnemy.h(27,90): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\RedirectEnemy.h(26,91): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\RedirectEnemy.h(26,80): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(61,40): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(60,69): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(62,72): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(62,49): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(63,63): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(63,40): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(61,87): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(61,64): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(67,36): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(66,70): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(68,40): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(68,31): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(68,59): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(68,50): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(67,83): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(67,60): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(89,19): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(94,34): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\utils\Entity.h(34,27): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
+          with
+          [
+              _Ty=int
+          ]
+C:\Selery-Studios\TheFifthElement\src\components\CollideTileInteraction.h(29,1): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Entity::addComponent<Transform,Vector2D&,float&,float&,int,int,int,bool>(cmpId_type,Vector2D &,float &,float &,int &&,int &&,int &&,bool &&)" que se está compilando
+          with
+          [
+              T=Transform
+          ]
+  AnimationEarthBossComponent.cpp
+  AnimationEnemyBEUComponent.cpp
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(32,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(33,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(34,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(35,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(51,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(52,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(53,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(54,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(67,33): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(68,32): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\AnimationEnemyBEUComponent.h(79,29): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\AnimationEnemyBEUComponent.h(80,30): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(52,30): warning C4101: 'e': variable local sin referencia
+C:\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(48,1): message : al compilar la función del miembro clase plantilla "Texture &SDLUtils::map_access_wrapper<Texture>::at(std::string)"
+C:\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(205,30): message : Vea la referencia a la creación de una instancia de clase plantilla "SDLUtils::map_access_wrapper<Texture>" que se está compilando
+  AttackBoxComponent.cpp
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(32,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(33,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(34,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(35,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(51,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(52,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(53,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(54,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(67,33): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(68,32): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\AnimationEnemyBEUComponent.h(79,29): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\AnimationEnemyBEUComponent.h(80,30): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\DialogueComponent.h(10,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(61,40): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(60,69): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(62,72): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(62,49): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(63,63): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(63,40): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(61,87): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(61,64): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(67,36): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(66,70): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(68,40): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(68,31): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(68,59): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(68,50): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(67,83): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(67,60): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(89,19): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(94,34): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(52,30): warning C4101: 'e': variable local sin referencia
+C:\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(48,1): message : al compilar la función del miembro clase plantilla "Texture &SDLUtils::map_access_wrapper<Texture>::at(std::string)"
+C:\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(205,30): message : Vea la referencia a la creación de una instancia de clase plantilla "SDLUtils::map_access_wrapper<Texture>" que se está compilando
+C:\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(43,35): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(99,202): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(99,205): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(99,33): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(107,32): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(140,27): warning C4305: '=': truncamiento de 'double' a 'float'
+C:\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(147,201): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(147,204): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(152,196): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(152,199): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(159,32): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(193,32): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(230,27): warning C4305: '=': truncamiento de 'double' a 'float'
+C:\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(239,202): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(239,205): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(239,34): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(243,208): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(243,211): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(243,34): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(254,32): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(266,31): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(314,32): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(358,76): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(358,49): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(368,32): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(401,32): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(453,32): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(464,31): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(478,28): warning C4244: '+=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(479,28): warning C4244: '+=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(496,27): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(497,27): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(499,56): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(500,56): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+  AttackEarthBossComponent.cpp
+  Button.cpp
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\crtdbg.h(307,1): warning C4005: '_malloca': redefinición de macro
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\malloc.h(124,1): message : vea la definición anterior de '_malloca'
+C:\Selery-Studios\TheFifthElement\src\components\Button.cpp(9,50): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\Button.cpp(9,38): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\Button.cpp(10,135): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\Button.cpp(10,122): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\Button.cpp(29,63): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\Button.cpp(29,32): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(52,30): warning C4101: 'e': variable local sin referencia
+C:\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(48,1): message : al compilar la función del miembro clase plantilla "SoundEffect &SDLUtils::map_access_wrapper<SoundEffect>::at(std::string)"
+C:\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(207,34): message : Vea la referencia a la creación de una instancia de clase plantilla "SDLUtils::map_access_wrapper<SoundEffect>" que se está compilando
+  CheckCollision.cpp
+C:\Selery-Studios\TheFifthElement\src\components\CheckCollision.cpp(14,10): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\CheckCollision.cpp(50,62): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\CheckCollision.cpp(50,49): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\CheckCollision.cpp(50,124): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\CheckCollision.cpp(50,112): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\CheckCollision.cpp(50,149): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\CheckCollision.cpp(50,137): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\CheckCollision.cpp(50,90): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\CheckCollision.cpp(50,77): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\CheckCollision.cpp(54,65): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\CheckCollision.cpp(54,51): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\CheckCollision.cpp(54,137): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\CheckCollision.cpp(54,120): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\CheckCollision.cpp(54,172): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\CheckCollision.cpp(54,155): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\CheckCollision.cpp(54,94): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\CheckCollision.cpp(54,80): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\CheckCollision.cpp(61,60): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\CheckCollision.cpp(61,46): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\CheckCollision.cpp(61,89): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\CheckCollision.cpp(61,75): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\CheckCollision.cpp(72,81): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\CheckCollision.cpp(72,67): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\CheckCollision.cpp(72,110): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\CheckCollision.cpp(72,96): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+  ColDetectorComponent.cpp
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(32,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(33,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(34,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(35,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(51,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(52,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(53,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(54,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(67,33): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(68,32): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\AnimationEnemyBEUComponent.h(79,29): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\AnimationEnemyBEUComponent.h(80,30): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(61,40): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(60,69): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(62,72): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(62,49): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(63,63): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(63,40): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(61,87): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(61,64): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(67,36): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(66,70): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(68,40): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(68,31): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(68,59): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(68,50): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(67,83): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(67,60): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(89,19): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(94,34): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+  ColliderTile.cpp
+C:\Selery-Studios\TheFifthElement\src\components\DialogueComponent.h(10,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
+  DialogueComponent.cpp
+C:\Selery-Studios\TheFifthElement\src\components\DialogueComponent.h(10,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
+C:\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(52,30): warning C4101: 'e': variable local sin referencia
+C:\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(48,1): message : al compilar la función del miembro clase plantilla "Font &SDLUtils::map_access_wrapper<Font>::at(std::string)"
+C:\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(204,27): message : Vea la referencia a la creación de una instancia de clase plantilla "SDLUtils::map_access_wrapper<Font>" que se está compilando
+C:\Selery-Studios\TheFifthElement\src\components\DialogueComponent.cpp(31,29): warning C4267: '=': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\DialogueComponent.cpp(60,36): warning C4267: '=': conversión de 'size_t' a 'int'; posible pérdida de datos
+  EconomyComponent.cpp
+C:\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(52,30): warning C4101: 'e': variable local sin referencia
+C:\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(48,1): message : al compilar la función del miembro clase plantilla "Texture &SDLUtils::map_access_wrapper<Texture>::at(std::string)"
+C:\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(205,30): message : Vea la referencia a la creación de una instancia de clase plantilla "SDLUtils::map_access_wrapper<Texture>" que se está compilando
+C:\Selery-Studios\TheFifthElement\src\components\EconomyComponent.cpp(7,33): warning C4838: la conversión de 'float' en 'int' requiere una conversión de restricción
+C:\Selery-Studios\TheFifthElement\src\components\EconomyComponent.cpp(7,33): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\EconomyComponent.cpp(7,49): warning C4838: la conversión de 'float' en 'int' requiere una conversión de restricción
+C:\Selery-Studios\TheFifthElement\src\components\EconomyComponent.cpp(7,49): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\EconomyComponent.cpp(30,96): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\EconomyComponent.cpp(30,69): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+  EnemyBEUDirectionComponent.cpp
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(32,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(33,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(34,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(35,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(51,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(52,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(53,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(54,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(67,33): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(68,32): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.cpp(29,14): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.cpp(30,14): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.cpp(38,13): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.cpp(39,13): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.cpp(50,15): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\EnemyBEUDirectionComponent.cpp(61,15): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
+  Enemy_movementTD_component.cpp
+  Image.cpp
+C:\Selery-Studios\TheFifthElement\src\components\Image.cpp(54,33): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\Image.cpp(55,33): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\Image.cpp(56,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\Image.cpp(57,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(52,30): warning C4101: 'e': variable local sin referencia
+C:\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(48,1): message : al compilar la función del miembro clase plantilla "Texture &SDLUtils::map_access_wrapper<Texture>::at(std::string)"
+C:\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(205,30): message : Vea la referencia a la creación de una instancia de clase plantilla "SDLUtils::map_access_wrapper<Texture>" que se está compilando
+C:\Selery-Studios\TheFifthElement\src\components\Image.cpp(105,13): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+  Generando código...
+C:\Selery-Studios\TheFifthElement\src\components\ColliderTile.cpp(71): warning C4715: 'ColliderTile::chooseDirection': no todas las rutas de acceso de control devuelven un valor
+  Compilando...
+  InputComponent.cpp
+C:\Selery-Studios\TheFifthElement\src\components\DialogueComponent.h(10,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
+C:\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(52,30): warning C4101: 'e': variable local sin referencia
+C:\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(48,1): message : al compilar la función del miembro clase plantilla "Texture &SDLUtils::map_access_wrapper<Texture>::at(std::string)"
+C:\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(205,30): message : Vea la referencia a la creación de una instancia de clase plantilla "SDLUtils::map_access_wrapper<Texture>" que se está compilando
+C:\Selery-Studios\TheFifthElement\src\Entities\PlayerTD.h(62,49): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\NPCcollisioncomponent.h(48,60): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\NPCcollisioncomponent.h(48,46): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\NPCcollisioncomponent.h(48,120): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\NPCcollisioncomponent.h(48,109): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\NPCcollisioncomponent.h(48,143): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\NPCcollisioncomponent.h(48,132): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\NPCcollisioncomponent.h(48,89): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\NPCcollisioncomponent.h(48,75): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(32,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(33,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(34,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(35,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(51,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(52,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(53,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(54,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(67,33): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(68,32): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\AnimationEnemyBEUComponent.h(79,29): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\AnimationEnemyBEUComponent.h(80,30): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\RedirectEnemy.h(26,68): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\RedirectEnemy.h(26,57): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\RedirectEnemy.h(27,68): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\RedirectEnemy.h(27,47): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\RedirectEnemy.h(27,111): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\RedirectEnemy.h(27,90): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\RedirectEnemy.h(26,91): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\RedirectEnemy.h(26,80): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\utils\Entity.h(34,27): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
+          with
+          [
+              _Ty=int
+          ]
+C:\Selery-Studios\TheFifthElement\src\components\CollideTileInteraction.h(29,1): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Entity::addComponent<Transform,Vector2D&,float&,float&,int,int,int,bool>(cmpId_type,Vector2D &,float &,float &,int &&,int &&,int &&,bool &&)" que se está compilando
+          with
+          [
+              T=Transform
+          ]
+  InputComponentBEU.cpp
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(32,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(33,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(34,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(35,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(51,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(52,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(53,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(54,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(67,33): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(68,32): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\AnimationEnemyBEUComponent.h(79,29): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\AnimationEnemyBEUComponent.h(80,30): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(52,30): warning C4101: 'e': variable local sin referencia
+C:\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(48,1): message : al compilar la función del miembro clase plantilla "Texture &SDLUtils::map_access_wrapper<Texture>::at(std::string)"
+C:\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(205,30): message : Vea la referencia a la creación de una instancia de clase plantilla "SDLUtils::map_access_wrapper<Texture>" que se está compilando
+C:\Selery-Studios\TheFifthElement\src\components\DialogueComponent.h(10,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(61,40): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(60,69): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(62,72): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(62,49): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(63,63): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(63,40): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(61,87): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(61,64): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(67,36): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(66,70): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(68,40): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(68,31): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(68,59): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(68,50): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(67,83): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(67,60): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(89,19): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(94,34): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\InputComponentBEU.cpp(69,38): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+  JumpComponent.cpp
+  LifeComponent.cpp
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(32,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(33,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(34,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(35,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(51,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(52,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(53,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(54,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(67,33): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(68,32): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\AnimationEnemyBEUComponent.h(79,29): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\AnimationEnemyBEUComponent.h(80,30): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\LifeComponent.cpp(37,149): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\LifeComponent.cpp(37,124): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\LifeComponent.cpp(167,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\LifeComponent.cpp(168,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\LifeComponent.cpp(169,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\LifeComponent.cpp(170,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\LifeComponent.cpp(174,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\LifeComponent.cpp(175,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\LifeComponent.cpp(179,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\LifeComponent.cpp(180,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\LifeComponent.cpp(184,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\LifeComponent.cpp(185,14): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\LifeComponent.cpp(186,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\LifeComponent.cpp(187,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\LifeComponent.cpp(191,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\LifeComponent.cpp(192,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\LifeComponent.cpp(196,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\LifeComponent.cpp(197,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(52,30): warning C4101: 'e': variable local sin referencia
+C:\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(48,1): message : al compilar la función del miembro clase plantilla "Texture &SDLUtils::map_access_wrapper<Texture>::at(std::string)"
+C:\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(205,30): message : Vea la referencia a la creación de una instancia de clase plantilla "SDLUtils::map_access_wrapper<Texture>" que se está compilando
+  LifeEarthBossComponent.cpp
+C:\Selery-Studios\TheFifthElement\src\components\LifeEarthBossComponent.cpp(11,17): warning C4244: '-=': conversión de 'float' a 'int'; posible pérdida de datos
+  LimitBEU.cpp
+C:\Selery-Studios\TheFifthElement\src\components\LimitBEU.cpp(11,33): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+  MovementComponent.cpp
+  MovementEarthBossComponent.cpp
+  ObjectsComponent.cpp
+  PointOfFightComponent.cpp
+  RedirectEnemy.cpp
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(32,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(33,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(34,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(35,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(51,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(52,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(53,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(54,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(67,33): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(68,32): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\RedirectEnemy.h(26,68): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\RedirectEnemy.h(26,57): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\RedirectEnemy.h(27,68): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\RedirectEnemy.h(27,47): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\RedirectEnemy.h(27,111): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\RedirectEnemy.h(27,90): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\RedirectEnemy.h(26,91): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\RedirectEnemy.h(26,80): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+  ShadowComponent.cpp
+C:\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(52,30): warning C4101: 'e': variable local sin referencia
+C:\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(48,1): message : al compilar la función del miembro clase plantilla "Texture &SDLUtils::map_access_wrapper<Texture>::at(std::string)"
+C:\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(205,30): message : Vea la referencia a la creación de una instancia de clase plantilla "SDLUtils::map_access_wrapper<Texture>" que se está compilando
+C:\Selery-Studios\TheFifthElement\src\components\ShadowComponent.cpp(21,89): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ShadowComponent.cpp(22,85): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ShadowComponent.cpp(24,37): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ShadowComponent.cpp(36,119): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ShadowComponent.cpp(37,67): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ShadowComponent.cpp(40,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ShadowComponent.cpp(45,23): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+  ShopComponent.cpp
+C:\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(52,30): warning C4101: 'e': variable local sin referencia
+C:\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(48,1): message : al compilar la función del miembro clase plantilla "Texture &SDLUtils::map_access_wrapper<Texture>::at(std::string)"
+C:\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(205,30): message : Vea la referencia a la creación de una instancia de clase plantilla "SDLUtils::map_access_wrapper<Texture>" que se está compilando
+C:\Selery-Studios\TheFifthElement\src\utils\Entity.h(34,27): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
+          with
+          [
+              _Ty=int
+          ]
+C:\Selery-Studios\TheFifthElement\src\components\ShopComponent.cpp(8,136): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Entity::addComponent<Transform,Vector2D&,uint,uint,int>(cmpId_type,Vector2D &,uint &&,uint &&,int &&)" que se está compilando
+          with
+          [
+              T=Transform
+          ]
+C:\Selery-Studios\TheFifthElement\src\utils\Entity.h(34,27): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
+          with
+          [
+              _Ty=uint
+          ]
+  SkinBEUComponent.cpp
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(32,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(33,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(34,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(35,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(51,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(52,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(53,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(54,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(67,33): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(68,32): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\AnimationEnemyBEUComponent.h(79,29): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\AnimationEnemyBEUComponent.h(80,30): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+  SkinComponent.cpp
+C:\Selery-Studios\TheFifthElement\src\components\DialogueComponent.h(10,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
+C:\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(52,30): warning C4101: 'e': variable local sin referencia
+C:\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(48,1): message : al compilar la función del miembro clase plantilla "Texture &SDLUtils::map_access_wrapper<Texture>::at(std::string)"
+C:\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(205,30): message : Vea la referencia a la creación de una instancia de clase plantilla "SDLUtils::map_access_wrapper<Texture>" que se está compilando
+C:\Selery-Studios\TheFifthElement\src\Entities\PlayerTD.h(62,49): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+  sliderComponent.cpp
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\crtdbg.h(307,1): warning C4005: '_malloca': redefinición de macro
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\malloc.h(124,1): message : vea la definición anterior de '_malloca'
+C:\Selery-Studios\TheFifthElement\src\components\sliderComponent.cpp(5,45): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\sliderComponent.cpp(6,45): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\sliderComponent.cpp(13,63): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\sliderComponent.cpp(13,32): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\sliderComponent.cpp(17,50): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\sliderComponent.cpp(17,38): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\sliderComponent.cpp(36,135): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\sliderComponent.cpp(36,122): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+  SDLUtils.cpp
+  BeatEmUpState.cpp
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(32,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(33,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(34,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(35,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(51,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(52,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(53,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(54,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(67,33): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(68,32): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\AnimationEnemyBEUComponent.h(79,29): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\AnimationEnemyBEUComponent.h(80,30): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\DialogueComponent.h(10,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(61,40): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(60,69): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(62,72): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(62,49): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(63,63): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(63,40): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(61,87): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(61,64): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(67,36): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(66,70): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(68,40): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(68,31): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(68,59): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(68,50): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(67,83): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(67,60): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(89,19): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(94,34): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(52,30): warning C4101: 'e': variable local sin referencia
+C:\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(48,1): message : al compilar la función del miembro clase plantilla "Texture &SDLUtils::map_access_wrapper<Texture>::at(std::string)"
+C:\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(205,30): message : Vea la referencia a la creación de una instancia de clase plantilla "SDLUtils::map_access_wrapper<Texture>" que se está compilando
+C:\Selery-Studios\TheFifthElement\src\states\BeatEmUpState.cpp(93,73): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\states\BeatEmUpState.cpp(93,49): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\states\BeatEmUpState.cpp(162,61): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\states\BeatEmUpState.cpp(163,47): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\utils\Entity.h(34,27): warning C4244: 'argumento': conversión de 'const uint' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\states\BeatEmUpState.cpp(9,93): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Entity::addComponent<Transform,Vector2D,const uint&,const uint&>(cmpId_type,Vector2D &&,const uint &,const uint &)" que se está compilando
+          with
+          [
+              T=Transform
+          ]
+C:\Selery-Studios\TheFifthElement\src\utils\Entity.h(34,27): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
+          with
+          [
+              _Ty=int
+          ]
+C:\Selery-Studios\TheFifthElement\src\states\BeatEmUpState.cpp(22,58): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Entity::addComponent<LifeComponent,int>(cmpId_type,int &&)" que se está compilando
+          with
+          [
+              T=LifeComponent
+          ]
+C:\Selery-Studios\TheFifthElement\src\utils\Entity.h(34,27): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
+          with
+          [
+              _Ty=uint
+          ]
+C:\Selery-Studios\TheFifthElement\src\states\BeatEmUpState.cpp(28,144): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Entity::addComponent<ColliderComponent,Vector2D,double,uint>(cmpId_type,Vector2D &&,double &&,uint &&)" que se está compilando
+          with
+          [
+              T=ColliderComponent
+          ]
+C:\Selery-Studios\TheFifthElement\src\utils\Entity.h(34,27): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
+          with
+          [
+              _Ty=double
+          ]
+  GameState.cpp
+  GameStateMachine.cpp
+  Generando código...
+  Compilando...
+  MainMenuState.cpp
+C:\Selery-Studios\TheFifthElement\src\components\DialogueComponent.h(10,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
+C:\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(52,30): warning C4101: 'e': variable local sin referencia
+C:\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(48,1): message : al compilar la función del miembro clase plantilla "Texture &SDLUtils::map_access_wrapper<Texture>::at(std::string)"
+C:\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(205,30): message : Vea la referencia a la creación de una instancia de clase plantilla "SDLUtils::map_access_wrapper<Texture>" que se está compilando
+C:\Selery-Studios\TheFifthElement\src\Entities\PlayerTD.h(62,49): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\NPCcollisioncomponent.h(48,60): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\NPCcollisioncomponent.h(48,46): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\NPCcollisioncomponent.h(48,120): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\NPCcollisioncomponent.h(48,109): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\NPCcollisioncomponent.h(48,143): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\NPCcollisioncomponent.h(48,132): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\NPCcollisioncomponent.h(48,89): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\NPCcollisioncomponent.h(48,75): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(32,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(33,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(34,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(35,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(51,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(52,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(53,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(54,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(67,33): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(68,32): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\AnimationEnemyBEUComponent.h(79,29): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\AnimationEnemyBEUComponent.h(80,30): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\RedirectEnemy.h(26,68): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\RedirectEnemy.h(26,57): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\RedirectEnemy.h(27,68): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\RedirectEnemy.h(27,47): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\RedirectEnemy.h(27,111): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\RedirectEnemy.h(27,90): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\RedirectEnemy.h(26,91): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\RedirectEnemy.h(26,80): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(61,40): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(60,69): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(62,72): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(62,49): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(63,63): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(63,40): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(61,87): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(61,64): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(67,36): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(66,70): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(68,40): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(68,31): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(68,59): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(68,50): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(67,83): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(67,60): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(89,19): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColDetectorComponent.h(94,34): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\utils\Entity.h(34,27): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
+          with
+          [
+              _Ty=int
+          ]
+C:\Selery-Studios\TheFifthElement\src\components\CollideTileInteraction.h(29,1): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Entity::addComponent<Transform,Vector2D&,float&,float&,int,int,int,bool>(cmpId_type,Vector2D &,float &,float &,int &&,int &&,int &&,bool &&)" que se está compilando
+          with
+          [
+              T=Transform
+          ]
+C:\Selery-Studios\TheFifthElement\src\utils\Entity.h(34,27): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\states\MainMenuState.cpp(56,77): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Entity::addComponent<Image,Texture*&,int&,int&,int,float,float&>(cmpId_type,Texture *&,int &,int &,int &&,float &&,float &)" que se está compilando
+          with
+          [
+              T=Image
+          ]
+C:\Selery-Studios\TheFifthElement\src\utils\Entity.h(34,27): warning C4244: 'argumento': conversión de '_Ty' a 'int'; posible pérdida de datos
+          with
+          [
+              _Ty=float
+          ]
+C:\Selery-Studios\TheFifthElement\src\utils\Entity.h(34,27): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\utils\Entity.h(34,27): warning C4244: 'argumento': conversión de 'const uint' a 'float'; posible pérdida de datos
+  OptionsState.cpp
+C:\Selery-Studios\TheFifthElement\src\utils\Entity.h(34,27): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
+          with
+          [
+              _Ty=int
+          ]
+C:\Selery-Studios\TheFifthElement\src\states\OptionsState.cpp(10,75): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Entity::addComponent<Transform,Vector2D,int,int,int>(cmpId_type,Vector2D &&,int &&,int &&,int &&)" que se está compilando
+          with
+          [
+              T=Transform
+          ]
+  PauseMenuState.cpp
+C:\Selery-Studios\TheFifthElement\src\utils\Entity.h(34,27): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
+          with
+          [
+              _Ty=int
+          ]
+C:\Selery-Studios\TheFifthElement\src\states\PauseMenuState.cpp(9,127): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Entity::addComponent<Transform,Vector2D&,float&,float&,int,int,int,bool>(cmpId_type,Vector2D &,float &,float &,int &&,int &&,int &&,bool &&)" que se está compilando
+          with
+          [
+              T=Transform
+          ]
+  TopDownState.cpp
+C:\Selery-Studios\TheFifthElement\src\components\DialogueComponent.h(10,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
+C:\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(52,30): warning C4101: 'e': variable local sin referencia
+C:\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(48,1): message : al compilar la función del miembro clase plantilla "Texture &SDLUtils::map_access_wrapper<Texture>::at(std::string)"
+C:\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(205,30): message : Vea la referencia a la creación de una instancia de clase plantilla "SDLUtils::map_access_wrapper<Texture>" que se está compilando
+C:\Selery-Studios\TheFifthElement\src\Entities\PlayerTD.h(62,49): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\NPCcollisioncomponent.h(48,60): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\NPCcollisioncomponent.h(48,46): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\NPCcollisioncomponent.h(48,120): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\NPCcollisioncomponent.h(48,109): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\NPCcollisioncomponent.h(48,143): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\NPCcollisioncomponent.h(48,132): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\NPCcollisioncomponent.h(48,89): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\NPCcollisioncomponent.h(48,75): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(32,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(33,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(34,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(35,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(51,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(52,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(53,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(54,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(67,33): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(68,32): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\AnimationEnemyBEUComponent.h(79,29): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\AnimationEnemyBEUComponent.h(80,30): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\RedirectEnemy.h(26,68): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\RedirectEnemy.h(26,57): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\RedirectEnemy.h(27,68): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\RedirectEnemy.h(27,47): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\RedirectEnemy.h(27,111): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\RedirectEnemy.h(27,90): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\RedirectEnemy.h(26,91): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\components\RedirectEnemy.h(26,80): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(85,42): warning C4018: '<=': no coinciden signed/unsigned
+C:\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(205,54): warning C4244: '=': conversión de 'const T' a 'int'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+C:\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(206,54): warning C4244: '=': conversión de 'const T' a 'int'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+C:\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(214,54): warning C4244: '=': conversión de 'const T' a 'int'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+C:\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(215,54): warning C4244: '=': conversión de 'const T' a 'int'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+C:\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(223,54): warning C4244: '=': conversión de 'const T' a 'int'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+C:\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(224,54): warning C4244: '=': conversión de 'const T' a 'int'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+C:\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(232,54): warning C4244: '=': conversión de 'const T' a 'int'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+C:\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(233,54): warning C4244: '=': conversión de 'const T' a 'int'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+C:\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(317,64): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(318,64): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(390,43): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(391,43): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(392,88): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(392,47): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(395,135): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(396,159): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(397,161): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(398,161): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(399,155): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(400,179): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(401,181): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(402,181): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(444,157): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(444,102): warning C4244: 'argumento': conversión de 'uint' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(515,103): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\utils\Entity.h(34,27): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
+          with
+          [
+              _Ty=int
+          ]
+C:\Selery-Studios\TheFifthElement\src\components\CollideTileInteraction.h(29,1): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Entity::addComponent<Transform,Vector2D&,float&,float&,int,int,int,bool>(cmpId_type,Vector2D &,float &,float &,int &&,int &&,int &&,bool &&)" que se está compilando
+          with
+          [
+              T=Transform
+          ]
+C:\Selery-Studios\TheFifthElement\src\utils\Entity.h(34,27): warning C4244: 'argumento': conversión de 'const uint' a 'float'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(161,177): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Entity::addComponent<Transform,Vector2D,const uint&,const uint&>(cmpId_type,Vector2D &&,const uint &,const uint &)" que se está compilando
+          with
+          [
+              T=Transform
+          ]
+C:\Selery-Studios\TheFifthElement\src\utils\Entity.h(34,27): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
+          with
+          [
+              _Ty=uint32_t
+          ]
+C:\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(181,115): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Entity::addComponent<ColliderComponent,Vector2D,const uint&,uint>(cmpId_type,Vector2D &&,const uint &,uint &&)" que se está compilando
+          with
+          [
+              T=ColliderComponent
+          ]
+C:\Selery-Studios\TheFifthElement\src\utils\Entity.h(34,27): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(193,137): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Entity::addComponent<Image,Texture*&,const uint&,const uint&,int,float&,float&>(cmpId_type,Texture *&,const uint &,const uint &,int &&,float &,float &)" que se está compilando
+          with
+          [
+              T=Image
+          ]
+  Entity.cpp
+  Manager.cpp
+  Generando código...
+C:\Selery-Studios\TheFifthElement\src\states\TopDownState.h(220): warning C4715: 'TopDownState::npcTexture': no todas las rutas de acceso de control devuelven un valor
+C:\Selery-Studios\TheFifthElement\src\states\TopDownState.h(244): warning C4715: 'TopDownState::EnemyTexture': no todas las rutas de acceso de control devuelven un valor
+     Creando biblioteca C:\Selery-Studios\TheFifthElement\x64\Debug\TheFifthElement.lib y objeto C:\Selery-Studios\TheFifthElement\x64\Debug\TheFifthElement.exp
+  TheFifthElement.vcxproj -> C:\Selery-Studios\TheFifthElement\x64\Debug\TheFifthElement.exe
