@@ -15,6 +15,7 @@ private:
 	Vector2D mousePos;
 	int mousePosX, mousePosY, mouseWidth = 1, mouseHeight = 1, currentPositionState;
 	SDL_Rect mouseRect;
+	float scale;
 
 	bool isClicked_ = false; // utilizado para la tienda
 public:

@@ -1,4 +1,5 @@
 ﻿#include "LifeComponent.h"
+#include "InputComponentBEU.h"
 
 LifeComponent::LifeComponent(float maxLife) {
 	life_ = maxLife_ = maxLife;
@@ -25,30 +26,42 @@ void LifeComponent::initComponent() {
 		skin_ = ent_->getComponent<SkinBEUComponent>(SKINBEUCOMPONENT_H);
 	}
 	chooseTexture();
-
-	for (int i = 0; i < 4; i++)
-	{
-		types[i].life = -1.0f;
-		types[i].alive = true;
-	}
 }
 
 void LifeComponent::update() {
+	if (!set_ && !enemy_) 
+	{ 
+		inp_ = ent_->getComponent<InputComponentBEU>(INPUTCOMPONENTBEU_H); 
+		for (int i = 0; i < 4; i++)
+		{
+			types[i].life = -1.0f;
+			types[i].alive = inp_->elements[i];
+		}
+		set_ = true;
+	}
+
 	if(enemy_)pos_ = Vector2D(entTransform_->getPos().getX(), entTransform_->getPos().getY()) - Vector2D(this->mngr_->camRect_.x, this->mngr_->camRect_.y);
 	//cout << life_ << endl;
 	if (die_) {
-		if (!im_->isAnimPlaying())ent_->setAlive(false);
-		else {
-			// falta bloquear la skin para que no la pueda acceder
+		if (!im_->isAnimPlaying()) {
 
-			bool end = true;
-			int i = 0;
-			while (end && i < 4) {
-				if (types[i].alive) end = false;
-				i++;
+			if (enemy_)ent_->setAlive(false);
+			else {
+				int i = 0;
+				while (!types[i].alive && i < 4) i++;
+
+				if (i == 4) ent_->setAlive(false);
+				else 
+				{
+					if (type_ == "air") inp_->setAir(false);// bloquea aire
+					else if (type_ == "fire")inp_->setFire(false);// bloquea fuego
+					else if (type_ == "water")inp_->setWater(false);// bloquea agua
+					else if (type_ == "earth") inp_->setEarth(false);// bloquea tierra
+
+					die_ = false;
+					hit_ = false;
+				}
 			}
-			if (end) ent_->setAlive(false);
-			else die_ = false;
 		}
 	}
 	else {
@@ -83,8 +96,8 @@ void LifeComponent::Death() {
 	}
 	else {// player
 		skin_->changeState(SkinBEUComponent::Death);
-		if (type_ == "fire") types[0].alive = false;
-		else if (type_ == "air")types[1].alive = false;
+		if (type_ == "air") types[0].alive = false;
+		else if (type_ == "fire")types[1].alive = false;
 		else if (type_ == "water")types[2].alive = false;
 		else if (type_ == "earth") types[3].alive = false;
 	}
@@ -123,21 +136,19 @@ void LifeComponent::subLife(float damage) {
 }
 
 void LifeComponent::chageType(float maxLife) {
-	hit_ = false;
-	die_ = false;
-	if (type_ == "fire") types[0].life = life_;
-	else if (type_ == "air")types[1].life = life_;
+	if (type_ == "air") types[0].life = life_;
+	else if (type_ == "fire")types[1].life = life_;
 	else if (type_ == "water")types[2].life = life_;
 	else if (type_ == "earth")types[3].life = life_;
 	
 	type_ = im_->getType();
 	maxLife_ = maxLife;
 
-	if (type_ == "fire") {
+	if (type_ == "air") {
 		if (types[0].life == -1)types[0].life = maxLife;
 		life_ = types[0].life;
 	}
-	else if (type_ == "air") {
+	else if (type_ == "fire") {
 		if (types[1].life == -1)types[1].life = maxLife;
 		life_ = types[1].life;
 	}

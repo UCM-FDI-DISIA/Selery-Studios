@@ -8,6 +8,9 @@
 
 InputComponent::InputComponent() :Component() {
 	d = NONE;
+	elements[0] = true;
+	for (int i = 1; i < 4; i++) elements[i] = false;
+	// por defecto solo está disponible aire
 }
 
 void InputComponent::initComponent() {
@@ -49,17 +52,17 @@ void InputComponent::handleEvents(SDL_Event event)
 				skin_->changeState(SkinComponent::Idle);
 			}
 
-			if (ih().isKeyDown(SDL_SCANCODE_1)) {
-				skin_->changeSkin("fire");
+			if (ih().isKeyDown(SDL_SCANCODE_1) && elements[0]) {
+				skin_->changeSkin("air");
 				//static_cast<HUD*>(ent_)->
 			}
-			else if (ih().isKeyDown(SDL_SCANCODE_2)) {
-				skin_->changeSkin("air");
+			else if (ih().isKeyDown(SDL_SCANCODE_2) && elements[1]) {
+				skin_->changeSkin("fire");
 			}
-			else  if (ih().isKeyDown(SDL_SCANCODE_3)) {
+			else  if (ih().isKeyDown(SDL_SCANCODE_3) && elements[2]) {
 				skin_->changeSkin("water");
 			}
-			else if (ih().isKeyDown(SDL_SCANCODE_4)) {
+			else if (ih().isKeyDown(SDL_SCANCODE_4) && elements[3]) {
 				skin_->changeSkin("earth");
 			}
 		}

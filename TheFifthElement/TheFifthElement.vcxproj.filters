@@ -49,7 +49,6 @@
     <ClCompile Include="src\components\ColliderTile.cpp" />
     <ClCompile Include="src\Entities\LifeBar.cpp" />
     <ClCompile Include="src\ColManager.cpp" />
-    <ClCompile Include="src\states\PauseMenuState.cpp" />
     <ClCompile Include="src\components\ShopComponent.cpp" />
     <ClCompile Include="src\components\LifeEarthBossComponent.cpp" />
     <ClCompile Include="src\components\AnimationEarthBossComponent.cpp" />
@@ -128,7 +127,6 @@
     <ClInclude Include="src\components\ColliderTile.h" />
     <ClInclude Include="src\Entities\LifeBar.h" />
     <ClInclude Include="src\ColManager.h" />
-    <ClInclude Include="src\states\PauseMenuState.h" />
     <ClInclude Include="src\components\ShopComponent.h" />
     <ClInclude Include="src\components\LifeEarthBossComponent.h" />
     <ClInclude Include="src\components\AnimationEarthBossComponent.h" />

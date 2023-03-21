@@ -3,11 +3,12 @@
 void Button::initComponent() {
 	buttonTransform = ent_->getComponent<Transform>(TRANSFORM_H);
 	im_ = ent_->getComponent<Image>(IMAGE_H);
+	scale = buttonTransform->getS();
 }
 
 void Button::update() {
 	mouseRect = build_sdlrect(mousePos, mouseWidth, mouseHeight);
-	if (Collision::collides(buttonTransform->getPos(), buttonTransform->getW(), buttonTransform->getH(), mousePos, mouseRect.w, mouseRect.h))
+	if (Collision::collides(buttonTransform->getPos(), buttonTransform->getW()*scale, buttonTransform->getH()*scale, mousePos, mouseRect.w, mouseRect.h))
 	{
 		currentPositionState = MOUSE_OVER;
 		if (identifier == "PLAY")im_->setAnimTexture("PlayButtonPressed", 1, 289);
@@ -52,7 +53,6 @@ void Button::handleEvent(SDL_Event event)
 				else if (identifier == "OPTIONS") {
 					SDLUtils::instance()->soundEffects().at("pruebaBoton").play();
 					GameManager::instance()->goOptionsMenu();
-					cout << "opciones";
 				}
 				else if (identifier == "MAINMENU") {
 					SDLUtils::instance()->soundEffects().at("pruebaBoton").play();
@@ -60,7 +60,6 @@ void Button::handleEvent(SDL_Event event)
 				}
 				else if (identifier == "EXIT") {
 					SDL_Quit();
-					cout << "salir";
 				}
 				else if (identifier == "UPTURN") {
 					SDLUtils::instance()->soundEffects().at("pruebaBoton").play();

@@ -2,7 +2,6 @@
 #include "states/MainMenuState.h"
 #include "states/TopDownState.h"
 #include "states/BeatEmUpState.h"
-#include "states/PauseMenuState.h"
 #include "states/PauseState.h"
 	////LO DE SOFI
 	////gameSTMC=static_cast<GameStateMachine*>(GameStateMachine::Instance())

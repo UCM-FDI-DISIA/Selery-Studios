@@ -13,11 +13,11 @@ BeatEmUpState::BeatEmUpState(bool boss, string typeBoss) {
 	player_ = new Entity();
 	player_->setContext(this);
 	trans_player_ = player_->addComponent<Transform>(TRANSFORM_H, Vector2D(PlayerPosition_X, PlayerPosition_Y), PLAYERBEU_WIDTH_FRAME, PLAYERBEU_HEIGHT_FRAME, scale);
-	sk_ = player_->addComponent<SkinBEUComponent>(SKINBEUCOMPONENT_H, "fire");
+	sk_ = player_->addComponent<SkinBEUComponent>(SKINBEUCOMPONENT_H, "air");
 	sk_->changeState(SkinBEUComponent::Idle);
 	sk_->changeMov();
 	texture_player_ = &SDLUtils::instance()->images().at(sk_->getSkin());
-	player_->addComponent<Image>(int(IMAGE_H), texture_player_, 8, 28, 0, PLAYERBEU_WIDTH_FRAME, PLAYERBEU_HEIGHT_FRAME,"fire");
+	player_->addComponent<Image>(int(IMAGE_H), texture_player_, 8, 28, 0, PLAYERBEU_WIDTH_FRAME, PLAYERBEU_HEIGHT_FRAME,"air");
 	player_->addComponent<JumpComponent>(JUMP_H);
 	player_->addComponent<LifeComponent>(LIFECOMPONENT_H, 10);
 	player_->addComponent<ShadowComponent>(SHADOWCOMPONENT_H);

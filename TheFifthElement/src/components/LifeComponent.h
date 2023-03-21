@@ -1,7 +1,6 @@
 #pragma once
 #include "AnimationEnemyBEUComponent.h"
 #include "EnemyBEUDirectionComponent.h"
-//#include "../components/InputComponentBEU.h"
 #include "SkinBEUComponent.h"
 #include "Image.h"
 #include <array>
@@ -10,6 +9,7 @@ struct player {
 	float life;
 	bool alive;
 };
+class InputComponentBEU;
 
 class LifeComponent : public Component {
 private:
@@ -17,7 +17,7 @@ private:
 	AnimationEnemyBEUComponent* anim_ = nullptr;
 	EnemyBEUDirectionComponent* eMov_ = nullptr;
 	SkinBEUComponent* skin_ = nullptr;
-	//InputComponentBEU* inp_ = nullptr;
+	InputComponentBEU* inp_ = nullptr;
 	Image* im_ = nullptr;
 	Transform* entTransform_ = nullptr;
 #pragma endregion
@@ -31,6 +31,7 @@ private:
 	bool enemy_ = false;
 	string type_;
 	float scale;
+	bool set_ = false;
 #pragma endregion
 
 #pragma region propierties

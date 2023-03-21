@@ -8,6 +8,9 @@
 
 
 InputComponentBEU::InputComponentBEU() :Component() {
+	elements[0] = true;
+	for (int i = 1; i < 4; i++) elements[i] = false;
+	// por defecto solo está disponible aire
 }
 
 void InputComponentBEU::initComponent() {
@@ -91,19 +94,19 @@ void InputComponentBEU::handleEvents(SDL_Event event) {
 	else if (ih().isKeyUp(SDL_SCANCODE_S)) { moveDown = false; }
 
 
-	if (ih().isKeyDown(SDL_SCANCODE_1) && !im_->isAnimPlaying()) {
+	if (ih().isKeyDown(SDL_SCANCODE_1) && elements[0] && !im_->isAnimPlaying()) {
 		sk_->changeSkin("air");
 	}
 
-	if (ih().isKeyDown(SDL_SCANCODE_2) && !im_->isAnimPlaying()) {
+	if (ih().isKeyDown(SDL_SCANCODE_2) && elements[1] && !im_->isAnimPlaying()) {
 		sk_->changeSkin("fire");
 	}
 
-	if (ih().isKeyDown(SDL_SCANCODE_3) && !im_->isAnimPlaying()) {
+	if (ih().isKeyDown(SDL_SCANCODE_3) && elements[2] && !im_->isAnimPlaying()) {
 		sk_->changeSkin("water");
 	}
 
-	if (ih().isKeyDown(SDL_SCANCODE_4) && !im_->isAnimPlaying()) {
+	if (ih().isKeyDown(SDL_SCANCODE_4) && elements[3] && !im_->isAnimPlaying()) {
 		sk_->changeSkin("earth");
 	}
 
@@ -147,5 +150,46 @@ void InputComponentBEU::handleEvents(SDL_Event event) {
 
 	if (ih().isKeyDown(SDL_SCANCODE_ESCAPE)) {
 		GameManager::goPauseMenu();
+	}
+}
+
+void InputComponentBEU::setAir(bool b) 
+{ 
+	elements[0] = b; 
+	if (!b) {
+		if (elements[1]) sk_->changeSkin("fire");
+		else if (elements[2])sk_->changeSkin("water");
+		else sk_->changeSkin("earth");
+	}
+
+}
+
+void InputComponentBEU::setFire(bool b) 
+{ 
+	elements[1] = b;
+	if (!b) {
+		if (elements[2]) sk_->changeSkin("water");
+		else if (elements[3])sk_->changeSkin("earth");
+		else sk_->changeSkin("air");
+	}
+}
+
+void InputComponentBEU::setWater(bool b) 
+{ 
+	elements[2] = b; 
+	if (!b) {
+		if (elements[3]) sk_->changeSkin("earth");
+		else if (elements[0])sk_->changeSkin("air");
+		else sk_->changeSkin("fire");
+	}
+}
+
+void InputComponentBEU::setEarth(bool b) 
+{ 
+	elements[3] = b; 
+	if (!b) {
+		if (elements[0]) sk_->changeSkin("air");
+		else if (elements[1])sk_->changeSkin("fire");
+		else sk_->changeSkin("water");
 	}
 }

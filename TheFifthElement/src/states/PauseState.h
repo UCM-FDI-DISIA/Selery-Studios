@@ -18,7 +18,7 @@ public:
 	void handleEvents();
 	void render();
 
-	Entity* addNewEntity(string t, float w, float h, Vector2D pos, int nframes, bool flip, float size = WIN_WIDTH / 900);
+	Entity* addNewEntity(string t, float w, float h, Vector2D pos, int nframes, bool flip, float size = 1, bool neg = false);
 	void Background(string file);
 	void createButtons();
 

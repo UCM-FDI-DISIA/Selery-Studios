@@ -8,6 +8,7 @@
 #include "../components/LifeComponent.h"
 #include "../components/ShadowComponent.h"
 #include "SkinBEUComponent.h"
+#include <array>
 class Image;
 
 class InputComponentBEU : public Component {
@@ -24,9 +25,18 @@ private:
     bool alreadyPressedSpecial = false;
     bool alreadyPressed2 = false;
     bool moveLeft, moveRight, moveUp, moveDown, jump;
+
+
 public:
+    bool elements[4];
+
     InputComponentBEU();
     void initComponent();
     void update();
     void handleEvents(SDL_Event event);
+
+    void setAir(bool b);
+    void setFire(bool b);
+    void setWater(bool b);
+    void setEarth(bool b);
 };

@@ -12,7 +12,7 @@ private:
     float width, height, rotation_, vel;
     SDL_Rect rect;
     int framesTotales_;
-    bool matrix_, demo = true;
+    bool matrix_, demo = false;
     float size_ = 1.0f;
 public:
     Transform(Vector2D pos, float w, float h, float size = 1.0f) {

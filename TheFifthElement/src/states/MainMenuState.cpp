@@ -12,7 +12,7 @@ MainMenuState::MainMenuState()
 
 	addNewEntity("NPC_2", NPC_WIDTH * 7, NPC_HEIGHT, Vector2D(38 * WIN_WIDTH / 90, 2 * WIN_HEIGHT / 3), 7, true);
 
-	addNewEntity("hole", 3840, 160, Vector2D(5 * WIN_WIDTH / 9, 11 * WIN_HEIGHT / 20), 30, false);
+	addNewEntity("hole", 3840, 160, Vector2D(49 * WIN_WIDTH / 90, 10.5 * WIN_HEIGHT / 20), 30, false, 1.2);
 
 	addNewEntity("treasure", 896, 64, Vector2D(63 * WIN_WIDTH / 90, 30 * WIN_HEIGHT / 60), 14, false);
 
@@ -51,7 +51,8 @@ void MainMenuState::render() {
 Entity* MainMenuState::addNewEntity(string t, float w, float h, Vector2D pos, int nframes, bool flip, float size) {
 	Entity* e = new Entity();
 
-	e->addComponent<Transform>(TRANSFORM_H, pos, w/nframes, h, size);
+	float size_ = size * WIN_WIDTH / 900;
+	e->addComponent<Transform>(TRANSFORM_H, pos, w/nframes, h, size_);
 	Texture* t_ = &SDLUtils::instance()->images().at(t);
 	im_ = e->addComponent<Image>(IMAGE_H, t_, nframes, nframes, 0, w/nframes, h);
 	if (flip) im_->setFlip(SDL_FLIP_HORIZONTAL);
@@ -79,7 +80,7 @@ void MainMenuState::createButtons() {
 	exitButton = addNewEntity("ExitButton", 289, 86, Vector2D(5 * WIN_WIDTH / 90, 40 * WIN_HEIGHT / 60), 1, false);
 	exitButton->addComponent<Button>(BUTTON_H, "EXIT");
 
-	optionsButton = addNewEntity("OptionsButton", 95, 97, Vector2D(8 * WIN_WIDTH / 9, 2 * WIN_HEIGHT / 60), 1, false);
+	optionsButton = addNewEntity("OptionsButton", 95, 97, Vector2D(84 * WIN_WIDTH / 90, WIN_HEIGHT / 60), 1, false, 0.5);
 	optionsButton->addComponent<Button>(BUTTON_H, "OPTIONS");
 
 
