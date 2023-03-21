@@ -78,6 +78,7 @@ private:
 	SDL_Rect redBox_;
 	Entity* enemy_;
 	float enemy_width, enemy_height;
+	string type_;
 
 	GameManager* Gm_;
 	
@@ -211,26 +212,30 @@ public:
 		
 	}
 	Texture* EnemyTexture() {
-		int a = SDLUtils::instance()->rand().nextInt(0, 3);
+		int a = SDLUtils::instance()->rand().nextInt(0, 4);
 		if (a == 0) {
 			enemy_width = 68;            //habra que cambiar el ancho y alto de cada enemigo dependiendo de cual sea
 			enemy_height = 120;
-			return &SDLUtils::instance()->images().at("TD_air_mushroom");
+			type_ = "mushroom";
+			return &SDLUtils::instance()->images().at("TD_mushroom_idle");
 		}
 		else if (a == 1) {
 			enemy_width = 68;
 			enemy_height = 120;
-			return &SDLUtils::instance()->images().at("TD_air_goblin");
+			type_ = "goblin";
+			return &SDLUtils::instance()->images().at("TD_goblin_idle");
 		}
 		else if (a == 2) {
 			enemy_width = 68;
 			enemy_height = 120;
-			return &SDLUtils::instance()->images().at("TD_air_bat");
+			type_ = "bat";
+			return &SDLUtils::instance()->images().at("TD_bat_idle");
 		}
 		else if (a == 3) {
-			enemy_width = 68;
-			enemy_height = 120;
-			return &SDLUtils::instance()->images().at("TD_air_skeleton");
+			enemy_width = 86;
+			enemy_height = 150;
+			type_ = "skeleton";
+			return &SDLUtils::instance()->images().at("TD_skeleton_idle");
 		}
 
 	}
