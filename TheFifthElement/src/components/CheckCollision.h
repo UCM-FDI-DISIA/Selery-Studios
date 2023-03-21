@@ -8,6 +8,7 @@
 #include "../GameManager.h"
 #include "ObjectsComponent.h"
 #include "../Entities/PortalComponent.h"
+#include "Enemy_movementTD_component.h"
 class CheckCollision : public Component
 {
 private:
@@ -16,6 +17,7 @@ private:
 	Transform* tr2;
 	ObjectsComponent* obj;
 	PortalComponent* portal;
+	Enemy_movementTD_component* enM_;
 	SDL_Rect rectFight, rectDetection, rectPlayer;
 	float lookingRange_;
 	float lookingHeight_;
@@ -38,10 +40,16 @@ public:
 	void updateRects();
 
 	//M?odo para crear y actualizar el rect?gulo interior del enemigo el cual, si colisiona el personaje con ?, ser?llevado al modo Beat Em Up
-	inline SDL_Rect getRectFight() { return  build_sdlrect(tr1->getPos().getX()+ offset * - side_, tr1->getPos().getY() - (lookingHeight_ / 2)/2, lookingRange_+ 50 * side_, tr1->getH() + lookingHeight_/2); }
+	inline SDL_Rect getRectFight() {
+		if (enM_->getState() == "left") return  build_sdlrect(tr1->getPos().getX(), tr1->getPos().getY() - (lookingHeight_ / 2)/2, lookingRange_+ 50 * side_, tr1->getH() + lookingHeight_/2);
+		else return  build_sdlrect(tr1->getPos().getX() - offset * side_, tr1->getPos().getY() - (lookingHeight_ / 2) / 2, (lookingRange_ + 50 * side_) * -1, tr1->getH() + lookingHeight_ / 2);
+	}
 	
 	//M?odo para crear y actualizar el rect?gulo exterior del enemigo el cual, si colisiona el personaje con ?, lo avisa con un sonido y con una imagen
-	inline SDL_Rect getRectDetection() { return  build_sdlrect(tr1->getPos().getX() + offset*-side_, tr1->getPos().getY() - lookingHeight_/2, lookingRange_+ 200* side_, tr1->getH()+lookingHeight_); }							//lo que sume a getH()------> lo tengo que restar a la Y partido de 2------> si sumo 4, resto 2
+	inline SDL_Rect getRectDetection() {
+		if (enM_->getState() == "left") return  build_sdlrect(tr1->getPos().getX(), tr1->getPos().getY() - lookingHeight_ / 2, lookingRange_ + 200 * side_, tr1->getH() + lookingHeight_);
+		else return  build_sdlrect(tr1->getPos().getX() - offset * side_, tr1->getPos().getY() - lookingHeight_ / 2, (lookingRange_ + 200 * side_) * -1, tr1->getH() + lookingHeight_);
+	}							//lo que sume a getH()------> lo tengo que restar a la Y partido de 2------> si sumo 4, resto 2
 
 	
 	//Equivalente para el personaje

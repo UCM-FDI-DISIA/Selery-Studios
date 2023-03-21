@@ -5,6 +5,7 @@
 #include "ColliderComponent.h"
 #include "../utils/Collision.h"
 #include "MovementComponent.h"
+#include "Enemy_movementTD_component.h"
 #include <vector>
 class RedirectEnemy : public Component
 {
@@ -26,6 +27,8 @@ public:
                 if (Collision::collides(Vector2D(redBox_.x, redBox_.y), redBox_.w, redBox_.h,
                     Vector2D(col->getColRect().x, col->getColRect().y), col->getColRect().w, col->getColRect().h)) {
                     MovementComponent* mv_ = it->getComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
+                    Enemy_movementTD_component* eMv_ = it->getComponent<Enemy_movementTD_component>(ENEMY_MOVEMENT_TD_H);
+                    eMv_->changeState(redVector);
                     mv_->setDir(redVector);
                 }
             }

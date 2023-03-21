@@ -189,11 +189,11 @@ void TopDownState::LoadMap(string const& filename) {
                         enemy_->setContext(this);
                         Texture* enemyT_ = EnemyTexture();
                         enemy_->addComponent<Transform>(TRANSFORM_H, Vector2D(obj.getPosition().x, obj.getPosition().y), enemy_width, enemy_height);
-                        enemy_->addComponent<Enemy_movementTD_component>(ENEMY_MOVEMENT_TD_H);
                         enemy_->addComponent<Image>(IMAGE_H, enemyT_, ENEMYTD_NUMFRAMES, ENEMYTD_NUMFRAMES, 0, enemy_width, enemy_height);
                         float a = -1.0f;
                         float lookingRange = 150.0f;
                         float lookingWidth = 100.0f;
+                        enemy_->addComponent<Enemy_movementTD_component>(ENEMY_MOVEMENT_TD_H, type_);
                         enemy_->addComponent<CheckCollision>(CHECKCOLLISION_H, player_, lookingRange, lookingWidth, a);
                         enemy_->addComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
                         enemy_->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(0, 0), enemy_height, enemy_width);
