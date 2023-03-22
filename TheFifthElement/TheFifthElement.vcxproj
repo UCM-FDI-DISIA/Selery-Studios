@@ -128,8 +128,8 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>lib\SDL libs\x64;.\lib\tmxlite-1.2.1\lib\x64;.\lib\SDL2_mixer-2.0.2\lib\x64;.\lib\SDL2_image-2.0.1\lib\x64;.\lib\SDL2_ttf-2.0.15\lib\x64</AdditionalLibraryDirectories>
-      <AdditionalDependencies>ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;SDL2.lib;SDL2main.lib;SDL2test.lib;SDL2_ttf.lib;SDL2_image.lib;SDL2_mixer.lib;tmxlite-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>lib\SDL libs\x64;$(ProjectDir)lib\tmxlite-1.2.1\lib\x64;.\lib\SDL2_mixer-2.0.2\lib\x64;.\lib\SDL2_image-2.0.1\lib\x64;.\lib\SDL2_ttf-2.0.15\lib\x64</AdditionalLibraryDirectories>
+      <AdditionalDependencies>ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;SDL2.lib;SDL2main.lib;SDL2test.lib;SDL2_ttf.lib;SDL2_image.lib;SDL2_mixer.lib;tmxlite.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
