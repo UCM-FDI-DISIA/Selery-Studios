@@ -16,11 +16,13 @@ void Button::update() {
 		else if (identifier == "OPTIONS")im_->setAnimTexture("OptionsButtonPressed", 1, 95);
 		else if(identifier == "RESUME")im_->setAnimTexture("ResumeButtonPressed", 1, 289);
 		else if (identifier == "MAINMENU")im_->setAnimTexture("MenuButtonPressed", 1, 289);
+		else if (identifier == "BACK")im_->setAnimTexture("MenuButtonPressed", 1, 289);
 	}
 	else
 	{
 		if (identifier == "PLAY")im_->setAnimTexture("PlayButton", 1, 289);
 		else if (identifier == "EXIT")im_->setAnimTexture("ExitButton", 1, 289);
+		else if (identifier == "BACK")im_->setAnimTexture("BackButton", 1, 289);
 		else if (identifier == "OPTIONS")im_->setAnimTexture("OptionsButton", 1, 95);
 		else if (identifier == "RESUME")im_->setAnimTexture("ResumeButton", 1, 289);
 		else if (identifier == "MAINMENU")im_->setAnimTexture("MenuButton", 1, 289);
@@ -68,6 +70,13 @@ void Button::handleEvent(SDL_Event event)
 				else if (identifier == "EXITSHOP") {
 					cout << "salir tienda";
 				}
+				else if (identifier == "BACK") {
+					GameManager::instance()->backToMainMenu();
+				}
+				//else if (identifier == "CONTROLS")
+				//{
+				//	//CARGA IMAGEN
+				//}
 			}
 		}
 	}

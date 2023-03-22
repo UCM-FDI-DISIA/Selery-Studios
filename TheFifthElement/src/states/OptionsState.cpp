@@ -1,23 +1,11 @@
 #include "OptionsState.h"
 
-<<<<<<< Updated upstream
 OptionsState::OptionsState() {
-	cout << "OPTIONS";
-	CreateInteractuableObjects();
-}
-
-void OptionsState::CreateInteractuableObjects() {
-	Entity* slider = Manager::addEntity();
-	slider->addComponent<Transform>(TRANSFORM_H, Vector2D(220, 10), 20, 20, 1);
-	slider->addComponent<sliderComponent>(SLIDERCOMPONENT_H);
-=======
-OptionsState::OptionsState(){
 	Background("fondoPausa");
 	addNewEntity("PTD_water_right", PLAYERTD_WIDTH_FRAME * 7, PLAYERTD_HEIGHT_FRAME, Vector2D(2 * WIN_WIDTH / 5, 450), 7, false, 1);
 
 	createButtons();
 }
-
 
 void OptionsState::Background(string file) {
 	Entity* e = new Entity();
@@ -67,13 +55,13 @@ void OptionsState::createButtons() {
 	//Vector2D pos = { 300,100 };
 	backButton = addNewEntity("BackButton", 289, 86, Vector2D(WIN_WIDTH / 3, WIN_HEIGHT / 2), 1, false, 1);
 	backButton->addComponent<Button>(BUTTON_H, "BACK");
-	backButton = addNewEntity("BackButton", 289, 86, Vector2D(5 * WIN_WIDTH / 90, 50 * WIN_HEIGHT / 60), 1, false, 0.5);
-	backButton->addComponent<Button>(BUTTON_H, "BACK"); //Este sería el botón de controles.
+/*	backButton = addNewEntity("BackButton", 289, 86, Vector2D(5 * WIN_WIDTH / 90, 50 * WIN_HEIGHT / 60), 1, false, 0.5);
+	backButton->addComponent<Button>(BUTTON_H, "BACK");*/ //Este sería el botón de controles.
 
 
 	sliderBrillo = addEntity(new Entity());
 	sliderBrillo->addComponent<Transform>(TRANSFORM_H, Vector2D(WIN_WIDTH / 2, WIN_HEIGHT / 5), 20, 20, 1);
 	sliderBrillo->addComponent<brightSliderComponent>(BRIGHTSLIDER_H);
 	sliderBrillo->addComponent<sliderComponent>(SLIDERCOMPONENT_H);
->>>>>>> Stashed changes
+
 }
