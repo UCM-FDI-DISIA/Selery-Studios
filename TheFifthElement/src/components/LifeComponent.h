@@ -55,7 +55,6 @@ private:
 #pragma endregion
 
 public:
-
 	LifeComponent(float maxLife);
 	void initComponent();
 
@@ -77,4 +76,3 @@ public:
 	void playDamageSound();
 	void playDieSound();
 };
-

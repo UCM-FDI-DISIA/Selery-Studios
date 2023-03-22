@@ -57,7 +57,7 @@ void SkinBEUComponent::changeMov() {
 		break;
 	case SkinBEUComponent::Jump:
 		setJump();
-		if (set_) im_->setAnim(true, fila_, nframes_, 0, nframes_);
+		if (set_) im_->setAnim(true, fila_, nframes_, 0, 100);
 		break;
 	case SkinBEUComponent::Hit:
 		setJump();
@@ -186,26 +186,12 @@ void SkinBEUComponent::setJump() {
 	//offset_ = Vector2D(55, 55);
 	/*ColHeight_ = EnemyHeight_ / 3;
 	ColWidth_ = EnemyWidth_ / 25;*/
+	nframes_ = 15;
 
-	if (skin_ == "fire") {
-		nframes_ = 15;
-		fila_ = 4;
-	}
-
-	else if (skin_ == "air") {
-		nframes_ = 6;
-		fila_ = 5;
-	}
-
-	else if (skin_ == "water") {
-		nframes_ = 6;
-		fila_ = 6;
-	}
-
-	else if (skin_ == "earth") {
-		nframes_ = 6;
-		fila_ = 10;
-	}
+	if (skin_ == "fire") { fila_ = 4; }
+	else if (skin_ == "air") { fila_ = 4; }
+	else if (skin_ == "water") { fila_ = 6; }
+	else if (skin_ == "earth") { fila_ = 10; }
 }
 
 void SkinBEUComponent::setHit() {
@@ -213,7 +199,6 @@ void SkinBEUComponent::setHit() {
 	//offset_ = Vector2D(55, 55);
 	/*ColHeight_ = EnemyHeight_ / 3;
 	ColWidth_ = EnemyWidth_ / 25;*/
-
 	if (skin_ == "fire") {
 		nframes_ = 6;
 		fila_ = 12;

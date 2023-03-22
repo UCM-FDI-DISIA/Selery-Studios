@@ -9,7 +9,7 @@
 
 InputComponentBEU::InputComponentBEU() :Component() {
 	elements[0] = true;
-	for (int i = 1; i < 4; i++) elements[i] = false;
+	for (int i = 1; i < 4; i++) elements[i] = true;
 	// por defecto solo está disponible aire
 }
 
@@ -25,7 +25,7 @@ void InputComponentBEU::initComponent() {
 }
 
 void InputComponentBEU::update() {
-	if (!im_->isAnimPlaying()) { // Si no esta realizando ninguna acci�n no cancelable
+	if (!im_->isAnimPlaying() && jmp_->isJumpEnabled()) { // Si no esta realizando ninguna acci�n no cancelable
 		if (moveLeft) {
 			tr_->setDir(Vector2D(-1, 0));
 			sk_->changeState(SkinBEUComponent::Left);
