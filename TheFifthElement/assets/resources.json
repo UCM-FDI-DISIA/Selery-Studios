@@ -1,7 +1,12 @@
 {
   "dialog": [
     {"id": "1","text": "Carlos Leon trabajando? $ imposible "},
-    {"id": "2","text": "jose haz lo tuyo $. "}
+    {"id": "2","text": "jose haz lo tuyo $. "},
+    {"id": "3","text": "Carlos Leon trabajando? $ imposible "},
+    {"id": "4","text": "Carlos Leon trabajando? $ imposible "},
+     {"id": "5","text": "Carlos Leon trabajando? $ imposible "},
+    {"id": "6","text": "Carlos Leon trabajando? $ imposible "}
+
   ],
 
   "fonts": [

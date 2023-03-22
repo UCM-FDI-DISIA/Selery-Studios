@@ -20,8 +20,8 @@ const uint PLAYERTD_NUMFRAMES = 7; //numero de frames PlayerTD
 const uint BACKGROUNDAIR_WIDTH_FRAME = 3840; // anchura de BackgroundAir
 const uint BACKGROUNDAIR_HEIGHT_FRAME = 2160; // altura de BackgroundAir
 
-const uint DIALOGUE_WIDTH = 1200; // anchura de Dialogue
-const uint DIALOGUE_HEIGHT = 852; // anchura de Dialogue
+const uint DIALOGUE_WIDTH = 620; // anchura de Dialogue
+const uint DIALOGUE_HEIGHT = 452; // anchura de Dialogue
 
 const uint ELEMENT_WIDTH = 64; // anchura de Element
 const uint ELEMENT_HEIGHT = 64; // altura de Element

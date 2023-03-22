@@ -1,5 +1,6 @@
 #include "DialogueComponent.h"
 #include "../utils/Entity.h"
+#include "../utils/Constants.h"
 DialogueComponent::DialogueComponent():Component() {
 	//coge el tipo de letra
 	font_ = &SDLUtils::instance()->fonts().at("TCentury");
@@ -9,6 +10,7 @@ DialogueComponent::DialogueComponent():Component() {
 }
 void DialogueComponent::initComponent() {
 	plynpc = ent_->getComponent<PlayerNPC>(PLAYERNPC_H);
+	t = new Texture(GameManager::instance()->getRenderer(), "./assets/Texts/image.png");
 }
 void DialogueComponent::setdialogue() {
 	//coge el dialogo completo 
@@ -32,7 +34,13 @@ void DialogueComponent::setdialogue() {
 }
 void DialogueComponent::render() {
 	//renderizas el texto
-	if (hasstarted)font_->render(GameManager::instance()->getRenderer(), out, 150, 300, color_);
+	if (hasstarted) {
+		Vector2D a = Vector2D(100, 250);
+		SDL_Rect dest = build_sdlrect(a, DIALOGUE_WIDTH, DIALOGUE_HEIGHT);
+		t->render(dest, 0);
+		font_->render(GameManager::instance()->getRenderer(), out, 230, 400, color_); 
+	
+	}
 
 }
 void DialogueComponent::update() {
@@ -61,11 +69,9 @@ void DialogueComponent::inicombe() {
 			}
 			else {
 				hasstarted = false;
-				while (conespacios.size() != 0)
-				{
-					conespacios.pop_back();
-
-				}
+				
+					conespacios.clear();
+					
 
 			}
 		}

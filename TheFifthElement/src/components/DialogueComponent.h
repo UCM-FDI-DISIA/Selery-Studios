@@ -23,6 +23,7 @@ private:
 	bool hasstarted;
 	int cont = 0, fin, linea =0;
 	int d;
+	Texture* t;
 public:
 	DialogueComponent();
 	void render();

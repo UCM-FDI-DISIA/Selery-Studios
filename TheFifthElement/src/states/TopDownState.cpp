@@ -163,13 +163,13 @@ void TopDownState::LoadMap(string const& filename) {
                     sk_->changeState(SkinComponent::Idle);
                     sk_->changeMov();
                     texture_player_ = &SDLUtils::instance()->images().at(sk_->getSkin());
-                    player_->addComponent<Image>(IMAGE_H, texture_player_, PLAYERTD_NUMFRAMES, PLAYERTD_NUMFRAMES,0, PLAYERTD_WIDTH_FRAME, PLAYERTD_HEIGHT_FRAME);
-                    player_->addComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
                     Playernpc_ = player_->addComponent<PlayerNPC>(PLAYERNPC_H);
                     player_->addComponent <DialogueComponent>(DIALOGCOMPONENT_H);
+                    player_->addComponent<Image>(IMAGE_H, texture_player_, PLAYERTD_NUMFRAMES, PLAYERTD_NUMFRAMES,0, PLAYERTD_WIDTH_FRAME, PLAYERTD_HEIGHT_FRAME);
+                    player_->addComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
                     in_ = player_->addComponent<InputComponent>(INPUTCOMPONENT_H);
                     player_->addComponent<ColliderTile>(COLLIDERTILE_H, collisions_);
-                    addEntity(player_);
+                   
                 }
                 else if (name == "NPC") {
                     contnpc++;
@@ -274,6 +274,7 @@ void TopDownState::LoadMap(string const& filename) {
 
 
     }
+    addEntity(player_);
     SDL_RenderPresent(Gm_->getRenderer());
     SDL_SetRenderTarget(Gm_->getRenderer(), nullptr);
 
