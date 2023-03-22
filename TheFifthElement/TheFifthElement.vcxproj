@@ -133,6 +133,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\components\VolumeSlider.h" />
     <ClInclude Include="src\states\PauseState.h" />
     <ClInclude Include="src\components\AttackEarthBossComponent.h" />
     <ClInclude Include="src\components\EconomyComponent.h" />

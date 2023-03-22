@@ -142,6 +142,7 @@
     <ClInclude Include="src\components\AttackEarthBossComponent.h" />
     <ClInclude Include="src\components\EconomyComponent.h" />
     <ClInclude Include="src\states\PauseState.h" />
+    <ClInclude Include="src\components\VolumeSlider.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="TheFifthElement.rc" />

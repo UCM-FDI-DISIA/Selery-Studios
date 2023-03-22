@@ -3,6 +3,7 @@
 #include "../GameManager.h"
 #include "Transform.h"
 #include "Image.h"
+#include "../components/VolumeSlider.h"
 #include "../utils/Collision.h"
 #include "brightSliderComponent.h"
 
@@ -18,7 +19,7 @@ private:
 	float valor;
 	bool clicked;
 	bool set;
-
+	VolumeSlider* volume;
 	brightSliderComponent* bright;
 
 public:

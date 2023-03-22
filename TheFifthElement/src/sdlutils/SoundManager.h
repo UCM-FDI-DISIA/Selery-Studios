@@ -101,10 +101,10 @@ public:
 
 	void setMusicVolume(float musV) {
 		musicVolume = musV;
-		for (sdl_resource_table<Music>::iterator it = musics_.begin();
-			it != musics_.end(); ++it) {
-			(*it).second.setMusicVolume(musicVolume);
-		}
+		//for (sdl_resource_table<Music>::iterator it = musics_.begin();
+		//	it != musics_.end(); ++it) {
+		//	(*it).second.setMusicVolume(musicVolume);
+		//}
 	}
 
 	void setSFXVolume(float sfxV) {
@@ -130,7 +130,7 @@ private:
 
 	Music* currentMusic = nullptr;
 
-	float musicVolume = 40, sfxVolume = 40, maxVolume = 80, maxSfxVolume = 80;
+	float musicVolume = 500, sfxVolume = 500, maxVolume = 508, maxSfxVolume = 200;
 	std::string newSong = ""; int ticks_; int savedTime;
 };
 

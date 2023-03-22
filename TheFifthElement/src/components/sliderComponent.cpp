@@ -1,4 +1,5 @@
 #include "sliderComponent.h"
+
 void sliderComponent::initComponent() {
 	sliderTransform = ent_->getComponent<Transform>(TRANSFORM_H);
 	im_ = ent_->getComponent<Image>(IMAGE_H);
@@ -6,6 +7,7 @@ void sliderComponent::initComponent() {
 	topeIzq = sliderTransform->getPos().getX() - 60;
 	valor = 85;
 	set = false;
+	volume = ent_->getComponent<VolumeSlider>(VOLUMESLIDER_H);
 	bright = ent_->getComponent<brightSliderComponent>(BRIGHTSLIDER_H);
 }
 
@@ -31,9 +33,11 @@ void sliderComponent::update() {
 
 	if (!clicked && set){ //Actualizar sonido o lo que sea.
 		valor = sliderTransform->getPos().getX() - sliderTransform->getW()/2 - topeIzq;
+		
 		if (bright != nullptr) bright->channgeBrightness(valor);
+		volume->changeVolume(valor);
 	}
-	bright->channgeBrightness(valor);
+	//bright->channgeBrightness(valor);
 
 	if (Collision::collides(sliderTransform->getPos(), sliderTransform->getW(), sliderTransform->getH(), mousePos, mouseRect.w, mouseRect.h)){
 		currentPositionState = MOUSE_OVER;

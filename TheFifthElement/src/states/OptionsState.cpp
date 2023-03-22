@@ -33,7 +33,7 @@ void OptionsState::handleEvents()
 		backButton->handleEvent(event);
 		//controlsButton->handleEvent(event);
 		sliderBrillo->handleEvent(event);
-		/*sliderSonido->handleEvent(event);*/
+		sliderSonido->handleEvent(event);
 	}
 
 }
@@ -63,5 +63,10 @@ void OptionsState::createButtons() {
 	sliderBrillo->addComponent<Transform>(TRANSFORM_H, Vector2D(WIN_WIDTH / 2, WIN_HEIGHT / 5), 20, 20, 1);
 	sliderBrillo->addComponent<brightSliderComponent>(BRIGHTSLIDER_H);
 	sliderBrillo->addComponent<sliderComponent>(SLIDERCOMPONENT_H);
+
+	sliderSonido = addEntity(new Entity());
+	sliderSonido->addComponent<Transform>(TRANSFORM_H, Vector2D(WIN_WIDTH / 2, WIN_HEIGHT / 1.5), 20, 20, 1);
+	sliderSonido->addComponent<VolumeSlider>(VOLUMESLIDER_H); 
+	sliderSonido->addComponent<sliderComponent>(SLIDERCOMPONENT_H);
 
 }
