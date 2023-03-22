@@ -1,1 +1,12 @@
-﻿  TheFifthElement.vcxproj -> C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\x64\Debug\TheFifthElement.exe
+﻿  sliderComponent.cpp
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22000.0\ucrt\crtdbg.h(307,1): warning C4005: '_malloca': redefinición de macro
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22000.0\ucrt\malloc.h(124,1): message : vea la definición anterior de '_malloca'
+C:\Users\Dorjee\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\sliderComponent.cpp(5,45): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Dorjee\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\sliderComponent.cpp(6,45): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Dorjee\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\sliderComponent.cpp(14,63): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Dorjee\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\sliderComponent.cpp(14,32): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Dorjee\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\sliderComponent.cpp(18,50): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Dorjee\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\sliderComponent.cpp(18,38): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Dorjee\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\sliderComponent.cpp(38,135): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Dorjee\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\sliderComponent.cpp(38,122): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+  TheFifthElement.vcxproj -> C:\Users\Dorjee\Documents\GitHub\Selery-Studios\TheFifthElement\x64\Debug\TheFifthElement.exe

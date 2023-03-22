@@ -17,6 +17,7 @@ private:
 	SDL_Rect mouseRect;
 	float valor;
 	bool clicked;
+	bool set;
 
 	brightSliderComponent* bright;
 

@@ -4,7 +4,8 @@ void sliderComponent::initComponent() {
 	im_ = ent_->getComponent<Image>(IMAGE_H);
 	topeDer = sliderTransform->getPos().getX() + 60;
 	topeIzq = sliderTransform->getPos().getX() - 60;
-
+	valor = 85;
+	set = false;
 	bright = ent_->getComponent<brightSliderComponent>(BRIGHTSLIDER_H);
 }
 
@@ -15,7 +16,8 @@ void sliderComponent::updateMousePosition() {
 
 void sliderComponent::update() {
 	mouseRect = build_sdlrect(mousePos, mouseWidth, mouseHeight);
-	cout << mousePosX << " " << mousePosY << endl;
+	//cout << mousePosX << " " << mousePosY << endl;
+	cout << valor << endl;
 	cout << sliderTransform->getPos().getX() << " " << sliderTransform->getPos().getY() << endl;
 	if (clicked && (sliderTransform->getPos().getX() + sliderTransform->getW() / 2 <= topeDer && sliderTransform->getPos().getX() - sliderTransform->getW() / 2 >= topeIzq)){
 		sliderTransform->setPos(Vector2D(mousePosX - sliderTransform->getW() / 2, sliderTransform->getPos().getY()));
@@ -27,11 +29,11 @@ void sliderComponent::update() {
 		sliderTransform->setPos(Vector2D(topeIzq + sliderTransform->getW()/2, sliderTransform->getPos().getY()));
 	}
 
-	if (!clicked){ //Actualizar sonido o lo que sea.
+	if (!clicked && set){ //Actualizar sonido o lo que sea.
 		valor = sliderTransform->getPos().getX() - sliderTransform->getW()/2 - topeIzq;
 		if (bright != nullptr) bright->channgeBrightness(valor);
 	}
-
+	bright->channgeBrightness(valor);
 
 	if (Collision::collides(sliderTransform->getPos(), sliderTransform->getW(), sliderTransform->getH(), mousePos, mouseRect.w, mouseRect.h)){
 		currentPositionState = MOUSE_OVER;
@@ -46,6 +48,7 @@ void sliderComponent::handleEvent(SDL_Event event){
 	if (event.type == SDL_MOUSEBUTTONDOWN) {
 		if (event.button.button == SDL_BUTTON_LEFT  && currentPositionState == 1 ) {
 			clicked = true;
+			set = true;
 		}
 	}
 	else if (event.type == SDL_MOUSEBUTTONUP){
