@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 ﻿  sliderComponent.cpp
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.22000.0\ucrt\crtdbg.h(307,1): warning C4005: '_malloca': redefinición de macro
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.22000.0\ucrt\malloc.h(124,1): message : vea la definición anterior de '_malloca'
@@ -9,4 +10,33 @@ C:\Users\Dorjee\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\s
 C:\Users\Dorjee\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\sliderComponent.cpp(18,38): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
 C:\Users\Dorjee\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\sliderComponent.cpp(38,135): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
 C:\Users\Dorjee\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\sliderComponent.cpp(38,122): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+=======
+﻿  OptionsState.cpp
+C:\Users\Dorjee\Documents\GitHub\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(52,30): warning C4101: 'e': variable local sin referencia
+C:\Users\Dorjee\Documents\GitHub\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(48,1): message : al compilar la función del miembro clase plantilla "Texture &SDLUtils::map_access_wrapper<Texture>::at(std::string)"
+C:\Users\Dorjee\Documents\GitHub\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(205,30): message : Vea la referencia a la creación de una instancia de clase plantilla "SDLUtils::map_access_wrapper<Texture>" que se está compilando
+C:\Users\Dorjee\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(34,27): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
+          with
+          [
+              _Ty=int
+          ]
+C:\Users\Dorjee\Documents\GitHub\Selery-Studios\TheFifthElement\src\states\OptionsState.cpp(18,88): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Entity::addComponent<Transform,Vector2D&,const uint&,const uint&,int&,int,int&,bool&>(cmpId_type,Vector2D &,const uint &,const uint &,int &,int &&,int &,bool &)" que se está compilando
+          with
+          [
+              T=Transform
+          ]
+C:\Users\Dorjee\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(34,27): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Dorjee\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(34,27): warning C4244: 'argumento': conversión de 'const uint' a 'float'; posible pérdida de datos
+C:\Users\Dorjee\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(34,27): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Dorjee\Documents\GitHub\Selery-Studios\TheFifthElement\src\states\OptionsState.cpp(48,79): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Entity::addComponent<Image,Texture*&,int&,int&,int,float,float&>(cmpId_type,Texture *&,int &,int &,int &&,float &&,float &)" que se está compilando
+          with
+          [
+              T=Image
+          ]
+C:\Users\Dorjee\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(34,27): warning C4244: 'argumento': conversión de '_Ty' a 'int'; posible pérdida de datos
+          with
+          [
+              _Ty=float
+          ]
+>>>>>>> Stashed changes
   TheFifthElement.vcxproj -> C:\Users\Dorjee\Documents\GitHub\Selery-Studios\TheFifthElement\x64\Debug\TheFifthElement.exe
