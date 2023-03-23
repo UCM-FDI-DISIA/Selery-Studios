@@ -18,6 +18,7 @@ public:
 	void createButtons();
 private:
 	Entity* backButton;
+	Entity* muteButton;
 	Entity* controlsButton;
 	Entity* sliderBrillo;
 	Entity* sliderSonido;
