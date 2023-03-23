@@ -190,8 +190,8 @@ void SkinBEUComponent::setJump() {
 
 	if (skin_ == "fire") { fila_ = 4; }
 	else if (skin_ == "air") { fila_ = 4; }
-	else if (skin_ == "water") { fila_ = 6; }
-	else if (skin_ == "earth") { fila_ = 10; }
+	else if (skin_ == "water") { fila_ = 15; }
+	else if (skin_ == "earth") { fila_ = 14; }
 }
 
 void SkinBEUComponent::setHit() {
