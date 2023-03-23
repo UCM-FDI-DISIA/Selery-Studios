@@ -17,8 +17,8 @@ void Button::update() {
 		else if(identifier == "RESUME")im_->setAnimTexture("ResumeButtonPressed", 1, 289);
 		else if (identifier == "MAINMENU")im_->setAnimTexture("MenuButtonPressed", 1, 289);
 		else if (identifier == "BACK")im_->setAnimTexture("MenuButtonPressed", 1, 289);
-		/*else if (identifier == "CONTROLS")im_->setAnimTexture("OptionsButtonPressed", 1, 95);
-		else if (identifier == "MUTE")im_->setAnimTexture("OptionsButtonPressed", 1, 95);*/
+		/*else if (identifier == "CONTROLS")im_->setAnimTexture("OptionsButtonPressed", 1, 95);*/
+		else if (identifier == "MUTE")im_->setAnimTexture("OptionsButtonPressed", 1, 95);
 	}
 	else
 	{
@@ -28,8 +28,8 @@ void Button::update() {
 		else if (identifier == "OPTIONS")im_->setAnimTexture("OptionsButton", 1, 95);
 		else if (identifier == "RESUME")im_->setAnimTexture("ResumeButton", 1, 289);
 		else if (identifier == "MAINMENU")im_->setAnimTexture("MenuButton", 1, 289);
-		/*else if (identifier == "CONTROLS")im_->setAnimTexture("OptionsButton", 1, 95);
-		else if (identifier == "MUTE")im_->setAnimTexture("OptionsButton", 1, 95);*/
+		/*else if (identifier == "CONTROLS")im_->setAnimTexture("OptionsButton", 1, 95);*/
+		else if (identifier == "MUTE")im_->setAnimTexture("MuteButton", 1, 95);
 		currentPositionState = MOUSE_OUT;
 	}
 	updateMousePosition();
@@ -81,10 +81,10 @@ void Button::handleEvent(SDL_Event event)
 				//{
 				//	//CARGA IMAGEN
 				//}
-				//else if (identifier == "MUTE")
-				//{
-				//	SDL_AudioQuit(); //Mutea el juego (TODO).
-				//}
+				else if (identifier == "MUTE")
+				{
+					SDL_AudioQuit(); //Mutea el juego (TODO).
+				}
 			}
 		}
 	}
