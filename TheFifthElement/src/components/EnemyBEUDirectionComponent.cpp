@@ -1,7 +1,6 @@
 ﻿#include "EnemyBEUDirectionComponent.h"
 #include "../utils/Entity.h"
 #include "../utils/ecs.h"
-#include "../Entities/EnemyBEU.h"
 
 EnemyBEUDirectionComponent::EnemyBEUDirectionComponent(Entity* p, string type) :Component() {
 	dir_ = Vector2D(0.0f, 0.0f);

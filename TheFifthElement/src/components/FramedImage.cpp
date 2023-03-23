@@ -1,5 +1,4 @@
 ﻿#include "FramedImage.h"
-#include "../Entities/EnemyBEU.h"
 
 FramedImage::FramedImage(Texture* tex, int width, int height, int frames) {
 	widthFrame_ = width;
@@ -56,6 +55,10 @@ void FramedImage::render() {
 	tex_->render(src, dest, 0, nullptr, s);
 }
 
+void FramedImage::setAnim(string textureKey, int frames) {
+	tex_ = &sdlutils().images().at(textureKey);
+	frames_ = frames;
+}
 
 //matriz
 //void FramedImage::setAnim(bool Anim, int Fila, int Frames, int I, int tope) { //Metodo generico para cambiar de animacion en BEU

@@ -8,18 +8,18 @@ MainMenuState::MainMenuState()
 	SDLUtils::instance()->soundEffects().at("Title").play();
 	addNewEntity("campfire", 1024, 128, Vector2D(4 * WIN_WIDTH / 9, 3 * WIN_HEIGHT / 4), 8, false);
 
-	addNewEntity("NPC_1", NPC_WIDTH * 7, NPC_HEIGHT, Vector2D(48 * WIN_WIDTH / 90, 3 * WIN_HEIGHT / 4), 7, false);
+	addNewEntity("NPC_1", NPC_WIDTH, NPC_HEIGHT, Vector2D(48 * WIN_WIDTH / 90, 3 * WIN_HEIGHT / 4), 7, false);
 
-	addNewEntity("NPC_2", NPC_WIDTH * 7, NPC_HEIGHT, Vector2D(38 * WIN_WIDTH / 90, 2 * WIN_HEIGHT / 3), 7, true);
+	addNewEntity("NPC_2", NPC_WIDTH, NPC_HEIGHT, Vector2D(38 * WIN_WIDTH / 90, 2 * WIN_HEIGHT / 3), 7, true);
 
 	addNewEntity("hole", 3840, 160, Vector2D(49 * WIN_WIDTH / 90, 10.5 * WIN_HEIGHT / 20), 30, false, 1.2);
 
 	addNewEntity("treasure", 896, 64, Vector2D(63 * WIN_WIDTH / 90, 30 * WIN_HEIGHT / 60), 14, false);
 
-	addNewEntity("PTD_fire_idle", PLAYERTD_WIDTH_FRAME * 7, PLAYERTD_HEIGHT_FRAME, Vector2D(2 * WIN_WIDTH / 3, 17 * WIN_HEIGHT / 60), 7, false);
-	addNewEntity("PTD_water_idle", PLAYERTD_WIDTH_FRAME * 7, PLAYERTD_HEIGHT_FRAME, Vector2D(55 * WIN_WIDTH / 60, WIN_HEIGHT / 3), 7, true);
+	addNewEntity("PTD_fire_idle", PLAYERTD_WIDTH_FRAME, PLAYERTD_HEIGHT_FRAME, Vector2D(2 * WIN_WIDTH / 3, 17 * WIN_HEIGHT / 60), 7, false);
+	addNewEntity("PTD_water_idle", PLAYERTD_WIDTH_FRAME, PLAYERTD_HEIGHT_FRAME, Vector2D(55 * WIN_WIDTH / 60, WIN_HEIGHT / 3), 7, true);
 	addNewEntity("PTD_earth_up", PLAYERTD_WIDTH_FRAME, PLAYERTD_HEIGHT_FRAME, Vector2D(73 * WIN_WIDTH / 90, 25 * WIN_HEIGHT / 60), 1, false);
-	addNewEntity("PTD_air_idle", PLAYERTD_WIDTH_FRAME * 7, PLAYERTD_HEIGHT_FRAME, Vector2D(65 * WIN_WIDTH / 90, 45 * WIN_HEIGHT / 60), 7, false);
+	addNewEntity("PTD_air_idle", PLAYERTD_WIDTH_FRAME, PLAYERTD_HEIGHT_FRAME, Vector2D(65 * WIN_WIDTH / 90, 45 * WIN_HEIGHT / 60), 7, false);
 
 
 	// Buttons
@@ -50,12 +50,9 @@ void MainMenuState::render() {
 
 Entity* MainMenuState::addNewEntity(string t, float w, float h, Vector2D pos, int nframes, bool flip, float size) {
 	Entity* e = new Entity();
-
 	float size_ = size * WIN_WIDTH / 900;
 	e->addComponent<Transform>(TRANSFORM_H, pos, w/nframes, h, size_);
-	Texture* t_ = &SDLUtils::instance()->images().at(t);
-	im_ = e->addComponent<Image>(IMAGE_H, t_, nframes, nframes, 0, w/nframes, h);
-	if (flip) im_->setFlip(SDL_FLIP_HORIZONTAL);
+	e->addComponent<FramedImage>(FRAMEDIMAGE_H, &SDLUtils::instance()->images().at(t), w, h, nframes);
 	addEntity(e);
 	return e;
 }

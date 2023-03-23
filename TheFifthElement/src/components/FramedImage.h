@@ -32,6 +32,7 @@ public:
 	inline int getCol() { return col; }
 	inline int getLastFrame() { return frames_; }
 
+	void setAnim(string textureKey, int frames); //Metodo generico para cambiar de animacion
 	//matriz
 	//void setAnim(bool Anim, int Fila, int Frames, int I, int tope); //Metodo generico para cambiar de animacion en BEU
 

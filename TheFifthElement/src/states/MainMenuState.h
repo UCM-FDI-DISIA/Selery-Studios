@@ -3,6 +3,7 @@
 #include "../sdlutils/SDLUtils.h"
 #include "../components/Button.h"
 #include "../components/sliderComponent.h"
+#include "../components/FramedImage.h"
 class MainMenuState : public Manager
 {
 private:
@@ -10,7 +11,6 @@ private:
 	Entity* exitButton;
 	Entity* optionsButton;
 	Entity* slider;
-	Image* im_;
 public:
 	MainMenuState();
 	~MainMenuState() {};

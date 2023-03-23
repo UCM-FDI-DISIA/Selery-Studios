@@ -2,7 +2,6 @@
 #include "../sdlutils/InputHandler.h"
 #include "../utils/Entity.h"
 #include "../utils/ecs.h"
-#include "../Entities/PlayerBEU.h"
 #include "Image.h"
 #include "../states/BeatEmUpState.h"
 
