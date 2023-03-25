@@ -19,7 +19,7 @@ private:
 public:
 
     ColliderComponent(Vector2D offset, float h, float w) {
-        scale = 1;
+        scale = WIN_WIDTH / 900;
         offset_ = Vector2D(offset.getX()*scale, offset.getY()*WIN_HEIGHT/600);
         h_ = h*scale;
         w_ = w*scale;

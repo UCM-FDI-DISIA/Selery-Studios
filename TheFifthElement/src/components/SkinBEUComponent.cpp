@@ -60,7 +60,7 @@ void SkinBEUComponent::changeMov() {
 		if (set_) im_->setAnim(true, fila_, nframes_, 0, 100);
 		break;
 	case SkinBEUComponent::Hit:
-		setJump();
+		setHit();
 		if (set_) im_->setAnim(true, fila_, nframes_, 0, nframes_);
 		break;
 	case SkinBEUComponent::Death:
