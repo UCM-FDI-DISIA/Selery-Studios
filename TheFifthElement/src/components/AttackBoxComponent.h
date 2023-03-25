@@ -37,8 +37,8 @@ private:
     SkinBEUComponent* sk_;
     float width, height, boxTime, timerExecution, angle, way, stoppingAngle;
     bool boxCreated = false;
-
-    bool isPlayer = true;
+    bool actualized = false;
+    bool isPlayer;
     string type;
 public:
     AttackBoxComponent();

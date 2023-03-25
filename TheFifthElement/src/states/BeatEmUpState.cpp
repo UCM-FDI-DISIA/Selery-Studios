@@ -32,7 +32,7 @@ BeatEmUpState::BeatEmUpState(bool boss, string typeBoss) {
 	colManager_ = new ColManager(this);
 
 	if (!boss) {
-		AddEnemies(3);
+		//AddEnemies(3);
 	}
 	else if (boss && typeBoss == "water") {
 		AddWaterBoss();

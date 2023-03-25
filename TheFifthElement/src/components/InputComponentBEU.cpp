@@ -25,6 +25,7 @@ void InputComponentBEU::initComponent() {
 }
 
 void InputComponentBEU::update() {
+
 	if (!im_->isAnimPlaying() && jmp_->isJumpEnabled()) { // Si no esta realizando ninguna acci�n no cancelable
 		if (moveLeft) {
 			tr_->setDir(Vector2D(-1, 0));
@@ -111,29 +112,68 @@ void InputComponentBEU::handleEvents(SDL_Event event) {
 	}
 
 
+
 	if (ih().isKeyJustDown(SDL_SCANCODE_O)) {
 		if (!alreadyPressedBasic) {
-			sdlutils().soundEffects().at("playerAttack").play();
-			alreadyPressedBasic = true;
-			if (im_->getRow() == 9) {
-				if (im_->getTope() < 3 * 8) {
-					im_->setTope(im_->getTope() + 8);
+
+			if(im_->getType()=="fire" || im_->getType() == "water")
+			{
+				sdlutils().soundEffects().at("playerAttack").play();
+				alreadyPressedBasic = true;
+				if (im_->getRow() == 9) {
+					if (im_->getTope() < 2 * 8) {
+						im_->setTope(im_->getTope() + 8);
+					}
+					else
+					{
+						im_->setTope(im_->getTope() + 10);
+					}
+				}
+				else {
+					im_->setAnim(true, 9, 26, 0, 8);
 				}
 			}
-			else {
-				im_->setAnim(true, 9, 24, 0, 8);
+			else
+			{
+				sdlutils().soundEffects().at("playerAttack").play();
+				alreadyPressedBasic = true;
+				if (im_->getRow() == 9) {
+					if (im_->getTope() < 2 * 7) {
+						im_->setTope(im_->getTope() + 7);
+					}
+					else
+					{
+						im_->setTope(im_->getTope() + 13);
+					}
+				}
+				else {
+					im_->setAnim(true, 9, 26, 0, 7);
+				}
 			}
+		
 		}
 	}
 	else if (ih().isKeyJustUp(SDL_SCANCODE_O)) alreadyPressedBasic = false;
 
 	if (ih().isKeyDown(SDL_SCANCODE_P) && !alreadyPressedBasic) {
 		// Ataque Especial
-		if (!alreadyPressedSpecial) {
-			alreadyPressedSpecial = true;
-			sdlutils().soundEffects().at("playerSpecialAttack").play();
-			im_->setAnim(true, 10, 18, 0, 100);
+		if (im_->getType() == "fire" || im_->getType() == "water")
+		{
+			if (!alreadyPressedSpecial) {
+				alreadyPressedSpecial = true;
+				sdlutils().soundEffects().at("playerSpecialAttack").play();
+				im_->setAnim(true, 10, 18, 0, 100);
+			}
 		}
+		else
+		{
+			if (!alreadyPressedSpecial) {
+				alreadyPressedSpecial = true;
+				sdlutils().soundEffects().at("playerSpecialAttack").play();
+				im_->setAnim(true, 10, 28, 0, 100);
+			}
+		}
+	
 	}
 	else if (ih().isKeyJustUp(SDL_SCANCODE_P)) alreadyPressedSpecial = false;
 
