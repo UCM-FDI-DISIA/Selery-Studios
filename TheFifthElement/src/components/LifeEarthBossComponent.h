@@ -6,11 +6,12 @@
 #include "../utils/Entity.h"
 #include "AnimationEarthBossComponent.h"
 #include "ObjectsComponent.h"
+#include "Image.h"
 class LifeEarthBossComponent : public Component
 {
 private:
 	AnimationEarthBossComponent* animEarthBoss;
-	Image* bossImage;
+	FramedImage* bossImage;
 	Transform* bossTransform;
 	int life, maxLife, stage = 1;
 public:

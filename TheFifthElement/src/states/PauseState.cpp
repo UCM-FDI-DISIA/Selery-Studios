@@ -53,7 +53,7 @@ Entity* PauseState::addNewEntity(string t, float w, float h, Vector2D pos, int n
 	if(!neg)e->addComponent<Transform>(TRANSFORM_H, pos, w / nframes, h, size_);
 	else e->addComponent<Transform>(TRANSFORM_H, Vector2D(pos.getX(), -pos.getY()), w / nframes, h, size_);
 	Texture* t_ = &SDLUtils::instance()->images().at(t);
-	im_ = e->addComponent<Image>(IMAGE_H, t_, nframes, nframes, 0, w / nframes, h);
+	im_ = e->addComponent<Image>(IMAGE_H, t_);
 	if (flip) im_->setFlip(SDL_FLIP_HORIZONTAL);
 	addEntity(e);
 	return e;
@@ -68,7 +68,7 @@ void PauseState::Background(string file) {
 	int r = 0;
 	e->addComponent<Transform>(int(TRANSFORM_H), v, WIN_WIDTH, WIN_HEIGHT, r, 0, f, matrix);
 	Texture* t = &SDLUtils::instance()->images().at(file);
-	e->addComponent<Image>(int(IMAGE_H), t, f, f, f, BACKGROUNDAIR_WIDTH_FRAME, BACKGROUNDAIR_HEIGHT_FRAME);
+	e->addComponent<Image>(IMAGE_H, t);
 	addEntity(e);
 }
 

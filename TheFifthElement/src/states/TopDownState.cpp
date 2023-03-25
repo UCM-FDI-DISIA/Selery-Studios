@@ -162,10 +162,11 @@ void TopDownState::LoadMap(string const& filename) {
                     sk_ = player_->addComponent<SkinComponent>(SKINCOMPONENT_H, "air");
                     sk_->changeState(SkinComponent::Idle);
                     sk_->changeMov();
-                    texture_player_ = &SDLUtils::instance()->images().at(sk_->getSkin());
+                    texture_player_ = &SDLUtils::instance()->images().at("PTD_air_idle");
                     Playernpc_ = player_->addComponent<PlayerNPC>(PLAYERNPC_H);
                     player_->addComponent <DialogueComponent>(DIALOGCOMPONENT_H);
-                    player_->addComponent<Image>(IMAGE_H, texture_player_, PLAYERTD_NUMFRAMES, PLAYERTD_NUMFRAMES,0, PLAYERTD_WIDTH_FRAME, PLAYERTD_HEIGHT_FRAME);
+                    player_->addComponent<FramedImage>(FRAMEDIMAGE_H, texture_player_, PLAYERTD_WIDTH_FRAME, PLAYERTD_HEIGHT_FRAME, 7, "air");
+                    sk_->initComponent();
                     player_->addComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
                     in_ = player_->addComponent<InputComponent>(INPUTCOMPONENT_H);
                     player_->addComponent<ColliderTile>(COLLIDERTILE_H, collisions_);
@@ -176,7 +177,7 @@ void TopDownState::LoadMap(string const& filename) {
                     Npc_ = new Entity();
                     Npc_->setContext(this);
                     Npc_->addComponent<Transform>(TRANSFORM_H,Vector2D(obj.getPosition().x, obj.getPosition().y), NPC_WIDTH, NPC_HEIGHT);
-                    Npc_->addComponent<Image>(IMAGE_H,npcTexture(), NPC_FRAMES, NPC_FRAMES, 0, NPC_WIDTH, NPC_HEIGHT);
+                    Npc_->addComponent<FramedImage>(FRAMEDIMAGE_H, npcTexture(), NPC_WIDTH, NPC_HEIGHT, 7);
                     Npc_->addComponent<NPCcollisioncomponent>(NPCCOLLISIONCOMPONENTT, player_,  contnpc );
 					Npc_->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(0, 0), NPC_HEIGHT, NPC_WIDTH / NPC_FRAMES);
                     number_npc_++;
@@ -189,7 +190,7 @@ void TopDownState::LoadMap(string const& filename) {
                         enemy_->setContext(this);
                         Texture* enemyT_ = EnemyTexture();
                         enemy_->addComponent<Transform>(TRANSFORM_H, Vector2D(obj.getPosition().x, obj.getPosition().y), enemy_width, enemy_height);
-                        enemy_->addComponent<Image>(IMAGE_H, enemyT_, ENEMYTD_NUMFRAMES, ENEMYTD_NUMFRAMES, 0, enemy_width, enemy_height);
+                        enemy_->addComponent<FramedImage>(FRAMEDIMAGE_H, enemyT_, enemy_width, enemy_height, 7 , type_);
                         float a = -1.0f;
                         float lookingRange = 150.0f;
                         float lookingWidth = 100.0f;
@@ -241,7 +242,7 @@ void TopDownState::LoadMap(string const& filename) {
                     Entity* portal_ = new Entity();
                     portal_->setContext(this);
                     portal_->addComponent<Transform>(TRANSFORM_H, Vector2D(obj.getPosition().x, obj.getPosition().y), PORTAL_WIDTH, PORTAL_HEIGHT);
-                    portal_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("portal"), 1,1, 0, PORTAL_WIDTH, PORTAL_HEIGHT);
+                    portal_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("portal"));
                     portal_->addComponent<ObjectsComponent>(OBJECTSCOMPONENT_H);
                     portal_->addComponent<PortalComponent>(PORTALCOMPONENT_H);
                     addEntity(portal_);
@@ -250,7 +251,7 @@ void TopDownState::LoadMap(string const& filename) {
                     float element_width = 50, element_height = 50;
                     Entity* element_ = new Entity();
                     element_->addComponent<Transform>(TRANSFORM_H, Vector2D(obj.getPosition().x, obj.getPosition().y), element_width, element_height);
-                    element_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("fireball"), 4, 4, 0, ELEMENT_WIDTH, ELEMENT_HEIGHT);
+                    element_->addComponent<FramedImage>(FRAMEDIMAGE_H, &SDLUtils::instance()->images().at("fireball"), ELEMENT_WIDTH, ELEMENT_HEIGHT, 4);
                     element_->addComponent<ObjectsComponent>(OBJECTSCOMPONENT_H);
                     element_->addComponent<CheckCollision>(CHECKCOLLISION_H, player_, "element");
                     addEntity(element_);
@@ -260,7 +261,7 @@ void TopDownState::LoadMap(string const& filename) {
                     
                     shop_ = new Entity();
                     shopTr_ = shop_->addComponent<Transform>(TRANSFORM_H, Vector2D(obj.getPosition().x, obj.getPosition().y), SHOP_WIDTH / 2, SHOP_HEIGHT / 2, 1);
-                    shop_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("ShopBackground"), SHOP_WIDTH, SHOP_HEIGHT, shopTr_);
+                    shop_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("ShopBackground"));
                     addEntity(shop_);
 
                     showAvatar(airAvatar_, airAvatarTr_, 0, "AirAvatar");
@@ -413,14 +414,14 @@ void TopDownState::createShopButtons() {
     upturnButtonComp8_ = upturnButtonEarthHP_->addComponent<Button>(BUTTON_H, "UPTURN");
 
     // Image
-    upturnButtonAirAtt_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("UpturnButton"), UPTURNBUTTON_WIDTH, UPTURNBUTTON_HEIGHT, upturnButtonAirAttTr_);
-    upturnButtonFireAtt_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("UpturnButton"), UPTURNBUTTON_WIDTH, UPTURNBUTTON_HEIGHT, upturnButtonFireAttTr_);
-    upturnButtonWaterAtt_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("UpturnButton"), UPTURNBUTTON_WIDTH, UPTURNBUTTON_HEIGHT, upturnButtonWaterAttTr_);
-    upturnButtonEarthAtt_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("UpturnButton"), UPTURNBUTTON_WIDTH, UPTURNBUTTON_HEIGHT, upturnButtonEarthAttTr_);
-    upturnButtonAirHP_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("UpturnButton"), UPTURNBUTTON_WIDTH, UPTURNBUTTON_HEIGHT, upturnButtonAirHPTr_);
-    upturnButtonFireHP_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("UpturnButton"), UPTURNBUTTON_WIDTH, UPTURNBUTTON_HEIGHT, upturnButtonFireHPTr_);
-    upturnButtonWaterHP_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("UpturnButton"), UPTURNBUTTON_WIDTH, UPTURNBUTTON_HEIGHT, upturnButtonWaterHPTr_);
-    upturnButtonEarthHP_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("UpturnButton"), UPTURNBUTTON_WIDTH, UPTURNBUTTON_HEIGHT, upturnButtonEarthHPTr_);
+    upturnButtonAirAtt_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("UpturnButton"));
+    upturnButtonFireAtt_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("UpturnButton"));
+    upturnButtonWaterAtt_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("UpturnButton"));
+    upturnButtonEarthAtt_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("UpturnButton"));
+    upturnButtonAirHP_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("UpturnButton"));
+    upturnButtonFireHP_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("UpturnButton"));
+    upturnButtonWaterHP_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("UpturnButton"));
+    upturnButtonEarthHP_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("UpturnButton"));
 
     // Economy
     economyComp_ = upturnButtonAirAtt_->addComponent<EconomyComponent>(ECONOMYCOMPONENT_H);
@@ -443,7 +444,7 @@ void TopDownState::createShopButtons() {
 void TopDownState::createExitShopButton() {
     exitShopButton_ = new Entity();
     exitShopButtonTr_ = exitShopButton_->addComponent<Transform>(TRANSFORM_H, Vector2D(upturnButtonX + SHOP_WIDTH / 14, upturnButtonY + upturnButtonOffsetY + 300), 557 / 2, 131 / 2, 1);
-    exitShopButton_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("ExitShop"), 557, 131, exitShopButtonTr_);
+    exitShopButton_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("ExitShop"));
     exitShopButtonComp_ = exitShopButton_->addComponent<Button>(BUTTON_H, "EXITSHOP");
     addEntity(exitShopButton_);
 }
@@ -514,9 +515,9 @@ void TopDownState::showAvatar(Entity* entity, Transform* transform, int i, strin
     shopFrame_ = new Entity();
     shopFramePos_ = shopTr_->getPos();
     shopFrameTr_ = shopFrame_->addComponent<Transform>(TRANSFORM_H, shopFramePos_ + Vector2D(165, 152 + i * 50), 40, 40, 1);
-    shopFrame_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("ShopFrame"), 40, 40, shopFrameTr_);
+    shopFrame_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("ShopFrame"));
     transform = entity->addComponent<Transform>(TRANSFORM_H, shopFramePos_, 40, 40, 1);
-    entity->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at(id), 32, 32, transform);
+    entity->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at(id));
 
     addEntity(shopFrame_);
     addEntity(entity);

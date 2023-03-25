@@ -24,6 +24,7 @@ public:
 	// Dibuja en escena
 	void render();
 
+	inline void setTexture(string key) { tex_ = &SDLUtils::instance()->images().at(key); }
 
 	void setFlip(SDL_RendererFlip Flip = SDL_FLIP_NONE) { s = Flip; }
 };

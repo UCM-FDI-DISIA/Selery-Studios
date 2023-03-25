@@ -14,7 +14,7 @@ InputComponentBEU::InputComponentBEU() :Component() {
 
 void InputComponentBEU::initComponent() {
 	tr_ = ent_->getComponent<Transform>(TRANSFORM_H);
-	im_ = ent_->getComponent<Image>(IMAGE_H);
+	im_ = ent_->getComponent<FramedImage>(FRAMEDIMAGE_H);
 	jmp_ = ent_->getComponent<JumpComponent>(JUMP_H);
 	t_ = new Texture(GameManager::instance()->getRenderer(), "./assets/Player/BeatEmUp/Fire/spritesheets/fireMatrix.png");
 	lifeC_ = ent_->getComponent<LifeComponent>(LIFECOMPONENT_H);
@@ -24,7 +24,7 @@ void InputComponentBEU::initComponent() {
 }
 
 void InputComponentBEU::update() {
-	if (!im_->isAnimPlaying() && jmp_->isJumpEnabled()) { // Si no esta realizando ninguna acci�n no cancelable
+	if (!im_->getIsAnimUnstoppable() && jmp_->isJumpEnabled()) { // Si no esta realizando ninguna acci�n no cancelable
 		if (moveLeft) {
 			tr_->setDir(Vector2D(-1, 0));
 			sk_->changeState(SkinBEUComponent::Left);
@@ -64,7 +64,7 @@ void InputComponentBEU::update() {
 void InputComponentBEU::handleEvents(SDL_Event event) {
 	ih().update(event);
 
-	if (ih().isKeyDown(SDL_SCANCODE_SPACE) && !im_->isAnimPlaying() && jmp_->isJumpEnabled()) { // Salto
+	if (ih().isKeyDown(SDL_SCANCODE_SPACE) && !im_->getIsAnimUnstoppable() && jmp_->isJumpEnabled()) { // Salto
 		jmp_->jump();
 		sk_->changeState(SkinBEUComponent::Jump); // A lo mejor 15 cambia porque se le pueden dar o puede necesitar mas frames de salto
 
@@ -93,19 +93,19 @@ void InputComponentBEU::handleEvents(SDL_Event event) {
 	else if (ih().isKeyUp(SDL_SCANCODE_S)) { moveDown = false; }
 
 
-	if (ih().isKeyDown(SDL_SCANCODE_1) && elements[0] && !im_->isAnimPlaying()) {
+	if (ih().isKeyDown(SDL_SCANCODE_1) && elements[0] && !im_->getIsAnimUnstoppable()) {
 		sk_->changeSkin("air");
 	}
 
-	if (ih().isKeyDown(SDL_SCANCODE_2) && elements[1] && !im_->isAnimPlaying()) {
+	if (ih().isKeyDown(SDL_SCANCODE_2) && elements[1] && !im_->getIsAnimUnstoppable()) {
 		sk_->changeSkin("fire");
 	}
 
-	if (ih().isKeyDown(SDL_SCANCODE_3) && elements[2] && !im_->isAnimPlaying()) {
+	if (ih().isKeyDown(SDL_SCANCODE_3) && elements[2] && !im_->getIsAnimUnstoppable()) {
 		sk_->changeSkin("water");
 	}
 
-	if (ih().isKeyDown(SDL_SCANCODE_4) && elements[3] && !im_->isAnimPlaying()) {
+	if (ih().isKeyDown(SDL_SCANCODE_4) && elements[3] && !im_->getIsAnimUnstoppable()) {
 		sk_->changeSkin("earth");
 	}
 
@@ -114,14 +114,15 @@ void InputComponentBEU::handleEvents(SDL_Event event) {
 		if (!alreadyPressedBasic) {
 			sdlutils().soundEffects().at("playerAttack").play();
 			alreadyPressedBasic = true;
-			if (im_->getRow() == 9) {
+			/*if (im_->getRow() == 9) {
 				if (im_->getTope() < 3 * 8) {
 					im_->setTope(im_->getTope() + 8);
 				}
 			}
 			else {
 				im_->setAnim(true, 9, 24, 0, 8);
-			}
+			}*/
+			im_->setAnim("Player_BEU_" + im_->getType() + "_attack1", 24, true);
 		}
 	}
 	else if (ih().isKeyJustUp(SDL_SCANCODE_O)) alreadyPressedBasic = false;
@@ -131,7 +132,8 @@ void InputComponentBEU::handleEvents(SDL_Event event) {
 		if (!alreadyPressedSpecial) {
 			alreadyPressedSpecial = true;
 			sdlutils().soundEffects().at("playerSpecialAttack").play();
-			im_->setAnim(true, 10, 18, 0, 100);
+			im_->setAnim("Player_BEU_" + im_->getType() + "_super", 18, true);
+			////im_->setAnim(true, 10, 18, 0, 100);
 		}
 	}
 	else if (ih().isKeyJustUp(SDL_SCANCODE_P)) alreadyPressedSpecial = false;

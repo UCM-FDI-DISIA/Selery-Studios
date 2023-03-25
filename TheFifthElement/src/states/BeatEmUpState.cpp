@@ -6,8 +6,8 @@ BeatEmUpState::BeatEmUpState(bool boss, string typeBoss) {
 	scale = WIN_WIDTH / 900;
 
 	background_ = new Entity();
-	background_->addComponent<Transform>(int(TRANSFORM_H), Vector2D(0,0), WIN_WIDTH, WIN_HEIGHT);
-	background_->addComponent<Image>(int(IMAGE_H), &SDLUtils::instance()->images().at("airBackground"), 0, 0, 0, BACKGROUNDAIR_WIDTH_FRAME, BACKGROUNDAIR_HEIGHT_FRAME);
+	background_->addComponent<Transform>(TRANSFORM_H, Vector2D(0,0), WIN_WIDTH, WIN_HEIGHT);
+	background_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("airBackground"));
 	addEntity(background_);
 
 	player_ = new Entity();
@@ -17,7 +17,7 @@ BeatEmUpState::BeatEmUpState(bool boss, string typeBoss) {
 	sk_->changeState(SkinBEUComponent::Idle);
 	sk_->changeMov();
 	texture_player_ = &SDLUtils::instance()->images().at(sk_->getSkin());
-	player_->addComponent<Image>(int(IMAGE_H), texture_player_, 8, 28, 0, PLAYERBEU_WIDTH_FRAME, PLAYERBEU_HEIGHT_FRAME,"air");
+	player_->addComponent<FramedImage>(FRAMEDIMAGE_H, texture_player_, PLAYERBEU_WIDTH_FRAME, PLAYERBEU_HEIGHT_FRAME, 8, "air");
 	player_->addComponent<JumpComponent>(JUMP_H);
 	player_->addComponent<LifeComponent>(LIFECOMPONENT_H, 10);
 	player_->addComponent<ShadowComponent>(SHADOWCOMPONENT_H);
@@ -27,6 +27,7 @@ BeatEmUpState::BeatEmUpState(bool boss, string typeBoss) {
 	player_->addComponent<LimitBEU>(LIMITBEU_H);
 	player_->addComponent<ColliderComponent>(int(COLLIDERCOMPONENT_H), Vector2D(90, 80), 1.2*PLAYERBEU_HEIGHT_FRAME / 3, PLAYERBEU_WIDTH_FRAME / 7);
 	player_->addComponent<PointOfFightComponent>(POINTOFFIGHTCOMPONENT_H, 30, 10);
+	sk_->initComponent();
 	addEntity(player_);
 
 	colManager_ = new ColManager(this);
@@ -69,16 +70,17 @@ void BeatEmUpState::AddEnemies(int n_enemies) {
 			animation_ = enemy_->addComponent<AnimationEnemyBEUComponent>(ANIMATIONENEMYBEUCOMPONENT_H, getEnemyType(type), "goblin", player_);
 
 		}
-		animation_->changeState(AnimationEnemyBEUComponent::Moving);
-		animation_->updateAnimation();
+		////animation_->changeState(AnimationEnemyBEUComponent::Moving);
+		////animation_->updateAnimation();
 
 		enemy_->addComponent<Transform>(TRANSFORM_H, pos, ENEMYBEU_WIDTH, ENEMYBEU_HEIGHT, scale)->setDir(Vector2D(1, 0));
-		enemy_->addComponent<Image>(IMAGE_H, animation_->getTexture(), animation_->getNFrames(), animation_->getNFrames(), 0, ENEMYBEU_WIDTH, ENEMYBEU_HEIGHT, getEnemyType(type));
+		enemy_->addComponent<FramedImage>(FRAMEDIMAGE_H, animation_->getTexture(), ENEMYBEU_WIDTH, ENEMYBEU_HEIGHT, animation_->getNFrames(), getEnemyType(type));
 		enemy_->addComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
 		enemy_->addComponent<EnemyBEUDirectionComponent>(ENEMYBEUDIRECTIONCOMPONENT_H, player_, animation_->getEnemy());
 		enemy_->addComponent<LifeComponent>(LIFECOMPONENT_H, ENEMYBEU_MAXLIFE);
 		enemy_->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, animation_->getOffset(), animation_->getColHeight(), animation_->getColWidth());
 		enemy_->addComponent<ColDetectorComponent>(COLDETECTORCOMPONENT_H, enemy_, player_);
+		animation_->initComponent();
 		addEntity(enemy_);
 
 
@@ -92,7 +94,8 @@ void BeatEmUpState::AddWaterBoss() {
 
 	Entity* waterBoss = addEntity();
 	waterBoss->addComponent<Transform>(TRANSFORM_H, position, WATERBOSS_WIDTH*1.2, WATERBOSS_HEIGHT*1.2);
-	waterBoss->addComponent<Image>(IMAGE_H, &sdlutils().images().at("waterBoss"), 6, 16, 0, WATERBOSS_WIDTH, WATERBOSS_HEIGHT);
+	////waterBoss->addComponent<FramedImage>(FRAMEDIMAGE_H, &sdlutils().images().at("waterBoss"), 6, 16, 0, WATERBOSS_WIDTH, WATERBOSS_HEIGHT);
+	waterBoss->addComponent<FramedImage>(FRAMEDIMAGE_H, &sdlutils().images().at("waterBoss"), WATERBOSS_WIDTH, WATERBOSS_HEIGHT, 16, "water");
 	waterBoss->addComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
 }
 
@@ -106,7 +109,7 @@ void BeatEmUpState::AddEarthBoss() {
 	boss_ = new Entity();
 	boss_->setContext(this);
 	Transform* t = boss_->addComponent<Transform>(TRANSFORM_H, pos, EARTHBOSS_WIDTH * 2, EARTHBOSS_HEIGHT * 2);
-	boss_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("GolemFase1"), 8, 58, 0, EARTHBOSS_WIDTH, EARTHBOSS_HEIGHT);
+	boss_->addComponent<FramedImage>(FRAMEDIMAGE_H, &SDLUtils::instance()->images().at("GolemFase1_idle"), EARTHBOSS_WIDTH, EARTHBOSS_HEIGHT, 8, "earth");
 	boss_->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(150, 120), (EARTHBOSS_HEIGHT * 2) - 240, (EARTHBOSS_WIDTH * 2) - 300);
 	boss_->addComponent<PointOfFightComponent>(POINTOFFIGHTCOMPONENT_H, 60, 140);
 	boss_->addComponent<AnimationEarthBossComponent>(ANIMATIONEARTHBOSSCOMPONENT_H);

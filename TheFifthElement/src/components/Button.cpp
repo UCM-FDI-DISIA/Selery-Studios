@@ -11,25 +11,25 @@ void Button::update() {
 	if (Collision::collides(buttonTransform->getPos(), buttonTransform->getW()*scale, buttonTransform->getH()*scale, mousePos, mouseRect.w, mouseRect.h))
 	{
 		currentPositionState = MOUSE_OVER;
-		if (identifier == "PLAY")im_->setAnimTexture("PlayButtonPressed", 1, 289);
-		else if (identifier == "EXIT")im_->setAnimTexture("ExitButtonPressed", 1, 289);
-		else if (identifier == "OPTIONS")im_->setAnimTexture("OptionsButtonPressed", 1, 95);
-		else if(identifier == "RESUME")im_->setAnimTexture("ResumeButtonPressed", 1, 289);
-		else if (identifier == "MAINMENU")im_->setAnimTexture("MenuButtonPressed", 1, 289);
-		else if (identifier == "BACK")im_->setAnimTexture("MenuButtonPressed", 1, 289);
+		if (identifier == "PLAY") im_->setTexture("PlayButtonPressed"); ////im_->setAnimTexture("PlayButtonPressed", 1, 289);
+		else if (identifier == "EXIT") im_->setTexture("ExitButtonPressed"); ////im_->setAnimTexture("ExitButtonPressed", 1, 289);
+		else if (identifier == "OPTIONS")im_->setTexture("OptionsButtonPressed"); ////im_->setAnimTexture("OptionsButtonPressed", 1, 95);
+		else if(identifier == "RESUME") im_->setTexture("ResumeButtonPressed"); ////im_->setAnimTexture("ResumeButtonPressed", 1, 289);
+		else if (identifier == "MAINMENU") im_->setTexture("MenuButtonPressed"); ////im_->setAnimTexture("MenuButtonPressed", 1, 289);
+		else if (identifier == "BACK") im_->setTexture("MenuButtonPressed"); ////im_->setAnimTexture("MenuButtonPressed", 1, 289);
 		/*else if (identifier == "CONTROLS")im_->setAnimTexture("OptionsButtonPressed", 1, 95);*/
-		else if (identifier == "MUTE")im_->setAnimTexture("OptionsButtonPressed", 1, 95);
+		else if (identifier == "MUTE") im_->setTexture("OptionsButtonPressed"); ////im_->setAnimTexture("OptionsButtonPressed", 1, 95);
 	}
 	else
 	{
-		if (identifier == "PLAY")im_->setAnimTexture("PlayButton", 1, 289);
-		else if (identifier == "EXIT")im_->setAnimTexture("ExitButton", 1, 289);
-		else if (identifier == "BACK")im_->setAnimTexture("BackButton", 1, 289);
-		else if (identifier == "OPTIONS")im_->setAnimTexture("OptionsButton", 1, 95);
-		else if (identifier == "RESUME")im_->setAnimTexture("ResumeButton", 1, 289);
-		else if (identifier == "MAINMENU")im_->setAnimTexture("MenuButton", 1, 289);
+		if (identifier == "PLAY") im_->setTexture("PlayButton"); ////im_->setAnimTexture("PlayButton", 1, 289);
+		else if (identifier == "EXIT")  im_->setTexture("ExitButton"); ////im_->setAnimTexture("ExitButton", 1, 289);
+		else if (identifier == "BACK") im_->setTexture("BackButton"); ////im_->setAnimTexture("BackButton", 1, 289);
+		else if (identifier == "OPTIONS") im_->setTexture("OptionsButton"); ////im_->setAnimTexture("OptionsButton", 1, 95);
+		else if (identifier == "RESUME") im_->setTexture("ResumeButton"); ////im_->setAnimTexture("ResumeButton", 1, 289);
+		else if (identifier == "MAINMENU") im_->setTexture("MenuButton"); ////im_->setAnimTexture("MenuButton", 1, 289);
 		/*else if (identifier == "CONTROLS")im_->setAnimTexture("OptionsButton", 1, 95);*/
-		else if (identifier == "MUTE")im_->setAnimTexture("MuteButton", 1, 95);
+		else if (identifier == "MUTE") im_->setTexture("MuteButton"); ////im_->setAnimTexture("MuteButton", 1, 95);
 		currentPositionState = MOUSE_OUT;
 	}
 	updateMousePosition();

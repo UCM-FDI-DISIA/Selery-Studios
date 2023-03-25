@@ -12,10 +12,12 @@ private:
 	Texture* tex_;	// Imagen a rederizar
 	SDL_RendererFlip s = SDL_FLIP_NONE;
 	SDL_Rect dest, src;
+	bool isAnimUnstoppable_ = false;
+	string type_, texKey_ = "";
 public:
 
 	//Constructora
-	FramedImage(Texture* tex, int width, int height, int frames);
+	FramedImage(Texture* tex, int width, int height, int frames, string type = "");
 	//FramedImage(Texture* tex, int nframes, int framesT, int fila, int widthFrame, int heightFrame);//Constructora
 	//FramedImage(Texture* tex, int nframes, int framesT, int fila, int widthFrame, int heightFrame, string type);//Constructora
 
@@ -32,7 +34,14 @@ public:
 	inline int getCol() { return col; }
 	inline int getLastFrame() { return frames_; }
 
-	void setAnim(string textureKey, int frames); //Metodo generico para cambiar de animacion
+	void setAnim(string textureKey, int frames, bool isAnimUnstoppable); //Metodo generico para cambiar de animacion
+
+	inline bool getIsAnimUnstoppable() { return isAnimUnstoppable_; }
+
+	inline void setType(string newValue) { type_ = newValue; }
+	inline string getType() { return type_; }
+
+	inline string getTexKey() { return texKey_; }
 	//matriz
 	//void setAnim(bool Anim, int Fila, int Frames, int I, int tope); //Metodo generico para cambiar de animacion en BEU
 

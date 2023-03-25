@@ -6,7 +6,7 @@ MainMenuState::MainMenuState()
 	Background("fondoMainMenu3");
 
 	SDLUtils::instance()->soundEffects().at("Title").play();
-	addNewEntity("campfire", 1024, 128, Vector2D(4 * WIN_WIDTH / 9, 3 * WIN_HEIGHT / 4), 8, false);
+	addNewEntity("campfire", 128, 128, Vector2D(4 * WIN_WIDTH / 9, 3 * WIN_HEIGHT / 4), 8, false);
 
 	addNewEntity("NPC_1", NPC_WIDTH, NPC_HEIGHT, Vector2D(48 * WIN_WIDTH / 90, 3 * WIN_HEIGHT / 4), 7, false);
 
@@ -14,7 +14,7 @@ MainMenuState::MainMenuState()
 
 	addNewEntity("hole", 3840, 160, Vector2D(49 * WIN_WIDTH / 90, 10.5 * WIN_HEIGHT / 20), 30, false, 1.2);
 
-	addNewEntity("treasure", 896, 64, Vector2D(63 * WIN_WIDTH / 90, 30 * WIN_HEIGHT / 60), 14, false);
+	addNewEntity("treasure", 64, 64, Vector2D(63 * WIN_WIDTH / 90, 30 * WIN_HEIGHT / 60), 14, false);
 
 	addNewEntity("PTD_fire_idle", PLAYERTD_WIDTH_FRAME, PLAYERTD_HEIGHT_FRAME, Vector2D(2 * WIN_WIDTH / 3, 17 * WIN_HEIGHT / 60), 7, false);
 	addNewEntity("PTD_water_idle", PLAYERTD_WIDTH_FRAME, PLAYERTD_HEIGHT_FRAME, Vector2D(55 * WIN_WIDTH / 60, WIN_HEIGHT / 3), 7, true);
@@ -31,7 +31,6 @@ MainMenuState::MainMenuState()
 
 void MainMenuState::update() {
 	Manager::update();
-	//cout << slider->getComponent<sliderComponent>(SLIDERCOMPONENT_H)->getValue() << endl;
 }
 void MainMenuState::handleEvents()
 {
@@ -64,9 +63,9 @@ void MainMenuState::Background(string file) {
 	bool matrix = false;
 	Vector2D v = { 0,0 };
 	int r = 0;
-	e->addComponent<Transform>(int(TRANSFORM_H), v, WIN_WIDTH, WIN_HEIGHT, r, 0, f, matrix);
+	e->addComponent<Transform>(TRANSFORM_H, v, WIN_WIDTH, WIN_HEIGHT, r, 0, f, matrix);
 	Texture* t = &SDLUtils::instance()->images().at(file);
-	e->addComponent<Image>(int(IMAGE_H), t, f, f, f, BACKGROUNDAIR_WIDTH_FRAME, BACKGROUNDAIR_HEIGHT_FRAME);
+	e->addComponent<Image>(IMAGE_H, t);
 	addEntity(e);
 }
 

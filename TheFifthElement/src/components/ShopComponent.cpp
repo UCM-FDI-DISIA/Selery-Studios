@@ -7,7 +7,7 @@ ShopComponent::ShopComponent(Entity* upturnButton) {
 
 	upturnButtonTr_ = upturnButton_->addComponent<Transform>(TRANSFORM_H, upturnButtonPos_, UPTURNBUTTON_WIDTH/2, UPTURNBUTTON_HEIGHT/2, 1);
 	upturnButton_->addComponent<Button>(BUTTON_H, "UPTURN");
-	upturnButton_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("UpturnButton"), UPTURNBUTTON_WIDTH, UPTURNBUTTON_HEIGHT, upturnButtonTr_);
+	upturnButton_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("UpturnButton"));
 }
 
 void ShopComponent::initComponent() {

@@ -1,25 +1,25 @@
 #include "AnimationEarthBossComponent.h"
 void AnimationEarthBossComponent::initComponent() {
-	imBoss = ent_->getComponent<Image>(IMAGE_H);
+	imBoss = ent_->getComponent<FramedImage>(FRAMEDIMAGE_H);
 }
 
 void AnimationEarthBossComponent::newAnimation(Animations newAnim) {
 	switch (newAnim)
 	{
 	case Idle:
-		imBoss->setAnim(false, 0, 8, 0, 100);
+		imBoss->setAnim("GolemFase1_idle", 8, false);
 		break;
 	case Moving:
-		imBoss->setAnim(false, 1, 8, 0, 100);
+		imBoss->setAnim("GolemFase1_run", 8, false);
 		break;
 	case Attack:
-		imBoss->setAnim(true, 2, 17, 0, 100);
+		imBoss->setAnim("GolemFase1_attack", 17, true);
 		break;
 	case Hit:
-		imBoss->setAnim(true, 3, 12, 0, 100);
+		imBoss->setAnim("GolemFase1_hit", 12, true);
 		break;
 	case Death:
-		imBoss->setAnim(true, 4, 13, 0, 100);
+		imBoss->setAnim("GolemFase1_death", 13, true);
 		break;
 	case IdleProtection:
 		break;

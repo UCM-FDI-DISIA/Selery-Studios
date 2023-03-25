@@ -1,10 +1,11 @@
 ﻿#include "FramedImage.h"
 
-FramedImage::FramedImage(Texture* tex, int width, int height, int frames) {
+FramedImage::FramedImage(Texture* tex, int width, int height, int frames, string type) {
 	widthFrame_ = width;
 	heightFrame_ = height;
 	tex_ = tex;
 	frames_ = frames;
+	type_ = type;
 }
 
 
@@ -55,9 +56,11 @@ void FramedImage::render() {
 	tex_->render(src, dest, 0, nullptr, s);
 }
 
-void FramedImage::setAnim(string textureKey, int frames) {
-	tex_ = &sdlutils().images().at(textureKey);
+void FramedImage::setAnim(string textureKey, int frames, bool isAnimUnstoppable) {
+	tex_ = &SDLUtils::instance()->images().at(textureKey);
+	texKey_ = textureKey;
 	frames_ = frames;
+	isAnimUnstoppable_ = isAnimUnstoppable;
 }
 
 //matriz

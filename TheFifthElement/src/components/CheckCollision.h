@@ -7,7 +7,7 @@
 #include "../sdlutils/SDLUtils.h"
 #include "../GameManager.h"
 #include "ObjectsComponent.h"
-#include "PortalComponent.h"
+#include "PortalComponent2.h"
 #include "Enemy_movementTD_component.h"
 class CheckCollision : public Component
 {

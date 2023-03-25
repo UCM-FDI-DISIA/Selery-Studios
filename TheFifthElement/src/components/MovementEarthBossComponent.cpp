@@ -7,7 +7,7 @@ void MovementEarthBossComponent::initComponent() {
 	playerTransform = player_->getComponent<Transform>(TRANSFORM_H);
 	fightPlayerComp = player_->getComponent<PointOfFightComponent>(POINTOFFIGHTCOMPONENT_H);
 
-	im_ = ent_->getComponent<Image>(IMAGE_H);
+	im_ = ent_->getComponent<FramedImage>(FRAMEDIMAGE_H);
 	animator = ent_->getComponent<AnimationEarthBossComponent>(ANIMATIONEARTHBOSSCOMPONENT_H);
 	fightBossComp = ent_->getComponent<PointOfFightComponent>(POINTOFFIGHTCOMPONENT_H);
 	bossTransform = ent_->getComponent<Transform>(TRANSFORM_H);
@@ -44,7 +44,7 @@ void MovementEarthBossComponent::update() {
 			bossTransform->setVel(1);
 		}
 	}
-	if (!attack && !im_->isAnimPlaying()) {
+	if (!attack ){////&& !im_->isAnimPlaying()) {
 		bossTransform->setPos(bossTransform->getPos() + bossTransform->getDir() * bossTransform->getVel());
 	}
 

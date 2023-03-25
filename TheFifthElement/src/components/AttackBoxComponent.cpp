@@ -12,12 +12,12 @@ void AttackBoxComponent::initComponent()
 {
 	isPlayer = ent_->hasComponent(INPUTCOMPONENTBEU_H);
 	if (!isPlayer) {
-		im_ = ent_->getComponent<Image>(IMAGE_H);
+		im_ = ent_->getComponent<FramedImage>(FRAMEDIMAGE_H);
 	}
 	entityTr = ent_->getComponent<Transform>(TRANSFORM_H);
 	if (ent_->hasComponent(INPUTCOMPONENTBEU_H))
 	{
-		im_ = ent_->getComponent<Image>(IMAGE_H);
+		im_ = ent_->getComponent<FramedImage>(FRAMEDIMAGE_H);
 		type = im_->getType();
 
 		sk_ = ent_->getComponent<SkinBEUComponent>(SKINBEUCOMPONENT_H);
@@ -55,16 +55,11 @@ void AttackBoxComponent::update(){
 void AttackBoxComponent::handleBoxes()
 {
 	if (isPlayer) {
-		if (im_->getRow() == 9)
-		{
-			//cout << "COL: " << im_->getCol() << endl;
-		}
-
 		if (sk_->getSkin() == "Player_BEU_fire")
 		{
 
 			//Comprobamos que animación estamos ejecutando y en que punto de la animación estamos 
-			if (im_->getRow() == 9 && im_->getCol() <= 8)
+			if (im_->getTexKey() == "Player_BEU_fire_attack3" && im_->getCol() <= 8)
 			{
 
 				if (!boxCreated)
@@ -120,7 +115,7 @@ void AttackBoxComponent::handleBoxes()
 
 			}
 
-			else if (im_->getRow() == 9 && im_->getCol() <= 15)
+			else if (im_->getTexKey() == "Player_BEU_fire_attack3" && im_->getCol() <= 15)
 			{
 				if (!boxCreated)
 				{
@@ -172,7 +167,7 @@ void AttackBoxComponent::handleBoxes()
 				}
 			}
 
-			else if (im_->getRow() == 9 && im_->getCol() > 15 && im_->getCol() <= 24)
+			else if (im_->getTexKey() == "Player_BEU_fire_attack3" && im_->getCol() > 15 && im_->getCol() <= 24)
 			{
 				if (!boxCreated)
 				{
@@ -206,7 +201,7 @@ void AttackBoxComponent::handleBoxes()
 				}
 			}
 
-			else if (im_->getRow() == 10)
+			else if (im_->getTexKey() == "Player_BEU_fire_super")
 			{
 
 				if (!boxCreated)
@@ -280,7 +275,7 @@ void AttackBoxComponent::handleBoxes()
 		}
 		else if (sk_->getSkin() == "Player_BEU_water")
 		{
-			if (im_->getRow() == 9 && im_->getCol() <= 7)
+			if (im_->getTexKey() == "Player_BEU_water_attack3" && im_->getCol() <= 7)
 			{
 
 				if (!boxCreated)
@@ -327,7 +322,7 @@ void AttackBoxComponent::handleBoxes()
 
 			}
 
-			else if (im_->getRow() == 9 && im_->getCol() <= 17)
+			else if (im_->getTexKey() == "Player_BEU_water_attack3" && im_->getCol() <= 17)
 			{
 				Vector2D lastBox;
 				if (!boxCreated)
@@ -380,7 +375,7 @@ void AttackBoxComponent::handleBoxes()
 				}
 			}
 
-			else if (im_->getRow() == 9 && im_->getCol() <= 23)
+			else if (im_->getTexKey() == "Player_BEU_water_attack3" && im_->getCol() <= 23)
 			{
 				if (!boxCreated)
 				{
@@ -413,7 +408,7 @@ void AttackBoxComponent::handleBoxes()
 				}
 			}
 
-			else if (im_->getRow() == 10)
+			else if (im_->getTexKey() == "Player_BEU_water_super")
 			{
 
 				if (!boxCreated)
@@ -477,7 +472,7 @@ void AttackBoxComponent::handleBoxes()
 		}
 	}
 	else { // Para el jefe de tierra
-		if (im_->getRow() == 2 && im_->getCol() >= 7) {
+		if (im_->getTexKey() == "GolemFase1_attack" && im_->getCol() >= 7) {
 			if (!boxCreated) {
 				boxes.clear();
 				

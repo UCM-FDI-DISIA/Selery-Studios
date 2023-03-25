@@ -55,7 +55,8 @@
     <ClCompile Include="src\components\EconomyComponent.cpp" />
     <ClCompile Include="src\states\PauseState.cpp" />
     <ClCompile Include="src\components\FramedImage.cpp" />
-    <ClCompile Include="src\components\PortalComponent.cpp" />
+    <ClCompile Include="PortalComponent2.cpp" />
+    <ClCompile Include="src\components\PortalComponent2.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\components\Button.h" />
@@ -130,7 +131,8 @@
     <ClInclude Include="src\states\PauseState.h" />
     <ClInclude Include="src\components\VolumeSlider.h" />
     <ClInclude Include="src\components\FramedImage.h" />
-    <ClInclude Include="src\components\PortalComponent.h" />
+    <ClInclude Include="PortalComponent2.h" />
+    <ClInclude Include="src\components\PortalComponent2.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="TheFifthElement.rc" />

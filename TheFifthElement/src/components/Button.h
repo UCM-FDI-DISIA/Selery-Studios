@@ -3,7 +3,7 @@
 #include "../GameManager.h"
 #include "../components/Transform.h"
 #include "../utils/Collision.h"
-#include "../components/Image.h"
+#include "Image.h"
 
 class Button : public Component
 {
