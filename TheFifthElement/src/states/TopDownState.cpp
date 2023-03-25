@@ -9,9 +9,10 @@ TopDownState::TopDownState() {
     //HUD
     Hud_ = new Entity();
     Hud_->setContext(this);
-    addEntity(Hud_);
+    Hud_->addComponent<Damage>(DAMAGE_H);
+    Hud_->addComponent<LifeTD>(LIFETDCOMPONENT_H);
     economyComp_ = Hud_->addComponent<EconomyComponent>(ECONOMYCOMPONENT_H);
-
+    addEntity(Hud_);
     // COSAS DE LA TIENDA 
     font_ = &SDLUtils::instance()->fonts().at("TCentury");
     color_ = { 0,0,0 };
