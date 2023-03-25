@@ -44,7 +44,7 @@ bool EconomyComponent::can_Substract(int cuantity) {
 	return a;
 }
 inline void EconomyComponent::addMoney(int cuantity) {
-	if (cuantity + current_money < 999) {
+	if (cuantity + current_money < max_money) {
 		current_money += cuantity;
 		setAnim();
 	}

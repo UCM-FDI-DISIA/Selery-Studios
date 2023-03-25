@@ -43,7 +43,8 @@ enum cmpId : cmpId_type {
 	PLAYERNPC_H =35,
 	ECONOMYCOMPONENT_H = 36,
 	VOLUMESLIDER_H = 37,
-
+	LIFETDCOMPONENT_H =38,
+	DAMAGE_H=39,
 	// do not remove this
 	_LAST_CMP_ID
 };

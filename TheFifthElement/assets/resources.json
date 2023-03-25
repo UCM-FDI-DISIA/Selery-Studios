@@ -193,7 +193,9 @@
     {"id": "stone5", "file": "assets/Enemies/BeatEmUp/Bosses/EarthBoss/stone5.png"},
     {"id": "stone6", "file": "assets/Enemies/BeatEmUp/Bosses/EarthBoss/stone6.png"},
     {"id":  "waterBoss", "file":  "assets/Enemies/BeatEmUp/Bosses/WaterBoss/frost_guardian_free_192x128_SpriteSheet.png"},
-    {"id": "shadow","file": "assets/Enemies/BeatEmUp/Bosses/EarthBoss/golem-shadow.png"}
+    {"id": "shadow","file": "assets/Enemies/BeatEmUp/Bosses/EarthBoss/golem-shadow.png"},
+     {"id": "espada", "file": "assets/HUD/espada.png"},
+    {"id": "cora", "file": "assets/HUD/cora.png"}
   ],
 
   "messages": [

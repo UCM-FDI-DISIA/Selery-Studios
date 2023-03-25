@@ -4,10 +4,18 @@
 TopDownState::TopDownState() {
     puzzle1 = new PuzzleCopas();
     dialog_ = false;
+    //CARGAS EL MAPA
     LoadMap("assets/Scenes/Maps/MapaInicial.tmx");
+    //HUD
+    Hud_ = new Entity();
+    Hud_->setContext(this);
+    addEntity(Hud_);
+    economyComp_ = Hud_->addComponent<EconomyComponent>(ECONOMYCOMPONENT_H);
 
+    // COSAS DE LA TIENDA 
     font_ = &SDLUtils::instance()->fonts().at("TCentury");
     color_ = { 0,0,0 };
+    //
    /* addEntity(new Element(player_, Vector2D(100, 100), p));
     addEntity(new Element(player_, Vector2D(300, 100), p));
     addEntity(new Element(player_, Vector2D(200, 200), p));*/
@@ -423,7 +431,7 @@ void TopDownState::createShopButtons() {
     upturnButtonEarthHP_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("UpturnButton"), UPTURNBUTTON_WIDTH, UPTURNBUTTON_HEIGHT, upturnButtonEarthHPTr_);
 
     // Economy
-    economyComp_ = upturnButtonAirAtt_->addComponent<EconomyComponent>(ECONOMYCOMPONENT_H);
+   
 
     createExitShopButton();// Creo botón de salida
 

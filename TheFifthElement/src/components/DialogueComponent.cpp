@@ -57,7 +57,6 @@ void DialogueComponent::inicombe() {
 		if (hasstarted == false) {
 			setdialogue();
 			hasstarted = true;
-			cout << linea;
 		}
 		else {
 			if (linea < conespacios.size()-1) {

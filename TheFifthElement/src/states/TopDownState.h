@@ -70,7 +70,10 @@ private:
 	Entity* Npc_;
 	//Transform* Nptr_;
 	int number_npc_ = 0;
-	
+	//HUD
+	Entity* Hud_;
+	EconomyComponent* economyComp_;
+
 	
 	//ENEMIGOS 
 	vector<Entity*> enemies_;
@@ -155,7 +158,6 @@ private:
 	SDL_Color color_;
 
 	//Texto monedas
-	EconomyComponent* economyComp_;
 	int price1_ = 10;
 	int price2_ = 10;
 	int price3_ = 10;
