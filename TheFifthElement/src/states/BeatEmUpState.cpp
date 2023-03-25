@@ -32,7 +32,7 @@ BeatEmUpState::BeatEmUpState(bool boss, string typeBoss) {
 	colManager_ = new ColManager(this);
 
 	if (!boss) {
-		AddEnemies(1);
+		AddEnemies(3);
 	}
 	else if (boss && typeBoss == "water") {
 		AddWaterBoss();
@@ -50,7 +50,7 @@ BeatEmUpState::BeatEmUpState(bool boss, string typeBoss) {
 
 void BeatEmUpState::AddEnemies(int n_enemies) {
 	for (int i = 0; i < n_enemies; ++i) {
-		int character = 1;
+		int character = random->nextInt(0, 4);
 		int type = random->nextInt(0, 4);
 		Vector2D pos={ (float)random->nextInt(50,WIN_WIDTH - 80),(float)random->nextInt(50,WIN_HEIGHT - 50) };
 		enemy_ = new Entity();

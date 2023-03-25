@@ -1020,8 +1020,9 @@ void AttackBoxComponent::handleBoxes()
 				if (im_->getFlip() == SDL_FLIP_NONE)
 				{
 				
-					if (im_->getCol() >= 6 && im_->getCol() < 7)
+					if (im_->getCol() >= 6 && im_->getCol() < 7 && !boxCreated)
 					{
+						boxCreated = true;
 						boxes.push_back(build_sdlrect(entityTr->getPos().getX() - mngr_->camRect_.x + entityTr->getW() / 2, entityTr->getPos().getY() - 30 + entityTr->getH() / 2, 60, 40));
 						static_cast<BeatEmUpState*>(mngr_)->getColManager()->checkCollisionE(boxes[0], type);
 					}
@@ -1029,8 +1030,9 @@ void AttackBoxComponent::handleBoxes()
 				}
 				else
 				{
-					if (im_->getCol() >= 6 && im_->getCol() < 7)
+					if (im_->getCol() >= 6 && im_->getCol() < 7 && !boxCreated)
 					{
+						boxCreated = true;
 						boxes.push_back(build_sdlrect(entityTr->getPos().getX() - mngr_->camRect_.x - 80 + entityTr->getW() / 2, entityTr->getPos().getY() - 30 + entityTr->getH() / 2, 60, 40));
 						static_cast<BeatEmUpState*>(mngr_)->getColManager()->checkCollisionE(boxes[0], type);
 					}
@@ -1045,7 +1047,6 @@ void AttackBoxComponent::handleBoxes()
 			}
 			else
 			{
-				boxCreated = false;
 				if (boxTime + 300 / 1000 < timerExecution) {
 					unsigned timer = clock();
 					boxTime = (double(timer) / CLOCKS_PER_SEC);
@@ -1054,8 +1055,98 @@ void AttackBoxComponent::handleBoxes()
 				}
 			}
 		}
-	}
+		else if(anim_->getEnemy()=="bat" || anim_->getEnemy() == "shroom")
+		{
+			
+			if (anim_->getState() == 1)
+			{
+				cout << im_->getCol() << endl;			//7
+				if (im_->getFlip() == SDL_FLIP_NONE)
+				{
 
+					if (im_->getCol() >= 6 && im_->getCol() < 7 && !boxCreated)
+					{
+						boxCreated = true;
+						boxes.push_back(build_sdlrect(entityTr->getPos().getX() - mngr_->camRect_.x + entityTr->getW() / 2, entityTr->getPos().getY() - 10 + entityTr->getH() / 2, 40, 30));
+						static_cast<BeatEmUpState*>(mngr_)->getColManager()->checkCollisionE(boxes[0], type);
+					}
+
+				}
+				else
+				{
+					if (im_->getCol() >= 6 && im_->getCol() < 7 && !boxCreated)
+					{
+						boxCreated = true;
+						boxes.push_back(build_sdlrect(entityTr->getPos().getX() - mngr_->camRect_.x - 50 + entityTr->getW() / 2, entityTr->getPos().getY() - 10 + entityTr->getH() / 2, 40, 30));
+						static_cast<BeatEmUpState*>(mngr_)->getColManager()->checkCollisionE(boxes[0], type);
+					}
+
+				}
+				if (im_->getCol() == 7)
+				{
+					boxCreated = false;
+					unsigned timer = clock();
+					boxTime = (double(timer) / CLOCKS_PER_SEC);
+					boxes.clear();
+				}
+			}
+			else
+			{
+				if (boxTime + 300 / 1000 < timerExecution) {
+					unsigned timer = clock();
+					boxTime = (double(timer) / CLOCKS_PER_SEC);
+					boxes.clear();
+					boxCreated = false;
+				}
+			}
+		}
+		else 
+		{
+			if (anim_->getState() == 1)
+			{
+				cout << im_->getCol() << endl;			//7
+				if (im_->getFlip() == SDL_FLIP_NONE)
+				{
+
+					if (im_->getCol() >= 6 && im_->getCol() < 7 && !boxCreated)
+					{
+						boxCreated = true;
+						boxes.push_back(build_sdlrect(entityTr->getPos().getX() - mngr_->camRect_.x +10+ entityTr->getW() / 2, entityTr->getPos().getY() - 10 + entityTr->getH() / 2, 50, 30));
+						static_cast<BeatEmUpState*>(mngr_)->getColManager()->checkCollisionE(boxes[0], type);
+					}
+
+				}
+				else
+				{
+					if (im_->getCol() >= 6 && im_->getCol() < 7 && !boxCreated)
+					{
+						boxCreated = true;
+						boxes.push_back(build_sdlrect(entityTr->getPos().getX() - mngr_->camRect_.x - 60 + entityTr->getW() / 2, entityTr->getPos().getY() - 10 + entityTr->getH() / 2, 50, 30));
+						static_cast<BeatEmUpState*>(mngr_)->getColManager()->checkCollisionE(boxes[0], type);
+					}
+
+				}
+				if (im_->getCol() == 7)
+				{
+					boxCreated = false;
+					unsigned timer = clock();
+					boxTime = (double(timer) / CLOCKS_PER_SEC);
+					boxes.clear();
+				}
+			}
+			else
+			{
+				if (boxTime + 300 / 1000 < timerExecution) {
+					unsigned timer = clock();
+					boxTime = (double(timer) / CLOCKS_PER_SEC);
+					boxes.clear();
+					boxCreated = false;
+				}
+			}
+		}
+
+	}
+	
 
 
 
