@@ -55,21 +55,14 @@ void BeatEmUpState::AddEnemies(int n_enemies) {
 		Vector2D pos={ (float)random->nextInt(50,WIN_WIDTH - 80),(float)random->nextInt(50,WIN_HEIGHT - 50) };
 		enemy_ = new Entity();
 		enemy_->setContext(this);
-		if (character == 0) {
+		if (character == 0) animation_=enemy_->addComponent<AnimationEnemyBEUComponent>(ANIMATIONENEMYBEUCOMPONENT_H, getEnemyType(type), "bat", player_);
 
-			//enemy_ = addEntity(new EnemyBEU(pos, player_, 10, "bat", getEnemyType(element)));
-			animation_=enemy_->addComponent<AnimationEnemyBEUComponent>(ANIMATIONENEMYBEUCOMPONENT_H, getEnemyType(type), "bat", player_);
-		}
-		else if (character == 1) {
-			animation_=enemy_->addComponent<AnimationEnemyBEUComponent>(ANIMATIONENEMYBEUCOMPONENT_H, getEnemyType(type), "skeleton", player_);
-		}
-		else if (character == 2) {
-			animation_ = enemy_->addComponent<AnimationEnemyBEUComponent>(ANIMATIONENEMYBEUCOMPONENT_H, getEnemyType(type), "shroom", player_);
-		}
-		else {
-			animation_ = enemy_->addComponent<AnimationEnemyBEUComponent>(ANIMATIONENEMYBEUCOMPONENT_H, getEnemyType(type), "goblin", player_);
+		else if (character == 1) animation_=enemy_->addComponent<AnimationEnemyBEUComponent>(ANIMATIONENEMYBEUCOMPONENT_H, getEnemyType(type), "skeleton", player_);
 
-		}
+		else if (character == 2) animation_ = enemy_->addComponent<AnimationEnemyBEUComponent>(ANIMATIONENEMYBEUCOMPONENT_H, getEnemyType(type), "shroom", player_);
+
+		else animation_ = enemy_->addComponent<AnimationEnemyBEUComponent>(ANIMATIONENEMYBEUCOMPONENT_H, getEnemyType(type), "goblin", player_);
+
 		animation_->changeState(AnimationEnemyBEUComponent::Moving);
 		animation_->updateAnimation();
 
@@ -83,10 +76,6 @@ void BeatEmUpState::AddEnemies(int n_enemies) {
 		enemy_->addComponent<AttackBoxComponent>(ATTACKBOXCOMPONENT_H);
 		
 		addEntity(enemy_);
-
-
-
-		//en_->getComponent<LifeComponent>(LIFECOMPONENT_H)->setLifeBar(lb_);
 	}
 }
 

@@ -28,6 +28,9 @@ PauseState::PauseState()
 	// Buttons
 	createButtons();
 
+	camRect_.x = 0;
+	camRect_.y = 0;
+
 }
 
 void PauseState::update() {

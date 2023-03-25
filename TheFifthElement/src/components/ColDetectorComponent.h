@@ -4,8 +4,9 @@
 #include "ColliderComponent.h"
 #include "../utils/Entity.h"
 #include "../utils/Collision.h"
-#include "../components/ColliderComponent.h"
-#include "../components/LifeComponent.h"
+#include "ColliderComponent.h"
+#include "LifeComponent.h"
+#include "AnimationEnemyBEUComponent.h"
 
 class ColDetectorComponent : public Component
 
@@ -18,10 +19,11 @@ private:
     ColliderComponent* col2_ = nullptr;
     SDL_Rect rect_;
     float damage_ = 0.0f;
-    float margin = 12.0f;
+    float margin_ = 12.0f;
     bool enemy = false;
 
     LifeComponent* lifeC_ = nullptr;
+    AnimationEnemyBEUComponent* anim_ = nullptr;
 
 public:
 
@@ -52,6 +54,8 @@ public:
         if (obj2_ != nullptr)col2_ = obj2_->getComponent<ColliderComponent>(int(COLLIDERCOMPONENT_H));
         if (obj1_->hasComponent(LIFECOMPONENT_H))lifeC_ = obj1_->getComponent<LifeComponent>(LIFECOMPONENT_H);
         else lifeC_ = nullptr;
+        if (obj1_->hasComponent(ANIMATIONENEMYBEUCOMPONENT_H))anim_ = ent_->getComponent<AnimationEnemyBEUComponent>(ANIMATIONENEMYBEUCOMPONENT_H);
+        else anim_ = nullptr;
     }
 
     void update() {
@@ -65,18 +69,8 @@ public:
             }
             else if (Collision::collides(Vector2D(col1_->getColRect().x,
                 col1_->getColRect().y), col1_->getColRect().w, col1_->getColRect().h,
-                Vector2D(rect_.x, rect_.y), rect_.w, rect_.h))
-            {
-                lifeC_->Hit(damage_);
-                //obj1_->Hit(damage_);
-
-            }
+                Vector2D(rect_.x, rect_.y), rect_.w, rect_.h)) lifeC_->Hit(damage_);
         }
-       /* else if (collider)
-            obj1_->collision(Collision::collides(Vector2D(col1_->getColRect().x,
-                col1_->getColRect().y), col1_->getColRect().w, col1_->getColRect().h,
-                Vector2D(col2_->getColRect().x, col2_->getColRect().y),
-                col2_->getColRect().w, col2_->getColRect().h));*/
 
     }
 
@@ -85,18 +79,28 @@ public:
         Transform* tr_ = obj1_->getComponent<Transform>(TRANSFORM_H);
         Transform* playerTr_ = obj2_->getComponent<Transform>(TRANSFORM_H);
 
-        Vector2D offset_ = col2_->getOffset();// player offset
-        float ch_ = col2_->getColHeight();// player collider height
+        Vector2D Poffset_ = col2_->getOffset();// player offset
+        float Pch_ = col2_->getColHeight();// player collider height
 
-        float playerFloor = playerTr_->getPos().getY() + offset_.getY() + ch_;// player pos Y (floor)
+        Vector2D offset_ = col1_->getOffset();// enemy offset
+        float ch_ = col1_->getColHeight();// enemy collider height
+        float targetY, posY;
 
-        offset_ = col1_->getOffset();// enemy offset
-        ch_ = col1_->getColHeight();// enemy collider height
+        if (anim_->getEnemy() != "bat") {
+            float playerFloor = playerTr_->getPos().getY() + Poffset_.getY() + Pch_;// player pos Y (floor)
+            targetY = playerFloor - offset_.getY() - ch_;// target point Y
+            posY = tr_->getPos().getY();// enemy pos Y
 
-        float posY = tr_->getPos().getY();// enemy pos Y
-        float targetY = playerFloor - offset_.getY() - ch_;// target point Y
+            margin_ = 12.0f * WIN_WIDTH / 900;
+        }
+        else {
+            posY = tr_->getPos().getY() + offset_.getY();// enemy pos Y
+            margin_ = 5.0f * WIN_WIDTH / 900;
+            targetY = playerTr_->getPos().getY() + Poffset_.getY()-margin_;// target point Y
+            margin_ = 10.0f * WIN_WIDTH / 900;
+        }
 
-        return ((targetY - margin <= posY) && (targetY + margin >= posY));
+        return ((targetY - margin_ <= posY) && (targetY + margin_ >= posY));
     }
 
 };

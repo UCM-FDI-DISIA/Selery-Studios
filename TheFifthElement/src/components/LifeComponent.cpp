@@ -136,11 +136,12 @@ void LifeComponent::subLife(float damage) {
 }
 
 void LifeComponent::chageType(float maxLife) {
+
 	if (type_ == "air") types[0].life = life_;
 	else if (type_ == "fire")types[1].life = life_;
 	else if (type_ == "water")types[2].life = life_;
 	else if (type_ == "earth")types[3].life = life_;
-	
+
 	type_ = im_->getType();
 	maxLife_ = maxLife;
 
