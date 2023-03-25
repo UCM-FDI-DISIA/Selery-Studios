@@ -1,6 +1,5 @@
 C:\Users\Dorjee\Documents\GitHub\Selery-Studios\TheFifthElement\x64\Debug\TheFifthElement.exe
 E:\Selery-Studios\TheFifthElement\x64\Debug\TheFifthElement.exe
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\x64\Debug\TheFifthElement.exe
 C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\x64\Debug\TheFifthElement.exe
 C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\P2\TheFifthElement\x64\Debug\TheFifthElement.exe
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\x64\Debug\TheFifthElement.exe

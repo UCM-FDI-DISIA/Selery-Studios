@@ -244,7 +244,7 @@ void TopDownState::LoadMap(string const& filename) {
                     portal_->addComponent<Transform>(TRANSFORM_H, Vector2D(obj.getPosition().x, obj.getPosition().y), PORTAL_WIDTH, PORTAL_HEIGHT);
                     portal_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("portal"));
                     portal_->addComponent<ObjectsComponent>(OBJECTSCOMPONENT_H);
-                    portal_->addComponent<PortalComponent>(PORTALCOMPONENT_H);
+                    //portal_->addComponent<PortalComponent>(PORTALCOMPONENT_H);
                     addEntity(portal_);
                 }
                 else if (name == "Element") {

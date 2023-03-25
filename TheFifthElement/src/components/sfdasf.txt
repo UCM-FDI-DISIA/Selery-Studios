@@ -21,3 +21,29 @@ void PortalComponent::elementEarned() {
 void PortalComponent::Teleport(Vector2D newPlayerPos) {
 	trPlayer_->setPos(newPlayerPos);
 }
+
+
+
+
+
+
+#pragma once
+#include "../utils/Component.h"
+#include "../utils/Vector2D.h"
+#include "Transform.h"
+class PortalComponent : public Component
+{
+private:
+	Transform* trPlayer_;
+	int nframes = 1;
+	int elementsCollected = 0;
+public:
+	PortalComponent();
+	void init();
+	void update() {};
+	virtual ~PortalComponent() {};
+	void elementEarned();
+	void Teleport(Vector2D newPlayerPos);
+
+
+};

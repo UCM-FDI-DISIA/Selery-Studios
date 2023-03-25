@@ -7,7 +7,7 @@
 #include "../sdlutils/SDLUtils.h"
 #include "../GameManager.h"
 #include "ObjectsComponent.h"
-#include "PortalComponent2.h"
+//#include "PortalComponent2.h"
 #include "Enemy_movementTD_component.h"
 class CheckCollision : public Component
 {
@@ -16,7 +16,7 @@ private:
 	Transform* tr1;
 	Transform* tr2;
 	ObjectsComponent* obj;
-	PortalComponent* portal;
+	//PortalComponent* portal;
 	Enemy_movementTD_component* enM_;
 	SDL_Rect rectFight, rectDetection, rectPlayer;
 	float lookingRange_;
