@@ -67,6 +67,7 @@ public:
 	string getEnemyType(int i);
 	void finishBEU();
 	void handleEvents();
+	inline Entity* getPlayer() { return player_; }
 	ColManager* getColManager() { return colManager_; }
 	void update();
 };

@@ -133,7 +133,7 @@ void InputComponentBEU::handleEvents(SDL_Event event) {
 					im_->setAnim(true, 9, 26, 0, 8);
 				}
 			}
-			else
+			else if(im_->getType() == "air")
 			{
 				sdlutils().soundEffects().at("playerAttack").play();
 				alreadyPressedBasic = true;
@@ -148,6 +148,23 @@ void InputComponentBEU::handleEvents(SDL_Event event) {
 				}
 				else {
 					im_->setAnim(true, 9, 26, 0, 7);
+				}
+			}
+			else
+			{
+				sdlutils().soundEffects().at("playerAttack").play();
+				alreadyPressedBasic = true;
+				if (im_->getRow() == 7) {
+					if (im_->getTope() < 3 * 4) {
+						im_->setTope(im_->getTope() + 4);
+					}
+					else
+					{
+						im_->setTope(im_->getTope() + 12);
+					}
+				}
+				else {
+					im_->setAnim(true, 7, 23, 0, 4);
 				}
 			}
 		

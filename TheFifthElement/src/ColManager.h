@@ -15,7 +15,8 @@ private:
 	Manager* mngr_;
 public:
 	ColManager(Manager* manager): mngr_(manager) {};
-	void checkCollisionP(SDL_Rect boxAttack,string type, bool isPlayer);
+	void checkCollisionP(SDL_Rect boxAttack,string type);
+	void checkCollisionE(SDL_Rect boxAttack, string type);
 
 };
 

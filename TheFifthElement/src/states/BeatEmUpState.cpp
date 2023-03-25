@@ -32,7 +32,7 @@ BeatEmUpState::BeatEmUpState(bool boss, string typeBoss) {
 	colManager_ = new ColManager(this);
 
 	if (!boss) {
-		AddEnemies(3);
+		AddEnemies(1);
 	}
 	else if (boss && typeBoss == "water") {
 		AddWaterBoss();
@@ -50,10 +50,11 @@ BeatEmUpState::BeatEmUpState(bool boss, string typeBoss) {
 
 void BeatEmUpState::AddEnemies(int n_enemies) {
 	for (int i = 0; i < n_enemies; ++i) {
-		int character = random->nextInt(0, 4);
+		int character = 1;
 		int type = random->nextInt(0, 4);
 		Vector2D pos={ (float)random->nextInt(50,WIN_WIDTH - 80),(float)random->nextInt(50,WIN_HEIGHT - 50) };
 		enemy_ = new Entity();
+		enemy_->setContext(this);
 		if (character == 0) {
 
 			//enemy_ = addEntity(new EnemyBEU(pos, player_, 10, "bat", getEnemyType(element)));
@@ -79,6 +80,8 @@ void BeatEmUpState::AddEnemies(int n_enemies) {
 		enemy_->addComponent<LifeComponent>(LIFECOMPONENT_H, ENEMYBEU_MAXLIFE);
 		enemy_->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, animation_->getOffset(), animation_->getColHeight(), animation_->getColWidth());
 		enemy_->addComponent<ColDetectorComponent>(COLDETECTORCOMPONENT_H, enemy_, player_);
+		enemy_->addComponent<AttackBoxComponent>(ATTACKBOXCOMPONENT_H);
+		
 		addEntity(enemy_);
 
 

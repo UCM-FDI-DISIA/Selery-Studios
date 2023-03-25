@@ -82,5 +82,6 @@ public:
 	inline string getType() { return type_; }
 	inline float getWidth() { return EnemyWidth_; }
 	inline float getHeight() { return EnemyHeight_; }
+	inline int getState() { return currentState_; }
 };
 
