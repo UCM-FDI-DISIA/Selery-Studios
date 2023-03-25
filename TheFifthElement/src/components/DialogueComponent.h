@@ -33,6 +33,7 @@ public:
 	void setdialogue();
 	void inicombe();
 	virtual ~DialogueComponent() {};
+	bool gethasstarted() { return hasstarted; }
 
 };
 #endif

@@ -30,7 +30,7 @@ void InputComponent::handleEvents(SDL_Event event)
 	ih().update(event);
 
 	if (ih().keyDownEvent()){
-		if (!npccol) {
+		if (!dialog->gethasstarted()) {
 			if (ih().isKeyDown(SDL_SCANCODE_A)&& d!= LEFT) {
 				mov_->setDir(Vector2D(-1, 0));
 				skin_->changeState(SkinComponent::Left);
@@ -70,17 +70,6 @@ void InputComponent::handleEvents(SDL_Event event)
 		if (ih().isKeyDown(SDL_SCANCODE_E)) {
 			if (actionDelay > 0) {
 				dialog->inicombe();
-				/*int a = static_cast<PlayerTD*>(ent_)->getCol();
-				cout << a;
-
-				if (a != -1) {
-
-					npccol = true;
-					mov_->setDir(Vector2D(0, 0));
-					static_cast<TopDownState*>(mngr_)->dialog(a);
-					SDLUtils::instance()->soundEffects().at("NPC_Chat").play();
-				}*/
-
 			}
 			actionDelay = 0;
 		}
