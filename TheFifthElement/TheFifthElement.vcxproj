@@ -134,6 +134,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="src\components\FramedImage.h" />
+    <ClInclude Include="src\components\PortalComponent.h" />
     <ClInclude Include="src\components\VolumeSlider.h" />
     <ClInclude Include="src\states\PauseState.h" />
     <ClInclude Include="src\components\AttackEarthBossComponent.h" />
@@ -175,7 +176,6 @@
     <ClInclude Include="src\components\InputComponentBEU.h" />
     <ClInclude Include="src\components\LifeComponent.h" />
     <ClInclude Include="src\components\MovementComponent.h" />
-    <ClInclude Include="src\Entities\PortalComponent.h" />
     <ClInclude Include="src\components\SkinComponent.h" />
     <ClInclude Include="src\states\GameState.h" />
     <ClInclude Include="src\states\GameStateMachine.h" />
@@ -208,6 +208,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\components\FramedImage.cpp" />
+    <ClCompile Include="src\components\PortalComponent.cpp" />
     <ClCompile Include="src\states\PauseState.cpp" />
     <ClCompile Include="src\components\AttackEarthBossComponent.cpp" />
     <ClCompile Include="src\components\EconomyComponent.cpp" />
@@ -245,7 +246,6 @@
     <ClCompile Include="src\components\LifeComponent.cpp" />
     <ClCompile Include="src\components\MovementComponent.cpp" />
     <ClCompile Include="src\components\ObjectsComponent.cpp" />
-    <ClCompile Include="src\Entities\PortalComponent.cpp" />
     <ClCompile Include="src\components\SkinComponent.cpp" />
     <ClCompile Include="src\states\GameState.cpp" />
     <ClCompile Include="src\states\GameStateMachine.cpp" />

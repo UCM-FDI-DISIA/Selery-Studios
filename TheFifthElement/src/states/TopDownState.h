@@ -6,7 +6,7 @@
 #include "../components/InputComponent.h"
 #include "../sdlutils/SDLUtils.h"
 #include "../include/SDL_mixer.h"
-//#include "../components/PortalComponent2.h"
+#include "../components/PortalComponent.h"
 #include "../components/ColliderTile.h"
 #include "../components/CollideTileInteraction.h"
 #include "../PuzzleCopas.h"
