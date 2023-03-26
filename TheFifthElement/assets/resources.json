@@ -139,6 +139,7 @@
     {"id": "Air_LifeBarBorder", "file": "assets/Enemies/HUD/LifeBars/Horizontal/Boarders/Boarder2.png"},
     {"id": "Cartel", "file": "assets/Player/HUD/cartel.png"},
     {"id": "Ruleta", "file": "assets/Player/HUD/WheelOfPlayer/ruleta.png"},
+    {"id": "ControlList", "file": "assets/HUD/Menu/controls.png"},
 
     {"id": "Player_BEU_fire", "file": "assets/Player/BeatEmUp/Fire/spritesheets/fireMatrix.png"},
     {"id": "Player_BEU_earth", "file": "assets/Player/BeatEmUp/Earth/earthMatrix.png"},

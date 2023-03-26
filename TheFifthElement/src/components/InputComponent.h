@@ -25,6 +25,7 @@ private:
     DialogueComponent* dialog = nullptr;
     Roulette* roulet;
     bool elements[4];
+    SoundManager* smg_=nullptr;
 public:
     InputComponent(Roulette* r);
     void initComponent();

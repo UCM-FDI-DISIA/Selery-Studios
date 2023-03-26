@@ -89,7 +89,11 @@ void Button::handleEvent(SDL_Event event)
 				//}
 				else if (identifier == "MUTE")
 				{
-					SDL_AudioQuit(); //Mutea el juego (TODO).
+					SDL_AudioQuit(); //Mutea el juego (TODO). //Lo podremos manejar a traves del sound manager
+				}
+				else if (identifier == "CONTROLS")
+				{
+					
 				}
 			}
 		}

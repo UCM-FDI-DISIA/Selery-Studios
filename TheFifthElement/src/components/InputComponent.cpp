@@ -80,6 +80,7 @@ void InputComponent::handleEvents(SDL_Event event)
 			mov_->setDir(Vector2D(0, 0));
 			if (actionDelay > 0) {
 				dialog->inicombe();
+				smg_->playSFX("NPC_Chat");
 			}
 			actionDelay = 0;
 		}
