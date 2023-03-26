@@ -21,6 +21,7 @@ private:
 	string out;
 	SDL_Color color_;
 	bool hasstarted;
+	bool openedShop_;
 	int cont = 0, fin, linea =0;
 	int d;
 	Texture* t;
@@ -34,6 +35,8 @@ public:
 	void inicombe();
 	virtual ~DialogueComponent() {};
 	bool gethasstarted() { return hasstarted; }
+	bool getopenedShop() { return openedShop_; }
+	//void setopenedShop(/*bool openshop*/) { openedShop_ = false; }
 
 };
 #endif
