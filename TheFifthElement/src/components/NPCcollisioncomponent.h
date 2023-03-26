@@ -45,11 +45,8 @@ public:
 		plynpc = player_->getComponent<PlayerNPC>(PLAYERNPC_H);
 		rectNPC = getRectNPC();
 		rectPlayer = getPlayerRect();
-
-		interact_= &SDLUtils::instance()->images().at("E");
 		pos_ = Vector2D(rectNPC.x + 50, rectNPC.y);
 		dest = build_sdlrect(pos_, 32, 32);
-		interact_->render(dest);
 		
 	}
 	void update()
@@ -75,10 +72,8 @@ public:
 	{
 		if(visibility==true)
 		{
-		}
-		else 
-		{ 
-
+			SDL_Rect dest = { 100,100,100,100 };
+			SDLUtils::instance()->images().at("E").render(dest);
 		}
 	}
 };
