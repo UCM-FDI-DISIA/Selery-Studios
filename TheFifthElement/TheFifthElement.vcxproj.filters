@@ -62,6 +62,7 @@
     <ClCompile Include="src\components\AttackEarthBossComponent.cpp" />
     <ClCompile Include="src\components\EconomyComponent.cpp" />
     <ClCompile Include="src\states\PauseState.cpp" />
+    <ClCompile Include="src\components\FireAttackComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\components\Button.h" />
@@ -146,6 +147,7 @@
     <ClInclude Include="src\components\LifeTD.h" />
     <ClInclude Include="src\components\Damage.h" />
     <ClInclude Include="src\components\rouletteComponent.h" />
+    <ClInclude Include="src\components\FireAttackComponent.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="TheFifthElement.rc" />

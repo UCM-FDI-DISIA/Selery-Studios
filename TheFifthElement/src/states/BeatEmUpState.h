@@ -1,7 +1,6 @@
 #pragma once
 #include "GameState.h"
 #include "../sdlutils/SDLUtils.h"
-#include "../sdlutils/SDLUtils.h"
 #include "../ColManager.h"
 #include "../components/AttackBoxComponent.h"
 #include "../components/AnimationEnemyBEUComponent.h"
@@ -23,6 +22,7 @@
 #include "../components/ShadowComponent.h"
 
 #include "../components/AttackEarthBossComponent.h"
+#include "../components/FireAttackComponent.h"
 
 using name = string;
 using damage = int;
