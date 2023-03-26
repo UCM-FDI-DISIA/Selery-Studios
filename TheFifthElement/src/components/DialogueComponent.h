@@ -36,7 +36,7 @@ public:
 	virtual ~DialogueComponent() { };
 	bool gethasstarted() { return hasstarted; }
 	bool getopenedShop() { return openedShop_; }
-	//void setopenedShop(/*bool openshop*/) { openedShop_ = false; }
+	void setopenedShop() { openedShop_ = false; }
 
 };
 #endif
