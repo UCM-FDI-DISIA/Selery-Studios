@@ -7,10 +7,12 @@
 #include "../states/BeatEmUpState.h"
 
 
-InputComponentBEU::InputComponentBEU() :Component() {
+InputComponentBEU::InputComponentBEU(Roulette* r):Component() {
 	elements[0] = true;
 	for (int i = 1; i < 4; i++) elements[i] = true;
 	// por defecto solo está disponible aire
+	roulette = r;
+
 }
 
 void InputComponentBEU::initComponent() {
@@ -97,18 +99,25 @@ void InputComponentBEU::handleEvents(SDL_Event event) {
 
 	if (ih().isKeyDown(SDL_SCANCODE_1) && elements[0] && !im_->isAnimPlaying()) {
 		sk_->changeSkin("air");
+		roulette->changeplayer(1);
 	}
 
 	if (ih().isKeyDown(SDL_SCANCODE_2) && elements[1] && !im_->isAnimPlaying()) {
 		sk_->changeSkin("fire");
+		roulette->changeplayer(2);
+
 	}
 
 	if (ih().isKeyDown(SDL_SCANCODE_3) && elements[2] && !im_->isAnimPlaying()) {
 		sk_->changeSkin("water");
+		roulette->changeplayer(3);
+
 	}
 
 	if (ih().isKeyDown(SDL_SCANCODE_4) && elements[3] && !im_->isAnimPlaying()) {
 		sk_->changeSkin("earth");
+		roulette->changeplayer(4);
+
 	}
 
 

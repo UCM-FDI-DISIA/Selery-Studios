@@ -21,8 +21,8 @@ void LifeComponent::initComponent() {
 		pos_ = Vector2D(entTransform_->getPos().getX(), entTransform_->getPos().getY());
 	}
 	else {
-		barWidth_ = backWidth_ = borderWidth_ = 300 * scale;
-		barHeight_ = backHeight_ = borderHeight_ = 50 * scale;
+		barWidth_ = backWidth_ = borderWidth_ = 100 * scale;
+		barHeight_ = backHeight_ = borderHeight_ = 30 * scale;
 		skin_ = ent_->getComponent<SkinBEUComponent>(SKINBEUCOMPONENT_H);
 	}
 	chooseTexture();
@@ -193,8 +193,8 @@ void LifeComponent::render() {
 		borderTexture_->render(src, dest);
 	}
 	else {
-		dest.x = 100*scale;
-		dest.y = 35*scale;
+		dest.x = 90 * scale;
+		dest.y = 25 * scale;
 		dest.h = backHeight_;
 		dest.w = backWidth_;
 		backTexture_->render(src, dest);

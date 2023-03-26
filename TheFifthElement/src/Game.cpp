@@ -9,7 +9,7 @@ Game::Game() {
 	//GameStateMachine::instance()->pushState(new MainMenuState());
 	GameStateMachine::instance()->pushState(new BeatEmUpState(false));
 	//GameStateMachine::instance()->pushState(new PauseState());
-	//GameStateMachine::instance()->pushState(new BeatEmUpState(false));
+	GameStateMachine::instance()->pushState(new BeatEmUpState(false));
 }
 
 Game::~Game(){ // destructora

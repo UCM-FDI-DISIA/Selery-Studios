@@ -23,6 +23,7 @@
 
 #include "../components/AttackEarthBossComponent.h"
 #include "../components/FireAttackComponent.h"
+#include "../components/rouletteComponent.h"
 
 using name = string;
 using damage = int;
@@ -52,6 +53,9 @@ private:
 	float enemy_width=0, enemy_height=0;
 	float scale;
 	
+	//HUD
+	Entity* Hud_;
+	Roulette* roulete;
 	//BOSSES
 	Entity* boss_;
 

@@ -9,6 +9,9 @@ BeatEmUpState::BeatEmUpState(bool boss, string typeBoss) {
 	background_->addComponent<Transform>(int(TRANSFORM_H), Vector2D(0,0), WIN_WIDTH, WIN_HEIGHT);
 	background_->addComponent<Image>(int(IMAGE_H), &SDLUtils::instance()->images().at("airBackground"), 0, 0, 0, BACKGROUNDAIR_WIDTH_FRAME, BACKGROUNDAIR_HEIGHT_FRAME);
 	addEntity(background_);
+	Hud_ = new Entity();
+	Hud_->setContext(this);
+	roulete = Hud_->addComponent<Roulette>(ROULETTECOMPONENT_H);
 
 	player_ = new Entity();
 	player_->setContext(this);
@@ -19,9 +22,10 @@ BeatEmUpState::BeatEmUpState(bool boss, string typeBoss) {
 	texture_player_ = &SDLUtils::instance()->images().at(sk_->getSkin());
 	player_->addComponent<Image>(int(IMAGE_H), texture_player_, 8, 28, 0, PLAYERBEU_WIDTH_FRAME, PLAYERBEU_HEIGHT_FRAME,"air");
 	player_->addComponent<JumpComponent>(JUMP_H);
+	addEntity(Hud_);
 	player_->addComponent<LifeComponent>(LIFECOMPONENT_H, 10);
 	player_->addComponent<ShadowComponent>(SHADOWCOMPONENT_H);
-	in_ = player_->addComponent<InputComponentBEU>(INPUTCOMPONENTBEU_H);
+	in_ = player_->addComponent<InputComponentBEU>(INPUTCOMPONENTBEU_H, roulete);
 	player_->addComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
 	player_->addComponent<AttackBoxComponent>(ATTACKBOXCOMPONENT_H);
 	player_->addComponent<LimitBEU>(LIMITBEU_H);
@@ -29,7 +33,7 @@ BeatEmUpState::BeatEmUpState(bool boss, string typeBoss) {
 	player_->addComponent<PointOfFightComponent>(POINTOFFIGHTCOMPONENT_H, 30, 10);
 	player_->addComponent<FireAttackComponent>(SPAWN_H, this);
 	addEntity(player_);
-
+	
 	colManager_ = new ColManager(this);
 
 	if (!boss) {
