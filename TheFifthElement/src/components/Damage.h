@@ -7,7 +7,7 @@
 using namespace std;
 class Damage : public Component {
 private:
-	Vector2D position = { 100,50 };
+	Vector2D position = { 130,20 };
 	Texture* sword = &SDLUtils::instance()->images().at("espada");
 	int width = 25, height = 20;
 	int img_width = 100, img_height = 67;
@@ -30,7 +30,7 @@ public:
 		f->render(SDLUtils::instance()->renderer(), fuerza, position.getX()+20, position.getY()+4, color);
 	};
 	virtual ~Damage() {};
-	int getLife() const;
-	inline void addLife(int cuantity);
+	int getDamage() { return damage; };
+	inline void addDamagge(int cuantity) { damage += cuantity; };
 };
 #endif

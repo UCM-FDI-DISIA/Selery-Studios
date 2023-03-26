@@ -45,6 +45,7 @@ enum cmpId : cmpId_type {
 	VOLUMESLIDER_H = 37,
 	LIFETDCOMPONENT_H =38,
 	DAMAGE_H=39,
+	ROULETTECOMPONENT_H = 40,
 	// do not remove this
 	_LAST_CMP_ID
 };

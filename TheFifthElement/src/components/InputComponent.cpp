@@ -6,10 +6,11 @@
 #include "../states/TopDownState.h"
 #include <string>
 
-InputComponent::InputComponent() :Component() {
+InputComponent::InputComponent(Roulette* r) :Component() {
 	d = NONE;
+	roulet = r;
 	elements[0] = true;
-	for (int i = 1; i < 4; i++) elements[i] = false;
+	for (int i = 1; i < 4; i++) elements[i] = true;
 	// por defecto solo está disponible aire
 }
 
@@ -54,20 +55,29 @@ void InputComponent::handleEvents(SDL_Event event)
 
 			if (ih().isKeyDown(SDL_SCANCODE_1) && elements[0]) {
 				skin_->changeSkin("air");
+				roulet->changeplayer(1);
 				//static_cast<HUD*>(ent_)->
 			}
 			else if (ih().isKeyDown(SDL_SCANCODE_2) && elements[1]) {
+				roulet->changeplayer(2);
+
 				skin_->changeSkin("fire");
 			}
 			else  if (ih().isKeyDown(SDL_SCANCODE_3) && elements[2]) {
+				roulet->changeplayer(3);
+
 				skin_->changeSkin("water");
 			}
 			else if (ih().isKeyDown(SDL_SCANCODE_4) && elements[3]) {
+				roulet->changeplayer(4);
+
 				skin_->changeSkin("earth");
 			}
 		}
 		
 		if (ih().isKeyDown(SDL_SCANCODE_E)) {
+
+			mov_->setDir(Vector2D(0, 0));
 			if (actionDelay > 0) {
 				dialog->inicombe();
 			}

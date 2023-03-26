@@ -3,14 +3,17 @@
 
 TopDownState::TopDownState() {
     puzzle1 = new PuzzleCopas();
-    //CARGAS EL MAPA
-    LoadMap("assets/Scenes/Maps/MapaInicial.tmx");
     //HUD
     Hud_ = new Entity();
     Hud_->setContext(this);
+    roulete = Hud_->addComponent<Roulette>(ROULETTECOMPONENT_H);
     Hud_->addComponent<Damage>(DAMAGE_H);
     Hud_->addComponent<LifeTD>(LIFETDCOMPONENT_H);
     economyComp_ = Hud_->addComponent<EconomyComponent>(ECONOMYCOMPONENT_H);
+    //CARGAS EL MAPA
+    LoadMap("assets/Scenes/Maps/MapaInicial.tmx");
+   
+    
     addEntity(Hud_);
 }
 
@@ -166,7 +169,7 @@ void TopDownState::LoadMap(string const& filename) {
                     dialog_ = player_->addComponent<DialogueComponent>(DIALOGCOMPONENT_H);
                     player_->addComponent<Image>(IMAGE_H, texture_player_, PLAYERTD_NUMFRAMES, PLAYERTD_NUMFRAMES,0, PLAYERTD_WIDTH_FRAME, PLAYERTD_HEIGHT_FRAME);
                     player_->addComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
-                    in_ = player_->addComponent<InputComponent>(INPUTCOMPONENT_H);
+                    in_ = player_->addComponent<InputComponent>(INPUTCOMPONENT_H, roulete);
                     player_->addComponent<ColliderTile>(COLLIDERTILE_H, collisions_);
                     shopComp_ = player_->addComponent<ShopComponent>(SHOPCOMPONENT_H);
                    

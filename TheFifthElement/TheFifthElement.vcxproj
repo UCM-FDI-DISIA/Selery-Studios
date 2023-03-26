@@ -135,6 +135,7 @@
   <ItemGroup>
     <ClInclude Include="src\components\Damage.h" />
     <ClInclude Include="src\components\LifeTD.h" />
+    <ClInclude Include="src\components\rouletteComponent.h" />
     <ClInclude Include="src\components\VolumeSlider.h" />
     <ClInclude Include="src\states\PauseState.h" />
     <ClInclude Include="src\components\AttackEarthBossComponent.h" />
@@ -300,7 +301,7 @@
   </ImportGroup>
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties assets_4resources_1json__JsonSchema=" " />
+      <UserProperties />
     </VisualStudio>
   </ProjectExtensions>
 </Project>

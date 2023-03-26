@@ -145,6 +145,7 @@
     <ClInclude Include="src\components\VolumeSlider.h" />
     <ClInclude Include="src\components\LifeTD.h" />
     <ClInclude Include="src\components\Damage.h" />
+    <ClInclude Include="src\components\rouletteComponent.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="TheFifthElement.rc" />

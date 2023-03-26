@@ -7,7 +7,7 @@
 using namespace std;
 class LifeTD : public Component {
 private:
-	Vector2D position = { 50,50 };
+	Vector2D position = { 80,20 };
 	Texture* heart = &SDLUtils::instance()->images().at("cora");
 	int width = 25, height = 20;
 	int img_width = 100, img_height = 67;

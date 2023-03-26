@@ -30,6 +30,7 @@
 #include "../components/EconomyComponent.h"
 #include "../components/Damage.h"
 #include "../components/LifeTD.h"
+#include "../components/rouletteComponent.h"
 using uint = unsigned int;
 using tileset_map = std::map<std::string, Texture*>; //mapa con CLAVE:string, ARGUMENTO: puntero a textura
 using tilelayer = tmx::TileLayer;
@@ -73,7 +74,7 @@ private:
 	//HUD
 	Entity* Hud_;
 	EconomyComponent* economyComp_;
-
+	Roulette* roulete;
 	
 	//ENEMIGOS 
 	vector<Entity*> enemies_;

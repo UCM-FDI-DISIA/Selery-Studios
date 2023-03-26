@@ -5,7 +5,6 @@
 #include "../sdlutils/Texture.h"
 #include "../GameManager.h"
 #include "Image.h"
-
 class SkinComponent : public Component
 {
 public:
@@ -24,7 +23,6 @@ private:
     int w_, h_;
     Image* im_;
     bool set_ = false;
-
 public:
 
     SkinComponent(string skin)
@@ -42,7 +40,6 @@ public:
     void changeMov();
     void changeState(AnimationStates newState) { nextState_ = newState; };
     void changeSkin(string skin) {
-        prevSkin_ = skin_;
         skin_ = skin;
     }
     inline string getSkin() { return t_; }
