@@ -52,10 +52,34 @@ void ColliderTile::update() {
 
 int ColliderTile::chooseDirection() {
 
-	if (bottomLeft_.getY() <= pTopLeft.getY() + margin_) {
+	// UP=0, DOWN=1, LEFT=2, RIGHT=3
+
+
+	if (pTopLeft.getY() <= bottomLeft_.getY()) {
 		return 0;
 	}
-	else if (topLeft_.getY() >= pBottonRight.getY() - margin_) {
+	else if (pBottomLeft.getY() >= topLeft_.getY() && pTopLeft.getY() >= bottomLeft_.getY()) {
+		return 1;
+	}
+
+
+	//if (topLeft_.getY() <= pBottomLeft.getY()) {
+	//	return 1;
+	//}
+	//else if (bottomLeft_.getY() >= pTopLeft.getY()) {
+	//	return 0;
+	//}
+	//else if (topRight_.getX() >= pTopLeft.getX()) {
+	//	return 2;
+	//}
+	//else if (topLeft_.getX() <= pTopRight.getX()) {
+	//	return 3;
+	//}
+
+	/*if (bottomLeft_.getY() <= pTopLeft.getY() + margin_) {
+		return 0;
+	}
+	else if (topLeft_.getY() <= pBottonRight.getY() - margin_) {
 
 		return 1;
 	}
@@ -66,6 +90,7 @@ int ColliderTile::chooseDirection() {
 	else  if (topRight_.getX() <= pTopLeft.getX() + margin_){
 
 		return 2;
-	}
+	}*/
+	
 
 }

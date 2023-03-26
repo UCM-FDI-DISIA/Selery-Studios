@@ -40,7 +40,7 @@ void InputComponent::handleEvents(SDL_Event event)
 				mov_->setDir(Vector2D(1, 0));
 				skin_->changeState(SkinComponent::Right);
 			}
-			else  if (ih().isKeyDown(SDL_SCANCODE_W)&&d!=UP) {
+			else  if (ih().isKeyDown(SDL_SCANCODE_W)&& d!=UP) {
 				mov_->setDir(Vector2D(0, -1));
 				skin_->changeState(SkinComponent::Up);
 			}

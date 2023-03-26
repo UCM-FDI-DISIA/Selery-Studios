@@ -1,10 +1,29 @@
-﻿  DialogueComponent.cpp
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\DialogueComponent.h(10,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\sdlutils\SoundManager.h(112,33): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\sdlutils\SoundManager.h(117,46): warning C4018: '>': no coinciden signed/unsigned
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(52,30): warning C4101: 'e': variable local sin referencia
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(48): message : al compilar la función del miembro clase plantilla "Font &SDLUtils::map_access_wrapper<Font>::at(std::string)"
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(204): message : Vea la referencia a la creación de una instancia de clase plantilla "SDLUtils::map_access_wrapper<Font>" que se está compilando
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\DialogueComponent.cpp(34,29): warning C4267: '=': conversión de 'size_t' a 'int'; posible pérdida de datos
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\DialogueComponent.cpp(68,36): warning C4267: '=': conversión de 'size_t' a 'int'; posible pérdida de datos
-  TheFifthElement.vcxproj -> C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\x64\Debug\TheFifthElement.exe
+﻿  ColliderTile.cpp
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\sdlutils\SoundManager.h(112,33): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\sdlutils\SoundManager.h(117,46): warning C4018: '>': no coinciden signed/unsigned
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\DialogueComponent.h(10,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(52,30): warning C4101: 'e': variable local sin referencia
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(48,1): message : al compilar la función del miembro clase plantilla "Texture &SDLUtils::map_access_wrapper<Texture>::at(std::string)"
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(205,30): message : Vea la referencia a la creación de una instancia de clase plantilla "SDLUtils::map_access_wrapper<Texture>" que se está compilando
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\rouletteComponent.h(38,32): warning C4838: la conversión de 'float' en 'int' requiere una conversión de restricción
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\rouletteComponent.h(38,32): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\rouletteComponent.h(38,46): warning C4838: la conversión de 'float' en 'int' requiere una conversión de restricción
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\rouletteComponent.h(38,46): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\rouletteComponent.h(49,29): warning C4838: la conversión de 'float' en 'int' requiere una conversión de restricción
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\rouletteComponent.h(49,29): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\rouletteComponent.h(49,39): warning C4838: la conversión de 'float' en 'int' requiere una conversión de restricción
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\rouletteComponent.h(49,39): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\rouletteComponent.h(57,29): warning C4838: la conversión de 'float' en 'int' requiere una conversión de restricción
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\rouletteComponent.h(57,29): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\rouletteComponent.h(57,39): warning C4838: la conversión de 'float' en 'int' requiere una conversión de restricción
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\rouletteComponent.h(57,39): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\rouletteComponent.h(65,29): warning C4838: la conversión de 'float' en 'int' requiere una conversión de restricción
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\rouletteComponent.h(65,29): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\rouletteComponent.h(65,39): warning C4838: la conversión de 'float' en 'int' requiere una conversión de restricción
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\rouletteComponent.h(65,39): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\rouletteComponent.h(73,29): warning C4838: la conversión de 'float' en 'int' requiere una conversión de restricción
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\rouletteComponent.h(73,29): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\rouletteComponent.h(73,39): warning C4838: la conversión de 'float' en 'int' requiere una conversión de restricción
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\rouletteComponent.h(73,39): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\src\components\ColliderTile.cpp(96): warning C4715: 'ColliderTile::chooseDirection': no todas las rutas de acceso de control devuelven un valor
+  TheFifthElement.vcxproj -> C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\x64\Debug\TheFifthElement.exe
