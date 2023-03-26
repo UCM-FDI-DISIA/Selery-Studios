@@ -31,6 +31,7 @@
 #include "../components/Damage.h"
 #include "../components/LifeTD.h"
 #include "../components/rouletteComponent.h"
+
 using uint = unsigned int;
 using tileset_map = std::map<std::string, Texture*>; //mapa con CLAVE:string, ARGUMENTO: puntero a textura
 using tilelayer = tmx::TileLayer;
@@ -75,6 +76,8 @@ private:
 	Entity* Hud_;
 	EconomyComponent* economyComp_;
 	Roulette* roulete;
+	Damage* damage_;
+	LifeTD* life_;
 	
 	//ENEMIGOS 
 	vector<Entity*> enemies_;
@@ -94,12 +97,27 @@ private:
 	int fondowidth_, fondoheight_;
 
 	DialogueComponent* dialog_;
-	ShopComponent* shopComp_;
 	
+	
+	// SHOP
+	ShopComponent* shopComp_;
+	int upturnButtonX, upturnButtonY;
+	int upturnButtonWidth_, upturnButtonHeight_;
+	int upturnButtonOffsetX = 50;
+	int upturnButtonOffsetY = 20;
+	Vector2D upturnButtonPos_;
+	vector<Entity*> buttons;
+	Entity* upturnButton_;
+	Transform* upturnButtonTr_;
+	Button* upturnButtonComp_;
+
+	Entity* exitShopButton_;
+	Transform* exitShopButtonTr_;
+	Button* exitShopButtonComp_;
+
 	//HUDTD* hudTD = new HUDTD();
 public:
 	string getStateID(); // stringID
-	//DialogBox* d;
 	PuzzleCopas* puzzle1;
 	TopDownState();	
 	~TopDownState() {}
@@ -107,7 +125,8 @@ public:
 	void update();	
 	void handleEvents();
 	void render();
-	
+	void createShopButtons();
+	void cleanShopButtons();
 	Texture* npcTexture() {
 		int a = SDLUtils::instance()->rand().nextInt(0, 1);
 		if (a == 0) {
@@ -147,6 +166,9 @@ public:
 
 	}
 	Entity* getplayer() { return player_; };
-
+	ShopComponent* getShopComp() { return shopComp_; }
+	DialogueComponent* getDialog() { return dialog_; }
+	Button* getShopButton() { return upturnButtonComp_; }
+	vector<Entity*> getList() { return buttons; }
 };
 

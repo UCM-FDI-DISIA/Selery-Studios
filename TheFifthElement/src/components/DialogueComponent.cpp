@@ -1,6 +1,7 @@
 #include "DialogueComponent.h"
 #include "../utils/Entity.h"
 #include "../utils/Constants.h"
+#include "../states/TopDownState.h"
 DialogueComponent::DialogueComponent():Component() {
 	//coge el tipo de letra
 	font_ = &SDLUtils::instance()->fonts().at("TCentury");
@@ -72,9 +73,8 @@ void DialogueComponent::inicombe() {
 				conespacios.clear();
 				if (plynpc->getcol() == 2) {
 					openedShop_ = true;
+					static_cast<TopDownState*>(mngr_)->createShopButtons();
 				} 
-					
-
 			}
 		}
 	}

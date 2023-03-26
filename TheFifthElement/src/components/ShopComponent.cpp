@@ -1,5 +1,6 @@
 ﻿#pragma once
 #include "ShopComponent.h"
+#include "../states/TopDownState.h"
 
 ShopComponent::ShopComponent(Entity* upturnButton) {
 	upturnButton_ = upturnButton;
@@ -8,69 +9,30 @@ ShopComponent::ShopComponent(Entity* upturnButton) {
 	upturnButtonTr_ = upturnButton_->addComponent<Transform>(TRANSFORM_H, upturnButtonPos_, UPTURNBUTTON_WIDTH/2, UPTURNBUTTON_HEIGHT/2, 1);
 	upturnButton_->addComponent<Button>(BUTTON_H, "UPTURN");
 	upturnButton_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("UpturnButton"));
-ShopComponent::ShopComponent() {
+}
+ShopComponent::ShopComponent(EconomyComponent* economyComp, Damage* damage, LifeTD* life, Button* button) {
 	font_ = &SDLUtils::instance()->fonts().at("TCentury");
 	color_ = { 0,0,0 };
+    economyComp_ = economyComp;
+    damage_ = damage;
+    life_ = life;
+    upturnButtonComp_ = button;  
 }
 
 void ShopComponent::initComponent() {
-    upturnButtonTr_ = ent_->getComponent<Transform>(TRANSFORM_H);
+    
     dialog_ = ent_->getComponent<DialogueComponent>(DIALOGCOMPONENT_H);
-    upturnButtonX = upturnButtonTr_->getPos().getX();
-    upturnButtonY = upturnButtonTr_->getPos().getY();
-    upturnButtonPos_ = Vector2D(upturnButtonX + upturnButtonOffsetX / 2, upturnButtonY + upturnButtonOffsetY / 2);
-
-    if (dialog_->getopenedShop()) {
-        for (int i = 0; i < 4; i++) {
-            upturnButton_ = new Entity();
-            upturnButton_->setContext(mngr_);
-            upturnButtonTr_ = upturnButton_->addComponent<Transform>(TRANSFORM_H, Vector2D(upturnButtonPos_.getX(), upturnButtonY + upturnButtonOffsetY + i * 50), UPTURNBUTTON_WIDTH / 2, UPTURNBUTTON_HEIGHT / 2, 1);
-            upturnButtonComp_ = upturnButton_->addComponent<Button>(BUTTON_H, "UPTURN");
-            upturnButton_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("UpturnButton"), UPTURNBUTTON_WIDTH, UPTURNBUTTON_HEIGHT, upturnButtonTr_);
-            /*economyComp_ = upturnButton_->addComponent<EconomyComponent>(ECONOMYCOMPONENT_H);*/
-            mngr_->addEntity(upturnButton_);
-            buttons.push_back(upturnButton_);
-        }
-        for (int i = 0; i < 4; i++) {
-            upturnButton_ = new Entity();
-            upturnButton_->setContext(mngr_);
-            upturnButtonTr_ = upturnButton_->addComponent<Transform>(TRANSFORM_H, Vector2D(upturnButtonPos_.getX() + upturnButtonOffsetX, upturnButtonY + upturnButtonOffsetY + i * 50), UPTURNBUTTON_WIDTH / 2, UPTURNBUTTON_HEIGHT / 2, 1);
-            upturnButtonComp_ = upturnButton_->addComponent<Button>(BUTTON_H, "UPTURN");
-            upturnButton_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("UpturnButton"), UPTURNBUTTON_WIDTH, UPTURNBUTTON_HEIGHT, upturnButtonTr_);
-            /*economyComp_ = upturnButton_->addComponent<EconomyComponent>(ECONOMYCOMPONENT_H);*/
-            mngr_->addEntity(upturnButton_);
-            buttons.push_back(upturnButton_);
-        }
-        exitShopButton_ = new Entity();
-        exitShopButton_->setContext(mngr_);
-        exitShopButtonTr_ = exitShopButton_->addComponent<Transform>(TRANSFORM_H, Vector2D(upturnButtonX + SHOP_WIDTH / 14, upturnButtonY + upturnButtonOffsetY + 300), 557 / 2, 131 / 2, 1);
-        exitShopButton_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("ExitShop"), 557, 131, exitShopButtonTr_);
-        exitShopButtonComp_ = exitShopButton_->addComponent<Button>(BUTTON_H, "EXITSHOP");
-        mngr_->addEntity(exitShopButton_);
-    }
-
-
-    /*upturnButtonComp_ = ent_->getComponent<Button>(BUTTON_H);*/
+    
 }
 
 void ShopComponent::update() {
-    /*if (dialog_->getopenedShop()) {
-
-        for (auto e : buttons) {
-            mngr_->addEntity(e);
-        }
-
-    }*/
+   
 }
 
-void ShopComponent::handleEvent(SDL_Event event) {
-    for (auto e : buttons) {
-        e->handleEvent(event);
-        /* shopEconomy();*/
-    }
-    exitShopButtonComp_->handleEvent(event);
-
-}
+//void ShopComponent::handleEvent(SDL_Event event) {
+//    
+//
+//}
 
 void ShopComponent::render() {
     if (dialog_->getopenedShop()) {
@@ -109,54 +71,56 @@ int ShopComponent::increase(int& i) {
 
 // l�gica para manejar las compras en la tienda
 void ShopComponent::shopEconomy() {
-    if (/*upturnButtonComp_->getBool() && */u1 < MAX_UPGRADE && economyComp_->getMoney() >= price1_) { // si el bot�n es clicado(isClicked=true en Button), si "u1" es menor que el m�ximo de mejoras y si nuestro dinero es mayor o igual al precio del art�culo
+    TopDownState* topdownstate = static_cast<TopDownState*>(mngr_);
+    /*buttonss = topdownstate->getList();*/
+    if (topdownstate->getShopButton()->getBool() && u1 < MAX_UPGRADE && economyComp_->getMoney() >= price1_) { // si el bot�n es clicado(isClicked=true en Button), si "u1" es menor que el m�ximo de mejoras y si nuestro dinero es mayor o igual al precio del art�culo
         increase(u1); // incremento del valor de mejora
         economyComp_->can_Substract(price1_);// restamos nuestro dinero actual
         price1_ += 10; // actualizamos precio en la tienda
-        /*damage_->addDamage(1);*/
+        damage_->addDamage(0, 20); // el 0 corresponde al personaje(en este caso aire), y el 20 a la cantidad de daño que aumenta
     }
-    else if (/*upturnButtonComp_->getBool() && */u2 < MAX_UPGRADE && economyComp_->getMoney() >= price2_) {
+    else if (topdownstate->getShopButton()->getBool() && u2 < MAX_UPGRADE && economyComp_->getMoney() >= price2_) {
         increase(u2);
         economyComp_->can_Substract(price2_);
         price2_ += 10;
-        /*damage_->addDamage(1);*/
+        damage_->addDamage(1, 20);
     }
-    else if (/*upturnButtonComp_->getBool() && */u3 < MAX_UPGRADE && economyComp_->getMoney() >= price3_) {
-        increase(u3);
-        economyComp_->can_Substract(price3_);
-        price3_ += 10;
-        /*damage_->addDamage(1);*/
-    }
-    else if (/*upturnButtonComp_->getBool() && */u4 < MAX_UPGRADE && economyComp_->getMoney() >= price4_) {
-        increase(u4);
-        economyComp_->can_Substract(price4_);
-        price4_ += 10;
-        /*damage_->addDamage(1);*/
-    }
-    else if (/*upturnButtonComp_->getBool() && */u5 < MAX_UPGRADE && economyComp_->getMoney() >= price5_) {
-        increase(u5);
-        economyComp_->can_Substract(price5_);
-        price5_ += 10;
-        /*life_->addLife(1);*/
-    }
-    else if (/*upturnButtonComp_->getBool() && */u6 < MAX_UPGRADE && economyComp_->getMoney() >= price6_) {
-        increase(u6);
-        economyComp_->can_Substract(price6_);
-        price6_ += 10;
-        /*life_->addLife(1);*/
-    }
-    else if (/*upturnButtonComp_->getBool() && */u7 < MAX_UPGRADE && economyComp_->getMoney() >= price7_) {
-        increase(u7);
-        economyComp_->can_Substract(price7_);
-        price7_ += 10;
-        /*life_->addLife(1);*/
-    }
-    else if (/*upturnButtonComp_->getBool() && */u8 < MAX_UPGRADE && economyComp_->getMoney() >= price8_) {
-        increase(u8);
-        economyComp_->can_Substract(price8_);
-        price8_ += 10;
-        /*life_->addLife(1);*/
-    }
+    //else if (topdownstate->getShopButton()->getBool() && u3 < MAX_UPGRADE && economyComp_->getMoney() >= price3_) {
+    //    increase(u3);
+    //    economyComp_->can_Substract(price3_);
+    //    price3_ += 10;
+    //    damage_->addDamage(2, 20);
+    //}
+    //else if (topdownstate->getShopButton()->getBool() && u4 < MAX_UPGRADE && economyComp_->getMoney() >= price4_) {
+    //    increase(u4);
+    //    economyComp_->can_Substract(price4_);
+    //    price4_ += 10;
+    //    damage_->addDamage(3, 20);
+    //}
+    //else if (topdownstate->getShopButton()->getBool() && u5 < MAX_UPGRADE && economyComp_->getMoney() >= price5_) {
+    //    increase(u5);
+    //    economyComp_->can_Substract(price5_);
+    //    price5_ += 10;
+    //    life_->addLife(0, 20); // el 0 corresponde al personaje(en este caso aire), y el 20 a la cantidad de vida que aumenta
+    //}
+    //else if (topdownstate->getShopButton()->getBool() && u6 < MAX_UPGRADE && economyComp_->getMoney() >= price6_) {
+    //    increase(u6);
+    //    economyComp_->can_Substract(price6_);
+    //    price6_ += 10;
+    //    life_->addLife(1, 20);
+    //}
+    //else if (topdownstate->getShopButton()->getBool() && u7 < MAX_UPGRADE && economyComp_->getMoney() >= price7_) {
+    //    increase(u7);
+    //    economyComp_->can_Substract(price7_);
+    //    price7_ += 10;
+    //    life_->addLife(2, 20);
+    //}
+    //else if (topdownstate->getShopButton()->getBool() && u8 < MAX_UPGRADE && economyComp_->getMoney() >= price8_) {
+    //    increase(u8);
+    //    economyComp_->can_Substract(price8_);
+    //    price8_ += 10;
+    //    life_->addLife(3, 20);
+    //}
 }
 
 void ShopComponent::showShopBackground() {

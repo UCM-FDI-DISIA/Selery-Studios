@@ -1,4 +1,5 @@
 #include "Button.h"
+#include "../states/TopDownState.h"
 
 void Button::initComponent() {
 	buttonTransform = ent_->getComponent<Transform>(TRANSFORM_H);
@@ -69,10 +70,15 @@ void Button::handleEvent(SDL_Event event)
 				}
 				else if (identifier == "UPTURN") {
 					SDLUtils::instance()->soundEffects().at("pruebaBoton").play();
-					/*isClicked_ = true;*/
+					isClicked_ = true;
+					static_cast<TopDownState*>(mngr_)->getShopComp()->shopEconomy();										
 				}
 				else if (identifier == "EXITSHOP") {
 					cout << "salir tienda";
+					TopDownState* topdownstate = static_cast<TopDownState*>(mngr_);
+					topdownstate->cleanShopButtons();
+					topdownstate->getDialog()->setopenedShop();
+					
 				}
 				else if (identifier == "BACK") {
 					GameManager::instance()->backToMainMenu();

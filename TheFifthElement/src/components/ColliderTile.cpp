@@ -9,7 +9,7 @@ void ColliderTile::initComponent() {
 	input = ent_->getComponent<InputComponent>(INPUTCOMPONENT_H);
 	colision = new SDL_Rect();
 	player = new SDL_Rect();
-	
+	area = new SDL_Rect();
 	
 }
 void ColliderTile::update() {
@@ -30,7 +30,9 @@ void ColliderTile::update() {
 		topRight_ = { trans_col->getPos().getX() + trans_col->getW(), trans_col->getPos().getY() };
 		bottomLeft_ = { trans_col->getPos().getX(), trans_col->getPos().getY() + trans_col->getH() };
 		bottomRight_ = { trans_col->getPos().getX() + trans_col->getW(), trans_col->getPos().getY() + trans_col->getH() };*/
-		if (SDL_IntersectRect(player, colision, area)) {
+		bool a = SDL_IntersectRect(player, colision, area);
+		cout << a;
+		if (a) {
 			/*pTopLeft = trans_player->getPos();
 			pBottomLeft = { pTopLeft.getX(), pTopLeft.getY() + trans_player->getH() };
 			pTopRight = { pTopLeft.getX() + trans_player->getW(), pTopLeft.getY() };
@@ -38,9 +40,9 @@ void ColliderTile::update() {
 			// colision arriba
 
 			// UP=0, DOWN=1, LEFT=2, RIGHT=3
-			if (area->y < colision->y + (colision->h / 2)) {
+			if (area->y > colision->y ) { //por arriba
 					//colisiona por la izquierda
-					if (area->x <= (colision->x + (colision->w / 2))) {
+					if (area->x > colision->x) {
 						if (area->w > area->h) d = 0;
 						else d=2;
 					}
@@ -52,14 +54,14 @@ void ColliderTile::update() {
 			}
 			else { // colisiona por abajo
 					//colisiona por la izquierda
-					if (area->x <= (colision->x + (colision->w / 2))) {
-						if (area->w > area->h) d = 1;
-						else d = 2;
+					if (area->x > colision->x) {
+						if (area->w > area->h) d = 2;
+						else d = 1;
 					}
 					else {
 						//colisiona por la derecha
-						if (area->w > area->h) d = 1;
-						else d=3;
+						if (area->w > area->h) d = 3;
+						else d=1;
 					}
 			}
 			input->setDirection(d);
