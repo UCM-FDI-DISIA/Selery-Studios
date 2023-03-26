@@ -14,17 +14,17 @@ void ColliderTile::initComponent() {
 }
 void ColliderTile::update() {
 
-
+	player->x = trans_player->getPos().getX();
+	player->y = trans_player->getPos().getY();
+	player->h = trans_player->getH();
+	player->w = trans_player->getW();
 	for (auto c : colisions) {
 		trans_col = c->getComponent<Transform>(TRANSFORM_H);
 		colision->h = trans_col->getH();
 		colision->w = trans_col->getW();
 		colision->x = trans_col->getPos().getX();
 		colision->y = trans_col->getPos().getY();
-		player->x = trans_player->getPos().getX();
-		player->y = trans_player->getPos().getY();
-		player->h = trans_player->getH();
-		player->w = trans_player->getW();
+		
 
 		/*topLeft_ = trans_col->getPos();
 		topRight_ = { trans_col->getPos().getX() + trans_col->getW(), trans_col->getPos().getY() };
