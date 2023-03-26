@@ -26,6 +26,7 @@ private:
 
 
 	Transform* trans_player;
+	Transform* trans_col;
 	vector<Entity*> colisions;
 	InputComponent* input;
 

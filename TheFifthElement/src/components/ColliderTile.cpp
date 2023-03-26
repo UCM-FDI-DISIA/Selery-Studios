@@ -11,7 +11,7 @@ void ColliderTile::initComponent() {
 void ColliderTile::update() {
 
 	for (auto c : colisions) {
-		Transform* trans_col = c->getComponent<Transform>(TRANSFORM_H);
+		trans_col = c->getComponent<Transform>(TRANSFORM_H);
 		topLeft_ = trans_col->getPos();
 		topRight_ = { trans_col->getPos().getX() + trans_col->getW(), trans_col->getPos().getY() };
 		bottomLeft_ = { trans_col->getPos().getX(), trans_col->getPos().getY() + trans_col->getH() };
@@ -55,12 +55,24 @@ int ColliderTile::chooseDirection() {
 	// UP=0, DOWN=1, LEFT=2, RIGHT=3
 
 
-	if (pTopLeft.getY() <= bottomLeft_.getY()) {
+	if (pTopLeft.getY() <= bottomLeft_.getY() && pBottomLeft.getY() > bottomLeft_.getY()) {
+		return 0;
+	}
+	else if (pBottomLeft.getY() > topLeft_.getY() && pTopLeft.getY() < topLeft_.getY()) {
+		return 1;
+	}
+	else if (pTopLeft.getX() < topRight_.getX() && pTopRight.getX() > topRight_.getX()) {
+		return 2;
+	}
+	else if (pTopRight.getX() > topLeft_.getX() && pTopLeft.getX() < topLeft_.getX()) {
+		return 2;
+	}
+	/*if (pTopLeft.getY() <= bottomLeft_.getY()) {
 		return 0;
 	}
 	else if (pBottomLeft.getY() >= topLeft_.getY() && pTopLeft.getY() >= bottomLeft_.getY()) {
 		return 1;
-	}
+	}*/
 
 
 	//if (topLeft_.getY() <= pBottomLeft.getY()) {
