@@ -1,9 +1,11 @@
 #pragma once
 #include "../utils/Component.h"
 #include "../GameManager.h"
-#include "../components/Transform.h"
+#include "Transform.h"
 #include "../utils/Collision.h"
 #include "Image.h"
+//#include "DialogueComponent.h"
+//#include "ShopComponent.h"
 
 class Button : public Component
 {
@@ -18,6 +20,8 @@ private:
 	float scale;
 
 	bool isClicked_ = false; // utilizado para la tienda
+	/*ShopComponent* shopComp_;*/
+	/*DialogueComponent* dialog_;*/
 public:
 	Button(string identier_) : identifier(identier_) { currentPositionState = MOUSE_OUT; };
 	virtual ~Button() {};

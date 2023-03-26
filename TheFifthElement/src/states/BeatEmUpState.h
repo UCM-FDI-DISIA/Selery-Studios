@@ -1,7 +1,6 @@
 #pragma once
 #include "GameState.h"
 #include "../sdlutils/SDLUtils.h"
-#include "../sdlutils/SDLUtils.h"
 #include "../ColManager.h"
 #include "../components/AttackBoxComponent.h"
 #include "../components/AnimationEnemyBEUComponent.h"
@@ -23,6 +22,8 @@
 #include "../components/ShadowComponent.h"
 
 #include "../components/AttackEarthBossComponent.h"
+#include "../components/FireAttackComponent.h"
+#include "../components/rouletteComponent.h"
 
 using name = string;
 using damage = int;
@@ -52,6 +53,9 @@ private:
 	float enemy_width=0, enemy_height=0;
 	float scale;
 	
+	//HUD
+	Entity* Hud_;
+	Roulette* roulete;
 	//BOSSES
 	Entity* boss_;
 
@@ -67,6 +71,7 @@ public:
 	string getEnemyType(int i);
 	void finishBEU();
 	void handleEvents();
+	inline Entity* getPlayer() { return player_; }
 	ColManager* getColManager() { return colManager_; }
 	void update();
 };

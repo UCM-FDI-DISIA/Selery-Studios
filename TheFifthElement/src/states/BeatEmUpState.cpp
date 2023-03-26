@@ -9,6 +9,9 @@ BeatEmUpState::BeatEmUpState(bool boss, string typeBoss) {
 	background_->addComponent<Transform>(TRANSFORM_H, Vector2D(0,0), WIN_WIDTH, WIN_HEIGHT);
 	background_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("airBackground"));
 	addEntity(background_);
+	Hud_ = new Entity();
+	Hud_->setContext(this);
+	roulete = Hud_->addComponent<Roulette>(ROULETTECOMPONENT_H);
 
 	player_ = new Entity();
 	player_->setContext(this);
@@ -19,17 +22,19 @@ BeatEmUpState::BeatEmUpState(bool boss, string typeBoss) {
 	texture_player_ = &SDLUtils::instance()->images().at(sk_->getSkin());
 	player_->addComponent<FramedImage>(FRAMEDIMAGE_H, texture_player_, PLAYERBEU_WIDTH_FRAME, PLAYERBEU_HEIGHT_FRAME, 8, "air");
 	player_->addComponent<JumpComponent>(JUMP_H);
+	addEntity(Hud_);
 	player_->addComponent<LifeComponent>(LIFECOMPONENT_H, 10);
 	player_->addComponent<ShadowComponent>(SHADOWCOMPONENT_H);
-	in_ = player_->addComponent<InputComponentBEU>(INPUTCOMPONENTBEU_H);
+	in_ = player_->addComponent<InputComponentBEU>(INPUTCOMPONENTBEU_H, roulete);
 	player_->addComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
 	player_->addComponent<AttackBoxComponent>(ATTACKBOXCOMPONENT_H);
 	player_->addComponent<LimitBEU>(LIMITBEU_H);
 	player_->addComponent<ColliderComponent>(int(COLLIDERCOMPONENT_H), Vector2D(90, 80), 1.2*PLAYERBEU_HEIGHT_FRAME / 3, PLAYERBEU_WIDTH_FRAME / 7);
 	player_->addComponent<PointOfFightComponent>(POINTOFFIGHTCOMPONENT_H, 30, 10);
 	sk_->initComponent();
+	player_->addComponent<FireAttackComponent>(SPAWN_H, this);
 	addEntity(player_);
-
+	
 	colManager_ = new ColManager(this);
 
 	if (!boss) {
@@ -55,19 +60,14 @@ void BeatEmUpState::AddEnemies(int n_enemies) {
 		int type = random->nextInt(0, 4);
 		Vector2D pos={ (float)random->nextInt(50,WIN_WIDTH - 80),(float)random->nextInt(50,WIN_HEIGHT - 50) };
 		enemy_ = new Entity();
-		if (character == 0) {
+		enemy_->setContext(this);
+		if (character == 0) animation_=enemy_->addComponent<AnimationEnemyBEUComponent>(ANIMATIONENEMYBEUCOMPONENT_H, getEnemyType(type), "bat", player_);
 
-			//enemy_ = addEntity(new EnemyBEU(pos, player_, 10, "bat", getEnemyType(element)));
-			animation_=enemy_->addComponent<AnimationEnemyBEUComponent>(ANIMATIONENEMYBEUCOMPONENT_H, getEnemyType(type), "bat", player_);
-		}
-		else if (character == 1) {
-			animation_=enemy_->addComponent<AnimationEnemyBEUComponent>(ANIMATIONENEMYBEUCOMPONENT_H, getEnemyType(type), "skeleton", player_);
-		}
-		else if (character == 2) {
-			animation_ = enemy_->addComponent<AnimationEnemyBEUComponent>(ANIMATIONENEMYBEUCOMPONENT_H, getEnemyType(type), "shroom", player_);
-		}
-		else {
-			animation_ = enemy_->addComponent<AnimationEnemyBEUComponent>(ANIMATIONENEMYBEUCOMPONENT_H, getEnemyType(type), "goblin", player_);
+		else if (character == 1) animation_=enemy_->addComponent<AnimationEnemyBEUComponent>(ANIMATIONENEMYBEUCOMPONENT_H, getEnemyType(type), "skeleton", player_);
+
+		else if (character == 2) animation_ = enemy_->addComponent<AnimationEnemyBEUComponent>(ANIMATIONENEMYBEUCOMPONENT_H, getEnemyType(type), "shroom", player_);
+
+		else animation_ = enemy_->addComponent<AnimationEnemyBEUComponent>(ANIMATIONENEMYBEUCOMPONENT_H, getEnemyType(type), "goblin", player_);
 
 		}
 		////animation_->changeState(AnimationEnemyBEUComponent::Moving);
@@ -81,11 +81,9 @@ void BeatEmUpState::AddEnemies(int n_enemies) {
 		enemy_->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, animation_->getOffset(), animation_->getColHeight(), animation_->getColWidth());
 		enemy_->addComponent<ColDetectorComponent>(COLDETECTORCOMPONENT_H, enemy_, player_);
 		animation_->initComponent();
+		enemy_->addComponent<AttackBoxComponent>(ATTACKBOXCOMPONENT_H);
+		
 		addEntity(enemy_);
-
-
-
-		//en_->getComponent<LifeComponent>(LIFECOMPONENT_H)->setLifeBar(lb_);
 	}
 }
 

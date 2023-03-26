@@ -8,7 +8,7 @@
 using namespace std;
 class EconomyComponent : public Component {
 private:
-	Vector2D position = { 40,WIN_HEIGHT / 12 };
+	Vector2D position = { 130,50 };
 	Texture* coin_texture = &SDLUtils::instance()->images().at("coin");
 	int width = 20, height = 20;
 	int img_width = 224, img_height = 16, row = 0, frames = 14;

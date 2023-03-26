@@ -75,6 +75,12 @@ const uint SHOP_HEIGHT = 876;
 const uint UPTURNBUTTON_WIDTH = 88;
 const uint UPTURNBUTTON_HEIGHT = 84;
 const uint MAX_UPGRADE = 10;
+const uint SHOP_FRAME_WIDTH = 80;
+const uint SHOP_FRAME_HEIGHT = 80;
+const uint AVATAR_WIDTH = 64;
+const uint AVATAR_HEIGHT = 64;
+const float EXITSHOP_WIDTH = 557.0f;
+const float EXITSHOP_HEIGHT = 131.0f;
 
 /*const string FUEGO = "fire";
 const string AIRE = "wind";

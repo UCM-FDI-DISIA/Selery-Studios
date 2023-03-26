@@ -27,7 +27,7 @@ void EconomyComponent::render() {
 		coin_texture->render(src, dest);
 	}
 	money = std::to_string(current_money);
-	f->render(SDLUtils::instance()->renderer(), money, position.getY() + ofset_x, position.getY() + ofset_y, color);
+	f->render(SDLUtils::instance()->renderer(), money, position.getX() + ofset_x, position.getY() + ofset_y, color);
 }
 
 
@@ -44,7 +44,7 @@ bool EconomyComponent::can_Substract(int cuantity) {
 	return a;
 }
 inline void EconomyComponent::addMoney(int cuantity) {
-	if (cuantity + current_money < 999) {
+	if (cuantity + current_money < max_money) {
 		current_money += cuantity;
 		setAnim();
 	}

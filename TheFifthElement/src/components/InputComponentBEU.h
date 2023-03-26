@@ -8,6 +8,7 @@
 #include "../components/LifeComponent.h"
 #include "../components/ShadowComponent.h"
 #include "SkinBEUComponent.h"
+#include "rouletteComponent.h"
 #include <array>
 class Image;
 
@@ -20,7 +21,7 @@ private:
     LifeComponent* lifeC_ = nullptr;
     ShadowComponent* shadow = nullptr;
     SkinBEUComponent* sk_ = nullptr;
-
+    Roulette* roulette;
     bool alreadyPressedBasic = false;
     bool alreadyPressedSpecial = false;
     bool alreadyPressed2 = false;
@@ -30,7 +31,7 @@ private:
 public:
     bool elements[4];
 
-    InputComponentBEU();
+    InputComponentBEU(Roulette* r);
     void initComponent();
     void update();
     void handleEvents(SDL_Event event);

@@ -7,10 +7,11 @@ DialogueComponent::DialogueComponent():Component() {
 	//de que color va a salir, en este caso negro
 	color_ = { 50,50,0 };
 	hasstarted = false;
+	openedShop_ = false;
 }
 void DialogueComponent::initComponent() {
 	plynpc = ent_->getComponent<PlayerNPC>(PLAYERNPC_H);
-	t = new Texture(GameManager::instance()->getRenderer(), "./assets/Texts/image.png");
+	t = &SDLUtils::instance()->images().at("papiro");
 }
 void DialogueComponent::setdialogue() {
 	//coge el dialogo completo 
@@ -57,7 +58,6 @@ void DialogueComponent::inicombe() {
 		if (hasstarted == false) {
 			setdialogue();
 			hasstarted = true;
-			cout << linea;
 		}
 		else {
 			if (linea < conespacios.size()-1) {
@@ -69,8 +69,10 @@ void DialogueComponent::inicombe() {
 			}
 			else {
 				hasstarted = false;
-				
-					conespacios.clear();
+				conespacios.clear();
+				if (plynpc->getcol() == 2) {
+					openedShop_ = true;
+				} 
 					
 
 			}

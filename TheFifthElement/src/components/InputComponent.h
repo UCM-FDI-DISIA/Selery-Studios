@@ -8,6 +8,7 @@
 #include <string>
 #include "DialogueComponent.h"
 #include <array>
+#include "rouletteComponent.h"
 
 enum Directions {
     NONE=-1,
@@ -22,10 +23,10 @@ private:
     MovementComponent* mov_ = nullptr;
     SkinComponent* skin_ = nullptr;
     DialogueComponent* dialog = nullptr;
-
+    Roulette* roulet;
     bool elements[4];
 public:
-    InputComponent();
+    InputComponent(Roulette* r);
     void initComponent();
     void update();
     void handleEvents(SDL_Event event);

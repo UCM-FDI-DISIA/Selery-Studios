@@ -69,7 +69,7 @@ void Button::handleEvent(SDL_Event event)
 				}
 				else if (identifier == "UPTURN") {
 					SDLUtils::instance()->soundEffects().at("pruebaBoton").play();
-					isClicked_ = true;
+					/*isClicked_ = true;*/
 				}
 				else if (identifier == "EXITSHOP") {
 					cout << "salir tienda";

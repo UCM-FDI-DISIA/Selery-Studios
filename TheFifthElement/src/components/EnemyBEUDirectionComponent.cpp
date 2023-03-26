@@ -20,33 +20,45 @@ void EnemyBEUDirectionComponent::update() {
 		col_ = ent_->getComponent<ColliderComponent>(COLLIDERCOMPONENT_H);
 		set_ = true;
 	}
-	if (!stop_) {
+	if (!stop_ && player_ != nullptr) {
 
-		Vector2D offset_ = playerCol_->getOffset();// player offset
+		Vector2D Poffset_ = playerCol_->getOffset();// player offset
 		float w_ = playerTr_->getW();// player frame width
 		float h_ = playerTr_->getH();// player frame height
 		float pcw_ = playerCol_->getColWidth();// player collider width
 		float pch_ = playerCol_->getColHeight();// player collider height
 
-		float playerPosX = playerTr_->getPos().getX() + offset_.getX() /* + cw_ / 2*/;// player pos X
-		float playerFloor = playerTr_->getPos().getY() + offset_.getY() + pch_;// player pos Y (floor)
+		float playerPosX = playerTr_->getPos().getX() + Poffset_.getX();;// player pos X
 
-		offset_ = col_->getOffset();// enemy offset
+		Vector2D offset_ = col_->getOffset();// enemy offset
 		w_ = tr_->getW();// enemy frame width
 		h_ = tr_->getH();// enemy frame height
 		float cw_ = col_->getColWidth();// enemy collider width
 		float ch_ = col_->getColHeight();// enemy collider height
 
 		float posX = tr_->getPos().getX() + offset_.getX();// enemy pos X
-		float posY = tr_->getPos().getY();// enemy pos Y
-		float targetY = playerFloor - offset_.getY() - ch_;// target point Y
+		
+		float posY, targetY; 
 
-		if (posX > playerPosX) playerPosX += pcw_;
-		else playerPosX -= pcw_/2;
+		if (type_ != "bat") {
+			float playerFloor = playerTr_->getPos().getY() + Poffset_.getY() + pch_;// player pos Y (floor)
+
+			posY = tr_->getPos().getY();// enemy pos Y
+			targetY = playerFloor - offset_.getY() - ch_;// target point Y
+		}
+		else {
+			
+			posY = tr_->getPos().getY() + offset_.getY();// enemy pos Y
+			targetY = playerTr_->getPos().getY() + Poffset_.getY();// target point Y
+		}
+
+		if (posX > playerPosX) playerPosX += pcw_ / 2;
+		else playerPosX -= pcw_ / 2;
 
 		Vector2D director_ = Vector2D(playerPosX - posX, targetY - posY);
 
-		float dist_ = sqrt(pow(director_.getX(), 2) + (director_.getY(), 2));// distancia
+
+		float dist_ = sqrt(pow(director_.getX(), 2) + (director_.getY(), 2));// distance
 		if (dist_ <= distance_)
 		{
 			speed = 0.005f;
@@ -62,10 +74,9 @@ void EnemyBEUDirectionComponent::update() {
 				rnd = rnd / 100.00f;
 				changeDir(Vector2D(dir_.getX(), rnd));
 				cont = 0;
-				//if (!static_cast<EnemyBEU*>(ent_)->getSet())static_cast<EnemyBEU*>(ent_)->setSet(true);
 			}
 
-			if (tr_->getPos().getX() >= screenWidth_ /* - tr_->getW() / 4*//*final de pantalla*/)
+			if (tr_->getPos().getX() >= screenWidth_/*esto debería ser el punto máximo de la pantalla al que se puede llegar*/)
 				izq = true;// tiene que ir a la izquierda
 
 			else if (tr_->getPos().getX() <= 0/*principio de pantalla*/)
@@ -92,8 +103,6 @@ void EnemyBEUDirectionComponent::changeDir(Vector2D d)
 
 void EnemyBEUDirectionComponent::stop(bool s)
 {
-	if (s) {
-		changeDir(Vector2D(0, 0));
-	}
+	if (s)changeDir(Vector2D(0, 0));
 	stop_ = s;
 }
