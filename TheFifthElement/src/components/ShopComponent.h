@@ -13,19 +13,7 @@ class ShopComponent : public Component {
 
 private:
 	Vector2D shopPos_ = { 250, 100 };
-	list<Entity*> buttons;
-	Entity* upturnButton_;
-	Transform* upturnButtonTr_;
-
-	Entity* exitShopButton_;
-	Transform* exitShopButtonTr_;
-	Button* exitShopButtonComp_;
-
-	int upturnButtonX, upturnButtonY;
-	int upturnButtonWidth_, upturnButtonHeight_;
-	int upturnButtonOffsetX = 165;
-	int upturnButtonOffsetY = 150;
-	Vector2D upturnButtonPos_;
+	
 	DialogueComponent* dialog_ = nullptr;
 
 	Texture* shopBackground_ = &SDLUtils::instance()->images().at("ShopBackground");
@@ -62,15 +50,15 @@ private:
 	int price8_ = 10;
 	string textCoin_;
 
-	/*Damage* damage_;
-	LifeTD* life_;*/
+	Damage* damage_;
+	LifeTD* life_;
 	Button* upturnButtonComp_;
 	Image* upturnButtonImg_;
 public:
-	ShopComponent();
+	ShopComponent(EconomyComponent* economyComp, Damage* damage, LifeTD* life, Button* button);
 	void initComponent();
 	void update();
-	void handleEvent(SDL_Event event);
+	/*void handleEvent(SDL_Event event);*/
 	void render();
 	void showUpgradeText(int value, int offsetXup, int offsetYup, int offsetXcoin, int offsetYcoin, int price);
 	int increase(int& i);

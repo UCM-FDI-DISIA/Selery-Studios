@@ -52,3 +52,7 @@ void Game::render() { //render
 	GameManager::instance()->render();
 	//gameStMc->render();
 }
+
+//void Game::refresh() {
+//	
+//}

@@ -219,8 +219,10 @@
     <ClInclude Include="src\utils\Vector2D.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\components\Damage.cpp" />
     <ClCompile Include="src\components\FireAttackComponent.cpp" />
     <ClCompile Include="src\components\NPCcollisioncomponent.cpp" />
+    <ClCompile Include="src\components\LifeTD.cpp" />
     <ClCompile Include="src\states\PauseState.cpp" />
     <ClCompile Include="src\components\AttackEarthBossComponent.cpp" />
     <ClCompile Include="src\components\EconomyComponent.cpp" />

@@ -31,7 +31,7 @@ void InputComponent::handleEvents(SDL_Event event)
 	ih().update(event);
 
 	if (ih().keyDownEvent()){
-		if (!dialog->gethasstarted()) {
+		if (!dialog->gethasstarted() && !dialog->getopenedShop()) {
 			if (ih().isKeyDown(SDL_SCANCODE_A)&& d!= LEFT) {
 				mov_->setDir(Vector2D(-1, 0));
 				skin_->changeState(SkinComponent::Left);
