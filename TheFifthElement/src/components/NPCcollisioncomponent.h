@@ -16,6 +16,11 @@ private:
 	Transform* tr1;
 	Transform* tr2;
 	SDL_Rect rectPlayer, rectNPC;
+	Texture* interact_;
+	SDL_Rect dest;
+	bool visibility=false;
+	Vector2D pos_;
+
 	int npc_ = -1;
 public:
 	//NPCcollisioncomponent(Entity* player, int npc);
@@ -41,22 +46,40 @@ public:
 		rectNPC = getRectNPC();
 		rectPlayer = getPlayerRect();
 
+		interact_= &SDLUtils::instance()->images().at("E");
+		pos_ = Vector2D(rectNPC.x + 50, rectNPC.y);
+		dest = build_sdlrect(pos_, 32, 32);
+		interact_->render(dest);
+		
 	}
 	void update()
 	{
-
 		if (Collision::collides(Vector2D(rectPlayer.x, rectPlayer.y), rectPlayer.w, rectPlayer.h, Vector2D(rectNPC.x, rectNPC.y), rectNPC.w, rectNPC.h))
 		{
-			plynpc->setcolnpc(npc_);
+			plynpc->setcolnpc(npc_);	
+			visibility = true;
 
 		}
+		else { visibility = false; }
 		updateRects();
+
 	}
 	void updateRects()
 	{
 		//Modo para actualizar los rect?gulos
 		rectPlayer = getPlayerRect();
 		rectNPC = getRectNPC();
+	}
+
+	void render()
+	{
+		if(visibility==true)
+		{
+		}
+		else 
+		{ 
+
+		}
 	}
 };
 #endif

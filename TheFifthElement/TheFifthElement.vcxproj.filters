@@ -63,6 +63,7 @@
     <ClCompile Include="src\components\EconomyComponent.cpp" />
     <ClCompile Include="src\states\PauseState.cpp" />
     <ClCompile Include="src\components\FireAttackComponent.cpp" />
+    <ClCompile Include="src\components\NPCcollisioncomponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\components\Button.h" />
@@ -148,6 +149,7 @@
     <ClInclude Include="src\components\Damage.h" />
     <ClInclude Include="src\components\rouletteComponent.h" />
     <ClInclude Include="src\components\FireAttackComponent.h" />
+    <ClInclude Include="src\components\NPCcollisioncomponent.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="TheFifthElement.rc" />
