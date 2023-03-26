@@ -3,19 +3,79 @@
 #define SHOPCOMPONENT_H_
 #include "../utils/Component.h"
 #include "../utils/Vector2D.h"
-#include "../components/Button.h"
+#include "Button.h"
+#include "EconomyComponent.h"
+#include "DialogueComponent.h"
+#include "Damage.h"
+#include "LifeTD.h"
 
 class ShopComponent : public Component {
 
 private:
+	Vector2D shopPos_ = { 250, 100 };
+	list<Entity*> buttons;
 	Entity* upturnButton_;
 	Transform* upturnButtonTr_;
+
+	Entity* exitShopButton_;
+	Transform* exitShopButtonTr_;
+	Button* exitShopButtonComp_;
+
+	int upturnButtonX, upturnButtonY;
 	int upturnButtonWidth_, upturnButtonHeight_;
+	int upturnButtonOffsetX = 165;
+	int upturnButtonOffsetY = 150;
 	Vector2D upturnButtonPos_;
+	DialogueComponent* dialog_ = nullptr;
+
+	Texture* shopBackground_ = &SDLUtils::instance()->images().at("ShopBackground");
+	Texture* airAvatar_ = &SDLUtils::instance()->images().at("AirAvatar");
+	Texture* fireAvatar_ = &SDLUtils::instance()->images().at("FireAvatar");
+	Texture* waterAvatar_ = &SDLUtils::instance()->images().at("WaterAvatar");
+	Texture* earthAvatar_ = &SDLUtils::instance()->images().at("EarthAvatar");
+	Texture* avatarFrame_ = &SDLUtils::instance()->images().at("ShopFrame");
+	int frameOffsetY_ = 50;
+
+	// Texto mejoras
+	int u1 = 0;
+	int u2 = 0;
+	int u3 = 0;
+	int u4 = 0;
+	int u5 = 0;
+	int u6 = 0;
+	int u7 = 0;
+	int u8 = 0;
+	Font* font_;
+	string textUp_;
+	int textX = 300;
+	int textY = 270;
+	SDL_Color color_;
+
+	EconomyComponent* economyComp_;
+	int price1_ = 10;
+	int price2_ = 10;
+	int price3_ = 10;
+	int price4_ = 10;
+	int price5_ = 10;
+	int price6_ = 10;
+	int price7_ = 10;
+	int price8_ = 10;
+	string textCoin_;
+
+	/*Damage* damage_;
+	LifeTD* life_;*/
+	Button* upturnButtonComp_;
+	Image* upturnButtonImg_;
 public:
-	ShopComponent(Entity* upturnButton);
+	ShopComponent();
 	void initComponent();
 	void update();
+	void handleEvent(SDL_Event event);
 	void render();
+	void showUpgradeText(int value, int offsetXup, int offsetYup, int offsetXcoin, int offsetYcoin, int price);
+	int increase(int& i);
+	void shopEconomy();
+	void showShopBackground();
+	void showShopAvatar(Vector2D avatarPos, Vector2D framePos, Texture* avatar, Texture* frame);
 };
 #endif

@@ -68,8 +68,10 @@ void DialogueComponent::inicombe() {
 			}
 			else {
 				hasstarted = false;
-				
-					conespacios.clear();
+				conespacios.clear();
+				if (plynpc->getcol() == 2) {
+					openedShop_ = true;
+				} 
 					
 
 			}
