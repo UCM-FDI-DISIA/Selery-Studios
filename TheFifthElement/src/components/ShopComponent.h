@@ -3,7 +3,6 @@
 #define SHOPCOMPONENT_H_
 #include "../utils/Component.h"
 #include "../utils/Vector2D.h"
-#include "Button.h"
 #include "EconomyComponent.h"
 #include "DialogueComponent.h"
 #include "Damage.h"
@@ -52,13 +51,11 @@ private:
 
 	Damage* damage_;
 	LifeTD* life_;
-	Button* upturnButtonComp_;
-	Image* upturnButtonImg_;
+	
 public:
-	ShopComponent(EconomyComponent* economyComp, Damage* damage, LifeTD* life, Button* button);
+	ShopComponent(EconomyComponent* economyComp, Damage* damage, LifeTD* life);
 	void initComponent();
 	void update();
-	/*void handleEvent(SDL_Event event);*/
 	void render();
 	void showUpgradeText(int value, int offsetXup, int offsetYup, int offsetXcoin, int offsetYcoin, int price);
 	int increase(int& i);

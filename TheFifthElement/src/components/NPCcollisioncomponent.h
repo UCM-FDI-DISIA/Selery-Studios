@@ -72,7 +72,7 @@ public:
 	{
 		if(visibility==true)
 		{
-			SDL_Rect dest = { 100,100,100,100 };
+			SDL_Rect dest = { 100,100,32,32 };
 			SDLUtils::instance()->images().at("E").render(dest);
 		}
 	}

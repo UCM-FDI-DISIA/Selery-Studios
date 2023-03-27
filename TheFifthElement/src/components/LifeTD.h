@@ -25,7 +25,7 @@ public:
 	virtual void update();
 	virtual void render();
 	virtual ~LifeTD() {};
-	int getLife() { return life; };
-	inline void addLife(int i, int cuantity) { lives[0] += cuantity; }
+	int getLife(int i) { return lives[i]; };
+	inline void addLife(int i, int cuantity) { lives[i] += cuantity; }
 };
 #endif

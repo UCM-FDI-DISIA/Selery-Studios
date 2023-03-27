@@ -1,7 +1,9 @@
 #include "LifeTD.h"
 
 LifeTD::LifeTD() {
-
+	for (int i = 0; i < 4; i++) {
+		lives.push_back(life);
+	}
 }
 
 void LifeTD::initComponent() {
