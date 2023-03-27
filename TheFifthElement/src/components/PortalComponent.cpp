@@ -5,7 +5,7 @@ PortalComponent::PortalComponent() {
 }
 void PortalComponent::initComponent() {
 	//coge el transform del juegador
-	trPlayer_ = static_cast<TopDownState*> (mngr_)->getplayer()->getComponent<Transform>(TRANSFORM_H);
+	trPlayer_ = static_cast<TopDownState*>(mngr_)->getplayer()->getComponent<Transform>(TRANSFORM_H);
 }
 
 

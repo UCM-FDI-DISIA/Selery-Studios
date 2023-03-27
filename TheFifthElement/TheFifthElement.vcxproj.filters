@@ -15,21 +15,13 @@
     <ClCompile Include="src\components\CheckCollision.cpp" />
     <ClCompile Include="src\utils\Collision.cpp" />
     <ClCompile Include="src\components\Enemy_movementTD_component.cpp" />
-    <ClCompile Include="src\Entities\DialogBox.cpp" />
-    <ClCompile Include="src\Entities\Element.cpp" />
-    <ClCompile Include="src\Entities\Enemy.cpp" />
-    <ClCompile Include="src\Entities\EnemyBEU.cpp" />
     <ClCompile Include="src\components\EnemyBEUDirectionComponent.cpp" />
     <ClCompile Include="src\GameManager.cpp" />
     <ClCompile Include="src\components\InputComponent.cpp" />
     <ClCompile Include="src\components\InputComponentBEU.cpp" />
     <ClCompile Include="src\components\LifeComponent.cpp" />
     <ClCompile Include="src\components\MovementComponent.cpp" />
-    <ClCompile Include="src\Entities\Npc.cpp" />
     <ClCompile Include="src\components\ObjectsComponent.cpp" />
-    <ClCompile Include="src\Entities\PlayerBEU.cpp" />
-    <ClCompile Include="src\Entities\PlayerTD.cpp" />
-    <ClCompile Include="src\Entities\PortalComponent.cpp" />
     <ClCompile Include="src\components\SkinComponent.cpp" />
     <ClCompile Include="src\states\GameState.cpp" />
     <ClCompile Include="src\states\GameStateMachine.cpp" />
@@ -47,7 +39,6 @@
     <ClCompile Include="src\utils\Vector2D.cpp" />
     <ClCompile Include="src\components\JumpComponent.cpp" />
     <ClCompile Include="src\components\ColliderTile.cpp" />
-    <ClCompile Include="src\Entities\LifeBar.cpp" />
     <ClCompile Include="src\ColManager.cpp" />
     <ClCompile Include="src\components\ShopComponent.cpp" />
     <ClCompile Include="src\components\LifeEarthBossComponent.cpp" />
@@ -66,6 +57,8 @@
     <ClCompile Include="src\components\NPCcollisioncomponent.cpp" />
     <ClCompile Include="src\components\Damage.cpp" />
     <ClCompile Include="src\components\LifeTD.cpp" />
+    <ClCompile Include="src\components\FramedImage.cpp" />
+    <ClCompile Include="src\components\PortalComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\components\Button.h" />
@@ -81,11 +74,7 @@
     <ClInclude Include="src\components\CheckCollision.h" />
     <ClInclude Include="src\utils\Collision.h" />
     <ClInclude Include="src\components\Enemy_movementTD_component.h" />
-    <ClInclude Include="src\Entities\DialogBox.h" />
     <ClInclude Include="src\components\DialogueComponent.h" />
-    <ClInclude Include="src\Entities\Element.h" />
-    <ClInclude Include="src\Entities\Enemy.h" />
-    <ClInclude Include="src\Entities\EnemyBEU.h" />
     <ClInclude Include="src\components\EnemyBEUDirectionComponent.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="src\GameManager.h" />
@@ -94,10 +83,6 @@
     <ClInclude Include="src\components\InputComponentBEU.h" />
     <ClInclude Include="src\components\LifeComponent.h" />
     <ClInclude Include="src\components\MovementComponent.h" />
-    <ClInclude Include="src\Entities\Npc.h" />
-    <ClInclude Include="src\Entities\PlayerBEU.h" />
-    <ClInclude Include="src\Entities\PlayerTD.h" />
-    <ClInclude Include="src\Entities\PortalComponent.h" />
     <ClInclude Include="src\components\SkinComponent.h" />
     <ClInclude Include="src\states\GameState.h" />
     <ClInclude Include="src\states\GameStateMachine.h" />
@@ -129,7 +114,6 @@
     <ClInclude Include="src\utils\Vector2D.h" />
     <ClInclude Include="src\components\JumpComponent.h" />
     <ClInclude Include="src\components\ColliderTile.h" />
-    <ClInclude Include="src\Entities\LifeBar.h" />
     <ClInclude Include="src\ColManager.h" />
     <ClInclude Include="src\components\ShopComponent.h" />
     <ClInclude Include="src\components\LifeEarthBossComponent.h" />
@@ -152,6 +136,8 @@
     <ClInclude Include="src\components\rouletteComponent.h" />
     <ClInclude Include="src\components\FireAttackComponent.h" />
     <ClInclude Include="src\components\NPCcollisioncomponent.h" />
+    <ClInclude Include="src\components\FramedImage.h" />
+    <ClInclude Include="src\components\PortalComponent.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="TheFifthElement.rc" />

@@ -18,7 +18,7 @@ void Image::update() {
 
 // Dibuja en escena
 void Image::render() {
-	Vector2D a = {tr_->getPos().getX() - mngr_->camRect_.x, tr_->getPos().getY() - mngr_->camRect_.y};
+	Vector2D a = { tr_->getPos().getX() - mngr_->camRect_.x, tr_->getPos().getY() - mngr_->camRect_.y };
 	SDL_Rect dest = build_sdlrect(a, tr_->getW(), tr_->getH());
 	tex_->render(dest);
 }

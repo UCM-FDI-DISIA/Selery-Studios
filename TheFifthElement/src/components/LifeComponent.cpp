@@ -7,7 +7,7 @@ LifeComponent::LifeComponent(float maxLife) {
 
 void LifeComponent::initComponent() {
 	im_ = ent_->getComponent<FramedImage>(FRAMEDIMAGE_H);
-	////type_ = im_->getType();
+	type_ = im_->getType();
 
 	enemy_ = ent_->hasComponent(ANIMATIONENEMYBEUCOMPONENT_H);
 	scale = WIN_WIDTH / 900;

@@ -465,7 +465,7 @@ void AttackBoxComponent::handleBoxes()
 		else if(sk_->getSkin() == "Player_BEU_air")
 		{
 			//Comprobamos que animaci�n estamos ejecutando y en que punto de la animaci�n estamos 
-			if (im_->getRow() == 9 && im_->getCol() <= 6)
+			if (im_->getTexKey() == "Player_BEU_air_attack3" && im_->getCol() <= 6)
 			{
 				if (!boxCreated)
 				{
@@ -517,7 +517,7 @@ void AttackBoxComponent::handleBoxes()
 				}
 			}
 
-			else if (im_->getRow() == 9 && im_->getCol() >6 && im_->getCol() <= 13)
+			else if (im_->getTexKey() == "Player_BEU_air_attack3" && im_->getCol() >6 && im_->getCol() <= 13)
 			{
 				if (!boxCreated)
 				{
@@ -553,7 +553,7 @@ void AttackBoxComponent::handleBoxes()
 				}
 			}
 
-			else if (im_->getRow() == 9 && im_->getCol() > 13 && im_->getCol() <= 25)
+			else if (im_->getTexKey() == "Player_BEU_air_attack3" && im_->getCol() > 13 && im_->getCol() <= 25)
 			{
 				if (!boxCreated)
 				{
@@ -597,15 +597,9 @@ void AttackBoxComponent::handleBoxes()
 				}
 
 			}
-
-			else if (im_->getRow() == 10)
-			{
-				
-
-				if (!boxCreated)
-				{
+			else if (im_->getTexKey() == "Player_BEU_air_super") {
+				if (!boxCreated) {
 					boxes.clear();
-
 					//Para poder cambiar satisfactoriamente la direccion del cuadrado
 					if (im_->getFlip() == SDL_FLIP_NONE)
 					{
@@ -614,16 +608,11 @@ void AttackBoxComponent::handleBoxes()
 					else
 					{
 						way = -1;
-					}
-					
+					}		
 					boxes.push_back(build_sdlrect(entityTr->getPos().getX() - mngr_->camRect_.x + entityTr->getW() / 2, entityTr->getPos().getY() +10+ entityTr->getH()/2, 30, 60));
 					
 				//	boxes.push_back(build_sdlrect(entityTr->getPos().getX() - mngr_->camRect_.x + entityTr->getW() / 2, entityTr->getPos().getY() + 10 + entityTr->getH() / 2, 30, 60));
-
-
 					boxCreated = true;
-
-				
 				}
 				else
 				{
@@ -714,9 +703,7 @@ void AttackBoxComponent::handleBoxes()
 
 						}*/
 
-						static_cast<BeatEmUpState*>(mngr_)->getColManager()->checkCollisionP(boxes[0], type);
-					
-
+					static_cast<BeatEmUpState*>(mngr_)->getColManager()->checkCollisionP(boxes[0], type);
 
 					if (im_->getCol() == 27)
 					{
@@ -743,7 +730,7 @@ void AttackBoxComponent::handleBoxes()
 		else
 		{
 			//Comprobamos que animaci�n estamos ejecutando y en que punto de la animaci�n estamos 
-			if (im_->getRow() == 9 && im_->getCol() <= 6)
+			if (im_->getTexKey() == "Player_BEU_earth_attack3" && im_->getCol() <= 6)
 			{
 				if (!boxCreated)
 				{
@@ -794,7 +781,7 @@ void AttackBoxComponent::handleBoxes()
 				}
 			}
 
-			else if (im_->getRow() == 9 && im_->getCol() > 6 && im_->getCol() <= 13)
+			else if (im_->getTexKey() == "Player_BEU_earth_attack3" && im_->getCol() > 6 && im_->getCol() <= 13)
 			{
 				if (!boxCreated)
 				{
@@ -830,7 +817,7 @@ void AttackBoxComponent::handleBoxes()
 				}
 			}
 
-			else if (im_->getRow() == 9 && im_->getCol() > 13 && im_->getCol() <= 25)
+			else if (im_->getTexKey() == "Player_BEU_earth_attack3" && im_->getCol() > 13 && im_->getCol() <= 25)
 			{
 				if (!boxCreated)
 				{
@@ -875,7 +862,7 @@ void AttackBoxComponent::handleBoxes()
 
 			}
 
-			else if (im_->getRow() == 10)
+			else if (im_->getTexKey() == "Player_BEU_earth_super")
 			{
 
 

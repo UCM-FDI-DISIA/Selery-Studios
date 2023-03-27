@@ -59,7 +59,7 @@ void ColManager::checkCollisionE(SDL_Rect boxAttack, string type)
 	ColliderComponent* col = player->getComponent<ColliderComponent>(COLLIDERCOMPONENT_H);
 	if (Collision::collides(Vector2D(boxAttack.x, boxAttack.y), boxAttack.w, boxAttack.h, Vector2D(col->getColRect().x - mngr_->camRect_.x, col->getColRect().y), col->getColRect().w, col->getColRect().h))
 	{
-		string typeHitted = player->getComponent<Image>(IMAGE_H)->getType();
+		string typeHitted = player->getComponent<FramedImage>(FRAMEDIMAGE_H)->getType();
 
 		if (type == typeHitted || typeHitted == "fire" && type == "earth" || typeHitted == "water" && type == "fire" || typeHitted == "earth" && type == "water")
 		{

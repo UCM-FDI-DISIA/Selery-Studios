@@ -30,7 +30,7 @@ void FireAttackComponent::spawnEnemies(int n) {
 		AnimationEnemyBEUComponent* anim = enemy->addComponent<AnimationEnemyBEUComponent>(ANIMATIONENEMYBEUCOMPONENT_H, "fire", enemyTypes[rand()%4], player_);
 		anim->changeState(AnimationEnemyBEUComponent::Moving);
 		anim->updateAnimation();
-		enemy->addComponent<Image>(IMAGE_H, anim->getTexture(), anim->getNFrames(), anim->getNFrames(), 0, ENEMYBEU_WIDTH, ENEMYBEU_HEIGHT, "fire");
+		enemy->addComponent<FramedImage>(FRAMEDIMAGE_H, anim->getTexture(), ENEMYBEU_WIDTH, ENEMYBEU_HEIGHT, anim->getNFrames(), "fire");
 		enemy->addComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
 		enemy->addComponent<EnemyBEUDirectionComponent>(ENEMYBEUDIRECTIONCOMPONENT_H, player_, anim->getEnemy());
 		enemy->addComponent<LifeComponent>(LIFECOMPONENT_H, ENEMYBEU_MAXLIFE);

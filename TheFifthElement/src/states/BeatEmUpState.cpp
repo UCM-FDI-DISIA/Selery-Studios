@@ -69,7 +69,7 @@ void BeatEmUpState::AddEnemies(int n_enemies) {
 
 		else animation_ = enemy_->addComponent<AnimationEnemyBEUComponent>(ANIMATIONENEMYBEUCOMPONENT_H, getEnemyType(type), "goblin", player_);
 
-		}
+		
 		////animation_->changeState(AnimationEnemyBEUComponent::Moving);
 		////animation_->updateAnimation();
 

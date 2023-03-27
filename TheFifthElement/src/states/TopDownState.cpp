@@ -368,7 +368,7 @@ void TopDownState::createShopButtons() {
         upturnButton_->setContext(this);
         upturnButtonTr_ = upturnButton_->addComponent<Transform>(TRANSFORM_H, Vector2D(upturnButtonPos_.getX(), upturnButtonPos_.getY() + i * 50), UPTURNBUTTON_WIDTH / 2, UPTURNBUTTON_HEIGHT / 2, 1);
         upturnButtonComp_ = upturnButton_->addComponent<Button>(BUTTON_H, "UPTURN");
-        upturnButton_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("UpturnButton"), UPTURNBUTTON_WIDTH, UPTURNBUTTON_HEIGHT, upturnButtonTr_);
+        upturnButton_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("UpturnButton"));
         buttons.push_back(upturnButton_);
         /*addEntity(upturnButton_);*/
     }
@@ -377,7 +377,7 @@ void TopDownState::createShopButtons() {
         upturnButton_->setContext(this);
         upturnButtonTr_ = upturnButton_->addComponent<Transform>(TRANSFORM_H, Vector2D(upturnButtonPos_.getX() + upturnButtonOffsetX * 3, upturnButtonPos_.getY() + i * 50), UPTURNBUTTON_WIDTH / 2, UPTURNBUTTON_HEIGHT / 2, 1);
         upturnButtonComp_ = upturnButton_->addComponent<Button>(BUTTON_H, "UPTURN");
-        upturnButton_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("UpturnButton"), UPTURNBUTTON_WIDTH, UPTURNBUTTON_HEIGHT, upturnButtonTr_);
+        upturnButton_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("UpturnButton"));
         buttons.push_back(upturnButton_);
         /*addEntity(upturnButton_);*/
     }
@@ -387,7 +387,7 @@ void TopDownState::createShopButtons() {
     exitShopButton_ = new Entity();
     exitShopButton_->setContext(this);
     exitShopButtonTr_ = exitShopButton_->addComponent<Transform>(TRANSFORM_H, Vector2D(upturnButtonX - SHOP_WIDTH / 9, upturnButtonPos_.getY() + 275), EXITSHOP_WIDTH / 2, EXITSHOP_HEIGHT / 2, 1);
-    exitShopButton_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("ExitShop"), 557, 131, exitShopButtonTr_);
+    exitShopButton_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("ExitShop"));
     exitShopButtonComp_ = exitShopButton_->addComponent<Button>(BUTTON_H, "EXITSHOP");
     addEntity(exitShopButton_);
 }

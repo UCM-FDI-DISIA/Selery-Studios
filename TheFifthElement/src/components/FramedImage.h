@@ -4,6 +4,7 @@
 #include "../sdlutils/Texture.h"
 #include "Transform.h" 
 #include "../utils/Entity.h"
+#include "../sdlutils/SDLUtils.h"
 
 class FramedImage : public Component {
 private:

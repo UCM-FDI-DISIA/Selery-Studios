@@ -122,8 +122,8 @@ void InputComponentBEU::handleEvents(SDL_Event event) {
 
 	if (ih().isKeyJustDown(SDL_SCANCODE_O)) {
 		if (!alreadyPressedBasic) {
-			/*sdlutils().soundEffects().at("playerAttack").play();
-			alreadyPressedBasic = true;*/
+			sdlutils().soundEffects().at("playerAttack").play();
+			alreadyPressedBasic = true;
 			/*if (im_->getRow() == 9) {
 				if (im_->getTope() < 3 * 8) {
 					im_->setTope(im_->getTope() + 8);
@@ -134,11 +134,11 @@ void InputComponentBEU::handleEvents(SDL_Event event) {
 			}*/
 			//im_->setAnim("Player_BEU_" + im_->getType() + "_attack1", 24, true);
 
-			if(im_->getType()=="fire" || im_->getType() == "water")
+			if(im_->getType()=="fire" || im_->getType() == "water" || im_->getType() == "air")
 			{
-				sdlutils().soundEffects().at("playerAttack").play();
-				alreadyPressedBasic = true;
-				if (im_->getRow() == 9) {
+				/*sdlutils().soundEffects().at("playerAttack").play();
+				alreadyPressedBasic = true;*/
+				/*if (im_->getRow() == 9) {
 					if (im_->getTope() < 2 * 8) {
 						im_->setTope(im_->getTope() + 8);
 					}
@@ -149,13 +149,14 @@ void InputComponentBEU::handleEvents(SDL_Event event) {
 				}
 				else {
 					im_->setAnim(true, 9, 26, 0, 8);
-				}
+				}*/
+				im_->setAnim("Player_BEU_" + im_->getType() + "_attack3", 26, true);
 			}
-			else if(im_->getType() == "air")
+			else if (im_->getType() == "air")
 			{
-				sdlutils().soundEffects().at("playerAttack").play();
-				alreadyPressedBasic = true;
-				if (im_->getRow() == 9) {
+				/*sdlutils().soundEffects().at("playerAttack").play();
+				alreadyPressedBasic = true;*/
+				/*if (im_->getRow() == 9) {
 					if (im_->getTope() < 2 * 7) {
 						im_->setTope(im_->getTope() + 7);
 					}
@@ -166,11 +167,11 @@ void InputComponentBEU::handleEvents(SDL_Event event) {
 				}
 				else {
 					im_->setAnim(true, 9, 26, 0, 7);
-				}
+				}*/
 			}
 			else
 			{
-				sdlutils().soundEffects().at("playerAttack").play();
+				/*sdlutils().soundEffects().at("playerAttack").play();
 				alreadyPressedBasic = true;
 				if (im_->getRow() == 7) {
 					if (im_->getTope() < 3 * 4) {
@@ -183,7 +184,8 @@ void InputComponentBEU::handleEvents(SDL_Event event) {
 				}
 				else {
 					im_->setAnim(true, 7, 23, 0, 4);
-				}
+				}*/
+				im_->setAnim("Player_BEU_" + im_->getType() + "_attack3", 23, true);
 			}
 		
 		}
@@ -206,7 +208,8 @@ void InputComponentBEU::handleEvents(SDL_Event event) {
 			if (!alreadyPressedSpecial) {
 				alreadyPressedSpecial = true;
 				sdlutils().soundEffects().at("playerSpecialAttack").play();
-				im_->setAnim(true, 10, 28, 0, 100);
+				im_->setAnim("Player_BEU_" + im_->getType() + "_super", 28, true);
+				////im_->setAnim(true, 10, 28, 0, 100);
 			}
 		}
 	
