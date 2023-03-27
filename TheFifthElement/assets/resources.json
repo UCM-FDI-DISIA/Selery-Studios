@@ -139,7 +139,7 @@
     {"id": "Air_LifeBarBorder", "file": "assets/Enemies/HUD/LifeBars/Horizontal/Boarders/Boarder2.png"},
     {"id": "Cartel", "file": "assets/Player/HUD/cartel.png"},
     {"id": "Ruleta", "file": "assets/Player/HUD/WheelOfPlayer/ruleta.png"},
-    {"id": "ControlList", "file": "assets/HUD/Menu/controls.png"},
+    
 
     {"id": "Player_BEU_fire", "file": "assets/Player/BeatEmUp/Fire/spritesheets/fireMatrix.png"},
     {"id": "Player_BEU_earth", "file": "assets/Player/BeatEmUp/Earth/earthMatrix.png"},
@@ -187,12 +187,12 @@
     {"id": "stone4", "file": "assets/Enemies/BeatEmUp/Bosses/EarthBoss/stone4.png"},
     {"id": "stone5", "file": "assets/Enemies/BeatEmUp/Bosses/EarthBoss/stone5.png"},
     {"id": "stone6", "file": "assets/Enemies/BeatEmUp/Bosses/EarthBoss/stone6.png"},
-    {"id":  "waterBoss", "file":  "assets/Enemies/BeatEmUp/Bosses/WaterBoss/frost_guardian_free_192x128_SpriteSheet.png"},
+    {"id": "waterBoss", "file":  "assets/Enemies/BeatEmUp/Bosses/WaterBoss/frost_guardian_free_192x128_SpriteSheet.png"},
     {"id": "shadow","file": "assets/Enemies/BeatEmUp/Bosses/EarthBoss/golem-shadow.png"},
-     {"id": "espada", "file": "assets/HUD/espada.png"},
+    {"id": "espada", "file": "assets/HUD/espada.png"},
     {"id": "cora", "file": "assets/HUD/cora.png"},
     {"id": "papiro", "file": "assets/Texts/image.png"},
-    {"id":  "E", "file":  "assets/NPCs/E.png"}
+    {"id": "E", "file": "assets/NPCs/E.png"}
   ],
 
   "messages": [
