@@ -107,6 +107,7 @@ private:
 	int upturnButtonOffsetY = 20;
 	Vector2D upturnButtonPos_;
 	vector<Entity*> buttons;
+	vector<Button*> buttonsComp;
 	Entity* upturnButton_;
 	Transform* upturnButtonTr_;
 	Button* upturnButtonComp_;
@@ -168,7 +169,6 @@ public:
 	Entity* getplayer() { return player_; };
 	ShopComponent* getShopComp() { return shopComp_; }
 	DialogueComponent* getDialog() { return dialog_; }
-	Button* getShopButton() { return upturnButtonComp_; }
-	vector<Entity*> getList() { return buttons; }
+	Button* getShopButton(int i) { return buttonsComp.at(i); }
 };
 

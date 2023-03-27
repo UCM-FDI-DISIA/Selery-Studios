@@ -14,7 +14,7 @@ private:
 	int img_width = 224, img_height = 16, row = 0, frames = 14;
 	int current_money = 200;
 	const float max_money = 999;
-	int ofset_x = 10, ofset_y = 2;
+	int ofset_x = 20, ofset_y = 2;
 	Font* f = &SDLUtils::instance()->fonts().at("TCentury");
 	string money;
 	SDL_Color color = { 50,50,0 };
