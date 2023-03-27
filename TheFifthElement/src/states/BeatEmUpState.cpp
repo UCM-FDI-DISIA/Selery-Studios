@@ -31,7 +31,6 @@ BeatEmUpState::BeatEmUpState(bool boss, string typeBoss) {
 	player_->addComponent<LimitBEU>(LIMITBEU_H);
 	player_->addComponent<ColliderComponent>(int(COLLIDERCOMPONENT_H), Vector2D(90, 80), 1.2*PLAYERBEU_HEIGHT_FRAME / 3, PLAYERBEU_WIDTH_FRAME / 7);
 	player_->addComponent<PointOfFightComponent>(POINTOFFIGHTCOMPONENT_H, 30, 10);
-	player_->addComponent<FireAttackComponent>(SPAWN_H, this);
 	addEntity(player_);
 	
 	colManager_ = new ColManager(this);

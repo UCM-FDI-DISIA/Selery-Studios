@@ -22,7 +22,6 @@
 #include "../components/ShadowComponent.h"
 
 #include "../components/AttackEarthBossComponent.h"
-#include "../components/FireAttackComponent.h"
 #include "../components/rouletteComponent.h"
 
 using name = string;

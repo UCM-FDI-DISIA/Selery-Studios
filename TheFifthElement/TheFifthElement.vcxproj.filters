@@ -62,7 +62,6 @@
     <ClCompile Include="src\components\AttackEarthBossComponent.cpp" />
     <ClCompile Include="src\components\EconomyComponent.cpp" />
     <ClCompile Include="src\states\PauseState.cpp" />
-    <ClCompile Include="src\components\FireAttackComponent.cpp" />
     <ClCompile Include="src\components\NPCcollisioncomponent.cpp" />
     <ClCompile Include="src\components\Damage.cpp" />
     <ClCompile Include="src\components\LifeTD.cpp" />
@@ -150,7 +149,6 @@
     <ClInclude Include="src\components\LifeTD.h" />
     <ClInclude Include="src\components\Damage.h" />
     <ClInclude Include="src\components\rouletteComponent.h" />
-    <ClInclude Include="src\components\FireAttackComponent.h" />
     <ClInclude Include="src\components\NPCcollisioncomponent.h" />
   </ItemGroup>
   <ItemGroup>
