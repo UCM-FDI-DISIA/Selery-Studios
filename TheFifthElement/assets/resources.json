@@ -192,7 +192,9 @@
     {"id": "espada", "file": "assets/HUD/espada.png"},
     {"id": "cora", "file": "assets/HUD/cora.png"},
     {"id": "papiro", "file": "assets/Texts/image.png"},
-    {"id": "E", "file": "assets/NPCs/E.png"}
+    {"id": "E", "file": "assets/NPCs/E.png"},
+    {"id": "TopDownControls", "file": "assets/HUD/Menu/TopDownControls.png"},
+    {"id": "BEUControls", "file": "assets/HUD/Menu/BEUControls.png"}
   ],
 
   "messages": [
