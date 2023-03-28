@@ -161,6 +161,8 @@
     {"id": "OptionsButtonPressed", "file": "assets/Scenes/Backgrounds/Menu/Buttons/OptionsButtonPress.png"},
     {"id": "MenuButton", "file": "assets/Scenes/Backgrounds/Pausa/Buttons/MenuButton.png"},
     {"id": "MenuButtonPressed", "file": "assets/Scenes/Backgrounds/Pausa/Buttons/MenuButtonPress.png"},
+    {"id": "ControlsButton", "file": "assets/Scenes/Backgrounds/Pausa/Buttons/ControlsButton.png"},
+    {"id": "ControlsButtonPressed", "file": "assets/Scenes/Backgrounds/Pausa/Buttons/ControlsButtonPress.png"},
     {"id": "ResumeButton", "file": "assets/Scenes/Backgrounds/Pausa/Buttons/ResumeButton.png"},
     {"id": "ResumeButtonPressed", "file": "assets/Scenes/Backgrounds/Pausa/Buttons/ResumeButtonPress.png"},
     {"id": "campfire", "file": "assets/Scenes/Maps/GrassLand/Props/campfire 2-1.png"},

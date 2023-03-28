@@ -59,8 +59,8 @@ void OptionsState::createButtons() {
 	muteButton = addNewEntity("MuteButton", 289, 86, Vector2D(WIN_WIDTH / 6, WIN_HEIGHT / 5), 1, false, 0.5);
 	muteButton->addComponent<Button>(BUTTON_H, "MUTE");
 
-/*	backButton = addNewEntity("BackButton", 289, 86, Vector2D(5 * WIN_WIDTH / 90, 50 * WIN_HEIGHT / 60), 1, false, 0.5);
-	backButton->addComponent<Button>(BUTTON_H, "BACK");*/ //Este sería el botón de controles.
+	controlsButton = addNewEntity("ControlsButton", 289, 86, Vector2D(5 * WIN_WIDTH / 90, 50 * WIN_HEIGHT / 60), 1, false, 0.5);
+	controlsButton->addComponent<Button>(BUTTON_H, "CONTROLS"); //Este sería el botón de controles.
 
 	sliderBrillo = addEntity(new Entity());
 	sliderBrillo->addComponent<Transform>(TRANSFORM_H, Vector2D(WIN_WIDTH / 2, WIN_HEIGHT / 5), 20, 20, 1);
