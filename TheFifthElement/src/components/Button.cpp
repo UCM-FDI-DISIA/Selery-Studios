@@ -18,7 +18,8 @@ void Button::update() {
 		else if(identifier == "RESUME")im_->setAnimTexture("ResumeButtonPressed", 1, 289);
 		else if (identifier == "MAINMENU")im_->setAnimTexture("MenuButtonPressed", 1, 289);
 		else if (identifier == "BACK")im_->setAnimTexture("MenuButtonPressed", 1, 289);
-		else if (identifier == "CONTROLS")im_->setAnimTexture("ControlsButtonPressed", 1, 95);
+		else if (identifier == "TDCONTROLS")im_->setAnimTexture("TDControlsButtonPressed", 1, 289);
+		else if (identifier == "BEUCONTROLS")im_->setAnimTexture("BEUControlsButtonPressed", 1, 289);
 		else if (identifier == "MUTE")im_->setAnimTexture("OptionsButtonPressed", 1, 95);
 	}
 	else
@@ -29,7 +30,8 @@ void Button::update() {
 		else if (identifier == "OPTIONS")im_->setAnimTexture("OptionsButton", 1, 95);
 		else if (identifier == "RESUME")im_->setAnimTexture("ResumeButton", 1, 289);
 		else if (identifier == "MAINMENU")im_->setAnimTexture("MenuButton", 1, 289);
-		else if (identifier == "CONTROLS")im_->setAnimTexture("ControlsButton", 1, 95);
+		else if (identifier == "TDCONTROLS")im_->setAnimTexture("TDControlsButton", 1, 289);
+		else if (identifier == "BEUCONTROLS")im_->setAnimTexture("BEUControlsButton", 1, 289);
 		else if (identifier == "MUTE")im_->setAnimTexture("MuteButton", 1, 95);
 		currentPositionState = MOUSE_OUT;
 	}
@@ -84,17 +86,19 @@ void Button::handleEvent(SDL_Event event)
 				else if (identifier == "BACK") {
 					GameManager::instance()->backToMainMenu();
 				}
-				//else if (identifier == "CONTROLS")
-				//{
-				//	//CARGA IMAGEN
-				//}
 				else if (identifier == "MUTE")
 				{
 					SDL_AudioQuit(); //Mutea el juego (TODO). //Lo podremos manejar a traves del sound manager
 				}
-				else if (identifier == "CONTROLS")
+				else if (identifier == "TDCONTROLS")
 				{
-					
+					SDL_Rect dest = { 0,0,WIN_WIDTH,WIN_HEIGHT };
+					SDLUtils::instance()->images().at("TopDownControls").render(dest);
+				}
+				else if (identifier == "BEUCONTROLS")
+				{
+					SDL_Rect dest = { 0,0,WIN_WIDTH,WIN_HEIGHT };
+					SDLUtils::instance()->images().at("BEUControls").render(dest);
 				}
 			}
 		}

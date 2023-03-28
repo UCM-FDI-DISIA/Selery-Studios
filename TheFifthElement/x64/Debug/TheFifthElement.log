@@ -62,8 +62,8 @@ C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\com
 C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\components\Button.cpp(11,38): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
 C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\components\Button.cpp(12,147): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
 C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\components\Button.cpp(12,134): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\components\Button.cpp(41,63): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\components\Button.cpp(41,32): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\components\Button.cpp(43,63): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\components\Button.cpp(43,32): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
 C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(36,27): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
           with
           [
@@ -74,34 +74,4 @@ C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\com
           [
               T=Transform
           ]
-  OptionsState.cpp
-C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\sdlutils\SoundManager.h(112,33): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\sdlutils\SoundManager.h(117,46): warning C4018: '>': no coinciden signed/unsigned
-C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(52,30): warning C4101: 'e': variable local sin referencia
-C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(48,1): message : al compilar la función del miembro clase plantilla "Texture &SDLUtils::map_access_wrapper<Texture>::at(std::string)"
-C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(205,30): message : Vea la referencia a la creación de una instancia de clase plantilla "SDLUtils::map_access_wrapper<Texture>" que se está compilando
-C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(36,27): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
-          with
-          [
-              _Ty=int
-          ]
-C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\states\OptionsState.cpp(17,88): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Entity::addComponent<Transform,Vector2D&,const uint&,const uint&,int&,int,int&,bool&>(cmpId_type,Vector2D &,const uint &,const uint &,int &,int &&,int &,bool &)" que se está compilando
-          with
-          [
-              T=Transform
-          ]
-C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(36,27): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(36,27): warning C4244: 'argumento': conversión de 'const uint' a 'float'; posible pérdida de datos
-C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(36,27): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\states\OptionsState.cpp(48,79): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Entity::addComponent<Image,Texture*&,int&,int&,int,float,float&>(cmpId_type,Texture *&,int &,int &,int &&,float &&,float &)" que se está compilando
-          with
-          [
-              T=Image
-          ]
-C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(36,27): warning C4244: 'argumento': conversión de '_Ty' a 'int'; posible pérdida de datos
-          with
-          [
-              _Ty=float
-          ]
-  Generando código...
   TheFifthElement.vcxproj -> C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\x64\Debug\TheFifthElement.exe

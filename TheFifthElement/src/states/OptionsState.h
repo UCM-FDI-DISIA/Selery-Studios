@@ -19,7 +19,8 @@ public:
 private:
 	Entity* backButton;
 	Entity* muteButton;
-	Entity* controlsButton;
+	Entity* TDcontrolsButton;
+	Entity* BEUcontrolsButton;
 	Entity* sliderBrillo;
 	Entity* sliderSonido;
 	Image* im_;

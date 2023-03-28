@@ -53,14 +53,17 @@ Entity* OptionsState::addNewEntity(string t, float w, float h, Vector2D pos, int
 
 void OptionsState::createButtons() {
 
-	backButton = addNewEntity("BackButton", 289, 86, Vector2D(WIN_WIDTH / 3, WIN_HEIGHT / 2), 1, false, 1);
+	backButton = addNewEntity("BackButton", 289, 86, Vector2D(WIN_WIDTH/2-145, WIN_HEIGHT / 2), 1, false, 1);
 	backButton->addComponent<Button>(BUTTON_H, "BACK");
 
 	muteButton = addNewEntity("MuteButton", 289, 86, Vector2D(WIN_WIDTH / 6, WIN_HEIGHT / 5), 1, false, 0.5);
 	muteButton->addComponent<Button>(BUTTON_H, "MUTE");
 
-	controlsButton = addNewEntity("ControlsButton", 289, 86, Vector2D(5 * WIN_WIDTH / 90, 50 * WIN_HEIGHT / 60), 1, false, 0.5);
-	controlsButton->addComponent<Button>(BUTTON_H, "CONTROLS"); //Este sería el botón de controles.
+	TDcontrolsButton = addNewEntity("TDControlsButton", 289, 86, Vector2D(3 * WIN_WIDTH / 4, 5 * WIN_HEIGHT / 6), 1, false, 0.5);
+	TDcontrolsButton->addComponent<Button>(BUTTON_H, "TDCONTROLS");
+
+	BEUcontrolsButton = addNewEntity("BEUControlsButton", 289, 86, Vector2D(WIN_WIDTH / 4, 5 * WIN_HEIGHT / 6), 1, false, 0.5);
+	BEUcontrolsButton->addComponent<Button>(BUTTON_H, "BEUCONTROLS");
 
 	sliderBrillo = addEntity(new Entity());
 	sliderBrillo->addComponent<Transform>(TRANSFORM_H, Vector2D(WIN_WIDTH / 2, WIN_HEIGHT / 5), 20, 20, 1);
