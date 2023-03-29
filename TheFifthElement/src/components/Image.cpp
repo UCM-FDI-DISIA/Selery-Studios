@@ -8,8 +8,7 @@ Image::Image(Texture* tex) {
 Image::~Image() { }
 
 void Image::initComponent() { 	// Inicializa el componente
-	if (tr_ == nullptr) tr_ = ent_->getComponent<Transform>(TRANSFORM_H);
-	assert(tr_ != nullptr);
+	tr_ = ent_->getComponent<Transform>(TRANSFORM_H);
 }
 
 void Image::update() {

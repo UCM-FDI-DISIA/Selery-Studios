@@ -28,9 +28,8 @@ void OptionsState::ControlsBackground(string file)
 	bool matrix = false;
 	Vector2D v = { WIN_WIDTH / 2-135, WIN_HEIGHT / 2-250 };
 	int r = 0;
-	e->addComponent<Transform>(int(TRANSFORM_H), v, 270, 500, r, 0, f, matrix);
-	Texture* t = &SDLUtils::instance()->images().at(file);
-	e->addComponent<Image>(int(IMAGE_H), t, f, f, f, 270, 500);
+	e->addComponent<Transform>(TRANSFORM_H, v, 270, 500, r, 0, f, matrix);
+	e->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at(file));
 	addEntity(e);
 }
 

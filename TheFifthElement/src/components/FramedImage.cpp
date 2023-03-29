@@ -30,17 +30,14 @@ FramedImage::FramedImage(Texture* tex, int width, int height, int frames, string
 FramedImage::~FramedImage() { }
 
 void FramedImage::initComponent() { 	// Inicializa el componente
-	if (tr_ == nullptr)tr_ = ent_->getComponent<Transform>(TRANSFORM_H);
-	assert(tr_ != nullptr);
+	tr_ = ent_->getComponent<Transform>(TRANSFORM_H);
 }
 
 void FramedImage::update() {
-	SDL_Rect dest;
 	dest.x = tr_->getPos().getX() - mngr_->camRect_.x;
 	dest.y = tr_->getPos().getY() - mngr_->camRect_.y;
 	dest.h = tr_->getH() * tr_->getS();
 	dest.w = tr_->getW() * tr_->getS();
-	SDL_Rect src;
 	src.x = col * widthFrame_;
 	src.y = heightFrame_;
 	src.h = heightFrame_;
