@@ -1,6 +1,7 @@
 #pragma once
 #include "GameState.h"
 #include "../sdlutils/SDLUtils.h"
+#include "../utils/PropertiesManager.h"
 #include "../ColManager.h"
 #include "../components/AttackBoxComponent.h"
 #include "../components/AnimationEnemyBEUComponent.h"
@@ -57,6 +58,9 @@ private:
 	Roulette* roulete;
 	//BOSSES
 	Entity* boss_;
+
+	//PROPERTIES
+	PropertiesManager* props_;
 
 public:
 	BeatEmUpState(bool boss, string typeBoss = "");

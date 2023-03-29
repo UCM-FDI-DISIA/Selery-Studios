@@ -206,6 +206,7 @@
     <ClInclude Include="src\sdlutils\VirtualTimer.h" />
     <ClInclude Include="src\states\TopDownState.h" />
     <ClInclude Include="src\utils\Constants.h" />
+    <ClInclude Include="src\utils\PropertiesManager.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="TheFifthElement.h" />
     <ClInclude Include="src\components\Transform.h" />

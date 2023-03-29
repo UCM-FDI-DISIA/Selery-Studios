@@ -1,6 +1,7 @@
 #pragma once
 #include "../utils/Component.h"
 #include "../sdlutils/Texture.h"
+#include "../utils/PropertiesManager.h"
 #include "../GameManager.h"
 #include "Image.h"
 
@@ -25,6 +26,7 @@ private:
     Image* im_;
     LifeComponent* lifeC_ = nullptr;
     bool set_ = false;
+    PropertiesManager* props;
 
 public:
 

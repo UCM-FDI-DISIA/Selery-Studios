@@ -1,4 +1,5 @@
 #pragma once
+#include "../utils/PropertiesManager.h"
 #include "tmxlite/Map.hpp"
 #include "tmxlite/TileLayer.hpp"
 #include "GameState.h"
@@ -100,23 +101,21 @@ private:
 	
 	
 	// SHOP
+	Entity* upturnButton_;
+	Entity* exitShopButton_;
+	vector<Entity*> buttons;
+	vector<Button*> buttonsComp;
 	ShopComponent* shopComp_;
+	Vector2D upturnButtonPos_;
 	int upturnButtonX, upturnButtonY;
 	int upturnButtonWidth_, upturnButtonHeight_;
 	int upturnButtonOffsetX = 50;
 	int upturnButtonOffsetY = 20;
-	Vector2D upturnButtonPos_;
-	vector<Entity*> buttons;
-	vector<Button*> buttonsComp;
-	Entity* upturnButton_;
 	Transform* upturnButtonTr_;
 	Button* upturnButtonComp_;
-
-	Entity* exitShopButton_;
 	Transform* exitShopButtonTr_;
 	Button* exitShopButtonComp_;
 
-	//HUDTD* hudTD = new HUDTD();
 public:
 	string getStateID(); // stringID
 	PuzzleCopas* puzzle1;
@@ -170,5 +169,6 @@ public:
 	ShopComponent* getShopComp() { return shopComp_; }
 	DialogueComponent* getDialog() { return dialog_; }
 	Button* getShopButton(int i) { return buttonsComp.at(i); }
+	SkinComponent* getPlayerSkin() { return sk_; }
 };
 
