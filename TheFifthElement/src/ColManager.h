@@ -1,5 +1,6 @@
 #pragma once
 #include "utils/Manager.h"
+#include "utils/PropertiesManager.h"
 #include "utils/Collision.h"
 #include "components/ColliderComponent.h"
 #include "components/LifeComponent.h"
@@ -13,6 +14,7 @@ class ColManager
 {
 private:
 	Manager* mngr_;
+	PropertiesManager* props_;
 public:
 	ColManager(Manager* manager): mngr_(manager) {};
 	void checkCollisionP(SDL_Rect boxAttack,string type);

@@ -137,20 +137,28 @@ void LifeComponent::subLife(float damage) {
 
 void LifeComponent::chageType(float maxLife) {
 
-	if (type_ == "air") types[0].life = life_;
-	else if (type_ == "fire")types[1].life = life_;
-	else if (type_ == "water")types[2].life = life_;
-	else if (type_ == "earth")types[3].life = life_;
+	if (type_ == "air") {
+		types[0].life = life_;
+	}
+	else if (type_ == "fire") {
+		types[1].life = life_;
+	}
+	else if (type_ == "water") {
+		types[2].life = life_;
+	}
+	else if (type_ == "earth") {
+		types[3].life = life_;
+	}
 
 	type_ = im_->getType();
 	maxLife_ = maxLife;
 
 	if (type_ == "air") {
-		if (types[0].life == -1)types[0].life = maxLife;
+		if (types[0].life == -1)types[0].life = maxLife; // al cambiar por primera vez seteamos vida máxima
 		life_ = types[0].life;
 	}
 	else if (type_ == "fire") {
-		if (types[1].life == -1)types[1].life = maxLife;
+		if (types[1].life == -1)types[1].life = maxLife; 
 		life_ = types[1].life;
 	}
 	else if (type_ == "water") {
@@ -164,7 +172,6 @@ void LifeComponent::chageType(float maxLife) {
 	
 	chooseTexture();
 	barWidth_ = ((life_ * backWidth_) / maxLife_);
-
 }
 
 void LifeComponent::render() {

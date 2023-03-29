@@ -22,7 +22,19 @@ void SkinBEUComponent::changeSkin(string skin)
 {
 	skin_ = skin;
 	im_->setType(skin_);
-	lifeC_->chageType(10);
+	if (skin_ == "air") {
+		lifeC_->chageType(props->instance()->getLives(0)); // segun el personaje tenemos una cantidad de vida (respecto a vida comprada en la tienda)
+	}
+	else if (skin_ == "fire") {
+		lifeC_->chageType(props->instance()->getLives(1));
+	}
+	else if (skin_ == "water") {
+		lifeC_->chageType(props->instance()->getLives(2));
+	}
+	else if (skin_ == "earth") {
+		lifeC_->chageType(props->instance()->getLives(3));
+	}
+	
 }
 
 void SkinBEUComponent::setTexture() {
