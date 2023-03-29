@@ -92,13 +92,11 @@ void Button::handleEvent(SDL_Event event)
 				}
 				else if (identifier == "TDCONTROLS")
 				{
-					SDL_Rect dest = { 0,0,WIN_WIDTH,WIN_HEIGHT };
-					SDLUtils::instance()->images().at("TopDownControls").render(dest);
+					tdcontrols = true;
 				}
 				else if (identifier == "BEUCONTROLS")
 				{
-					SDL_Rect dest = { 0,0,WIN_WIDTH,WIN_HEIGHT };
-					SDLUtils::instance()->images().at("BEUControls").render(dest);
+					beucontrols = true;
 				}
 			}
 		}
@@ -109,7 +107,15 @@ void Button::render() {
 	SDL_SetRenderDrawColor(GameManager::instance()->getRenderer(), 0, 250, 0, 0);
 	SDL_RenderDrawRect(GameManager::instance()->getRenderer(), &mouseRect);
 	SDL_SetRenderDrawColor(GameManager::instance()->getRenderer(), 0, 0, 0, 255);
-	
+	SDL_Rect dest = { 0,0,WIN_WIDTH,WIN_HEIGHT };
+	if (tdcontrols)
+	{
+		SDLUtils::instance()->images().at("TopDownControls").render(dest);
+	}
+	if (beucontrols)
+	{
+		SDLUtils::instance()->images().at("BEUControls").render(dest);
+	}
 }
 
 bool Button::getBool() {

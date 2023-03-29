@@ -50,7 +50,11 @@ void LifeComponent::update() {
 				int i = 0;
 				while (!types[i].alive && i < 4) i++;
 
-				if (i == 4) ent_->setAlive(false);
+				if (i == 4) 
+				{
+					ent_->setAlive(false);
+					GameManager::instance()->backToMainMenu();
+				}
 				else 
 				{
 					if (type_ == "air") inp_->setAir(false);// bloquea aire

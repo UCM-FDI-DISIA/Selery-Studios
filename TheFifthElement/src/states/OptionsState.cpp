@@ -31,7 +31,8 @@ void OptionsState::handleEvents()
 	SDL_Event event;
 	while (SDL_PollEvent(&event)) {
 		backButton->handleEvent(event);
-		//controlsButton->handleEvent(event);
+		TDcontrolsButton->handleEvent(event);
+		BEUcontrolsButton->handleEvent(event);
 		sliderBrillo->handleEvent(event);
 		sliderSonido->handleEvent(event);
 		muteButton->handleEvent(event);

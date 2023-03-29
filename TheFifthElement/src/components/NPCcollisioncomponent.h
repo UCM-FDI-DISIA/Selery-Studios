@@ -45,8 +45,6 @@ public:
 		plynpc = player_->getComponent<PlayerNPC>(PLAYERNPC_H);
 		rectNPC = getRectNPC();
 		rectPlayer = getPlayerRect();
-		pos_ = Vector2D(rectNPC.x + 50, rectNPC.y);
-		dest = build_sdlrect(pos_, 32, 32);
 		
 	}
 	void update()
