@@ -88,5 +88,10 @@ void InputComponent::handleEvents(SDL_Event event)
 		if (ih().isKeyDown(SDL_SCANCODE_ESCAPE) && !dialog->gethasstarted() && !dialog->getopenedShop()) {
 			GameManager::goPauseMenu();
 		}
+
+		if (ih().isKeyDown(SDL_SCANCODE_0)) //cambio a pantalla completa podria ser una opcion
+		{
+			SDL_SetWindowFullscreen(SDLUtils::instance()->window(), SDL_WINDOW_FULLSCREEN); //tambien se puede usar _DESKTOP
+		}
 	}
 }
