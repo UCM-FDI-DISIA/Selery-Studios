@@ -150,6 +150,7 @@
     <ClInclude Include="src\components\Damage.h" />
     <ClInclude Include="src\components\rouletteComponent.h" />
     <ClInclude Include="src\components\NPCcollisioncomponent.h" />
+    <ClInclude Include="src\utils\PropertiesManager.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="TheFifthElement.rc" />

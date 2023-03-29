@@ -17,15 +17,37 @@ void ColManager::checkCollisionP(SDL_Rect boxAttack,string type)
 
 						if (type == typeHitted || typeHitted == "fire" && type == "earth" || typeHitted == "water" && type == "fire" || typeHitted == "earth" && type == "water")
 						{
-							it->getComponent<LifeComponent>(LIFECOMPONENT_H)->Hit(0.5);
+							if (type == "air") {
+								it->getComponent<LifeComponent>(LIFECOMPONENT_H)->Hit(0.5 * props_->instance()->getStrength(0)); // aqui multiplicamos el valor base por el obtenido en la tienda
+							}
+							else if (type == "fire") {
+								it->getComponent<LifeComponent>(LIFECOMPONENT_H)->Hit(0.5 * props_->instance()->getStrength(0));
+							}
+							else if (type == "water") {
+								it->getComponent<LifeComponent>(LIFECOMPONENT_H)->Hit(0.5 * props_->instance()->getStrength(0));
+							}
+							else if (type == "earth") {
+								it->getComponent<LifeComponent>(LIFECOMPONENT_H)->Hit(0.5 * props_->instance()->getStrength(0));
+							}
 						}
 
 						else if (typeHitted == "fire" && type == "water" || typeHitted == "water" && type == "earth" || typeHitted == "earth" && type == "fire")
 						{
-							it->getComponent<LifeComponent>(LIFECOMPONENT_H)->Hit(2);
+							if (type == "air") {
+								it->getComponent<LifeComponent>(LIFECOMPONENT_H)->Hit(2 * props_->instance()->getStrength(0));
+							}
+							else if (type == "fire") {
+								it->getComponent<LifeComponent>(LIFECOMPONENT_H)->Hit(2 * props_->instance()->getStrength(0));
+							}
+							else if (type == "water") {
+								it->getComponent<LifeComponent>(LIFECOMPONENT_H)->Hit(2 * props_->instance()->getStrength(0));
+							}
+							else if (type == "earth") {
+								it->getComponent<LifeComponent>(LIFECOMPONENT_H)->Hit(2 * props_->instance()->getStrength(0));
+							}
 						}
 
-						else it->getComponent<LifeComponent>(LIFECOMPONENT_H)->Hit(1);
+						else it->getComponent<LifeComponent>(LIFECOMPONENT_H)->Hit(1 * props_->instance()->getStrength(0));
 					}
 				}
 			}
@@ -62,8 +84,8 @@ void ColManager::checkCollisionE(SDL_Rect boxAttack, string type)
 		string typeHitted = player->getComponent<Image>(IMAGE_H)->getType();
 
 		if (type == typeHitted || typeHitted == "fire" && type == "earth" || typeHitted == "water" && type == "fire" || typeHitted == "earth" && type == "water")
-		{
-			player->getComponent<LifeComponent>(LIFECOMPONENT_H)->Hit(0.5);
+		{		
+			player->getComponent<LifeComponent>(LIFECOMPONENT_H)->Hit(0.5);		
 		}
 
 		else if (typeHitted == "fire" && type == "water" || typeHitted == "water" && type == "earth" || typeHitted == "earth" && type == "fire")

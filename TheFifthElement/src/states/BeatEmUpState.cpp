@@ -2,6 +2,7 @@
 #include "../components/SkinBEUComponent.h"
 
 BeatEmUpState::BeatEmUpState(bool boss, string typeBoss) {
+
 	random = &SDLUtils::instance()->rand();
 	scale = WIN_WIDTH / 900;
 
@@ -23,7 +24,7 @@ BeatEmUpState::BeatEmUpState(bool boss, string typeBoss) {
 	player_->addComponent<Image>(int(IMAGE_H), texture_player_, 8, 28, 0, PLAYERBEU_WIDTH_FRAME, PLAYERBEU_HEIGHT_FRAME,"air");
 	player_->addComponent<JumpComponent>(JUMP_H);
 	addEntity(Hud_);
-	player_->addComponent<LifeComponent>(LIFECOMPONENT_H, 10);
+	player_->addComponent<LifeComponent>(LIFECOMPONENT_H, props_->instance()->getLives(0));
 	player_->addComponent<ShadowComponent>(SHADOWCOMPONENT_H);
 	in_ = player_->addComponent<InputComponentBEU>(INPUTCOMPONENTBEU_H, roulete);
 	player_->addComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
