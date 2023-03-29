@@ -1,5 +1,6 @@
 ﻿#include "LifeComponent.h"
 #include "InputComponentBEU.h"
+#include "../states/BeatEmUpState.h"
 
 LifeComponent::LifeComponent(float maxLife) {
 	life_ = maxLife_ = maxLife;
@@ -97,7 +98,8 @@ void LifeComponent::Death() {
 	if (enemy_) {// enemy 
 		anim_->changeState(AnimationEnemyBEUComponent::Death);
 		eMov_->stop(true);
-		//BeatEmUpState* 
+		BeatEmUpState* beatemupstate = static_cast<BeatEmUpState*>(mngr_);
+		beatemupstate->finishBEU();
 	}
 	else {// player
 		skin_->changeState(SkinBEUComponent::Death);

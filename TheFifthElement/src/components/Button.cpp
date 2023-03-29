@@ -79,7 +79,7 @@ void Button::handleEvent(SDL_Event event)
 					isClicked_ = false;
 				}
 				else if (identifier == "EXITSHOP") {
-					cout << "salir tienda";
+					//cout << "salir tienda";
 					TopDownState* topdownstate = static_cast<TopDownState*>(mngr_);
 					topdownstate->cleanShopButtons();
 					topdownstate->getDialog()->setopenedShop();

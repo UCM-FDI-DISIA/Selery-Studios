@@ -6,7 +6,7 @@ BeatEmUpState::BeatEmUpState(bool boss, string typeBoss) {
 	scale = WIN_WIDTH / 900;
 
 	background_ = new Entity();
-	background_->addComponent<Transform>(int(TRANSFORM_H), Vector2D(0,0), WIN_WIDTH, WIN_HEIGHT);
+	background_->addComponent<Transform>(int(TRANSFORM_H), Vector2D(0,0), WIN_WIDTH, WIN_HEIGHT); //aqui debemos tocar el rect del background
 	background_->addComponent<Image>(int(IMAGE_H), &SDLUtils::instance()->images().at("airBackground"), 0, 0, 0, BACKGROUNDAIR_WIDTH_FRAME, BACKGROUNDAIR_HEIGHT_FRAME);
 	addEntity(background_);
 	Hud_ = new Entity();
@@ -54,6 +54,7 @@ BeatEmUpState::BeatEmUpState(bool boss, string typeBoss) {
 
 void BeatEmUpState::AddEnemies(int n_enemies) {
 	for (int i = 0; i < n_enemies; ++i) {
+		numEnemies = n_enemies;
 		int character = random->nextInt(0, 4);
 		int type = random->nextInt(0, 4);
 		Vector2D pos={ (float)random->nextInt(50,WIN_WIDTH - 80),(float)random->nextInt(50,WIN_HEIGHT - 50) };
@@ -145,7 +146,7 @@ void BeatEmUpState::finishBEU() {
 	numEnemies -= 1;
 	if (numEnemies == 0)
 	{
-		GameManager::instance()->goTopDown();
+		GameManager::instance()->backToMainMenu();
 		SDLUtils::instance()->soundEffects().at("Battle").haltChannel();
 	}
 }
@@ -160,11 +161,13 @@ void BeatEmUpState::update() {
 	camRect_.x = (trans_player_->getPos().getX() + camOffset_) - WIN_WIDTH / 2;
 	camRect_.y = (trans_player_->getPos().getY() - WIN_HEIGHT / 2);
 	// Clamp
-	if (camRect_.x < 0) {
+	/*if (camRect_.x < 0) {
 		camRect_.x = 0;
-	}
+	}*/	
+	/*if (camRect_.x >(WIN_WIDTH)) {
+			//camRect_.x = BACKGROUNDAIR_WIDTH_FRAME;
+		camRect_.x = WIN_WIDTH;
+	}*/
+	camRect_.x = 0; //se deja la camara a 0 ahora mismo porque el fondo de BEU se ajusta al window y se evita el problema de que se desplace a zona negra
 	camRect_.y = 0;
-	if (camRect_.x > (BACKGROUNDAIR_WIDTH_FRAME)) {
-			camRect_.x = BACKGROUNDAIR_WIDTH_FRAME;
-	}
 }
