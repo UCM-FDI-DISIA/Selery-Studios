@@ -18,6 +18,7 @@ public:
 	void deleteButtonsTD();
 	void deleteButtonsBEU();
 	void exitControls();
+	void ControlsBackground(string file);
 private:
 	Entity* backButton;
 	Entity* muteButton;
@@ -26,6 +27,7 @@ private:
 	Entity* sliderBrillo;
 	Entity* sliderSonido;
 	Entity* exitControlsButton;
+	Entity* resumeButton;
 	Image* im_;
 	bool exitActive=false;
 	string controls;

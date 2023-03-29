@@ -21,6 +21,7 @@ private:
 	bool set;
 	VolumeSlider* volume;
 	brightSliderComponent* bright;
+	Texture* t_;
 
 public:
 	sliderComponent(){

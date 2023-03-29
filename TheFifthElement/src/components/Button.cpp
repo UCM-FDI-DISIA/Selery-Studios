@@ -20,7 +20,7 @@ void Button::update() {
 		else if (identifier == "BACK")im_->setAnimTexture("MenuButtonPressed", 1, 289);
 		else if (identifier == "TDCONTROLS")im_->setAnimTexture("TDControlsButtonPressed", 1, 289);
 		else if (identifier == "BEUCONTROLS")im_->setAnimTexture("BEUControlsButtonPressed", 1, 289);
-		else if (identifier == "MUTE")im_->setAnimTexture("OptionsButtonPressed", 1, 95);
+		else if (identifier == "MUTE")im_->setAnimTexture("MuteButtonPressed", 1, 20);
 		else if (identifier == "EXITCONTROLS")im_->setAnimTexture("TDControlsButtonPressed", 1, 95);
 	}
 	else
@@ -33,7 +33,7 @@ void Button::update() {
 		else if (identifier == "MAINMENU")im_->setAnimTexture("MenuButton", 1, 289);
 		else if (identifier == "TDCONTROLS")im_->setAnimTexture("TDControlsButton", 1, 289);
 		else if (identifier == "BEUCONTROLS")im_->setAnimTexture("BEUControlsButton", 1, 289);
-		else if (identifier == "MUTE")im_->setAnimTexture("MuteButton", 1, 95);
+		else if (identifier == "MUTE")im_->setAnimTexture("MuteButton", 1, 20);
 		else if (identifier=="EXITCONTROLS")im_->setAnimTexture("TDControlsButton", 1, 95);
 		currentPositionState = MOUSE_OUT;
 	}
@@ -58,8 +58,8 @@ void Button::handleEvent(SDL_Event event)
 				else if (identifier == "RESUME") {
 					SDLUtils::instance()->soundEffects().at("prueba").play();
 					SDLUtils::instance()->soundEffects().at("Title").resumeChannel();
-					//GameManager::instance()->goTopDown();
-					GameManager::instance()->Pop();
+					GameManager::instance()->goTopDown();
+					//GameManager::instance()->Pop();
 				}
 				else if (identifier == "OPTIONS") {
 					SDLUtils::instance()->soundEffects().at("pruebaBoton").play();

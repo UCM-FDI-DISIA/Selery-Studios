@@ -153,7 +153,7 @@
     {"id": "PlayButton","file": "assets/Scenes/Backgrounds/Menu/Buttons/PlayButton.png"},
     {"id": "BackButton","file": "assets/Scenes/Backgrounds/Pausa/Buttons/MenuButton.png"}, 
     {"id": "MuteButton","file": "assets/Scenes/Backgrounds/Menu/Buttons/mute.png"},
-    {"id": "MuteButtonPressed","file": "assets/Scenes/Backgrounds/Menu/Buttons/OptionsButtonPress.png"},
+    {"id": "MuteButtonPressed","file": "assets/Scenes/Backgrounds/Menu/Buttons/mutePress.png"},
     {"id": "PlayButtonPressed", "file": "assets/Scenes/Backgrounds/Menu/Buttons/PlayButtonPress.png"},
     {"id": "ExitButton", "file": "assets/Scenes/Backgrounds/Menu/Buttons/ExitButton.png"},
     {"id": "ExitButtonPressed", "file": "assets/Scenes/Backgrounds/Menu/Buttons/ExitButtonPress.png"},
@@ -200,7 +200,9 @@
     {"id": "papiro", "file": "assets/Texts/image.png"},
     {"id": "E", "file": "assets/NPCs/E.png"},
     {"id": "TopDownControls", "file": "assets/HUD/Menu/TopDownControls.png"},
-    {"id": "BEUControls", "file": "assets/HUD/Menu/BEUControls.png"}
+    {"id": "BEUControls", "file": "assets/HUD/Menu/BEUControls.png"},
+    {"id": "controlPanel", "file": "assets/HUD/Menu/controlPanel.png"},
+    {"id": "slider", "file": "assets/HUD/Menu/slider.png"}
   ],
 
   "messages": [

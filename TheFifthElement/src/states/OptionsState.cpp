@@ -2,7 +2,8 @@
 
 OptionsState::OptionsState() {
 	Background("fondoPausa");
-	addNewEntity("PTD_water_right", PLAYERTD_WIDTH_FRAME * 7, PLAYERTD_HEIGHT_FRAME, Vector2D(2 * WIN_WIDTH / 5, 450), 7, false, 1);
+	ControlsBackground("controlPanel");
+	addNewEntity("PTD_water_right", PLAYERTD_WIDTH_FRAME * 7, PLAYERTD_HEIGHT_FRAME, Vector2D( WIN_WIDTH / 5, 350), 7, false, 1);
 
 	createButtons();
 }
@@ -17,6 +18,19 @@ void OptionsState::Background(string file) {
 	e->addComponent<Transform>(int(TRANSFORM_H), v, WIN_WIDTH, WIN_HEIGHT, r, 0, f, matrix);
 	Texture* t = &SDLUtils::instance()->images().at(file);
 	e->addComponent<Image>(int(IMAGE_H), t, f, f, f, BACKGROUNDAIR_WIDTH_FRAME, BACKGROUNDAIR_HEIGHT_FRAME);
+	addEntity(e);
+}
+void OptionsState::ControlsBackground(string file)
+{
+	Entity* e = new Entity();
+
+	int f = 0;
+	bool matrix = false;
+	Vector2D v = { WIN_WIDTH / 2-135, WIN_HEIGHT / 2-250 };
+	int r = 0;
+	e->addComponent<Transform>(int(TRANSFORM_H), v, 270, 500, r, 0, f, matrix);
+	Texture* t = &SDLUtils::instance()->images().at(file);
+	e->addComponent<Image>(int(IMAGE_H), t, f, f, f, 270, 500);
 	addEntity(e);
 }
 
@@ -36,6 +50,7 @@ void OptionsState::handleEvents()
 		sliderBrillo->handleEvent(event);
 		sliderSonido->handleEvent(event);
 		muteButton->handleEvent(event);
+		resumeButton->handleEvent(event);
 		if (exitActive)
 		{
 			exitControlsButton->handleEvent(event);
@@ -58,25 +73,28 @@ Entity* OptionsState::addNewEntity(string t, float w, float h, Vector2D pos, int
 
 void OptionsState::createButtons() {
 
-	backButton = addNewEntity("BackButton", 289, 86, Vector2D(WIN_WIDTH/2-145, WIN_HEIGHT / 2), 1, false, 1);
+	backButton = addNewEntity("BackButton", 289, 86, Vector2D(WIN_WIDTH-150, WIN_HEIGHT -50), 1, false, 0.5);
 	backButton->addComponent<Button>(BUTTON_H, "BACK");
 
-	muteButton = addNewEntity("MuteButton", 289, 86, Vector2D(WIN_WIDTH / 6, WIN_HEIGHT / 5), 1, false, 0.5);
+	resumeButton = addNewEntity("ResumeButton", 289, 86, Vector2D(5, WIN_HEIGHT - 50), 1, false, 0.5);
+	resumeButton->addComponent<Button>(BUTTON_H, "RESUME");
+
+	muteButton = addNewEntity("MuteButton", 20, 20, Vector2D(WIN_WIDTH / 2+42, WIN_HEIGHT / 5-40), 1, false, 1);
 	muteButton->addComponent<Button>(BUTTON_H, "MUTE");
 
-	TDcontrolsButton = addNewEntity("TDControlsButton", 289, 86, Vector2D(3 * WIN_WIDTH / 4, 5 * WIN_HEIGHT / 6), 1, false, 0.5);
+	TDcontrolsButton = addNewEntity("TDControlsButton", 289, 86, Vector2D(WIN_WIDTH/2-72, WIN_HEIGHT/2+90), 1, false, 0.5);
 	TDcontrolsButton->addComponent<Button>(BUTTON_H, "TDCONTROLS");
 
-	BEUcontrolsButton = addNewEntity("BEUControlsButton", 289, 86, Vector2D(WIN_WIDTH / 4, 5 * WIN_HEIGHT / 6), 1, false, 0.5);
+	BEUcontrolsButton = addNewEntity("BEUControlsButton", 289, 86, Vector2D(WIN_WIDTH / 2-72, WIN_HEIGHT/1.5+60), 1, false, 0.5);
 	BEUcontrolsButton->addComponent<Button>(BUTTON_H, "BEUCONTROLS");
 
 	sliderBrillo = addEntity(new Entity());
-	sliderBrillo->addComponent<Transform>(TRANSFORM_H, Vector2D(WIN_WIDTH / 2, WIN_HEIGHT / 5), 20, 20, 1);
+	sliderBrillo->addComponent<Transform>(TRANSFORM_H, Vector2D(WIN_WIDTH / 2-10, WIN_HEIGHT / 2-45), 20, 20, 1);
 	sliderBrillo->addComponent<brightSliderComponent>(BRIGHTSLIDER_H);
 	sliderBrillo->addComponent<sliderComponent>(SLIDERCOMPONENT_H);
 
 	sliderSonido = addEntity(new Entity());
-	sliderSonido->addComponent<Transform>(TRANSFORM_H, Vector2D(WIN_WIDTH / 2, WIN_HEIGHT / 1.5), 20, 20, 1);
+	sliderSonido->addComponent<Transform>(TRANSFORM_H, Vector2D(WIN_WIDTH / 2-10, WIN_HEIGHT / 5), 20, 20, 1);
 	sliderSonido->addComponent<VolumeSlider>(VOLUMESLIDER_H); 
 	sliderSonido->addComponent<sliderComponent>(SLIDERCOMPONENT_H);
 
