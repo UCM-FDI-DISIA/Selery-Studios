@@ -21,6 +21,7 @@ void Button::update() {
 		else if (identifier == "TDCONTROLS")im_->setAnimTexture("TDControlsButtonPressed", 1, 289);
 		else if (identifier == "BEUCONTROLS")im_->setAnimTexture("BEUControlsButtonPressed", 1, 289);
 		else if (identifier == "MUTE")im_->setAnimTexture("OptionsButtonPressed", 1, 95);
+		else if (identifier == "EXITCONTROLS")im_->setAnimTexture("TDControlsButtonPressed", 1, 95);
 	}
 	else
 	{
@@ -33,6 +34,7 @@ void Button::update() {
 		else if (identifier == "TDCONTROLS")im_->setAnimTexture("TDControlsButton", 1, 289);
 		else if (identifier == "BEUCONTROLS")im_->setAnimTexture("BEUControlsButton", 1, 289);
 		else if (identifier == "MUTE")im_->setAnimTexture("MuteButton", 1, 95);
+		else if (identifier=="EXITCONTROLS")im_->setAnimTexture("TDControlsButton", 1, 95);
 		currentPositionState = MOUSE_OUT;
 	}
 	updateMousePosition();
@@ -91,12 +93,25 @@ void Button::handleEvent(SDL_Event event)
 					SDL_AudioQuit(); //Mutea el juego (TODO). //Lo podremos manejar a traves del sound manager
 				}
 				else if (identifier == "TDCONTROLS")
-				{
+				{		
 					tdcontrols = true;
+					OptionsState* optionsstate = static_cast<OptionsState*>(mngr_);
+					optionsstate->exitControls();					
+					optionsstate->deleteButtonsTD();
+
 				}
 				else if (identifier == "BEUCONTROLS")
-				{
+				{			
 					beucontrols = true;
+					OptionsState* optionsstate = static_cast<OptionsState*>(mngr_);
+					optionsstate->exitControls();
+					optionsstate->deleteButtonsBEU();
+				}
+				else if (identifier == "EXITCONTROLS")
+				{
+					tdcontrols = false;
+					beucontrols = false;
+					GameManager::instance()->goOptionsMenu();
 				}
 			}
 		}

@@ -97,6 +97,7 @@ void LifeComponent::Death() {
 	if (enemy_) {// enemy 
 		anim_->changeState(AnimationEnemyBEUComponent::Death);
 		eMov_->stop(true);
+		//BeatEmUpState* 
 	}
 	else {// player
 		skin_->changeState(SkinBEUComponent::Death);

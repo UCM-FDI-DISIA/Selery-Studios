@@ -44,6 +44,7 @@ private:
 	Entity* enemy_;
 	AnimationEnemyBEUComponent* animation_;
 	Texture* enemy_texture;
+	float numEnemies;
 	//COLISIONES
 	ColManager* colManager_;
 	

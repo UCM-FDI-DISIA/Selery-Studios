@@ -36,6 +36,10 @@ void OptionsState::handleEvents()
 		sliderBrillo->handleEvent(event);
 		sliderSonido->handleEvent(event);
 		muteButton->handleEvent(event);
+		if (exitActive)
+		{
+			exitControlsButton->handleEvent(event);
+		}
 	}
 
 }
@@ -76,4 +80,29 @@ void OptionsState::createButtons() {
 	sliderSonido->addComponent<VolumeSlider>(VOLUMESLIDER_H); 
 	sliderSonido->addComponent<sliderComponent>(SLIDERCOMPONENT_H);
 
+}
+
+void OptionsState::deleteButtonsTD()
+{
+	backButton->~Entity();
+	muteButton->~Entity();
+	BEUcontrolsButton->~Entity();
+	sliderBrillo->~Entity();
+	sliderSonido->~Entity();
+}
+
+void OptionsState::deleteButtonsBEU()
+{
+	backButton->~Entity();
+	muteButton->~Entity();
+	TDcontrolsButton->~Entity();
+	sliderBrillo->~Entity();
+	sliderSonido->~Entity();
+}
+
+void OptionsState::exitControls()
+{
+	exitActive = true;
+	exitControlsButton = addNewEntity("exitControlsButton", 50, 50, Vector2D(10, 10), 1, false, 0.5);
+	exitControlsButton->addComponent<Button>(BUTTON_H, "EXITCONTROLS");
 }

@@ -142,9 +142,12 @@ void BeatEmUpState::handleEvents() {
 }
 
 void BeatEmUpState::finishBEU() {
-	GameManager::instance()->goTopDown();
-	SDLUtils::instance()->soundEffects().at("Battle").haltChannel();
-
+	numEnemies -= 1;
+	if (numEnemies == 0)
+	{
+		GameManager::instance()->goTopDown();
+		SDLUtils::instance()->soundEffects().at("Battle").haltChannel();
+	}
 }
 
 string BeatEmUpState::getStateID() {
