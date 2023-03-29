@@ -1,6 +1,7 @@
 #pragma once
 #include "GameState.h"
 #include "../sdlutils/SDLUtils.h"
+#include "../utils/PropertiesManager.h"
 #include "../ColManager.h"
 #include "../components/AttackBoxComponent.h"
 #include "../components/AnimationEnemyBEUComponent.h"
@@ -22,7 +23,6 @@
 #include "../components/ShadowComponent.h"
 
 #include "../components/AttackEarthBossComponent.h"
-#include "../components/FireAttackComponent.h"
 #include "../components/rouletteComponent.h"
 
 using name = string;
@@ -45,6 +45,7 @@ private:
 	Entity* enemy_;
 	AnimationEnemyBEUComponent* animation_;
 	Texture* enemy_texture;
+	float numEnemies;
 	//COLISIONES
 	ColManager* colManager_;
 	
@@ -58,6 +59,9 @@ private:
 	Roulette* roulete;
 	//BOSSES
 	Entity* boss_;
+
+	//PROPERTIES
+	PropertiesManager* props_;
 
 public:
 	BeatEmUpState(bool boss, string typeBoss = "");

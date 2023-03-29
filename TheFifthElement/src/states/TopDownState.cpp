@@ -3,16 +3,20 @@
 
 TopDownState::TopDownState() {
     puzzle1 = new PuzzleCopas();
+    ////HUD
+    //Hud_ = new Entity();
+    //Hud_->setContext(this);
+    //roulete = Hud_->addComponent<Roulette>(ROULETTECOMPONENT_H);
+    //damage_ =  Hud_->addComponent<Damage>(DAMAGE_H);
+    //life_ = Hud_->addComponent<LifeTD>(LIFETDCOMPONENT_H);
+    //economyComp_ = Hud_->addComponent<EconomyComponent>(ECONOMYCOMPONENT_H);
+    //CARGAS EL MAPA
     //HUD
     Hud_ = new Entity();
     Hud_->setContext(this);
     roulete = Hud_->addComponent<Roulette>(ROULETTECOMPONENT_H);
-    damage_ =  Hud_->addComponent<Damage>(DAMAGE_H);
-    life_ = Hud_->addComponent<LifeTD>(LIFETDCOMPONENT_H);
-    economyComp_ = Hud_->addComponent<EconomyComponent>(ECONOMYCOMPONENT_H);
-    //CARGAS EL MAPA
     LoadMap("assets/Scenes/Maps/MapaInicial.tmx");
-    addEntity(Hud_);
+    addEntity(Hud_);  
 }
 
 void TopDownState::LoadMap(string const& filename) {
@@ -168,6 +172,10 @@ void TopDownState::LoadMap(string const& filename) {
                     player_->addComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
                     in_ = player_->addComponent<InputComponent>(INPUTCOMPONENT_H, roulete);
                     player_->addComponent<ColliderTile>(COLLIDERTILE_H, collisions_);
+                    
+                    damage_ = Hud_->addComponent<Damage>(DAMAGE_H);
+                    life_ = Hud_->addComponent<LifeTD>(LIFETDCOMPONENT_H);
+                    economyComp_ = Hud_->addComponent<EconomyComponent>(ECONOMYCOMPONENT_H);
                     shopComp_ = player_->addComponent<ShopComponent>(SHOPCOMPONENT_H, economyComp_, damage_, life_);
                    
                 }

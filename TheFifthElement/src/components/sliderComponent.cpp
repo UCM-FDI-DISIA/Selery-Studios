@@ -3,6 +3,7 @@
 void sliderComponent::initComponent() {
 	sliderTransform = ent_->getComponent<Transform>(TRANSFORM_H);
 	im_ = ent_->getComponent<Image>(IMAGE_H);
+	t_ = &SDLUtils::instance()->images().at("slider");
 	topeDer = sliderTransform->getPos().getX() + 60;
 	topeIzq = sliderTransform->getPos().getX() - 60;
 	valor = 85;
@@ -66,4 +67,6 @@ void sliderComponent ::render() {
 	SDL_SetRenderDrawColor(GameManager::instance()->getRenderer(), 0, 250, 0, 0);
 	SDL_RenderDrawRect(GameManager::instance()->getRenderer(), &mouseRect);
 	SDL_SetRenderDrawColor(GameManager::instance()->getRenderer(), 0, 0, 0, 255);
+	SDL_Rect dest = { sliderTransform->getPos().getX(),sliderTransform->getPos().getY(),sliderTransform->getW(),sliderTransform->getH() };
+	t_->render(dest, 0);
 }

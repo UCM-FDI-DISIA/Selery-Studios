@@ -10,10 +10,8 @@ ShopComponent::ShopComponent(EconomyComponent* economyComp, Damage* damage, Life
     life_ = life; 
 }
 
-void ShopComponent::initComponent() {
-    
-    dialog_ = ent_->getComponent<DialogueComponent>(DIALOGCOMPONENT_H);
-    
+void ShopComponent::initComponent() {  
+    dialog_ = ent_->getComponent<DialogueComponent>(DIALOGCOMPONENT_H);    
 }
 
 void ShopComponent::update() {
@@ -21,6 +19,7 @@ void ShopComponent::update() {
 }
 
 void ShopComponent::render() {
+    // si la tienda está abierta, renderizamos background, avatares y textos
     if (dialog_->getopenedShop()) {
         showShopBackground();
 
@@ -55,56 +54,56 @@ int ShopComponent::increase(int& i) {
     return i++;
 }
 
-// l�gica para manejar las compras en la tienda
+// logica para manejar las compras en la tienda
 void ShopComponent::shopEconomy() {
     TopDownState* topdownstate = static_cast<TopDownState*>(mngr_);
     if (topdownstate->getShopButton(0)->getBool() && u1 < MAX_UPGRADE && economyComp_->getMoney() >= price1_) { // si el bot�n es clicado(isClicked=true en Button), si "u1" es menor que el m�ximo de mejoras y si nuestro dinero es mayor o igual al precio del art�culo
         increase(u1); // incremento del valor de mejora
         economyComp_->can_Substract(price1_);// restamos nuestro dinero actual
         price1_ += 10; // actualizamos precio en la tienda
-        damage_->addDamage(0, 20); // el 0 corresponde al personaje(en este caso aire), y el 20 a la cantidad de daño que aumenta
+        damage_->addDamage(0, 0.2f); // el 0 corresponde al personaje(en este caso aire), y el 0,2 a la cantidad de daño que aumenta
     }
     else if (topdownstate->getShopButton(1)->getBool() && u2 < MAX_UPGRADE && economyComp_->getMoney() >= price2_) {
         increase(u2);
         economyComp_->can_Substract(price2_);
         price2_ += 10;
-        damage_->addDamage(1, 20);
+        damage_->addDamage(1, 0.2f);
     }
     else if (topdownstate->getShopButton(2)->getBool() && u3 < MAX_UPGRADE && economyComp_->getMoney() >= price3_) {
         increase(u3);
         economyComp_->can_Substract(price3_);
         price3_ += 10;
-        damage_->addDamage(2, 20);
+        damage_->addDamage(2, 0.2f);
     }
     else if (topdownstate->getShopButton(3)->getBool() && u4 < MAX_UPGRADE && economyComp_->getMoney() >= price4_) {
         increase(u4);
         economyComp_->can_Substract(price4_);
         price4_ += 10;
-        damage_->addDamage(3, 20);
+        damage_->addDamage(3, 0.2f);
     }
     else if (topdownstate->getShopButton(4)->getBool() && u5 < MAX_UPGRADE && economyComp_->getMoney() >= price5_) {
         increase(u5);
         economyComp_->can_Substract(price5_);
         price5_ += 10;
-        life_->addLife(0, 20); // el 0 corresponde al personaje(en este caso aire), y el 20 a la cantidad de vida que aumenta
+        life_->addLife(0, 5.0f); // el 0 corresponde al personaje(en este caso aire), y el 5 a la cantidad de vida que aumenta
     }
     else if (topdownstate->getShopButton(5)->getBool() && u6 < MAX_UPGRADE && economyComp_->getMoney() >= price6_) {
         increase(u6);
         economyComp_->can_Substract(price6_);
         price6_ += 10;
-        life_->addLife(1, 20);
+        life_->addLife(1, 5.0f);
     }
     else if (topdownstate->getShopButton(6)->getBool() && u7 < MAX_UPGRADE && economyComp_->getMoney() >= price7_) {
         increase(u7);
         economyComp_->can_Substract(price7_);
         price7_ += 10;
-        life_->addLife(2, 20);
+        life_->addLife(2, 5.0f);
     }
     else if (topdownstate->getShopButton(7)->getBool() && u8 < MAX_UPGRADE && economyComp_->getMoney() >= price8_) {
         increase(u8);
         economyComp_->can_Substract(price8_);
         price8_ += 10;
-        life_->addLife(3, 20);
+        life_->addLife(3, 5.0f);
     }
 }
 

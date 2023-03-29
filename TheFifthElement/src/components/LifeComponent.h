@@ -20,6 +20,7 @@ private:
 	InputComponentBEU* inp_ = nullptr;
 	FramedImage* im_ = nullptr;
 	Transform* entTransform_ = nullptr;
+
 #pragma endregion
 
 #pragma region parameters

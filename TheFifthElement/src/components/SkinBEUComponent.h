@@ -1,6 +1,7 @@
 #pragma once
 #include "../utils/Component.h"
 #include "../sdlutils/Texture.h"
+#include "../utils/PropertiesManager.h"
 #include "../GameManager.h"
 #include "FramedImage.h"
 
@@ -22,6 +23,8 @@ private:
     int nframes_;
     FramedImage* im_;
     LifeComponent* lifeC_ = nullptr;
+    PropertiesManager* props;
+
 public:
     SkinBEUComponent(string skin);
     virtual ~SkinBEUComponent() {}

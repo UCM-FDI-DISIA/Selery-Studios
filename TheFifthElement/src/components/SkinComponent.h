@@ -39,6 +39,7 @@ public:
         skin_ = skin;
     }
     inline string getSkin() { return t_; }
+    inline string getSkinPlayer() { return skin_; } // método para obtener el id "air", "fire",...
 
 };
 #endif

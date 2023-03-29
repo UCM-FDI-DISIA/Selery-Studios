@@ -74,7 +74,7 @@ void InputComponent::handleEvents(SDL_Event event)
 			}
 		}
 		
-		if (ih().isKeyDown(SDL_SCANCODE_E)) {
+		if (ih().isKeyDown(SDL_SCANCODE_E) && !dialog->getopenedShop()) {
 
 			mov_->setDir(Vector2D(0, 0));
 			if (actionDelay > 0) {
@@ -84,8 +84,13 @@ void InputComponent::handleEvents(SDL_Event event)
 			actionDelay = 0;
 		}
 
-		if (ih().isKeyDown(SDL_SCANCODE_ESCAPE)) {
+		if (ih().isKeyDown(SDL_SCANCODE_ESCAPE) && !dialog->gethasstarted() && !dialog->getopenedShop()) {
 			GameManager::goPauseMenu();
+		}
+
+		if (ih().isKeyDown(SDL_SCANCODE_0)) //cambio a pantalla completa podria ser una opcion
+		{
+			SDL_SetWindowFullscreen(SDLUtils::instance()->window(), SDL_WINDOW_FULLSCREEN); //tambien se puede usar _DESKTOP
 		}
 	}
 }

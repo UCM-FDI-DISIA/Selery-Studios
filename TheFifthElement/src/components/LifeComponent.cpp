@@ -1,5 +1,6 @@
 ﻿#include "LifeComponent.h"
 #include "InputComponentBEU.h"
+#include "../states/BeatEmUpState.h"
 
 LifeComponent::LifeComponent(float maxLife) {
 	life_ = maxLife_ = maxLife;
@@ -51,7 +52,11 @@ void LifeComponent::update() {
 				int i = 0;
 				while (!types[i].alive && i < 4) i++;
 
-				if (i == 4) ent_->setAlive(false);
+				if (i == 4) 
+				{
+					ent_->setAlive(false);
+					GameManager::instance()->backToMainMenu();
+				}
 				else 
 				{
 					if (type_ == "air") inp_->setAir(false);// bloquea aire
@@ -95,6 +100,8 @@ void LifeComponent::Death() {
 	if (enemy_) {// enemy 
 		anim_->changeState(AnimationEnemyBEUComponent::Death);
 		eMov_->stop(true);
+		BeatEmUpState* beatemupstate = static_cast<BeatEmUpState*>(mngr_);
+		beatemupstate->finishBEU();
 	}
 	else {// player
 		skin_->changeState(SkinBEUComponent::Death);
@@ -139,20 +146,28 @@ void LifeComponent::subLife(float damage) {
 
 void LifeComponent::chageType(float maxLife) {
 
-	if (type_ == "air") types[0].life = life_;
-	else if (type_ == "fire")types[1].life = life_;
-	else if (type_ == "water")types[2].life = life_;
-	else if (type_ == "earth")types[3].life = life_;
-	
-	////type_ = im_->getType();
+	if (type_ == "air") {
+		types[0].life = life_;
+	}
+	else if (type_ == "fire") {
+		types[1].life = life_;
+	}
+	else if (type_ == "water") {
+		types[2].life = life_;
+	}
+	else if (type_ == "earth") {
+		types[3].life = life_;
+	}
+
+	type_ = im_->getType();
 	maxLife_ = maxLife;
 
 	if (type_ == "air") {
-		if (types[0].life == -1)types[0].life = maxLife;
+		if (types[0].life == -1)types[0].life = maxLife; // al cambiar por primera vez seteamos vida máxima
 		life_ = types[0].life;
 	}
 	else if (type_ == "fire") {
-		if (types[1].life == -1)types[1].life = maxLife;
+		if (types[1].life == -1)types[1].life = maxLife; 
 		life_ = types[1].life;
 	}
 	else if (type_ == "water") {
@@ -166,7 +181,6 @@ void LifeComponent::chageType(float maxLife) {
 	
 	chooseTexture();
 	barWidth_ = ((life_ * backWidth_) / maxLife_);
-
 }
 
 void LifeComponent::render() {

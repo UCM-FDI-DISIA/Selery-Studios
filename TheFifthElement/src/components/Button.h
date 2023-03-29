@@ -22,6 +22,8 @@ private:
 	bool isClicked_ = false; // utilizado para la tienda
 	/*ShopComponent* shopComp_;*/
 	/*DialogueComponent* dialog_;*/
+	bool beucontrols = false;
+	bool tdcontrols = false;
 public:
 	Button(string identier_) : identifier(identier_) { currentPositionState = MOUSE_OUT; };
 	virtual ~Button() {};

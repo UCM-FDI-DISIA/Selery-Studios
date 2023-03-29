@@ -189,7 +189,7 @@
     {"id": "PlayButton","file": "assets/Scenes/Backgrounds/Menu/Buttons/PlayButton.png"},
     {"id": "BackButton","file": "assets/Scenes/Backgrounds/Pausa/Buttons/MenuButton.png"}, 
     {"id": "MuteButton","file": "assets/Scenes/Backgrounds/Menu/Buttons/mute.png"},
-    {"id": "MuteButtonPressed","file": "assets/Scenes/Backgrounds/Menu/Buttons/OptionsButtonPress.png"},
+    {"id": "MuteButtonPressed","file": "assets/Scenes/Backgrounds/Menu/Buttons/mutePress.png"},
     {"id": "PlayButtonPressed", "file": "assets/Scenes/Backgrounds/Menu/Buttons/PlayButtonPress.png"},
     {"id": "ExitButton", "file": "assets/Scenes/Backgrounds/Menu/Buttons/ExitButton.png"},
     {"id": "ExitButtonPressed", "file": "assets/Scenes/Backgrounds/Menu/Buttons/ExitButtonPress.png"},
@@ -197,6 +197,12 @@
     {"id": "OptionsButtonPressed", "file": "assets/Scenes/Backgrounds/Menu/Buttons/OptionsButtonPress.png"},
     {"id": "MenuButton", "file": "assets/Scenes/Backgrounds/Pausa/Buttons/MenuButton.png"},
     {"id": "MenuButtonPressed", "file": "assets/Scenes/Backgrounds/Pausa/Buttons/MenuButtonPress.png"},
+    {"id": "TDControlsButton", "file": "assets/Scenes/Backgrounds/Pausa/Buttons/TDControlsButton.png"},
+    {"id": "TDControlsButtonPressed", "file": "assets/Scenes/Backgrounds/Pausa/Buttons/TDControlsButtonPress.png"},
+    {"id": "BEUControlsButton", "file": "assets/Scenes/Backgrounds/Pausa/Buttons/BEUControlsButton.png"},
+    {"id": "BEUControlsButtonPressed", "file": "assets/Scenes/Backgrounds/Pausa/Buttons/BEUControlsButtonPress.png"},
+    {"id": "exitControlsButton", "file": "assets/Scenes/Backgrounds/Pausa/Buttons/BEUControlsButton.png"},
+    {"id": "exitControlsButtonPressed", "file": "assets/Scenes/Backgrounds/Pausa/Buttons/BEUControlsButtonPress.png"},
     {"id": "ResumeButton", "file": "assets/Scenes/Backgrounds/Pausa/Buttons/ResumeButton.png"},
     {"id": "ResumeButtonPressed", "file": "assets/Scenes/Backgrounds/Pausa/Buttons/ResumeButtonPress.png"},
     {"id": "campfire", "file": "assets/Scenes/Maps/GrassLand/Props/campfire 2-1.png"},
@@ -233,7 +239,11 @@
     {"id": "espada", "file": "assets/HUD/espada.png"},
     {"id": "cora", "file": "assets/HUD/cora.png"},
     {"id": "papiro", "file": "assets/Texts/image.png"},
-    {"id": "E", "file": "assets/NPCs/E.png"}
+    {"id": "E", "file": "assets/NPCs/E.png"},
+    {"id": "TopDownControls", "file": "assets/HUD/Menu/TopDownControls.png"},
+    {"id": "BEUControls", "file": "assets/HUD/Menu/BEUControls.png"},
+    {"id": "controlPanel", "file": "assets/HUD/Menu/controlPanel.png"},
+    {"id": "slider", "file": "assets/HUD/Menu/slider.png"}
   ],
 
   "messages": [

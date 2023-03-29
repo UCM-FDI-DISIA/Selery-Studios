@@ -2,6 +2,7 @@
 #include "../components/SkinBEUComponent.h"
 
 BeatEmUpState::BeatEmUpState(bool boss, string typeBoss) {
+
 	random = &SDLUtils::instance()->rand();
 	scale = WIN_WIDTH / 900;
 
@@ -23,7 +24,7 @@ BeatEmUpState::BeatEmUpState(bool boss, string typeBoss) {
 	player_->addComponent<FramedImage>(FRAMEDIMAGE_H, texture_player_, PLAYERBEU_WIDTH_FRAME, PLAYERBEU_HEIGHT_FRAME, 8, "air");
 	player_->addComponent<JumpComponent>(JUMP_H);
 	addEntity(Hud_);
-	player_->addComponent<LifeComponent>(LIFECOMPONENT_H, 10);
+	player_->addComponent<LifeComponent>(LIFECOMPONENT_H, props_->instance()->getLives(0));
 	player_->addComponent<ShadowComponent>(SHADOWCOMPONENT_H);
 	in_ = player_->addComponent<InputComponentBEU>(INPUTCOMPONENTBEU_H, roulete);
 	player_->addComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
@@ -31,8 +32,6 @@ BeatEmUpState::BeatEmUpState(bool boss, string typeBoss) {
 	player_->addComponent<LimitBEU>(LIMITBEU_H);
 	player_->addComponent<ColliderComponent>(int(COLLIDERCOMPONENT_H), Vector2D(90, 80), 1.2*PLAYERBEU_HEIGHT_FRAME / 3, PLAYERBEU_WIDTH_FRAME / 7);
 	player_->addComponent<PointOfFightComponent>(POINTOFFIGHTCOMPONENT_H, 30, 10);
-	sk_->initComponent();
-	player_->addComponent<FireAttackComponent>(SPAWN_H, this);
 	addEntity(player_);
 	
 	colManager_ = new ColManager(this);
@@ -56,6 +55,7 @@ BeatEmUpState::BeatEmUpState(bool boss, string typeBoss) {
 
 void BeatEmUpState::AddEnemies(int n_enemies) {
 	for (int i = 0; i < n_enemies; ++i) {
+		numEnemies = n_enemies;
 		int character = random->nextInt(0, 4);
 		int type = random->nextInt(0, 4);
 		Vector2D pos={ (float)random->nextInt(50,WIN_WIDTH - 80),(float)random->nextInt(50,WIN_HEIGHT - 50) };
@@ -147,9 +147,12 @@ void BeatEmUpState::handleEvents() {
 }
 
 void BeatEmUpState::finishBEU() {
-	GameManager::instance()->goTopDown();
-	SDLUtils::instance()->soundEffects().at("Battle").haltChannel();
-
+	numEnemies -= 1;
+	if (numEnemies == 0)
+	{
+		GameManager::instance()->backToMainMenu();
+		SDLUtils::instance()->soundEffects().at("Battle").haltChannel();
+	}
 }
 
 string BeatEmUpState::getStateID() {
@@ -162,11 +165,13 @@ void BeatEmUpState::update() {
 	camRect_.x = (trans_player_->getPos().getX() + camOffset_) - WIN_WIDTH / 2;
 	camRect_.y = (trans_player_->getPos().getY() - WIN_HEIGHT / 2);
 	// Clamp
-	if (camRect_.x < 0) {
+	/*if (camRect_.x < 0) {
 		camRect_.x = 0;
-	}
+	}*/	
+	/*if (camRect_.x >(WIN_WIDTH)) {
+			//camRect_.x = BACKGROUNDAIR_WIDTH_FRAME;
+		camRect_.x = WIN_WIDTH;
+	}*/
+	camRect_.x = 0; //se deja la camara a 0 ahora mismo porque el fondo de BEU se ajusta al window y se evita el problema de que se desplace a zona negra
 	camRect_.y = 0;
-	if (camRect_.x > (BACKGROUNDAIR_WIDTH_FRAME)) {
-			camRect_.x = BACKGROUNDAIR_WIDTH_FRAME;
-	}
 }
