@@ -144,9 +144,18 @@ void TopDownState::LoadMap(string const& filename) {
             for (auto obj : objs) {
                 auto rect = obj.getAABB();
                 string name = object_layer->getName();
+<<<<<<< Updated upstream
                 if (name == "Colisiones") {
                    /* auto a = new ColliderTile(Vector2D(rect.left, rect.top), rect.width, rect.height, player_);
                     collisions_.push_back(a);*/
+=======
+                
+                if (name == "Colisiones") {
+                    Entity* colision = new Entity();
+                    colision->addComponent<Transform>(TRANSFORM_H, Vector2D(rect.left, rect.top), rect.width, rect.height);
+                    collisions_.push_back(colision);
+                   // collisions_.push_back(collidertile);
+>>>>>>> Stashed changes
                 }
                 else if (name == "Interacctions") {
                     /*auto a = new ColliderTileInteraction(Vector2D(rect.left, rect.top), rect.width, rect.height, player_, obj.getUID(), puzzle1);

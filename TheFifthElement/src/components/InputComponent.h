@@ -14,7 +14,15 @@ private:
     double actionDelay;
     MovementComponent* mov_ = nullptr;
     SkinComponent* skin_ = nullptr;
+<<<<<<< Updated upstream
 
+=======
+    DialogueComponent* dialog = nullptr;
+    Roulette* roulet;
+    bool elements[4];
+    SoundManager* smg_=nullptr;
+    bool moveLeft, moveRight, moveUp, moveDown;
+>>>>>>> Stashed changes
 public:
     InputComponent();
     void initComponent();

@@ -17,12 +17,29 @@ void InputComponent::initComponent() {
 void InputComponent::update() { //Actualizamos el contador que mide el tiempo
 	unsigned timer = clock();
 	actionDelay = (double(timer) / CLOCKS_PER_SEC);
+	if (moveLeft && d != LEFT) {
+		mov_->setDir(Vector2D(-1, 0));
+	}
+	else if (moveRight && d != RIGHT) {
+		mov_->setDir(Vector2D(1, 0));
+	}
+	else if (moveUp && d != UP) {
+		mov_->setDir(Vector2D(0, -1));
+	}	
+	else if (moveDown && d != DOWN) {
+		mov_->setDir(Vector2D(0, 1));
+	}
+	else {
+		mov_->setDir(Vector2D(0, 0));
+	}
+	
 }
 void InputComponent::handleEvents(SDL_Event event)
 {
 	ih().update(event);
 
 	if (ih().keyDownEvent()){
+<<<<<<< Updated upstream
 		if (!npccol) {
 			if (ih().isKeyDown(SDL_SCANCODE_A)) {
 				mov_->setDir(Vector2D(-1, 0));
@@ -38,10 +55,39 @@ void InputComponent::handleEvents(SDL_Event event)
 			}
 			else if (ih().isKeyDown(SDL_SCANCODE_S)) {
 				mov_->setDir(Vector2D(0, 1));
+=======
+		if (!dialog->gethasstarted() && !dialog->getopenedShop()) {
+			if (ih().isKeyDown(SDL_SCANCODE_A)) {
+				moveLeft = true;
+				skin_->changeState(SkinComponent::Left);
+			}
+			else if(ih().isKeyUp(SDL_SCANCODE_A)){
+				moveLeft = false;
+			}
+			 if (ih().isKeyDown(SDL_SCANCODE_D) ) {
+				moveRight = true;
+				skin_->changeState(SkinComponent::Right);
+			}
+			else if (ih().isKeyUp(SDL_SCANCODE_D)) {
+				moveRight = false;
+			}
+			  if (ih().isKeyDown(SDL_SCANCODE_W)) {
+				moveUp = true;
+				skin_->changeState(SkinComponent::Up);
+			}
+			else if (ih().isKeyUp(SDL_SCANCODE_W)) {
+				moveUp = false;
+			}
+			 if (ih().isKeyDown(SDL_SCANCODE_S)) {
+				moveDown = true;
+>>>>>>> Stashed changes
 				skin_->changeState(SkinComponent::Down);
 			}
+			else if (ih().isKeyUp(SDL_SCANCODE_S)) {
+				moveDown = false;
+			}
 			else {
-				mov_->setDir(Vector2D(0, 0));
+				
 				skin_->changeState(SkinComponent::Idle);
 			}
 

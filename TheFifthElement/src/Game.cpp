@@ -5,9 +5,16 @@ Game::Game() {
 	renderer = SDLUtils::instance()->renderer();
 	window = SDLUtils::instance()->window();
 	exit = false;
+<<<<<<< Updated upstream
 	//GameStateMachine::instance()->pushState(new TopDownState());
 	GameStateMachine::instance()->pushState(new MainMenuState());
 	//GameStateMachine::instance()->pushState(new BeatEmUpState());
+=======
+	GameStateMachine::instance()->pushState(new TopDownState());
+	//GameStateMachine::instance()->pushState(new MainMenuState());
+	//GameStateMachine::instance()->pushState(new BeatEmUpState(false));
+	//GameStateMachine::instance()->pushState(new PauseState());
+>>>>>>> Stashed changes
 }
 
 Game::~Game(){ // destructora
