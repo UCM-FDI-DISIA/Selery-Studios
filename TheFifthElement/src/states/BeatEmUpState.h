@@ -46,6 +46,9 @@ private:
 	AnimationEnemyBEUComponent* animation_;
 	Texture* enemy_texture;
 	float numEnemies;
+
+	Entity* enemySender;
+
 	//COLISIONES
 	ColManager* colManager_;
 	
@@ -64,7 +67,7 @@ private:
 	PropertiesManager* props_;
 
 public:
-	BeatEmUpState(bool boss, string typeBoss = "");
+	BeatEmUpState(bool boss, Entity* enemySends, string typeBoss = "");
 	~BeatEmUpState() {}
 	string getStateID(); // stringID
 	void AddEnemies(int i);
