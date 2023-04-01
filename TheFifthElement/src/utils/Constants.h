@@ -70,6 +70,9 @@ const int EARTHBOSS_HEIGHT = 192;
 #pragma endregion
 
 // SHOP
+const uint BLACKSMITH_WIDTH = 96; // anchura de NPC
+const uint BLACKSMITH_HEIGHT = 96; // altura de NPC
+const uint BLACKSMITH_FRAMES = 13; // frame del npcs
 const uint SHOP_WIDTH = 747;
 const uint SHOP_HEIGHT = 876;
 const uint UPTURNBUTTON_WIDTH = 88;

@@ -71,6 +71,7 @@ private:
 	int contnpc = 0;
 	//NPCS
 	Entity* Npc_;
+	Entity* Blacksmith_;
 	//Transform* Nptr_;
 	int number_npc_ = 0;
 	//HUD
@@ -136,6 +137,9 @@ public:
 			return &SDLUtils::instance()->images().at("NPC_2");
 		}
 		
+	}
+	Texture* blacksmithTexture() {
+		return &SDLUtils::instance()->images().at("Blacksmith");
 	}
 	Texture* EnemyTexture() {
 		int a = SDLUtils::instance()->rand().nextInt(0, 4);
