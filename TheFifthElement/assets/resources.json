@@ -1,12 +1,12 @@
 {
   "dialog": [
-    {"id": "1","text": "Carlos Leon trabajando? $ imposible "},
-    {"id": "2","text": "jose haz lo tuyo  "},
-    {"id": "3","text": "Carlos Leon trabajando? $ imposible "},
-    {"id": "4","text": "Carlos Leon trabajando? $ imposible "},
-    {"id": "5","text": "Carlos Leon trabajando? $ imposible "},
-    {"id": "6","text": "Carlos Leon trabajando? $ imposible "},
-    {"id": "7","text": "Buenos dias buen viajero $ Que se le ofrece? "}
+    {"id": "1","text": "Buenos dias buen viajero $ Que se le ofrece? "},
+    {"id": "2","text": "O compras o te apartas $ Que va a ser entonces?"},
+    {"id": "3","text": "Amigo! $ Todo bueno, bonito y barato!"},
+    {"id": "4","text": "Bienvenide a mi tienda "},
+    {"id": "5","text": "Carlos Leon trabajando? $ imposible $ Dialogo 5"},
+    {"id": "6","text": "Carlos Leon trabajando? $ imposible $ Dialogo 6"},
+    {"id": "7","text": "Dialogo extra"}
 
   ],
 

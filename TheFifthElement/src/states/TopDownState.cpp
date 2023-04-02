@@ -179,7 +179,12 @@ void TopDownState::LoadMap(string const& filename) {
                    
                 }
                 else if (name == "NPC") {
-                    contnpc++;
+                    if (contnpc >= 7)
+                    {
+                        contnpc = 5;
+                    }
+                    else { contnpc++; }
+                    //contnpc++;
                     Npc_ = new Entity();
                     Npc_->setContext(this);
                     Npc_->addComponent<Transform>(TRANSFORM_H,Vector2D(obj.getPosition().x, obj.getPosition().y), NPC_WIDTH, NPC_HEIGHT);
@@ -191,11 +196,12 @@ void TopDownState::LoadMap(string const& filename) {
                     
                 }
                 else if (name == "Herreros") {
+                    contBlksm++;
                     Blacksmith_ = new Entity();
                     Blacksmith_->setContext(this);
                     Blacksmith_->addComponent<Transform>(TRANSFORM_H, Vector2D(obj.getPosition().x, obj.getPosition().y), BLACKSMITH_WIDTH, BLACKSMITH_HEIGHT);
                     Blacksmith_->addComponent<Image>(IMAGE_H, blacksmithTexture(), BLACKSMITH_FRAMES, BLACKSMITH_FRAMES, 0, BLACKSMITH_WIDTH, BLACKSMITH_HEIGHT);
-                    Blacksmith_->addComponent<NPCcollisioncomponent>(NPCCOLLISIONCOMPONENTT, player_, 7);
+                    Blacksmith_->addComponent<NPCcollisioncomponent>(NPCCOLLISIONCOMPONENTT, player_, contBlksm);
                     Blacksmith_->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(0, 0), BLACKSMITH_HEIGHT, BLACKSMITH_WIDTH / BLACKSMITH_FRAMES);
                     number_npc_++;
                     addEntity(Blacksmith_);
