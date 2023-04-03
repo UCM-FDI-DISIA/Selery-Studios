@@ -1,11 +1,12 @@
 {
   "dialog": [
-    {"id": "1","text": "Carlos Leon trabajando? $ imposible "},
-    {"id": "2","text": "jose haz lo tuyo  "},
-    {"id": "3","text": "Carlos Leon trabajando? $ imposible "},
-    {"id": "4","text": "Carlos Leon trabajando? $ imposible "},
-     {"id": "5","text": "Carlos Leon trabajando? $ imposible "},
-    {"id": "6","text": "Carlos Leon trabajando? $ imposible "}
+    {"id": "1","text": "Buenos dias buen viajero $ Que se le ofrece? "},
+    {"id": "2","text": "O compras o te apartas $ Que va a ser entonces?"},
+    {"id": "3","text": "Amigo! $ Todo bueno, bonito y barato!"},
+    {"id": "4","text": "Bienvenide a mi tienda "},
+    {"id": "5","text": "Carlos Leon trabajando? $ imposible $ Dialogo 5"},
+    {"id": "6","text": "Carlos Leon trabajando? $ imposible $ Dialogo 6"},
+    {"id": "7","text": "Dialogo extra"}
 
   ],
 
@@ -16,6 +17,7 @@
   "images": [
     {"id": "NPC_1","file": "./assets/NPCs/Villagers/ChicoMoreno/IdleLeft.png"},
     {"id": "NPC_2","file": "./assets/NPCs/Villagers/ChicaMorena/IdleLeft.png"},
+    {"id": "Blacksmith", "file": "./assets/NPCs/Shop/Blacksmith/working.png"},
     {"id": "BEU_air_Mushroom_run","file": "./assets/Enemies/BeatEmUP/Air/Mushroom/Run.png"},
     {"id": "BEU_air_Mushroom_attack","file": "./assets/Enemies/BeatEmUP/Air/Mushroom/Attack.png"},
     {"id": "BEU_air_Mushroom_hit", "file": "./assets/Enemies/BeatEmUP/Air/Mushroom/Take Hit.png"},

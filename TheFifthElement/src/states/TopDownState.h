@@ -68,11 +68,13 @@ private:
 	SkinComponent* sk_;
 	Texture* texture_player_;
 	PlayerNPC* Playernpc_;
-	int contnpc = 0;
+	int contnpc = 4;
 	//NPCS
 	Entity* Npc_;
+	Entity* Blacksmith_;
 	//Transform* Nptr_;
 	int number_npc_ = 0;
+	int contBlksm = 0;
 	//HUD
 	Entity* Hud_;
 	EconomyComponent* economyComp_;
@@ -136,6 +138,9 @@ public:
 			return &SDLUtils::instance()->images().at("NPC_2");
 		}
 		
+	}
+	Texture* blacksmithTexture() {
+		return &SDLUtils::instance()->images().at("Blacksmith");
 	}
 	Texture* EnemyTexture() {
 		int a = SDLUtils::instance()->rand().nextInt(0, 4);

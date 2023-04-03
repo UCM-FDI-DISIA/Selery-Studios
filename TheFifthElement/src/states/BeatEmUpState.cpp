@@ -1,7 +1,8 @@
 ﻿#include "BeatEmUpState.h"
 #include "../components/SkinBEUComponent.h"
 
-BeatEmUpState::BeatEmUpState(bool boss, string typeBoss) {
+BeatEmUpState::BeatEmUpState(bool boss,Entity* enemySends, string typeBoss) {
+	enemySender = enemySends;
 
 	random = &SDLUtils::instance()->rand();
 	scale = WIN_WIDTH / 900;
@@ -150,8 +151,9 @@ void BeatEmUpState::finishBEU() {
 	numEnemies -= 1;
 	if (numEnemies == 0)
 	{
-		GameManager::instance()->backToMainMenu();
+		GameManager::instance()->goTopDown();
 		SDLUtils::instance()->soundEffects().at("Battle").haltChannel();
+		enemySender->~Entity();
 	}
 }
 

@@ -71,7 +71,7 @@ void DialogueComponent::inicombe() {
 			else {
 				hasstarted = false;
 				conespacios.clear();
-				if (plynpc->getcol() == 2) {
+				if (plynpc->getcol() <=4) {
 					openedShop_ = true;
 					static_cast<TopDownState*>(mngr_)->createShopButtons();
 				} 

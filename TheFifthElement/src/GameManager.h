@@ -23,7 +23,7 @@ public:
 	}
 	SDL_Window* getWindow() { return SDLUtils::instance()->window(); }
 
-	void goBeatEmUp();
+	void goBeatEmUp(Entity* enemy);
 	void goTopDown();
 	void backToMainMenu();
 	void leaveMainMenu();
