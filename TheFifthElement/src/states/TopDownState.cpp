@@ -294,7 +294,7 @@ void TopDownState::LoadMap(string const& filename) {
 }
 
 void TopDownState::update() {
-  //  cout << player_->getComponent<Transform>(TRANSFORM_H)->getPos()<<" " << player_->getComponent<Transform>(TRANSFORM_H)->getW() << " " << player_->getComponent<Transform>(TRANSFORM_H)->getH();
+  
    // player_->setCollision(false);
     Playernpc_->setcol();
     for (auto p : collisions_) {

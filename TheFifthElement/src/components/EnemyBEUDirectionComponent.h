@@ -3,7 +3,6 @@
 #include "MovementComponent.h"
 #include "Transform.h"
 #include "../utils/Vector2D.h"
-#include "../Entities/PlayerBEU.h"
 #include "ColliderComponent.h"
 
 class EnemyBEUDirectionComponent :

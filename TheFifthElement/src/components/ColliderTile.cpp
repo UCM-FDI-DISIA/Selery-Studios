@@ -31,7 +31,6 @@ void ColliderTile::update() {
 		bottomLeft_ = { trans_col->getPos().getX(), trans_col->getPos().getY() + trans_col->getH() };
 		bottomRight_ = { trans_col->getPos().getX() + trans_col->getW(), trans_col->getPos().getY() + trans_col->getH() };*/
 		bool a = SDL_IntersectRect(player, colision, area);
-		cout << a;
 		if (a) {
 			/*pTopLeft = trans_player->getPos();
 			pBottomLeft = { pTopLeft.getX(), pTopLeft.getY() + trans_player->getH() };

@@ -1,7 +1,6 @@
 #include "SkinComponent.h"
 #include "../utils/Entity.h"
 #include "../utils/ecs.h"
-#include "../Entities/PlayerTD.h"
 
 void SkinComponent::initComponent() {
 }
