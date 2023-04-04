@@ -5,7 +5,6 @@ BeatEmUpState::BeatEmUpState(bool boss,Entity* enemySends, string typeBoss) {
 	enemySender = enemySends;
 
 	random = &SDLUtils::instance()->rand();
-	scale = WIN_WIDTH / 900;
 
 	background_ = new Entity();
 	background_->addComponent<Transform>(int(TRANSFORM_H), Vector2D(0,0), WIN_WIDTH, WIN_HEIGHT); //aqui debemos tocar el rect del background
@@ -17,7 +16,7 @@ BeatEmUpState::BeatEmUpState(bool boss,Entity* enemySends, string typeBoss) {
 
 	player_ = new Entity();
 	player_->setContext(this);
-	trans_player_ = player_->addComponent<Transform>(TRANSFORM_H, Vector2D(PlayerPosition_X, PlayerPosition_Y), PLAYERBEU_WIDTH_FRAME, PLAYERBEU_HEIGHT_FRAME, scale);
+	trans_player_ = player_->addComponent<Transform>(TRANSFORM_H, Vector2D(PlayerPosition_X, PlayerPosition_Y), PLAYERBEU_WIDTH_FRAME, PLAYERBEU_HEIGHT_FRAME, 1);
 	sk_ = player_->addComponent<SkinBEUComponent>(SKINBEUCOMPONENT_H, "air");
 	sk_->changeState(SkinBEUComponent::Idle);
 	sk_->changeMov();
@@ -73,7 +72,7 @@ void BeatEmUpState::AddEnemies(int n_enemies) {
 		animation_->changeState(AnimationEnemyBEUComponent::Moving);
 		animation_->updateAnimation();
 
-		enemy_->addComponent<Transform>(TRANSFORM_H, pos, ENEMYBEU_WIDTH, ENEMYBEU_HEIGHT, scale)->setDir(Vector2D(1, 0));
+		enemy_->addComponent<Transform>(TRANSFORM_H, pos, ENEMYBEU_WIDTH, ENEMYBEU_HEIGHT)->setDir(Vector2D(1, 0));
 		enemy_->addComponent<Image>(IMAGE_H, animation_->getTexture(), animation_->getNFrames(), animation_->getNFrames(), 0, ENEMYBEU_WIDTH, ENEMYBEU_HEIGHT, getEnemyType(type));
 		enemy_->addComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
 		enemy_->addComponent<EnemyBEUDirectionComponent>(ENEMYBEUDIRECTIONCOMPONENT_H, player_, animation_->getEnemy());

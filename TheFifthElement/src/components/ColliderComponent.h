@@ -27,6 +27,11 @@ public:
 
     void initComponent() {
         tr_ = ent_->getComponent<Transform>(TRANSFORM_H);
+        if (tr_->getSize() != 1) {
+            offset_ = Vector2D(offset_.getX() *tr_->getSize(), offset_.getY() * tr_->getSize());
+            h_ *= tr_->getSize();
+            w_ *= tr_->getSize();
+        }
         pos_ = tr_->getPos();
         pos_ = pos_ + offset_;
         r.x = pos_.getX();

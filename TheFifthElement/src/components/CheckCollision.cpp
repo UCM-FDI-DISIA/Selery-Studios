@@ -59,7 +59,7 @@ void CheckCollision::update()
 
 	}
 	else if (objects_ && id_ == "portal") {
-		if (Collision::collides(Vector2D(rectPlayer.x, rectPlayer.y), rectPlayer.w, rectPlayer.h, Vector2D(tr1->getPos().getX(), tr1->getPos().getY()), tr1->getW(), tr1->getH()))					//Aumentado el numero por el que dividimos las alturas y anchuras, tambien aumentamos lo que tarda en detectarnos el enemigo
+		if (Collision::collides(Vector2D(rectPlayer.x, rectPlayer.y), rectPlayer.w, rectPlayer.h, Vector2D(tr1->getPos().getX(), tr1->getPos().getY()), tr1->getW() * tr1->getS(), tr1->getH() * tr1->getS()))					//Aumentado el numero por el que dividimos las alturas y anchuras, tambien aumentamos lo que tarda en detectarnos el enemigo
 		{
 			//static_cast<Portal*>(ent_)->Teleport(Vector2D(700, 400));
 			portal->Teleport(Vector2D(700, 400));
@@ -70,7 +70,7 @@ void CheckCollision::update()
 		//{
 		//	static_cast<Element*>(ent_)->SetPicked(true);
 		//}
-		if (!obj->getPicked() && Collision::collides(Vector2D(rectPlayer.x, rectPlayer.y), rectPlayer.w, rectPlayer.h, Vector2D(tr1->getPos().getX(), tr1->getPos().getY()), tr1->getW(), tr1->getH()))					//Aumentado el numero por el que dividimos las alturas y anchuras, tambien aumentamos lo que tarda en detectarnos el enemigo
+		if (!obj->getPicked() && Collision::collides(Vector2D(rectPlayer.x, rectPlayer.y), rectPlayer.w, rectPlayer.h, Vector2D(tr1->getPos().getX(), tr1->getPos().getY()), tr1->getW() * tr1->getS(), tr1->getH() * tr1->getS()))					//Aumentado el numero por el que dividimos las alturas y anchuras, tambien aumentamos lo que tarda en detectarnos el enemigo
 		{
 			obj->setPicked(true);
 			portal->elementEarned();

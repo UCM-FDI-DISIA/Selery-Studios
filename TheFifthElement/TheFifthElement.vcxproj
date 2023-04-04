@@ -163,7 +163,6 @@
     <ClInclude Include="src\components\ObjectsComponent.h" />
     <ClInclude Include="src\components\ShadowComponent.h" />
     <ClInclude Include="src\components\ShopComponent.h" />
-    <ClInclude Include="src\Entities\LifeBar.h" />
     <ClInclude Include="src\Game.h" />
     <ClInclude Include="src\states\BeatEmUpState.h" />
     <ClInclude Include="src\Entities\Camera.h" />
@@ -175,7 +174,6 @@
     <ClInclude Include="src\components\DialogueComponent.h" />
     <ClInclude Include="src\Entities\Element.h" />
     <ClInclude Include="src\Entities\Enemy.h" />
-    <ClInclude Include="src\Entities\EnemyBEU.h" />
     <ClInclude Include="src\components\EnemyBEUDirectionComponent.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="src\GameManager.h" />
@@ -246,7 +244,6 @@
     <ClCompile Include="src\components\MovementEarthBossComponent.cpp" />
     <ClCompile Include="src\components\ShadowComponent.cpp" />
     <ClCompile Include="src\components\ShopComponent.cpp" />
-    <ClCompile Include="src\Entities\LifeBar.cpp" />
     <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\states\BeatEmUpState.cpp" />
     <ClCompile Include="src\Entities\Camera.cpp" />
@@ -257,7 +254,6 @@
     <ClCompile Include="src\Entities\DialogBox.cpp" />
     <ClCompile Include="src\Entities\Element.cpp" />
     <ClCompile Include="src\Entities\Enemy.cpp" />
-    <ClCompile Include="src\Entities\EnemyBEU.cpp" />
     <ClCompile Include="src\components\EnemyBEUDirectionComponent.cpp" />
     <ClCompile Include="src\GameManager.cpp" />
     <ClCompile Include="src\components\InputComponent.cpp" />

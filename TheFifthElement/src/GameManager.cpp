@@ -3,9 +3,6 @@
 #include "states/TopDownState.h"
 #include "states/BeatEmUpState.h"
 #include "states/PauseState.h"
-	////LO DE SOFI
-	////gameSTMC=static_cast<GameStateMachine*>(GameStateMachine::Instance())
-	//gameStMc = new GameStateMachine();
 
 	////Audio de prueba
 	////SDLUtils::instance()->soundEffects().at("prueba").play();

@@ -10,6 +10,7 @@ private:
 	int frames_, fila_, framesTotales_;
 	int i = 0;
 	int cont = 0;
+	float scale_ = WIN_WIDTH / 900;
 
 	Transform* tr_; // Consulta las caracteristicas fisicas
 	Texture* tex_;	// Imagen a rederizar

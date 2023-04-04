@@ -33,6 +33,8 @@ void AttackBoxComponent::render()
 {
 	for (auto it : boxes)
 	{
+		it.w *= entityTr->getS();
+		it.h *= entityTr->getS();
 		SDL_SetRenderDrawColor(GameManager::instance()->getRenderer(), 0, 255, 0, 0);
 		SDL_RenderDrawRect(GameManager::instance()->getRenderer(), &it);
 	}
@@ -50,6 +52,10 @@ void AttackBoxComponent::update(){
 		unsigned timer = clock();
 		timerExecution = (double(timer) / CLOCKS_PER_SEC);
 	}
+	/*for (auto element : boxes) {
+		element.w *= entityTr->getS();
+		element.h *= entityTr->getS();
+	}*/
 }
 
 void AttackBoxComponent::handleBoxes()

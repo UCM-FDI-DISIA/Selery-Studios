@@ -1,5 +1,4 @@
 #include "Image.h"
-#include "../Entities/EnemyBEU.h"
 
 Image::Image(Texture* tex, int width, int height, Transform* trans) {
 	frames_ = 0;

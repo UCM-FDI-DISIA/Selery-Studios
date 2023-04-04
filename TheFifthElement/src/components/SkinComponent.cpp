@@ -17,6 +17,11 @@ void SkinComponent::update() {
 
 void SkinComponent::changeMov() {
 
+	if (set_) {
+		if (currentState_ == Left && nextState_ == Idle) im_->setFlip(SDL_FLIP_HORIZONTAL);
+		else im_->setFlip(SDL_FLIP_NONE);
+	}
+
 	currentState_ = nextState_;
 	prevSkin_ = skin_;
 	switch (currentState_)

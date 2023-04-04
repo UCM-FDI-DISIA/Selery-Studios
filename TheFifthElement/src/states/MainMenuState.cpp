@@ -51,8 +51,7 @@ void MainMenuState::render() {
 Entity* MainMenuState::addNewEntity(string t, float w, float h, Vector2D pos, int nframes, bool flip, float size) {
 	Entity* e = new Entity();
 
-	float size_ = size * WIN_WIDTH / 900;
-	e->addComponent<Transform>(TRANSFORM_H, pos, w/nframes, h, size_);
+	e->addComponent<Transform>(TRANSFORM_H, pos, w/nframes, h, size);
 	Texture* t_ = &SDLUtils::instance()->images().at(t);
 	im_ = e->addComponent<Image>(IMAGE_H, t_, nframes, nframes, 0, w/nframes, h);
 	if (flip) im_->setFlip(SDL_FLIP_HORIZONTAL);
