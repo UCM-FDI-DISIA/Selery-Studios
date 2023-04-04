@@ -39,13 +39,19 @@ void FramedImage::update() {
 	dest.h = tr_->getH() * tr_->getS();
 	dest.w = tr_->getW() * tr_->getS();
 	src.x = col * widthFrame_;
-	src.y = heightFrame_;
+	src.y = 0;
 	src.h = heightFrame_;
 	src.w = widthFrame_;
 
-	if (col >= frames_) {
+	if (col >= frames_ - 1) {
 		col = 0;
 	}
+	else if (cont > FRAME_RATE){
+		col++;
+		cont = 0;
+	}
+	cont++;
+	cout << "Renderizando";
 }
 
 // Dibuja en escena

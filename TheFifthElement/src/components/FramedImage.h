@@ -8,7 +8,7 @@
 
 class FramedImage : public Component {
 private:
-	int frames_, col = 0, widthFrame_, heightFrame_;
+	int frames_, col = 0, widthFrame_, heightFrame_, cont = 0;
 	Transform* tr_; // Consulta las caracteristicas fisicas
 	Texture* tex_;	// Imagen a rederizar
 	SDL_RendererFlip s = SDL_FLIP_NONE;

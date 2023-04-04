@@ -201,7 +201,7 @@ void TopDownState::LoadMap(string const& filename) {
                     Blacksmith_ = new Entity();
                     Blacksmith_->setContext(this);
                     Blacksmith_->addComponent<Transform>(TRANSFORM_H, Vector2D(obj.getPosition().x, obj.getPosition().y), BLACKSMITH_WIDTH, BLACKSMITH_HEIGHT);
-                    Blacksmith_->addComponent<Image>(IMAGE_H, blacksmithTexture(), BLACKSMITH_FRAMES, BLACKSMITH_FRAMES, 0, BLACKSMITH_WIDTH, BLACKSMITH_HEIGHT);
+                    Blacksmith_->addComponent<FramedImage>(IMAGE_H, blacksmithTexture(), BLACKSMITH_WIDTH, BLACKSMITH_HEIGHT, BLACKSMITH_FRAMES);
                     Blacksmith_->addComponent<NPCcollisioncomponent>(NPCCOLLISIONCOMPONENTT, player_, contBlksm);
                     Blacksmith_->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(0, 0), BLACKSMITH_HEIGHT, BLACKSMITH_WIDTH / BLACKSMITH_FRAMES);
                     number_npc_++;
