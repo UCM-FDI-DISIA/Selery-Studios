@@ -53,7 +53,7 @@ void TopDownState::LoadMap(string const& filename) {
         Texture* texture = sdlutils().tilesets().find(name)->second; 
         mapInfo.tilesets.insert(pair<uint, Texture*>(tile.getFirstGID(), texture));  //inserta en el mapa de Map_Info: llamado tilesets el ID del tileset y su textura
     }
-     
+    //corte de funciones
 
     /*Mix_VolumeMusic(0);
     Mix_Volume(MIX_CHANNELS, 0);*/
@@ -214,6 +214,13 @@ void TopDownState::LoadMap(string const& filename) {
                     number_npc_++;
                     addEntity(Blacksmith_);
 
+                }
+                else if (name == "pruebas")
+                {
+                    pruebaCollider = new Entity();
+                    pruebaCollider->addComponent<Transform>(TRANSFORM_H, Vector2D(obj.getPosition().x, obj.getPosition().y), int(obj.getAABB().width), int(obj.getAABB().height));
+                    pruebaCollider->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(0, 0), int(obj.getAABB().height), int (obj.getAABB().width));
+                    addEntity(pruebaCollider);
                 }
                 else if (name == "Enemy") {
                     if (obj.getName() == "") {

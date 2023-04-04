@@ -132,6 +132,7 @@
     <ClInclude Include="src\components\NPCcollisioncomponent.h" />
     <ClInclude Include="src\utils\PropertiesManager.h" />
     <ClInclude Include="src\components\Playernpc.h" />
+    <ClInclude Include="src\components\SectorCollisionComponent.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="TheFifthElement.rc" />
