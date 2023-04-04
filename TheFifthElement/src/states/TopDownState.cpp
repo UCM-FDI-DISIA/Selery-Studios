@@ -219,8 +219,10 @@ void TopDownState::LoadMap(string const& filename) {
                 {
                     pruebaCollider = new Entity();
                     pruebaCollider->addComponent<Transform>(TRANSFORM_H, Vector2D(obj.getPosition().x, obj.getPosition().y), int(obj.getAABB().width), int(obj.getAABB().height));
-                    pruebaCollider->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(0, 0), int(obj.getAABB().height), int (obj.getAABB().width));
+                    pruebaCollider->addComponent <SectorCollisionComponent >(SECTORCOLLISIONCOMPONENT_H, player_, idSector);
+                    pruebaCollider->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(0, 0), int(obj.getAABB().height), int (obj.getAABB().width));                    
                     addEntity(pruebaCollider);
+                    idSector++;
                 }
                 else if (name == "Enemy") {
                     if (obj.getName() == "") {

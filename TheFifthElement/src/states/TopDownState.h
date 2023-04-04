@@ -32,6 +32,7 @@
 #include "../components/Damage.h"
 #include "../components/LifeTD.h"
 #include "../components/rouletteComponent.h"
+#include "../components/SectorCollisionComponent.h"
 
 using uint = unsigned int;
 using tileset_map = std::map<std::string, Texture*>; //mapa con CLAVE:string, ARGUMENTO: puntero a textura
@@ -61,8 +62,9 @@ private:
 	tileset_map tilesets_;	// textures map (string -> texture)
 	SDL_Texture* background_;
 	MapInfo mapInfo;	//struct
-	vector<bool> sectors {false,true,false,false,false,false,false,false,false,false,false,false,false,false,false,false};
+	vector<bool> sectors{ false,true,false,false,false,false,false,false,false,false,false,false,false,false,false,false };
 	Entity* pruebaCollider;
+	int idSector = 0;
 	//PLAYER 
 	Entity* player_;
 	Transform* trans_player_;
@@ -121,6 +123,11 @@ private:
 	Button* exitShopButtonComp_;
 
 public:
+	void actSectors(int idChange, bool nowValue)
+	{
+		sectors[idChange] = nowValue;
+		LoadMap("assets/Scenes/Maps/MapaInicial.tmx");
+	}
 	string getStateID(); // stringID
 	PuzzleCopas* puzzle1;
 	TopDownState();	
