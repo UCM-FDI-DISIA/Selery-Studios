@@ -42,7 +42,7 @@ void LifeComponent::update() {
 	}
 
 	if(enemy_)pos_ = Vector2D(entTransform_->getPos().getX(), entTransform_->getPos().getY()) - Vector2D(this->mngr_->camRect_.x, this->mngr_->camRect_.y);
-	//cout << life_ << endl;
+	
 	if (die_) {
 		if (!im_->isAnimPlaying()) {
 

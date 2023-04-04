@@ -62,13 +62,8 @@ void MovementEarthBossComponent::update() {
 	else {
 		attack = false;
 	}
-	/*cout << atRight << endl;
-	cout << atLeft << endl;
-	cout << " "  << endl;*/
 	//bossTransform->setDir(playerTransform->getPos() - bossTransform->getPos());
 	//bossTransform->setPos(bossTransform->getPos() + (bossTransform->getDir() / sqrt(pow(bossTransform->getPos().getX(), 2) + pow(bossTransform->getPos().getY(), 2))) * bossTransform->getVel());
-	//cout << bossTransform->getDir() / sqrt(pow(bossTransform->getPos().getX(), 2) + pow(bossTransform->getPos().getY(), 2)) << endl;
-	//cout << bossTransform->getPos() << endl;
 	//bossTransform->setDir(fightPlayerComp->getPointRightFight() - fightBossComp->getPointLeftFight());
 	//bossTransform->setPos(bossTransform->getPos() + (bossTransform->getDir() / sqrt(pow(bossTransform->getPos().getX(), 2) + pow(bossTransform->getPos().getY(), 2))) * bossTransform->getVel());
 }

@@ -15,7 +15,6 @@ void LifeEarthBossComponent::receiveDamage(float damage, float mul) {
 	if (life <= maxLife / 1.5 && stage == 1) {
 		stageTwo();
 		//animEarthBoss->newAnimation(AnimationEarthBossComponent::Death);
-		cout << "Stage 2";
 	}
 	else if (life <= 0) {
 		ent_->setAlive(false);

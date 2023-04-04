@@ -1,7 +1,6 @@
 #pragma once
 #include "CheckCollision.h"
 #include "../utils/Entity.h"
-#include "../Entities/Element.h"
 using namespace std;
 
 CheckCollision::CheckCollision(Entity* player, string id) : Component() {

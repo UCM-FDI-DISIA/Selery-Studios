@@ -63,7 +63,6 @@ void DialogueComponent::inicombe() {
 		else {
 			if (linea < conespacios.size()-1) {
 				linea++;
-				cout << linea<< "total:"<< conespacios.size()<<endl;
 				out = "";
 				cont = 0;
 				fin = conespacios[linea].size();

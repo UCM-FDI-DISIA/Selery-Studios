@@ -1,5 +1,4 @@
 #include "Image.h"
-#include "../Entities/EnemyBEU.h"
 
 Image::Image(Texture* tex, int width, int height, Transform* trans) {
 	frames_ = 0;
@@ -66,11 +65,10 @@ void Image::render() {
 			cont = 0;
 		}
 		if (ent_->hasComponent(INPUTCOMPONENTBEU_H)) {
-			//cout << animPlaying << endl;
+		
 		}
 		else if (ent_->hasComponent(MOVEMENTEARTHBOSSCOMPONENT_H)) {
-			/*cout << "hola" << endl;
-			cout << ent_->getComponent<Transform>(TRANSFORM_H)->getPos();*/
+			
 		}
 		cont++;
 		if (i >= frames_ || i >= tope) {

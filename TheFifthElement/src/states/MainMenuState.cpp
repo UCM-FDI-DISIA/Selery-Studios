@@ -31,7 +31,6 @@ MainMenuState::MainMenuState()
 
 void MainMenuState::update() {
 	Manager::update();
-	//cout << slider->getComponent<sliderComponent>(SLIDERCOMPONENT_H)->getValue() << endl;
 }
 void MainMenuState::handleEvents()
 {
