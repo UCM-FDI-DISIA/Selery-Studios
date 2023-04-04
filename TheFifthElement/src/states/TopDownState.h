@@ -61,6 +61,7 @@ private:
 	tileset_map tilesets_;	// textures map (string -> texture)
 	SDL_Texture* background_;
 	MapInfo mapInfo;	//struct
+	vector<bool> sectors {false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false};
 	//PLAYER 
 	Entity* player_;
 	Transform* trans_player_;
