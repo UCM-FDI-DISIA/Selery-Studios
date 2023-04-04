@@ -8,6 +8,8 @@ LifeTD::LifeTD() {
 void LifeTD::initComponent() {
 	TopDownState* topdownstate = static_cast<TopDownState*>(mngr_);
 	sk_ = topdownstate->getPlayerSkin();
+	if (WIN_WIDTH / 900 == 1920 / 900)f = &SDLUtils::instance()->fonts().at("TCenturyScale");
+	else f = &SDLUtils::instance()->fonts().at("TCentury");
 }
 
 void LifeTD::update() {
@@ -15,7 +17,8 @@ void LifeTD::update() {
 }
 
 void LifeTD::render() {
-	SDL_Rect dest = { position.getX(),position.getY(),width,height };
+	SDL_Rect dest = { position.getX() * WIN_WIDTH / 900,position.getY() * WIN_HEIGHT / 600,
+		width * WIN_WIDTH / 900,height* WIN_HEIGHT / 600 };
 	SDL_Rect src;
 	src.x = 0;
 	src.y = 0;
@@ -36,5 +39,5 @@ void LifeTD::render() {
 		vida = std::to_string((int)props_->instance()->getLives(3));
 	}
 
-	f->render(SDLUtils::instance()->renderer(), vida, position.getX() + 20, position.getY() + 4, color);
+	f->render(SDLUtils::instance()->renderer(), vida, (position.getX() + 20) * WIN_WIDTH / 900, (position.getY() + 4)*WIN_HEIGHT/600, color);
 }

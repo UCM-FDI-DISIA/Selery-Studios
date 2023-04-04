@@ -3,7 +3,8 @@
 #include "../states/TopDownState.h"
 
 ShopComponent::ShopComponent(EconomyComponent* economyComp, Damage* damage, LifeTD* life) {
-	font_ = &SDLUtils::instance()->fonts().at("TCentury");
+    if (WIN_WIDTH / 900 == 1920 / 900)font_ = &SDLUtils::instance()->fonts().at("TCenturyScale");
+    else font_ = &SDLUtils::instance()->fonts().at("TCentury");
 	color_ = { 0,0,0 };
     economyComp_ = economyComp;
     damage_ = damage;
@@ -23,15 +24,15 @@ void ShopComponent::render() {
     if (dialog_->getopenedShop()) {
         showShopBackground();
 
-        showShopAvatar(Vector2D(420, 265), Vector2D(415, 260), airAvatar_, avatarFrame_);
-        showShopAvatar(Vector2D(420, 315), Vector2D(415, 310), fireAvatar_, avatarFrame_);
-        showShopAvatar(Vector2D(420, 365), Vector2D(415, 360), waterAvatar_, avatarFrame_);
-        showShopAvatar(Vector2D(420, 415), Vector2D(415, 410), earthAvatar_, avatarFrame_);
+        showShopAvatar(Vector2D(420 * WIN_WIDTH / 900, 265 * WIN_HEIGHT / 600), Vector2D(415 * WIN_WIDTH / 900, 260 * WIN_HEIGHT / 600), airAvatar_, avatarFrame_);
+        showShopAvatar(Vector2D(420 * WIN_WIDTH / 900, 315 * WIN_HEIGHT / 600), Vector2D(415 * WIN_WIDTH / 900, 310 * WIN_HEIGHT / 600), fireAvatar_, avatarFrame_);
+        showShopAvatar(Vector2D(420 * WIN_WIDTH / 900, 365 * WIN_HEIGHT / 600), Vector2D(415 * WIN_WIDTH / 900, 360 * WIN_HEIGHT / 600), waterAvatar_, avatarFrame_);
+        showShopAvatar(Vector2D(420 * WIN_WIDTH / 900, 415 * WIN_HEIGHT / 600), Vector2D(415 * WIN_WIDTH / 900, 410 * WIN_HEIGHT / 600), earthAvatar_, avatarFrame_);
 
         showUpgradeText(u1, 0, 0, 90, 0, price1_);
         showUpgradeText(u2, 0, 50, 90, 50, price2_);
         showUpgradeText(u3, 0, 100, 90, 100, price3_);
-        showUpgradeText(u4, 0, 150, 90, 150, price4_);
+        showUpgradeText(u4, 0, 150 , 90, 150, price4_);
         showUpgradeText(u5, 250, 0, 170, 0, price5_);
         showUpgradeText(u6, 250, 50, 170, 50, price6_);
         showUpgradeText(u7, 250, 100, 170, 100, price7_);
@@ -43,10 +44,12 @@ void ShopComponent::render() {
 void ShopComponent::showUpgradeText(int value, int offsetXup, int offsetYup, int offsetXcoin, int offsetYcoin, int price) {
     // Textos mejoras
     textUp_ = std::to_string(value) + "/" + std::to_string(MAX_UPGRADE);
-    font_->render(GameManager::instance()->getRenderer(), textUp_, textX + offsetXup, textY + offsetYup, color_);
+    font_->render(GameManager::instance()->getRenderer(), textUp_, (textX + offsetXup)*WIN_WIDTH/900,
+        (textY + offsetYup) * WIN_HEIGHT / 600, color_);
     // Textos monedas
     textCoin_ = std::to_string(price);
-    font_->render(GameManager::instance()->getRenderer(), textCoin_, textX + offsetXcoin, textY + offsetYcoin, color_);
+    font_->render(GameManager::instance()->getRenderer(), textCoin_, (textX + offsetXcoin)*WIN_WIDTH/900,
+        (textY + offsetYcoin) * WIN_HEIGHT / 600, color_);
 }
 
 // incrementa los valores de las mejoras en la tienda
@@ -108,13 +111,13 @@ void ShopComponent::shopEconomy() {
 }
 
 void ShopComponent::showShopBackground() {
-    SDL_Rect background = build_sdlrect(shopPos_, SHOP_WIDTH / 2, SHOP_HEIGHT / 2);
+    SDL_Rect background = build_sdlrect(shopPos_, (SHOP_WIDTH / 2) * WIN_WIDTH / 900, (SHOP_HEIGHT / 2)*WIN_HEIGHT/600);
     shopBackground_->render(background, 0);
 }
 
 void ShopComponent::showShopAvatar(Vector2D avatarPos, Vector2D framePos, Texture* avatar, Texture* frame) {
-    SDL_Rect frameRect = build_sdlrect(framePos, SHOP_FRAME_WIDTH / 2, SHOP_FRAME_HEIGHT / 2);
+    SDL_Rect frameRect = build_sdlrect(framePos, (SHOP_FRAME_WIDTH / 2) * WIN_WIDTH / 900, (SHOP_FRAME_HEIGHT / 2) * WIN_HEIGHT / 600);
     frame->render(frameRect, 0);
-    SDL_Rect avatarRect = build_sdlrect(avatarPos, AVATAR_WIDTH / 2, AVATAR_HEIGHT / 2);
+    SDL_Rect avatarRect = build_sdlrect(avatarPos, (AVATAR_WIDTH / 2) * WIN_WIDTH / 900, (AVATAR_HEIGHT / 2) * WIN_HEIGHT / 600);
     avatar->render(avatarRect, 0);
 }

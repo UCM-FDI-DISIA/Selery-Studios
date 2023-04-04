@@ -342,7 +342,6 @@ void TopDownState::handleEvents() {
             }   
             exitShopButton_->handleEvent(event);
         } 
-        //inBEU_->handleEvents(event);
     }
 }
 
@@ -362,14 +361,23 @@ void TopDownState::render() {
     //hudTD->render();
     Manager::render();
 }
+
 void TopDownState::createShopButtons() {
     upturnButtonX = trans_player_->getPos().getX();
     upturnButtonY = trans_player_->getPos().getY();
-    upturnButtonPos_ = Vector2D(upturnButtonX - upturnButtonOffsetX, upturnButtonY + upturnButtonOffsetY);
+    if (WIN_WIDTH / 900 == 1920/900) upturnButtonPos_ = Vector2D(upturnButtonX - 195,upturnButtonY - 20);
+    else upturnButtonPos_ = Vector2D(upturnButtonX - upturnButtonOffsetX,upturnButtonY + upturnButtonOffsetY);
+
     for (int i = 0; i < 4; i++) {
         upturnButton_ = new Entity();
         upturnButton_->setContext(this);
-        upturnButtonTr_ = upturnButton_->addComponent<Transform>(TRANSFORM_H, Vector2D(upturnButtonPos_.getX(), upturnButtonPos_.getY() + i * 50), UPTURNBUTTON_WIDTH / 2, UPTURNBUTTON_HEIGHT / 2, 1);
+        Vector2D pos = Vector2D(upturnButtonPos_.getX(), upturnButtonPos_.getY() + i * (50 * WIN_HEIGHT / 600));
+        if (WIN_WIDTH / 900 == 1920 / 900) {
+            upturnButtonTr_ = upturnButton_->addComponent<Transform>(TRANSFORM_H, pos, (UPTURNBUTTON_WIDTH * WIN_WIDTH / 900) / 2,
+                (UPTURNBUTTON_HEIGHT * WIN_HEIGHT / 600) / 2, 0.5);
+        }
+        else upturnButtonTr_ = upturnButton_->addComponent<Transform>(TRANSFORM_H, pos, UPTURNBUTTON_WIDTH / 2,UPTURNBUTTON_HEIGHT / 2);
+
         upturnButtonComp_ = upturnButton_->addComponent<Button>(BUTTON_H, "UPTURN");
         upturnButton_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("UpturnButton"), UPTURNBUTTON_WIDTH, UPTURNBUTTON_HEIGHT, upturnButtonTr_);
         buttonsComp.push_back(upturnButtonComp_);
@@ -378,7 +386,21 @@ void TopDownState::createShopButtons() {
     for (int i = 0; i < 4; i++) {
         upturnButton_ = new Entity();
         upturnButton_->setContext(this);
-        upturnButtonTr_ = upturnButton_->addComponent<Transform>(TRANSFORM_H, Vector2D(upturnButtonPos_.getX() + upturnButtonOffsetX * 3, upturnButtonPos_.getY() + i * 50), UPTURNBUTTON_WIDTH / 2, UPTURNBUTTON_HEIGHT / 2, 1);
+        Vector2D pos;
+        if (WIN_WIDTH / 900 == 1920 / 900) {
+            pos = Vector2D((upturnButtonPos_.getX() + 350),
+                upturnButtonPos_.getY() + i * (50 * WIN_HEIGHT / 600));
+
+            upturnButtonTr_ = upturnButton_->addComponent<Transform>(TRANSFORM_H, pos, (UPTURNBUTTON_WIDTH / 2) * WIN_WIDTH / 900,
+                (UPTURNBUTTON_HEIGHT / 2) * WIN_HEIGHT / 600, 0.5);
+        }
+        else 
+        { 
+            pos = Vector2D((upturnButtonPos_.getX() + upturnButtonOffsetX * 3), upturnButtonPos_.getY() + i * 50); 
+            upturnButtonTr_ = upturnButton_->addComponent<Transform>(TRANSFORM_H, pos, UPTURNBUTTON_WIDTH / 2,UPTURNBUTTON_HEIGHT / 2);
+        }
+
+
         upturnButtonComp_ = upturnButton_->addComponent<Button>(BUTTON_H, "UPTURN");
         upturnButton_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("UpturnButton"), UPTURNBUTTON_WIDTH, UPTURNBUTTON_HEIGHT, upturnButtonTr_);
         buttonsComp.push_back(upturnButtonComp_);
@@ -389,11 +411,22 @@ void TopDownState::createShopButtons() {
     }
     exitShopButton_ = new Entity();
     exitShopButton_->setContext(this);
-    exitShopButtonTr_ = exitShopButton_->addComponent<Transform>(TRANSFORM_H, Vector2D(upturnButtonX - SHOP_WIDTH / 9, upturnButtonPos_.getY() + 275), EXITSHOP_WIDTH / 2, EXITSHOP_HEIGHT / 2, 1);
-    exitShopButton_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("ExitShop"), 557, 131, exitShopButtonTr_);
+    Vector2D pos;
+    if (WIN_WIDTH / 900 == 1920 / 900)pos = Vector2D(upturnButtonPos_.getX() - 60,
+        upturnButtonPos_.getY() + 510);
+    else pos = Vector2D(upturnButtonX - SHOP_WIDTH / 9, upturnButtonPos_.getY() + 275);
+    
+    if(WIN_WIDTH / 900 == 1920 / 900) exitShopButtonTr_ = exitShopButton_->addComponent<Transform>(TRANSFORM_H, pos, (EXITSHOP_WIDTH / 2) * WIN_WIDTH / 900,
+        (EXITSHOP_HEIGHT / 2) * WIN_HEIGHT / 600, 0.5);
+    else exitShopButtonTr_ = exitShopButton_->addComponent<Transform>(TRANSFORM_H, pos, EXITSHOP_WIDTH / 2,
+        EXITSHOP_HEIGHT / 2);
+
+    exitShopButton_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("ExitShop"), 557,
+        131, exitShopButtonTr_);
     exitShopButtonComp_ = exitShopButton_->addComponent<Button>(BUTTON_H, "EXITSHOP");
     addEntity(exitShopButton_);
 }
+
 void TopDownState::cleanShopButtons() {
     for (auto e : buttons) {
         e->setAlive(false);
