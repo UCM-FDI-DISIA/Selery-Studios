@@ -55,7 +55,6 @@
     <ClCompile Include="src\components\NPCcollisioncomponent.cpp" />
     <ClCompile Include="src\components\Damage.cpp" />
     <ClCompile Include="src\components\LifeTD.cpp" />
-    <ClCompile Include="src\components\SectorCollisionComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\components\Button.h" />
@@ -66,15 +65,10 @@
     <ClInclude Include="src\components\LimitBEU.h" />
     <ClInclude Include="src\Game.h" />
     <ClInclude Include="src\states\BeatEmUpState.h" />
-    <ClInclude Include="src\Entities\Camera.h" />
-    <ClInclude Include="src\components\CameraComponent.h" />
     <ClInclude Include="src\components\CheckCollision.h" />
     <ClInclude Include="src\utils\Collision.h" />
     <ClInclude Include="src\components\Enemy_movementTD_component.h" />
-    <ClInclude Include="src\Entities\DialogBox.h" />
     <ClInclude Include="src\components\DialogueComponent.h" />
-    <ClInclude Include="src\Entities\Element.h" />
-    <ClInclude Include="src\Entities\Enemy.h" />
     <ClInclude Include="src\components\EnemyBEUDirectionComponent.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="src\GameManager.h" />
@@ -83,7 +77,6 @@
     <ClInclude Include="src\components\InputComponentBEU.h" />
     <ClInclude Include="src\components\LifeComponent.h" />
     <ClInclude Include="src\components\MovementComponent.h" />
-    <ClInclude Include="src\Entities\Npc.h" />
     <ClInclude Include="src\Entities\PortalComponent.h" />
     <ClInclude Include="src\components\SkinComponent.h" />
     <ClInclude Include="src\states\GameState.h" />
@@ -139,7 +132,6 @@
     <ClInclude Include="src\components\NPCcollisioncomponent.h" />
     <ClInclude Include="src\utils\PropertiesManager.h" />
     <ClInclude Include="src\components\Playernpc.h" />
-    <ClInclude Include="src\components\SectorCollisionComponent.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="TheFifthElement.rc" />
