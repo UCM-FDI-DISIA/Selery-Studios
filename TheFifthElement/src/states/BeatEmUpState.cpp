@@ -5,7 +5,6 @@ BeatEmUpState::BeatEmUpState(bool boss,Entity* enemySends, string typeBoss) {
 	enemySender = enemySends;
 
 	random = &SDLUtils::instance()->rand();
-	scale = WIN_WIDTH / 900;
 
 	background_ = new Entity();
 	background_->addComponent<Transform>(TRANSFORM_H, Vector2D(0,0), WIN_WIDTH, WIN_HEIGHT);
@@ -17,7 +16,7 @@ BeatEmUpState::BeatEmUpState(bool boss,Entity* enemySends, string typeBoss) {
 
 	player_ = new Entity();
 	player_->setContext(this);
-	trans_player_ = player_->addComponent<Transform>(TRANSFORM_H, Vector2D(PlayerPosition_X, PlayerPosition_Y), PLAYERBEU_WIDTH_FRAME, PLAYERBEU_HEIGHT_FRAME, scale);
+	trans_player_ = player_->addComponent<Transform>(TRANSFORM_H, Vector2D(PlayerPosition_X, PlayerPosition_Y), PLAYERBEU_WIDTH_FRAME, PLAYERBEU_HEIGHT_FRAME, 1);
 	sk_ = player_->addComponent<SkinBEUComponent>(SKINBEUCOMPONENT_H, "air");
 	sk_->changeState(SkinBEUComponent::Idle);
 	sk_->changeMov();

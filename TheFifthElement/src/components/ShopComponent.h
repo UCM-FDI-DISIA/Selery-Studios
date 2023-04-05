@@ -11,7 +11,7 @@
 class ShopComponent : public Component {
 
 private:
-	Vector2D shopPos_ = { 250, 100 };
+	Vector2D shopPos_ = { 250 * WIN_WIDTH / 900, 100 * WIN_HEIGHT / 600 };
 	
 	DialogueComponent* dialog_ = nullptr;
 

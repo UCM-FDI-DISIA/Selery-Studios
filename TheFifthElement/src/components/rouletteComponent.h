@@ -8,24 +8,25 @@
 using namespace std;
 class Roulette : public Component {
 private:
+	float scale = WIN_WIDTH / 900;
 	//PORICION DEL BORDE BLANCO Y TEXTURA
-	Vector2D ruleta = { 20,10 };
+	Vector2D ruleta = { 20 * WIN_WIDTH / 900,10 * WIN_HEIGHT / 600 };
 	Texture* rueda = &SDLUtils::instance()->images().at("Ruleta");
-	int rlt_width = 500, rlt_height = 370;
-	int width = 65, height = 65;
+	int rlt_width = 500 * WIN_WIDTH / 900, rlt_height = 370 * WIN_HEIGHT / 600;
+	int width = 65 * WIN_WIDTH / 900, height = 65 * WIN_HEIGHT / 600;
 
 	//POSICIONES Y TEXTURAS DE LOS PERSONAJES
-	Vector2D p1 = { 50,40 };
-	int width1 = 30, height1 = 30;
+	Vector2D p1 = { 50 * WIN_WIDTH / 900,40 * WIN_HEIGHT / 600 };
+	int width1 = 30 * WIN_WIDTH / 900, height1 = 30 * WIN_HEIGHT / 600;
 	//fuego
-	Vector2D p2 = { 25,45 };
-	int width2 = 20, height2 = 20;
+	Vector2D p2 = { 25 * WIN_WIDTH / 900,45 * WIN_HEIGHT / 600 };
+	int width2 = 20 * WIN_WIDTH / 900, height2 = 20 * WIN_HEIGHT / 600;
 	//calvo
-	Vector2D p3 = { 30,20 };
-	int width3 = 20, height3 = 20;
+	Vector2D p3 = { 30 * WIN_WIDTH / 900,20 * WIN_HEIGHT / 600 };
+	int width3 = 20 * WIN_WIDTH / 900, height3 = 20 * WIN_HEIGHT / 600;
 	// aire
-	Vector2D p4 = { 50,10 };
-	int width4 = 20, height4 = 20;
+	Vector2D p4 = { 50 * WIN_WIDTH / 900,10 * WIN_HEIGHT / 600 };
+	int width4 = 20 * WIN_WIDTH / 900, height4 = 20 * WIN_HEIGHT / 600;
 
 	int principal= 1;
 
@@ -33,7 +34,7 @@ public:
 	virtual void update() {};
 	virtual void render() {
 
-		SDLUtils::instance()->images().at("Cartel").render({ 0,0,400,200 }, 0);
+		SDLUtils::instance()->images().at("Cartel").render({ 0,0,420 * WIN_WIDTH / 900,220 * WIN_HEIGHT / 600 }, 0);
 		choosandrender();
 		SDL_Rect dest = { ruleta.getX(),ruleta.getY(),width,height };
 		SDL_Rect src;
@@ -44,7 +45,9 @@ public:
 		rueda->render( dest, 90);
 		
 	};
+
 	virtual ~Roulette() {};
+
 	void choosandrender() {
 		SDL_Rect dest1 = { p1.getX(),p1.getY(),width1,height1 };
 		SDL_Rect src1;
@@ -78,70 +81,72 @@ public:
 		src4.w = rlt_width;
 		SDLUtils::instance()->images().at("EarthAvatar").render(src4, dest4);
 	}
+
 	void changeplayer(int a) {
 		if (a == 1) {
-			 p1 = { 50,40 };
-			 width1 = 30;
-			 height1 = 30;
+			 p1 = { 50 * WIN_WIDTH / 900,40 * WIN_HEIGHT / 600 };
+			 width1 = 30 * WIN_WIDTH / 900;
+			 height1 = 30 * WIN_HEIGHT / 600;
 			//fuego
-			p2 = { 25,45 };
-			width2 = 20;
-			height2 = 20;
+			p2 = { 25 * WIN_WIDTH / 900,45 * WIN_HEIGHT / 600 };
+			width2 = 20 * WIN_WIDTH / 900;
+			height2 = 20 * WIN_HEIGHT / 600;
 			//calvo
-			 p3 = { 30,20 };
-			 width3 = 20;
-			 height3 = 20;
+			 p3 = { 30 * WIN_WIDTH / 900,20 * WIN_HEIGHT / 600 };
+			 width3 = 20 * WIN_WIDTH / 900;
+			 height3 = 20 * WIN_HEIGHT / 600;
 			// aire
-			 p4 = { 50,10 };
-			 width4 = 20; height4 = 20;
+			 p4 = { 50 * WIN_WIDTH / 900,10 * WIN_HEIGHT / 600 };
+			 width4 = 20 * WIN_WIDTH / 900; height4 = 20 * WIN_HEIGHT / 600;
 		}
 		else if (a==2) {
-			p2 = { 50,40 };
-			width2 = 30;
-			height2 = 30;
+			p2 = { 50 * WIN_WIDTH / 900,40 * WIN_HEIGHT / 600 };
+			width2 = 30 * WIN_WIDTH / 900;
+			height2 = 30 * WIN_HEIGHT / 600;
 			//fuego
-			p1 = { 25,45 };
-			width1 = 20;
-			height1 = 20;
+			p1 = { 25 * WIN_WIDTH / 900,45 * WIN_HEIGHT / 600 };
+			width1 = 20 * WIN_WIDTH / 900;
+			height1 = 20 * WIN_HEIGHT / 600;
 			//calvo
-			p3 = { 30,20 };
-			width3 = 20;
-			height3 = 20;
+			p3 = { 30 * WIN_WIDTH / 900,20 * WIN_HEIGHT / 600 };
+			width3 = 20 * WIN_WIDTH / 900;
+			height3 = 20 * WIN_HEIGHT / 600;
 			// aire
-			p4 = { 50,10 };
-			width4 = 20; height4 = 20;
+			p4 = { 50 * WIN_WIDTH / 900,10 * WIN_HEIGHT / 600 };
+			width4 = 20 * WIN_WIDTH / 900; height4 = 20 * WIN_HEIGHT / 600;
 		}
 		else if (a == 3) {
-			p3 = { 50,40 };
-			width3 = 30;
-			height3 = 30;
+			p3 = { 50 * WIN_WIDTH / 900,40 * WIN_HEIGHT / 600 };
+			width3 = 30 * WIN_WIDTH / 900;
+			height3 = 30 * WIN_HEIGHT / 600;
 			//fuego
-			p1 = { 25,45 };
-			width1 = 20;
-			height1 = 20;
+			p1 = { 25 * WIN_WIDTH / 900,45 * WIN_HEIGHT / 600 };
+			width1 = 20 * WIN_WIDTH / 900;
+			height1 = 20 * WIN_HEIGHT / 600;
 			//calvo
-			p2 = { 30,20 };
-			width2 = 20;
-			height2 = 20;
+			p2 = { 30 * WIN_WIDTH / 900,20 * WIN_HEIGHT / 600 };
+			width2 = 20 * WIN_WIDTH / 900;
+			height2 = 20 * WIN_HEIGHT / 600;
 			// aire
-			p4 = { 50,10 };
-			width4 = 20; height4 = 20;
+			p4 = { 50 * WIN_WIDTH / 900,10 * WIN_HEIGHT / 600 };
+			width4 = 20 * WIN_WIDTH / 900; height4 = 20 * WIN_HEIGHT / 600;
 		}
 		else if (a == 4) {
-			p4 = { 50,40 };
-			width4 = 30;
-			height4 = 30;
+			//aire
+			p4 = { 50 * WIN_WIDTH / 900,40 * WIN_HEIGHT / 600 };
+			width4 = 30 * WIN_WIDTH / 900;
+			height4 = 30 * WIN_HEIGHT / 600;
 			//fuego
-			p1 = { 25,45 };
-			width1 = 20;
-			height1 = 20;
+			p1 = { 25 * WIN_WIDTH / 900,45 * WIN_HEIGHT / 600 };
+			width1 = 20 * WIN_WIDTH / 900;
+			height1 = 20 * WIN_HEIGHT / 600;
 			//calvo
-			p2 = { 30,20 };
-			width2 = 20;
-			height2= 20;
-			// aire
-			p3 = { 50,10 };
-			width3 = 20; height4 = 20;
+			p2 = { 30 * WIN_WIDTH / 900,20 * WIN_HEIGHT / 600 };
+			width2 = 20 * WIN_WIDTH / 900;
+			height2= 20 * WIN_HEIGHT / 600;
+			// agua
+			p3 = { 53 * WIN_WIDTH / 900,10 * WIN_HEIGHT / 600 };
+			width3 = 20 * WIN_WIDTH / 900; height4 = 20 * WIN_HEIGHT / 600;
 		}
 	}
 #pragma endregion

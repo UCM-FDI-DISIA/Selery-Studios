@@ -70,7 +70,7 @@ public:
 	{
 		if(visibility==true)
 		{
-			SDL_Rect dest = { 100,100,32,32 };
+			SDL_Rect dest = { 100 * WIN_WIDTH / 900,100 * WIN_HEIGHT / 600,32 * WIN_WIDTH / 900,32 * WIN_HEIGHT / 600 };
 			SDLUtils::instance()->images().at("E").render(dest);
 		}
 	}

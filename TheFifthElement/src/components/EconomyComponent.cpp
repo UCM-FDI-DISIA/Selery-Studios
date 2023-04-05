@@ -1,5 +1,8 @@
 #include "EconomyComponent.h"
 void EconomyComponent::initComponent() {
+	if(WIN_WIDTH/900 == 1920/900)f = &SDLUtils::instance()->fonts().at("TCenturyScale");
+	else f = &SDLUtils::instance()->fonts().at("TCentury");
+
 }
 void EconomyComponent::update() {
 }

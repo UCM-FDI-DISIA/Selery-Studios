@@ -1,4 +1,4 @@
-﻿#include "Image.h"
+#include "Image.h"
 
 Image::Image(Texture* tex) {
 	tex_ = tex;

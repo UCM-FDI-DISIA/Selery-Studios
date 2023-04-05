@@ -4,12 +4,12 @@
 void Button::initComponent() {
 	buttonTransform = ent_->getComponent<Transform>(TRANSFORM_H);
 	im_ = ent_->getComponent<Image>(IMAGE_H);
-	scale = buttonTransform->getS();
+	size_ = buttonTransform->getS();
 }
 
 void Button::update() {
 	mouseRect = build_sdlrect(mousePos, mouseWidth, mouseHeight);
-	if (Collision::collides(buttonTransform->getPos(), buttonTransform->getW()*scale, buttonTransform->getH()*scale, mousePos, mouseRect.w, mouseRect.h))
+	if (Collision::collides(buttonTransform->getPos(), buttonTransform->getW()*size_, buttonTransform->getH()*size_, mousePos, mouseRect.w, mouseRect.h))
 	{
 		currentPositionState = MOUSE_OVER;
 		if (identifier == "PLAY") im_->setTexture("PlayButtonPressed"); ////im_->setAnimTexture("PlayButtonPressed", 1, 289);
@@ -103,7 +103,6 @@ void Button::handleEvent(SDL_Event event)
 					isClicked_ = false;
 				}
 				else if (identifier == "EXITSHOP") {
-					//cout << "salir tienda";
 					TopDownState* topdownstate = static_cast<TopDownState*>(mngr_);
 					topdownstate->cleanShopButtons();
 					topdownstate->getDialog()->setopenedShop();

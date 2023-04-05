@@ -17,7 +17,7 @@ private:
 	int width = 25, height = 20;
 	int img_width = 100, img_height = 67;
 
-	Font* f = &SDLUtils::instance()->fonts().at("TCentury");
+	Font* f;
 	string fuerza;
 	SDL_Color color = { 50,50,0 };
 

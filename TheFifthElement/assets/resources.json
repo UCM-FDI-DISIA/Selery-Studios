@@ -11,7 +11,8 @@
   ],
 
   "fonts": [
-    {"id": "TCentury","file": "assets/Texts/text.TTF","size": 16}
+    {"id": "TCentury","file": "assets/Texts/text.TTF","size": 16},
+    {"id": "TCenturyScale","file": "assets/Texts/text.TTF","size": 26}
   ],
 
   "images": [

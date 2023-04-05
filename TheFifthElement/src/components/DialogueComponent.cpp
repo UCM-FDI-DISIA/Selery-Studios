@@ -37,10 +37,15 @@ void DialogueComponent::setdialogue() {
 void DialogueComponent::render() {
 	//renderizas el texto
 	if (hasstarted) {
-		Vector2D a = Vector2D(100, 250);
+		Vector2D a;
+		if (WIN_WIDTH / 900 == 1920 / 900) a = Vector2D(600, 600);
+		else a = Vector2D(100, 250);
 		SDL_Rect dest = build_sdlrect(a, DIALOGUE_WIDTH, DIALOGUE_HEIGHT);
 		t->render(dest, 0);
-		font_->render(GameManager::instance()->getRenderer(), out, 230, 400, color_); 
+
+		if (WIN_WIDTH / 900 == 1920 / 900) a = Vector2D(740, 750);
+		else a = Vector2D(230, 400);
+		font_->render(GameManager::instance()->getRenderer(), out, a.getX(), a.getY(), color_);
 	
 	}
 
@@ -63,7 +68,6 @@ void DialogueComponent::inicombe() {
 		else {
 			if (linea < conespacios.size()-1) {
 				linea++;
-				cout << linea<< "total:"<< conespacios.size()<<endl;
 				out = "";
 				cont = 0;
 				fin = conespacios[linea].size();

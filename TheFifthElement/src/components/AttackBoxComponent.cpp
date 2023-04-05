@@ -33,6 +33,8 @@ void AttackBoxComponent::render()
 {
 	for (auto it : boxes)
 	{
+		it.w *= entityTr->getS();
+		it.h *= entityTr->getS();
 		SDL_SetRenderDrawColor(GameManager::instance()->getRenderer(), 0, 255, 0, 0);
 		SDL_RenderDrawRect(GameManager::instance()->getRenderer(), &it);
 	}
@@ -50,6 +52,10 @@ void AttackBoxComponent::update(){
 		unsigned timer = clock();
 		timerExecution = (double(timer) / CLOCKS_PER_SEC);
 	}
+	/*for (auto element : boxes) {
+		element.w *= entityTr->getS();
+		element.h *= entityTr->getS();
+	}*/
 }
 
 void AttackBoxComponent::handleBoxes()
@@ -1042,7 +1048,6 @@ void AttackBoxComponent::handleBoxes()
 			
 			if (anim_->getState() == 1)
 			{
-				cout << im_->getCol() << endl;			//7
 				if (im_->getFlip() == SDL_FLIP_NONE)
 				{
 
@@ -1086,7 +1091,6 @@ void AttackBoxComponent::handleBoxes()
 		{
 			if (anim_->getState() == 1)
 			{
-				cout << im_->getCol() << endl;			//7
 				if (im_->getFlip() == SDL_FLIP_NONE)
 				{
 
@@ -1153,7 +1157,6 @@ void AttackBoxComponent::handleBoxes()
 	//			}
 	//		}
 	//	}
-	//	//cout << entityTr->getPos() << endl;
 	//}
 }
 
@@ -1176,13 +1179,11 @@ void AttackBoxComponent::moveBoxCurve(SDL_Rect& box, float radio, Vector2D posCe
 		angle += vel * -1;
 	}
 
-	//cout << angle<<endl;
 	box.x = posCenter.getX() + (int)(radio * cos(angle));
 	box.y = posCenter.getY() + (int)(radio * sin(angle));
 
 	box2.x = posCenter.getX() + (int)(radio * cos(angle)) - 10;
 	box2.y = posCenter.getY() + (int)(radio * sin(angle)) - 10;
-	//cout << "Angle:" << angle << "Stop:" << stoppingAngle << endl;
 }
 
 
