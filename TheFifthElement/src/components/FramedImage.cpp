@@ -51,7 +51,6 @@ void FramedImage::update() {
 		cont = 0;
 	}
 	cont++;
-	cout << "Renderizando";
 }
 
 // Dibuja en escena

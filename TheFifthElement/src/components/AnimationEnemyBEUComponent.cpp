@@ -12,6 +12,7 @@ void AnimationEnemyBEUComponent::changeState(AnimationStates newState)
 }
 
 void AnimationEnemyBEUComponent::initComponent() {
+	t_ = "BEU_air_Mushroom_run";
 	tr_ = ent_->getComponent<Transform>(TRANSFORM_H);
 	im_ = ent_->getComponent<FramedImage>(FRAMEDIMAGE_H);
 	col_ = ent_->getComponent<ColliderComponent>(COLLIDERCOMPONENT_H);

@@ -89,7 +89,7 @@ void MainMenuState::createButtons() {
 
 	optionsButton = new Entity();
 	//optionsButton->setContext(this);
-	optionsButton->addComponent<Transform>(TRANSFORM_H, Vector2D(84 * WIN_WIDTH / 90, WIN_HEIGHT / 60), 95, 97, 0.5);
+	optionsButton->addComponent<Transform>(TRANSFORM_H, Vector2D(84 * WIN_WIDTH / 90, WIN_HEIGHT / 60), 95 / 2, 97 / 2);
 	//optionsButton = addNewEntity("OptionsButton", 95, 97, Vector2D(84 * WIN_WIDTH / 90, WIN_HEIGHT / 60), 1, false, 0.5);
 	optionsButton->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("OptionsButton"));
 	optionsButton->addComponent<Button>(BUTTON_H, "OPTIONS");

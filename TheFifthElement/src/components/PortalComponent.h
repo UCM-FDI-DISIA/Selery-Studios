@@ -9,7 +9,7 @@ private:
 	int nframes = 1;
 	int elementsCollected = 0;
 public:
-	PortalComponent();
+	PortalComponent(Transform* trPlayer);
 	void initComponent();
 	void update() {};
 	virtual ~PortalComponent() {};

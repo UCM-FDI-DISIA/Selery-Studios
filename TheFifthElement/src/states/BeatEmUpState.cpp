@@ -19,7 +19,6 @@ BeatEmUpState::BeatEmUpState(bool boss,Entity* enemySends, string typeBoss) {
 	trans_player_ = player_->addComponent<Transform>(TRANSFORM_H, Vector2D(PlayerPosition_X, PlayerPosition_Y), PLAYERBEU_WIDTH_FRAME, PLAYERBEU_HEIGHT_FRAME, 1);
 	sk_ = player_->addComponent<SkinBEUComponent>(SKINBEUCOMPONENT_H, "air");
 	sk_->changeState(SkinBEUComponent::Idle);
-	sk_->changeMov();
 	texture_player_ = &SDLUtils::instance()->images().at(sk_->getSkin());
 	player_->addComponent<FramedImage>(FRAMEDIMAGE_H, texture_player_, PLAYERBEU_WIDTH_FRAME, PLAYERBEU_HEIGHT_FRAME, 8, "air");
 	player_->addComponent<JumpComponent>(JUMP_H);
@@ -32,6 +31,7 @@ BeatEmUpState::BeatEmUpState(bool boss,Entity* enemySends, string typeBoss) {
 	player_->addComponent<LimitBEU>(LIMITBEU_H);
 	player_->addComponent<ColliderComponent>(int(COLLIDERCOMPONENT_H), Vector2D(90, 80), 1.2*PLAYERBEU_HEIGHT_FRAME / 3, PLAYERBEU_WIDTH_FRAME / 7);
 	player_->addComponent<PointOfFightComponent>(POINTOFFIGHTCOMPONENT_H, 30, 10);
+	sk_->initComponent();
 	addEntity(player_);
 	
 	colManager_ = new ColManager(this);

@@ -163,7 +163,7 @@ void TopDownState::LoadMap(string const& filename) {
                     trans_player_= player_->addComponent<Transform>(TRANSFORM_H, Vector2D(obj.getPosition().x, obj.getPosition().y), PLAYERTD_WIDTH_FRAME, PLAYERTD_HEIGHT_FRAME);                
                     sk_ = player_->addComponent<SkinComponent>(SKINCOMPONENT_H, "air");
                     sk_->changeState(SkinComponent::Idle);
-                    sk_->changeMov();
+
                     texture_player_ = &SDLUtils::instance()->images().at("PTD_air_idle");
                     Playernpc_ = player_->addComponent<PlayerNPC>(PLAYERNPC_H);
                     player_->addComponent<FramedImage>(FRAMEDIMAGE_H, texture_player_, PLAYERTD_WIDTH_FRAME, PLAYERTD_HEIGHT_FRAME, 7, "air");
@@ -268,7 +268,7 @@ void TopDownState::LoadMap(string const& filename) {
                     portal_->addComponent<Transform>(TRANSFORM_H, Vector2D(obj.getPosition().x, obj.getPosition().y), PORTAL_WIDTH, PORTAL_HEIGHT);
                     portal_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("portal"));
                     portal_->addComponent<ObjectsComponent>(OBJECTSCOMPONENT_H);
-                    portal_->addComponent<PortalComponent>(PORTALCOMPONENT_H);
+                    portal_->addComponent<PortalComponent>(PORTALCOMPONENT_H, trans_player_);
                     addEntity(portal_);
                 }
                 else if (name == "Element") {

@@ -1,11 +1,12 @@
 #include "PortalComponent.h"
 #include "../states/TopDownState.h"
-PortalComponent::PortalComponent() {
-
+PortalComponent::PortalComponent(Transform* trPlayer) {
+	trPlayer_ = trPlayer;
 }
 void PortalComponent::initComponent() {
 	//coge el transform del juegador
-	trPlayer_ = static_cast<TopDownState*>(mngr_)->getplayer()->getComponent<Transform>(TRANSFORM_H);
+	//trPlayer_ = player_->getComponent<Transform>(TRANSFORM_H);
+	//trPlayer_ = static_cast<TopDownState*>(mngr_)->getplayer()->getComponent<Transform>(TRANSFORM_H);
 }
 
 
