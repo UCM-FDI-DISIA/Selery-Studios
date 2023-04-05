@@ -296,6 +296,10 @@ void TopDownState::LoadMap(string const& filename) {
                     element_->addComponent<CheckCollision>(CHECKCOLLISION_H, player_, "element");
                     addEntity(element_);                   
                 }
+                else if (name == "BossLuz")
+                {
+
+                }
             }
         }
 
