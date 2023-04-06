@@ -18,6 +18,7 @@ enum Directions {
 class InputComponent : public Component {
 private:
     Directions d;
+    SDL_GameController* controller;
     bool npccol = false;
     double actionDelay;
     MovementComponent* mov_ = nullptr;
@@ -25,6 +26,7 @@ private:
     DialogueComponent* dialog = nullptr;
     Roulette* roulet;
     bool elements[4];
+    bool controladorDetectado;
     SoundManager* smg_=nullptr;
 public:
     InputComponent(Roulette* r);
