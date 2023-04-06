@@ -43,45 +43,45 @@ void InputComponent::update() { //Actualizamos el contador que mide el tiempo
 void InputComponent::handleEvents(SDL_Event event)
 {
 	ih().update(event);
-	if (ih().isKeyDown(SDL_SCANCODE_A) && d != LEFT || SDL_GameControllerGetAxis(controller, SDL_CONTROLLER_AXIS_LEFTX) < -8000 && d != LEFT) {
-		mov_->setDir(Vector2D(-1, 0));
-		skin_->changeState(SkinComponent::Left);
-	}
-	else if (ih().isKeyDown(SDL_SCANCODE_D) && d != RIGHT || SDL_GameControllerGetAxis(controller, SDL_CONTROLLER_AXIS_LEFTX) > 8000 && d != RIGHT) {
-		mov_->setDir(Vector2D(1, 0));
-		skin_->changeState(SkinComponent::Right);
-	}
-	else  if (ih().isKeyDown(SDL_SCANCODE_W) && d != UP || SDL_GameControllerGetAxis(controller, SDL_CONTROLLER_AXIS_LEFTY) < -8000 && d != UP) {
-		mov_->setDir(Vector2D(0, -1));
-		skin_->changeState(SkinComponent::Up);
-	}
-	else if (ih().isKeyDown(SDL_SCANCODE_S) && d != DOWN || SDL_GameControllerGetAxis(controller, SDL_CONTROLLER_AXIS_LEFTY) > 8000 && d != DOWN) {
-		mov_->setDir(Vector2D(0, 1));
-		skin_->changeState(SkinComponent::Down);
-	}
-	if (ih().isKeyDown(SDL_SCANCODE_ESCAPE) && !dialog->gethasstarted() && !dialog->getopenedShop() || SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_START)) {
-		GameManager::goPauseMenu();
-	}
-	if (abs(SDL_GameControllerGetAxis(controller, SDL_CONTROLLER_AXIS_LEFTX)) < joystick_deadzone && abs(SDL_GameControllerGetAxis(controller, SDL_CONTROLLER_AXIS_LEFTY)) < joystick_deadzone) {		// No ha habido movimiento en el eje horizontal izquierd
-		mov_->setDir(Vector2D(0, 0)); 
-		skin_->changeState(SkinComponent::Idle);
-	}
+	//if (ih().isKeyDown(SDL_SCANCODE_A) && d != LEFT || SDL_GameControllerGetAxis(controller, SDL_CONTROLLER_AXIS_LEFTX) < -8000 && d != LEFT) {
+	//	mov_->setDir(Vector2D(-1, 0));
+	//	skin_->changeState(SkinComponent::Left);
+	//}
+	//else if (ih().isKeyDown(SDL_SCANCODE_D) && d != RIGHT || SDL_GameControllerGetAxis(controller, SDL_CONTROLLER_AXIS_LEFTX) > 8000 && d != RIGHT) {
+	//	mov_->setDir(Vector2D(1, 0));
+	//	skin_->changeState(SkinComponent::Right);
+	//}
+	//else  if (ih().isKeyDown(SDL_SCANCODE_W) && d != UP || SDL_GameControllerGetAxis(controller, SDL_CONTROLLER_AXIS_LEFTY) < -8000 && d != UP) {
+	//	mov_->setDir(Vector2D(0, -1));
+	//	skin_->changeState(SkinComponent::Up);
+	//}
+	//else if (ih().isKeyDown(SDL_SCANCODE_S) && d != DOWN || SDL_GameControllerGetAxis(controller, SDL_CONTROLLER_AXIS_LEFTY) > 8000 && d != DOWN) {
+	//	mov_->setDir(Vector2D(0, 1));
+	//	skin_->changeState(SkinComponent::Down);
+	//}
+	//if (ih().isKeyDown(SDL_SCANCODE_ESCAPE) && !dialog->gethasstarted() && !dialog->getopenedShop() || SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_START)) {
+	//	GameManager::goPauseMenu();
+	//}
+	//if (abs(SDL_GameControllerGetAxis(controller, SDL_CONTROLLER_AXIS_LEFTX)) < joystick_deadzone && abs(SDL_GameControllerGetAxis(controller, SDL_CONTROLLER_AXIS_LEFTY)) < joystick_deadzone) {		// No ha habido movimiento en el eje horizontal izquierd
+	//	mov_->setDir(Vector2D(0, 0)); 
+	//	skin_->changeState(SkinComponent::Idle);
+	//}
 
 	if (ih().keyDownEvent() && controladorDetectado){
 		if (!dialog->gethasstarted() && !dialog->getopenedShop()) {
-			if (ih().isKeyDown(SDL_SCANCODE_A) && d != LEFT ||SDL_GameControllerGetAxis(controller, SDL_CONTROLLER_AXIS_LEFTX) < -8000 && d != LEFT) {
+			if (ih().isKeyDown(SDL_SCANCODE_A) && d != LEFT) {
 				mov_->setDir(Vector2D(-1, 0));
 				skin_->changeState(SkinComponent::Left);
 			}
-			else if (ih().isKeyDown(SDL_SCANCODE_D) && d != RIGHT ||SDL_GameControllerGetAxis(controller, SDL_CONTROLLER_AXIS_LEFTX) > 8000 && d != RIGHT) {
+			else if (ih().isKeyDown(SDL_SCANCODE_D) && d != RIGHT) {
 				mov_->setDir(Vector2D(1, 0));
 				skin_->changeState(SkinComponent::Right);
 			}
-			else  if (ih().isKeyDown(SDL_SCANCODE_W) && d != UP ||SDL_GameControllerGetAxis(controller, SDL_CONTROLLER_AXIS_LEFTY) < -8000 && d != UP) {
+			else  if (ih().isKeyDown(SDL_SCANCODE_W) && d != UP ) {
 				mov_->setDir(Vector2D(0, -1));
 				skin_->changeState(SkinComponent::Up);
 			}
-			else if (ih().isKeyDown(SDL_SCANCODE_S)&&d!=DOWN || SDL_GameControllerGetAxis(controller, SDL_CONTROLLER_AXIS_LEFTY) > 8000 && d != DOWN) {
+			else if (ih().isKeyDown(SDL_SCANCODE_S)&&d!=DOWN ) {
 				mov_->setDir(Vector2D(0, 1));
 				skin_->changeState(SkinComponent::Down);
 			}
@@ -122,7 +122,7 @@ void InputComponent::handleEvents(SDL_Event event)
 			actionDelay = 0;
 		}
 
-		if (ih().isKeyDown(SDL_SCANCODE_ESCAPE) && !dialog->gethasstarted() && !dialog->getopenedShop() || SDL_GameControllerButton(SDL_CONTROLLER_BUTTON_A)) {
+		if (ih().isKeyDown(SDL_SCANCODE_ESCAPE) && !dialog->gethasstarted() && !dialog->getopenedShop() /* || SDL_GameControllerButton(SDL_CONTROLLER_BUTTON_A)*/) {
 			GameManager::goPauseMenu();
 		}
 
