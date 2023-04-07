@@ -3,7 +3,7 @@
 
 BeatEmUpState::BeatEmUpState(bool boss,Entity* enemySends, string typeBoss) {
 	enemySender = enemySends;
-
+	SDLUtils::instance()->soundEffects().at("Battle").play();
 	random = &SDLUtils::instance()->rand();
 
 	background_ = new Entity();
@@ -147,8 +147,9 @@ void BeatEmUpState::finishBEU() {
 	numEnemies -= 1;
 	if (numEnemies == 0)
 	{
-		GameManager::instance()->goTopDown();
 		SDLUtils::instance()->soundEffects().at("Battle").haltChannel();
+		GameManager::instance()->goTopDown();
+		
 		enemySender->~Entity();
 	}
 }

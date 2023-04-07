@@ -15,10 +15,12 @@ void GameManager::goBeatEmUp(Entity* enemy) {
 }
 
 void GameManager::goTopDown() {
+	SDLUtils::instance()->soundEffects().at("Title").play();
 	GameStateMachine::instance()->popState();
 }
 
 void GameManager::backToMainMenu() {
+	SDLUtils::instance()->soundEffects().at("Title").haltChannel();
 	GameStateMachine::instance()->changeState(new MainMenuState());
 }
 
