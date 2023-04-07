@@ -33,18 +33,19 @@ public:
 	{
 		//Hacemos los getComponent de los Transform
 		tr1 = ent_->getComponent<Transform>(TRANSFORM_H);
-		//tr2 = player_->getComponent<Transform>(TRANSFORM_H);
+		tr2 = player_->getComponent<Transform>(TRANSFORM_H);
 		rectSector = getRectSector();
-		//rectPlayer = getPlayerRect();
+		rectPlayer = getPlayerRect();
 		//rectPlayer= build_sdlrect(player_->getComponent<Transform>(TRANSFORM_H)->getPos(), player_->getComponent<Transform>(TRANSFORM_H)->getW(), player_->getComponent<Transform>(TRANSFORM_H)->getH());
 	}
 	void update()
 	{
-		/*if (Collision::collides(Vector2D(rectPlayer.x, rectPlayer.y), rectPlayer.w, rectPlayer.h, Vector2D(rectSector.x, rectSector.y), rectSector.w, rectSector.h))
+		if (Collision::collides(Vector2D(rectPlayer.x, rectPlayer.y), rectPlayer.w, rectPlayer.h, Vector2D(rectSector.x, rectSector.y), rectSector.w, rectSector.h))
 		{
 			traspaso(idSector, true);
+			cout << idSector;
 		}
-		else { traspaso(idSector, false); }*/
+		else { traspaso(idSector, false); }
 
 	}
 };

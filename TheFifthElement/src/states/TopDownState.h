@@ -128,14 +128,19 @@ private:
 public:
 	void actSectors(int idChange, bool nowValue)
 	{
-		sectors[idChange] = nowValue;
-		LoadMap("assets/Scenes/Maps/MapaInicial.tmx");
+		if (sectors[idChange] != nowValue)
+		{
+			printMap();
+			sectors[idChange] = nowValue;
+		}
+		//printMap();
 	}
 	string getStateID(); // stringID
 	PuzzleCopas* puzzle1;
 	TopDownState();	
 	~TopDownState() {}
 	void LoadMap(string const& filename);
+	void printMap();
 	void update();	
 	void handleEvents();
 	void render();
