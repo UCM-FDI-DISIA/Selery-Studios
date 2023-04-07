@@ -3995,12 +3995,9 @@
   </object>
  </objectgroup>
  <objectgroup id="44" name="pruebas">
-  <object id="812" x="1956" y="360" width="728" height="728"/>
+  <object id="812" x="1962" y="136" width="728" height="728"/>
   <object id="813" x="3916.48" y="600.121" width="1370.18" height="833.45"/>
   <object id="815" x="24" y="1104" width="2776" height="2032"/>
-  <object id="820" x="2950.5" y="999.063" width="83" height="17.875">
-   <text wrap="1">Hola Mundo</text>
-  </object>
  </objectgroup>
  <objectgroup id="45" name="BossLuz">
   <object id="817" x="3196" y="1432">

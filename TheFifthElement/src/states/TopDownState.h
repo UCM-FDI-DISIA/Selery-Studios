@@ -62,7 +62,7 @@ private:
 	tileset_map tilesets_;	// textures map (string -> texture)
 	SDL_Texture* background_;
 	MapInfo mapInfo;	//struct
-	vector<bool> sectors{ false,true,false,false,false,false,false,false,false,false,false,false,false,false,false,false };
+	vector<bool> sectors{ true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true };
 	Entity* pruebaCollider;
 	int idSector = 0;
 	//PLAYER 
@@ -130,8 +130,8 @@ public:
 	{
 		if (sectors[idChange] != nowValue)
 		{
-			printMap();
 			sectors[idChange] = nowValue;
+			printMap();
 		}
 		//printMap();
 	}

@@ -42,11 +42,16 @@ public:
 	{
 		if (Collision::collides(Vector2D(rectPlayer.x, rectPlayer.y), rectPlayer.w, rectPlayer.h, Vector2D(rectSector.x, rectSector.y), rectSector.w, rectSector.h))
 		{
-			traspaso(idSector, true);
-			cout << idSector;
+			traspaso(idSector, true);			
 		}
 		else { traspaso(idSector, false); }
-
+		updateRects();
+	}
+	void updateRects()
+	{
+		//Modo para actualizar los rect?gulos
+		rectPlayer = getPlayerRect();
+		rectSector = getRectSector();
 	}
 };
 

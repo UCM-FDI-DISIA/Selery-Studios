@@ -54,19 +54,11 @@ void TopDownState::LoadMap(string const& filename) {
         Texture* texture = sdlutils().tilesets().find(name)->second; 
         mapInfo.tilesets.insert(pair<uint, Texture*>(tile.getFirstGID(), texture));  //inserta en el mapa de Map_Info: llamado tilesets el ID del tileset y su textura
     }
-    //corte de funciones
 
     /*Mix_VolumeMusic(0);
     Mix_Volume(MIX_CHANNELS, 0);*/
-    
 
-
-    // recorremos cada una de las capas (de momento solo las de tiles) del mapa
-    
-
-
-    //setRenderer(Gm_->getRenderer());
-    
+    // recorremos cada una de las capas (de momento solo las de tiles) del mapa    
     auto& mapLayers = mapInfo.tile_MAP->getLayers();
 
     for (auto& layer : mapLayers) {
@@ -246,7 +238,6 @@ void TopDownState::LoadMap(string const& filename) {
 
 void TopDownState::printMap()
 {
-    cout << "print";
     auto& mapLayers = mapInfo.tile_MAP->getLayers();
 
     for (auto& layer : mapLayers) {
