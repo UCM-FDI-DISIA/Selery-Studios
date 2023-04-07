@@ -17,6 +17,7 @@ TopDownState::TopDownState() {
     roulete = Hud_->addComponent<Roulette>(ROULETTECOMPONENT_H);
     LoadMap("assets/Scenes/Maps/MapaInicial.tmx");
     addEntity(Hud_);  
+    SDLUtils::instance()->soundEffects().at("Title").play();
 }
 
 void TopDownState::LoadMap(string const& filename) {
@@ -57,7 +58,7 @@ void TopDownState::LoadMap(string const& filename) {
 
     /*Mix_VolumeMusic(0);
     Mix_Volume(MIX_CHANNELS, 0);*/
-    SDLUtils::instance()->soundEffects().at("Title").play(); 
+    
 
 
     // recorremos cada una de las capas (de momento solo las de tiles) del mapa
