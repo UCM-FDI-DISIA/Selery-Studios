@@ -7,7 +7,7 @@ Game::Game() {
 	exit = false;
 	GameStateMachine::instance()->pushState(new TopDownState());
 	//GameStateMachine::instance()->pushState(new MainMenuState());
-	//GameStateMachine::instance()->pushState(new BeatEmUpState(false, "earth"));
+	//GameStateMachine::instance()->pushState(new BeatEmUpState(true, nullptr, "light"));
 	//GameStateMachine::instance()->pushState(new PauseState());
 }
 

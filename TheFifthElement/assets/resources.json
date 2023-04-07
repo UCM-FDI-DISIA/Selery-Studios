@@ -205,7 +205,9 @@
     {"id": "TopDownControls", "file": "assets/HUD/Menu/TopDownControls.png"},
     {"id": "BEUControls", "file": "assets/HUD/Menu/BEUControls.png"},
     {"id": "controlPanel", "file": "assets/HUD/Menu/controlPanel.png"},
-    {"id": "slider", "file": "assets/HUD/Menu/slider.png"}
+    {"id": "slider", "file": "assets/HUD/Menu/slider.png"},
+
+    {"id": "TDLightBoss", "file": "assets/Enemies/BeatEmUp/Bosses/LightBoss/animations/PNG/idle/idle_1.png"}
   ],
 
   "messages": [

@@ -45,8 +45,8 @@ BeatEmUpState::BeatEmUpState(bool boss,Entity* enemySends, string typeBoss) {
 	else if (boss && typeBoss == "earth") {
 		AddEarthBoss();
 	}
-	else if (boss && typeBoss == "air") {
-		AddAirBoss();
+	else if (boss && typeBoss == "light") {
+		AddLightBoss();
 	}
 	else if (boss && typeBoss == "fire") {
 		AddFireBoss();
@@ -116,8 +116,9 @@ void BeatEmUpState::AddEarthBoss() {
 	addEntity(boss_);
 }
 
-void BeatEmUpState::AddAirBoss() {
-
+void BeatEmUpState::AddLightBoss() 
+{
+	AddEnemies(1);
 }
 
 string BeatEmUpState::getEnemyType(int i) {
@@ -147,9 +148,16 @@ void BeatEmUpState::finishBEU() {
 	numEnemies -= 1;
 	if (numEnemies == 0)
 	{
-		GameManager::instance()->goTopDown();
-		SDLUtils::instance()->soundEffects().at("Battle").haltChannel();
-		enemySender->~Entity();
+		if (enemySender != nullptr)
+		{
+			GameManager::instance()->goTopDown();
+			SDLUtils::instance()->soundEffects().at("Battle").haltChannel();
+			enemySender->~Entity();
+		}
+		else
+		{
+			GameManager::instance()->backToMainMenu();
+		}
 	}
 }
 

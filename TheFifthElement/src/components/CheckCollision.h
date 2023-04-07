@@ -9,6 +9,7 @@
 #include "ObjectsComponent.h"
 #include "../Entities/PortalComponent.h"
 #include "Enemy_movementTD_component.h"
+
 class CheckCollision : public Component
 {
 private:

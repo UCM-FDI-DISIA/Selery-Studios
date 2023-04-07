@@ -48,6 +48,7 @@ enum cmpId : cmpId_type {
 	ROULETTECOMPONENT_H = 40,
 	SPAWN_H = 41,
 	SECTORCOLLISIONCOMPONENT_H = 42,
+	BOSSCOMPONENT_H = 43,
 	// do not remove this
 	_LAST_CMP_ID
 };

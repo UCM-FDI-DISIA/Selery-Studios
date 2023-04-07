@@ -94,6 +94,9 @@ private:
 	float enemy_width, enemy_height;
 	string type_;
 
+	//Boss
+	Entity* boss_;
+
 	GameManager* Gm_;
 
 	//COLISIONES TILE-PLAYER
@@ -150,6 +153,10 @@ public:
 	}
 	Texture* blacksmithTexture() {
 		return &SDLUtils::instance()->images().at("Blacksmith");
+	}
+	Texture* bossLuzTexture()
+	{
+		return &SDLUtils::instance()->images().at("TDLightBoss");
 	}
 	Texture* EnemyTexture() {
 		int a = SDLUtils::instance()->rand().nextInt(0, 4);

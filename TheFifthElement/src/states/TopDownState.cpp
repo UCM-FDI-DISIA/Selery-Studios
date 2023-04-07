@@ -218,11 +218,22 @@ void TopDownState::LoadMap(string const& filename) {
                 else if (name == "pruebas")
                 {
                     pruebaCollider = new Entity();
+                    pruebaCollider->setContext(this);
                     pruebaCollider->addComponent<Transform>(TRANSFORM_H, Vector2D(obj.getPosition().x, obj.getPosition().y), int(obj.getAABB().width), int(obj.getAABB().height));
                     pruebaCollider->addComponent <SectorCollisionComponent >(SECTORCOLLISIONCOMPONENT_H, player_, idSector);
                     pruebaCollider->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(0, 0), int(obj.getAABB().height), int (obj.getAABB().width));                    
                     addEntity(pruebaCollider);
                     idSector++;
+                }
+                else if (name == "BossLuz")
+                {
+                    boss_ = new Entity();
+                    boss_->setContext(this);
+                    boss_->addComponent<Transform>(TRANSFORM_H, Vector2D(obj.getPosition().x, obj.getPosition().y), 600, 400);
+                    boss_->addComponent<Image>(IMAGE_H, bossLuzTexture(), 1, 1, 0, 600, 400);
+                    //boss_->addComponent<CheckCollision>(CHECKCOLLISION_H, player_, "LightBoss");
+                    boss_->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(0, 0), 288, 188);
+                    addEntity(boss_);
                 }
                 else if (name == "Enemy") {
                     if (obj.getName() == "") {
@@ -295,11 +306,7 @@ void TopDownState::LoadMap(string const& filename) {
                     element_->addComponent<ObjectsComponent>(OBJECTSCOMPONENT_H);
                     element_->addComponent<CheckCollision>(CHECKCOLLISION_H, player_, "element");
                     addEntity(element_);                   
-                }
-                else if (name == "BossLuz")
-                {
-
-                }
+                }                
             }
         }
 
