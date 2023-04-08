@@ -18,12 +18,16 @@
 #include "../components/Image.h"
 #include "../components/MovementEarthBossComponent.h"
 #include "../components/AnimationEarthBossComponent.h"
+#include "../components/LifeEarthBossComponent.h"
 #include "../Saving.h"
 #include "../components/PointOfFightComponent.h"
 #include "../components/ShadowComponent.h"
-
 #include "../components/AttackEarthBossComponent.h"
 #include "../components/rouletteComponent.h"
+#include "../components/MovementLightBossComponent.h"
+#include "../components/LifeLightBossComponent.h"
+#include "../components/AttackLightBossComponent.h"
+#include "../components/AnimationLightBossComponent.h"
 
 using name = string;
 using damage = int;
