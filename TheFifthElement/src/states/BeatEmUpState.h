@@ -73,12 +73,13 @@ private:
 	Roulette* roulete;
 	//BOSSES
 	Entity* boss_;
+	bool boss;
 
 	//PROPERTIES
 	PropertiesManager* props_;
 
 public:
-	BeatEmUpState(bool boss = false, Entity* enemySends = nullptr, string typeBoss = "", int nEnemies = 3, int timeGen = 1000);
+	BeatEmUpState(bool Boss = false, Entity* enemySends = nullptr, string typeBoss = "", int nEnemies = 3, int timeGen = 1000);
 	~BeatEmUpState() {}
 	string getStateID(); // stringID
 	void AddEnemies(int i);

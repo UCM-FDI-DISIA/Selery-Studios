@@ -1,10 +1,11 @@
 ﻿#include "BeatEmUpState.h"
 #include "../components/SkinBEUComponent.h"
 
-BeatEmUpState::BeatEmUpState(bool boss,Entity* enemySends, string typeBoss, int nEnemies, int timeGen) {
+BeatEmUpState::BeatEmUpState(bool Boss,Entity* enemySends, string typeBoss, int nEnemies, int timeGen) {
 	enemySender = enemySends;
 	numEnemies = nEnemies;
 	timeToGenerate = timeGen;
+	boss = Boss;
 
 	SDLUtils::instance()->soundEffects().at("Battle").play();
 
@@ -61,7 +62,7 @@ BeatEmUpState::BeatEmUpState(bool boss,Entity* enemySends, string typeBoss, int 
 void BeatEmUpState::AddEnemy() {
 	int character = random->nextInt(0, 4);
 	int type = random->nextInt(0, 4);
-	int dist = 900 * WIN_WIDTH / 900;
+	int dist = 900 * (WIN_WIDTH / 900);
 	Vector2D pos = { trans_player_->getPos().getX() + dist ,(float)random->nextInt(50,WIN_HEIGHT - 50) };
 	enemy_ = new Entity();
 	enemy_->setContext(this);
@@ -73,16 +74,14 @@ void BeatEmUpState::AddEnemy() {
 
 	else animation_ = enemy_->addComponent<AnimationEnemyBEUComponent>(ANIMATIONENEMYBEUCOMPONENT_H, getEnemyType(type), "goblin", player_);
 
-	animation_->changeState(AnimationEnemyBEUComponent::Moving);
-	animation_->updateAnimation();
-
 	enemy_->addComponent<Transform>(TRANSFORM_H, pos, ENEMYBEU_WIDTH, ENEMYBEU_HEIGHT)->setDir(Vector2D(1, 0));
-	enemy_->addComponent<Image>(IMAGE_H, animation_->getTexture(), animation_->getNFrames(), animation_->getNFrames(), 0, ENEMYBEU_WIDTH, ENEMYBEU_HEIGHT, getEnemyType(type));
+	enemy_->addComponent<FramedImage>(FRAMEDIMAGE_H, animation_->getTexture(), ENEMYBEU_WIDTH, ENEMYBEU_HEIGHT, animation_->getNFrames(), getEnemyType(type));
 	enemy_->addComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
 	enemy_->addComponent<EnemyBEUDirectionComponent>(ENEMYBEUDIRECTIONCOMPONENT_H, player_, animation_->getEnemy());
 	enemy_->addComponent<LifeComponent>(LIFECOMPONENT_H, ENEMYBEU_MAXLIFE);
 	enemy_->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, animation_->getOffset(), animation_->getColHeight(), animation_->getColWidth());
 	enemy_->addComponent<ColDetectorComponent>(COLDETECTORCOMPONENT_H, enemy_, player_);
+	animation_->initComponent();
 	enemy_->addComponent<AttackBoxComponent>(ATTACKBOXCOMPONENT_H);
 
 	addEntity(enemy_);
@@ -203,8 +202,8 @@ string BeatEmUpState::getStateID() {
 void BeatEmUpState::update() {
 	Manager::refresh();
 	Manager::update();
-
-	if (createdEnemies < numEnemies && cont <= 0) {
+	
+	if (!boss && createdEnemies < numEnemies && cont <= 0) {
 		AddEnemy();
 		cont = timeToGenerate;
 		createdEnemies++;

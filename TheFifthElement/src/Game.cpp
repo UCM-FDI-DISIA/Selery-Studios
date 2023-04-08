@@ -10,7 +10,7 @@ Game::Game() {
 	//GameStateMachine::instance()->pushState(new BeatEmUpState(false, nullptr));
 	//GameStateMachine::instance()->pushState(new BeatEmUpState(true, nullptr, "water"));
 	//GameStateMachine::instance()->pushState(new BeatEmUpState(false, "earth"));
-	GameStateMachine::instance()->pushState(new BeatEmUpState(true, nullptr, "water"));
+	//GameStateMachine::instance()->pushState(new BeatEmUpState(true, nullptr, "water"));
 	//GameStateMachine::instance()->pushState(new PauseState());
 	GameStateMachine::instance()->pushState(new BeatEmUpState());
 }
