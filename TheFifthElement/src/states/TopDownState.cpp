@@ -63,7 +63,6 @@ void TopDownState::LoadMap(string const& filename) {
 
     for (auto& layer : mapLayers) 
     {
-
         if (layer->getType() == tmx::Layer::Type::Object) 
         {
             tmx::ObjectGroup* object_layer = dynamic_cast<tmx::ObjectGroup*>(layer.get());
@@ -88,6 +87,7 @@ void TopDownState::LoadMap(string const& filename) {
                     player_ = new Entity();
                     player_->setContext(this);
                     trans_player_ = player_->addComponent<Transform>(TRANSFORM_H, Vector2D(obj.getPosition().x, obj.getPosition().y), PLAYERTD_WIDTH_FRAME, PLAYERTD_HEIGHT_FRAME);
+                    trans_player_->setVel(PLAYERTD_SPEED);
                     sk_ = player_->addComponent<SkinComponent>(SKINCOMPONENT_H, "air");
                     sk_->changeState(SkinComponent::Idle);
                     sk_->changeMov();
@@ -158,7 +158,7 @@ void TopDownState::LoadMap(string const& filename) {
                         enemy_ = new Entity();
                         enemy_->setContext(this);
                         Texture* enemyT_ = EnemyTexture();
-                        enemy_->addComponent<Transform>(TRANSFORM_H, Vector2D(obj.getPosition().x, obj.getPosition().y), enemy_width, enemy_height);
+                        enemy_->addComponent<Transform>(TRANSFORM_H, Vector2D(obj.getPosition().x, obj.getPosition().y), enemy_width, enemy_height,1,1);
                         enemy_->addComponent<Image>(IMAGE_H, enemyT_, ENEMYTD_NUMFRAMES, ENEMYTD_NUMFRAMES, 0, enemy_width, enemy_height);
                         float a = -1.0f;
                         float lookingRange = 150.0f;

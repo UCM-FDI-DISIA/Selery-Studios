@@ -61,7 +61,7 @@ void Image::render() {
 		src.w = widthFrame_;
 		tex_->render(src, rect, 0, nullptr, s);
 		if (cont >= 5) {
-			i++;
+			if (loop_ || i < frames_)i++;
 			cont = 0;
 		}
 		if (ent_->hasComponent(INPUTCOMPONENTBEU_H)) {
@@ -72,7 +72,7 @@ void Image::render() {
 		}
 		cont++;
 		if (i >= frames_ || i >= tope) {
-			i = 0;
+			if (loop_) i=0;
 			animPlaying = false;
 			/*fila_ = 0;
 			if (ent_->hasComponent(INPUTCOMPONENTBEU_H)) {
@@ -84,7 +84,7 @@ void Image::render() {
 
 
 //matriz
-void Image::setAnim(bool Anim, int Fila, int Frames, int I, int tope) { //Metodo generico para cambiar de animacion en BEU
+void Image::setAnim(bool Anim, int Fila, int Frames, int I, int tope, bool loop) { //Metodo generico para cambiar de animacion en BEU
 	if (fila_ != Fila && !animPlaying) { // Si la animacion no es la actual la actualiza
 		animPlaying = Anim;
 		fila_ = Fila;
@@ -92,6 +92,7 @@ void Image::setAnim(bool Anim, int Fila, int Frames, int I, int tope) { //Metodo
 		i = I;
 		cont = 0;
 		this->tope = tope;
+		loop_ = loop;
 	}
 }
 

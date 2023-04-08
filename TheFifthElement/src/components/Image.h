@@ -21,6 +21,7 @@ private:
 	bool animPlaying = false;
 	int widthFrame_, heightFrame_;
 	int tope = 100;
+	bool loop_ = true;
 	Vector2D a;
 
 	string type_ = "";
@@ -52,7 +53,7 @@ public:
 	
 
 	//matriz
-	void setAnim(bool Anim, int Fila, int Frames, int I, int tope); //Metodo generico para cambiar de animacion en BEU
+	void setAnim(bool Anim, int Fila, int Frames, int I, int tope, bool loop = true); //Metodo generico para cambiar de animacion en BEU
 
 	void setAnimTexture(string textureKey, int Frames, int Width, int Fila = 0);
 

@@ -28,6 +28,8 @@
 #include "../components/LifeLightBossComponent.h"
 #include "../components/AttackLightBossComponent.h"
 #include "../components/AnimationLightBossComponent.h"
+#include "../components/WaterBossIA.h"
+#include "../components/WaterBossLife.h"
 
 using name = string;
 using damage = int;
