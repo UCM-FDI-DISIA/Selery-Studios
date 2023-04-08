@@ -20,8 +20,6 @@
 #include "../components/AnimationEarthBossComponent.h"
 #include "../components/LifeEarthBossComponent.h"
 #include "../Saving.h"
-#include "../components/WaterBossIA.h"
-#include "../components/WaterBossLife.h"
 #include "../components/PointOfFightComponent.h"
 #include "../components/ShadowComponent.h"
 #include "../components/AttackEarthBossComponent.h"
@@ -74,7 +72,7 @@ private:
 	PropertiesManager* props_;
 
 public:
-	BeatEmUpState(bool boss, Entity* enemySends = nullptr, string typeBoss = "");
+	BeatEmUpState(bool boss, Entity* enemySends, string typeBoss = "");
 	~BeatEmUpState() {}
 	string getStateID(); // stringID
 	void AddEnemies(int i);

@@ -1,7 +1,6 @@
 ﻿#include "BeatEmUpState.h"
 #include "../components/SkinBEUComponent.h"
 
-
 BeatEmUpState::BeatEmUpState(bool boss,Entity* enemySends, string typeBoss) {
 	enemySender = enemySends;
 
@@ -87,16 +86,12 @@ void BeatEmUpState::AddEnemies(int n_enemies) {
 }
 
 void BeatEmUpState::AddWaterBoss() {
-	Vector2D position = Vector2D(sdlutils().width() * 3 / 4 , sdlutils().height()/2);
+	Vector2D position = Vector2D(sdlutils().width()/2 , sdlutils().height()/2);
 
 	Entity* waterBoss = addEntity();
-	waterBoss->addComponent<Transform>(TRANSFORM_H, position, WATERBOSS_WIDTH*1.2, WATERBOSS_HEIGHT*1.2, 1, 2);
+	waterBoss->addComponent<Transform>(TRANSFORM_H, position, WATERBOSS_WIDTH*1.2, WATERBOSS_HEIGHT*1.2);
 	waterBoss->addComponent<Image>(IMAGE_H, &sdlutils().images().at("waterBoss"), 6, 16, 0, WATERBOSS_WIDTH, WATERBOSS_HEIGHT);
 	waterBoss->addComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
-	waterBoss->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(70, 10), WATERBOSS_HEIGHT, WATERBOSS_WIDTH/2);
-	waterBoss->addComponent<WaterBossIA>(WATERBOSSIA_H);
-	waterBoss->addComponent<WaterBossLife>(WATERBOSSLIFE_H, 1);
-	// buscar assets olas
 }
 
 void BeatEmUpState::AddFireBoss() {

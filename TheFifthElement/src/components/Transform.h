@@ -16,12 +16,12 @@ private:
     float size_ = 1.0f;
     float scale_ = WIN_WIDTH / 900;
 public:
-    Transform(Vector2D pos, float w, float h, float size = 1.0f, float velocity = 3) {
+    Transform(Vector2D pos, float w, float h, float size = 1.0f) {
         position = pos;
         width = w;
         height = h;
         rotation_ = 0;
-        vel = velocity;
+        vel = 0;
         framesTotales_ = 0;
         matrix_ = false;
         size_ = size;
