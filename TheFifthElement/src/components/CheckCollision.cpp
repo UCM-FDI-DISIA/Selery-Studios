@@ -45,6 +45,7 @@ void CheckCollision::initComponent() {
 }
 void CheckCollision::update()
 {
+	updateRects();
 	if (enemies)
 	{
 		if (Collision::collides(Vector2D(rectPlayer.x, rectPlayer.y), rectPlayer.w, rectPlayer.h, Vector2D(rectFight.x, rectFight.y), rectFight.w, rectFight.h))					//Aumentado el numero por el que dividimos las alturas y anchuras, tambien aumentamos lo que tarda en detectarnos el enemigo
@@ -76,7 +77,6 @@ void CheckCollision::update()
 			portal->elementEarned();
 		}
 	}
-	updateRects();
 }
 
 
