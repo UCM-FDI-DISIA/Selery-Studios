@@ -9,6 +9,8 @@
 #include "ObjectsComponent.h"
 #include "PortalComponent.h"
 #include "Enemy_movementTD_component.h"
+#include "../Saving.h"
+
 class CheckCollision : public Component
 {
 private:
@@ -25,6 +27,7 @@ private:
 	int side_;
 	bool enemies, objects_, demo = true;
 	string id_;
+	Saving* savePos;
 public:
 	CheckCollision(Entity* player, string id);
 

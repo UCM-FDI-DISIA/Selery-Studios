@@ -59,6 +59,8 @@ const int enemy_rock_life = 200;
 
 const int WATERBOSS_WIDTH = 192;
 const int WATERBOSS_HEIGHT = 128;
+const int WAVE_WIDTH = 400;
+const int WAVE_HEIGHT = 109;
 
 #pragma endregion
 
@@ -66,6 +68,13 @@ const int WATERBOSS_HEIGHT = 128;
 
 const int EARTHBOSS_WIDTH = 224;
 const int EARTHBOSS_HEIGHT = 192;
+
+#pragma endregion
+
+#pragma region LightBoss_Data
+
+const int LIGHTBOSS_WIDTH = 288;
+const int LIGHTBOSS_HEIGHT = 128;
 
 #pragma endregion
 

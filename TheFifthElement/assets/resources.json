@@ -243,6 +243,7 @@
     {"id": "waterBoss_attack", "file":  "assets/Enemies/BeatEmUp/Bosses/WaterBoss/frost_guardian_attack.png"},
     {"id": "waterBoss_walk", "file":  "assets/Enemies/BeatEmUp/Bosses/WaterBoss/frost_guardian_walk.png"},
     {"id": "waterBoss_death", "file":  "assets/Enemies/BeatEmUp/Bosses/WaterBoss/frost_guardian_death.png"},
+    {"id": "waves", "file":  "assets/Enemies/BeatEmUp/Bosses/WaterBoss/waves.png"},
     {"id": "shadow","file": "assets/Enemies/BeatEmUp/Bosses/EarthBoss/golem-shadow.png"},
     {"id": "espada", "file": "assets/HUD/espada.png"},
     {"id": "cora", "file": "assets/HUD/cora.png"},
@@ -251,7 +252,10 @@
     {"id": "TopDownControls", "file": "assets/HUD/Menu/TopDownControls.png"},
     {"id": "BEUControls", "file": "assets/HUD/Menu/BEUControls.png"},
     {"id": "controlPanel", "file": "assets/HUD/Menu/controlPanel.png"},
-    {"id": "slider", "file": "assets/HUD/Menu/slider.png"}
+    {"id": "slider", "file": "assets/HUD/Menu/slider.png"},
+
+    {"id": "TDLightBoss", "file": "assets/Enemies/BeatEmUp/Bosses/LightBoss/animations/PNG/idle/idle_1.png"},
+    {"id": "BEULightBoss", "file": "assets/Enemies/BeatEmUp/Bosses/LightBoss/animations/spritesheets/allAnimations.png"}
   ],
 
   "messages": [

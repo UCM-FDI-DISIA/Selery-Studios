@@ -55,7 +55,8 @@ void LifeComponent::update() {
 				if (i == 4) 
 				{
 					ent_->setAlive(false);
-					GameManager::instance()->backToMainMenu();
+					Vector2D comprobar = Saving::instance()->getPos();
+					GameManager::instance()->goTopDown();
 				}
 				else 
 				{

@@ -133,6 +133,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\components\DisableOnExit.h" />
     <ClInclude Include="src\components\Damage.h" />
     <ClInclude Include="src\components\FramedImage.h" />
     <ClInclude Include="src\components\LifeTD.h" />
@@ -213,6 +214,7 @@
     <ClInclude Include="src\components\WaterBossLife.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\components\DisableOnExit.cpp" />
     <ClCompile Include="src\components\Damage.cpp" />
     <ClCompile Include="src\components\FramedImage.cpp" />
     <ClCompile Include="src\components\NPCcollisioncomponent.cpp" />

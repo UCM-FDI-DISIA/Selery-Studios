@@ -8,5 +8,11 @@ void MovementComponent::initComponent() {
 }
 
 void MovementComponent::update() {
+
 	tr_->setPos(tr_->getPos() + tr_->getDir() * tr_->getVel());
+}
+
+void MovementComponent::setNewPos(Vector2D position)
+{
+	tr_->setPos(position);
 }

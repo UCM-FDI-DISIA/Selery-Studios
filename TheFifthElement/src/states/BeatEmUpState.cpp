@@ -89,7 +89,7 @@ void BeatEmUpState::AddEnemies(int n_enemies) {
 }
 
 void BeatEmUpState::AddWaterBoss() {
-	Vector2D position = Vector2D(sdlutils().width() * 3 / 4 , sdlutils().height()/2);
+	Vector2D position = Vector2D(sdlutils().width() * 3 / 4 - WATERBOSS_WIDTH , sdlutils().height()/2);
 
 	Entity* waterBoss = addEntity();
 	waterBoss->addComponent<Transform>(TRANSFORM_H, position, WATERBOSS_WIDTH*1.2, WATERBOSS_HEIGHT*1.2);
@@ -97,8 +97,8 @@ void BeatEmUpState::AddWaterBoss() {
 	waterBoss->addComponent<FramedImage>(FRAMEDIMAGE_H, &sdlutils().images().at("waterBoss"), WATERBOSS_WIDTH, WATERBOSS_HEIGHT, 16, "water");
 	waterBoss->addComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
 	waterBoss->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(70, 10), WATERBOSS_HEIGHT, WATERBOSS_WIDTH/2);
-	waterBoss->addComponent<WaterBossIA>(WATERBOSSIA_H);
-	waterBoss->addComponent<WaterBossLife>(WATERBOSSLIFE_H, 1);
+	waterBoss->addComponent<WaterBossIA>(WATERBOSSIA_H, player_);
+	waterBoss->addComponent<WaterBossLife>(WATERBOSSLIFE_H, 100);
 	// buscar assets olas
 }
 
