@@ -72,6 +72,19 @@ void ColManager::checkCollisionP(SDL_Rect boxAttack,string type)
 
 				}
 			}
+			else if (it->hasComponent(WATERBOSSIA_H)) {
+				ColliderComponent* col = it->getComponent<ColliderComponent>(COLLIDERCOMPONENT_H);
+				if (Collision::collides(Vector2D(boxAttack.x, boxAttack.y), boxAttack.w, boxAttack.h, Vector2D(col->getColRect().x, col->getColRect().y), col->getColRect().w, col->getColRect().h))
+					if (type == "earth") {
+						it->getComponent<WaterBossLife>(WATERBOSSLIFE_H)->damage(props_->instance()->getStrength(0), 2);
+					}
+					else if (type == "fire") {
+						it->getComponent<WaterBossLife>(WATERBOSSLIFE_H)->damage(props_->instance()->getStrength(0), 0.5);
+					}
+					else {
+						it->getComponent<WaterBossLife>(WATERBOSSLIFE_H)->damage(props_->instance()->getStrength(0), 1);
+					}
+			}
 	}
 }
 

@@ -60,6 +60,8 @@
     <ClCompile Include="src\components\AttackLightBossComponent.cpp" />
     <ClCompile Include="src\components\MovementLightBossComponent.cpp" />
     <ClCompile Include="src\components\SectorCollisionComponent.cpp" />
+    <ClCompile Include="src\components\WaterBossIA.cpp" />
+    <ClCompile Include="src\components\WaterBossLife.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\components\Button.h" />
@@ -144,6 +146,8 @@
     <ClInclude Include="src\components\SectorCollisionComponent.h" />
     <ClInclude Include="src\Saving.h" />
     <ClInclude Include="src\components\BossCollision.h" />
+    <ClInclude Include="src\components\WaterBossLife.h" />
+    <ClInclude Include="src\components\WaterBossIA.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="TheFifthElement.rc" />
