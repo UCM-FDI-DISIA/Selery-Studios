@@ -3,7 +3,7 @@
 #include "../utils/Component.h"
 #include "../utils/Entity.h"
 #include "Transform.h"
-#include "Image.h"
+#include "FramedImage.h"
 
 class WaterBossLife : public Component
 {
@@ -18,7 +18,7 @@ private:
     float borderWidth_, borderHeight_;
     Texture* borderTexture_;
 
-    Image* im_;
+    FramedImage* im_;
     Transform* tr_;
     int life, maxLife;
     bool invulnerable;

@@ -8,24 +8,6 @@ FramedImage::FramedImage(Texture* tex, int width, int height, int frames, string
 	type_ = type;
 }
 
-
-//FramedImage::FramedImage(Texture* tex, int nframes, int framesT, int fila, int widthFrame, int heightFrame, string type) : tr_(nullptr), tex_(tex) { // Constructora
-//	frames_ = nframes;
-//	fila_ = fila;
-//	framesTotales_ = framesT;
-//	widthFrame_ = widthFrame;
-//	heightFrame_ = heightFrame;
-//	type_ = type;
-//}
-//
-//FramedImage::FramedImage(Texture* tex, int nframes, int framesT, int fila, int widthFrame, int heightFrame) : tr_(nullptr), tex_(tex) { // Constructora
-//	frames_ = nframes;
-//	fila_ = fila;
-//	framesTotales_ = framesT;
-//	widthFrame_ = widthFrame;
-//	heightFrame_ = heightFrame;
-//}
-
 // Destructora
 FramedImage::~FramedImage() { }
 
@@ -45,6 +27,7 @@ void FramedImage::update() {
 
 	if (col >= frames_ - 1) {
 		col = 0;
+		isAnimUnstoppable_ = false;
 	}
 	else if (cont > FRAME_RATE){
 		col++;
@@ -59,12 +42,30 @@ void FramedImage::render() {
 }
 
 void FramedImage::setAnim(string textureKey, int frames, bool isAnimUnstoppable) {
-	tex_ = &SDLUtils::instance()->images().at(textureKey);
-	texKey_ = textureKey;
-	frames_ = frames;
-	isAnimUnstoppable_ = isAnimUnstoppable;
+	if (!isAnimUnstoppable_) {
+		tex_ = &SDLUtils::instance()->images().at(textureKey);
+		texKey_ = textureKey;
+		frames_ = frames;
+		isAnimUnstoppable_ = isAnimUnstoppable;
+	}
 }
-
+//FramedImage::FramedImage(Texture* tex, int nframes, int framesT, int fila, int widthFrame, int heightFrame, string type) : tr_(nullptr), tex_(tex) { // Constructora
+//	frames_ = nframes;
+//	fila_ = fila;
+//	framesTotales_ = framesT;
+//	widthFrame_ = widthFrame;
+//	heightFrame_ = heightFrame;
+//	type_ = type;
+//}
+//
+//FramedImage::FramedImage(Texture* tex, int nframes, int framesT, int fila, int widthFrame, int heightFrame) : tr_(nullptr), tex_(tex) { // Constructora
+//	frames_ = nframes;
+//	fila_ = fila;
+//	framesTotales_ = framesT;
+//	widthFrame_ = widthFrame;
+//	heightFrame_ = heightFrame;
+//}
+// 
 //matriz
 //void FramedImage::setAnim(bool Anim, int Fila, int Frames, int I, int tope) { //Metodo generico para cambiar de animacion en BEU
 //	if (fila_ != Fila && !animPlaying) { // Si la animacion no es la actual la actualiza

@@ -9,7 +9,7 @@ WaterBossIA::WaterBossIA(){
 }
 
 void WaterBossIA::initComponent() {
-	im_ = ent_->getComponent<Image>(IMAGE_H);
+	im_ = ent_->getComponent<FramedImage>(FRAMEDIMAGE_H);
 	tr_ = ent_->getComponent<Transform>(TRANSFORM_H);
 }
 
@@ -55,11 +55,13 @@ void WaterBossIA::attackIce() {
 
 void WaterBossIA::setIdle() {
 	im_->setFlip(SDL_FLIP_NONE);
-	im_->setAnim(false, 0, 6, 0, 6);
+	im_->setAnim("waterBoss_idle", 6, false);
+	////im_->setAnim(false, 0, 6, 0, 6);
 }
 
 void WaterBossIA::setWalk(Vector2D dir) {
 	if (dir.getX() > 0) im_->setFlip(SDL_FLIP_HORIZONTAL);
 	else im_->setFlip(SDL_FLIP_NONE);
-	im_->setAnim(false, 1, 10, 0, 10);
+	im_->setAnim("waterBoss_walk", 10, false);
+	////im_->setAnim(false, 1, 10, 0, 10);
 }

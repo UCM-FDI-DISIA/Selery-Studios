@@ -8,7 +8,7 @@ WaterBossLife::WaterBossLife(int LIFE) {
 void WaterBossLife::initComponent() {
     scale = WIN_WIDTH / 900;
     tr_ = ent_->getComponent<Transform>(TRANSFORM_H);
-    im_ = ent_->getComponent<Image>(IMAGE_H);
+    im_ = ent_->getComponent<FramedImage>(FRAMEDIMAGE_H);
     backTexture_ = &SDLUtils::instance()->images().at("Water_LifeBarBack");
     barTexture_ = &SDLUtils::instance()->images().at("Water_LifeBar");
     borderTexture_ = &SDLUtils::instance()->images().at("Water_LifeBarBorder");
@@ -20,10 +20,11 @@ void WaterBossLife::damage(float damage, float mul) {
     if (!invulnerable) {
         life -= damage * mul;
         if (life <= 0) {
-            im_->setAnim(true, 4, 15, 0, 15, false);
+            im_->setAnim("waterBoss_death", 16, true);
+            ////im_->setAnim(true, 4, 15, 0, 15, false);
             ent_->removeComponent(WATERBOSSIA_H);
         }
-        else im_->setAnim(true, 3, 7, 0, 7);
+        else im_->setAnim("waterBoss_hit", 7, true);////im_->setAnim(true, 3, 7, 0, 7);
     }
 }
 

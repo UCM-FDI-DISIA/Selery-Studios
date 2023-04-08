@@ -2,7 +2,7 @@
 #include "../utils/Component.h"
 #include <cstdlib>
 #include "../utils/Constants.h"
-#include "Image.h"
+#include "FramedImage.h"
 #include "Transform.h"
 
 class WaterBossIA : public Component
@@ -13,7 +13,7 @@ private:
 		NONE, WAVES, ICE,
 	};
 	State currentState_;
-	Image* im_;
+	FramedImage* im_;
 	Transform* tr_;
 	Vector2D dir_;
 public:

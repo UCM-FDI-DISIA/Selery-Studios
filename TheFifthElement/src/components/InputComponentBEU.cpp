@@ -84,6 +84,7 @@ void InputComponentBEU::handleEvents(SDL_Event event) {
 	//else {
 	//	setAir(false);
 	//}
+
 	if (ih().isKeyDown(SDL_SCANCODE_SPACE) && !im_->getIsAnimUnstoppable() && jmp_->isJumpEnabled() || SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_A)) { // Salto
 		jmp_->jump();
 		sk_->changeState(SkinBEUComponent::Jump); // A lo mejor 15 cambia porque se le pueden dar o puede necesitar mas frames de salto
@@ -165,23 +166,23 @@ void InputComponentBEU::handleEvents(SDL_Event event) {
 				}*/
 				im_->setAnim("Player_BEU_" + im_->getType() + "_attack3", 26, true);
 			}
-			else if (im_->getType() == "air")
-			{
-				/*sdlutils().soundEffects().at("playerAttack").play();
-				alreadyPressedBasic = true;*/
-				/*if (im_->getRow() == 9) {
-					if (im_->getTope() < 2 * 7) {
-						im_->setTope(im_->getTope() + 7);
-					}
-					else
-					{
-						im_->setTope(im_->getTope() + 13);
-					}
-				}
-				else {
-					im_->setAnim(true, 9, 26, 0, 7);
-				}*/
-			}
+			//else if (im_->getType() == "air")
+			//{
+			//	/*sdlutils().soundEffects().at("playerAttack").play();
+			//	alreadyPressedBasic = true;*/
+			//	/*if (im_->getRow() == 9) {
+			//		if (im_->getTope() < 2 * 7) {
+			//			im_->setTope(im_->getTope() + 7);
+			//		}
+			//		else
+			//		{
+			//			im_->setTope(im_->getTope() + 13);
+			//		}
+			//	}
+			//	else {
+			//		im_->setAnim(true, 9, 26, 0, 7);
+			//	}*/
+			//}
 			else
 			{
 				/*sdlutils().soundEffects().at("playerAttack").play();

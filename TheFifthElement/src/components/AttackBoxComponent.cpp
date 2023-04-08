@@ -61,7 +61,7 @@ void AttackBoxComponent::update(){
 void AttackBoxComponent::handleBoxes()
 {
 	if (isPlayer) {
-		if (sk_->getSkin() == "Player_BEU_fire")
+		if (type == "fire")
 		{
 
 			//Comprobamos que animaci�n estamos ejecutando y en que punto de la animaci�n estamos 
@@ -271,7 +271,7 @@ void AttackBoxComponent::handleBoxes()
 			}
 
 		}
-		else if (sk_->getSkin() == "Player_BEU_water")
+		else if (type == "water")
 		{
 			if (im_->getTexKey() == "Player_BEU_water_attack3" && im_->getCol() <= 7)
 			{
@@ -468,7 +468,7 @@ void AttackBoxComponent::handleBoxes()
 				}
 			}
 		}
-		else if(sk_->getSkin() == "Player_BEU_air")
+		else if(type == "air")
 		{
 			//Comprobamos que animaci�n estamos ejecutando y en que punto de la animaci�n estamos 
 			if (im_->getTexKey() == "Player_BEU_air_attack3" && im_->getCol() <= 6)

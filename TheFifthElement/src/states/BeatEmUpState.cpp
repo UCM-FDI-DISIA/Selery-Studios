@@ -74,7 +74,7 @@ void BeatEmUpState::AddEnemies(int n_enemies) {
 		////animation_->changeState(AnimationEnemyBEUComponent::Moving);
 		////animation_->updateAnimation();
 
-		enemy_->addComponent<Transform>(TRANSFORM_H, pos, ENEMYBEU_WIDTH, ENEMYBEU_HEIGHT, scale)->setDir(Vector2D(1, 0));
+		enemy_->addComponent<Transform>(TRANSFORM_H, pos, ENEMYBEU_WIDTH, ENEMYBEU_HEIGHT)->setDir(Vector2D(1, 0));
 		enemy_->addComponent<FramedImage>(FRAMEDIMAGE_H, animation_->getTexture(), ENEMYBEU_WIDTH, ENEMYBEU_HEIGHT, animation_->getNFrames(), getEnemyType(type));
 		enemy_->addComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
 		enemy_->addComponent<EnemyBEUDirectionComponent>(ENEMYBEUDIRECTIONCOMPONENT_H, player_, animation_->getEnemy());
