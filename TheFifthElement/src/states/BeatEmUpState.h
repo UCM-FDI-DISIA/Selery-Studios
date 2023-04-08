@@ -18,13 +18,16 @@
 #include "../components/Image.h"
 #include "../components/MovementEarthBossComponent.h"
 #include "../components/AnimationEarthBossComponent.h"
-#include "../components/WaterBossIA.h"
-#include "../components/WaterBossLife.h"
+#include "../components/LifeEarthBossComponent.h"
+#include "../Saving.h"
 #include "../components/PointOfFightComponent.h"
 #include "../components/ShadowComponent.h"
-
 #include "../components/AttackEarthBossComponent.h"
 #include "../components/rouletteComponent.h"
+#include "../components/MovementLightBossComponent.h"
+#include "../components/LifeLightBossComponent.h"
+#include "../components/AttackLightBossComponent.h"
+#include "../components/AnimationLightBossComponent.h"
 
 using name = string;
 using damage = int;
@@ -39,6 +42,7 @@ private:
 	Transform* trans_player_;
 	InputComponentBEU* in_;
 	Texture* texture_player_;
+	Saving* savePos;
 	//BACKGROUND
 	Entity* background_;
 	RandomNumberGenerator* random;
@@ -68,13 +72,13 @@ private:
 	PropertiesManager* props_;
 
 public:
-	BeatEmUpState(bool boss, Entity* enemySends = nullptr, string typeBoss = "");
+	BeatEmUpState(bool boss, Entity* enemySends, string typeBoss = "");
 	~BeatEmUpState() {}
 	string getStateID(); // stringID
 	void AddEnemies(int i);
 	void AddWaterBoss();
 	void AddFireBoss();
-	void AddAirBoss();
+	void AddLightBoss();
 	void AddEarthBoss();
 	string getEnemyType(int i);
 	void finishBEU();
