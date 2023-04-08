@@ -23,7 +23,8 @@ void WaterBossLife::damage(float damage, float mul) {
         if (life <= 0) {
             im_->setAnim("waterBoss_death", 16, true);
             ////im_->setAnim(true, 4, 15, 0, 15, false);
-            im_->setAnimPlaying(false);
+            im_->setIsAnimUnstoppable(false);
+            //im_->setAnimPlaying(false);
             ent_->removeComponent(WATERBOSSIA_H);
         }
         else im_->setAnim("waterBoss_hit", 7, true);////im_->setAnim(true, 3, 7, 0, 7);

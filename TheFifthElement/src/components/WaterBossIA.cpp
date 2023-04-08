@@ -36,7 +36,8 @@ void WaterBossIA::update() {
 				
 				// animacion golpes
 				im_->setFlip(SDL_FLIP_NONE);
-				im_->setAnim(true, 2, 14, 0, 14); 
+				im_->setAnim("waterBoss_attack", 14, true);
+				////im_->setAnim(true, 2, 14, 0, 14); 
 				
 				// espaciado entre olas
 				if (lastWave_ == nullptr || lastWave_->getPos().getX() < WIN_WIDTH - WAVE_WIDTH - offset) {
@@ -122,7 +123,7 @@ Entity* WaterBossIA::createWave(float y) {
 	Vector2D pos = Vector2D(WIN_WIDTH, y);
 	Entity* wave = mngr_->addEntity();
 	wave->addComponent<Transform>(TRANSFORM_H, pos, WAVE_WIDTH, (downLimit - topLimit) / 3, 1, 4)->setDir(Vector2D(-1, 0));
-	wave->addComponent<Image>(IMAGE_H, &sdlutils().images().at("waves"), 0, 0, 0, WAVE_WIDTH, (downLimit - topLimit) / 3, "fire");
+	wave->addComponent<Image>(IMAGE_H, &sdlutils().images().at("waves"));
 	wave->addComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
 	wave->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(0, 25), (downLimit - topLimit) / 3 - 25, WAVE_WIDTH);
 	wave->addComponent<DisableOnExit>(DISABLEONEXIT_H);

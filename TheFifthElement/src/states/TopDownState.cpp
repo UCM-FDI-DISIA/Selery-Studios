@@ -149,7 +149,7 @@ void TopDownState::LoadMap(string const& filename) {
                     boss_ = new Entity();
                     boss_->setContext(this);
                     boss_->addComponent<Transform>(TRANSFORM_H, Vector2D(obj.getPosition().x, obj.getPosition().y), 600, 400);
-                    boss_->addComponent<Image>(IMAGE_H, bossLuzTexture(), 1, 1, 0, 600, 400);
+                    boss_->addComponent<FramedImage>(FRAMEDIMAGE_H, bossLuzTexture(), 600, 400, 1);
                     boss_->addComponent<BossCollision>(BOSSCOLLISION_H, player_, "light");
                     boss_->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(0, 0), 288, 188);
                     addEntity(boss_);
