@@ -1,9 +1,10 @@
 ﻿#include "BeatEmUpState.h"
 #include "../components/SkinBEUComponent.h"
 
+
 BeatEmUpState::BeatEmUpState(bool boss,Entity* enemySends, string typeBoss) {
 	enemySender = enemySends;
-
+	SDLUtils::instance()->soundEffects().at("Battle").play();
 	random = &SDLUtils::instance()->rand();
 
 	background_ = new Entity();
@@ -88,13 +89,17 @@ void BeatEmUpState::AddEnemies(int n_enemies) {
 }
 
 void BeatEmUpState::AddWaterBoss() {
-	Vector2D position = Vector2D(sdlutils().width()/2 , sdlutils().height()/2);
+	Vector2D position = Vector2D(sdlutils().width() * 3 / 4 , sdlutils().height()/2);
 
 	Entity* waterBoss = addEntity();
 	waterBoss->addComponent<Transform>(TRANSFORM_H, position, WATERBOSS_WIDTH*1.2, WATERBOSS_HEIGHT*1.2);
 	////waterBoss->addComponent<FramedImage>(FRAMEDIMAGE_H, &sdlutils().images().at("waterBoss"), 6, 16, 0, WATERBOSS_WIDTH, WATERBOSS_HEIGHT);
 	waterBoss->addComponent<FramedImage>(FRAMEDIMAGE_H, &sdlutils().images().at("waterBoss"), WATERBOSS_WIDTH, WATERBOSS_HEIGHT, 16, "water");
 	waterBoss->addComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
+	waterBoss->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(70, 10), WATERBOSS_HEIGHT, WATERBOSS_WIDTH/2);
+	waterBoss->addComponent<WaterBossIA>(WATERBOSSIA_H);
+	waterBoss->addComponent<WaterBossLife>(WATERBOSSLIFE_H, 1);
+	// buscar assets olas
 }
 
 void BeatEmUpState::AddFireBoss() {
@@ -150,8 +155,9 @@ void BeatEmUpState::finishBEU() {
 	numEnemies -= 1;
 	if (numEnemies == 0)
 	{
-		GameManager::instance()->goTopDown();
 		SDLUtils::instance()->soundEffects().at("Battle").haltChannel();
+		GameManager::instance()->goTopDown();
+		
 		enemySender->~Entity();
 	}
 }

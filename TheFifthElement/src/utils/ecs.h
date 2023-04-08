@@ -47,7 +47,9 @@ enum cmpId : cmpId_type {
 	DAMAGE_H = 39,
 	ROULETTECOMPONENT_H = 40,
 	SPAWN_H = 41,
-	FRAMEDIMAGE_H = 42,
+	WATERBOSSIA_H = 42,
+	WATERBOSSLIFE_H = 43,
+	FRAMEDIMAGE_H = 44,
 	// do not remove this
 	_LAST_CMP_ID
 };

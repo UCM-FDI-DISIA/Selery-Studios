@@ -132,6 +132,20 @@ public:
         return isMouseButtonEvent_;
     }
 
+    inline bool isGamePadButtonDown(int button) {
+        for (int i = 0; i < SDL_NumJoysticks(); i++) {
+            if (SDL_IsGameController(i)) {
+                SDL_GameController* controller = SDL_GameControllerOpen(i);
+                if (SDL_GameControllerGetButton(controller, (SDL_GameControllerButton)button)) {
+                    SDL_GameControllerClose(controller);
+                    return true;
+                }
+                SDL_GameControllerClose(controller);
+            }
+        }
+        return false;
+    }
+
     inline const std::pair<Sint32, Sint32>& getMousePos() {
         return mousePos_;
     }
