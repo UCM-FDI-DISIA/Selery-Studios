@@ -7,7 +7,7 @@
 #include "../components/InputComponent.h"
 #include "../sdlutils/SDLUtils.h"
 #include "../include/SDL_mixer.h"
-#include "../Entities/PortalComponent.h"
+#include "../components/PortalComponent.h"
 #include "../components/ColliderTile.h"
 #include "../components/CollideTileInteraction.h"
 #include "../PuzzleCopas.h"
@@ -32,6 +32,9 @@
 #include "../components/Damage.h"
 #include "../components/LifeTD.h"
 #include "../components/rouletteComponent.h"
+#include "../components/SectorCollisionComponent.h"
+#include "../components/BossCollision.h"
+#include "../Saving.h"
 
 using uint = unsigned int;
 using tileset_map = std::map<std::string, Texture*>; //mapa con CLAVE:string, ARGUMENTO: puntero a textura
@@ -61,6 +64,9 @@ private:
 	tileset_map tilesets_;	// textures map (string -> texture)
 	SDL_Texture* background_;
 	MapInfo mapInfo;	//struct
+	vector<bool> sectors{ true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true };
+	Entity* pruebaCollider;
+	int idSector = 0;
 	//PLAYER 
 	Entity* player_;
 	Transform* trans_player_;
@@ -69,6 +75,7 @@ private:
 	Texture* texture_player_;
 	PlayerNPC* Playernpc_;
 	int contnpc = 4;
+	MovementComponent* movcomp_player_;
 	//NPCS
 	Entity* Npc_;
 	Entity* Blacksmith_;
@@ -90,6 +97,10 @@ private:
 	float enemy_width, enemy_height;
 	string type_;
 
+	//Boss
+	Entity* boss_;
+
+	Saving* save_;
 	GameManager* Gm_;
 
 	//COLISIONES TILE-PLAYER
@@ -119,11 +130,21 @@ private:
 	Button* exitShopButtonComp_;
 
 public:
+	void actSectors(int idChange, bool nowValue)
+	{
+		if (sectors[idChange] != nowValue)
+		{
+			sectors[idChange] = nowValue;
+			printMap();
+		}
+		//printMap();
+	}
 	string getStateID(); // stringID
 	PuzzleCopas* puzzle1;
 	TopDownState();	
 	~TopDownState() {}
 	void LoadMap(string const& filename);
+	void printMap();
 	void update();	
 	void handleEvents();
 	void render();
@@ -141,6 +162,10 @@ public:
 	}
 	Texture* blacksmithTexture() {
 		return &SDLUtils::instance()->images().at("Blacksmith");
+	}
+	Texture* bossLuzTexture()
+	{
+		return &SDLUtils::instance()->images().at("TDLightBoss");
 	}
 	Texture* EnemyTexture() {
 		int a = SDLUtils::instance()->rand().nextInt(0, 4);

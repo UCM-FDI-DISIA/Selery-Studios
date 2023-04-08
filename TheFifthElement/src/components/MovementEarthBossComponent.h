@@ -10,7 +10,7 @@
 class MovementEarthBossComponent : public Component
 {
 private:
-	Image* im_;
+	FramedImage* im_;
 	AnimationEarthBossComponent* animator;
 	Transform* playerTransform;
 	Transform* bossTransform;

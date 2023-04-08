@@ -3,6 +3,7 @@
 #include "../sdlutils/SDLUtils.h"
 #include "../components/Button.h"
 #include "../components/sliderComponent.h"
+#include "../components/FramedImage.h"
 
 class OptionsState : public Manager {
 public:
@@ -15,6 +16,7 @@ public:
 	void handleEvents();
 	Entity* addNewEntity(string t, float w, float h, Vector2D pos, int nframes, bool flip, float size);
 	void createButtons();
+	Entity* createCharacter(string t, float w, float h, Vector2D pos, int nframes, bool flip, float size);
 	void deleteButtonsTD();
 	void deleteButtonsBEU();
 	void exitControls();

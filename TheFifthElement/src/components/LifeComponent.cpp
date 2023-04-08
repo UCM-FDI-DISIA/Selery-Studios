@@ -7,7 +7,7 @@ LifeComponent::LifeComponent(float maxLife) {
 }
 
 void LifeComponent::initComponent() {
-	im_ = ent_->getComponent<Image>(IMAGE_H);
+	im_ = ent_->getComponent<FramedImage>(FRAMEDIMAGE_H);
 	type_ = im_->getType();
 
 	enemy_ = ent_->hasComponent(ANIMATIONENEMYBEUCOMPONENT_H);
@@ -40,11 +40,12 @@ void LifeComponent::update() {
 		}
 		set_ = true;
 	}
-
+	
 	if(enemy_)pos_ = Vector2D(entTransform_->getPos().getX(), entTransform_->getPos().getY()) - Vector2D(this->mngr_->camRect_.x, this->mngr_->camRect_.y);
 	
 	if (die_) {
-		if (!im_->isAnimPlaying()) {
+		if (!im_->getIsAnimUnstoppable()) {
+		/////if (!im_->isAnimPlaying()) {
 
 			if (enemy_)ent_->setAlive(false);
 			else {
@@ -54,7 +55,8 @@ void LifeComponent::update() {
 				if (i == 4) 
 				{
 					ent_->setAlive(false);
-					GameManager::instance()->backToMainMenu();
+					Vector2D comprobar = Saving::instance()->getPos();
+					GameManager::instance()->goTopDown();
 				}
 				else 
 				{
@@ -70,7 +72,8 @@ void LifeComponent::update() {
 		}
 	}
 	else {
-		if (!im_->isAnimPlaying()) {
+		if (!im_->getIsAnimUnstoppable()) {
+		////if (!im_->isAnimPlaying()) {
 			if (enemy_) {
 				if (collision) {
 

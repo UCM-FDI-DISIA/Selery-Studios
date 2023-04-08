@@ -9,16 +9,18 @@
 	//gameStMc->pushState(new TopDownState());
 	////gameStMc->pushState(new BeatEmUpState(this));
 
-void GameManager::goBeatEmUp(Entity* enemy) {
+void GameManager::goBeatEmUp(bool boss, Entity* enemy, string typeboss) {
 	SDLUtils::instance()->soundEffects().at("Title").haltChannel();
-	GameStateMachine::instance()->pushState(new BeatEmUpState(false, enemy));
+	GameStateMachine::instance()->pushState(new BeatEmUpState(boss, enemy, typeboss));
 }
 
 void GameManager::goTopDown() {
+	SDLUtils::instance()->soundEffects().at("Title").play();
 	GameStateMachine::instance()->popState();
 }
 
 void GameManager::backToMainMenu() {
+	SDLUtils::instance()->soundEffects().at("Title").haltChannel();
 	GameStateMachine::instance()->changeState(new MainMenuState());
 }
 

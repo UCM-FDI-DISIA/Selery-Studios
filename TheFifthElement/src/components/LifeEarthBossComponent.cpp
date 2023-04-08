@@ -7,7 +7,7 @@ LifeEarthBossComponent::LifeEarthBossComponent() {
 void LifeEarthBossComponent::initComponent() {
 	animEarthBoss = ent_->getComponent<AnimationEarthBossComponent>(ANIMATIONEARTHBOSSCOMPONENT_H);
 	bossTransform = ent_->getComponent<Transform>(TRANSFORM_H);
-	bossImage = ent_->getComponent<Image>(IMAGE_H);
+	bossImage = ent_->getComponent<FramedImage>(FRAMEDIMAGE_H);
 }
 void LifeEarthBossComponent::receiveDamage(float damage, float mul) {
 	life -= damage * mul;
@@ -24,13 +24,14 @@ void LifeEarthBossComponent::receiveDamage(float damage, float mul) {
 void LifeEarthBossComponent::stageTwo() {
 	stage++;
 	bossTransform->setPos(Vector2D(-100, 200));
-	bossImage->setAnimTexture("GolemFase2", 58, EARTHBOSS_WIDTH * 2);
+	bossImage->setAnim("GolemFase2", 58, false);
+	////bossImage->setAnimTexture("GolemFase2", 58, EARTHBOSS_WIDTH * 2);
 	Entity* stone = new Entity();
 	//Vector2D pos = { SDLUtils::instance()->rand().nextInt(0, WIN_WIDTH) , WIN_HEIGHT - 100 };
 	Vector2D pos = { 300 , WIN_HEIGHT - 400 };
 	stone->setContext(mngr_);
 	stone->addComponent<Transform>(TRANSFORM_H, pos, EARTHBOSS_WIDTH * 2, EARTHBOSS_HEIGHT * 2);
-	stone->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("stone"), 0, 0, 0, EARTHBOSS_WIDTH, EARTHBOSS_HEIGHT);
+	stone->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("stone"));
 	stone->addComponent<ObjectsComponent>(OBJECTSCOMPONENT_H);
 	mngr_->addEntity(stone);
 }

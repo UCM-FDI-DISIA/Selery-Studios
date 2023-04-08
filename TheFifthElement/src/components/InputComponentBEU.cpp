@@ -16,7 +16,7 @@ InputComponentBEU::InputComponentBEU(Roulette* r):Component() {
 
 void InputComponentBEU::initComponent() {
 	tr_ = ent_->getComponent<Transform>(TRANSFORM_H);
-	im_ = ent_->getComponent<Image>(IMAGE_H);
+	im_ = ent_->getComponent<FramedImage>(FRAMEDIMAGE_H);
 	jmp_ = ent_->getComponent<JumpComponent>(JUMP_H);
 	t_ = new Texture(GameManager::instance()->getRenderer(), "./assets/Player/BeatEmUp/Fire/spritesheets/fireMatrix.png");
 	lifeC_ = ent_->getComponent<LifeComponent>(LIFECOMPONENT_H);
@@ -37,8 +37,7 @@ void InputComponentBEU::initComponent() {
 }
 
 void InputComponentBEU::update() {
-
-	if (!im_->isAnimPlaying() && jmp_->isJumpEnabled()) { // Si no esta realizando ninguna acci�n no cancelable
+	if (!im_->getIsAnimUnstoppable() && jmp_->isJumpEnabled()) { // Si no esta realizando ninguna acci�n no cancelable
 		if (moveLeft) {
 			tr_->setDir(Vector2D(-1, 0));
 			sk_->changeState(SkinBEUComponent::Left);
@@ -77,13 +76,16 @@ void InputComponentBEU::update() {
 
 void InputComponentBEU::handleEvents(SDL_Event event) {
 	ih().update(event);
+
+	//if (ih().isKeyDown(SDL_SCANCODE_SPACE) && !im_->getIsAnimUnstoppable() && jmp_->isJumpEnabled()) { // Salto
 	//if (SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_DPAD_LEFT)) {
 	//	setAir(true);
 	//}
 	//else {
 	//	setAir(false);
 	//}
-	if (ih().isKeyDown(SDL_SCANCODE_SPACE) && !im_->isAnimPlaying() && jmp_->isJumpEnabled() || SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_A)) { // Salto
+
+	if (ih().isKeyDown(SDL_SCANCODE_SPACE) && !im_->getIsAnimUnstoppable() && jmp_->isJumpEnabled() || SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_A)) { // Salto
 		jmp_->jump();
 		sk_->changeState(SkinBEUComponent::Jump); // A lo mejor 15 cambia porque se le pueden dar o puede necesitar mas frames de salto
 
@@ -112,39 +114,45 @@ void InputComponentBEU::handleEvents(SDL_Event event) {
 	else if (ih().isKeyUp(SDL_SCANCODE_S) || SDL_GameControllerGetAxis(controller, SDL_CONTROLLER_AXIS_LEFTY) <= 8000) { moveDown = false; }
 
 
-	if (ih().isKeyDown(SDL_SCANCODE_1) && elements[0] && !im_->isAnimPlaying() || SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_DPAD_LEFT)) {
+	if (ih().isKeyDown(SDL_SCANCODE_1) && elements[0] && !im_->getIsAnimUnstoppable() || SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_DPAD_LEFT)) {
 		sk_->changeSkin("air");
 		roulette->changeplayer(1);
 	}
 
-	if (ih().isKeyDown(SDL_SCANCODE_2) && elements[1] && !im_->isAnimPlaying() || SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_DPAD_UP)) {
+	if (ih().isKeyDown(SDL_SCANCODE_2) && elements[1] && !im_->getIsAnimUnstoppable() || SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_DPAD_UP)) {
 		sk_->changeSkin("fire");
 		roulette->changeplayer(2);
-
 	}
 
-	if (ih().isKeyDown(SDL_SCANCODE_3) && elements[2] && !im_->isAnimPlaying() || SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_DPAD_RIGHT)) {
+	if (ih().isKeyDown(SDL_SCANCODE_3) && elements[2] && !im_->getIsAnimUnstoppable() || SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_DPAD_RIGHT)) {
 		sk_->changeSkin("water");
 		roulette->changeplayer(3);
-
 	}
 
-	if (ih().isKeyDown(SDL_SCANCODE_4) && elements[3] && !im_->isAnimPlaying() || SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_DPAD_DOWN)) {
+	if (ih().isKeyDown(SDL_SCANCODE_4) && elements[3] && !im_->getIsAnimUnstoppable() || SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_DPAD_DOWN)) {
 		sk_->changeSkin("earth");
 		roulette->changeplayer(4);
-
 	}
-
-
 
 	if (ih().isKeyJustDown(SDL_SCANCODE_O) || SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_X)) {
 		if (!alreadyPressedBasic) {
+			sdlutils().soundEffects().at("playerAttack").play();
+			alreadyPressedBasic = true;
+			/*if (im_->getRow() == 9) {
+				if (im_->getTope() < 3 * 8) {
+					im_->setTope(im_->getTope() + 8);
+				}
+			}
+			else {
+				im_->setAnim(true, 9, 24, 0, 8);
+			}*/
+			//im_->setAnim("Player_BEU_" + im_->getType() + "_attack1", 24, true);
 
-			if(im_->getType()=="fire" || im_->getType() == "water")
+			if(im_->getType()=="fire" || im_->getType() == "water" || im_->getType() == "air")
 			{
-				sdlutils().soundEffects().at("playerAttack").play();
-				alreadyPressedBasic = true;
-				if (im_->getRow() == 9) {
+				/*sdlutils().soundEffects().at("playerAttack").play();
+				alreadyPressedBasic = true;*/
+				/*if (im_->getRow() == 9) {
 					if (im_->getTope() < 2 * 8) {
 						im_->setTope(im_->getTope() + 8);
 					}
@@ -155,28 +163,29 @@ void InputComponentBEU::handleEvents(SDL_Event event) {
 				}
 				else {
 					im_->setAnim(true, 9, 26, 0, 8);
-				}
+				}*/
+				im_->setAnim("Player_BEU_" + im_->getType() + "_attack3", 26, true);
 			}
-			else if(im_->getType() == "air")
-			{
-				sdlutils().soundEffects().at("playerAttack").play();
-				alreadyPressedBasic = true;
-				if (im_->getRow() == 9) {
-					if (im_->getTope() < 2 * 7) {
-						im_->setTope(im_->getTope() + 7);
-					}
-					else
-					{
-						im_->setTope(im_->getTope() + 13);
-					}
-				}
-				else {
-					im_->setAnim(true, 9, 26, 0, 7);
-				}
-			}
+			//else if (im_->getType() == "air")
+			//{
+			//	/*sdlutils().soundEffects().at("playerAttack").play();
+			//	alreadyPressedBasic = true;*/
+			//	/*if (im_->getRow() == 9) {
+			//		if (im_->getTope() < 2 * 7) {
+			//			im_->setTope(im_->getTope() + 7);
+			//		}
+			//		else
+			//		{
+			//			im_->setTope(im_->getTope() + 13);
+			//		}
+			//	}
+			//	else {
+			//		im_->setAnim(true, 9, 26, 0, 7);
+			//	}*/
+			//}
 			else
 			{
-				sdlutils().soundEffects().at("playerAttack").play();
+				/*sdlutils().soundEffects().at("playerAttack").play();
 				alreadyPressedBasic = true;
 				if (im_->getRow() == 7) {
 					if (im_->getTope() < 3 * 4) {
@@ -189,7 +198,8 @@ void InputComponentBEU::handleEvents(SDL_Event event) {
 				}
 				else {
 					im_->setAnim(true, 7, 23, 0, 4);
-				}
+				}*/
+				im_->setAnim("Player_BEU_" + im_->getType() + "_attack3", 23, true);
 			}
 		
 		}
@@ -203,7 +213,8 @@ void InputComponentBEU::handleEvents(SDL_Event event) {
 			if (!alreadyPressedSpecial) {
 				alreadyPressedSpecial = true;
 				sdlutils().soundEffects().at("playerSpecialAttack").play();
-				im_->setAnim(true, 10, 18, 0, 100);
+				im_->setAnim("Player_BEU_" + im_->getType() + "_super", 18, true);
+				////im_->setAnim(true, 10, 18, 0, 100);
 			}
 		}
 		else
@@ -211,7 +222,8 @@ void InputComponentBEU::handleEvents(SDL_Event event) {
 			if (!alreadyPressedSpecial) {
 				alreadyPressedSpecial = true;
 				sdlutils().soundEffects().at("playerSpecialAttack").play();
-				im_->setAnim(true, 10, 28, 0, 100);
+				im_->setAnim("Player_BEU_" + im_->getType() + "_super", 28, true);
+				////im_->setAnim(true, 10, 28, 0, 100);
 			}
 		}
 	

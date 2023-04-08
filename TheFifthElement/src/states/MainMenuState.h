@@ -3,6 +3,7 @@
 #include "../sdlutils/SDLUtils.h"
 #include "../components/Button.h"
 #include "../components/sliderComponent.h"
+#include "../components/FramedImage.h"
 class MainMenuState : public Manager
 {
 private:
@@ -10,7 +11,6 @@ private:
 	Entity* exitButton;
 	Entity* optionsButton;
 	Entity* slider;
-	Image* im_;
 public:
 	MainMenuState();
 	~MainMenuState() {};
@@ -19,7 +19,7 @@ public:
 	void handleEvents();
 	void render();
 
-	Entity* addNewEntity(string t, float w, float h, Vector2D pos, int nframes, bool flip, float size = 1);
+	Entity* addNewEntity(string t, float w, float h, Vector2D pos, int nframes, int wFrame, int hFrame, bool flip, float size = 1);
 
 	void Background(string file);
 

@@ -17,6 +17,7 @@ TopDownState::TopDownState() {
     roulete = Hud_->addComponent<Roulette>(ROULETTECOMPONENT_H);
     LoadMap("assets/Scenes/Maps/MapaInicial.tmx");
     addEntity(Hud_);  
+    SDLUtils::instance()->soundEffects().at("Title").play();
 }
 
 void TopDownState::LoadMap(string const& filename) {
@@ -53,104 +54,29 @@ void TopDownState::LoadMap(string const& filename) {
         Texture* texture = sdlutils().tilesets().find(name)->second; 
         mapInfo.tilesets.insert(pair<uint, Texture*>(tile.getFirstGID(), texture));  //inserta en el mapa de Map_Info: llamado tilesets el ID del tileset y su textura
     }
-     
 
     /*Mix_VolumeMusic(0);
     Mix_Volume(MIX_CHANNELS, 0);*/
-    SDLUtils::instance()->soundEffects().at("Title").play(); 
 
-
-    // recorremos cada una de las capas (de momento solo las de tiles) del mapa
+    // recorremos cada una de las capas (de momento solo las de tiles) del mapa    
     auto& mapLayers = mapInfo.tile_MAP->getLayers();
 
-    for (auto& layer : mapLayers) {
-        if (layer->getType() == tmx::Layer::Type::Tile) {
-            // cargamos la capa
-            tmx::TileLayer* tile_layer = dynamic_cast<tmx::TileLayer*>(layer.get());
-            string name = tile_layer->getName();
-            auto& layer_tiles = tile_layer->getTiles();
-            if (name != "Nada") {
-                // recorremos todos los tiles para obtener su informacion
-                for (auto y = 0; y < mapInfo.rows; ++y) {
-                    for (auto x = 0; x < mapInfo.cols; ++x) {
-                        // obtenemos el indice relativo del tile en el mapa de tiles
-                        int tile_index = x + (y * mapInfo.cols);
-
-                        // con dicho indice obtenemos el indice del tile dentro de su tileset
-                        int cur_gid = layer_tiles[tile_index].ID;
-
-                        // si es 0 esta vacio asi que continuamos a la siguiente iteracion
-                        if (cur_gid == 0) continue;
-
-                        // guardamos el tileset que utiliza este tile (nos quedamos con el tileset cuyo gid sea
-                        // el mas cercano, y a la vez menor, al gid del tile)         
-                        int tset_gid = -1, tsx_file = 0;
-                        for (auto& ts : mapInfo.tilesets) {
-                            if (ts.first <= cur_gid) {
-                                tset_gid = ts.first;
-                                tsx_file++;   
-                            }
-                            else
-                                break;
-                        }
-
-                        // si no hay tileset valido, continuamos a la siguiente iteracion
-                        if (tset_gid == -1) continue;
-
-                        // normalizamos el indice           
-                        cur_gid -= tset_gid;
-
-                        // calculamos dimensiones del tileset       
-                        auto ts_width = 0;
-                        auto ts_height = 0;
-                        SDL_QueryTexture(mapInfo.tilesets[tset_gid]->getSDLTexture(),
-                            NULL, NULL, &ts_width, &ts_height);
-
-                        // calculamos el area del tileset que corresponde al dibujo del tile
-                        auto region_x = (cur_gid % (ts_width / mapInfo.tile_width)) * mapInfo.tile_width;
-                        auto region_y = (cur_gid / (ts_width / mapInfo.tile_width)) * mapInfo.tile_height;
-
-                        // calculamos la posicion del tile
-                        auto x_pos = x * mapInfo.tile_width;
-                        auto y_pos = y * mapInfo.tile_height;
-
-                        // metemos el tile
-                        auto tileTex = mapInfo.tilesets[tset_gid];
-
-                        SDL_Rect src;
-                        src.x = region_x; 
-                        src.y = region_y;
-                        src.w = mapInfo.tile_width;
-                        src.h = mapInfo.tile_height;
-
-                        SDL_Rect dest;
-                        dest.x = x_pos;
-                        dest.y = y_pos ;
-                        dest.w = src.w;
-                        dest.h = src.h;
-
-                        int tileRot = layer_tiles[tile_index].flipFlags;
-                        mapInfo.tilesets[tset_gid]->render(src, dest, tileRot);
-
-                    }
-                }
-
-
-            }
-        }
-        if (layer->getType() == tmx::Layer::Type::Object) {
+    for (auto& layer : mapLayers) 
+    {
+        if (layer->getType() == tmx::Layer::Type::Object) 
+        {
             tmx::ObjectGroup* object_layer = dynamic_cast<tmx::ObjectGroup*>(layer.get());
             auto& objs = object_layer->getObjects();
 
             for (auto obj : objs) {
                 auto rect = obj.getAABB();
                 string name = object_layer->getName();
-                
+
                 if (name == "COL") {
                     Entity* colision = new Entity();
                     colision->addComponent<Transform>(TRANSFORM_H, Vector2D(rect.left, rect.top), rect.width, rect.height);
                     collisions_.push_back(colision);
-                   // collisions_.push_back(collidertile);
+                    // collisions_.push_back(collidertile);
                 }
                 else if (name == "Interacctions") {
                     /*auto a = new ColliderTileInteraction(Vector2D(rect.left, rect.top), rect.width, rect.height, player_, obj.getUID(), puzzle1);
@@ -160,23 +86,24 @@ void TopDownState::LoadMap(string const& filename) {
                     // PLAYER
                     player_ = new Entity();
                     player_->setContext(this);
-                    trans_player_= player_->addComponent<Transform>(TRANSFORM_H, Vector2D(obj.getPosition().x, obj.getPosition().y), PLAYERTD_WIDTH_FRAME, PLAYERTD_HEIGHT_FRAME);                
+                    trans_player_ = player_->addComponent<Transform>(TRANSFORM_H, Vector2D(obj.getPosition().x, obj.getPosition().y), PLAYERTD_WIDTH_FRAME, PLAYERTD_HEIGHT_FRAME);
+                    trans_player_->setVel(PLAYERTD_SPEED);
                     sk_ = player_->addComponent<SkinComponent>(SKINCOMPONENT_H, "air");
                     sk_->changeState(SkinComponent::Idle);
-                    sk_->changeMov();
-                    texture_player_ = &SDLUtils::instance()->images().at(sk_->getSkin());
+
+                    texture_player_ = &SDLUtils::instance()->images().at("PTD_air_idle");
                     Playernpc_ = player_->addComponent<PlayerNPC>(PLAYERNPC_H);
+                    player_->addComponent<FramedImage>(FRAMEDIMAGE_H, texture_player_, PLAYERTD_WIDTH_FRAME, PLAYERTD_HEIGHT_FRAME, 7, "air");
+                    sk_->initComponent();
                     dialog_ = player_->addComponent<DialogueComponent>(DIALOGCOMPONENT_H);
-                    player_->addComponent<Image>(IMAGE_H, texture_player_, PLAYERTD_NUMFRAMES, PLAYERTD_NUMFRAMES,0, PLAYERTD_WIDTH_FRAME, PLAYERTD_HEIGHT_FRAME);
                     player_->addComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
                     in_ = player_->addComponent<InputComponent>(INPUTCOMPONENT_H, roulete);
                     player_->addComponent<ColliderTile>(COLLIDERTILE_H, collisions_);
-                    
                     damage_ = Hud_->addComponent<Damage>(DAMAGE_H);
                     life_ = Hud_->addComponent<LifeTD>(LIFETDCOMPONENT_H);
                     economyComp_ = Hud_->addComponent<EconomyComponent>(ECONOMYCOMPONENT_H);
                     shopComp_ = player_->addComponent<ShopComponent>(SHOPCOMPONENT_H, economyComp_, damage_, life_);
-                   
+
                 }
                 else if (name == "NPC") {
                     if (contnpc >= 7)
@@ -188,24 +115,44 @@ void TopDownState::LoadMap(string const& filename) {
                     Npc_ = new Entity();
                     Npc_->setContext(this);
                     Npc_->addComponent<Transform>(TRANSFORM_H,Vector2D(obj.getPosition().x, obj.getPosition().y), NPC_WIDTH, NPC_HEIGHT);
-                    Npc_->addComponent<Image>(IMAGE_H,npcTexture(), NPC_FRAMES, NPC_FRAMES, 0, NPC_WIDTH, NPC_HEIGHT);
+                    Npc_->addComponent<FramedImage>(FRAMEDIMAGE_H, npcTexture(), NPC_WIDTH, NPC_HEIGHT, 7);
                     Npc_->addComponent<NPCcollisioncomponent>(NPCCOLLISIONCOMPONENTT, player_,  contnpc );
 					Npc_->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(0, 0), NPC_HEIGHT, NPC_WIDTH / NPC_FRAMES);
                     number_npc_++;
                     addEntity(Npc_);
-                    
+
                 }
                 else if (name == "Herreros") {
                     contBlksm++;
                     Blacksmith_ = new Entity();
                     Blacksmith_->setContext(this);
                     Blacksmith_->addComponent<Transform>(TRANSFORM_H, Vector2D(obj.getPosition().x, obj.getPosition().y), BLACKSMITH_WIDTH, BLACKSMITH_HEIGHT);
-                    Blacksmith_->addComponent<Image>(IMAGE_H, blacksmithTexture(), BLACKSMITH_FRAMES, BLACKSMITH_FRAMES, 0, BLACKSMITH_WIDTH, BLACKSMITH_HEIGHT);
+                    Blacksmith_->addComponent<FramedImage>(IMAGE_H, blacksmithTexture(), BLACKSMITH_WIDTH, BLACKSMITH_HEIGHT, BLACKSMITH_FRAMES);
                     Blacksmith_->addComponent<NPCcollisioncomponent>(NPCCOLLISIONCOMPONENTT, player_, contBlksm);
                     Blacksmith_->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(0, 0), BLACKSMITH_HEIGHT, BLACKSMITH_WIDTH / BLACKSMITH_FRAMES);
                     number_npc_++;
                     addEntity(Blacksmith_);
 
+                }
+                else if (name == "pruebas")
+                {
+                    pruebaCollider = new Entity();
+                    pruebaCollider->setContext(this);
+                    pruebaCollider->addComponent<Transform>(TRANSFORM_H, Vector2D(obj.getPosition().x, obj.getPosition().y), obj.getAABB().width, obj.getAABB().height);
+                    pruebaCollider->addComponent <SectorCollisionComponent>(SECTORCOLLISIONCOMPONENT_H, player_, idSector);
+                    pruebaCollider->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(0, 0), obj.getAABB().height, obj.getAABB().width);
+                    addEntity(pruebaCollider);
+                    idSector++;
+                }
+                else if (name == "BossLuz")
+                {
+                    boss_ = new Entity();
+                    boss_->setContext(this);
+                    boss_->addComponent<Transform>(TRANSFORM_H, Vector2D(obj.getPosition().x, obj.getPosition().y), 600, 400);
+                    boss_->addComponent<FramedImage>(FRAMEDIMAGE_H, bossLuzTexture(), 600, 400, 1);
+                    boss_->addComponent<BossCollision>(BOSSCOLLISION_H, player_, "light");
+                    boss_->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(0, 0), 288, 188);
+                    addEntity(boss_);
                 }
                 else if (name == "Enemy") {
                     if (obj.getName() == "") {
@@ -213,7 +160,7 @@ void TopDownState::LoadMap(string const& filename) {
                         enemy_->setContext(this);
                         Texture* enemyT_ = EnemyTexture();
                         enemy_->addComponent<Transform>(TRANSFORM_H, Vector2D(obj.getPosition().x, obj.getPosition().y), enemy_width, enemy_height);
-                        enemy_->addComponent<Image>(IMAGE_H, enemyT_, ENEMYTD_NUMFRAMES, ENEMYTD_NUMFRAMES, 0, enemy_width, enemy_height);
+                        enemy_->addComponent<FramedImage>(FRAMEDIMAGE_H, enemyT_, enemy_width, enemy_height, 7 , type_);
                         float a = -1.0f;
                         float lookingRange = 150.0f;
                         float lookingWidth = 100.0f;
@@ -265,19 +212,19 @@ void TopDownState::LoadMap(string const& filename) {
                     Entity* portal_ = new Entity();
                     portal_->setContext(this);
                     portal_->addComponent<Transform>(TRANSFORM_H, Vector2D(obj.getPosition().x, obj.getPosition().y), PORTAL_WIDTH, PORTAL_HEIGHT);
-                    portal_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("portal"), 1,1, 0, PORTAL_WIDTH, PORTAL_HEIGHT);
+                    portal_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("portal"));
                     portal_->addComponent<ObjectsComponent>(OBJECTSCOMPONENT_H);
-                    portal_->addComponent<PortalComponent>(PORTALCOMPONENT_H);
+                    portal_->addComponent<PortalComponent>(PORTALCOMPONENT_H, trans_player_);
                     addEntity(portal_);
                 }
                 else if (name == "Element") {
                     float element_width = 50, element_height = 50;
                     Entity* element_ = new Entity();
                     element_->addComponent<Transform>(TRANSFORM_H, Vector2D(obj.getPosition().x, obj.getPosition().y), element_width, element_height);
-                    element_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("fireball"), 4, 4, 0, ELEMENT_WIDTH, ELEMENT_HEIGHT);
+                    element_->addComponent<FramedImage>(FRAMEDIMAGE_H, &SDLUtils::instance()->images().at("fireball"), ELEMENT_WIDTH, ELEMENT_HEIGHT, 4);
                     element_->addComponent<ObjectsComponent>(OBJECTSCOMPONENT_H);
                     element_->addComponent<CheckCollision>(CHECKCOLLISION_H, player_, "element");
-                    addEntity(element_);                   
+                    addEntity(element_);
                 }
             }
         }
@@ -285,17 +232,112 @@ void TopDownState::LoadMap(string const& filename) {
 
     }
     addEntity(player_);
+    //SDL_RenderPresent(Gm_->getRenderer());
+    //SDL_SetRenderTarget(Gm_->getRenderer(), nullptr);
+
+    printMap();
+}
+void TopDownState::printMap()
+{
+    auto& mapLayers = mapInfo.tile_MAP->getLayers();
+
+    for (auto& layer : mapLayers)
+    {
+        if (layer->getType() == tmx::Layer::Type::Tile) {
+            // cargamos la capa
+            tmx::TileLayer* tile_layer = dynamic_cast<tmx::TileLayer*>(layer.get());
+            string name = tile_layer->getName();
+            auto& layer_tiles = tile_layer->getTiles();
+            if (name != "Nada") {
+                for (int i = 0; i < sectors.size(); i++)
+                {
+                    if (sectors[i])
+                    {
+                        float sumX = 77.25 * (i % 4);
+                        float sumY = 44 * (i / 4);
+                        float divX = 1 + i % 4;
+                        float divY = 1 + i / 4;
+                        // recorremos todos los tiles para obtener su informacion
+                        for (auto y = sumY; y < mapInfo.rows * divY / 4; ++y) {
+                            for (auto x = sumX; x < mapInfo.cols * divX / 4; ++x) {
+                                // obtenemos el indice relativo del tile en el mapa de tiles
+                                int tile_index = x + (y * mapInfo.cols);
+
+                                // con dicho indice obtenemos el indice del tile dentro de su tileset
+                                int cur_gid = layer_tiles[tile_index].ID;
+
+                                // si es 0 esta vacio asi que continuamos a la siguiente iteracion
+                                if (cur_gid == 0) continue;
+
+                                // guardamos el tileset que utiliza este tile (nos quedamos con el tileset cuyo gid sea
+                                // el mas cercano, y a la vez menor, al gid del tile)         
+                                int tset_gid = -1, tsx_file = 0;
+                                for (auto& ts : mapInfo.tilesets) {
+                                    if (ts.first <= cur_gid) {
+                                        tset_gid = ts.first;
+                                        tsx_file++;
+                                    }
+                                    else
+                                        break;
+                                }
+
+                                // si no hay tileset valido, continuamos a la siguiente iteracion
+                                if (tset_gid == -1) continue;
+
+                                // normalizamos el indice           
+                                cur_gid -= tset_gid;
+
+                                // calculamos dimensiones del tileset       
+                                auto ts_width = 0;
+                                auto ts_height = 0;
+                                SDL_QueryTexture(mapInfo.tilesets[tset_gid]->getSDLTexture(),
+                                    NULL, NULL, &ts_width, &ts_height);
+
+                                // calculamos el area del tileset que corresponde al dibujo del tile
+                                auto region_x = (cur_gid % (ts_width / mapInfo.tile_width)) * mapInfo.tile_width;
+                                auto region_y = (cur_gid / (ts_width / mapInfo.tile_width)) * mapInfo.tile_height;
+
+                                // calculamos la posicion del tile
+                                auto x_pos = x * mapInfo.tile_width;
+                                auto y_pos = y * mapInfo.tile_height;
+
+                                // metemos el tile
+                                auto tileTex = mapInfo.tilesets[tset_gid];
+
+                                SDL_Rect src;
+                                src.x = region_x;
+                                src.y = region_y;
+                                src.w = mapInfo.tile_width;
+                                src.h = mapInfo.tile_height;
+
+                                SDL_Rect dest;
+                                dest.x = x_pos;
+                                dest.y = y_pos;
+                                dest.w = src.w;
+                                dest.h = src.h;
+
+                                int tileRot = layer_tiles[tile_index].flipFlags;
+                                mapInfo.tilesets[tset_gid]->render(src, dest, tileRot);
+
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
     SDL_RenderPresent(Gm_->getRenderer());
     SDL_SetRenderTarget(Gm_->getRenderer(), nullptr);
-
-
-    //setRenderer(Gm_->getRenderer());
-
 }
 
 void TopDownState::update() {
-  
-   // player_->setCollision(false);
+    Vector2D savedPos = Saving::instance()->getPos();
+    if(savedPos!=Vector2D(0,0))
+    {
+        movcomp_player_->setNewPos(savedPos);
+        Saving::instance()->deletePos();
+    }
+    // player_->setCollision(false);
     Playernpc_->setcol();
     for (auto p : collisions_) {
         p->update();
@@ -364,7 +406,7 @@ void TopDownState::createShopButtons() {
         else upturnButtonTr_ = upturnButton_->addComponent<Transform>(TRANSFORM_H, pos, UPTURNBUTTON_WIDTH / 2,UPTURNBUTTON_HEIGHT / 2);
 
         upturnButtonComp_ = upturnButton_->addComponent<Button>(BUTTON_H, "UPTURN");
-        upturnButton_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("UpturnButton"), UPTURNBUTTON_WIDTH, UPTURNBUTTON_HEIGHT, upturnButtonTr_);
+        upturnButton_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("UpturnButton"));
         buttonsComp.push_back(upturnButtonComp_);
         buttons.push_back(upturnButton_);
     }
@@ -387,7 +429,7 @@ void TopDownState::createShopButtons() {
 
 
         upturnButtonComp_ = upturnButton_->addComponent<Button>(BUTTON_H, "UPTURN");
-        upturnButton_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("UpturnButton"), UPTURNBUTTON_WIDTH, UPTURNBUTTON_HEIGHT, upturnButtonTr_);
+        upturnButton_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("UpturnButton"));
         buttonsComp.push_back(upturnButtonComp_);
         buttons.push_back(upturnButton_);
     }
@@ -396,18 +438,20 @@ void TopDownState::createShopButtons() {
     }
     exitShopButton_ = new Entity();
     exitShopButton_->setContext(this);
+    //exitShopButtonTr_ = exitShopButton_->addComponent<Transform>(TRANSFORM_H, Vector2D(upturnButtonX - SHOP_WIDTH / 9, upturnButtonPos_.getY() + 275), EXITSHOP_WIDTH / 2, EXITSHOP_HEIGHT / 2, 1);
+    //exitShopButton_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("ExitShop"));
     Vector2D pos;
-    if (WIN_WIDTH / 900 == 1920 / 900)pos = Vector2D(upturnButtonPos_.getX() - 60,
-        upturnButtonPos_.getY() + 510);
+    if (WIN_WIDTH / 900 == 1920 / 900) {
+        pos = Vector2D(upturnButtonPos_.getX() - 60, upturnButtonPos_.getY() + 510);
+    }
     else pos = Vector2D(upturnButtonX - SHOP_WIDTH / 9, upturnButtonPos_.getY() + 275);
     
-    if(WIN_WIDTH / 900 == 1920 / 900) exitShopButtonTr_ = exitShopButton_->addComponent<Transform>(TRANSFORM_H, pos, (EXITSHOP_WIDTH / 2) * WIN_WIDTH / 900,
-        (EXITSHOP_HEIGHT / 2) * WIN_HEIGHT / 600, 0.5);
-    else exitShopButtonTr_ = exitShopButton_->addComponent<Transform>(TRANSFORM_H, pos, EXITSHOP_WIDTH / 2,
-        EXITSHOP_HEIGHT / 2);
+    if(WIN_WIDTH / 900 == 1920 / 900) {
+        exitShopButtonTr_ = exitShopButton_->addComponent<Transform>(TRANSFORM_H, pos, (EXITSHOP_WIDTH / 2) * WIN_WIDTH / 900, (EXITSHOP_HEIGHT / 2) * WIN_HEIGHT / 600, 0.5);
+    }
+    else exitShopButtonTr_ = exitShopButton_->addComponent<Transform>(TRANSFORM_H, pos, EXITSHOP_WIDTH / 2, EXITSHOP_HEIGHT / 2);
 
-    exitShopButton_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("ExitShop"), 557,
-        131, exitShopButtonTr_);
+    exitShopButton_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("ExitShop"));
     exitShopButtonComp_ = exitShopButton_->addComponent<Button>(BUTTON_H, "EXITSHOP");
     addEntity(exitShopButton_);
 }

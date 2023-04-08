@@ -2,7 +2,7 @@
 #include "AnimationEnemyBEUComponent.h"
 #include "EnemyBEUDirectionComponent.h"
 #include "SkinBEUComponent.h"
-#include "Image.h"
+#include "FramedImage.h"
 #include <array>
 
 struct player {
@@ -18,7 +18,7 @@ private:
 	EnemyBEUDirectionComponent* eMov_ = nullptr;
 	SkinBEUComponent* skin_ = nullptr;
 	InputComponentBEU* inp_ = nullptr;
-	Image* im_ = nullptr;
+	FramedImage* im_ = nullptr;
 	Transform* entTransform_ = nullptr;
 
 #pragma endregion

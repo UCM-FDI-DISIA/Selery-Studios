@@ -7,7 +7,10 @@ Game::Game() {
 	exit = false;
 	//GameStateMachine::instance()->pushState(new TopDownState());
 	//GameStateMachine::instance()->pushState(new MainMenuState());
+	//GameStateMachine::instance()->pushState(new BeatEmUpState(false, nullptr));
+	//GameStateMachine::instance()->pushState(new BeatEmUpState(true, nullptr, "water"));
 	//GameStateMachine::instance()->pushState(new BeatEmUpState(false, "earth"));
+	GameStateMachine::instance()->pushState(new BeatEmUpState(true, nullptr, "water"));
 	//GameStateMachine::instance()->pushState(new PauseState());
 	GameStateMachine::instance()->pushState(new BeatEmUpState());
 }

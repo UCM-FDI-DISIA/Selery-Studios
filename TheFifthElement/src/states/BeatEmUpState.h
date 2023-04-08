@@ -18,12 +18,18 @@
 #include "../components/Image.h"
 #include "../components/MovementEarthBossComponent.h"
 #include "../components/AnimationEarthBossComponent.h"
-
+#include "../components/LifeEarthBossComponent.h"
+#include "../Saving.h"
 #include "../components/PointOfFightComponent.h"
 #include "../components/ShadowComponent.h"
-
 #include "../components/AttackEarthBossComponent.h"
 #include "../components/rouletteComponent.h"
+#include "../components/MovementLightBossComponent.h"
+#include "../components/LifeLightBossComponent.h"
+#include "../components/AttackLightBossComponent.h"
+#include "../components/AnimationLightBossComponent.h"
+#include "../components/WaterBossIA.h"
+#include "../components/WaterBossLife.h"
 
 using name = string;
 using damage = int;
@@ -38,6 +44,7 @@ private:
 	Transform* trans_player_;
 	InputComponentBEU* in_;
 	Texture* texture_player_;
+	Saving* savePos;
 	//BACKGROUND
 	Entity* background_;
 	RandomNumberGenerator* random;

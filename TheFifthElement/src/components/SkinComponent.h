@@ -4,7 +4,8 @@
 #include "../utils/Component.h"
 #include "../sdlutils/Texture.h"
 #include "../GameManager.h"
-#include "Image.h"
+#include "FramedImage.h"
+
 class SkinComponent : public Component
 {
 public:
@@ -20,16 +21,11 @@ private:
     string prevSkin_;
     int nframes_;
     int fila_;
-    int w_, h_;
-    Image* im_;
-    bool set_ = false;
+    FramedImage* im_;
+
 public:
 
-    SkinComponent(string skin)
-    {
-        skin_ = skin;
-        prevSkin_ = skin;
-    }
+    SkinComponent(string skin);
     void setIdle();
     void setLeft();
     void setRight();

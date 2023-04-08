@@ -15,7 +15,7 @@ class Image;
 class InputComponentBEU : public Component {
 private:
     Transform* tr_ = nullptr;
-    Image* im_ = nullptr;
+    FramedImage* im_ = nullptr;
     SDL_GameController* controller;
     JumpComponent* jmp_ = nullptr;
     Texture* t_ = nullptr;

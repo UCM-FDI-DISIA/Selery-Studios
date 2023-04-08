@@ -55,6 +55,9 @@
     <ClCompile Include="src\components\NPCcollisioncomponent.cpp" />
     <ClCompile Include="src\components\Damage.cpp" />
     <ClCompile Include="src\components\LifeTD.cpp" />
+    <ClCompile Include="src\components\WaterBossIA.cpp" />
+    <ClCompile Include="src\components\WaterBossLife.cpp" />
+    <ClCompile Include="src\components\DisableOnExit.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\components\Button.h" />
@@ -132,6 +135,9 @@
     <ClInclude Include="src\components\NPCcollisioncomponent.h" />
     <ClInclude Include="src\utils\PropertiesManager.h" />
     <ClInclude Include="src\components\Playernpc.h" />
+    <ClInclude Include="src\components\WaterBossIA.h" />
+    <ClInclude Include="src\components\WaterBossLife.h" />
+    <ClInclude Include="src\components\DisableOnExit.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="TheFifthElement.rc" />

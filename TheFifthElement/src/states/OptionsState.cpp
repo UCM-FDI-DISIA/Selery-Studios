@@ -3,8 +3,7 @@
 OptionsState::OptionsState() {
 	Background("fondoPausa");
 	ControlsBackground("controlPanel");
-	addNewEntity("PTD_water_right", PLAYERTD_WIDTH_FRAME * 7, PLAYERTD_HEIGHT_FRAME, Vector2D( WIN_WIDTH / 5, 350), 7, false, 1);
-
+	createCharacter("PTD_water_right", PLAYERTD_WIDTH_FRAME, PLAYERTD_HEIGHT_FRAME, Vector2D(WIN_WIDTH / 5, 350), 7, false, 1);
 	createButtons();
 }
 
@@ -15,9 +14,9 @@ void OptionsState::Background(string file) {
 	bool matrix = false;
 	Vector2D v = { 0,0 };
 	int r = 0;
-	e->addComponent<Transform>(int(TRANSFORM_H), v, WIN_WIDTH, WIN_HEIGHT, r, 0, f, matrix);
+	e->addComponent<Transform>(TRANSFORM_H, v, WIN_WIDTH, WIN_HEIGHT, r, 0, f, matrix);
 	Texture* t = &SDLUtils::instance()->images().at(file);
-	e->addComponent<Image>(int(IMAGE_H), t, f, f, f, BACKGROUNDAIR_WIDTH_FRAME, BACKGROUNDAIR_HEIGHT_FRAME);
+	e->addComponent<Image>(IMAGE_H, t);
 	addEntity(e);
 }
 void OptionsState::ControlsBackground(string file)
@@ -28,9 +27,8 @@ void OptionsState::ControlsBackground(string file)
 	bool matrix = false;
 	Vector2D v = { WIN_WIDTH / 2-135, WIN_HEIGHT / 2-250 };
 	int r = 0;
-	e->addComponent<Transform>(int(TRANSFORM_H), v, 270, 500, r, 0, f, matrix);
-	Texture* t = &SDLUtils::instance()->images().at(file);
-	e->addComponent<Image>(int(IMAGE_H), t, f, f, f, 270, 500);
+	e->addComponent<Transform>(TRANSFORM_H, v, 270, 500, r, 0, f, matrix);
+	e->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at(file));
 	addEntity(e);
 }
 
@@ -59,13 +57,20 @@ void OptionsState::handleEvents()
 
 }
 
+Entity* OptionsState::createCharacter(string t, float w, float h, Vector2D pos, int nframes, bool flip, float size) {
+	Entity* e = new Entity();
+	float size_ = size * WIN_WIDTH / 900;
+	e->addComponent<Transform>(TRANSFORM_H, pos, w, h, size_);
+	e->addComponent<FramedImage>(FRAMEDIMAGE_H, &SDLUtils::instance()->images().at(t), w, h, nframes);
+	addEntity(e);
+	return e;
+}
+
 Entity* OptionsState::addNewEntity(string t, float w, float h, Vector2D pos, int nframes, bool flip, float size) {
 	Entity* e = new Entity();
-
 	float size_ = size * WIN_WIDTH / 900;
 	e->addComponent<Transform>(TRANSFORM_H, pos, w / nframes, h, size_);
-	Texture* t_ = &SDLUtils::instance()->images().at(t);
-	im_ = e->addComponent<Image>(IMAGE_H, t_, nframes, nframes, 0, w / nframes, h);
+	im_ = e->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at(t));
 	if (flip) im_->setFlip(SDL_FLIP_HORIZONTAL);
 	addEntity(e);
 	return e;
