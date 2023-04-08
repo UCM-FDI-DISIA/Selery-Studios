@@ -45,7 +45,11 @@ private:
 	Entity* enemy_;
 	AnimationEnemyBEUComponent* animation_;
 	Texture* enemy_texture;
-	float numEnemies;
+
+	int numEnemies;
+	float timeToGenerate;
+	int createdEnemies = 0;
+	int cont = 0;
 
 	Entity* enemySender;
 
@@ -67,10 +71,11 @@ private:
 	PropertiesManager* props_;
 
 public:
-	BeatEmUpState(bool boss, Entity* enemySends, string typeBoss = "");
+	BeatEmUpState(bool boss = false, Entity* enemySends = nullptr, string typeBoss = "", int nEnemies = 3, int timeGen = 1000);
 	~BeatEmUpState() {}
 	string getStateID(); // stringID
 	void AddEnemies(int i);
+	void AddEnemy();
 	void AddWaterBoss();
 	void AddFireBoss();
 	void AddAirBoss();

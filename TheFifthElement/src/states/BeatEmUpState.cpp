@@ -1,8 +1,10 @@
 ﻿#include "BeatEmUpState.h"
 #include "../components/SkinBEUComponent.h"
 
-BeatEmUpState::BeatEmUpState(bool boss,Entity* enemySends, string typeBoss) {
+BeatEmUpState::BeatEmUpState(bool boss,Entity* enemySends, string typeBoss, int nEnemies, int timeGen) {
 	enemySender = enemySends;
+	numEnemies = nEnemies;
+	timeToGenerate = timeGen;
 
 	random = &SDLUtils::instance()->rand();
 
@@ -37,7 +39,8 @@ BeatEmUpState::BeatEmUpState(bool boss,Entity* enemySends, string typeBoss) {
 	colManager_ = new ColManager(this);
 
 	if (!boss) {
-		AddEnemies(3);
+		//AddEnemies(3);
+		//AddEnemy();
 	}
 	else if (boss && typeBoss == "water") {
 		AddWaterBoss();
@@ -51,6 +54,36 @@ BeatEmUpState::BeatEmUpState(bool boss,Entity* enemySends, string typeBoss) {
 	else if (boss && typeBoss == "fire") {
 		AddFireBoss();
 	}
+}
+
+void BeatEmUpState::AddEnemy() {
+	int character = random->nextInt(0, 4);
+	int type = random->nextInt(0, 4);
+	int dist = 900 * WIN_WIDTH / 900;
+	Vector2D pos = { trans_player_->getPos().getX() + dist ,(float)random->nextInt(50,WIN_HEIGHT - 50) };
+	enemy_ = new Entity();
+	enemy_->setContext(this);
+	if (character == 0) animation_ = enemy_->addComponent<AnimationEnemyBEUComponent>(ANIMATIONENEMYBEUCOMPONENT_H, getEnemyType(type), "bat", player_);
+
+	else if (character == 1) animation_ = enemy_->addComponent<AnimationEnemyBEUComponent>(ANIMATIONENEMYBEUCOMPONENT_H, getEnemyType(type), "skeleton", player_);
+
+	else if (character == 2) animation_ = enemy_->addComponent<AnimationEnemyBEUComponent>(ANIMATIONENEMYBEUCOMPONENT_H, getEnemyType(type), "shroom", player_);
+
+	else animation_ = enemy_->addComponent<AnimationEnemyBEUComponent>(ANIMATIONENEMYBEUCOMPONENT_H, getEnemyType(type), "goblin", player_);
+
+	animation_->changeState(AnimationEnemyBEUComponent::Moving);
+	animation_->updateAnimation();
+
+	enemy_->addComponent<Transform>(TRANSFORM_H, pos, ENEMYBEU_WIDTH, ENEMYBEU_HEIGHT)->setDir(Vector2D(1, 0));
+	enemy_->addComponent<Image>(IMAGE_H, animation_->getTexture(), animation_->getNFrames(), animation_->getNFrames(), 0, ENEMYBEU_WIDTH, ENEMYBEU_HEIGHT, getEnemyType(type));
+	enemy_->addComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
+	enemy_->addComponent<EnemyBEUDirectionComponent>(ENEMYBEUDIRECTIONCOMPONENT_H, player_, animation_->getEnemy());
+	enemy_->addComponent<LifeComponent>(LIFECOMPONENT_H, ENEMYBEU_MAXLIFE);
+	enemy_->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, animation_->getOffset(), animation_->getColHeight(), animation_->getColWidth());
+	enemy_->addComponent<ColDetectorComponent>(COLDETECTORCOMPONENT_H, enemy_, player_);
+	enemy_->addComponent<AttackBoxComponent>(ATTACKBOXCOMPONENT_H);
+
+	addEntity(enemy_);
 }
 
 void BeatEmUpState::AddEnemies(int n_enemies) {
@@ -160,6 +193,14 @@ string BeatEmUpState::getStateID() {
 void BeatEmUpState::update() {
 	Manager::refresh();
 	Manager::update();
+
+	if (createdEnemies < numEnemies && cont <= 0) {
+		AddEnemy();
+		cont = timeToGenerate;
+		createdEnemies++;
+	}
+	cont--;
+
 	camRect_.x = (trans_player_->getPos().getX() + camOffset_) - WIN_WIDTH / 2;
 	camRect_.y = (trans_player_->getPos().getY() - WIN_HEIGHT / 2);
 	// Clamp

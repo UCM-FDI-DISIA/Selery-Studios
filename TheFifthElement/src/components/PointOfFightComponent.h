@@ -4,11 +4,13 @@
 #include "../utils/Vector2D.h"
 #include "../utils/Component.h"
 #include "../components/Transform.h"
+#include "ColliderComponent.h"
 
 class PointOfFightComponent : public Component
 {
 private:
 	Transform* tr_;
+	ColliderComponent* col_;
 	Vector2D pointLeftFight, pointRightFight, center;
 	float margin, height; // Margen a los lados y altura a la que estan dichos puntos de combate
 public:

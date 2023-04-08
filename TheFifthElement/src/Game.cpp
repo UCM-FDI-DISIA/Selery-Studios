@@ -5,10 +5,11 @@ Game::Game() {
 	renderer = SDLUtils::instance()->renderer();
 	window = SDLUtils::instance()->window();
 	exit = false;
-	GameStateMachine::instance()->pushState(new TopDownState());
+	//GameStateMachine::instance()->pushState(new TopDownState());
 	//GameStateMachine::instance()->pushState(new MainMenuState());
 	//GameStateMachine::instance()->pushState(new BeatEmUpState(false, "earth"));
 	//GameStateMachine::instance()->pushState(new PauseState());
+	GameStateMachine::instance()->pushState(new BeatEmUpState());
 }
 
 Game::~Game(){ // destructora
