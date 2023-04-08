@@ -207,7 +207,8 @@
     {"id": "controlPanel", "file": "assets/HUD/Menu/controlPanel.png"},
     {"id": "slider", "file": "assets/HUD/Menu/slider.png"},
 
-    {"id": "TDLightBoss", "file": "assets/Enemies/BeatEmUp/Bosses/LightBoss/animations/PNG/idle/idle_1.png"}
+    {"id": "TDLightBoss", "file": "assets/Enemies/BeatEmUp/Bosses/LightBoss/animations/PNG/idle/idle_1.png"},
+    {"id": "BEULightBoss", "file": "assets/Enemies/BeatEmUp/Bosses/LightBoss/animations/spritesheets/allAnimations.png"}
   ],
 
   "messages": [

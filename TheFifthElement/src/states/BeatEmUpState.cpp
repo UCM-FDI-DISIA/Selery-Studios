@@ -118,7 +118,19 @@ void BeatEmUpState::AddEarthBoss() {
 
 void BeatEmUpState::AddLightBoss() 
 {
-	AddEnemies(1);
+	//mirar como se implementan los enemies
+	AddEnemies(5);
+	Entity* lightBoss = new Entity();
+	lightBoss->addComponent<Transform>(TRANSFORM_H, Vector2D(200, 200), LIGHTBOSS_WIDTH, LIGHTBOSS_HEIGHT);
+	lightBoss->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("BEULightBoss"), 12, 225, 0, LIGHTBOSS_WIDTH, LIGHTBOSS_HEIGHT);//image
+	//life
+	//movement
+	//animation
+	//attack
+	//collider
+	//pointoffight ns que es
+	//attackbox tmpc se que es
+	addEntity(lightBoss);
 }
 
 string BeatEmUpState::getEnemyType(int i) {
@@ -150,6 +162,7 @@ void BeatEmUpState::finishBEU() {
 	{
 		if (enemySender != nullptr)
 		{
+			Saving::instance()->deletePos();
 			GameManager::instance()->goTopDown();
 			SDLUtils::instance()->soundEffects().at("Battle").haltChannel();
 			enemySender->~Entity();

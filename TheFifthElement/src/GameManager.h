@@ -23,7 +23,7 @@ public:
 	}
 	SDL_Window* getWindow() { return SDLUtils::instance()->window(); }
 
-	void goBeatEmUp(bool boss, Entity* enemy);
+	void goBeatEmUp(bool boss, Entity* enemy, string typeboss);
 	void goTopDown();
 	void backToMainMenu();
 	void leaveMainMenu();

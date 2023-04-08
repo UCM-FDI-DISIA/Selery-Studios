@@ -135,6 +135,7 @@
   <ItemGroup>
     <ClInclude Include="src\components\AnimationLightBossComponent.h" />
     <ClInclude Include="src\components\AttackLightBossComponent.h" />
+    <ClInclude Include="src\components\BossCollision.h" />
     <ClInclude Include="src\components\Damage.h" />
     <ClInclude Include="src\components\LifeLightBossComponent.h" />
     <ClInclude Include="src\components\LifeTD.h" />
@@ -142,7 +143,7 @@
     <ClInclude Include="src\components\NPCcollisioncomponent.h" />
     <ClInclude Include="src\components\Playernpc.h" />
     <ClInclude Include="src\components\rouletteComponent.h" />
-    <ClInclude Include="src\components\Saving.h" />
+    <ClInclude Include="src\Saving.h" />
     <ClInclude Include="src\components\SectorCollisionComponent.h" />
     <ClInclude Include="src\components\VolumeSlider.h" />
     <ClInclude Include="src\states\PauseState.h" />

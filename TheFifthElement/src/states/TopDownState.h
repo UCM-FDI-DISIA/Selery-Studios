@@ -33,6 +33,8 @@
 #include "../components/LifeTD.h"
 #include "../components/rouletteComponent.h"
 #include "../components/SectorCollisionComponent.h"
+#include "../components/BossCollision.h"
+#include "../Saving.h"
 
 using uint = unsigned int;
 using tileset_map = std::map<std::string, Texture*>; //mapa con CLAVE:string, ARGUMENTO: puntero a textura
@@ -73,6 +75,7 @@ private:
 	Texture* texture_player_;
 	PlayerNPC* Playernpc_;
 	int contnpc = 4;
+	MovementComponent* movcomp_player_;
 	//NPCS
 	Entity* Npc_;
 	Entity* Blacksmith_;
@@ -97,6 +100,7 @@ private:
 	//Boss
 	Entity* boss_;
 
+	Saving* save_;
 	GameManager* Gm_;
 
 	//COLISIONES TILE-PLAYER

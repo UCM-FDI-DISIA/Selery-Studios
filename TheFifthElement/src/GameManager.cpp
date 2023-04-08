@@ -9,9 +9,9 @@
 	//gameStMc->pushState(new TopDownState());
 	////gameStMc->pushState(new BeatEmUpState(this));
 
-void GameManager::goBeatEmUp(bool boss, Entity* enemy) {
+void GameManager::goBeatEmUp(bool boss, Entity* enemy, string typeboss) {
 	SDLUtils::instance()->soundEffects().at("Title").haltChannel();
-	GameStateMachine::instance()->pushState(new BeatEmUpState(boss, enemy));
+	GameStateMachine::instance()->pushState(new BeatEmUpState(boss, enemy, typeboss));
 }
 
 void GameManager::goTopDown() {

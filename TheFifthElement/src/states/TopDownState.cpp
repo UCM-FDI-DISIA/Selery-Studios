@@ -93,10 +93,9 @@ void TopDownState::LoadMap(string const& filename) {
                     Playernpc_ = player_->addComponent<PlayerNPC>(PLAYERNPC_H);
                     dialog_ = player_->addComponent<DialogueComponent>(DIALOGCOMPONENT_H);
                     player_->addComponent<Image>(IMAGE_H, texture_player_, PLAYERTD_NUMFRAMES, PLAYERTD_NUMFRAMES, 0, PLAYERTD_WIDTH_FRAME, PLAYERTD_HEIGHT_FRAME);
-                    player_->addComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
+                    movcomp_player_ = player_->addComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
                     in_ = player_->addComponent<InputComponent>(INPUTCOMPONENT_H, roulete);
                     player_->addComponent<ColliderTile>(COLLIDERTILE_H, collisions_);
-
                     damage_ = Hud_->addComponent<Damage>(DAMAGE_H);
                     life_ = Hud_->addComponent<LifeTD>(LIFETDCOMPONENT_H);
                     economyComp_ = Hud_->addComponent<EconomyComponent>(ECONOMYCOMPONENT_H);
@@ -148,7 +147,7 @@ void TopDownState::LoadMap(string const& filename) {
                     boss_->setContext(this);
                     boss_->addComponent<Transform>(TRANSFORM_H, Vector2D(obj.getPosition().x, obj.getPosition().y), 600, 400);
                     boss_->addComponent<Image>(IMAGE_H, bossLuzTexture(), 1, 1, 0, 600, 400);
-                    //boss_->addComponent<CheckCollision>(CHECKCOLLISION_H, player_, "LightBoss");
+                    boss_->addComponent<BossCollision>(BOSSCOLLISION_H, player_, "light");
                     boss_->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(0, 0), 288, 188);
                     addEntity(boss_);
                 }
@@ -330,8 +329,13 @@ void TopDownState::printMap()
 }
 
 void TopDownState::update() {
-  
-   // player_->setCollision(false);
+    Vector2D savedPos = Saving::instance()->getPos();
+    if(savedPos!=Vector2D(0,0))
+    {
+        movcomp_player_->setNewPos(savedPos);
+        Saving::instance()->deletePos();
+    }
+    // player_->setCollision(false);
     Playernpc_->setcol();
     for (auto p : collisions_) {
         p->update();

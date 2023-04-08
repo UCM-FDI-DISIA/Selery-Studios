@@ -18,7 +18,7 @@
 #include "../components/Image.h"
 #include "../components/MovementEarthBossComponent.h"
 #include "../components/AnimationEarthBossComponent.h"
-
+#include "../Saving.h"
 #include "../components/PointOfFightComponent.h"
 #include "../components/ShadowComponent.h"
 
@@ -38,6 +38,7 @@ private:
 	Transform* trans_player_;
 	InputComponentBEU* in_;
 	Texture* texture_player_;
+	Saving* savePos;
 	//BACKGROUND
 	Entity* background_;
 	RandomNumberGenerator* random;

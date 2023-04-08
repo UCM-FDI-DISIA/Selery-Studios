@@ -10,3 +10,8 @@ void MovementComponent::initComponent() {
 void MovementComponent::update() {
 	tr_->setPos(tr_->getPos() + tr_->getDir() * PLAYERTD_SPEED);
 }
+
+void MovementComponent::setNewPos(Vector2D position)
+{
+	tr_->setPos(position);
+}

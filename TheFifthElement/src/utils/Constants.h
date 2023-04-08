@@ -69,6 +69,13 @@ const int EARTHBOSS_HEIGHT = 192;
 
 #pragma endregion
 
+#pragma region LightBoss_Data
+
+const int LIGHTBOSS_WIDTH = 288;
+const int LIGHTBOSS_HEIGHT = 128;
+
+#pragma endregion
+
 // SHOP
 const uint BLACKSMITH_WIDTH = 96; // anchura de NPC
 const uint BLACKSMITH_HEIGHT = 96; // altura de NPC

@@ -14,6 +14,7 @@ public:
 	void setDir(Vector2D direction) {
 		tr_->setDir(direction);
 	}
+	void setNewPos(Vector2D position);
 private:
 	Transform* tr_ = nullptr;
 };

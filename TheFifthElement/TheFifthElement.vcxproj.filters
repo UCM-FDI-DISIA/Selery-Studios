@@ -142,7 +142,8 @@
     <ClInclude Include="src\components\LifeLightBossComponent.h" />
     <ClInclude Include="src\components\MovementLightBossComponent.h" />
     <ClInclude Include="src\components\SectorCollisionComponent.h" />
-    <ClInclude Include="src\components\Saving.h" />
+    <ClInclude Include="src\Saving.h" />
+    <ClInclude Include="src\components\BossCollision.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="TheFifthElement.rc" />
