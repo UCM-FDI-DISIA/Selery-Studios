@@ -139,7 +139,7 @@ void TopDownState::LoadMap(string const& filename) {
                     pruebaCollider = new Entity();
                     pruebaCollider->setContext(this);
                     pruebaCollider->addComponent<Transform>(TRANSFORM_H, Vector2D(obj.getPosition().x, obj.getPosition().y), obj.getAABB().width, obj.getAABB().height);
-                    pruebaCollider->addComponent <SectorCollisionComponent >(SECTORCOLLISIONCOMPONENT_H, player_, idSector);
+                    pruebaCollider->addComponent <SectorCollisionComponent>(SECTORCOLLISIONCOMPONENT_H, player_, idSector);
                     pruebaCollider->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(0, 0), obj.getAABB().height, obj.getAABB().width);
                     addEntity(pruebaCollider);
                     idSector++;

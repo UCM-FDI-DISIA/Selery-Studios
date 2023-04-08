@@ -23,7 +23,7 @@ public:
 	virtual ~SectorCollisionComponent() {};
 	inline SDL_Rect getPlayerRect() { return build_sdlrect(tr2->getPos(), tr2->getW(), tr2->getH()); }
 	inline SDL_Rect getRectSector() { return build_sdlrect(tr1->getPos(), tr1->getW(), tr1->getH()); }
-	void traspaso(int id, bool nowSector);
+	void traspaso(int id, bool nowSector) {};
 	SectorCollisionComponent(Entity* player, int sector)
 	{
 		player_ = player;
