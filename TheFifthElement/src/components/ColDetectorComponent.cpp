@@ -43,6 +43,15 @@ void ColDetectorComponent::update() {
             col1_->getColRect().y), col1_->getColRect().w, col1_->getColRect().h,
             Vector2D(rect_.x, rect_.y), rect_.w, rect_.h)) lifeC_->Hit(damage_);
     }
+    else { //OLA A PLAYER
+        if (obj1_->hasComponent(DISABLEONEXIT_H)) {
+            if (Collision::collides(Vector2D(col1_->getColRect().x,
+                col1_->getColRect().y), col1_->getColRect().w, col1_->getColRect().h,
+                Vector2D(col2_->getColRect().x, col2_->getColRect().y),
+                col2_->getColRect().w, col2_->getColRect().h))
+                obj2_->getComponent<LifeComponent>(LIFECOMPONENT_H)->Hit(1.2);
+        }
+    }
 }
 
 bool ColDetectorComponent::sideCol() {

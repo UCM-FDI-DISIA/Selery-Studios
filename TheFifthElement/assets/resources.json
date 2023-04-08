@@ -243,7 +243,7 @@
     {"id": "waterBoss_attack", "file":  "assets/Enemies/BeatEmUp/Bosses/WaterBoss/frost_guardian_attack.png"},
     {"id": "waterBoss_walk", "file":  "assets/Enemies/BeatEmUp/Bosses/WaterBoss/frost_guardian_walk.png"},
     {"id": "waterBoss_death", "file":  "assets/Enemies/BeatEmUp/Bosses/WaterBoss/frost_guardian_death.png"},
-    {"id": "waves", "file":  "assets/Enemies/BeatEmUp/Bosses/WaterBoss/waves.png"},
+    {"id": "waves", "file": "assets/Enemies/BeatEmUp/Bosses/WaterBoss/waves.png"},
     {"id": "shadow","file": "assets/Enemies/BeatEmUp/Bosses/EarthBoss/golem-shadow.png"},
     {"id": "espada", "file": "assets/HUD/espada.png"},
     {"id": "cora", "file": "assets/HUD/cora.png"},
