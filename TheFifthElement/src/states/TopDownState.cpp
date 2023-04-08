@@ -61,9 +61,11 @@ void TopDownState::LoadMap(string const& filename) {
     // recorremos cada una de las capas (de momento solo las de tiles) del mapa    
     auto& mapLayers = mapInfo.tile_MAP->getLayers();
 
-    for (auto& layer : mapLayers) {
-        
-        if (layer->getType() == tmx::Layer::Type::Object) {
+    for (auto& layer : mapLayers) 
+    {
+
+        if (layer->getType() == tmx::Layer::Type::Object) 
+        {
             tmx::ObjectGroup* object_layer = dynamic_cast<tmx::ObjectGroup*>(layer.get());
             auto& objs = object_layer->getObjects();
 
@@ -234,12 +236,12 @@ void TopDownState::LoadMap(string const& filename) {
 
     printMap();
 }
-
 void TopDownState::printMap()
 {
     auto& mapLayers = mapInfo.tile_MAP->getLayers();
 
-    for (auto& layer : mapLayers) {
+    for (auto& layer : mapLayers)
+    {
         if (layer->getType() == tmx::Layer::Type::Tile) {
             // cargamos la capa
             tmx::TileLayer* tile_layer = dynamic_cast<tmx::TileLayer*>(layer.get());
@@ -322,7 +324,6 @@ void TopDownState::printMap()
                 }
             }
         }
-
     }
     SDL_RenderPresent(Gm_->getRenderer());
     SDL_SetRenderTarget(Gm_->getRenderer(), nullptr);
