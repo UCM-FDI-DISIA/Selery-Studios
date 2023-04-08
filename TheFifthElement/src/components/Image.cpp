@@ -72,7 +72,7 @@ void Image::render() {
 		}
 		cont++;
 		if (i >= frames_ || i >= tope) {
-			if (loop_) i;
+			if (loop_) i=0;
 			animPlaying = false;
 			/*fila_ = 0;
 			if (ent_->hasComponent(INPUTCOMPONENTBEU_H)) {

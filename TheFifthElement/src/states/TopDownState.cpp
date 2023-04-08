@@ -63,7 +63,6 @@ void TopDownState::LoadMap(string const& filename) {
 
     for (auto& layer : mapLayers) 
     {
-
         if (layer->getType() == tmx::Layer::Type::Object) 
         {
             tmx::ObjectGroup* object_layer = dynamic_cast<tmx::ObjectGroup*>(layer.get());
