@@ -208,6 +208,8 @@
     <ClInclude Include="src\utils\Manager.h" />
     <ClInclude Include="src\utils\Singleton.h" />
     <ClInclude Include="src\utils\Vector2D.h" />
+    <ClInclude Include="src\components\WaterBossIA.h" />
+    <ClInclude Include="src\components\WaterBossLife.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\components\Damage.cpp" />
@@ -264,6 +266,8 @@
     <ClCompile Include="src\utils\Entity.cpp" />
     <ClCompile Include="src\utils\Manager.cpp" />
     <ClCompile Include="src\utils\Vector2D.cpp" />
+    <ClCompile Include="src\components\WaterBossIA.cpp" />
+    <ClCompile Include="src\components\WaterBossLife.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="TheFifthElement.rc" />
