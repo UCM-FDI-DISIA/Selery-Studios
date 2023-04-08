@@ -49,6 +49,7 @@ enum cmpId : cmpId_type {
 	SPAWN_H = 41,
 	WATERBOSSIA_H = 42,
 	WATERBOSSLIFE_H = 43,
+	DISABLEONEXIT_H = 44,
 	// do not remove this
 	_LAST_CMP_ID
 };

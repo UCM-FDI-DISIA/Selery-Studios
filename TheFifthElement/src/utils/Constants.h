@@ -59,6 +59,8 @@ const int enemy_rock_life = 200;
 
 const int WATERBOSS_WIDTH = 192;
 const int WATERBOSS_HEIGHT = 128;
+const int WAVE_WIDTH = 400;
+const int WAVE_HEIGHT = 109;
 
 #pragma endregion
 

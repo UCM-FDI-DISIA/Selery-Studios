@@ -4,6 +4,8 @@
 #include "../utils/Constants.h"
 #include "Image.h"
 #include "Transform.h"
+#include "../states/BeatEmUpState.h"
+#include "DisableOnExit.h"
 
 class WaterBossIA : public Component
 {
@@ -15,9 +17,16 @@ private:
 	State currentState_;
 	Image* im_;
 	Transform* tr_;
+	Transform* lastWave_;
 	Vector2D dir_;
+	float wavePos_;
+	float downLimit, topLimit;
+	float offset, chrono;
+	int cont;
+	Entity* player_;
+	//Entity* lastWave_ = nullptr;
 public:
-	WaterBossIA();
+	WaterBossIA(Entity* player);
 	void initComponent();
 	void update();
 	void newAttack();
@@ -25,6 +34,8 @@ public:
 	void attackIce();
 	void setIdle();
 	void setWalk(Vector2D dir);
+	void summonWave();
+	Entity* createWave(float y);
 	// metodo cambiar invulnerabilidad
 };
 

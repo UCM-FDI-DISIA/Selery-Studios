@@ -19,7 +19,9 @@ void WaterBossLife::initComponent() {
 void WaterBossLife::damage(float damage, float mul) {
     if (!invulnerable) {
         life -= damage * mul;
+        barWidth_ = ((life * backWidth_) / maxLife);
         if (life <= 0) {
+            im_->setAnimPlaying(false);
             im_->setAnim(true, 4, 15, 0, 15, false);
             ent_->removeComponent(WATERBOSSIA_H);
         }

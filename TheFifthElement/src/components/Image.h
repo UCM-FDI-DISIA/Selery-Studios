@@ -64,5 +64,6 @@ public:
 
 	SDL_RendererFlip  getFlip() { return s; }
 	inline bool isAnimPlaying() { return animPlaying; }
+	inline void setAnimPlaying(bool b) { animPlaying = b; }
 };
 #endif
