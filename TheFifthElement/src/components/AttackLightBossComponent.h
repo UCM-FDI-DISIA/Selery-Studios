@@ -11,6 +11,7 @@
 #include "DisableOnExit.h"
 #include "ColliderComponent.h"
 #include "ColDetectorComponent.h"
+#include "LightBossElement.h"
 
 class AttackLightBossComponent: public Component
 {
@@ -38,6 +39,8 @@ public:
 	void update();
 	void attack1();
 	void attack2();
+	void shootArrow(); //para solo disparar una flecha de luz
+	void anim1(); //para hacer la animacion y al terminarla atacar
 };
 
 #endif

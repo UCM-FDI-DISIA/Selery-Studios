@@ -58,6 +58,7 @@ enum cmpId : cmpId_type {
 	WATERBOSSLIFE_H = 50,
 	DISABLEONEXIT_H = 51,
 	FRAMEDIMAGE_H = 52,
+	LIGHTBOSSELEMENT_H=53,
 	// do not remove this
 	_LAST_CMP_ID
 };

@@ -141,6 +141,7 @@
     <ClInclude Include="src\components\FramedImage.h" />
     <ClInclude Include="src\components\LifeLightBossComponent.h" />
     <ClInclude Include="src\components\LifeTD.h" />
+    <ClInclude Include="src\components\LightBossElement.h" />
     <ClInclude Include="src\components\MovementLightBossComponent.h" />
     <ClInclude Include="src\components\NPCcollisioncomponent.h" />
     <ClInclude Include="src\components\Playernpc.h" />
