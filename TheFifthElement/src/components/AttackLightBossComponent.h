@@ -32,6 +32,7 @@ private:
 	int contAtks;
 	Transform* arrowTrans_;
 	FramedImage* arrowIm_;
+	Transform* rayTrans_;
 public:
 	AttackLightBossComponent(Entity* player);
 	void initComponent();

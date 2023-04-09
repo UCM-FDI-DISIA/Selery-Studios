@@ -28,6 +28,10 @@ void FramedImage::update() {
 	if (col >= frames_ - 1) {
 		col = 0;
 		isAnimUnstoppable_ = false;
+		if (ent_->hasComponent(LIGHTBOSSELEMENT_H) && !ent_->hasComponent(DISABLEONEXIT_H)) //he metido esto específico del rayo del lightboss como apaño temporal hasta que encuentre una solucion mas elegante
+		{
+			ent_->setAlive(false);
+		}
 	}
 	else if (cont > FRAME_RATE){
 		col++;
