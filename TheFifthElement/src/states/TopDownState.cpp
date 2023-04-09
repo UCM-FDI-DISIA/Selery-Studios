@@ -347,8 +347,9 @@ void TopDownState::update() {
     }
     Manager::refresh();
     Manager::update();
-    camRect_.x = (trans_player_->getPos().getX() + camOffset_) - WIN_WIDTH / 2;
-    camRect_.y = (trans_player_->getPos().getY() + camOffset_) - WIN_HEIGHT / 2;
+    
+    camRect_.x = camRect_.x + ((trans_player_->getPos().getX() + camOffset_ - camRect_.x) - WIN_WIDTH / 2) * 0.05;
+    camRect_.y = camRect_.y + ((trans_player_->getPos().getY() + camOffset_ - camRect_.y) - WIN_HEIGHT / 2) * 0.05;
     // Clamp
     if (camRect_.x < 0) {
         camRect_.x = 0;
