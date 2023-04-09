@@ -105,7 +105,8 @@ void AttackLightBossComponent::attack1()//esto debe ser para generar siempre bol
 void AttackLightBossComponent::attack2()
 {
 	Entity* ray = new Entity();
-	rayTrans_ = ray->addComponent<Transform>(TRANSFORM_H, Vector2D(0, bossTrans->getPos().getY() + bossTrans->getH() / 2), bossTrans->getPos().getX()+96, 128);
+	if (distX <= 0) { rayTrans_ = ray->addComponent<Transform>(TRANSFORM_H, Vector2D(0, bossTrans->getPos().getY() + bossTrans->getH() / 2), bossTrans->getPos().getX()+96, 128); }
+	else { rayTrans_ = ray->addComponent<Transform>(TRANSFORM_H, Vector2D(bossTrans->getPos().getX()+bossTrans->getW()/2, bossTrans->getPos().getY() + bossTrans->getH() / 2), BACKGROUNDBEU_WIDTH - bossTrans->getPos().getX(), 128); }
 	ray->addComponent<FramedImage>(FRAMEDIMAGE_H, &SDLUtils::instance()->images().at("Ray"), 256, 128, 8);
 	ray->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(0, bossTrans->getH() / 4), bossTrans->getH() / 2, rayTrans_->getW());
 	ray->addComponent<ColDetectorComponent>(COLDETECTORCOMPONENT_H, ray, player_);
