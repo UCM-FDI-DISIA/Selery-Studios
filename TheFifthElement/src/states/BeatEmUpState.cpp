@@ -160,10 +160,17 @@ void BeatEmUpState::AddEarthBoss() {
 void BeatEmUpState::AddLightBoss() 
 {
 	//AddEnemies(5);
+	numEnemies = 1;
 	Entity* lightBoss = new Entity();
-	lightBoss->addComponent<Transform>(TRANSFORM_H, Vector2D(700, 200), LIGHTBOSS_WIDTH, LIGHTBOSS_HEIGHT);
-	lightBoss->addComponent<FramedImage>(FRAMEDIMAGE_H, &SDLUtils::instance()->images().at("BEULightBoss"), LIGHTBOSS_WIDTH, LIGHTBOSS_HEIGHT, 12);
-	//lightBoss->addComponent<MovementLightBossComponent>(MOVEMENTLIGHTBOSSCOMPONENT_H, player_);
+	lightBoss->setContext(this);
+	lightBoss->addComponent<Transform>(TRANSFORM_H, Vector2D(700, WIN_HEIGHT/2), LIGHTBOSS_WIDTH, LIGHTBOSS_HEIGHT);
+	lightBoss->addComponent<FramedImage>(FRAMEDIMAGE_H, &SDLUtils::instance()->images().at("BEULightBossIdle"), LIGHTBOSS_WIDTH, LIGHTBOSS_HEIGHT, 12, "light");
+	lightBoss->addComponent<MovementLightBossComponent>(MOVEMENTLIGHTBOSSCOMPONENT_H, player_);
+	lightBoss->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(0, 0), LIGHTBOSS_HEIGHT, LIGHTBOSS_WIDTH);
+	lightBoss->addComponent<LifeLightBossComponent>(LIFELIGHTBOSSCOMPONENT_H);
+	//animation
+	//attack
+	//attack box y point of fight ns
 	addEntity(lightBoss);
 }
 
@@ -192,8 +199,9 @@ void BeatEmUpState::handleEvents() {
 
 void BeatEmUpState::finishBEU() {
 	numEnemies -= 1;
-	if (numEnemies == 0)
+	if (numEnemies <= 0)
 	{
+		Saving::instance()->deletePos();
 		SDLUtils::instance()->soundEffects().at("Battle").haltChannel();
 		GameManager::instance()->goTopDown();
 		
@@ -209,7 +217,7 @@ void BeatEmUpState::update() {
 	Manager::refresh();
 	Manager::update();
 	
-	if (!boss && createdEnemies < numEnemies && cont <= 0) {
+	if (!boss && createdEnemies < numEnemies && cont <= 0) { //aqui salta un fallo porque esta leyendo numenemies que no es fijo, se reduce cuando matas a un enemigo y si matas a un enemigo antes de que se genere otro dejan de generarse
 		AddEnemy();
 		cont = timeToGenerate;
 		createdEnemies++;

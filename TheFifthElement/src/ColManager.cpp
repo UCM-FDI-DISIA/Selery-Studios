@@ -85,6 +85,14 @@ void ColManager::checkCollisionP(SDL_Rect boxAttack,string type)
 						it->getComponent<WaterBossLife>(WATERBOSSLIFE_H)->damage(props_->instance()->getStrength(0), 1);
 					}
 			}
+			else if (it->hasComponent(LIFELIGHTBOSSCOMPONENT_H))
+			{
+				ColliderComponent* col = it->getComponent<ColliderComponent>(COLLIDERCOMPONENT_H);
+				if (Collision::collides(Vector2D(boxAttack.x, boxAttack.y), boxAttack.w, boxAttack.h, Vector2D(col->getColRect().x, col->getColRect().y), col->getColRect().w, col->getColRect().h))
+				{
+					it->getComponent<LifeLightBossComponent>(LIFELIGHTBOSSCOMPONENT_H)->damage(10);
+				}
+			}
 	}
 }
 

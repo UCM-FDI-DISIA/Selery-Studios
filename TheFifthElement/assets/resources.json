@@ -140,6 +140,9 @@
     {"id": "Air_LifeBar",  "file": "assets/Enemies/HUD/LifeBars/Horizontal/Bars/Bar6.png"},
     {"id": "Air_LifeBarBack", "file": "assets/Enemies/HUD/LifeBars/Horizontal/Backs/Back6.png"},
     {"id": "Air_LifeBarBorder", "file": "assets/Enemies/HUD/LifeBars/Horizontal/Boarders/Boarder2.png"},
+    {"id": "Light_LifeBar",  "file": "assets/Enemies/HUD/LifeBars/Horizontal/Bars/Bar8.png"},
+    {"id": "Light_LifeBarBack", "file": "assets/Enemies/HUD/LifeBars/Horizontal/Backs/Back4.png"},
+    {"id": "Light_LifeBarBorder", "file": "assets/Enemies/HUD/LifeBars/Horizontal/Boarders/Boarder1.png"},
     {"id": "Cartel", "file": "assets/Player/HUD/cartel.png"},
     {"id": "Ruleta", "file": "assets/Player/HUD/WheelOfPlayer/ruleta.png"},
     
@@ -255,7 +258,11 @@
     {"id": "slider", "file": "assets/HUD/Menu/slider.png"},
 
     {"id": "TDLightBoss", "file": "assets/Enemies/BeatEmUp/Bosses/LightBoss/animations/PNG/idle/idle_1.png"},
-    {"id": "BEULightBoss", "file": "assets/Enemies/BeatEmUp/Bosses/LightBoss/animations/spritesheets/allAnimations.png"}
+    {"id": "BEULightBossIdle", "file": "assets/Enemies/BeatEmUp/Bosses/LightBoss/animations/spritesheets/idle.png"},
+    {"id": "BEULightBossTakeHit", "file": "assets/Enemies/BeatEmUp/Bosses/LightBoss/animations/spritesheets/takeHit.png"},
+    {"id": "BEULightBossAttackSphere", "file": "assets/Enemies/BeatEmUp/Bosses/LightBoss/animations/spritesheets/attackSphere.png"},
+    {"id": "BEULightBossSpecialAttack", "file": "assets/Enemies/BeatEmUp/Bosses/LightBoss/animations/spritesheets/SpecialAttack.png"}
+
   ],
 
   "messages": [
