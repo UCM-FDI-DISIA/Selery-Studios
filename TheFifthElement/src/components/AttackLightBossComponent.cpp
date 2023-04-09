@@ -62,12 +62,16 @@ void AttackLightBossComponent::attack1()//esto debe ser para generar siempre bol
 		else { dirMov.setX(-1); }
 		movBoss_->move(dirMov);
 	}
-	//set animacion a 2atk
+	//orden de ejecucion: move, set anim al atk2 y despues crear la flecha
 	Entity* sphere= new Entity();
-	//sphere->addComponent<Transform>(TRANSFORM_H);
-	//sphere->addComponent<FramedImage>(FRAMEDIMAGE_H);
+	arrowTrans_ = sphere->addComponent<Transform>(TRANSFORM_H, Vector2D(bossTrans->getPos().getX(), bossTrans->getPos().getY()+bossTrans->getH()/2), 256, 128);
+	arrowIm_ = sphere->addComponent<FramedImage>(FRAMEDIMAGE_H, &SDLUtils::instance()->images().at("SphereArrow"), 256, 128, 12);
+	if (distX <= 0) { dirAtk = Vector2D(-1, 0); arrowIm_->setFlip(SDL_FLIP_HORIZONTAL); }
+	else { dirAtk = Vector2D(1, 0); }
+	arrowTrans_->setVel(5.0);
+	arrowTrans_->setDir(dirAtk);
+	sphere->addComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
 	//collider
-	//movement
 	mngr_->addEntity(sphere);
 }
 

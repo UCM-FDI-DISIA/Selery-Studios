@@ -7,6 +7,7 @@
 #include "Transform.h"
 #include "FramedImage.h"
 #include "MovementLightBossComponent.h"
+#include "MovementComponent.h"
 
 class AttackLightBossComponent: public Component
 {
@@ -25,6 +26,8 @@ private:
 	Vector2D dirMov;
 	int timer;
 	int contAtks;
+	Transform* arrowTrans_;
+	FramedImage* arrowIm_;
 public:
 	AttackLightBossComponent(Entity* player);
 	void initComponent();
