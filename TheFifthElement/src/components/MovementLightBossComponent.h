@@ -17,7 +17,7 @@ public:
 	MovementLightBossComponent(Entity* player);
 	void initComponent();
 	void update();
-	void teleport();
+	void teleport(Vector2D newPos);
 	void move(Vector2D dir);
 	virtual ~MovementLightBossComponent() {};
 };

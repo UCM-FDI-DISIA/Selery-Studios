@@ -26,9 +26,36 @@ void AttackLightBossComponent::update()
 	distX = playerTrans->getPos().getX() - bossTrans->getPos().getX();
 	distY = playerTrans->getPos().getY() - bossTrans->getPos().getY();
 
+	if (fightState == 2) //marcamos la excepcion del teletransporte
+	{
+		if (distX<closeX && distX>negCloseX && distY<closeY && distY>negCloseY)
+		{
+			Vector2D newPos;
+			if (distX <= 0 && bossTrans->getPos().getX() <= (BACKGROUNDBEU_WIDTH - 500)) //player a la izquierda y boss lejos del borde derecho
+			{
+				newPos.setX(bossTrans->getPos().getX()+400);
+			}
+			else if (distX <= 0 && bossTrans->getPos().getX()>= (BACKGROUNDBEU_WIDTH - 500)) //player a la izquierda y boss cerca del borde derecho
+			{ 
+				newPos.setX(bossTrans->getPos().getX()-500); 
+			}
+			else if (distX>=0 && bossTrans->getPos().getX()>= 500) //player a la derecha y boss lejos del borde izquierdo
+			{ 
+				newPos.setX(bossTrans->getPos().getX()-400); 
+			}
+			else if (distX >= 0 && bossTrans->getPos().getX() <= 500) //player a la derecha y boss cerca del borde izquierdo
+			{
+				newPos.setX(bossTrans->getPos().getX() + 500);
+			}
+			newPos.setY(playerTrans->getPos().getY()); //siemre hace tp a la altura del player
+			movBoss_->teleport(newPos);//paso por el movement ya que esto es un movimiento y este script no debe modificar transforms, solo hacer gets
+			attack1();
+		}
+	}
+
 	if (timer<=sdlutils().currRealTime())
 	{
-		if (fightState == 1)
+		if (fightState == 1 || fightState==2)
 		{
 			contAtks++;
 			if (contAtks == 3)
@@ -37,12 +64,9 @@ void AttackLightBossComponent::update()
 				timer = sdlutils().currRealTime() + 3000;
 				attack2();
 			}
-			else { timer = sdlutils().currRealTime() + 3000; attack1(); cout << playerTrans->getPos(); }
+			else { timer = sdlutils().currRealTime() + 3000; attack1(); }
 		}
-		else if (fightState == 2)
-		{
-
-		}
+		//else if (fightState == 2) lo dejo vacio porque los ataques de fase 1 y 2 son iguales a excepcion del tp
 		else if (fightState == 3)
 		{
 

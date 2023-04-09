@@ -20,9 +20,9 @@ void MovementLightBossComponent::update()
 	//quiza no necesito la linea de encima ya que los movimientos no son continuos si no en determinados momentos
 	//tengo que hacer comprobaciones sobre donde y cuando hace tp el enemigo y ajustar el collider vendra con el colliderComponent
 }
-void MovementLightBossComponent::teleport()
+void MovementLightBossComponent::teleport(Vector2D newPos)
 {
-	Vector2D newPos; //setPos
+	bossTrans->setPos(newPos);
 
 }
 void MovementLightBossComponent::move(Vector2D dir)
