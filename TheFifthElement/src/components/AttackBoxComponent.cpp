@@ -27,7 +27,6 @@ void AttackBoxComponent::initComponent()
 		anim_ = ent_->getComponent<AnimationEnemyBEUComponent>(ANIMATIONENEMYBEUCOMPONENT_H);
 		type = anim_->getType();
 	}
-
 }
 void AttackBoxComponent::render()
 {
@@ -993,13 +992,9 @@ void AttackBoxComponent::handleBoxes()
 			}
 		}
 	}
+
 	else 
 	{
-
-		if (anim_->getState()==1)
-		{
-			
-		}
 		if (anim_->getEnemy()=="skeleton")
 		{
 			if(anim_->getState()==1)

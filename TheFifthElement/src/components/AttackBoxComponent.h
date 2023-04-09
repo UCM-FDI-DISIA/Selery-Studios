@@ -8,6 +8,7 @@
 #include "../GameManager.h"
 #include "AnimationEnemyBEUComponent.h"
 #include "SkinBEUComponent.h"
+#include "AnimationLightBossComponent.h"
 
 
 
@@ -34,6 +35,7 @@ private:
     SDL_Rect box, box2;
     FramedImage* im_;
     AnimationEnemyBEUComponent* anim_;
+    AnimationLightBossComponent* bossAnim_;
     SkinBEUComponent* sk_;
     float width, height, boxTime, timerExecution, angle, way, stoppingAngle;
     bool boxCreated = false;

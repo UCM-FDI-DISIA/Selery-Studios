@@ -261,7 +261,8 @@
     {"id": "BEULightBossIdle", "file": "assets/Enemies/BeatEmUp/Bosses/LightBoss/animations/spritesheets/idle.png"},
     {"id": "BEULightBossTakeHit", "file": "assets/Enemies/BeatEmUp/Bosses/LightBoss/animations/spritesheets/takeHit.png"},
     {"id": "BEULightBossAttackSphere", "file": "assets/Enemies/BeatEmUp/Bosses/LightBoss/animations/spritesheets/attackSphere.png"},
-    {"id": "BEULightBossSpecialAttack", "file": "assets/Enemies/BeatEmUp/Bosses/LightBoss/animations/spritesheets/SpecialAttack.png"}
+    {"id": "BEULightBossSpecialAttack", "file": "assets/Enemies/BeatEmUp/Bosses/LightBoss/animations/spritesheets/SpecialAttack.png"},
+    {"id": "SphereArrow", "file": "assets/enemies/BeatEmUp/Bosses/LightBoss/animations/spritesheets/arrowSphere.png"}
 
   ],
 

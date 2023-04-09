@@ -167,9 +167,9 @@ void BeatEmUpState::AddLightBoss()
 	lightBoss->addComponent<FramedImage>(FRAMEDIMAGE_H, &SDLUtils::instance()->images().at("BEULightBossIdle"), LIGHTBOSS_WIDTH, LIGHTBOSS_HEIGHT, 12, "light");
 	lightBoss->addComponent<MovementLightBossComponent>(MOVEMENTLIGHTBOSSCOMPONENT_H, player_);
 	lightBoss->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(0, 0), LIGHTBOSS_HEIGHT, LIGHTBOSS_WIDTH);
-	lightBoss->addComponent<LifeLightBossComponent>(LIFELIGHTBOSSCOMPONENT_H);
+	lightBoss->addComponent<AttackLightBossComponent>(ATTACKLIGHTBOSSCOMPONENT_H, player_);
 	//animation
-	//attack
+	lightBoss->addComponent<LifeLightBossComponent>(LIFELIGHTBOSSCOMPONENT_H);
 	//attack box y point of fight ns
 	addEntity(lightBoss);
 }
