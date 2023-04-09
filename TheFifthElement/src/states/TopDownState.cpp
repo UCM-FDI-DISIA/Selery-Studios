@@ -380,7 +380,7 @@ void TopDownState::render() {
     for (auto p : collisions_) {
         p->render();
     }
-    SDL_Rect dst = { 0,0,fondowidth_,fondoheight_};
+    SDL_Rect dst = { 0,0,(fondowidth_ * 2.5)* (WIN_WIDTH / 900),(fondoheight_ * 2.5)* (WIN_HEIGHT / 600) };
     // posición según el transform de la Camara
     dst.x -= Manager::camRect_.x;
     dst.y -= Manager::camRect_.y;
