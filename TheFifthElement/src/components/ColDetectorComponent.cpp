@@ -44,7 +44,7 @@ void ColDetectorComponent::update() {
             Vector2D(rect_.x, rect_.y), rect_.w, rect_.h)) lifeC_->Hit(damage_);
     }
     else { //OLA A PLAYER
-        if (obj1_->hasComponent(DISABLEONEXIT_H)) {
+        if (obj1_->hasComponent(DISABLEONEXIT_H)) {// deberia cambiarse ya que los proyectiles del boss de luz cuentan con esto tambien
             if (Collision::collides(Vector2D(col1_->getColRect().x,
                 col1_->getColRect().y), col1_->getColRect().w, col1_->getColRect().h,
                 Vector2D(col2_->getColRect().x, col2_->getColRect().y),

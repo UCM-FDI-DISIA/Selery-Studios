@@ -8,6 +8,9 @@
 #include "FramedImage.h"
 #include "MovementLightBossComponent.h"
 #include "MovementComponent.h"
+#include "DisableOnExit.h"
+#include "ColliderComponent.h"
+#include "ColDetectorComponent.h"
 
 class AttackLightBossComponent: public Component
 {
