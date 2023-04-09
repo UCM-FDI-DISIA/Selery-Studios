@@ -64,7 +64,7 @@ private:
 	ColManager* colManager_;
 	
 	Entity* lifebar_;
-	float camOffset_ = 300.0f;
+	float camOffset_ = WIN_WIDTH/3;
 	float enemy_width=0, enemy_height=0;
 	float scale;
 	

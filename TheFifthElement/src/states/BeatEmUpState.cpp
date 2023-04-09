@@ -12,8 +12,8 @@ BeatEmUpState::BeatEmUpState(bool Boss,Entity* enemySends, string typeBoss, int 
 	random = &SDLUtils::instance()->rand();
 
 	background_ = new Entity();
-	background_->addComponent<Transform>(TRANSFORM_H, Vector2D(0,0), WIN_WIDTH, WIN_HEIGHT);
-	background_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("airBackground"));
+	background_->addComponent<Transform>(TRANSFORM_H, Vector2D(0,0), BACKGROUNDBEU_WIDTH, WIN_HEIGHT);
+	background_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("BEU_Background"));
 	addEntity(background_);
 	Hud_ = new Entity();
 	Hud_->setContext(this);
@@ -225,15 +225,12 @@ void BeatEmUpState::update() {
 	cont--;
 
 	camRect_.x = (trans_player_->getPos().getX() + camOffset_) - WIN_WIDTH / 2;
-	camRect_.y = (trans_player_->getPos().getY() - WIN_HEIGHT / 2);
-	// Clamp
-	/*if (camRect_.x < 0) {
-		camRect_.x = 0;
-	}*/	
-	/*if (camRect_.x >(WIN_WIDTH)) {
-			//camRect_.x = BACKGROUNDAIR_WIDTH_FRAME;
-		camRect_.x = WIN_WIDTH;
-	}*/
-	camRect_.x = 0; //se deja la camara a 0 ahora mismo porque el fondo de BEU se ajusta al window y se evita el problema de que se desplace a zona negra
 	camRect_.y = 0;
+	// Clamp de la cámara
+	if (camRect_.x < 0) {
+		camRect_.x = 0;
+	}	
+	else if (camRect_.x > BACKGROUNDBEU_WIDTH - WIN_WIDTH) {
+		camRect_.x = BACKGROUNDBEU_WIDTH - WIN_WIDTH;
+	}
 }

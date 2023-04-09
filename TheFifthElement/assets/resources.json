@@ -120,7 +120,7 @@
     {"id": "PTD_earth_right",  "file": "assets/Player/TopDown/Earth//walkingRight.png"},
     {"id": "portal","file": "assets/Scenes/Maps/AncientRuins/Props/portal.png"},
     {"id": "fireball", "file": "assets/Unknown/Elements/FireBall/Sheets/IdleLoop-Sheet.png"},
-    {"id": "airBackground", "file": "assets/Scenes/Backgrounds/BeatEmUp/AirBackground.png" },
+    {"id": "BEU_Background", "file": "assets/Scenes/Backgrounds/BeatEmUp/BEUbackground_1-4px.jpg" },
     {"id": "fondo",  "file": "assets/Scenes/Backgrounds/GrassyMountains/Grassy_Mountains_preview.png"},
     {"id": "fondo1", "file": "assets/Scenes/Backgrounds/BeatEmUp/DorjeeSofia 873x436.png"},
     {"id": "fondo2","file": "assets/Scenes/Backgrounds/BeatEmUp/DorjeSofia 400x325.png"},
