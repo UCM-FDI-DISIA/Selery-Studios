@@ -133,14 +133,20 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\components\AnimationLightBossComponent.h" />
+    <ClInclude Include="src\components\AttackLightBossComponent.h" />
+    <ClInclude Include="src\components\BossCollision.h" />
     <ClInclude Include="src\components\DisableOnExit.h" />
     <ClInclude Include="src\components\Damage.h" />
     <ClInclude Include="src\components\FramedImage.h" />
+    <ClInclude Include="src\components\LifeLightBossComponent.h" />
     <ClInclude Include="src\components\LifeTD.h" />
+    <ClInclude Include="src\components\MovementLightBossComponent.h" />
     <ClInclude Include="src\components\NPCcollisioncomponent.h" />
     <ClInclude Include="src\components\Playernpc.h" />
     <ClInclude Include="src\components\PortalComponent.h" />
     <ClInclude Include="src\components\rouletteComponent.h" />
+    <ClInclude Include="src\components\SectorCollisionComponent.h" />
     <ClInclude Include="src\components\VolumeSlider.h" />
     <ClInclude Include="src\states\PauseState.h" />
     <ClInclude Include="src\components\AttackEarthBossComponent.h" />
@@ -214,12 +220,17 @@
     <ClInclude Include="src\components\WaterBossLife.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\components\AnimationLightBossComponent.cpp" />
+    <ClCompile Include="src\components\AttackLightBossComponent.cpp" />
     <ClCompile Include="src\components\DisableOnExit.cpp" />
     <ClCompile Include="src\components\Damage.cpp" />
     <ClCompile Include="src\components\FramedImage.cpp" />
+    <ClCompile Include="src\components\LifeLightBossComponent.cpp" />
+    <ClCompile Include="src\components\MovementLightBossComponent.cpp" />
     <ClCompile Include="src\components\NPCcollisioncomponent.cpp" />
     <ClCompile Include="src\components\LifeTD.cpp" />
     <ClCompile Include="src\components\PortalComponent.cpp" />
+    <ClCompile Include="src\components\SectorCollisionComponent.cpp" />
     <ClCompile Include="src\states\PauseState.cpp" />
     <ClCompile Include="src\components\AttackEarthBossComponent.cpp" />
     <ClCompile Include="src\components\EconomyComponent.cpp" />

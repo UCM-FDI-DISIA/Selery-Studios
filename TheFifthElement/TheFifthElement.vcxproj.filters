@@ -20,7 +20,6 @@
     <ClCompile Include="src\components\LifeComponent.cpp" />
     <ClCompile Include="src\components\MovementComponent.cpp" />
     <ClCompile Include="src\components\ObjectsComponent.cpp" />
-    <ClCompile Include="src\Entities\PortalComponent.cpp" />
     <ClCompile Include="src\components\SkinComponent.cpp" />
     <ClCompile Include="src\states\GameState.cpp" />
     <ClCompile Include="src\states\GameStateMachine.cpp" />
@@ -58,6 +57,13 @@
     <ClCompile Include="src\components\WaterBossIA.cpp" />
     <ClCompile Include="src\components\WaterBossLife.cpp" />
     <ClCompile Include="src\components\DisableOnExit.cpp" />
+    <ClCompile Include="src\components\FramedImage.cpp" />
+    <ClCompile Include="src\components\PortalComponent.cpp" />
+    <ClCompile Include="src\components\AnimationLightBossComponent.cpp" />
+    <ClCompile Include="src\components\AttackLightBossComponent.cpp" />
+    <ClCompile Include="src\components\LifeLightBossComponent.cpp" />
+    <ClCompile Include="src\components\MovementLightBossComponent.cpp" />
+    <ClCompile Include="src\components\SectorCollisionComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\components\Button.h" />
@@ -80,7 +86,6 @@
     <ClInclude Include="src\components\InputComponentBEU.h" />
     <ClInclude Include="src\components\LifeComponent.h" />
     <ClInclude Include="src\components\MovementComponent.h" />
-    <ClInclude Include="src\Entities\PortalComponent.h" />
     <ClInclude Include="src\components\SkinComponent.h" />
     <ClInclude Include="src\states\GameState.h" />
     <ClInclude Include="src\states\GameStateMachine.h" />
@@ -138,6 +143,14 @@
     <ClInclude Include="src\components\WaterBossIA.h" />
     <ClInclude Include="src\components\WaterBossLife.h" />
     <ClInclude Include="src\components\DisableOnExit.h" />
+    <ClInclude Include="src\components\FramedImage.h" />
+    <ClInclude Include="src\components\PortalComponent.h" />
+    <ClInclude Include="src\components\AnimationLightBossComponent.h" />
+    <ClInclude Include="src\components\AttackLightBossComponent.h" />
+    <ClInclude Include="src\components\BossCollision.h" />
+    <ClInclude Include="src\components\LifeLightBossComponent.h" />
+    <ClInclude Include="src\components\MovementLightBossComponent.h" />
+    <ClInclude Include="src\components\SectorCollisionComponent.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="TheFifthElement.rc" />

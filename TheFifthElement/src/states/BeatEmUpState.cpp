@@ -51,8 +51,8 @@ BeatEmUpState::BeatEmUpState(bool Boss,Entity* enemySends, string typeBoss, int 
 	else if (boss && typeBoss == "earth") {
 		AddEarthBoss();
 	}
-	else if (boss && typeBoss == "air") {
-		AddAirBoss();
+	else if (boss && typeBoss == "light") {
+		AddLightBoss();
 	}
 	else if (boss && typeBoss == "fire") {
 		AddFireBoss();
@@ -157,8 +157,14 @@ void BeatEmUpState::AddEarthBoss() {
 	addEntity(boss_);
 }
 
-void BeatEmUpState::AddAirBoss() {
-
+void BeatEmUpState::AddLightBoss() 
+{
+	//AddEnemies(5);
+	Entity* lightBoss = new Entity();
+	lightBoss->addComponent<Transform>(TRANSFORM_H, Vector2D(700, 200), LIGHTBOSS_WIDTH, LIGHTBOSS_HEIGHT);
+	lightBoss->addComponent<FramedImage>(FRAMEDIMAGE_H, &SDLUtils::instance()->images().at("BEULightBoss"), LIGHTBOSS_WIDTH, LIGHTBOSS_HEIGHT, 12);
+	//lightBoss->addComponent<MovementLightBossComponent>(MOVEMENTLIGHTBOSSCOMPONENT_H, player_);
+	addEntity(lightBoss);
 }
 
 string BeatEmUpState::getEnemyType(int i) {

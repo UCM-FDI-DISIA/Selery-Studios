@@ -96,7 +96,7 @@ void TopDownState::LoadMap(string const& filename) {
                     player_->addComponent<FramedImage>(FRAMEDIMAGE_H, texture_player_, PLAYERTD_WIDTH_FRAME, PLAYERTD_HEIGHT_FRAME, 7, "air");
                     sk_->initComponent();
                     dialog_ = player_->addComponent<DialogueComponent>(DIALOGCOMPONENT_H);
-                    player_->addComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
+                    movcomp_player_ = player_->addComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
                     in_ = player_->addComponent<InputComponent>(INPUTCOMPONENT_H, roulete);
                     player_->addComponent<ColliderTile>(COLLIDERTILE_H, collisions_);
                     damage_ = Hud_->addComponent<Damage>(DAMAGE_H);

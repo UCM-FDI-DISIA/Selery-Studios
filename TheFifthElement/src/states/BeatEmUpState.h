@@ -86,7 +86,7 @@ public:
 	void AddEnemy();
 	void AddWaterBoss();
 	void AddFireBoss();
-	void AddAirBoss();
+	void AddLightBoss();
 	void AddEarthBoss();
 	string getEnemyType(int i);
 	void finishBEU();
