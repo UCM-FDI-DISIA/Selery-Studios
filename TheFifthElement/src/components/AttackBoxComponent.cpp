@@ -43,19 +43,28 @@ void AttackBoxComponent::render()
 void AttackBoxComponent::update(){
 	if (isPlayer) {
 		type = im_->getType();
+
+		if (boxCreated)
+		{
+			cout << im_->getCol()<< endl;
+		}
+		else
+		{
+			cout << "a";
+		}
 		handleBoxes();
 		unsigned timer = clock();
 		timerExecution = (double(timer) / CLOCKS_PER_SEC);
+
+
+	
+		
 	}
 	else {
 		handleBoxes();
 		unsigned timer = clock();
 		timerExecution = (double(timer) / CLOCKS_PER_SEC);
 	}
-	/*for (auto element : boxes) {
-		element.w *= entityTr->getS();
-		element.h *= entityTr->getS();
-	}*/
 }
 
 void AttackBoxComponent::handleBoxes()
@@ -65,17 +74,20 @@ void AttackBoxComponent::handleBoxes()
 		{
 
 			//Comprobamos que animaci�n estamos ejecutando y en que punto de la animaci�n estamos 
-			if (im_->getTexKey() == "Player_BEU_fire_attack3" && im_->getCol() <= 8)
+			if (im_->getTexKey() == "Player_BEU_fire_attack3"  && im_->getCol() < 8)
 			{
 
-				if (!boxCreated)
+				if (!boxCreated && im_->getCol()!=0)
 				{
 					boxes.clear();
 					for (int i = 0; i < 5; i++)
 					{
 						boxes.push_back(build_sdlrect(entityTr->getPos().getX() - mngr_->camRect_.x + (entityTr->getW() * entityTr->getS()) / 2, entityTr->getPos().getY() + (entityTr->getH() * entityTr->getS()), 10, 10));
 					}
-					boxCreated = true;
+					
+						boxCreated = true;
+					
+					
 
 
 					//Para poder cambiar satisfactoriamente la direccion del cuadrado
@@ -119,13 +131,20 @@ void AttackBoxComponent::handleBoxes()
 
 			}
 
-			else if (im_->getTexKey() == "Player_BEU_fire_attack3" && im_->getCol() <= 15)
+			else if (im_->getTexKey() == "Player_BEU_fire_attack3" && im_->getCol() < 15 && im_->getCol()>8)
 			{
+				
 				if (!boxCreated)
 				{
+					boxes.clear();
+					
+					if (im_->getCol()!=14)
+					{
+						boxes.push_back(build_sdlrect(entityTr->getPos().getX() - mngr_->camRect_.x + (entityTr->getW() * entityTr->getS()) / 2, entityTr->getPos().getY() + (entityTr->getH() * entityTr->getS()) / 2, 140, 60));
+						boxCreated = true;
 
-					boxes.push_back(build_sdlrect(entityTr->getPos().getX() - mngr_->camRect_.x + (entityTr->getW() * entityTr->getS()) / 2, entityTr->getPos().getY() + (entityTr->getH() * entityTr->getS()) / 2, 140, 60));
-					boxCreated = true;
+					}
+					
 
 					//Para poder cambiar satisfactoriamente la direccion del cuadrado
 					if (im_->getFlip() == SDL_FLIP_NONE)
@@ -154,7 +173,7 @@ void AttackBoxComponent::handleBoxes()
 						static_cast<BeatEmUpState*>(mngr_)->getColManager()->checkCollisionP(boxes[0], type);
 					}
 
-					if (im_->getCol() == 15)
+					if (im_->getCol() == 14)
 					{
 						unsigned timer = clock();
 						boxTime = (double(timer) / CLOCKS_PER_SEC);
@@ -165,13 +184,18 @@ void AttackBoxComponent::handleBoxes()
 				}
 			}
 
-			else if (im_->getTexKey() == "Player_BEU_fire_attack3" && im_->getCol() > 15 && im_->getCol() <= 24)
+			else if (im_->getTexKey() == "Player_BEU_fire_attack3" && im_->getCol() > 16 && im_->getCol() <= 24)
 			{
 				if (!boxCreated)
 				{
 					boxes.clear();
-					boxes.push_back(build_sdlrect(entityTr->getPos().getX() - mngr_->camRect_.x - 30 + (entityTr->getW() * entityTr->getS()) / 2, entityTr->getPos().getY() + (entityTr->getH() * entityTr->getS()) / 2, 70, 60));
-					boxCreated = true;
+					if (im_->getCol()!=24)
+					{
+						boxes.push_back(build_sdlrect(entityTr->getPos().getX() - mngr_->camRect_.x - 30 + (entityTr->getW() * entityTr->getS()) / 2, entityTr->getPos().getY() + (entityTr->getH() * entityTr->getS()) / 2, 70, 60));
+						boxCreated = true;
+
+					}
+					
 
 
 					//Para poder cambiar satisfactoriamente la direccion del cuadrado

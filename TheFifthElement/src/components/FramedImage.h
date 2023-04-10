@@ -8,7 +8,7 @@
 
 class FramedImage : public Component {
 private:
-	int frames_, col = 0, widthFrame_, heightFrame_, cont = 0;
+	int frames_, col = 0, widthFrame_, heightFrame_, cont = 0,tope =100;
 	Transform* tr_; // Consulta las caracteristicas fisicas
 	Texture* tex_;	// Imagen a rederizar
 	SDL_RendererFlip s = SDL_FLIP_NONE;
@@ -16,7 +16,6 @@ private:
 	bool isAnimUnstoppable_ = false;
 	string type_, texKey_ = "";
 public:
-
 	//Constructora
 	FramedImage(Texture* tex, int width, int height, int frames, string type = "");
 	//FramedImage(Texture* tex, int nframes, int framesT, int fila, int widthFrame, int heightFrame);//Constructora
@@ -36,6 +35,11 @@ public:
 	inline int getLastFrame() { return frames_; }
 
 	void setAnim(string textureKey, int frames, bool isAnimUnstoppable); //Metodo generico para cambiar de animacion
+	void setAnim(string textureKey, int col,int frames, bool isAnimUnstoppable); //Metodo generico para cambiar de animacion
+
+
+		inline void setTope(int i) { tope = i; }
+		inline int getTope() const { return tope; }
 
 	inline bool getIsAnimUnstoppable() { return isAnimUnstoppable_; }
 

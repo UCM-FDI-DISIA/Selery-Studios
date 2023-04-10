@@ -25,7 +25,7 @@ void FramedImage::update() {
 	src.h = heightFrame_;
 	src.w = widthFrame_;
 
-	if (col >= frames_ - 1) {
+	if (col >= frames_ - 1 || col >= tope) {
 		col = 0;
 		isAnimUnstoppable_ = false;
 	}
@@ -47,6 +47,17 @@ void FramedImage::setAnim(string textureKey, int frames, bool isAnimUnstoppable)
 		texKey_ = textureKey;
 		frames_ = frames;
 		isAnimUnstoppable_ = isAnimUnstoppable;
+	}
+}
+
+
+void FramedImage::setAnim(string textureKey,int col_, int frames, bool isAnimUnstoppable) {
+	if (!isAnimUnstoppable_) {
+		tex_ = &SDLUtils::instance()->images().at(textureKey);
+		texKey_ = textureKey;
+		frames_ = frames;
+		isAnimUnstoppable_ = isAnimUnstoppable;
+		col = col_;
 	}
 }
 //FramedImage::FramedImage(Texture* tex, int nframes, int framesT, int fila, int widthFrame, int heightFrame, string type) : tr_(nullptr), tex_(tex) { // Constructora
