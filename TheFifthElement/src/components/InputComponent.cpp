@@ -117,7 +117,7 @@ void InputComponent::handleEvents(SDL_Event event)
 			mov_->setDir(Vector2D(0, 0));
 			if (actionDelay > 0) {
 				dialog->inicombe();
-				sdlutils().soundEffects().at("NPC_Chat").play();
+				//sdlutils().soundEffects().at("NPC_Chat").play();
 			}
 			actionDelay = 0;
 		}

@@ -64,6 +64,7 @@ void DialogueComponent::inicombe() {
 		if (hasstarted == false) {
 			setdialogue();
 			hasstarted = true;
+			sdlutils().soundEffects().at("NPC_Chat").play();
 		}
 		else {
 			if (linea < conespacios.size()-1) {

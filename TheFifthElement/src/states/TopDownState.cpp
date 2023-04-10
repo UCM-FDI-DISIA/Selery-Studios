@@ -86,7 +86,7 @@ void TopDownState::LoadMap(string const& filename) {
                     // PLAYER
                     player_ = new Entity();
                     player_->setContext(this);
-                    trans_player_ = player_->addComponent<Transform>(TRANSFORM_H, Vector2D(obj.getPosition().x, obj.getPosition().y), PLAYERTD_WIDTH_FRAME, PLAYERTD_HEIGHT_FRAME);
+                    trans_player_ = player_->addComponent<Transform>(TRANSFORM_H, Vector2D(obj.getPosition().x , obj.getPosition().y), PLAYERTD_WIDTH_FRAME, PLAYERTD_HEIGHT_FRAME);
                     trans_player_->setVel(PLAYERTD_SPEED);
                     sk_ = player_->addComponent<SkinComponent>(SKINCOMPONENT_H, "air");
                     sk_->changeState(SkinComponent::Idle);
@@ -380,7 +380,7 @@ void TopDownState::render() {
     for (auto p : collisions_) {
         p->render();
     }
-    SDL_Rect dst = { 0,0,fondowidth_,fondoheight_ };
+    SDL_Rect dst = { 0,0,fondowidth_,fondoheight_};
     // posición según el transform de la Camara
     dst.x -= Manager::camRect_.x;
     dst.y -= Manager::camRect_.y;
