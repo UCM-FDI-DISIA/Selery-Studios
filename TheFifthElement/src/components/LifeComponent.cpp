@@ -184,13 +184,13 @@ void LifeComponent::chageType(float maxLife) {
 }
 
 void LifeComponent::render() {
-		SDL_Rect src;
-		src.x = 0;
-		src.y = 0;
-		src.h = 50;
-		src.w = 400;
+	SDL_Rect src;
+	src.x = 0;
+	src.y = 0;
+	src.h = 50;
+	src.w = 400;
 
-		SDL_Rect dest;
+	SDL_Rect dest;
 	if(enemy_){
 		dest.x = pos_.getX() + (60*scale);
 		dest.y = pos_.getY() + (35*scale);

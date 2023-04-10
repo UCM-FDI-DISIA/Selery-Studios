@@ -993,6 +993,32 @@ void AttackBoxComponent::handleBoxes()
 			}
 		}
 	}
+	else if (im_->getType() == "earth") { // Para el jefe de tierra
+		if ((im_->getTexKey() == "GolemFase1_attack" || im_->getTexKey() == "GolemFase2_attack") && im_->getCol() >= 7) {
+			if (!boxCreated) {
+				boxes.clear();
+				
+				//Para poder cambiar satisfactoriamente la direccion del cuadrado
+				if (im_->getFlip() == SDL_FLIP_NONE) {
+					boxes.push_back(build_sdlrect(entityTr->getPos().getX() - mngr_->camRect_.x + (entityTr->getW() * entityTr->getS()) / 2, entityTr->getPos().getY() + (entityTr->getH() * entityTr->getS()) / 2 - 20, 70, 70));
+				}
+				else {
+					boxes.push_back(build_sdlrect(entityTr->getPos().getX() - mngr_->camRect_.x - 70 + (entityTr->getW() * entityTr->getS()) / 2, entityTr->getPos().getY() + (entityTr->getH() * entityTr->getS()) / 2 - 20, 70, 70));
+				}
+				boxCreated = true;
+			}
+			else {
+				static_cast<BeatEmUpState*>(mngr_)->getColManager()->checkCollisionE(boxes[0], "earth");
+				if (im_->getCol() == 16)
+				{
+					unsigned timer = clock();
+					boxTime = (double(timer) / CLOCKS_PER_SEC);
+					boxes.clear();
+					boxCreated = false;
+				}
+			}
+		}
+	}
 	else 
 	{
 
@@ -1132,32 +1158,6 @@ void AttackBoxComponent::handleBoxes()
 		}
 
 	}
-	//else { // Para el jefe de tierra
-	//	if (im_->getRow() == 2 && im_->getCol() >= 7) {
-	//		if (!boxCreated) {
-	//			boxes.clear();
-	//			
-	//			//Para poder cambiar satisfactoriamente la direccion del cuadrado
-	//			if (im_->getFlip() == SDL_FLIP_NONE) {
-	//				boxes.push_back(build_sdlrect(entityTr->getPos().getX() - mngr_->camRect_.x + (entityTr->getW() * entityTr->getS()) / 2, entityTr->getPos().getY() + (entityTr->getH() * entityTr->getS()) / 2 - 20, 70, 70));
-	//			}
-	//			else {
-	//				boxes.push_back(build_sdlrect(entityTr->getPos().getX() - mngr_->camRect_.x - 70 + (entityTr->getW() * entityTr->getS()) / 2, entityTr->getPos().getY() + (entityTr->getH() * entityTr->getS()) / 2 - 20, 70, 70));
-	//			}
-	//			boxCreated = true;
-	//		}
-	//		else {
-	//			static_cast<BeatEmUpState*>(mngr_)->getColManager()->checkCollisionP(boxes[0], "earth", false);
-	//			if (im_->getCol() == 16)
-	//			{
-	//				unsigned timer = clock();
-	//				boxTime = (double(timer) / CLOCKS_PER_SEC);
-	//				boxes.clear();
-	//				boxCreated = false;
-	//			}
-	//		}
-	//	}
-	//}
 }
 
 void AttackBoxComponent::moveBox(SDL_Rect& box, Vector2D direction, float vel)

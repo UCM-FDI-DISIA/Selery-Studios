@@ -18,7 +18,6 @@ void InputComponentBEU::initComponent() {
 	tr_ = ent_->getComponent<Transform>(TRANSFORM_H);
 	im_ = ent_->getComponent<FramedImage>(FRAMEDIMAGE_H);
 	jmp_ = ent_->getComponent<JumpComponent>(JUMP_H);
-	t_ = new Texture(GameManager::instance()->getRenderer(), "./assets/Player/BeatEmUp/Fire/spritesheets/fireMatrix.png");
 	lifeC_ = ent_->getComponent<LifeComponent>(LIFECOMPONENT_H);
 	shadow = ent_->getComponent<ShadowComponent>(SHADOWCOMPONENT_H);
 	assert(shadow != nullptr);
@@ -230,14 +229,19 @@ void InputComponentBEU::handleEvents(SDL_Event event) {
 	}
 	else if (ih().isKeyJustUp(SDL_SCANCODE_P) || !ih().isGamePadButtonDown(SDL_CONTROLLER_BUTTON_Y)) alreadyPressedSpecial = false;
 
-	if (ih().isKeyJustDown(SDL_SCANCODE_M)) {
+	if (ih().isKeyJustDown(SDL_SCANCODE_E)) {
 		if (!alreadyPressed2)
 		{
-			alreadyPressed2 = true;
-			static_cast<BeatEmUpState*>(mngr_)->finishBEU();
+			for (auto it : mngr_->getEntities()) {
+				if (it->hasComponent(OBJECTSCOMPONENT_H) && it->getComponent<ObjectsComponent>(OBJECTSCOMPONENT_H)->getInRange()) {
+					static_cast<StoneComponent*>(it->getComponent<StoneComponent>(STONECOMPONENT_H))->stonePicked();
+					alreadyPressed2 = true;
+				}
+			}
+			
 		}
 	}
-	else if (ih().isKeyJustUp(SDL_SCANCODE_M)) {
+	else if (ih().isKeyJustUp(SDL_SCANCODE_E)) {
 		alreadyPressed2 = false;
 	}
 

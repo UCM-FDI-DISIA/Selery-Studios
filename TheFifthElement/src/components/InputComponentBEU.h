@@ -9,6 +9,8 @@
 #include "../components/ShadowComponent.h"
 #include "SkinBEUComponent.h"
 #include "rouletteComponent.h"
+#include "ObjectsComponent.h"
+#include "StoneComponent.h"
 #include <array>
 class Image;
 
@@ -18,7 +20,6 @@ private:
     FramedImage* im_ = nullptr;
     SDL_GameController* controller;
     JumpComponent* jmp_ = nullptr;
-    Texture* t_ = nullptr;
     LifeComponent* lifeC_ = nullptr;
     ShadowComponent* shadow = nullptr;
     SkinBEUComponent* sk_ = nullptr;

@@ -147,6 +147,7 @@
     <ClInclude Include="src\components\PortalComponent.h" />
     <ClInclude Include="src\components\rouletteComponent.h" />
     <ClInclude Include="src\components\SectorCollisionComponent.h" />
+    <ClInclude Include="src\components\StoneComponent.h" />
     <ClInclude Include="src\components\VolumeSlider.h" />
     <ClInclude Include="src\states\PauseState.h" />
     <ClInclude Include="src\components\AttackEarthBossComponent.h" />
@@ -231,6 +232,7 @@
     <ClCompile Include="src\components\LifeTD.cpp" />
     <ClCompile Include="src\components\PortalComponent.cpp" />
     <ClCompile Include="src\components\SectorCollisionComponent.cpp" />
+    <ClCompile Include="src\components\StoneComponent.cpp" />
     <ClCompile Include="src\states\PauseState.cpp" />
     <ClCompile Include="src\components\AttackEarthBossComponent.cpp" />
     <ClCompile Include="src\components\EconomyComponent.cpp" />

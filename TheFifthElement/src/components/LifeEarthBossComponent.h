@@ -7,6 +7,7 @@
 #include "AnimationEarthBossComponent.h"
 #include "ObjectsComponent.h"
 #include "Image.h"
+#include "StoneComponent.h"
 class LifeEarthBossComponent : public Component
 {
 private:
@@ -14,12 +15,24 @@ private:
 	FramedImage* bossImage;
 	Transform* bossTransform;
 	int life, maxLife, stage = 1;
+
+	float scale;
+
+	float barWidth_, barHeight_;
+	Texture* barTexture_;
+
+	float backWidth_, backHeight_;
+	Texture* backTexture_;
+
+	float borderWidth_, borderHeight_;
+	Texture* borderTexture_;
 public:
 	LifeEarthBossComponent();
 	virtual ~LifeEarthBossComponent() {}
 	void receiveDamage(float damage, float mul);
 	void initComponent();
 	void stageTwo();
+	void render();
 };
 #endif
 
