@@ -1,114 +1,104 @@
 ﻿  AttackBoxComponent.cpp
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(52,30): warning C4101: 'e': variable local sin referencia
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(48,1): message : al compilar la función del miembro clase plantilla "Texture &SDLUtils::map_access_wrapper<Texture>::at(std::string)"
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(205,30): message : Vea la referencia a la creación de una instancia de clase plantilla "SDLUtils::map_access_wrapper<Texture>" que se está compilando
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\sdlutils\SoundManager.h(112,33): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\sdlutils\SoundManager.h(117,46): warning C4018: '>': no coinciden signed/unsigned
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(37,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(38,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(39,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(40,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(55,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(56,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(57,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(58,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(71,33): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(72,32): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\AnimationEnemyBEUComponent.h(77,29): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\AnimationEnemyBEUComponent.h(78,30): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\rouletteComponent.h(39,32): warning C4838: la conversión de 'float' en 'int' requiere una conversión de restricción
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\rouletteComponent.h(39,32): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\rouletteComponent.h(39,46): warning C4838: la conversión de 'float' en 'int' requiere una conversión de restricción
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\rouletteComponent.h(39,46): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\rouletteComponent.h(52,29): warning C4838: la conversión de 'float' en 'int' requiere una conversión de restricción
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\rouletteComponent.h(52,29): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\rouletteComponent.h(52,39): warning C4838: la conversión de 'float' en 'int' requiere una conversión de restricción
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\rouletteComponent.h(52,39): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\rouletteComponent.h(60,29): warning C4838: la conversión de 'float' en 'int' requiere una conversión de restricción
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\rouletteComponent.h(60,29): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\rouletteComponent.h(60,39): warning C4838: la conversión de 'float' en 'int' requiere una conversión de restricción
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\rouletteComponent.h(60,39): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\rouletteComponent.h(68,29): warning C4838: la conversión de 'float' en 'int' requiere una conversión de restricción
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\rouletteComponent.h(68,29): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\rouletteComponent.h(68,39): warning C4838: la conversión de 'float' en 'int' requiere una conversión de restricción
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\rouletteComponent.h(68,39): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\rouletteComponent.h(76,29): warning C4838: la conversión de 'float' en 'int' requiere una conversión de restricción
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\rouletteComponent.h(76,29): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\rouletteComponent.h(76,39): warning C4838: la conversión de 'float' en 'int' requiere una conversión de restricción
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\rouletteComponent.h(76,39): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\DialogueComponent.h(10,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\AttackEarthBossComponent.h(24,31): warning C4305: '+=': truncamiento de 'double' a 'float'
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\DisableOnExit.h(15,22): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\DisableOnExit.h(19,15): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(36,25): warning C4244: '*=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(37,25): warning C4244: '*=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(57,35): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(62,35): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(114,244): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(114,247): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(114,33): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(122,32): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(156,27): warning C4305: '=': truncamiento de 'double' a 'float'
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(163,243): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(163,246): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(168,238): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(168,241): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(175,32): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(214,32): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(251,27): warning C4305: '=': truncamiento de 'double' a 'float'
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(260,244): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(260,247): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(260,34): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(264,250): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(264,253): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(264,34): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(275,32): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(287,31): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(335,32): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(379,76): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(379,49): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(389,32): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(422,32): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(474,32): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(485,31): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(539,32): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(574,32): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(618,32): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(656,101): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(657,38): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(674,59): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(678,39): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(680,42): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(698,39): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(702,59): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(705,43): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(737,32): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(750,31): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(803,32): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(838,32): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(882,32): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(931,102): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(932,38): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(949,59): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(953,39): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(955,43): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(973,39): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(977,59): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(980,43): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(996,32): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(1009,31): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(1031,181): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(1035,31): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(1078,31): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(1086,31): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(1122,31): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(1130,31): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(1165,31): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(1173,31): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(1185,28): warning C4244: '+=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(1186,28): warning C4244: '+=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(1202,27): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(1203,27): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(1205,56): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(1206,56): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-  TheFifthElement.vcxproj -> C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\x64\Debug\TheFifthElement.exe
+E:\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(52,30): warning C4101: 'e': variable local sin referencia
+E:\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(48,1): message : al compilar la función del miembro clase plantilla "Texture &SDLUtils::map_access_wrapper<Texture>::at(std::string)"
+E:\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(205,30): message : Vea la referencia a la creación de una instancia de clase plantilla "SDLUtils::map_access_wrapper<Texture>" que se está compilando
+E:\Selery-Studios\TheFifthElement\src\sdlutils\SoundManager.h(112,33): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+E:\Selery-Studios\TheFifthElement\src\sdlutils\SoundManager.h(117,46): warning C4018: '>': no coinciden signed/unsigned
+E:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(37,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+E:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(38,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+E:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(39,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+E:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(40,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+E:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(55,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+E:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(56,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+E:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(57,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+E:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(58,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+E:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(71,33): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+E:\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(72,32): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+E:\Selery-Studios\TheFifthElement\src\components\AnimationEnemyBEUComponent.h(77,29): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+E:\Selery-Studios\TheFifthElement\src\components\AnimationEnemyBEUComponent.h(78,30): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+E:\Selery-Studios\TheFifthElement\src\components\DialogueComponent.h(10,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
+E:\Selery-Studios\TheFifthElement\src\components\rouletteComponent.h(39,32): warning C4838: la conversión de 'float' en 'int' requiere una conversión de restricción
+E:\Selery-Studios\TheFifthElement\src\components\rouletteComponent.h(39,32): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+E:\Selery-Studios\TheFifthElement\src\components\rouletteComponent.h(39,46): warning C4838: la conversión de 'float' en 'int' requiere una conversión de restricción
+E:\Selery-Studios\TheFifthElement\src\components\rouletteComponent.h(39,46): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+E:\Selery-Studios\TheFifthElement\src\components\rouletteComponent.h(52,29): warning C4838: la conversión de 'float' en 'int' requiere una conversión de restricción
+E:\Selery-Studios\TheFifthElement\src\components\rouletteComponent.h(52,29): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+E:\Selery-Studios\TheFifthElement\src\components\rouletteComponent.h(52,39): warning C4838: la conversión de 'float' en 'int' requiere una conversión de restricción
+E:\Selery-Studios\TheFifthElement\src\components\rouletteComponent.h(52,39): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+E:\Selery-Studios\TheFifthElement\src\components\rouletteComponent.h(60,29): warning C4838: la conversión de 'float' en 'int' requiere una conversión de restricción
+E:\Selery-Studios\TheFifthElement\src\components\rouletteComponent.h(60,29): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+E:\Selery-Studios\TheFifthElement\src\components\rouletteComponent.h(60,39): warning C4838: la conversión de 'float' en 'int' requiere una conversión de restricción
+E:\Selery-Studios\TheFifthElement\src\components\rouletteComponent.h(60,39): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+E:\Selery-Studios\TheFifthElement\src\components\rouletteComponent.h(68,29): warning C4838: la conversión de 'float' en 'int' requiere una conversión de restricción
+E:\Selery-Studios\TheFifthElement\src\components\rouletteComponent.h(68,29): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+E:\Selery-Studios\TheFifthElement\src\components\rouletteComponent.h(68,39): warning C4838: la conversión de 'float' en 'int' requiere una conversión de restricción
+E:\Selery-Studios\TheFifthElement\src\components\rouletteComponent.h(68,39): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+E:\Selery-Studios\TheFifthElement\src\components\rouletteComponent.h(76,29): warning C4838: la conversión de 'float' en 'int' requiere una conversión de restricción
+E:\Selery-Studios\TheFifthElement\src\components\rouletteComponent.h(76,29): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+E:\Selery-Studios\TheFifthElement\src\components\rouletteComponent.h(76,39): warning C4838: la conversión de 'float' en 'int' requiere una conversión de restricción
+E:\Selery-Studios\TheFifthElement\src\components\rouletteComponent.h(76,39): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+E:\Selery-Studios\TheFifthElement\src\components\DisableOnExit.h(15,22): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+E:\Selery-Studios\TheFifthElement\src\components\DisableOnExit.h(19,15): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+E:\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(36,25): warning C4244: '*=': conversión de 'float' a 'int'; posible pérdida de datos
+E:\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(37,25): warning C4244: '*=': conversión de 'float' a 'int'; posible pérdida de datos
+E:\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(53,35): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+E:\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(62,35): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+E:\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(113,244): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+E:\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(113,247): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+E:\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(113,33): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+E:\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(121,32): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+E:\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(155,27): warning C4305: '=': truncamiento de 'double' a 'float'
+E:\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(162,243): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+E:\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(162,246): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+E:\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(167,238): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+E:\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(167,241): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+E:\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(174,32): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+E:\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(210,32): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+E:\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(247,27): warning C4305: '=': truncamiento de 'double' a 'float'
+E:\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(256,244): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+E:\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(256,247): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+E:\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(256,34): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+E:\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(260,250): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+E:\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(260,253): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+E:\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(260,34): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+E:\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(271,32): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+E:\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(283,31): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+E:\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(332,32): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+E:\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(373,76): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+E:\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(373,49): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+E:\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(383,32): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+E:\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(416,32): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+E:\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(468,32): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+E:\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(479,31): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+E:\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(538,32): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+E:\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(573,32): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+E:\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(616,32): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+E:\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(654,101): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+E:\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(655,38): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+E:\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(672,59): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+E:\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(676,39): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+E:\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(678,42): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+E:\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(696,39): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+E:\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(700,59): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+E:\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(703,43): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+E:\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(719,32): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+E:\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(732,31): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+E:\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(775,32): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+E:\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(811,32): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+E:\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(870,32): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+E:\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(925,32): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+E:\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(938,31): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+E:\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(964,31): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+E:\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(1002,31): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+E:\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(1010,31): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+E:\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(1046,31): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+E:\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(1054,31): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+E:\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(1089,31): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+E:\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(1097,31): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+E:\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(1109,28): warning C4244: '+=': conversión de 'float' a 'int'; posible pérdida de datos
+E:\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(1110,28): warning C4244: '+=': conversión de 'float' a 'int'; posible pérdida de datos
+E:\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(1126,27): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+E:\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(1127,27): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+E:\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(1129,56): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+E:\Selery-Studios\TheFifthElement\src\components\AttackBoxComponent.cpp(1130,56): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+  TheFifthElement.vcxproj -> E:\Selery-Studios\TheFifthElement\x64\Debug\TheFifthElement.exe

@@ -214,7 +214,14 @@ void InputComponentBEU::handleEvents(SDL_Event event) {
 				alreadyPressedSpecial = true;
 				sdlutils().soundEffects().at("playerSpecialAttack").play();
 				im_->setAnim("Player_BEU_" + im_->getType() + "_super", 18, true);
-				////im_->setAnim(true, 10, 18, 0, 100);
+			}
+		}
+		else if(im_->getType()=="air")
+		{
+			if (!alreadyPressedSpecial) {
+				alreadyPressedSpecial = true;
+				sdlutils().soundEffects().at("playerSpecialAttack").play();
+				im_->setAnim("Player_BEU_" + im_->getType() + "_super", 28, true);
 			}
 		}
 		else
@@ -222,8 +229,7 @@ void InputComponentBEU::handleEvents(SDL_Event event) {
 			if (!alreadyPressedSpecial) {
 				alreadyPressedSpecial = true;
 				sdlutils().soundEffects().at("playerSpecialAttack").play();
-				im_->setAnim("Player_BEU_" + im_->getType() + "_super", 28, true);
-				////im_->setAnim(true, 10, 28, 0, 100);
+				im_->setAnim("Player_BEU_" + im_->getType() + "_super", 25, true);
 			}
 		}
 	
