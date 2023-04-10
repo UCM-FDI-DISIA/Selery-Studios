@@ -8,9 +8,14 @@
 #include "ObjectsComponent.h"
 #include "Image.h"
 #include "StoneComponent.h"
+#include "InputComponentBEU.h"
+#include "ProtectionEarthBossComponent.h"
+#include "MovementEarthBossComponent.h"
+class BeatEmUpState;
 class LifeEarthBossComponent : public Component
 {
 private:
+	MovementEarthBossComponent* bossMovement;
 	AnimationEarthBossComponent* animEarthBoss;
 	FramedImage* bossImage;
 	Transform* bossTransform;
@@ -32,6 +37,7 @@ public:
 	void receiveDamage(float damage, float mul);
 	void initComponent();
 	void stageTwo();
+	void stageThree();
 	void render();
 };
 #endif

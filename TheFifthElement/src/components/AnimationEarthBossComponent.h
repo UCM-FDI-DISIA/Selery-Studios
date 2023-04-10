@@ -24,6 +24,7 @@ public:
 	void newAnimation(Animations newAnim);
 	void update();
 	inline void newStage() { stage++; }
+	inline int getStage() { return stage; }
 };
 #endif
 

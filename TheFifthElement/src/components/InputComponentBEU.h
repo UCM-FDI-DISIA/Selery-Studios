@@ -28,7 +28,7 @@ private:
     bool alreadyPressedSpecial = false;
     bool alreadyPressed2 = false;
     bool moveLeft, moveRight, moveUp, moveDown, jump;
-
+    bool earthStage3 = false;
 
 public:
     bool elements[4];
@@ -42,4 +42,6 @@ public:
     void setFire(bool b);
     void setWater(bool b);
     void setEarth(bool b);
+
+    inline void setEarthStage3(bool newValue) { earthStage3 = newValue; }
 };

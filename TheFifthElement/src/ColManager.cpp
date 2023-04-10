@@ -55,21 +55,21 @@ void ColManager::checkCollisionP(SDL_Rect boxAttack,string type)
 			ColliderComponent* col = it->getComponent<ColliderComponent>(COLLIDERCOMPONENT_H);
 			if (Collision::collides(Vector2D(boxAttack.x, boxAttack.y), boxAttack.w, boxAttack.h, Vector2D(col->getColRect().x, col->getColRect().y), col->getColRect().w, col->getColRect().h))
 			{
-				/*string typeHitted = it->getComponent<AnimationEnemyBEUComponent>(ANIMATIONENEMYBEUCOMPONENT_H)->getType();
-
-				if (type == typeHitted || typeHitted == "fire" && type == "earth" || typeHitted == "water" && type == "fire" || typeHitted == "earth" && type == "water")
-				{
-					it->getComponent<LifeEarthBossComponent>(LIFEEARTHBOSSCOMPONENT_H)->receiveDamage(10, 0.5);
+				if (!it->getComponent<MovementEarthBossComponent>(MOVEMENTEARTHBOSSCOMPONENT_H)->getBossProtected()) {
+					if (type == "fire") {
+						it->getComponent<LifeEarthBossComponent>(LIFEEARTHBOSSCOMPONENT_H)->receiveDamage(props_->instance()->getStrength(0), 2);
+					}
+					else if (type == "water") {
+						it->getComponent<LifeEarthBossComponent>(LIFEEARTHBOSSCOMPONENT_H)->receiveDamage(props_->instance()->getStrength(0), 0.5);
+					}
+					else {
+						it->getComponent<LifeEarthBossComponent>(LIFEEARTHBOSSCOMPONENT_H)->receiveDamage(props_->instance()->getStrength(0), 1);
+					}
 				}
-
-				else if (typeHitted == "fire" && type == "water" || typeHitted == "water" && type == "earth" || typeHitted == "earth" && type == "fire")
+				else
 				{
-					it->getComponent<LifeEarthBossComponent>(LIFEEARTHBOSSCOMPONENT_H)->receiveDamage(10, 1.5);
+					it->getComponent<AttackEarthBossComponent>(ATTACKEARTHBOSSCOMPONENT_H)->addExtraDamage();
 				}
-
-				else it->getComponent<LifeEarthBossComponent>(LIFEEARTHBOSSCOMPONENT_H)->receiveDamage(10, 1);*/
-				it->getComponent<LifeEarthBossComponent>(LIFEEARTHBOSSCOMPONENT_H)->receiveDamage(10, 1);
-
 			}
 		}
 		else if (it->hasComponent(WATERBOSSIA_H)) {
@@ -97,7 +97,7 @@ void ColManager::checkCollisionP(SDL_Rect boxAttack,string type)
 	}
 }
 
-void ColManager::checkCollisionE(SDL_Rect boxAttack, string type)
+void ColManager::checkCollisionE(SDL_Rect boxAttack, string type, int extraDamage)
 {
 	Entity* player = static_cast<BeatEmUpState*>(mngr_)->getPlayer();
 	ColliderComponent* col = player->getComponent<ColliderComponent>(COLLIDERCOMPONENT_H);
@@ -107,14 +107,14 @@ void ColManager::checkCollisionE(SDL_Rect boxAttack, string type)
 
 		if (type == typeHitted || typeHitted == "fire" && type == "earth" || typeHitted == "water" && type == "fire" || typeHitted == "earth" && type == "water")
 		{		
-			player->getComponent<LifeComponent>(LIFECOMPONENT_H)->Hit(0.5);		
+			player->getComponent<LifeComponent>(LIFECOMPONENT_H)->Hit(0.5 + extraDamage);
 		}
 
 		else if (typeHitted == "fire" && type == "water" || typeHitted == "water" && type == "earth" || typeHitted == "earth" && type == "fire")
 		{
-			player->getComponent<LifeComponent>(LIFECOMPONENT_H)->Hit(2);
+			player->getComponent<LifeComponent>(LIFECOMPONENT_H)->Hit(2 + extraDamage);
 		}
 
-		else player->getComponent<LifeComponent>(LIFECOMPONENT_H)->Hit(1);
+		else player->getComponent<LifeComponent>(LIFECOMPONENT_H)->Hit(1 + extraDamage);
 	}
 }

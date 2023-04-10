@@ -59,6 +59,7 @@ enum cmpId : cmpId_type {
 	DISABLEONEXIT_H = 51,
 	FRAMEDIMAGE_H = 52,
 	STONECOMPONENT_H = 53,
+	PROTECTIONEARTHBOSSCOMPONENT_H = 54,
 	// do not remove this
 	_LAST_CMP_ID
 };

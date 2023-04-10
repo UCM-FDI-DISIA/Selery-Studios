@@ -46,19 +46,15 @@ void AttackBoxComponent::update(){
 
 		if (boxCreated)
 		{
-			cout << im_->getCol()<< endl;
+			//cout << im_->getCol()<< endl;
 		}
 		else
 		{
-			cout << "a";
+			//cout << "a";
 		}
 		handleBoxes();
 		unsigned timer = clock();
 		timerExecution = (double(timer) / CLOCKS_PER_SEC);
-
-
-	
-		
 	}
 	else {
 		handleBoxes();
@@ -1024,15 +1020,15 @@ void AttackBoxComponent::handleBoxes()
 				
 				//Para poder cambiar satisfactoriamente la direccion del cuadrado
 				if (im_->getFlip() == SDL_FLIP_NONE) {
-					boxes.push_back(build_sdlrect(entityTr->getPos().getX() - mngr_->camRect_.x + (entityTr->getW() * entityTr->getS()) / 2, entityTr->getPos().getY() + (entityTr->getH() * entityTr->getS()) / 2 - 20, 70, 70));
+					boxes.push_back(build_sdlrect(entityTr->getPos().getX() - mngr_->camRect_.x - 10 + (entityTr->getW() * entityTr->getS()) / 2, entityTr->getPos().getY() + (entityTr->getH() * entityTr->getS()) / 2 - 20, 100, 100));
 				}
 				else {
-					boxes.push_back(build_sdlrect(entityTr->getPos().getX() - mngr_->camRect_.x - 70 + (entityTr->getW() * entityTr->getS()) / 2, entityTr->getPos().getY() + (entityTr->getH() * entityTr->getS()) / 2 - 20, 70, 70));
+					boxes.push_back(build_sdlrect(entityTr->getPos().getX() - mngr_->camRect_.x - 80 + (entityTr->getW() * entityTr->getS()) / 2, entityTr->getPos().getY() + (entityTr->getH() * entityTr->getS()) / 2 - 20, 100, 100));
 				}
 				boxCreated = true;
 			}
 			else {
-				static_cast<BeatEmUpState*>(mngr_)->getColManager()->checkCollisionE(boxes[0], "earth");
+				static_cast<BeatEmUpState*>(mngr_)->getColManager()->checkCollisionE(boxes[0], "earth", ent_->getComponent<AttackEarthBossComponent>(ATTACKEARTHBOSSCOMPONENT_H)->getExtraDamage());
 				if (im_->getCol() == 16)
 				{
 					unsigned timer = clock();
@@ -1062,7 +1058,7 @@ void AttackBoxComponent::handleBoxes()
 					{
 						boxCreated = true;
 						boxes.push_back(build_sdlrect(entityTr->getPos().getX() - mngr_->camRect_.x + (entityTr->getW() * entityTr->getS()) / 2, entityTr->getPos().getY() - 30 + (entityTr->getH() * entityTr->getS()) / 2, 60, 40));
-						static_cast<BeatEmUpState*>(mngr_)->getColManager()->checkCollisionE(boxes[0], type);
+						static_cast<BeatEmUpState*>(mngr_)->getColManager()->checkCollisionE(boxes[0], type, 0);
 					}
 					
 				}
@@ -1072,7 +1068,7 @@ void AttackBoxComponent::handleBoxes()
 					{
 						boxCreated = true;
 						boxes.push_back(build_sdlrect(entityTr->getPos().getX() - mngr_->camRect_.x - 80 + (entityTr->getW() * entityTr->getS()) / 2, entityTr->getPos().getY() - 30 + (entityTr->getH() * entityTr->getS()) / 2, 60, 40));
-						static_cast<BeatEmUpState*>(mngr_)->getColManager()->checkCollisionE(boxes[0], type);
+						static_cast<BeatEmUpState*>(mngr_)->getColManager()->checkCollisionE(boxes[0], type, 0);
 					}
 					
 				}
@@ -1105,7 +1101,7 @@ void AttackBoxComponent::handleBoxes()
 					{
 						boxCreated = true;
 						boxes.push_back(build_sdlrect(entityTr->getPos().getX() - mngr_->camRect_.x + (entityTr->getW() * entityTr->getS()) / 2, entityTr->getPos().getY() - 10 + (entityTr->getH() * entityTr->getS()) / 2, 40, 30));
-						static_cast<BeatEmUpState*>(mngr_)->getColManager()->checkCollisionE(boxes[0], type);
+						static_cast<BeatEmUpState*>(mngr_)->getColManager()->checkCollisionE(boxes[0], type, 0);
 					}
 
 				}
@@ -1115,7 +1111,7 @@ void AttackBoxComponent::handleBoxes()
 					{
 						boxCreated = true;
 						boxes.push_back(build_sdlrect(entityTr->getPos().getX() - mngr_->camRect_.x - 50 + (entityTr->getW() * entityTr->getS()) / 2, entityTr->getPos().getY() - 10 + (entityTr->getH() * entityTr->getS()) / 2, 40, 30));
-						static_cast<BeatEmUpState*>(mngr_)->getColManager()->checkCollisionE(boxes[0], type);
+						static_cast<BeatEmUpState*>(mngr_)->getColManager()->checkCollisionE(boxes[0], type, 0);
 					}
 
 				}
@@ -1148,7 +1144,7 @@ void AttackBoxComponent::handleBoxes()
 					{
 						boxCreated = true;
 						boxes.push_back(build_sdlrect(entityTr->getPos().getX() - mngr_->camRect_.x +10+ (entityTr->getW() * entityTr->getS()) / 2, entityTr->getPos().getY() - 10 + (entityTr->getH() * entityTr->getS()) / 2, 50, 30));
-						static_cast<BeatEmUpState*>(mngr_)->getColManager()->checkCollisionE(boxes[0], type);
+						static_cast<BeatEmUpState*>(mngr_)->getColManager()->checkCollisionE(boxes[0], type, 0);
 					}
 
 				}
@@ -1158,7 +1154,7 @@ void AttackBoxComponent::handleBoxes()
 					{
 						boxCreated = true;
 						boxes.push_back(build_sdlrect(entityTr->getPos().getX() - mngr_->camRect_.x - 60 + (entityTr->getW() * entityTr->getS()) / 2, entityTr->getPos().getY() - 10 + (entityTr->getH() * entityTr->getS()) / 2, 50, 30));
-						static_cast<BeatEmUpState*>(mngr_)->getColManager()->checkCollisionE(boxes[0], type);
+						static_cast<BeatEmUpState*>(mngr_)->getColManager()->checkCollisionE(boxes[0], type, 0);
 					}
 
 				}

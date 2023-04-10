@@ -28,8 +28,10 @@ void AnimationEarthBossComponent::newAnimation(Animations newAnim) {
 		else if (stage == 2) imBoss->setAnim("GolemFase2_death", 13, false);
 		break;
 	case IdleProtection:
+		if (stage == 2) imBoss->setAnim("GolemFase2_idleProtection", 8, true);
 		break;
 	case Protection:
+		if (stage == 2) imBoss->setAnim("GolemFase2_protection", 10, true);
 		break;
 	}
 	currentAnimation = newAnim;

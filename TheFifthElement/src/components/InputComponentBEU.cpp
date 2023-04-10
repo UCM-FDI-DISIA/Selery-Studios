@@ -231,7 +231,7 @@ void InputComponentBEU::handleEvents(SDL_Event event) {
 	else if (ih().isKeyJustUp(SDL_SCANCODE_P) || !ih().isGamePadButtonDown(SDL_CONTROLLER_BUTTON_Y)) alreadyPressedSpecial = false;
 
 	if (ih().isKeyJustDown(SDL_SCANCODE_E)) {
-		if (!alreadyPressed2)
+		if (!alreadyPressed2 && earthStage3) // Recogida de piedras en el stage 3 del boss de tierra
 		{
 			for (auto it : mngr_->getEntities()) {
 				if (it->hasComponent(OBJECTSCOMPONENT_H) && it->getComponent<ObjectsComponent>(OBJECTSCOMPONENT_H)->getInRange()) {

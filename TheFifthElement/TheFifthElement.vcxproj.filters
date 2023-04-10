@@ -65,6 +65,7 @@
     <ClCompile Include="src\components\MovementLightBossComponent.cpp" />
     <ClCompile Include="src\components\SectorCollisionComponent.cpp" />
     <ClCompile Include="src\components\StoneComponent.cpp" />
+    <ClCompile Include="src\components\ProtectionEarthBossComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\components\Button.h" />
@@ -153,6 +154,7 @@
     <ClInclude Include="src\components\MovementLightBossComponent.h" />
     <ClInclude Include="src\components\SectorCollisionComponent.h" />
     <ClInclude Include="src\components\StoneComponent.h" />
+    <ClInclude Include="src\components\ProtectionEarthBossComponent.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="TheFifthElement.rc" />

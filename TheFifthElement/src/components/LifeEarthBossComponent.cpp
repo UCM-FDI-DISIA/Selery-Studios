@@ -1,6 +1,7 @@
 #include "LifeEarthBossComponent.h"
+#include "../states/BeatEmUpState.h"
 LifeEarthBossComponent::LifeEarthBossComponent() {
-	maxLife = 3000;
+	maxLife = 2000;
 	life = maxLife;
 }
 
@@ -21,8 +22,12 @@ void LifeEarthBossComponent::receiveDamage(float damage, float mul) {
 	barWidth_ = ((life * backWidth_) / maxLife);
 	animEarthBoss->newAnimation(AnimationEarthBossComponent::Hit);
 	if (life <= maxLife / 1.5 && stage == 1) {
-		stageTwo();
 		animEarthBoss->newAnimation(AnimationEarthBossComponent::Death);
+		stageTwo();
+	}
+	else if (life <= maxLife / 3 && stage == 2) {
+		animEarthBoss->newAnimation(AnimationEarthBossComponent::Death);
+		stageThree();
 	}
 	else if (life <= 0) {
 		ent_->setAlive(false);
@@ -32,15 +37,30 @@ void LifeEarthBossComponent::receiveDamage(float damage, float mul) {
 void LifeEarthBossComponent::stageTwo() {
 	stage++;
 	animEarthBoss->newStage();
-	
+	ent_->addComponent<ProtectionEarthBossComponent>(PROTECTIONEARTHBOSSCOMPONENT_H);
 	Entity* stone = new Entity();
 	Vector2D pos = bossTransform->getPos();
 	bossTransform->setPos(Vector2D(WIN_WIDTH, 200));
 	stone->setContext(mngr_);
 	stone->addComponent<Transform>(TRANSFORM_H, pos, EARTHBOSS_WIDTH * 2, EARTHBOSS_HEIGHT * 2);
-	stone->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("stone6"));
+	stone->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("v1stone6"));
 	stone->addComponent<ObjectsComponent>(OBJECTSCOMPONENT_H);
-	stone->addComponent<StoneComponent>(STONECOMPONENT_H);
+	stone->addComponent<StoneComponent>(STONECOMPONENT_H, 1);
+	mngr_->addEntity(stone);
+}
+
+void LifeEarthBossComponent::stageThree() {
+	stage++;
+	static_cast<BeatEmUpState*>(mngr_)->getPlayer()->getComponent<InputComponentBEU>(INPUTCOMPONENTBEU_H)->setEarthStage3(true);
+	animEarthBoss->newStage();
+	Entity* stone = new Entity();
+	Vector2D pos = bossTransform->getPos();
+	bossTransform->setPos(Vector2D(WIN_WIDTH, 200));
+	stone->setContext(mngr_);
+	stone->addComponent<Transform>(TRANSFORM_H, pos, EARTHBOSS_WIDTH * 2, EARTHBOSS_HEIGHT * 2);
+	stone->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("v2stone6"));
+	stone->addComponent<ObjectsComponent>(OBJECTSCOMPONENT_H);
+	stone->addComponent<StoneComponent>(STONECOMPONENT_H, 2);
 	mngr_->addEntity(stone);
 }
 

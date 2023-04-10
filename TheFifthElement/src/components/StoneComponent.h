@@ -7,10 +7,10 @@
 #include "Image.h"
 class StoneComponent : public Component {
 private:
-	int stones = 6;
+	int stones = 6, bossStage;
 	Image* imStone;
 public:
-	StoneComponent() {}
+	StoneComponent(int bossStage_);
 	virtual ~StoneComponent() {}
 	void initComponent();
 
