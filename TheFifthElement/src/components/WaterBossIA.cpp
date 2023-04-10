@@ -66,8 +66,8 @@ void WaterBossIA::update() {
 }
 
 void WaterBossIA::newAttack() {
-	int rnd_ = rand() % 2;
-	if (rnd_ == 1) attackWaves();
+	int rnd_ = rand() % 1;
+	if (rnd_ == 0) attackWaves();
 	else attackIce();
 }
 
