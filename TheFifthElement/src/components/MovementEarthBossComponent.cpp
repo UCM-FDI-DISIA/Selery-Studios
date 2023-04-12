@@ -7,7 +7,7 @@ void MovementEarthBossComponent::initComponent() {
 	playerTransform = player_->getComponent<Transform>(TRANSFORM_H);
 	fightPlayerComp = player_->getComponent<PointOfFightComponent>(POINTOFFIGHTCOMPONENT_H);
 
-	im_ = ent_->getComponent<Image>(IMAGE_H);
+	im_ = ent_->getComponent<FramedImage>(FRAMEDIMAGE_H);
 	animator = ent_->getComponent<AnimationEarthBossComponent>(ANIMATIONEARTHBOSSCOMPONENT_H);
 	fightBossComp = ent_->getComponent<PointOfFightComponent>(POINTOFFIGHTCOMPONENT_H);
 	bossTransform = ent_->getComponent<Transform>(TRANSFORM_H);
@@ -15,60 +15,57 @@ void MovementEarthBossComponent::initComponent() {
 }
 
 void MovementEarthBossComponent::update() {
-	bool atRight = (fightPlayerComp->getPointRightFight().getX() - fightBossComp->getPointLeftFight().getX()) < 0; // Boss a la derecha del player
-	bool atLeft = (fightBossComp->getPointRightFight().getX() - fightPlayerComp->getPointLeftFight().getX()) < 0; // Boss a la izquierda del player
-	float verticalDistance = fightPlayerComp->getPointRightFight().getY() - fightBossComp->getPointLeftFight().getY();
+	if (!bossProtected) {
+		bool atRight = (fightPlayerComp->getPointRightFight().getX() - fightBossComp->getPointLeftFight().getX()) < 0; // Boss a la derecha del player
+		bool atLeft = (fightBossComp->getPointRightFight().getX() - fightPlayerComp->getPointLeftFight().getX()) < 0; // Boss a la izquierda del player
+		float verticalDistance = fightPlayerComp->getPointRightFight().getY() - fightBossComp->getPointLeftFight().getY();
 
-	if (verticalDistance < 0 && verticalDistance < -marginToMove) {
-		bossTransform->setDir(Vector2D(0, -1));
-		animator->newAnimation(AnimationEarthBossComponent::Moving);
-		bossTransform->setVel(0.75);
-	}
-	else if (verticalDistance > 0 && verticalDistance > marginToMove) {
-		bossTransform->setDir(Vector2D(0, 1));
-		animator->newAnimation(AnimationEarthBossComponent::Moving);
-		bossTransform->setVel(0.75);
-	}
-	else {
-		if (atRight) {
-			bossTransform->setDir(Vector2D(-1, 0));
+		if (verticalDistance < 0 && verticalDistance < -marginToMove) { // Si no esta en la misma vertical el golem se reposiciona verticalmente
+			bossTransform->setDir(Vector2D(0, -1));
 			animator->newAnimation(AnimationEarthBossComponent::Moving);
+			bossTransform->setVel(0.75);
+		}
+		else if (verticalDistance > 0 && verticalDistance > marginToMove) {
+			bossTransform->setDir(Vector2D(0, 1));
+			animator->newAnimation(AnimationEarthBossComponent::Moving);
+			bossTransform->setVel(0.75);
+		}
+		else { // Si esta en la misma vertical el golem se reposiciona horizontalmente
+			if (atRight) {
+				bossTransform->setDir(Vector2D(-1, 0));
+				animator->newAnimation(AnimationEarthBossComponent::Moving);
+				im_->setFlip(SDL_FLIP_HORIZONTAL);
+				bossTransform->setVel(1);
+
+			}
+			else if (atLeft) {
+				bossTransform->setDir(Vector2D(1, 0));
+				animator->newAnimation(AnimationEarthBossComponent::Moving);
+				im_->setFlip();
+				bossTransform->setVel(1);
+			}
+		}
+		if (!attack) {////&& !im_->isAnimPlaying()) { // Se mueve cuando no esta atacando
+			bossTransform->setPos(bossTransform->getPos() + bossTransform->getDir() * bossTransform->getVel());
+		}
+
+		if (atRight && abs(fightPlayerComp->getPointRightFight().getX() - fightBossComp->getPointLeftFight().getX()) < marginToAttack) { // Ataque hacia la derecha
+			attack = true;
 			im_->setFlip(SDL_FLIP_HORIZONTAL);
-			bossTransform->setVel(1);
-
 		}
-		else if (atLeft) {
-			bossTransform->setDir(Vector2D(1, 0));
-			animator->newAnimation(AnimationEarthBossComponent::Moving);
+		else if (atLeft && abs(fightPlayerComp->getPointLeftFight().getX() - fightBossComp->getPointRightFight().getX()) < marginToAttack) { // Ataque hacia la izquierda
+			attack = true;
 			im_->setFlip();
-			bossTransform->setVel(1);
 		}
+		else if (!atRight && !atLeft && abs(verticalDistance) < marginToMove) { // Ataque cuando el jugador se mete dentro del golem
+			attack = true;
+		}
+		else {
+			attack = false;
+		}
+		//bossTransform->setDir(playerTransform->getPos() - bossTransform->getPos());
+		//bossTransform->setPos(bossTransform->getPos() + (bossTransform->getDir() / sqrt(pow(bossTransform->getPos().getX(), 2) + pow(bossTransform->getPos().getY(), 2))) * bossTransform->getVel());
+		//bossTransform->setDir(fightPlayerComp->getPointRightFight() - fightBossComp->getPointLeftFight());
+		//bossTransform->setPos(bossTransform->getPos() + (bossTransform->getDir() / sqrt(pow(bossTransform->getPos().getX(), 2) + pow(bossTransform->getPos().getY(), 2))) * bossTransform->getVel());
 	}
-	if (!attack && !im_->isAnimPlaying()) {
-		bossTransform->setPos(bossTransform->getPos() + bossTransform->getDir() * bossTransform->getVel());
-	}
-
-	if (atRight && abs(fightPlayerComp->getPointRightFight().getX() - fightBossComp->getPointLeftFight().getX()) < marginToAttack) {
-		attack = true;
-		im_->setFlip(SDL_FLIP_HORIZONTAL);
-	}
-	else if (atLeft && abs(fightPlayerComp->getPointLeftFight().getX() - fightBossComp->getPointRightFight().getX()) < marginToAttack) {
-		attack = true;
-		im_->setFlip();
-	}
-	else if (!atRight && !atLeft && abs(verticalDistance) < marginToMove) {
-		attack = true;
-	}
-	else {
-		attack = false;
-	}
-	/*cout << atRight << endl;
-	cout << atLeft << endl;
-	cout << " "  << endl;*/
-	//bossTransform->setDir(playerTransform->getPos() - bossTransform->getPos());
-	//bossTransform->setPos(bossTransform->getPos() + (bossTransform->getDir() / sqrt(pow(bossTransform->getPos().getX(), 2) + pow(bossTransform->getPos().getY(), 2))) * bossTransform->getVel());
-	//cout << bossTransform->getDir() / sqrt(pow(bossTransform->getPos().getX(), 2) + pow(bossTransform->getPos().getY(), 2)) << endl;
-	//cout << bossTransform->getPos() << endl;
-	//bossTransform->setDir(fightPlayerComp->getPointRightFight() - fightBossComp->getPointLeftFight());
-	//bossTransform->setPos(bossTransform->getPos() + (bossTransform->getDir() / sqrt(pow(bossTransform->getPos().getX(), 2) + pow(bossTransform->getPos().getY(), 2))) * bossTransform->getVel());
 }

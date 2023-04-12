@@ -128,11 +128,29 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>lib\SDL libs\x64;.\lib\tmxlite-1.2.1\lib\x64;.\lib\SDL2_mixer-2.0.2\lib\x64;.\lib\SDL2_image-2.0.1\lib\x64;.\lib\SDL2_ttf-2.0.15\lib\x64</AdditionalLibraryDirectories>
-      <AdditionalDependencies>ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;SDL2.lib;SDL2main.lib;SDL2test.lib;SDL2_ttf.lib;SDL2_image.lib;SDL2_mixer.lib;tmxlite-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>lib\SDL libs\x64;$(ProjectDir)lib\tmxlite-1.2.1\lib\x64;.\lib\SDL2_mixer-2.0.2\lib\x64;.\lib\SDL2_image-2.0.1\lib\x64;.\lib\SDL2_ttf-2.0.15\lib\x64</AdditionalLibraryDirectories>
+      <AdditionalDependencies>ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;SDL2.lib;SDL2main.lib;SDL2test.lib;SDL2_ttf.lib;SDL2_image.lib;SDL2_mixer.lib;tmxlite.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\components\AnimationLightBossComponent.h" />
+    <ClInclude Include="src\components\AttackLightBossComponent.h" />
+    <ClInclude Include="src\components\BossCollision.h" />
+    <ClInclude Include="src\components\DisableOnExit.h" />
+    <ClInclude Include="src\components\Damage.h" />
+    <ClInclude Include="src\components\FramedImage.h" />
+    <ClInclude Include="src\components\LifeLightBossComponent.h" />
+    <ClInclude Include="src\components\LifeTD.h" />
+    <ClInclude Include="src\components\MovementLightBossComponent.h" />
+    <ClInclude Include="src\components\NPCcollisioncomponent.h" />
+    <ClInclude Include="src\components\Playernpc.h" />
+    <ClInclude Include="src\components\PortalComponent.h" />
+    <ClInclude Include="src\components\ProtectionEarthBossComponent.h" />
+    <ClInclude Include="src\components\rouletteComponent.h" />
+    <ClInclude Include="src\components\SectorCollisionComponent.h" />
+    <ClInclude Include="src\components\StoneComponent.h" />
+    <ClInclude Include="src\components\VolumeSlider.h" />
+    <ClInclude Include="src\states\PauseState.h" />
     <ClInclude Include="src\components\AttackEarthBossComponent.h" />
     <ClInclude Include="src\components\EconomyComponent.h" />
     <ClInclude Include="src\components\SkinBEUComponent.h" />
@@ -156,20 +174,12 @@
     <ClInclude Include="src\components\ObjectsComponent.h" />
     <ClInclude Include="src\components\ShadowComponent.h" />
     <ClInclude Include="src\components\ShopComponent.h" />
-    <ClInclude Include="src\Entities\LifeBar.h" />
     <ClInclude Include="src\Game.h" />
     <ClInclude Include="src\states\BeatEmUpState.h" />
-    <ClInclude Include="src\Entities\Camera.h" />
-    <ClInclude Include="src\components\CameraComponent.h" />
     <ClInclude Include="src\components\CheckCollision.h" />
-    <ClInclude Include="src\states\PauseMenuState.h" />
     <ClInclude Include="src\utils\Collision.h" />
     <ClInclude Include="src\components\Enemy_movementTD_component.h" />
-    <ClInclude Include="src\Entities\DialogBox.h" />
     <ClInclude Include="src\components\DialogueComponent.h" />
-    <ClInclude Include="src\Entities\Element.h" />
-    <ClInclude Include="src\Entities\Enemy.h" />
-    <ClInclude Include="src\Entities\EnemyBEU.h" />
     <ClInclude Include="src\components\EnemyBEUDirectionComponent.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="src\GameManager.h" />
@@ -178,10 +188,6 @@
     <ClInclude Include="src\components\InputComponentBEU.h" />
     <ClInclude Include="src\components\LifeComponent.h" />
     <ClInclude Include="src\components\MovementComponent.h" />
-    <ClInclude Include="src\Entities\Npc.h" />
-    <ClInclude Include="src\Entities\PlayerBEU.h" />
-    <ClInclude Include="src\Entities\PlayerTD.h" />
-    <ClInclude Include="src\Entities\PortalComponent.h" />
     <ClInclude Include="src\components\SkinComponent.h" />
     <ClInclude Include="src\states\GameState.h" />
     <ClInclude Include="src\states\GameStateMachine.h" />
@@ -201,6 +207,7 @@
     <ClInclude Include="src\sdlutils\VirtualTimer.h" />
     <ClInclude Include="src\states\TopDownState.h" />
     <ClInclude Include="src\utils\Constants.h" />
+    <ClInclude Include="src\utils\PropertiesManager.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="TheFifthElement.h" />
     <ClInclude Include="src\components\Transform.h" />
@@ -211,8 +218,24 @@
     <ClInclude Include="src\utils\Manager.h" />
     <ClInclude Include="src\utils\Singleton.h" />
     <ClInclude Include="src\utils\Vector2D.h" />
+    <ClInclude Include="src\components\WaterBossIA.h" />
+    <ClInclude Include="src\components\WaterBossLife.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\components\AnimationLightBossComponent.cpp" />
+    <ClCompile Include="src\components\AttackLightBossComponent.cpp" />
+    <ClCompile Include="src\components\DisableOnExit.cpp" />
+    <ClCompile Include="src\components\Damage.cpp" />
+    <ClCompile Include="src\components\FramedImage.cpp" />
+    <ClCompile Include="src\components\LifeLightBossComponent.cpp" />
+    <ClCompile Include="src\components\MovementLightBossComponent.cpp" />
+    <ClCompile Include="src\components\NPCcollisioncomponent.cpp" />
+    <ClCompile Include="src\components\LifeTD.cpp" />
+    <ClCompile Include="src\components\PortalComponent.cpp" />
+    <ClCompile Include="src\components\ProtectionEarthBossComponent.cpp" />
+    <ClCompile Include="src\components\SectorCollisionComponent.cpp" />
+    <ClCompile Include="src\components\StoneComponent.cpp" />
+    <ClCompile Include="src\states\PauseState.cpp" />
     <ClCompile Include="src\components\AttackEarthBossComponent.cpp" />
     <ClCompile Include="src\components\EconomyComponent.cpp" />
     <ClCompile Include="src\components\SkinBEUComponent.cpp" />
@@ -235,30 +258,18 @@
     <ClCompile Include="src\components\MovementEarthBossComponent.cpp" />
     <ClCompile Include="src\components\ShadowComponent.cpp" />
     <ClCompile Include="src\components\ShopComponent.cpp" />
-    <ClCompile Include="src\Entities\LifeBar.cpp" />
     <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\states\BeatEmUpState.cpp" />
-    <ClCompile Include="src\Entities\Camera.cpp" />
-    <ClCompile Include="src\components\CameraComponent.cpp" />
     <ClCompile Include="src\components\CheckCollision.cpp" />
-    <ClCompile Include="src\states\PauseMenuState.cpp" />
     <ClCompile Include="src\utils\Collision.cpp" />
     <ClCompile Include="src\components\Enemy_movementTD_component.cpp" />
-    <ClCompile Include="src\Entities\DialogBox.cpp" />
-    <ClCompile Include="src\Entities\Element.cpp" />
-    <ClCompile Include="src\Entities\Enemy.cpp" />
-    <ClCompile Include="src\Entities\EnemyBEU.cpp" />
     <ClCompile Include="src\components\EnemyBEUDirectionComponent.cpp" />
     <ClCompile Include="src\GameManager.cpp" />
     <ClCompile Include="src\components\InputComponent.cpp" />
     <ClCompile Include="src\components\InputComponentBEU.cpp" />
     <ClCompile Include="src\components\LifeComponent.cpp" />
     <ClCompile Include="src\components\MovementComponent.cpp" />
-    <ClCompile Include="src\Entities\Npc.cpp" />
     <ClCompile Include="src\components\ObjectsComponent.cpp" />
-    <ClCompile Include="src\Entities\PlayerBEU.cpp" />
-    <ClCompile Include="src\Entities\PlayerTD.cpp" />
-    <ClCompile Include="src\Entities\PortalComponent.cpp" />
     <ClCompile Include="src\components\SkinComponent.cpp" />
     <ClCompile Include="src\states\GameState.cpp" />
     <ClCompile Include="src\states\GameStateMachine.cpp" />
@@ -274,6 +285,8 @@
     <ClCompile Include="src\utils\Entity.cpp" />
     <ClCompile Include="src\utils\Manager.cpp" />
     <ClCompile Include="src\utils\Vector2D.cpp" />
+    <ClCompile Include="src\components\WaterBossIA.cpp" />
+    <ClCompile Include="src\components\WaterBossLife.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="TheFifthElement.rc" />
@@ -297,7 +310,7 @@
   </ImportGroup>
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties assets_4resources_1json__JsonSchema=" " />
+      <UserProperties />
     </VisualStudio>
   </ProjectExtensions>
 </Project>

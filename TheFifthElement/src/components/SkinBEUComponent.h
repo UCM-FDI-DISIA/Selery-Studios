@@ -1,8 +1,9 @@
 #pragma once
 #include "../utils/Component.h"
 #include "../sdlutils/Texture.h"
+#include "../utils/PropertiesManager.h"
 #include "../GameManager.h"
-#include "Image.h"
+#include "FramedImage.h"
 
 class LifeComponent;
 
@@ -20,19 +21,13 @@ private:
     string skin_;
     string prevSkin_;
     int nframes_;
-    int fila_;
-    int w_, h_;
-    Image* im_;
+    FramedImage* im_;
     LifeComponent* lifeC_ = nullptr;
-    bool set_ = false;
+    PropertiesManager* props;
 
 public:
-
-    SkinBEUComponent(string skin)
-    {
-        skin_ = skin;
-        prevSkin_ = skin;
-    }
+    SkinBEUComponent(string skin);
+    virtual ~SkinBEUComponent() {}
     void setIdle();
     void setLeft();
     void setRight();

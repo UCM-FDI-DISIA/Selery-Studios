@@ -12,12 +12,12 @@ void AttackBoxComponent::initComponent()
 {
 	isPlayer = ent_->hasComponent(INPUTCOMPONENTBEU_H);
 	if (!isPlayer) {
-		im_ = ent_->getComponent<Image>(IMAGE_H);
+		im_ = ent_->getComponent<FramedImage>(FRAMEDIMAGE_H);
 	}
 	entityTr = ent_->getComponent<Transform>(TRANSFORM_H);
 	if (ent_->hasComponent(INPUTCOMPONENTBEU_H))
 	{
-		im_ = ent_->getComponent<Image>(IMAGE_H);
+		im_ = ent_->getComponent<FramedImage>(FRAMEDIMAGE_H);
 		type = im_->getType();
 
 		sk_ = ent_->getComponent<SkinBEUComponent>(SKINBEUCOMPONENT_H);
@@ -33,6 +33,8 @@ void AttackBoxComponent::render()
 {
 	for (auto it : boxes)
 	{
+		it.w *= entityTr->getS();
+		it.h *= entityTr->getS();
 		SDL_SetRenderDrawColor(GameManager::instance()->getRenderer(), 0, 255, 0, 0);
 		SDL_RenderDrawRect(GameManager::instance()->getRenderer(), &it);
 	}
@@ -41,42 +43,34 @@ void AttackBoxComponent::render()
 void AttackBoxComponent::update(){
 	if (isPlayer) {
 		type = im_->getType();
-		handleBoxes();
-		unsigned timer = clock();
-		timerExecution = (double(timer) / CLOCKS_PER_SEC);
 	}
-	else {
-		handleBoxes();
-		unsigned timer = clock();
-		timerExecution = (double(timer) / CLOCKS_PER_SEC);
-	}
+	handleBoxes();
+	unsigned timer = clock();
+	timerExecution = (double(timer) / CLOCKS_PER_SEC);
 }
 
 void AttackBoxComponent::handleBoxes()
 {
 	if (isPlayer) {
-		if (im_->getRow() == 9)
-		{
-			//cout << "COL: " << im_->getCol() << endl;
-		}
-
-		if (sk_->getSkin() == "Player_BEU_fire")
+		if (type == "fire")
 		{
 
-			//Comprobamos que animación estamos ejecutando y en que punto de la animación estamos 
-			if (im_->getRow() == 9 && im_->getCol() <= 8)
+			//Comprobamos que animaciï¿½n estamos ejecutando y en que punto de la animaciï¿½n estamos 
+			if (im_->getTexKey() == "Player_BEU_fire_attack3"  && im_->getCol() < 8)
 			{
 
-				if (!boxCreated)
+				if (!boxCreated && im_->getCol()!=0)
 				{
 					boxes.clear();
-					for (int i = 0; i < 5; i++)
+
+					if (im_->getCol()!=8)
 					{
-						boxes.push_back(build_sdlrect(entityTr->getPos().getX() - mngr_->camRect_.x + entityTr->getW() / 2, entityTr->getPos().getY() + entityTr->getH(), 10, 10));
+						for (int i = 0; i < 5; i++)
+						{
+							boxes.push_back(build_sdlrect(entityTr->getPos().getX() - mngr_->camRect_.x + (entityTr->getW() * entityTr->getS()) / 2, entityTr->getPos().getY() + (entityTr->getH() * entityTr->getS()), 10, 10));
+						}
+						boxCreated = true;
 					}
-					boxCreated = true;
-
-
 					//Para poder cambiar satisfactoriamente la direccion del cuadrado
 					if (im_->getFlip() == SDL_FLIP_NONE)
 					{
@@ -99,13 +93,11 @@ void AttackBoxComponent::handleBoxes()
 				}
 				else
 				{
-
-					cout << angles[0] << endl;
 					for (int i = 0; i < boxes.size(); i++)
 					{
 
-						moveBoxCurve(boxes[i], 40 + 10 * i, Vector2D(entityTr->getPos().getX() - mngr_->camRect_.x + entityTr->getW() / 2, entityTr->getPos().getY() + entityTr->getH()), 0.075, angles[i], stoppingAngle, way);
-						static_cast<BeatEmUpState*>(mngr_)->getColManager()->checkCollisionP(boxes[i], type, true);
+						moveBoxCurve(boxes[i], 40 + 10 * i, Vector2D(entityTr->getPos().getX() - mngr_->camRect_.x + (entityTr->getW() * entityTr->getS()) / 2, entityTr->getPos().getY() + (entityTr->getH() * entityTr->getS())), 0.075, angles[i], stoppingAngle, way);
+						static_cast<BeatEmUpState*>(mngr_)->getColManager()->checkCollisionP(boxes[i], type);
 					}
 
 
@@ -120,31 +112,32 @@ void AttackBoxComponent::handleBoxes()
 
 			}
 
-			else if (im_->getRow() == 9 && im_->getCol() <= 15)
+			else if (im_->getTexKey() == "Player_BEU_fire_attack3" && im_->getCol() < 15 && im_->getCol()>8)
 			{
+				
 				if (!boxCreated)
 				{
+					boxes.clear();
+					
+					if (im_->getCol()!=14)
+					{
+						boxes.push_back(build_sdlrect(entityTr->getPos().getX() - mngr_->camRect_.x + (entityTr->getW() * entityTr->getS()) / 2, entityTr->getPos().getY() + (entityTr->getH() * entityTr->getS()) / 2, 140, 60));
+						boxCreated = true;
 
-					boxes.push_back(build_sdlrect(entityTr->getPos().getX() - mngr_->camRect_.x + entityTr->getW() / 2, entityTr->getPos().getY() + entityTr->getH() / 2, 140, 60));
-					boxCreated = true;
+					}
+					
 
 					//Para poder cambiar satisfactoriamente la direccion del cuadrado
 					if (im_->getFlip() == SDL_FLIP_NONE)
 					{
 						way = 1;
 						stoppingAngle = 360;
-						for (int i = 0; i < boxes.size(); i++)
-						{
-							angles[i] = 182;
-						}
+						angles[0] = 182;
 					}
 					else
 					{
-						way = -1;
-						for (int i = 0; i < boxes.size(); i++)
-						{
-							angles[i] = 0;
-						}
+						way = -1;			
+						angles[0] = 0;
 						stoppingAngle = -3.1;
 					}
 				}
@@ -152,16 +145,16 @@ void AttackBoxComponent::handleBoxes()
 				{
 					if (way == -1)
 					{
-						moveBoxCurve(boxes[0], 5, Vector2D(entityTr->getPos().getX() - mngr_->camRect_.x - 20 + entityTr->getW() / 3, entityTr->getPos().getY() + entityTr->getH() / 2), 0.195, angles[0], stoppingAngle, way);
-						static_cast<BeatEmUpState*>(mngr_)->getColManager()->checkCollisionP(boxes[0], type, true);
+						moveBoxCurve(boxes[0], 5, Vector2D(entityTr->getPos().getX() - mngr_->camRect_.x - 20 + (entityTr->getW() * entityTr->getS()) / 3, entityTr->getPos().getY() + (entityTr->getH() * entityTr->getS()) / 2), 0.195, angles[0], stoppingAngle, way);
+						static_cast<BeatEmUpState*>(mngr_)->getColManager()->checkCollisionP(boxes[0], type);
 					}
 					else
 					{
-						moveBoxCurve(boxes[0], 5, Vector2D(entityTr->getPos().getX() - mngr_->camRect_.x + entityTr->getW() / 3, entityTr->getPos().getY() + entityTr->getH() / 2), 0.195, angles[0], stoppingAngle, way);
-						static_cast<BeatEmUpState*>(mngr_)->getColManager()->checkCollisionP(boxes[0], type, true);
+						moveBoxCurve(boxes[0], 5, Vector2D(entityTr->getPos().getX() - mngr_->camRect_.x + (entityTr->getW() * entityTr->getS()) / 3, entityTr->getPos().getY() + (entityTr->getH() * entityTr->getS()) / 2), 0.195, angles[0], stoppingAngle, way);
+						static_cast<BeatEmUpState*>(mngr_)->getColManager()->checkCollisionP(boxes[0], type);
 					}
 
-					if (im_->getCol() == 15)
+					if (im_->getCol() == 14)
 					{
 						unsigned timer = clock();
 						boxTime = (double(timer) / CLOCKS_PER_SEC);
@@ -172,15 +165,17 @@ void AttackBoxComponent::handleBoxes()
 				}
 			}
 
-			else if (im_->getRow() == 9 && im_->getCol() > 15 && im_->getCol() <= 24)
+			else if (im_->getTexKey() == "Player_BEU_fire_attack3" && im_->getCol() > 16 && im_->getCol() <= 24)
 			{
 				if (!boxCreated)
 				{
 					boxes.clear();
-					boxes.push_back(build_sdlrect(entityTr->getPos().getX() - mngr_->camRect_.x - 30 + entityTr->getW() / 2, entityTr->getPos().getY() + entityTr->getH() / 2, 70, 60));
-					boxCreated = true;
+					if (im_->getCol()!=24)
+					{
+						boxes.push_back(build_sdlrect(entityTr->getPos().getX() - mngr_->camRect_.x - 30 + (entityTr->getW() * entityTr->getS()) / 2, entityTr->getPos().getY() + (entityTr->getH() * entityTr->getS()) / 2, 70, 60));
+						boxCreated = true;
 
-
+					}
 					//Para poder cambiar satisfactoriamente la direccion del cuadrado
 					if (im_->getFlip() == SDL_FLIP_NONE)
 					{
@@ -194,7 +189,7 @@ void AttackBoxComponent::handleBoxes()
 				else
 				{
 					moveBox(boxes[0], Vector2D(1, 0) * way, 2);
-					static_cast<BeatEmUpState*>(mngr_)->getColManager()->checkCollisionP(boxes[0], type, true);
+					static_cast<BeatEmUpState*>(mngr_)->getColManager()->checkCollisionP(boxes[0], type);
 					if (im_->getCol() == 24)
 					{
 						unsigned timer = clock();
@@ -206,7 +201,7 @@ void AttackBoxComponent::handleBoxes()
 				}
 			}
 
-			else if (im_->getRow() == 10)
+			else if (im_->getTexKey() == "Player_BEU_fire_super")
 			{
 
 				if (!boxCreated)
@@ -214,7 +209,7 @@ void AttackBoxComponent::handleBoxes()
 					boxes.clear();
 					for (int i = 0; i < 5; i++)
 					{
-						boxes.push_back(build_sdlrect(entityTr->getPos().getX() - mngr_->camRect_.x + entityTr->getW() / 2, entityTr->getPos().getY() + entityTr->getH(), 30, 30));
+						boxes.push_back(build_sdlrect(entityTr->getPos().getX() - mngr_->camRect_.x + (entityTr->getW() * entityTr->getS()) / 2, entityTr->getPos().getY() + (entityTr->getH() * entityTr->getS()), 30, 30));
 					}
 					boxCreated = true;
 
@@ -244,15 +239,15 @@ void AttackBoxComponent::handleBoxes()
 					{
 						if (way == 1)
 						{
-							moveBoxCurve(boxes[i], 40 + 10 * i, Vector2D(entityTr->getPos().getX() - mngr_->camRect_.x + entityTr->getW() / 2, entityTr->getPos().getY() + entityTr->getH()), 0.03, angles[i], stoppingAngle, way);
+							moveBoxCurve(boxes[i], 40 + 10 * i, Vector2D(entityTr->getPos().getX() - mngr_->camRect_.x + (entityTr->getW() * entityTr->getS()) / 2, entityTr->getPos().getY() + (entityTr->getH() * entityTr->getS())), 0.03, angles[i], stoppingAngle, way);
 						}
 						else
 						{
-							moveBoxCurve(boxes[i], 40 + 10 * i, Vector2D(entityTr->getPos().getX() - 10 - mngr_->camRect_.x + entityTr->getW() / 2, entityTr->getPos().getY() + entityTr->getH()), 0.025, angles[i], stoppingAngle, way);
+							moveBoxCurve(boxes[i], 40 + 10 * i, Vector2D(entityTr->getPos().getX() - 10 - mngr_->camRect_.x + (entityTr->getW() * entityTr->getS()) / 2, entityTr->getPos().getY() + (entityTr->getH() * entityTr->getS())), 0.025, angles[i], stoppingAngle, way);
 
 						}
 
-						static_cast<BeatEmUpState*>(mngr_)->getColManager()->checkCollisionP(boxes[i], type, true);
+						static_cast<BeatEmUpState*>(mngr_)->getColManager()->checkCollisionP(boxes[i], type);
 					}
 
 
@@ -278,9 +273,9 @@ void AttackBoxComponent::handleBoxes()
 			}
 
 		}
-		else if (sk_->getSkin() == "Player_BEU_water")
+		else if (type == "water")
 		{
-			if (im_->getRow() == 9 && im_->getCol() <= 7)
+			if (im_->getTexKey() == "Player_BEU_water_attack3" && im_->getCol() <= 7)
 			{
 
 				if (!boxCreated)
@@ -295,15 +290,16 @@ void AttackBoxComponent::handleBoxes()
 					{
 						way = -1;
 					}
-
-					for (int i = 0; i < 7; i++)
+					if (im_->getCol()!=7)
 					{
-						boxes.push_back(build_sdlrect(entityTr->getPos().getX() + 8 * i * way - mngr_->camRect_.x + entityTr->getW() / 2, entityTr->getPos().getY() + 30 + entityTr->getH() / 2, 10, 10));
+						for (int i = 0; i < 7; i++)
+						{
+							boxes.push_back(build_sdlrect(entityTr->getPos().getX() + 8 * i * way - mngr_->camRect_.x + (entityTr->getW() * entityTr->getS()) / 2, entityTr->getPos().getY() + 30 + (entityTr->getH() * entityTr->getS()) / 2, 10, 10));
+						}
+						//boxes.push_back(build_sdlrect(entityTr->getPos().getX() - mngr_->camRect_.x  + (entityTr->getW() * entityTr->getS()) / 2, entityTr->getPos().getY() +30+ (entityTr->getH() * entityTr->getS()) / 2, 70, 10));
+						boxCreated = true;
 					}
-					//boxes.push_back(build_sdlrect(entityTr->getPos().getX() - mngr_->camRect_.x  + entityTr->getW() / 2, entityTr->getPos().getY() +30+ entityTr->getH() / 2, 70, 10));
-					boxCreated = true;
-
-
+				
 				}
 				else
 				{
@@ -312,8 +308,8 @@ void AttackBoxComponent::handleBoxes()
 					{
 
 						moveBox(boxes[i], Vector2D(1, 0) * way, 1);
-						/*moveBoxCurve(boxes[i], 40 + 10 * i, Vector2D(entityTr->getPos().getX() - mngr_->camRect_.x + entityTr->getW() / 2, entityTr->getPos().getY() + entityTr->getH()), 0.095, angles[i], stoppingAngle, way);
-						*/static_cast<BeatEmUpState*>(mngr_)->getColManager()->checkCollisionP(boxes[i], type, true);
+						/*moveBoxCurve(boxes[i], 40 + 10 * i, Vector2D(entityTr->getPos().getX() - mngr_->camRect_.x + (entityTr->getW() * entityTr->getS()) / 2, entityTr->getPos().getY() + (entityTr->getH() * entityTr->getS())), 0.095, angles[i], stoppingAngle, way);
+						*/static_cast<BeatEmUpState*>(mngr_)->getColManager()->checkCollisionP(boxes[i], type);
 					}
 
 					if (im_->getCol() == 7)
@@ -327,7 +323,7 @@ void AttackBoxComponent::handleBoxes()
 
 			}
 
-			else if (im_->getRow() == 9 && im_->getCol() <= 17)
+			else if (im_->getTexKey() == "Player_BEU_water_attack3" && im_->getCol() <= 17)
 			{
 				Vector2D lastBox;
 				if (!boxCreated)
@@ -347,14 +343,11 @@ void AttackBoxComponent::handleBoxes()
 					{
 						for (int i = 0; i < 7; i++)
 						{
-							boxes.push_back(build_sdlrect(entityTr->getPos().getX() + 8 * i * way - mngr_->camRect_.x + entityTr->getW() / 2, entityTr->getPos().getY() + 30 + entityTr->getH() / 2, 10, 10));
+							boxes.push_back(build_sdlrect(entityTr->getPos().getX() + 8 * i * way - mngr_->camRect_.x + (entityTr->getW() * entityTr->getS()) / 2, entityTr->getPos().getY() + 30 + (entityTr->getH() * entityTr->getS()) / 2, 10, 10));
 
 						}
 						boxCreated = true;
 					}
-
-
-
 				}
 				else
 				{
@@ -364,7 +357,7 @@ void AttackBoxComponent::handleBoxes()
 
 						moveBox(boxes[i], Vector2D(1, 0) * way, 2);
 						lastBox = Vector2D(boxes[boxes.size() - 1].x, boxes[boxes.size() - 1].y);
-						static_cast<BeatEmUpState*>(mngr_)->getColManager()->checkCollisionP(boxes[i], type, true);
+						static_cast<BeatEmUpState*>(mngr_)->getColManager()->checkCollisionP(boxes[i], type);
 					}
 
 
@@ -380,12 +373,12 @@ void AttackBoxComponent::handleBoxes()
 				}
 			}
 
-			else if (im_->getRow() == 9 && im_->getCol() <= 23)
+			else if (im_->getTexKey() == "Player_BEU_water_attack3" && im_->getCol() <= 23)
 			{
 				if (!boxCreated)
 				{
 					boxes.clear();
-					boxes.push_back(build_sdlrect(entityTr->getPos().getX() - mngr_->camRect_.x - 30 + entityTr->getW() / 2, entityTr->getPos().getY() + entityTr->getH() / 2, 70, 60));
+					boxes.push_back(build_sdlrect(entityTr->getPos().getX() - mngr_->camRect_.x - 30 + (entityTr->getW() * entityTr->getS()) / 2, entityTr->getPos().getY() + (entityTr->getH() * entityTr->getS()) / 2, 70, 60));
 					boxCreated = true;
 
 					//Para poder cambiar satisfactoriamente la direccion del cuadrado
@@ -402,7 +395,7 @@ void AttackBoxComponent::handleBoxes()
 				{
 					moveBox(boxes[0], Vector2D(1, 0) * way, 2);
 
-					static_cast<BeatEmUpState*>(mngr_)->getColManager()->checkCollisionP(boxes[0], type, true);
+					static_cast<BeatEmUpState*>(mngr_)->getColManager()->checkCollisionP(boxes[0], type);
 					if (im_->getCol() == 24)
 					{
 						unsigned timer = clock();
@@ -413,7 +406,7 @@ void AttackBoxComponent::handleBoxes()
 				}
 			}
 
-			else if (im_->getRow() == 10)
+			else if (im_->getTexKey() == "Player_BEU_water_super")
 			{
 
 				if (!boxCreated)
@@ -423,12 +416,12 @@ void AttackBoxComponent::handleBoxes()
 					//Para poder cambiar satisfactoriamente la direccion del cuadrado
 					if (im_->getFlip() == SDL_FLIP_NONE)
 					{
-						boxes.push_back(build_sdlrect(entityTr->getPos().getX() - mngr_->camRect_.x + 40 + entityTr->getW() / 2, entityTr->getPos().getY() + 40 + entityTr->getH() / 2, 35, 35));
+						boxes.push_back(build_sdlrect(entityTr->getPos().getX() - mngr_->camRect_.x + 40 + (entityTr->getW() * entityTr->getS()) / 2, entityTr->getPos().getY() + 40 + (entityTr->getH() * entityTr->getS()) / 2, 35, 35));
 						way = 1;
 					}
 					else
 					{
-						boxes.push_back(build_sdlrect(entityTr->getPos().getX() - mngr_->camRect_.x - 75 + entityTr->getW() / 2, entityTr->getPos().getY() + 40 + entityTr->getH() / 2, 35, 35));
+						boxes.push_back(build_sdlrect(entityTr->getPos().getX() - mngr_->camRect_.x - 75 + (entityTr->getW() * entityTr->getS()) / 2, entityTr->getPos().getY() + 40 + (entityTr->getH() * entityTr->getS()) / 2, 35, 35));
 
 						way = -1;
 					}
@@ -450,11 +443,11 @@ void AttackBoxComponent::handleBoxes()
 					else if (im_->getCol() >= 13 && im_->getCol() < 14)
 					{
 						boxes.clear();
-						if (way == 1)boxes.push_back(build_sdlrect(entityTr->getPos().getX() - mngr_->camRect_.x + 10 + entityTr->getW() / 2, entityTr->getPos().getY() + 13 + entityTr->getH() / 2, 90, 50));
-						else boxes.push_back(build_sdlrect(entityTr->getPos().getX() - mngr_->camRect_.x - 100 + entityTr->getW() / 2, entityTr->getPos().getY() + 13 + entityTr->getH() / 2, 90, 50));
+						if (way == 1)boxes.push_back(build_sdlrect(entityTr->getPos().getX() - mngr_->camRect_.x + 10 + (entityTr->getW() * entityTr->getS()) / 2, entityTr->getPos().getY() + 13 + (entityTr->getH() * entityTr->getS()) / 2, 90, 50));
+						else boxes.push_back(build_sdlrect(entityTr->getPos().getX() - mngr_->camRect_.x - 100 + (entityTr->getW() * entityTr->getS()) / 2, entityTr->getPos().getY() + 13 + (entityTr->getH() * entityTr->getS()) / 2, 90, 50));
 
 					}
-					static_cast<BeatEmUpState*>(mngr_)->getColManager()->checkCollisionP(boxes[0], type, true);
+					static_cast<BeatEmUpState*>(mngr_)->getColManager()->checkCollisionP(boxes[0], type);
 					if (im_->getCol() == 14)
 					{
 						unsigned timer = clock();
@@ -475,23 +468,482 @@ void AttackBoxComponent::handleBoxes()
 				}
 			}
 		}
+		else if(type == "air")
+		{
+			//Comprobamos que animaciï¿½n estamos ejecutando y en que punto de la animaciï¿½n estamos 
+			if (im_->getTexKey() == "Player_BEU_air_attack3" && im_->getCol() <= 6)
+			{
+				if (!boxCreated)
+				{
+					boxes.clear();
+
+					//Para poder cambiar satisfactoriamente la direccion del cuadrado
+					if (im_->getFlip() == SDL_FLIP_NONE)
+					{
+						way = 1;
+					}
+					else
+					{
+						way = -1;
+					}
+					if (im_->getCol()!=6  && im_->getCol() != 0)
+					{
+						for (int i = 0; i < 5; i++)
+						{
+							if(im_->getCol()!=6)boxes.push_back(build_sdlrect(entityTr->getPos().getX() + i * 6 * way - mngr_->camRect_.x + (entityTr->getW() * entityTr->getS()) / 2, entityTr->getPos().getY() + (entityTr->getH() * entityTr->getS()) - 30, 10, 10));
+						}
+						boxCreated = true;
+					}
+				
+					
+				}
+				else
+				{
+					if (im_->getCol()<3)
+					{
+						for (int i = 0; i < boxes.size(); i++)
+						{
+							moveBox(boxes[i], Vector2D(1, 0) * way, 1);
+							static_cast<BeatEmUpState*>(mngr_)->getColManager()->checkCollisionP(boxes[i], type);
+						}
+					}
+					else if (im_->getCol() >= 3 && im_->getCol() < 4)
+					{
+
+						for (int i = 0; i < boxes.size(); i++)
+						{
+							boxes[i].y -= 5;
+							moveBox(boxes[i], Vector2D(-1,0) * way + Vector2D(0,1), 8);
+							static_cast<BeatEmUpState*>(mngr_)->getColManager()->checkCollisionP(boxes[i], type);
+						}
+					}
+
+					if (im_->getCol() == 6)
+					{
+						unsigned timer = clock();
+						boxTime = (double(timer) / CLOCKS_PER_SEC);
+						boxes.clear();
+						boxCreated = false;
+					}
+				}
+			}
+
+			else if (im_->getTexKey() == "Player_BEU_air_attack3" && im_->getCol() >6 && im_->getCol() <= 13)
+			{
+				if (!boxCreated)
+				{
+					if (im_->getFlip() == SDL_FLIP_NONE)
+					{
+						boxes.push_back(build_sdlrect(entityTr->getPos().getX() - mngr_->camRect_.x + 20 + (entityTr->getW() * entityTr->getS()) / 2, entityTr->getPos().getY() + 10 + (entityTr->getH() * entityTr->getS()) / 2, 50, 50));
+						way = 1;
+					}
+					else
+					{
+						boxes.push_back(build_sdlrect(entityTr->getPos().getX() - mngr_->camRect_.x - 60 + (entityTr->getW() * entityTr->getS()) / 2, entityTr->getPos().getY() + 10 + (entityTr->getH() * entityTr->getS()) / 2, 50, 50));
+
+						way = -1;
+					}
+					boxCreated = true;
+			
+				}
+				else
+				{
+
+
+					static_cast<BeatEmUpState*>(mngr_)->getColManager()->checkCollisionP(boxes[0], type);
+				
+
+					if (im_->getCol() == 13)
+					{
+						unsigned timer = clock();
+						boxTime = (double(timer) / CLOCKS_PER_SEC);
+						boxes.clear();
+						boxCreated = false;
+
+					}
+				}
+			}
+
+			else if (im_->getTexKey() == "Player_BEU_air_attack3" && im_->getCol() > 13 && im_->getCol() <= 25)
+			{
+				if (!boxCreated)
+				{
+					if (im_->getCol()!=25)
+					{
+						boxes.clear();
+						boxes.push_back(build_sdlrect(entityTr->getPos().getX() - mngr_->camRect_.x - 30 + (entityTr->getW() * entityTr->getS()) / 2, entityTr->getPos().getY() + (entityTr->getH() * entityTr->getS()) / 2, 40, 60));
+						boxCreated = true;
+
+					}
+				
+
+					//Para poder cambiar satisfactoriamente la direccion del cuadrado
+					if (im_->getFlip() == SDL_FLIP_NONE)
+					{
+						way = 1;
+					}
+					else
+					{
+						way = -1;
+					}
+				}
+				else
+				{
+					if (im_->getCol()<24)
+					{
+						moveBox(boxes[0], Vector2D(1, 0)* way, 1);
+					}
+			
+					static_cast<BeatEmUpState*>(mngr_)->getColManager()->checkCollisionP(boxes[0], type);
+					if (im_->getCol() == 25)
+					{
+					
+						unsigned timer = clock();
+						boxTime = (double(timer) / CLOCKS_PER_SEC);
+						boxes.clear();
+						boxCreated = false;
+					}
+					
+				}
+
+			}
+			else if (im_->getTexKey() == "Player_BEU_air_super") {
+				if (!boxCreated) {
+					boxes.clear();
+					//Para poder cambiar satisfactoriamente la direccion del cuadrado
+					if (im_->getFlip() == SDL_FLIP_NONE)
+					{
+						way = 1;
+					}
+					else
+					{
+						way = -1;
+					}		
+					boxes.push_back(build_sdlrect(entityTr->getPos().getX() - mngr_->camRect_.x + entityTr->getW() / 2, entityTr->getPos().getY() +10+ entityTr->getH()/2, 30, 60));
+					
+				//	boxes.push_back(build_sdlrect(entityTr->getPos().getX() - mngr_->camRect_.x + entityTr->getW() / 2, entityTr->getPos().getY() + 10 + entityTr->getH() / 2, 30, 60));
+					boxCreated = true;
+				}
+				else
+				{
+					if (im_->getCol()<6)
+					{
+						moveBox(boxes[0], Vector2D(1, 0)* way, 2);
+						actualized = false;
+					}
+					else if(im_->getCol() >= 6 && im_->getCol()<14)
+					{
+						if (!actualized)
+						{
+							actualized = true;
+							Vector2D newBoxPos = entityTr->getPos();
+							boxes[0].x = newBoxPos.getX()  -mngr_->camRect_.x+ (entityTr->getW() * entityTr->getS()) / 2 - boxes[0].w;
+							boxes[0].y = newBoxPos.getY() - 10;
+							boxes[0].w = 90;
+							boxes[0].h = 50;
+						}
+						else
+						{
+							moveBox(boxes[0], Vector2D(0, 1), 3);
+						}
+					}
+					else if(im_->getCol() >= 14 && im_->getCol() < 18)
+					{
+						if (actualized)
+						{
+							actualized = false;
+							Vector2D newBoxPos = entityTr->getPos();
+							if (way == 1)
+							{
+								boxes[0].x = newBoxPos.getX() - mngr_->camRect_.x + 130 ;
+							}
+							else
+							{
+								boxes[0].x = newBoxPos.getX() - mngr_->camRect_.x ;
+							}
+							boxes[0].y = newBoxPos.getY() -30 + (entityTr->getW() * entityTr->getS())/2;
+							boxes[0].w = 50;
+							boxes[0].h = 80;
+						}
+						else
+						{
+							moveBox(boxes[0], Vector2D(-1, 0)* way, 3);
+						}
+					
+					}
+					else if(im_->getCol() >= 18 && im_->getCol() < 26)
+					{
+						if (!actualized)
+						{
+							actualized = true;
+							Vector2D newBoxPos = entityTr->getPos();
+							if (way == 1)
+							{
+								boxes[0].x = newBoxPos.getX() - mngr_->camRect_.x  ;
+							}
+							else
+							{
+								boxes[0].x = newBoxPos.getX() - mngr_->camRect_.x + 120;
+							}
+							
+							boxes[0].y = newBoxPos.getY() - 30 + (entityTr->getW() * entityTr->getS()) / 2;
+							boxes[0].w = 50;
+							boxes[0].h = 80;
+						}
+						else
+						{
+							moveBox(boxes[0], Vector2D(1, 0)* way, 3);
+						}
+					
+					}
+					
+					static_cast<BeatEmUpState*>(mngr_)->getColManager()->checkCollisionP(boxes[0], type);
+
+					if (im_->getCol() == 27)
+					{
+						unsigned timer = clock();
+						boxTime = (double(timer) / CLOCKS_PER_SEC);
+						boxes.clear();
+						boxCreated = false;
+						actualized = false;
+					}
+				}
+
+			}
+			else
+			{
+				boxCreated = false;
+				if (boxTime + 1000 / 1000 < timerExecution) {
+					unsigned timer = clock();
+					boxTime = (double(timer) / CLOCKS_PER_SEC);
+					boxes.clear();
+					boxCreated = false;
+				}
+			}
+		}
+		else
+		{
+			//Comprobamos que animaciï¿½n estamos ejecutando y en que punto de la animaciï¿½n estamos 
+			if (im_->getTexKey() == "Player_BEU_earth_attack3" && im_->getCol() <= 4)
+			{
+				if (!boxCreated)
+				{
+					boxes.clear();
+
+					if (im_->getCol()!=4 && im_->getCol()!=0)
+					{
+
+						//Para poder cambiar satisfactoriamente la direccion del cuadrado
+						if (im_->getFlip() == SDL_FLIP_NONE)
+						{
+							way = 1;
+							boxes.push_back(build_sdlrect(entityTr->getPos().getX() + 15 - mngr_->camRect_.x + (entityTr->getW() * entityTr->getS()) / 2, entityTr->getPos().getY() + (entityTr->getH() * entityTr->getS()) - 45, 30, 30));
+
+						}
+						else
+						{
+							way = -1;
+							boxes.push_back(build_sdlrect(entityTr->getPos().getX() - 40 - mngr_->camRect_.x + (entityTr->getW() * entityTr->getS()) / 2, entityTr->getPos().getY() + (entityTr->getH() * entityTr->getS()) - 45, 30, 30));
+
+						}
+						boxCreated = true;
+
+					}
+				
+					
+					
+				}
+				else
+				{
+					if (im_->getCol() == 4)
+					{
+						unsigned timer = clock();
+						boxTime = (double(timer) / CLOCKS_PER_SEC);
+						boxes.clear();
+						boxCreated = false;
+					}
+				}
+			}
+
+			else if (im_->getTexKey() == "Player_BEU_earth_attack3" && im_->getCol() > 4 && im_->getCol() <= 9)
+			{
+				if (!boxCreated)
+				{
+					boxes.clear();
+					
+					if (im_->getCol()!=9 && im_->getCol()!=0)
+					{
+
+						if (im_->getFlip() == SDL_FLIP_NONE)
+						{
+							boxes.push_back(build_sdlrect(entityTr->getPos().getX() - mngr_->camRect_.x + 20 + (entityTr->getW() * entityTr->getS()) / 2, entityTr->getPos().getY() + 20 + (entityTr->getH() * entityTr->getS()) / 2, 30, 30));
+							way = 1;
+						}
+						else
+						{
+							boxes.push_back(build_sdlrect(entityTr->getPos().getX() - mngr_->camRect_.x - 50 + (entityTr->getW() * entityTr->getS()) / 2, entityTr->getPos().getY() + 20 + (entityTr->getH() * entityTr->getS()) / 2, 30, 30));
+							way = -1;
+						}
+						boxCreated = true;
+
+					}
+				}
+				else
+				{
+					static_cast<BeatEmUpState*>(mngr_)->getColManager()->checkCollisionP(boxes[0], type);
+					if (im_->getCol() == 9)
+					{
+						unsigned timer = clock();
+						boxTime = (double(timer) / CLOCKS_PER_SEC);
+						boxes.clear();
+						boxCreated = false;
+
+					}
+				}
+			}
+
+			else if (im_->getTexKey() == "Player_BEU_earth_attack3" && im_->getCol() > 15 && im_->getCol() <= 22)
+			{
+				if (!boxCreated)
+				{
+					boxes.clear();
+					
+
+					if (im_->getCol()!=22 && im_->getCol() != 0)
+					{
+
+						//Para poder cambiar satisfactoriamente la direccion del cuadrado
+						if (im_->getFlip() == SDL_FLIP_NONE)
+						{
+							boxes.push_back(build_sdlrect(entityTr->getPos().getX() - mngr_->camRect_.x + 20 + (entityTr->getW() * entityTr->getS()) / 2, entityTr->getPos().getY() + 50+(entityTr->getH() * entityTr->getS()) / 2, 20, 10));
+							way = 1;
+						}
+						else
+						{
+							boxes.push_back(build_sdlrect(entityTr->getPos().getX() - mngr_->camRect_.x - 35 + (entityTr->getW() * entityTr->getS()) / 2, entityTr->getPos().getY() + 50 + (entityTr->getH() * entityTr->getS()) / 2, 20, 10));
+							way = -1;
+						}
+
+						boxCreated = true;
+					}
+				}
+				else
+				{
+					
+
+					if (im_->getCol() > 17)
+					{
+						boxes.clear();
+						if (way==1)
+						{
+							boxes.push_back(build_sdlrect(entityTr->getPos().getX() - mngr_->camRect_.x + 35 + (entityTr->getW() * entityTr->getS()) / 2, entityTr->getPos().getY() + 50+ (entityTr->getH() * entityTr->getS()) / 2, 60, 10));
+							boxes.push_back(build_sdlrect(entityTr->getPos().getX() - mngr_->camRect_.x + 45 + (entityTr->getW() * entityTr->getS()) / 2, entityTr->getPos().getY() + (entityTr->getH() * entityTr->getS()) / 2, 40, 60));
+						}
+						else
+						{
+							boxes.push_back(build_sdlrect(entityTr->getPos().getX() - mngr_->camRect_.x - 90 + (entityTr->getW() * entityTr->getS()) / 2, entityTr->getPos().getY() + 50 + (entityTr->getH() * entityTr->getS()) / 2, 60, 10));
+							boxes.push_back(build_sdlrect(entityTr->getPos().getX() - mngr_->camRect_.x - 80 + (entityTr->getW() * entityTr->getS()) / 2, entityTr->getPos().getY() + (entityTr->getH() * entityTr->getS()) / 2, 40, 60));
+						}
+						for (auto i :boxes )
+						{
+							static_cast<BeatEmUpState*>(mngr_)->getColManager()->checkCollisionP(i, type);
+						}
+					}
+					if (im_->getCol() == 22)
+					{
+
+						unsigned timer = clock();
+						boxTime = (double(timer) / CLOCKS_PER_SEC);
+						boxes.clear();
+						boxCreated = false;
+					}
+
+				}
+
+			}
+
+			else if (im_->getTexKey() == "Player_BEU_earth_super")
+			{
+				
+					if (im_->getCol()>3 && im_->getCol()<5)
+					{
+						if (!boxCreated)
+						{
+							if (im_->getFlip() == SDL_FLIP_NONE)
+							{
+								boxes.push_back(build_sdlrect(entityTr->getPos().getX() + 20 - mngr_->camRect_.x + entityTr->getW() / 2, entityTr->getPos().getY() + 10 + entityTr->getH() / 2, 40, 40));
+							}
+							else
+							{
+								boxes.push_back(build_sdlrect(entityTr->getPos().getX() - 50 - mngr_->camRect_.x + entityTr->getW() / 2, entityTr->getPos().getY() + 10 + entityTr->getH() / 2, 40, 40));
+							}
+							static_cast<BeatEmUpState*>(mngr_)->getColManager()->checkCollisionP(boxes[0], type);
+							boxCreated = true;
+						}
+					}
+					else if(im_->getCol()>5 && im_->getCol() <17)
+					{
+						boxes.clear();
+						boxCreated = false;
+					}
+					else if(im_->getCol() > 18 && im_->getCol() < 20)
+					{
+						if (!boxCreated)
+						{
+							
+							if (im_->getFlip() == SDL_FLIP_NONE)
+							{
+								boxes.push_back(build_sdlrect(entityTr->getPos().getX() - mngr_->camRect_.x + entityTr->getW() / 2, entityTr->getPos().getY() + 10 + entityTr->getH() / 2, 80, 80));
+							}
+							else
+							{
+								boxes.push_back(build_sdlrect(entityTr->getPos().getX() - 80 -  mngr_->camRect_.x + entityTr->getW() / 2, entityTr->getPos().getY() + 10 + entityTr->getH() / 2, 80, 80));
+							}
+							static_cast<BeatEmUpState*>(mngr_)->getColManager()->checkCollisionP(boxes[0], type);
+							boxCreated = true;
+						}
+					}
+					
+
+					if (im_->getCol() == 27)
+					{
+						unsigned timer = clock();
+						boxTime = (double(timer) / CLOCKS_PER_SEC);
+						boxes.clear();
+						boxCreated = false;
+						actualized = false;
+					}
+				
+
+			}
+			else
+			{
+				boxCreated = false;
+				if (boxTime + 1000 / 1000 < timerExecution) {
+					unsigned timer = clock();
+					boxTime = (double(timer) / CLOCKS_PER_SEC);
+					boxes.clear();
+					boxCreated = false;
+				}
+			}
+		}
 	}
-	else { // Para el jefe de tierra
-		if (im_->getRow() == 2 && im_->getCol() >= 7) {
+	else if (im_->getType() == "earth") { // Para el jefe de tierra
+		if ((im_->getTexKey() == "GolemFase1_attack" || im_->getTexKey() == "GolemFase2_attack") && im_->getCol() >= 7) {
 			if (!boxCreated) {
 				boxes.clear();
 				
 				//Para poder cambiar satisfactoriamente la direccion del cuadrado
 				if (im_->getFlip() == SDL_FLIP_NONE) {
-					boxes.push_back(build_sdlrect(entityTr->getPos().getX() - mngr_->camRect_.x + entityTr->getW() / 2, entityTr->getPos().getY() + entityTr->getH() / 2 - 20, 70, 70));
+					boxes.push_back(build_sdlrect(entityTr->getPos().getX() - mngr_->camRect_.x - 10 + (entityTr->getW() * entityTr->getS()) / 2, entityTr->getPos().getY() + (entityTr->getH() * entityTr->getS()) / 2 - 20, 100, 100));
 				}
 				else {
-					boxes.push_back(build_sdlrect(entityTr->getPos().getX() - mngr_->camRect_.x - 70 + entityTr->getW() / 2, entityTr->getPos().getY() + entityTr->getH() / 2 - 20, 70, 70));
+					boxes.push_back(build_sdlrect(entityTr->getPos().getX() - mngr_->camRect_.x - 80 + (entityTr->getW() * entityTr->getS()) / 2, entityTr->getPos().getY() + (entityTr->getH() * entityTr->getS()) / 2 - 20, 100, 100));
 				}
 				boxCreated = true;
 			}
 			else {
-				static_cast<BeatEmUpState*>(mngr_)->getColManager()->checkCollisionP(boxes[0], "earth", false);
+				static_cast<BeatEmUpState*>(mngr_)->getColManager()->checkCollisionE(boxes[0], "earth", ent_->getComponent<AttackEarthBossComponent>(ATTACKEARTHBOSSCOMPONENT_H)->getExtraDamage());
 				if (im_->getCol() == 16)
 				{
 					unsigned timer = clock();
@@ -501,7 +953,140 @@ void AttackBoxComponent::handleBoxes()
 				}
 			}
 		}
-		//cout << entityTr->getPos() << endl;
+	}
+	else 
+	{
+		if (anim_->getEnemy()=="skeleton")
+		{
+			if(anim_->getState()==1)
+			{
+
+				if (im_->getFlip() == SDL_FLIP_NONE)
+				{
+				
+					if (im_->getCol() >= 6 && im_->getCol() < 7 && !boxCreated)
+					{
+						boxCreated = true;
+						boxes.push_back(build_sdlrect(entityTr->getPos().getX() - mngr_->camRect_.x + (entityTr->getW() * entityTr->getS()) / 2, entityTr->getPos().getY() - 30 + (entityTr->getH() * entityTr->getS()) / 2, 60, 40));
+						static_cast<BeatEmUpState*>(mngr_)->getColManager()->checkCollisionE(boxes[0], type, 0);
+					}
+					
+				}
+				else
+				{
+					if (im_->getCol() >= 6 && im_->getCol() < 7 && !boxCreated)
+					{
+						boxCreated = true;
+						boxes.push_back(build_sdlrect(entityTr->getPos().getX() - mngr_->camRect_.x - 80 + (entityTr->getW() * entityTr->getS()) / 2, entityTr->getPos().getY() - 30 + (entityTr->getH() * entityTr->getS()) / 2, 60, 40));
+						static_cast<BeatEmUpState*>(mngr_)->getColManager()->checkCollisionE(boxes[0], type, 0);
+					}
+					
+				}
+				if (im_->getCol() == 7)
+				{
+					unsigned timer = clock();
+					boxTime = (double(timer) / CLOCKS_PER_SEC);
+					boxes.clear();
+				}
+			}
+			else
+			{
+				if (boxTime + 300 / 1000 < timerExecution) {
+					unsigned timer = clock();
+					boxTime = (double(timer) / CLOCKS_PER_SEC);
+					boxes.clear();
+					boxCreated = false;
+				}
+			}
+		}
+		else if(anim_->getEnemy()=="bat" || anim_->getEnemy() == "shroom")
+		{
+			
+			if (anim_->getState() == 1)
+			{
+				if (im_->getFlip() == SDL_FLIP_NONE)
+				{
+
+					if (im_->getCol() >= 6 && im_->getCol() < 7 && !boxCreated)
+					{
+						boxCreated = true;
+						boxes.push_back(build_sdlrect(entityTr->getPos().getX() - mngr_->camRect_.x + (entityTr->getW() * entityTr->getS()) / 2, entityTr->getPos().getY() - 10 + (entityTr->getH() * entityTr->getS()) / 2, 40, 30));
+						static_cast<BeatEmUpState*>(mngr_)->getColManager()->checkCollisionE(boxes[0], type, 0);
+					}
+
+				}
+				else
+				{
+					if (im_->getCol() >= 6 && im_->getCol() < 7 && !boxCreated)
+					{
+						boxCreated = true;
+						boxes.push_back(build_sdlrect(entityTr->getPos().getX() - mngr_->camRect_.x - 50 + (entityTr->getW() * entityTr->getS()) / 2, entityTr->getPos().getY() - 10 + (entityTr->getH() * entityTr->getS()) / 2, 40, 30));
+						static_cast<BeatEmUpState*>(mngr_)->getColManager()->checkCollisionE(boxes[0], type, 0);
+					}
+
+				}
+				if (im_->getCol() == 7)
+				{
+					boxCreated = false;
+					unsigned timer = clock();
+					boxTime = (double(timer) / CLOCKS_PER_SEC);
+					boxes.clear();
+				}
+			}
+			else
+			{
+				if (boxTime + 300 / 1000 < timerExecution) {
+					unsigned timer = clock();
+					boxTime = (double(timer) / CLOCKS_PER_SEC);
+					boxes.clear();
+					boxCreated = false;
+				}
+			}
+		}
+		else 
+		{
+			if (anim_->getState() == 1)
+			{
+				if (im_->getFlip() == SDL_FLIP_NONE)
+				{
+
+					if (im_->getCol() >= 6 && im_->getCol() < 7 && !boxCreated)
+					{
+						boxCreated = true;
+						boxes.push_back(build_sdlrect(entityTr->getPos().getX() - mngr_->camRect_.x +10+ (entityTr->getW() * entityTr->getS()) / 2, entityTr->getPos().getY() - 10 + (entityTr->getH() * entityTr->getS()) / 2, 50, 30));
+						static_cast<BeatEmUpState*>(mngr_)->getColManager()->checkCollisionE(boxes[0], type, 0);
+					}
+
+				}
+				else
+				{
+					if (im_->getCol() >= 6 && im_->getCol() < 7 && !boxCreated)
+					{
+						boxCreated = true;
+						boxes.push_back(build_sdlrect(entityTr->getPos().getX() - mngr_->camRect_.x - 60 + (entityTr->getW() * entityTr->getS()) / 2, entityTr->getPos().getY() - 10 + (entityTr->getH() * entityTr->getS()) / 2, 50, 30));
+						static_cast<BeatEmUpState*>(mngr_)->getColManager()->checkCollisionE(boxes[0], type, 0);
+					}
+
+				}
+				if (im_->getCol() == 7)
+				{
+					boxCreated = false;
+					unsigned timer = clock();
+					boxTime = (double(timer) / CLOCKS_PER_SEC);
+					boxes.clear();
+				}
+			}
+			else
+			{
+				if (boxTime + 300 / 1000 < timerExecution) {
+					unsigned timer = clock();
+					boxTime = (double(timer) / CLOCKS_PER_SEC);
+					boxes.clear();
+					boxCreated = false;
+				}
+			}
+		}
+
 	}
 }
 
@@ -524,13 +1109,11 @@ void AttackBoxComponent::moveBoxCurve(SDL_Rect& box, float radio, Vector2D posCe
 		angle += vel * -1;
 	}
 
-	//cout << angle<<endl;
 	box.x = posCenter.getX() + (int)(radio * cos(angle));
 	box.y = posCenter.getY() + (int)(radio * sin(angle));
 
 	box2.x = posCenter.getX() + (int)(radio * cos(angle)) - 10;
 	box2.y = posCenter.getY() + (int)(radio * sin(angle)) - 10;
-	//cout << "Angle:" << angle << "Stop:" << stoppingAngle << endl;
 }
 
 

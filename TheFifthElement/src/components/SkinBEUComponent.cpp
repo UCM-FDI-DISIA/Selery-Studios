@@ -2,27 +2,39 @@
 #include "../utils/Entity.h"
 #include "../utils/ecs.h"
 #include "LifeComponent.h"
+SkinBEUComponent::SkinBEUComponent(string skin) {
+	skin_ = skin;
+	prevSkin_ = skin;
+}
 
 void SkinBEUComponent::initComponent() {
 	t_ = "Player_BEU_" + skin_;
+	im_ = ent_->getComponent<FramedImage>(FRAMEDIMAGE_H);
+	lifeC_ = ent_->getComponent<LifeComponent>(LIFECOMPONENT_H);
 }
 
 void SkinBEUComponent::update() {
 	if (prevSkin_ != skin_) setTexture();
 	changeMov();
-	if (!set_)
-	{
-		im_ = ent_->getComponent<Image>(IMAGE_H);
-		lifeC_ = ent_->getComponent<LifeComponent>(LIFECOMPONENT_H);
-		set_ = true;
-	}
 }
 
 void SkinBEUComponent::changeSkin(string skin)
 {
 	skin_ = skin;
 	im_->setType(skin_);
-	lifeC_->chageType(10);
+	if (skin_ == "air") {
+		lifeC_->chageType(props->instance()->getLives(0)); // segun el personaje tenemos una cantidad de vida (respecto a vida comprada en la tienda)
+	}
+	else if (skin_ == "fire") {
+		lifeC_->chageType(props->instance()->getLives(1));
+	}
+	else if (skin_ == "water") {
+		lifeC_->chageType(props->instance()->getLives(2));
+	}
+	else if (skin_ == "earth") {
+		lifeC_->chageType(props->instance()->getLives(3));
+	}
+	
 }
 
 void SkinBEUComponent::setTexture() {
@@ -30,7 +42,8 @@ void SkinBEUComponent::setTexture() {
 	t_ = "Player_BEU_" + skin_;
 	if (skin_ == "earth") nframes_ = 6;
 	else nframes_ = 8;
-	im_->setAnimTexture(t_, nframes_, PLAYERBEU_WIDTH_FRAME, 0);
+	im_->setAnim(t_, nframes_, false);
+	////im_->setAnimTexture(t_, nframes_, PLAYERBEU_WIDTH_FRAME, 0);
 	changeMov();
 }
 
@@ -41,223 +54,119 @@ void SkinBEUComponent::changeMov() {
 	{
 	case SkinBEUComponent::Idle:
 		setIdle();
-		if (set_) im_->setAnim(false, fila_, nframes_, 0, nframes_);
+		////im_->setAnim(false, fila_, nframes_, 0, nframes_);
+		im_->setAnim(t_, nframes_, false);
 		break;
 	case SkinBEUComponent::Left:
 		setLeft();
-		if (set_) im_->setAnim(false, fila_, nframes_, 0, nframes_);
+		////im_->setAnim(false, fila_, nframes_, 0, nframes_);
+		im_->setAnim(t_, nframes_, false);
 		break;
 	case SkinBEUComponent::Right:
 		setRight();
-		if (set_) im_->setAnim(false, fila_, nframes_, 0, nframes_);
+		////im_->setAnim(false, fila_, nframes_, 0, nframes_);
+		im_->setAnim(t_, nframes_, false);
 		break;
 	case SkinBEUComponent::Vertical:
 		setVertical();
-		if (set_) im_->setAnim(false, fila_, nframes_, 0, nframes_);
+		////im_->setAnim(false, fila_, nframes_, 0, nframes_);
+		im_->setAnim(t_, nframes_, false);
 		break;
 	case SkinBEUComponent::Jump:
 		setJump();
-		if (set_) im_->setAnim(true, fila_, nframes_, 0, nframes_);
+		////im_->setAnim(true, fila_, nframes_, 0, 100);
+		im_->setAnim(t_, nframes_, false);
 		break;
 	case SkinBEUComponent::Hit:
-		setJump();
-		if (set_) im_->setAnim(true, fila_, nframes_, 0, nframes_);
+		setHit();
+		////im_->setAnim(true, fila_, nframes_, 0, nframes_);
+		im_->setAnim(t_, nframes_, true);
 		break;
 	case SkinBEUComponent::Death:
-		setJump();
-		if (set_) im_->setAnim(true, fila_, nframes_, 0, nframes_);
+		setDeath();
+		////im_->setAnim(true, fila_, nframes_, 0, nframes_);
+		im_->setAnim(t_, nframes_, true);
 		break;
 	default:
 		break;
 	}
-
+	
 }
 
 void SkinBEUComponent::setIdle() {
-
-	//offset_ = Vector2D(55, 55);
-	/*ColHeight_ = EnemyHeight_ / 3;
-	ColWidth_ = EnemyWidth_ / 25;*/
-
-	if (skin_ == "fire") {
+	t_ = "Player_BEU_" + skin_ + "_idle";
+	if (skin_ == "fire" || skin_ == "air" || skin_ == "water") {
 		nframes_ = 8;
-		fila_ = 0;
 	}
-
-	else if (skin_ == "air") {
-		nframes_ = 8;
-		fila_ = 0;
-	}
-
-	else if (skin_ == "water") {
-		nframes_ = 8;
-		fila_ = 0;
-	}
-
 	else if (skin_ == "earth") {
 		nframes_ = 6;
-		fila_ = 0;
 	}
 }
 
 void SkinBEUComponent::setLeft() {
 	im_->setFlip(SDL_FLIP_HORIZONTAL);
-	//offset_ = Vector2D(55, 55);
-	/*ColHeight_ = EnemyHeight_ / 3;
-	ColWidth_ = EnemyWidth_ / 25;*/
+	t_ = "Player_BEU_" + skin_ + "_run";
 
-	if (skin_ == "fire") {
+	if (skin_ == "fire" || skin_ == "air" || skin_ == "earth") {
 		nframes_ = 8;
-		fila_ = 1;
 	}
-
-	else if (skin_ == "air") {
-		nframes_ = 8;
-		fila_ = 1;
-	}
-
 	else if (skin_ == "water") {
 		nframes_ = 10;
-		fila_ = 1;
-	}
-
-	else if (skin_ == "earth") {
-		nframes_ = 8;
-		fila_ = 1;
 	}
 }
 
 void SkinBEUComponent::setRight() {
 	im_->setFlip(SDL_FLIP_NONE);
-	//offset_ = Vector2D(55, 55);
-	/*ColHeight_ = EnemyHeight_ / 3;
-	ColWidth_ = EnemyWidth_ / 25;*/
+	t_ = "Player_BEU_" + skin_ + "_run";
 
-	if (skin_ == "fire") {
+	if (skin_ == "fire" || skin_ == "air" || skin_ == "earth") {
 		nframes_ = 8;
-		fila_ = 1;
 	}
-
-	else if (skin_ == "air") {
-		nframes_ = 8;
-		fila_ = 1;
-	}
-
 	else if (skin_ == "water") {
 		nframes_ = 10;
-		fila_ = 1;
-	}
-
-	else if (skin_ == "earth") {
-		nframes_ = 8;
-		fila_ = 1;
 	}
 }
 
 void SkinBEUComponent::setVertical() {
+	t_ = "Player_BEU_" + skin_ + "_run";
 
-	//offset_ = Vector2D(55, 55);
-	/*ColHeight_ = EnemyHeight_ / 3;
-	ColWidth_ = EnemyWidth_ / 25;*/
-
-	if (skin_ == "fire") {
+	if (skin_ == "fire" || skin_ == "air" || skin_ == "earth") {
 		nframes_ = 8;
-		fila_ = 1;
 	}
-
-	else if (skin_ == "air") {
-		nframes_ = 8;
-		fila_ = 1;
-	}
-
 	else if (skin_ == "water") {
 		nframes_ = 10;
-		fila_ = 1;
-	}
-
-	else if (skin_ == "earth") {
-		nframes_ = 8;
-		fila_ = 1;
 	}
 }
 
 void SkinBEUComponent::setJump() {
+	t_ = "Player_BEU_" + skin_ + "_jump";
 
-	//offset_ = Vector2D(55, 55);
-	/*ColHeight_ = EnemyHeight_ / 3;
-	ColWidth_ = EnemyWidth_ / 25;*/
-
-	if (skin_ == "fire") {
-		nframes_ = 15;
-		fila_ = 4;
-	}
-
-	else if (skin_ == "air") {
-		nframes_ = 6;
-		fila_ = 5;
-	}
-
-	else if (skin_ == "water") {
-		nframes_ = 6;
-		fila_ = 6;
-	}
-
-	else if (skin_ == "earth") {
-		nframes_ = 6;
-		fila_ = 10;
-	}
+	if (skin_ == "fire") { nframes_ = 20; }
+	else if (skin_ == "air") { nframes_ = 31; }
+	else if (skin_ == "water") { nframes_ = 26; }
+	else if (skin_ == "earth") { nframes_ = 23; }
 }
 
 void SkinBEUComponent::setHit() {
 	nextState_ = Idle;
-	//offset_ = Vector2D(55, 55);
-	/*ColHeight_ = EnemyHeight_ / 3;
-	ColWidth_ = EnemyWidth_ / 25;*/
 
-	if (skin_ == "fire") {
+	t_ = "Player_BEU_" + skin_ + "_hit";
+
+	if (skin_ == "fire" || skin_ == "air" || skin_ == "earth") {
 		nframes_ = 6;
-		fila_ = 12;
 	}
-
-	else if (skin_ == "air") {
-		nframes_ = 6;
-		fila_ = 11;
-	}
-
 	else if (skin_ == "water") {
 		nframes_ = 7;
-		fila_ = 13;
-	}
-
-	else if (skin_ == "earth") {
-		nframes_ = 6;
-		fila_ = 12;
 	}
 }
 
 void SkinBEUComponent::setDeath() {
 	nextState_ = Idle;
-	//offset_ = Vector2D(55, 55);
-	/*ColHeight_ = EnemyHeight_ / 3;
-	ColWidth_ = EnemyWidth_ / 25;*/
 
-	if (skin_ == "fire") {
-		nframes_ = 13;
-		fila_ = 13;
-	}
+	t_ = "Player_BEU_" + skin_ + "_death";
 
-	else if (skin_ == "air") {
-		nframes_ = 19;
-		fila_ = 12;
-	}
-
-	else if (skin_ == "water") {
-		nframes_ = 16;
-		fila_ = 14;
-	}
-
-	else if (skin_ == "earth") {
-		nframes_ = 15;
-		fila_ = 13;
-	}
+	if (skin_ == "fire") { nframes_ = 13; }
+	else if (skin_ == "air") { nframes_ = 19; }
+	else if (skin_ == "water") { nframes_ = 16; }
+	else if (skin_ == "earth") { nframes_ = 15; }
 }

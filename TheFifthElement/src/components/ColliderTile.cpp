@@ -1,28 +1,69 @@
 #include "ColliderTile.h"
 ColliderTile::ColliderTile(vector<Entity*> colisions) :Component() {
 	this->colisions = colisions;
-	string p;
+	
+
 }
 void ColliderTile::initComponent() {
 	trans_player = ent_->getComponent<Transform>(TRANSFORM_H);
 	input = ent_->getComponent<InputComponent>(INPUTCOMPONENT_H);
+	colision = new SDL_Rect();
+	player = new SDL_Rect();
+	area = new SDL_Rect();
 	
 }
 void ColliderTile::update() {
 
+	player->x = trans_player->getPos().getX();
+	player->y = trans_player->getPos().getY();
+	player->h = trans_player->getH();
+	player->w = trans_player->getW();
 	for (auto c : colisions) {
-		Transform* trans_col = c->getComponent<Transform>(TRANSFORM_H);
-		topLeft_ = trans_col->getPos();
+		trans_col = c->getComponent<Transform>(TRANSFORM_H);
+		colision->h = trans_col->getH();
+		colision->w = trans_col->getW();
+		colision->x = trans_col->getPos().getX();
+		colision->y = trans_col->getPos().getY();
+		
+
+		/*topLeft_ = trans_col->getPos();
 		topRight_ = { trans_col->getPos().getX() + trans_col->getW(), trans_col->getPos().getY() };
 		bottomLeft_ = { trans_col->getPos().getX(), trans_col->getPos().getY() + trans_col->getH() };
-		bottomRight_ = { trans_col->getPos().getX() + trans_col->getW(), trans_col->getPos().getY() + trans_col->getH() };
-		if (Collision::collides(trans_player->getPos(), trans_player->getW(),
-			trans_player->getH(), trans_col->getPos(), trans_col->getW(), trans_col->getH())) {
-			pTopLeft = trans_player->getPos();
+		bottomRight_ = { trans_col->getPos().getX() + trans_col->getW(), trans_col->getPos().getY() + trans_col->getH() };*/
+		bool a = SDL_IntersectRect(player, colision, area);
+		if (a) {
+			/*pTopLeft = trans_player->getPos();
 			pBottomLeft = { pTopLeft.getX(), pTopLeft.getY() + trans_player->getH() };
 			pTopRight = { pTopLeft.getX() + trans_player->getW(), pTopLeft.getY() };
-			pBottonRight = { pTopRight.getX(), pTopRight.getY() + trans_player->getH() };
-			input->setDirection(chooseDirection());
+			pBottonRight = { pTopRight.getX(), pTopRight.getY() + trans_player->getH() };*/
+			// colision arriba
+
+			// UP=0, DOWN=1, LEFT=2, RIGHT=3
+			if (area->y > colision->y ) { //por arriba
+					//colisiona por la izquierda
+					if (area->x > colision->x) {
+						if (area->w > area->h) d = 0;
+						else d=2;
+					}
+					else {
+						//colisiona por la derecha
+						if (area->w > area->h) d = 0;
+						else d = 3;
+					}
+			}
+			else { // colisiona por abajo
+					//colisiona por la izquierda
+					if (area->x > colision->x) {
+						if (area->w > area->h) d = 2;
+						else d = 1;
+					}
+					else {
+						//colisiona por la derecha
+						if (area->w > area->h) d = 3;
+						else d=1;
+					}
+			}
+			input->setDirection(d);
 		}
 		else{
 			input->setDirection(-1);
@@ -52,20 +93,21 @@ void ColliderTile::update() {
 
 int ColliderTile::chooseDirection() {
 
-	if (bottomLeft_.getY() <= pTopLeft.getY() + margin_) {
+	// UP=0, DOWN=1, LEFT=2, RIGHT=3
+
+	if (pTopLeft.getY() == bottomLeft_.getY() && pBottomLeft.getY() > bottomLeft_.getY()) {
 		return 0;
 	}
-	else if (topLeft_.getY() >= pBottonRight.getY() - margin_) {
-
+	else  if (pBottomLeft.getY() == topLeft_.getY() && pTopLeft.getY() < topLeft_.getY()) {
 		return 1;
 	}
-	else if (topLeft_.getX() >= pTopRight.getX() - margin_) {
-
-		return 3;
-	}
-	else  if (topRight_.getX() <= pTopLeft.getX() + margin_){
-
+  if (pTopLeft.getX() == topRight_.getX() && pTopRight.getX() > topRight_.getX()) {
 		return 2;
 	}
-
+	else if (pTopRight.getX() ==topLeft_.getX() && pTopLeft.getX() < topLeft_.getX()) {
+		return 2;
+	}
+	 
 }
+
+

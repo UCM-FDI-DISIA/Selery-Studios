@@ -3,7 +3,6 @@
 #include "MovementComponent.h"
 #include "Transform.h"
 #include "../utils/Vector2D.h"
-#include "../Entities/PlayerBEU.h"
 #include "ColliderComponent.h"
 
 class EnemyBEUDirectionComponent :
@@ -32,7 +31,7 @@ private:
 
     int cont = 1000;
     bool izq = true;
-    float distance_ = 100.0f;
+    float distance_ = 100.0f * (WIN_WIDTH/900);
     float speed = 0.0f;
 
     string type_;

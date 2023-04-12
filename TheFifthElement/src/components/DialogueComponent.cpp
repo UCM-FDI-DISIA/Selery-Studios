@@ -1,14 +1,18 @@
 #include "DialogueComponent.h"
 #include "../utils/Entity.h"
+#include "../utils/Constants.h"
+#include "../states/TopDownState.h"
 DialogueComponent::DialogueComponent():Component() {
 	//coge el tipo de letra
 	font_ = &SDLUtils::instance()->fonts().at("TCentury");
 	//de que color va a salir, en este caso negro
 	color_ = { 50,50,0 };
 	hasstarted = false;
+	openedShop_ = false;
 }
 void DialogueComponent::initComponent() {
 	plynpc = ent_->getComponent<PlayerNPC>(PLAYERNPC_H);
+	t = &SDLUtils::instance()->images().at("papiro");
 }
 void DialogueComponent::setdialogue() {
 	//coge el dialogo completo 
@@ -32,7 +36,18 @@ void DialogueComponent::setdialogue() {
 }
 void DialogueComponent::render() {
 	//renderizas el texto
-	if (hasstarted)font_->render(GameManager::instance()->getRenderer(), out, 150, 300, color_);
+	if (hasstarted) {
+		Vector2D a;
+		if (WIN_WIDTH / 900 == 1920 / 900) a = Vector2D(600, 600);
+		else a = Vector2D(100, 250);
+		SDL_Rect dest = build_sdlrect(a, DIALOGUE_WIDTH, DIALOGUE_HEIGHT);
+		t->render(dest, 0);
+
+		if (WIN_WIDTH / 900 == 1920 / 900) a = Vector2D(740, 750);
+		else a = Vector2D(230, 400);
+		font_->render(GameManager::instance()->getRenderer(), out, a.getX(), a.getY(), color_);
+	
+	}
 
 }
 void DialogueComponent::update() {
@@ -49,24 +64,21 @@ void DialogueComponent::inicombe() {
 		if (hasstarted == false) {
 			setdialogue();
 			hasstarted = true;
-			cout << linea;
 		}
 		else {
 			if (linea < conespacios.size()-1) {
 				linea++;
-				cout << linea<< "total:"<< conespacios.size()<<endl;
 				out = "";
 				cont = 0;
 				fin = conespacios[linea].size();
 			}
 			else {
 				hasstarted = false;
-				while (conespacios.size() != 0)
-				{
-					conespacios.pop_back();
-
-				}
-
+				conespacios.clear();
+				if (plynpc->getcol() <=4) {
+					openedShop_ = true;
+					static_cast<TopDownState*>(mngr_)->createShopButtons();
+				} 
 			}
 		}
 	}

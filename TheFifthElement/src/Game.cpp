@@ -5,9 +5,13 @@ Game::Game() {
 	renderer = SDLUtils::instance()->renderer();
 	window = SDLUtils::instance()->window();
 	exit = false;
-	GameStateMachine::instance()->pushState(new TopDownState());
-	//GameStateMachine::instance()->pushState(new MainMenuState());
-	//GameStateMachine::instance()->pushState(new BeatEmUpState(true, "earth"));
+
+	GameStateMachine::instance()->pushState(new MainMenuState());
+	//GameStateMachine::instance()->pushState(new BeatEmUpState(false, nullptr));
+	//GameStateMachine::instance()->pushState(new BeatEmUpState(true, nullptr, "earth"));
+	//GameStateMachine::instance()->pushState(new BeatEmUpState(true, nullptr, "water"));
+	//GameStateMachine::instance()->pushState(new PauseState());
+	//GameStateMachine::instance()->pushState(new BeatEmUpState());
 }
 
 Game::~Game(){ // destructora
@@ -51,3 +55,7 @@ void Game::render() { //render
 	GameManager::instance()->render();
 	//gameStMc->render();
 }
+
+//void Game::refresh() {
+//	
+//}

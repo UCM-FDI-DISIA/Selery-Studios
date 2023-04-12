@@ -14,13 +14,14 @@ private:
     int framesTotales_;
     bool matrix_, demo = false;
     float size_ = 1.0f;
+    float scale_ = WIN_WIDTH / 900;
 public:
-    Transform(Vector2D pos, float w, float h, float size = 1.0f) {
+    Transform(Vector2D pos, float w, float h, float size = 1.0f, float velocity = 3) {
         position = pos;
         width = w;
         height = h;
         rotation_ = 0;
-        vel = 0;
+        vel = velocity;
         framesTotales_ = 0;
         matrix_ = false;
         size_ = size;
@@ -55,7 +56,9 @@ public:
 
     inline float getVel() { return vel; }
 
-    inline float getS() { return size_; }
+    inline float getS() { return size_ * scale_; }
+
+    inline float getSize() { return size_; }
 
     inline void setR(float valRot) { rotation_ = valRot; }
 
@@ -81,7 +84,7 @@ public:
                 if (framesTotales_ != 0) rect = build_sdlrect(getPos().getX(), getPos().getY(), (getW() * size_) / framesTotales_, (getH() * size_));
                 else  rect = build_sdlrect(getPos().getX() + 50, getPos().getY() + 60, 3 * (getW() * size_) / 4, (getH() * size_) / 2);
             }*/
-            rect = build_sdlrect(getPos().getX(), getPos().getY(), (getW() * size_), (getH() * size_));
+            rect = build_sdlrect(getPos().getX(), getPos().getY(), (getW() * size_ * scale_), (getH() * size_ * scale_));
             rect.x -= mngr_->camRect_.x;
             rect.y -= mngr_->camRect_.y;
             SDL_SetRenderDrawColor(sdlutils().renderer(), 255, 0, 255, 0);

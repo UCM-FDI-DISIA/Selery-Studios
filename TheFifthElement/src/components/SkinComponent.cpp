@@ -1,21 +1,23 @@
 #include "SkinComponent.h"
 #include "../utils/Entity.h"
 #include "../utils/ecs.h"
-#include "../Entities/PlayerTD.h"
+
+SkinComponent::SkinComponent(string skin) {
+	skin_ = skin;
+	prevSkin_ = skin;
+}
 
 void SkinComponent::initComponent() {
+	im_ = ent_->getComponent<FramedImage>(FRAMEDIMAGE_H);
 }
 
 void SkinComponent::update() {
 	if (nextState_ != currentState_ || prevSkin_ != skin_) changeMov();
-	if (!set_)
-	{
-		im_ = ent_->getComponent<Image>(IMAGE_H);
-		set_ = true;
-	}
 }
 
 void SkinComponent::changeMov() {
+	if (currentState_ == Left && nextState_ == Idle) im_->setFlip(SDL_FLIP_HORIZONTAL);
+	else im_->setFlip(SDL_FLIP_NONE);
 
 	currentState_ = nextState_;
 	prevSkin_ = skin_;
@@ -23,38 +25,32 @@ void SkinComponent::changeMov() {
 	{
 	case SkinComponent::Idle:
 		setIdle();
-		if (set_) im_->setAnimTexture(t_, nframes_, w_);
+		////im_->setAnimTexture(t_, nframes_, w_);
 		break;
 	case SkinComponent::Left:
 		setLeft();
-		if (set_) im_->setAnimTexture(t_, nframes_, w_);
+		/////im_->setAnimTexture(t_, nframes_, w_);
 		break;
 	case SkinComponent::Right:
 		setRight();
-		if (set_) im_->setAnimTexture(t_, nframes_, w_);
+		/////im_->setAnimTexture(t_, nframes_, w_);
 		break;
 	case SkinComponent::Up:
 		setUp();
-		if (set_) im_->setAnimTexture(t_, nframes_, w_);
+		////im_->setAnimTexture(t_, nframes_, w_);
 		break;
 	case SkinComponent::Down:
 		setDown();
-		if (set_) im_->setAnimTexture(t_, nframes_, w_);
+		/////im_->setAnimTexture(t_, nframes_, w_);
 		break;
 	default:
 		break;
 	}
-
+	im_->setAnim(t_, nframes_, false);
 }
 
 void SkinComponent::setIdle() {
 	nframes_ = 7;
-	w_ = PLAYERTD_WIDTH_FRAME;
-	h_ = PLAYERTD_HEIGHT_FRAME;
-
-	//offset_ = Vector2D(55, 55);
-	/*ColHeight_ = EnemyHeight_ / 3;
-	ColWidth_ = EnemyWidth_ / 25;*/
 
 	if (skin_ == "fire") {
 		t_ = "PTD_fire_idle";
@@ -75,12 +71,6 @@ void SkinComponent::setIdle() {
 
 void SkinComponent::setLeft() {
 	nframes_ = 7;
-	w_ = PLAYERTD_WIDTH_FRAME;
-	h_ = PLAYERTD_HEIGHT_FRAME;
-
-	//offset_ = Vector2D(55, 55);
-	/*ColHeight_ = EnemyHeight_ / 3;
-	ColWidth_ = EnemyWidth_ / 25;*/
 
 	if (skin_ == "fire") {
 		t_ = "PTD_fire_left";
@@ -101,13 +91,6 @@ void SkinComponent::setLeft() {
 
 void SkinComponent::setRight() {
 	nframes_ = 7;
-	w_ = PLAYERTD_WIDTH_FRAME;
-	h_ = PLAYERTD_HEIGHT_FRAME;
-
-	//offset_ = Vector2D(55, 55);
-	/*ColHeight_ = EnemyHeight_ / 3;
-	ColWidth_ = EnemyWidth_ / 25;*/
-
 	if (skin_ == "fire") {
 		t_ = "PTD_fire_right";
 	}
@@ -126,13 +109,6 @@ void SkinComponent::setRight() {
 }
 
 void SkinComponent::setUp() {
-	w_ = PLAYERTD_WIDTH_FRAME;
-	h_ = PLAYERTD_HEIGHT_FRAME;
-
-	//offset_ = Vector2D(55, 55);
-	/*ColHeight_ = EnemyHeight_ / 3;
-	ColWidth_ = EnemyWidth_ / 25;*/
-
 	if (skin_ == "fire") {
 		nframes_ = 9;
 		t_ = "PTD_fire_up";
@@ -155,14 +131,6 @@ void SkinComponent::setUp() {
 }
 
 void SkinComponent::setDown() {
-
-	w_ = PLAYERTD_WIDTH_FRAME;
-	h_ = PLAYERTD_HEIGHT_FRAME;
-
-	//offset_ = Vector2D(55, 55);
-	/*ColHeight_ = EnemyHeight_ / 3;
-	ColWidth_ = EnemyWidth_ / 25;*/
-
 	if (skin_ == "fire") {
 		nframes_ = 9;
 		t_ = "PTD_fire_down";

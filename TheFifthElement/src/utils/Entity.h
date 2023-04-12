@@ -24,6 +24,8 @@ public:
 	}
 	// Asigna a la entidad su manager
 	inline void setContext(Manager* mngr) { mngr_ = mngr; }
+	// Asigna a la entidad su manager
+	inline Manager* getContext() { return mngr_; }
 	// Devuelve si esta vivo
 	inline bool isAlive() { return alive_; }
 	// Establece si esta vivo o no

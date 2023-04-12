@@ -1,14 +1,13 @@
 #pragma once
+#include "../utils/PropertiesManager.h"
 #include "tmxlite/Map.hpp"
 #include "tmxlite/TileLayer.hpp"
 #include "GameState.h"
 #include "../components/Playernpc.h"
 #include "../components/InputComponent.h"
-#include "../Entities/DialogBox.h"
-#include "../Entities/Element.h"
 #include "../sdlutils/SDLUtils.h"
 #include "../include/SDL_mixer.h"
-#include "../Entities/PortalComponent.h"
+#include "../components/PortalComponent.h"
 #include "../components/ColliderTile.h"
 #include "../components/CollideTileInteraction.h"
 #include "../PuzzleCopas.h"
@@ -30,6 +29,13 @@
 #include "../components/RedirectEnemy.h"
 #include "../components/DialogueComponent.h"
 #include "../components/EconomyComponent.h"
+#include "../components/Damage.h"
+#include "../components/LifeTD.h"
+#include "../components/rouletteComponent.h"
+#include "../components/SectorCollisionComponent.h"
+#include "../components/BossCollision.h"
+#include "../Saving.h"
+
 using uint = unsigned int;
 using tileset_map = std::map<std::string, Texture*>; //mapa con CLAVE:string, ARGUMENTO: puntero a textura
 using tilelayer = tmx::TileLayer;
@@ -58,6 +64,9 @@ private:
 	tileset_map tilesets_;	// textures map (string -> texture)
 	SDL_Texture* background_;
 	MapInfo mapInfo;	//struct
+	vector<bool> sectors{ true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true };
+	Entity* pruebaCollider;
+	int idSector = 0;
 	//PLAYER 
 	Entity* player_;
 	Transform* trans_player_;
@@ -65,12 +74,20 @@ private:
 	SkinComponent* sk_;
 	Texture* texture_player_;
 	PlayerNPC* Playernpc_;
-	int contnpc = 0;
+	int contnpc = 4;
+	MovementComponent* movcomp_player_;
 	//NPCS
 	Entity* Npc_;
+	Entity* Blacksmith_;
 	//Transform* Nptr_;
 	int number_npc_ = 0;
-	
+	int contBlksm = 0;
+	//HUD
+	Entity* Hud_;
+	EconomyComponent* economyComp_;
+	Roulette* roulete;
+	Damage* damage_;
+	LifeTD* life_;
 	
 	//ENEMIGOS 
 	vector<Entity*> enemies_;
@@ -80,10 +97,11 @@ private:
 	float enemy_width, enemy_height;
 	string type_;
 
+	//Boss
+	Entity* boss_;
+
+	Saving* save_;
 	GameManager* Gm_;
-	
-	//DIALOGO
-	bool dialog_;
 
 	//COLISIONES TILE-PLAYER
 	vector<Entity*> collisions_; //vector colision player-mapa
@@ -92,115 +110,46 @@ private:
 
 	int fondowidth_, fondoheight_;
 
+	DialogueComponent* dialog_;
 	
-	#pragma region SHOP
-	// Entidad de tienda
-	Entity* shop_;
-	// Entidades botones
-	Entity* upturnButtonFireAtt_;
-	Entity* upturnButtonWaterAtt_;
-	Entity* upturnButtonEarthAtt_;
-	Entity* upturnButtonAirAtt_;
-	Entity* upturnButtonFireHP_;
-	Entity* upturnButtonWaterHP_;
-	Entity* upturnButtonEarthHP_;
-	Entity* upturnButtonAirHP_;
+	
+	// SHOP
+	Entity* upturnButton_;
 	Entity* exitShopButton_;
-
-	// Propiedades tienda
-	Transform* shopTr_;
-	bool openShop_ = false;
-	Transform* upturnButtonTr_;
+	vector<Entity*> buttons;
+	vector<Button*> buttonsComp;
+	ShopComponent* shopComp_;
+	Vector2D upturnButtonPos_;
 	int upturnButtonX, upturnButtonY;
 	int upturnButtonWidth_, upturnButtonHeight_;
-	int upturnButtonOffsetX = 165;
-	int upturnButtonOffsetY = 150;
-	Vector2D upturnButtonPos_;
-
-	// Transform Botones
-	Transform* upturnButtonAirAttTr_;
-	Transform* upturnButtonFireAttTr_;
-	Transform* upturnButtonWaterAttTr_;
-	Transform* upturnButtonEarthAttTr_;
-	Transform* upturnButtonAirHPTr_;
-	Transform* upturnButtonFireHPTr_;
-	Transform* upturnButtonWaterHPTr_;
-	Transform* upturnButtonEarthHPTr_;
+	int upturnButtonOffsetX = 50;
+	int upturnButtonOffsetY = 20;
+	Transform* upturnButtonTr_;
+	Button* upturnButtonComp_;
 	Transform* exitShopButtonTr_;
-
-	// Tipo Botones
-	Button* upturnButtonComp1_;
-	Button* upturnButtonComp2_;
-	Button* upturnButtonComp3_;
-	Button* upturnButtonComp4_;
-	Button* upturnButtonComp5_;
-	Button* upturnButtonComp6_;
-	Button* upturnButtonComp7_;
-	Button* upturnButtonComp8_;
 	Button* exitShopButtonComp_;
 
-	// Texto mejoras
-	int u1 = 0;
-	int u2 = 0;
-	int u3 = 0;
-	int u4 = 0;
-	int u5 = 0;
-	int u6 = 0;
-	int u7 = 0;
-	int u8 = 0;
-	Font* font_;
-	string textUp_;
-	int textX = 150;
-	int textY = 200;
-	SDL_Color color_;
-
-	//Texto monedas
-	EconomyComponent* economyComp_;
-	int price1_ = 10;
-	int price2_ = 10;
-	int price3_ = 10;
-	int price4_ = 10;
-	int price5_ = 10;
-	int price6_ = 10;
-	int price7_ = 10;
-	int price8_ = 10;
-	string textCoin_;
-
-	// Avatares
-	Entity* shopFrame_;
-	Entity* airAvatar_;
-	Entity* fireAvatar_;
-	Entity* waterAvatar_;
-	Entity* earthAvatar_;
-	Transform* shopFrameTr_;
-	Transform* airAvatarTr_;
-	Transform* fireAvatarTr_;
-	Transform* waterAvatarTr_;
-	Transform* earthAvatarTr_;
-	Vector2D shopFramePos_;
-	#pragma endregion
-
-	
-
-
-	//HUDTD* hudTD = new HUDTD();
 public:
+	void actSectors(int idChange, bool nowValue)
+	{
+		if (sectors[idChange] != nowValue)
+		{
+			sectors[idChange] = nowValue;
+			printMap();
+		}
+		//printMap();
+	}
 	string getStateID(); // stringID
-	//DialogBox* d;
 	PuzzleCopas* puzzle1;
 	TopDownState();	
 	~TopDownState() {}
 	void LoadMap(string const& filename);
-	void dialog(int a);	
+	void printMap();
 	void update();	
 	void handleEvents();
 	void render();
 	void createShopButtons();
-	void createExitShopButton();
-	void createUpgradeText(int value, int offsetX, int offsetY, int offsetXcoin, int offsetYcoin, int price);
-	int increase(int& o);
-	void shopEconomy();
-	void showAvatar(Entity* entity, Transform* transform, int i, string id);
+	void cleanShopButtons();
 	Texture* npcTexture() {
 		int a = SDLUtils::instance()->rand().nextInt(0, 1);
 		if (a == 0) {
@@ -210,6 +159,13 @@ public:
 			return &SDLUtils::instance()->images().at("NPC_2");
 		}
 		
+	}
+	Texture* blacksmithTexture() {
+		return &SDLUtils::instance()->images().at("Blacksmith");
+	}
+	Texture* bossLuzTexture()
+	{
+		return &SDLUtils::instance()->images().at("TDLightBoss");
 	}
 	Texture* EnemyTexture() {
 		int a = SDLUtils::instance()->rand().nextInt(0, 4);
@@ -240,6 +196,9 @@ public:
 
 	}
 	Entity* getplayer() { return player_; };
-
+	ShopComponent* getShopComp() { return shopComp_; }
+	DialogueComponent* getDialog() { return dialog_; }
+	Button* getShopButton(int i) { return buttonsComp.at(i); }
+	SkinComponent* getPlayerSkin() { return sk_; }
 };
 

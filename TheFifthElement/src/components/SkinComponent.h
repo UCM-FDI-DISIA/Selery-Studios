@@ -4,7 +4,7 @@
 #include "../utils/Component.h"
 #include "../sdlutils/Texture.h"
 #include "../GameManager.h"
-#include "Image.h"
+#include "FramedImage.h"
 
 class SkinComponent : public Component
 {
@@ -21,17 +21,11 @@ private:
     string prevSkin_;
     int nframes_;
     int fila_;
-    int w_, h_;
-    Image* im_;
-    bool set_ = false;
+    FramedImage* im_;
 
 public:
 
-    SkinComponent(string skin)
-    {
-        skin_ = skin;
-        prevSkin_ = skin;
-    }
+    SkinComponent(string skin);
     void setIdle();
     void setLeft();
     void setRight();
@@ -41,8 +35,11 @@ public:
     void update();
     void changeMov();
     void changeState(AnimationStates newState) { nextState_ = newState; };
-    void changeSkin(string skin) { skin_ = skin; }
+    void changeSkin(string skin) {
+        skin_ = skin;
+    }
     inline string getSkin() { return t_; }
+    inline string getSkinPlayer() { return skin_; } // método para obtener el id "air", "fire",...
 
 };
 #endif

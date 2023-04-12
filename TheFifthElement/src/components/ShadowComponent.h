@@ -11,7 +11,7 @@ protected:
 	Transform* trans_player;
 	Texture* t=&SDLUtils::instance()->images().at("shadow");
 	JumpComponent* Jump_player;
-	int src_width = 62;
+	int src_width = 62 ;// tamaño real de la imagen
 	int src_height = 40;
 	int jump_poss_y;
 

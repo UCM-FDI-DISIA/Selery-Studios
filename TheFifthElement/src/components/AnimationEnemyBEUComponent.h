@@ -3,23 +3,13 @@
 #include "../utils/Vector2D.h"
 #include "../sdlutils/SDLUtils.h"
 #include "../sdlutils/Texture.h"
-#include "../components/Transform.h"
-#include "../components/Image.h"
-#include "../components/ColliderComponent.h"
+#include "Transform.h"
+#include "FramedImage.h"
+#include "ColliderComponent.h"
 #include <string>
 using namespace std;
 
 class AnimationEnemyBEUComponent : public Component {
-public:
-#pragma region EnumAnims
-	enum AnimationStates{
-		Moving, Attack, Hit, Death, Null
-	};
-
-	AnimationStates currentState_;
-	AnimationStates nextState_;
-
-#pragma endregion
 private:
 #pragma region ColliderData
 	Vector2D offset_ = Vector2D(0, 0);
@@ -39,8 +29,8 @@ private:
 #pragma region references
 	Entity* player_;
 
-	Texture* t_;
-	Image* im_;
+	string t_;
+	FramedImage* im_;
 	Transform* tr_;
 	Transform* playerTr_;
 	ColliderComponent* col_;
@@ -62,7 +52,15 @@ public:
 		player_ = player;
 		scale = WIN_WIDTH / 900;
 	}
+#pragma region EnumAnims
+	enum AnimationStates {
+		Moving, Attack, Hit, Death, Null
+	};
 
+	AnimationStates currentState_;
+	AnimationStates nextState_;
+#pragma endregion
+	void initComponent();
 	void update();
 	void changeState(AnimationStates newState);
 	void updateAnimation();
@@ -74,7 +72,7 @@ public:
 	void setDeathTexture();
 
 	int getNFrames() { return nframes_; }
-	Texture* getTexture() { return t_; }
+	Texture* getTexture() { return  &SDLUtils::instance()->images().at(t_); }
 	Vector2D getOffset() { return offset_; }
 	int getColWidth() { return ColWidth_; }
 	int getColHeight() { return ColHeight_; }
@@ -82,5 +80,6 @@ public:
 	inline string getType() { return type_; }
 	inline float getWidth() { return EnemyWidth_; }
 	inline float getHeight() { return EnemyHeight_; }
+	inline int getState() { return currentState_; }
 };
 

@@ -3,7 +3,7 @@ using uint = unsigned int;
 
 const uint WIN_WIDTH = 900; // anchura de ventana
 const uint WIN_HEIGHT = 600; // altura de ventana
-const float FRAME_RATE = 3.0f; // número de frames que tardará en actualizarse el juego
+const float FRAME_RATE = 5.0f; // número de frames que tardará en actualizarse el juego
 
 const uint PLAYERBEU_WIDTH_FRAME = 208; // anchura de PlayerBEU
 const uint PLAYERBEU_HEIGHT_FRAME = 128; // altura de PlayerBEU
@@ -17,11 +17,11 @@ const uint PLAYERTD_HEIGHT_FRAME = 120; // altura de PlayerTD
 const float PLAYERTD_SPEED = 3.0f; //velocidad PlayerTD
 const uint PLAYERTD_NUMFRAMES = 7; //numero de frames PlayerTD
 
-const uint BACKGROUNDAIR_WIDTH_FRAME = 3840; // anchura de BackgroundAir
-const uint BACKGROUNDAIR_HEIGHT_FRAME = 2160; // altura de BackgroundAir
+const uint BACKGROUNDBEU_WIDTH = 3987; // anchura de BackgroundAir
+const uint BACKGROUNDBEU_HEIGHT = 1080; // altura de BackgroundAir
 
-const uint DIALOGUE_WIDTH = 1200; // anchura de Dialogue
-const uint DIALOGUE_HEIGHT = 852; // anchura de Dialogue
+const uint DIALOGUE_WIDTH = 620; // anchura de Dialogue
+const uint DIALOGUE_HEIGHT = 452; // anchura de Dialogue
 
 const uint ELEMENT_WIDTH = 64; // anchura de Element
 const uint ELEMENT_HEIGHT = 64; // altura de Element
@@ -59,6 +59,8 @@ const int enemy_rock_life = 200;
 
 const int WATERBOSS_WIDTH = 192;
 const int WATERBOSS_HEIGHT = 128;
+const int WAVE_WIDTH = 400;
+const int WAVE_HEIGHT = 109;
 
 #pragma endregion
 
@@ -69,12 +71,28 @@ const int EARTHBOSS_HEIGHT = 192;
 
 #pragma endregion
 
+#pragma region LightBoss_Data
+
+const int LIGHTBOSS_WIDTH = 288;
+const int LIGHTBOSS_HEIGHT = 128;
+
+#pragma endregion
+
 // SHOP
+const uint BLACKSMITH_WIDTH = 96; // anchura de NPC
+const uint BLACKSMITH_HEIGHT = 96; // altura de NPC
+const uint BLACKSMITH_FRAMES = 13; // frame del npcs
 const uint SHOP_WIDTH = 747;
 const uint SHOP_HEIGHT = 876;
 const uint UPTURNBUTTON_WIDTH = 88;
 const uint UPTURNBUTTON_HEIGHT = 84;
 const uint MAX_UPGRADE = 10;
+const uint SHOP_FRAME_WIDTH = 80;
+const uint SHOP_FRAME_HEIGHT = 80;
+const uint AVATAR_WIDTH = 64;
+const uint AVATAR_HEIGHT = 64;
+const float EXITSHOP_WIDTH = 557.0f;
+const float EXITSHOP_HEIGHT = 131.0f;
 
 /*const string FUEGO = "fire";
 const string AIRE = "wind";

@@ -4,12 +4,13 @@
 #include "../utils/Vector2D.h"
 #include "../utils/Component.h"
 #include "../utils/Entity.h"
-#include "../components/Image.h"
+#include "FramedImage.h"
 
 class AnimationEarthBossComponent : public Component
 {
 private:
-	Image* imBoss;
+	FramedImage* imBoss;
+	int stage;
 public:
 	enum Animations {
 		Idle, Moving, Attack, Hit, Death, IdleProtection, Protection, Null
@@ -22,6 +23,8 @@ public:
 	void initComponent();
 	void newAnimation(Animations newAnim);
 	void update();
+	inline void newStage() { stage++; }
+	inline int getStage() { return stage; }
 };
 #endif
 

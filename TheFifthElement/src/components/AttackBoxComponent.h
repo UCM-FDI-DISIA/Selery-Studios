@@ -32,13 +32,13 @@ private:
     vector<SDL_Rect> boxes;
     float angles[100];
     SDL_Rect box, box2;
-    Image* im_;
+    FramedImage* im_;
     AnimationEnemyBEUComponent* anim_;
     SkinBEUComponent* sk_;
     float width, height, boxTime, timerExecution, angle, way, stoppingAngle;
     bool boxCreated = false;
-
-    bool isPlayer = true;
+    bool actualized = false;
+    bool isPlayer;
     string type;
 public:
     AttackBoxComponent();

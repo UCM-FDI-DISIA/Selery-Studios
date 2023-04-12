@@ -5,7 +5,7 @@ JumpComponent::~JumpComponent() {}
 
 void JumpComponent::initComponent() {
     tr_ = ent_->getComponent<Transform>(TRANSFORM_H);
-    im_ = ent_->getComponent<Image>(IMAGE_H);
+    im_ = ent_->getComponent<FramedImage>(FRAMEDIMAGE_H);
     assert(tr_ != nullptr);
     assert(im_ != nullptr);
 }
