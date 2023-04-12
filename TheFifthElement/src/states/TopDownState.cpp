@@ -213,7 +213,6 @@ void TopDownState::LoadMap(string const& filename) {
                     portal_->setContext(this);
                     portal_->addComponent<Transform>(TRANSFORM_H, Vector2D(obj.getPosition().x, obj.getPosition().y), PORTAL_WIDTH, PORTAL_HEIGHT);
                     portal_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("portal"));
-                    portal_->addComponent<ObjectsComponent>(OBJECTSCOMPONENT_H);
                     portal_->addComponent<PortalComponent>(PORTALCOMPONENT_H, trans_player_);
                     addEntity(portal_);
                 }
@@ -222,7 +221,6 @@ void TopDownState::LoadMap(string const& filename) {
                     Entity* element_ = new Entity();
                     element_->addComponent<Transform>(TRANSFORM_H, Vector2D(obj.getPosition().x, obj.getPosition().y), element_width, element_height);
                     element_->addComponent<FramedImage>(FRAMEDIMAGE_H, &SDLUtils::instance()->images().at("fireball"), ELEMENT_WIDTH, ELEMENT_HEIGHT, 4);
-                    element_->addComponent<ObjectsComponent>(OBJECTSCOMPONENT_H);
                     element_->addComponent<CheckCollision>(CHECKCOLLISION_H, player_, "element");
                     addEntity(element_);
                 }
