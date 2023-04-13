@@ -60,6 +60,8 @@ public:
 
     inline float getSize() { return size_; }
 
+    inline float getScale() { return scale_; }
+
     inline void setR(float valRot) { rotation_ = valRot; }
 
     inline void setH(float valHei) { height = valHei; }

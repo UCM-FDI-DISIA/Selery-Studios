@@ -50,9 +50,9 @@ void MainMenuState::render() {
 Entity* MainMenuState::addNewEntity(string t, float w, float h, Vector2D pos, int nframes, int wFrame, int hFrame, bool flip, float size) {
 	Entity* e = new Entity();
 	//e->setContext(this);
-	float size_ = size * WIN_WIDTH / 900;
-	e->addComponent<Transform>(TRANSFORM_H, pos, w, h, size_);
-	e->addComponent<FramedImage>(FRAMEDIMAGE_H, &SDLUtils::instance()->images().at(t), wFrame, hFrame, nframes);
+	//float size_ = size * WIN_WIDTH / 900;
+	e->addComponent<Transform>(TRANSFORM_H, pos, w, h, size);
+	e->addComponent<FramedImage>(FRAMEDIMAGE_H, &SDLUtils::instance()->images().at(t), wFrame, h, nframes);
 	addEntity(e);
 	return e;
 }
@@ -64,7 +64,7 @@ void MainMenuState::Background(string file) {
 	bool matrix = false;
 	Vector2D v = { 0,0 };
 	int r = 0;
-	e->addComponent<Transform>(TRANSFORM_H, v, WIN_WIDTH, WIN_HEIGHT, r, 0, f, matrix);
+	e->addComponent<Transform>(TRANSFORM_H, v, 900, 600, r, 0, f, matrix);
 	Texture* t = &SDLUtils::instance()->images().at(file);
 	e->addComponent<Image>(IMAGE_H, t);
 	addEntity(e);
