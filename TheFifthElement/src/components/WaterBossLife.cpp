@@ -17,18 +17,34 @@ void WaterBossLife::initComponent() {
 }
 
 void WaterBossLife::damage(float damage, float mul) {
-    if (!invulnerable) {
+    if (!invulnerable && !hit_) {
         life -= damage * mul;
         barWidth_ = ((life * backWidth_) / maxLife);
         if (life <= 0) {
-            im_->setAnim("waterBoss_death", 16, true);
+            //im_->setAnim("waterBoss_death", 16, true);
+            im_->setAnim("waterBoss", 16, true, 4);
             ////im_->setAnim(true, 4, 15, 0, 15, false);
             im_->setIsAnimUnstoppable(false);
             //im_->setAnimPlaying(false);
-            ent_->removeComponent(WATERBOSSIA_H);
+            //ent_->removeComponent(WATERBOSSIA_H);
+            die_ = true;
         }
-        else im_->setAnim("waterBoss_hit", 7, true);////im_->setAnim(true, 3, 7, 0, 7);
+        else
+        {
+            //im_->setAnim("waterBoss", 16, true, 3);
+            //im_->setAnim("waterBoss_hit", 7, true);
+            ////im_->setAnim(true, 3, 7, 0, 7);
+            //meter sonido de daño
+            hit_ = true;
+            cont_ = 0;
+        }
     }
+}
+
+void WaterBossLife::update() {
+    if (die_ && !im_->isAnimPlaying()) ent_->setAlive(false);
+    else if (hit_ && cont_ >= 20) hit_ = false;
+    cont_++;
 }
 
 void WaterBossLife::render() {

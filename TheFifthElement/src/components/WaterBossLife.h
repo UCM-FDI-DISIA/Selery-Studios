@@ -22,13 +22,19 @@ private:
     Transform* tr_;
     int life, maxLife;
     bool invulnerable;
+    bool die_ = false;
+    bool hit_ = false;
     float scale;
+
+    int cont_ = 0;
 
 public:
     WaterBossLife(int LIFE);
     virtual ~WaterBossLife() {}
     void damage(float damage, float mul);
     void initComponent();
+    void update();
     void render();
+    void setInvulnerable(bool b) { invulnerable = b; }
 };
 
