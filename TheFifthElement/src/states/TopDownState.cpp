@@ -76,8 +76,8 @@ void TopDownState::LoadMap(string const& filename) {
                 // recorremos todos los tiles para obtener su informacion
                 for (auto y = 0; y < mapInfo.rows; ++y) {
                     for (auto x = 0; x < mapInfo.cols; ++x) {
-                        if (y < mapInfo.rows/2) {
-                            if (x < mapInfo.cols / 2) { //primer 
+                        if (y < mapInfo.rows/10) {
+                            if (x < mapInfo.cols / 5) { //primer 
                                 SDL_SetRenderTarget(Gm_->getRenderer(), background_0);
 
                             }
