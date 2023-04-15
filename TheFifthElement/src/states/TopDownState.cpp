@@ -106,7 +106,7 @@ void TopDownState::LoadMap(string const& filename) {
 
                 }
                 else if (name == "NPC") {
-                    if (contnpc >= 7)
+                    if (contnpc >= 21)
                     {
                         contnpc = 5;
                     }
