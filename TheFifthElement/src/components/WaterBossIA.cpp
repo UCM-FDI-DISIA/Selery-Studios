@@ -3,11 +3,10 @@
 WaterBossIA::WaterBossIA(Entity* player){
 	currentState_ = NONE;
 	player_ = player;
-	attackIcePos_ = WIN_WIDTH / 2 - WATERBOSS_WIDTH / 2;
-	attackWavesPos_ = WIN_WIDTH * 9 / 11;
 }
 
 void WaterBossIA::initComponent() {
+	wLife_ = ent_->getComponent<WaterBossLife>(WATERBOSSLIFE_H);
 	im_ = ent_->getComponent<FramedImage>(FRAMEDIMAGE_H);
 	cont = 0;
 	chrono = 3000;
@@ -16,11 +15,16 @@ void WaterBossIA::initComponent() {
 	tr_ = ent_->getComponent<Transform>(TRANSFORM_H);
 	downLimit = sdlutils().height() - 100;
 	topLimit = sdlutils().height()* 0.38;
+
+	attackIcePos_ = WIN_WIDTH / 2 - (tr_->getW() * tr_->getS())/ 2;
+	attackWavesPos_ = WIN_WIDTH * 9 / 11;
+
+	iceCont_ = 0;// al principio el contador estará a 0
 }
 
 void WaterBossIA::update() {
 	if (currentState_ == NONE) {// no ataca
-		if (!(abs(tr_->getPos().getX() - (WIN_WIDTH * 3 / 4 - WATERBOSS_WIDTH)) >= 3)) {
+		if (!(abs(tr_->getPos().getX() - (WIN_WIDTH * 3 / 4 -WATERBOSS_WIDTH)) >= 3)) {
 			setIdle();
 			tr_->setDir(Vector2D(0,0));
 			if(chrono <= sdlutils().currRealTime())	newAttack();
@@ -48,7 +52,7 @@ void WaterBossIA::update() {
 						currentState_ = NONE;
 						chrono = sdlutils().currRealTime() + 3000;
 						cont = 0;
-						dir_ = Vector2D((WIN_WIDTH * 3 / 4 - WATERBOSS_WIDTH) - tr_->getPos().getX(), 0).normalize();
+						dir_ = Vector2D((WIN_WIDTH * 3 / 4 -(tr_->getW() * tr_->getS())) - tr_->getPos().getX(), 0).normalize();
 						tr_->setDir(dir_);
 						setWalk(dir_);
 					}
@@ -58,8 +62,46 @@ void WaterBossIA::update() {
 		// ataque hielo
 		else {
 			if (!(abs(tr_->getPos().getX() - attackIcePos_) >= 3)) {
-				setIdle();
-				tr_->setDir(Vector2D(0, 0));
+				if (!set_) {
+					tr_->setDir(Vector2D(0, 0));// el boss se para
+					fila_ = 5;
+					//im_->setAnim("waterBoss", 4, false, fila_);
+					im_->setAnim("waterBoss", 6, false, fila_);
+					set_ = true;
+				}
+
+				// esto tiene que ir dentro de un condicional de si está en la animación del ataque
+				if (fila_ == 5 && !im_->isAnimPlaying()) {
+					fila_ = 6; 
+					//im_->setAnim("waterBoss", 21, false, fila_);
+					im_->setAnim("waterBoss", 16, false, fila_);
+					iceCont_ = 10;
+				}
+				else if (fila_ == 6) {
+					wLife_->setInvulnerable(false);
+					if (!im_->isAnimPlaying()) {
+						fila_ = 7; 
+						//im_->setAnim("waterBoss", 4, false, fila_);
+						im_->setAnim("waterBoss", 6, false, fila_);
+					}
+					else if (iceCont_ >= 10) {
+						int rnd = rand() % 4;
+						rnd += 2;// número de carámbanos aleatorio entre 2 y 6
+						addIce(rnd);
+						iceCont_ == 0;
+					}
+					iceCont_++;
+				}
+				else if (fila_ == 7 && !im_->isAnimPlaying()) {
+					wLife_->setInvulnerable(true);
+					set_ = false;
+					currentState_ = NONE;
+					chrono = sdlutils().currRealTime() + 3000;
+					cont = 0;
+					dir_ = Vector2D(tr_->getPos().getX() - (WIN_WIDTH * 3 / 4 - (tr_->getW() * tr_->getS())), 0).normalize();
+					tr_->setDir(dir_);
+					setWalk(dir_);
+				}
 			}
 		}
 	}
@@ -86,15 +128,19 @@ void WaterBossIA::attackIce() {
 }
 
 void WaterBossIA::setIdle() {
+	fila_ = 0;
 	im_->setFlip(SDL_FLIP_NONE);
-	im_->setAnim("waterBoss_idle", 6, false);
+	//im_->setAnim("waterBoss_idle", 6, false);
+	im_->setAnim("waterBoss", 6, false, fila_);
 	////im_->setAnim(false, 0, 6, 0, 6);
 }
 
 void WaterBossIA::setWalk(Vector2D dir) {
+	fila_ = 1;
 	if (dir.getX() > 0) im_->setFlip(SDL_FLIP_HORIZONTAL);
 	else im_->setFlip(SDL_FLIP_NONE);
-	im_->setAnim("waterBoss_walk", 10, false);
+	//im_->setAnim("waterBoss_walk", 10, false);
+	im_->setAnim("waterBoss", 10, false, fila_);
 	////im_->setAnim(false, 1, 10, 0, 10);
 }
 
@@ -129,4 +175,8 @@ Entity* WaterBossIA::createWave(float y) {
 	wave->addComponent<DisableOnExit>(DISABLEONEXIT_H);
 	wave->addComponent<ColDetectorComponent>(COLDETECTORCOMPONENT_H, wave, player_);
 	return wave;
+}
+
+void WaterBossIA::addIce(int n) {
+	for (int i = 0; i < n; i++)cout << "carámbano " << endl;
 }

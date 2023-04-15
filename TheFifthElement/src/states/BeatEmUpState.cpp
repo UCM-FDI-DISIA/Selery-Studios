@@ -1,12 +1,13 @@
 ﻿#include "BeatEmUpState.h"
 #include "../components/SkinBEUComponent.h"
+#include "../Elements.h"
 
 BeatEmUpState::BeatEmUpState(bool Boss,Entity* enemySends, string typeBoss, int nEnemies, int timeGen) {
 	enemySender = enemySends;
 	numEnemies = nEnemies;
 	timeToGenerate = timeGen;
 	boss = Boss;
-
+	typeBoss_ = typeBoss;
 	//SDLUtils::instance()->soundEffects().at("Battle").play();
 
 	random = &SDLUtils::instance()->rand();
@@ -21,7 +22,7 @@ BeatEmUpState::BeatEmUpState(bool Boss,Entity* enemySends, string typeBoss, int 
 
 	player_ = new Entity();
 	player_->setContext(this);
-	trans_player_ = player_->addComponent<Transform>(TRANSFORM_H, Vector2D(PlayerPosition_X, PlayerPosition_Y), PLAYERBEU_WIDTH_FRAME, PLAYERBEU_HEIGHT_FRAME, 1);
+	trans_player_ = player_->addComponent<Transform>(TRANSFORM_H, Vector2D(PlayerPosition_X, PlayerPosition_Y), PLAYERBEU_WIDTH_FRAME, PLAYERBEU_HEIGHT_FRAME, 2);
 	sk_ = player_->addComponent<SkinBEUComponent>(SKINBEUCOMPONENT_H, "air");
 	sk_->changeState(SkinBEUComponent::Idle);
 	texture_player_ = &SDLUtils::instance()->images().at(sk_->getSkin());
@@ -74,7 +75,7 @@ void BeatEmUpState::AddEnemy() {
 
 	else animation_ = enemy_->addComponent<AnimationEnemyBEUComponent>(ANIMATIONENEMYBEUCOMPONENT_H, getEnemyType(type), "goblin", player_);
 
-	enemy_->addComponent<Transform>(TRANSFORM_H, pos, ENEMYBEU_WIDTH, ENEMYBEU_HEIGHT)->setDir(Vector2D(1, 0));
+	enemy_->addComponent<Transform>(TRANSFORM_H, pos, ENEMYBEU_WIDTH, ENEMYBEU_HEIGHT, 2)->setDir(Vector2D(1, 0));
 	enemy_->addComponent<FramedImage>(FRAMEDIMAGE_H, animation_->getTexture(), ENEMYBEU_WIDTH, ENEMYBEU_HEIGHT, animation_->getNFrames(), getEnemyType(type));
 	enemy_->addComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
 	enemy_->addComponent<EnemyBEUDirectionComponent>(ENEMYBEUDIRECTIONCOMPONENT_H, player_, animation_->getEnemy());
@@ -122,16 +123,17 @@ void BeatEmUpState::AddEnemies(int n_enemies) {
 }
 
 void BeatEmUpState::AddWaterBoss() {
+	numEnemies = 1;
 	Vector2D position = Vector2D(sdlutils().width() * 3 / 4 - WATERBOSS_WIDTH , sdlutils().height()/2);
 
 	Entity* waterBoss = addEntity();
-	waterBoss->addComponent<Transform>(TRANSFORM_H, position, WATERBOSS_WIDTH*1.2, WATERBOSS_HEIGHT*1.2);
+	waterBoss->addComponent<Transform>(TRANSFORM_H, position, WATERBOSS_WIDTH, WATERBOSS_HEIGHT, 2.4);
 	////waterBoss->addComponent<FramedImage>(FRAMEDIMAGE_H, &sdlutils().images().at("waterBoss"), 6, 16, 0, WATERBOSS_WIDTH, WATERBOSS_HEIGHT);
-	waterBoss->addComponent<FramedImage>(FRAMEDIMAGE_H, &sdlutils().images().at("waterBoss"), WATERBOSS_WIDTH, WATERBOSS_HEIGHT, 16, "water");
+	waterBoss->addComponent<FramedImage>(FRAMEDIMAGE_H, &sdlutils().images().at("waterBoss"), WATERBOSS_WIDTH, WATERBOSS_HEIGHT, 16, 0, "water");
 	waterBoss->addComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
-	waterBoss->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(70, 10), WATERBOSS_HEIGHT, WATERBOSS_WIDTH/2);
+	waterBoss->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(50, 10), WATERBOSS_HEIGHT, WATERBOSS_WIDTH/2);
+	waterBoss->addComponent<WaterBossLife>(WATERBOSSLIFE_H, 1);
 	waterBoss->addComponent<WaterBossIA>(WATERBOSSIA_H, player_);
-	waterBoss->addComponent<WaterBossLife>(WATERBOSSLIFE_H, 100);
 	// buscar assets olas
 }
 
@@ -140,6 +142,7 @@ void BeatEmUpState::AddFireBoss() {
 }
 
 void BeatEmUpState::AddEarthBoss() {
+	numEnemies = 1;
 	//Vector2D pos = { WIN_WIDTH , WIN_HEIGHT / 2 };
 	Vector2D pos = Vector2D(sdlutils().width() * 3 / 4 - WATERBOSS_WIDTH, sdlutils().height() / 2);
 	earthBoss_ = new Entity();
@@ -202,6 +205,12 @@ void BeatEmUpState::finishBEU() {
 	numEnemies -= 1;
 	if (numEnemies <= 0)
 	{
+		// DESBLOQUEO DE PERSONAJES
+		if (boss) {
+			if (typeBoss_ == "water") Elements::instance()->setWater();
+			else if (typeBoss_ == "earth") Elements::instance()->setEarth();
+			else if (typeBoss_ == "fire") Elements::instance()->setFire();
+		}
 		Saving::instance()->deletePos();
 		SDLUtils::instance()->soundEffects().at("Battle").haltChannel();
 		GameManager::instance()->goTopDown();

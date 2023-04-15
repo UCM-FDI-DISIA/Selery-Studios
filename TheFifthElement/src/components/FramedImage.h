@@ -15,9 +15,11 @@ private:
 	SDL_Rect dest, src;
 	bool isAnimUnstoppable_ = false;
 	string type_, texKey_ = "";
+	int fila_;
 public:
 	//Constructora
 	FramedImage(Texture* tex, int width, int height, int frames, string type = "");
+	FramedImage(Texture* tex, int width, int height, int frames, int fila, string type = "");
 	//FramedImage(Texture* tex, int nframes, int framesT, int fila, int widthFrame, int heightFrame);//Constructora
 	//FramedImage(Texture* tex, int nframes, int framesT, int fila, int widthFrame, int heightFrame, string type);//Constructora
 
@@ -34,12 +36,13 @@ public:
 	inline int getCol() { return col; }
 	inline int getLastFrame() { return frames_; }
 
-	void setAnim(string textureKey, int frames, bool isAnimUnstoppable); //Metodo generico para cambiar de animacion
-	void setAnim(string textureKey, int col,int frames, bool isAnimUnstoppable); //Metodo generico para cambiar de animacion
+	void setAnim(string textureKey, int frames, bool isAnimUnstoppable, int fila = 0); //Metodo generico para cambiar de animacion
+	void setAnim(string textureKey, int col,int frames, bool isAnimUnstoppable, int fila = 0); //Metodo generico para cambiar de animacion
 
+	inline bool isAnimPlaying() { return col <  frames_ - 1; }
 
-		inline void setTope(int i) { tope = i; }
-		inline int getTope() const { return tope; }
+	inline void setTope(int i) { tope = i; }
+	inline int getTope() const { return tope; }
 
 	inline bool getIsAnimUnstoppable() { return isAnimUnstoppable_; }
 

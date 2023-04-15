@@ -12,6 +12,7 @@
 #include "ObjectsComponent.h"
 #include "StoneComponent.h"
 #include <array>
+#include "../Elements.h"
 class Image;
 
 class InputComponentBEU : public Component {

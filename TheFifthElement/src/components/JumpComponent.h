@@ -9,10 +9,9 @@
 class JumpComponent : public Component {
 private:
     Transform* tr_ = nullptr;
-    FramedImage* im_ = nullptr;
     bool canJump = true;
     bool ctr = false;
-    float jumpHeigth;
+    float groundHeigth, jumpHeigth;
     float jumpSpeed = 1;
 
 public:

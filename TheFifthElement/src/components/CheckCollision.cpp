@@ -8,12 +8,13 @@ CheckCollision::CheckCollision(Entity* player, string id) : Component() {
 	id_ = id;
 }
 
-CheckCollision::CheckCollision(Entity* player, float lookingRange, float lookingWidth, float side) :Component() {
+CheckCollision::CheckCollision(Entity* player, float lookingRange, float lookingWidth, float side, float offset, string boss) :Component() {
 	player_ = player;
 	side_ = side;								//side==-1 ------>mira a la derecha					//			side==1-------->mira a la izquierda
 	lookingRange_ = lookingRange;
 	lookingHeight_ = lookingWidth;
-
+	boss_ = boss;
+	ofs_ = offset;
 }
 void CheckCollision::initComponent() {
 	//Hacemos los getComponent de los Transform
@@ -25,7 +26,8 @@ void CheckCollision::initComponent() {
 	lookingRange_ *= side_;
 
 	//Offset el cual sumamos a la posici? en X del enemigo
-	offset = tr1->getW();
+	if (ofs_ == 0) offset = tr1->getW();
+	else offset = ofs_;
 	/*if (side_==1)
 	{
 		offset = (tr1->getW() / 7)-60;
@@ -51,7 +53,8 @@ void CheckCollision::update()
 		if (Collision::collides(Vector2D(rectPlayer.x, rectPlayer.y), rectPlayer.w, rectPlayer.h, Vector2D(rectFight.x, rectFight.y), rectFight.w, rectFight.h))					//Aumentado el numero por el que dividimos las alturas y anchuras, tambien aumentamos lo que tarda en detectarnos el enemigo
 		{
 			Saving::instance()->setPos(Vector2D(3686, 807));
-			GameManager::instance()->goBeatEmUp(false, ent_, "");
+			if(boss_ == "")GameManager::instance()->goBeatEmUp(false, ent_, boss_);
+			else GameManager::instance()->goBeatEmUp(true, ent_, boss_);
 		}
 		else if (Collision::collides(Vector2D(rectPlayer.x, rectPlayer.y), rectPlayer.w, rectPlayer.h, Vector2D(rectDetection.x, rectDetection.y), rectDetection.w, rectDetection.h))
 		{
@@ -95,7 +98,7 @@ void CheckCollision::render()
 
 		rectFight.x -= mngr_->camRect_.x;
 		rectFight.y -= mngr_->camRect_.y;
-		SDL_SetRenderDrawColor(GameManager::instance()->getRenderer(), 225, 100, 255, 0); // Renderizamos el rectangulo de combate del enemigo
+		SDL_SetRenderDrawColor(GameManager::instance()->getRenderer(), 0, 100, 255, 0); // Renderizamos el rectangulo de combate del enemigo
 		SDL_RenderDrawRect(GameManager::instance()->getRenderer(), &rectFight);
 
 		/*rectNPC.x -= mngr_->camRect_.x;

@@ -14,24 +14,22 @@ private:
     SDL_Rect r;
     Transform* tr_;
     Vector2D offset_;
-    float scale;
 
 public:
 
     ColliderComponent(Vector2D offset, float h, float w) {
-        scale = WIN_WIDTH / 900;
-        offset_ = Vector2D(offset.getX()*scale, offset.getY()*WIN_HEIGHT/600);
-        h_ = h*scale;
-        w_ = w*scale;
+        offset_ = offset;
+        h_ = h;
+        w_ = w;
     }
 
     void initComponent() {
         tr_ = ent_->getComponent<Transform>(TRANSFORM_H);
-        if (tr_->getSize() != 1) {
-            offset_ = Vector2D(offset_.getX() *tr_->getSize(), offset_.getY() * tr_->getSize());
-            h_ *= tr_->getSize();
-            w_ *= tr_->getSize();
-        }
+        
+        offset_ = Vector2D(offset_.getX() *tr_->getS(), offset_.getY() * tr_->getS());
+        h_ *= tr_->getS();
+        w_ *= tr_->getS();
+
         pos_ = tr_->getPos();
         pos_ = pos_ + offset_;
         r.x = pos_.getX();
@@ -59,13 +57,13 @@ public:
     }
 
     void setOffset(Vector2D offset) {
-        offset_ = Vector2D(offset.getX() * scale, offset.getY() * WIN_HEIGHT / 600);
+        offset_ = Vector2D(offset.getX() * tr_->getS(), offset.getY() * tr_->getS());
     }
 
     void setCollider(Vector2D offset, float h, float w) {
-        offset_ = Vector2D(offset.getX() * scale, offset.getY() * WIN_HEIGHT / 600);
-        h_ = h*scale;
-        w_ = w*scale;
+        offset_ = Vector2D(offset.getX() * tr_->getS(), offset.getY() * tr_->getS());
+        h_ = h * tr_->getS();
+        w_ = w * tr_->getS();
     }
 
     int getColHeight() { return h_; }

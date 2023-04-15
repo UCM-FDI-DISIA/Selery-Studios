@@ -6,6 +6,16 @@ FramedImage::FramedImage(Texture* tex, int width, int height, int frames, string
 	tex_ = tex;
 	frames_ = frames;
 	type_ = type;
+	fila_ = 0;
+}
+
+FramedImage::FramedImage(Texture* tex, int width, int height, int frames, int fila, string type) {
+	widthFrame_ = width;
+	heightFrame_ = height;
+	tex_ = tex;
+	frames_ = frames;
+	type_ = type;
+	fila_ = fila;
 }
 
 // Destructora
@@ -18,10 +28,10 @@ void FramedImage::initComponent() { 	// Inicializa el componente
 void FramedImage::update() {
 	dest.x = tr_->getPos().getX() - mngr_->camRect_.x;
 	dest.y = tr_->getPos().getY() - mngr_->camRect_.y;
-	dest.h = tr_->getH() * tr_->getS();
-	dest.w = tr_->getW() * tr_->getS();
+	dest.h = (tr_->getH() * tr_->getSize() * WIN_HEIGHT)/600;
+	dest.w = (tr_->getW() * tr_->getSize() * WIN_WIDTH)/900;
 	src.x = col * widthFrame_;
-	src.y = 0;
+	src.y = fila_ * heightFrame_;
 	src.h = heightFrame_;
 	src.w = widthFrame_;
 
@@ -41,23 +51,25 @@ void FramedImage::render() {
 	tex_->render(src, dest, 0, nullptr, s);
 }
 
-void FramedImage::setAnim(string textureKey, int frames, bool isAnimUnstoppable) {
+void FramedImage::setAnim(string textureKey, int frames, bool isAnimUnstoppable, int fila) {
 	if (!isAnimUnstoppable_) {
 		tex_ = &SDLUtils::instance()->images().at(textureKey);
 		texKey_ = textureKey;
 		frames_ = frames;
 		isAnimUnstoppable_ = isAnimUnstoppable;
+		fila_ = fila;
 	}
 }
 
 
-void FramedImage::setAnim(string textureKey,int col_, int frames, bool isAnimUnstoppable) {
+void FramedImage::setAnim(string textureKey,int col_, int frames, bool isAnimUnstoppable, int fila) {
 	if (!isAnimUnstoppable_) {
 		tex_ = &SDLUtils::instance()->images().at(textureKey);
 		texKey_ = textureKey;
 		frames_ = frames;
 		isAnimUnstoppable_ = isAnimUnstoppable;
 		col = col_;
+		fila_ = fila;
 	}
 }
 //FramedImage::FramedImage(Texture* tex, int nframes, int framesT, int fila, int widthFrame, int heightFrame, string type) : tr_(nullptr), tex_(tex) { // Constructora
