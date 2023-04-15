@@ -62,9 +62,13 @@ class TopDownState : public Manager {
 private:
 	//TILE
 	tileset_map tilesets_;	// textures map (string -> texture)
-	SDL_Texture* background_;
+	SDL_Texture* background_0;
+	SDL_Texture* background_1;
+	SDL_Texture* background_2;
+	SDL_Texture* background_3;
+	//SDL_Texture* background_;
 	MapInfo mapInfo;	//struct
-	vector<bool> sectors{ true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true };
+	vector<bool> sectors{ true,false,false,false };
 	Entity* pruebaCollider;
 	int idSector = 0;
 	//PLAYER 
@@ -130,21 +134,21 @@ private:
 	Button* exitShopButtonComp_;
 
 public:
-	void actSectors(int idChange, bool nowValue)
-	{
-		if (sectors[idChange] != nowValue)
-		{
-			sectors[idChange] = nowValue;
-			printMap();
-		}
-		//printMap();
-	}
+	//void actSectors(int idChange, bool nowValue)
+	//{
+	//	if (sectors[idChange] != nowValue)
+	//	{
+	//		sectors[idChange] = nowValue;
+	//		printMap();
+	//	}
+	//	//printMap();
+	//}
 	string getStateID(); // stringID
 	PuzzleCopas* puzzle1;
 	TopDownState();	
 	~TopDownState() {}
 	void LoadMap(string const& filename);
-	void printMap();
+	//void printMap();
 	void update();	
 	void handleEvents();
 	void render();

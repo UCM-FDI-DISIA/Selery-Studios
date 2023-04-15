@@ -41,10 +41,16 @@ void TopDownState::LoadMap(string const& filename) {
 
 
     // convertir a textura
-    background_ = SDL_CreateTexture(Gm_->getRenderer(), SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, fondowidth_, fondoheight_);
-    SDL_SetTextureBlendMode(background_, SDL_BLENDMODE_BLEND);
-    SDL_SetRenderTarget(Gm_->getRenderer(), background_);
-
+    background_0 = SDL_CreateTexture(Gm_->getRenderer(), SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, fondowidth_, fondoheight_);
+    SDL_SetTextureBlendMode(background_0, SDL_BLENDMODE_BLEND);
+    background_1 = SDL_CreateTexture(Gm_->getRenderer(), SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, fondowidth_, fondoheight_);
+    SDL_SetTextureBlendMode(background_1, SDL_BLENDMODE_BLEND);
+    background_2 = SDL_CreateTexture(Gm_->getRenderer(), SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, fondowidth_, fondoheight_);
+    SDL_SetTextureBlendMode(background_2, SDL_BLENDMODE_BLEND);
+    background_3 = SDL_CreateTexture(Gm_->getRenderer(), SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, fondowidth_, fondoheight_);
+    SDL_SetTextureBlendMode(background_3, SDL_BLENDMODE_BLEND);
+    SDL_SetRenderTarget(Gm_->getRenderer(), background_0);
+    //CARGAR AQUI LAS DIFERENTES TEXTURAS
 
     //Cargamos y almacenamos los tilesets utilizados por el tilemap
     vector<tmx::Tileset> mapTilesets = mapInfo.tile_MAP->getTilesets();
@@ -60,11 +66,102 @@ void TopDownState::LoadMap(string const& filename) {
 
     // recorremos cada una de las capas (de momento solo las de tiles) del mapa    
     auto& mapLayers = mapInfo.tile_MAP->getLayers();
+    for (auto& layer : mapLayers) {
+        if (layer->getType() == tmx::Layer::Type::Tile) {
+            // cargamos la capa
+            tmx::TileLayer* tile_layer = dynamic_cast<tmx::TileLayer*>(layer.get());
+            string name = tile_layer->getName();
+            auto& layer_tiles = tile_layer->getTiles();
+            if (name != "Nada") {
+                // recorremos todos los tiles para obtener su informacion
+                for (auto y = 0; y < mapInfo.rows; ++y) {
+                    for (auto x = 0; x < mapInfo.cols; ++x) {
+                        if (y < mapInfo.rows/2) {
+                            if (x < mapInfo.cols / 2) { //primer 
+                                SDL_SetRenderTarget(Gm_->getRenderer(), background_0);
 
-    for (auto& layer : mapLayers) 
-    {
-        if (layer->getType() == tmx::Layer::Type::Object) 
-        {
+                            }
+                            else {//segundo
+                                SDL_SetRenderTarget(Gm_->getRenderer(), background_1);
+
+                            }
+                        }
+                        else {//tercero
+                            if (x < mapInfo.cols / 2) {
+                                SDL_SetRenderTarget(Gm_->getRenderer(), background_2);
+
+                            }
+                            else {//cuarto
+                                SDL_SetRenderTarget(Gm_->getRenderer(), background_3);
+
+                            }
+                        }
+                        // obtenemos el indice relativo del tile en el mapa de tiles
+                        int tile_index = x + (y * mapInfo.cols);
+
+                        // con dicho indice obtenemos el indice del tile dentro de su tileset
+                        int cur_gid = layer_tiles[tile_index].ID;
+
+                        // si es 0 esta vacio asi que continuamos a la siguiente iteracion
+                        if (cur_gid == 0) continue;
+
+                        // guardamos el tileset que utiliza este tile (nos quedamos con el tileset cuyo gid sea
+                        // el mas cercano, y a la vez menor, al gid del tile)         
+                        int tset_gid = -1, tsx_file = 0;
+                        for (auto& ts : mapInfo.tilesets) {
+                            if (ts.first <= cur_gid) {
+                                tset_gid = ts.first;
+                                tsx_file++;
+                            }
+                            else
+                                break;
+                        }
+
+                        // si no hay tileset valido, continuamos a la siguiente iteracion
+                        if (tset_gid == -1) continue;
+
+                        // normalizamos el indice           
+                        cur_gid -= tset_gid;
+
+                        // calculamos dimensiones del tileset       
+                        auto ts_width = 0;
+                        auto ts_height = 0;
+                        SDL_QueryTexture(mapInfo.tilesets[tset_gid]->getSDLTexture(),
+                            NULL, NULL, &ts_width, &ts_height);
+
+                        // calculamos el area del tileset que corresponde al dibujo del tile
+                        auto region_x = (cur_gid % (ts_width / mapInfo.tile_width)) * mapInfo.tile_width;
+                        auto region_y = (cur_gid / (ts_width / mapInfo.tile_width)) * mapInfo.tile_height;
+
+                        // calculamos la posicion del tile
+                        auto x_pos = x * mapInfo.tile_width;
+                        auto y_pos = y * mapInfo.tile_height;
+
+                        // metemos el tile
+                        auto tileTex = mapInfo.tilesets[tset_gid];
+
+                        SDL_Rect src;
+                        src.x = region_x;
+                        src.y = region_y;
+                        src.w = mapInfo.tile_width;
+                        src.h = mapInfo.tile_height;
+
+                        SDL_Rect dest;
+                        dest.x = x_pos;
+                        dest.y = y_pos;
+                        dest.w = src.w;
+                        dest.h = src.h;
+
+                        int tileRot = layer_tiles[tile_index].flipFlags;
+                        mapInfo.tilesets[tset_gid]->render(src, dest, tileRot);
+
+                    }
+                }
+
+
+            }
+        }        
+        if (layer->getType() == tmx::Layer::Type::Object) {
             tmx::ObjectGroup* object_layer = dynamic_cast<tmx::ObjectGroup*>(layer.get());
             auto& objs = object_layer->getObjects();
 
@@ -139,7 +236,7 @@ void TopDownState::LoadMap(string const& filename) {
                     pruebaCollider = new Entity();
                     pruebaCollider->setContext(this);
                     pruebaCollider->addComponent<Transform>(TRANSFORM_H, Vector2D(obj.getPosition().x, obj.getPosition().y), obj.getAABB().width, obj.getAABB().height);
-                    pruebaCollider->addComponent <SectorCollisionComponent>(SECTORCOLLISIONCOMPONENT_H, player_, idSector);
+                    //pruebaCollider->addComponent <SectorCollisionComponent>(SECTORCOLLISIONCOMPONENT_H, player_, idSector);
                     pruebaCollider->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(0, 0), obj.getAABB().height, obj.getAABB().width);
                     addEntity(pruebaCollider);
                     idSector++;
@@ -229,106 +326,105 @@ void TopDownState::LoadMap(string const& filename) {
             }
         }
 
-
     }
     addEntity(player_);
-    //SDL_RenderPresent(Gm_->getRenderer());
-    //SDL_SetRenderTarget(Gm_->getRenderer(), nullptr);
-
-    printMap();
-}
-void TopDownState::printMap()
-{
-    auto& mapLayers = mapInfo.tile_MAP->getLayers();
-
-    for (auto& layer : mapLayers)
-    {
-        if (layer->getType() == tmx::Layer::Type::Tile) {
-            // cargamos la capa
-            tmx::TileLayer* tile_layer = dynamic_cast<tmx::TileLayer*>(layer.get());
-            string name = tile_layer->getName();
-            auto& layer_tiles = tile_layer->getTiles();
-            if (name != "Nada") {
-                for (int i = 0; i < sectors.size(); i++)
-                {
-                    if (sectors[i])
-                    {
-                        float sumX = 77.25 * (i % 4);
-                        float sumY = 44 * (i / 4);
-                        float divX = 1 + i % 4;
-                        float divY = 1 + i / 4;
-                        // recorremos todos los tiles para obtener su informacion
-                        for (auto y = sumY; y < mapInfo.rows * divY / 4; ++y) {
-                            for (auto x = sumX; x < mapInfo.cols * divX / 4; ++x) {
-                                // obtenemos el indice relativo del tile en el mapa de tiles
-                                int tile_index = x + (y * mapInfo.cols);
-
-                                // con dicho indice obtenemos el indice del tile dentro de su tileset
-                                int cur_gid = layer_tiles[tile_index].ID;
-
-                                // si es 0 esta vacio asi que continuamos a la siguiente iteracion
-                                if (cur_gid == 0) continue;
-
-                                // guardamos el tileset que utiliza este tile (nos quedamos con el tileset cuyo gid sea
-                                // el mas cercano, y a la vez menor, al gid del tile)         
-                                int tset_gid = -1, tsx_file = 0;
-                                for (auto& ts : mapInfo.tilesets) {
-                                    if (ts.first <= cur_gid) {
-                                        tset_gid = ts.first;
-                                        tsx_file++;
-                                    }
-                                    else
-                                        break;
-                                }
-
-                                // si no hay tileset valido, continuamos a la siguiente iteracion
-                                if (tset_gid == -1) continue;
-
-                                // normalizamos el indice           
-                                cur_gid -= tset_gid;
-
-                                // calculamos dimensiones del tileset       
-                                auto ts_width = 0;
-                                auto ts_height = 0;
-                                SDL_QueryTexture(mapInfo.tilesets[tset_gid]->getSDLTexture(),
-                                    NULL, NULL, &ts_width, &ts_height);
-
-                                // calculamos el area del tileset que corresponde al dibujo del tile
-                                auto region_x = (cur_gid % (ts_width / mapInfo.tile_width)) * mapInfo.tile_width;
-                                auto region_y = (cur_gid / (ts_width / mapInfo.tile_width)) * mapInfo.tile_height;
-
-                                // calculamos la posicion del tile
-                                auto x_pos = x * mapInfo.tile_width;
-                                auto y_pos = y * mapInfo.tile_height;
-
-                                // metemos el tile
-                                auto tileTex = mapInfo.tilesets[tset_gid];
-
-                                SDL_Rect src;
-                                src.x = region_x;
-                                src.y = region_y;
-                                src.w = mapInfo.tile_width;
-                                src.h = mapInfo.tile_height;
-
-                                SDL_Rect dest;
-                                dest.x = x_pos;
-                                dest.y = y_pos;
-                                dest.w = src.w;
-                                dest.h = src.h;
-
-                                int tileRot = layer_tiles[tile_index].flipFlags;
-                                mapInfo.tilesets[tset_gid]->render(src, dest, tileRot);
-
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
     SDL_RenderPresent(Gm_->getRenderer());
     SDL_SetRenderTarget(Gm_->getRenderer(), nullptr);
+
+  //  printMap();
 }
+//void TopDownState::printMap()
+//{
+//    auto& mapLayers = mapInfo.tile_MAP->getLayers();
+//
+//    for (auto& layer : mapLayers)
+//    {
+//        if (layer->getType() == tmx::Layer::Type::Tile) {
+//            // cargamos la capa
+//            tmx::TileLayer* tile_layer = dynamic_cast<tmx::TileLayer*>(layer.get());
+//            string name = tile_layer->getName();
+//            auto& layer_tiles = tile_layer->getTiles();
+//            if (name != "Nada") {
+//                for (int i = 0; i < sectors.size(); i++)
+//                {
+//                    if (sectors[i])
+//                    {
+//                        float sumX = 77.25 * (i % 4);
+//                        float sumY = 44 * (i / 4);
+//                        float divX = 1 + i % 4;
+//                        float divY = 1 + i / 4;
+//                        // recorremos todos los tiles para obtener su informacion
+//                        for (auto y = sumY; y < mapInfo.rows * divY / 4; ++y) {
+//                            for (auto x = sumX; x < mapInfo.cols * divX / 4; ++x) {
+//                                // obtenemos el indice relativo del tile en el mapa de tiles
+//                                int tile_index = x + (y * mapInfo.cols);
+//
+//                                // con dicho indice obtenemos el indice del tile dentro de su tileset
+//                                int cur_gid = layer_tiles[tile_index].ID;
+//
+//                                // si es 0 esta vacio asi que continuamos a la siguiente iteracion
+//                                if (cur_gid == 0) continue;
+//
+//                                // guardamos el tileset que utiliza este tile (nos quedamos con el tileset cuyo gid sea
+//                                // el mas cercano, y a la vez menor, al gid del tile)         
+//                                int tset_gid = -1, tsx_file = 0;
+//                                for (auto& ts : mapInfo.tilesets) {
+//                                    if (ts.first <= cur_gid) {
+//                                        tset_gid = ts.first;
+//                                        tsx_file++;
+//                                    }
+//                                    else
+//                                        break;
+//                                }
+//
+//                                // si no hay tileset valido, continuamos a la siguiente iteracion
+//                                if (tset_gid == -1) continue;
+//
+//                                // normalizamos el indice           
+//                                cur_gid -= tset_gid;
+//
+//                                // calculamos dimensiones del tileset       
+//                                auto ts_width = 0;
+//                                auto ts_height = 0;
+//                                SDL_QueryTexture(mapInfo.tilesets[tset_gid]->getSDLTexture(),
+//                                    NULL, NULL, &ts_width, &ts_height);
+//
+//                                // calculamos el area del tileset que corresponde al dibujo del tile
+//                                auto region_x = (cur_gid % (ts_width / mapInfo.tile_width)) * mapInfo.tile_width;
+//                                auto region_y = (cur_gid / (ts_width / mapInfo.tile_width)) * mapInfo.tile_height;
+//
+//                                // calculamos la posicion del tile
+//                                auto x_pos = x * mapInfo.tile_width;
+//                                auto y_pos = y * mapInfo.tile_height;
+//
+//                                // metemos el tile
+//                                auto tileTex = mapInfo.tilesets[tset_gid];
+//
+//                                SDL_Rect src;
+//                                src.x = region_x;
+//                                src.y = region_y;
+//                                src.w = mapInfo.tile_width;
+//                                src.h = mapInfo.tile_height;
+//
+//                                SDL_Rect dest;
+//                                dest.x = x_pos;
+//                                dest.y = y_pos;
+//                                dest.w = src.w;
+//                                dest.h = src.h;
+//
+//                                int tileRot = layer_tiles[tile_index].flipFlags;
+//                                mapInfo.tilesets[tset_gid]->render(src, dest, tileRot);
+//
+//                            }
+//                        }
+//                    }
+//                }
+//            }
+//        }
+//    }
+//    SDL_RenderPresent(Gm_->getRenderer());
+//    SDL_SetRenderTarget(Gm_->getRenderer(), nullptr);
+//}
 
 void TopDownState::update() {
     Vector2D savedPos = Saving::instance()->getPos();
@@ -385,7 +481,8 @@ void TopDownState::render() {
     dst.x -= Manager::camRect_.x;
     dst.y -= Manager::camRect_.y;
     SDL_Rect src = { 0, 0, fondowidth_, fondoheight_ };
-    SDL_RenderCopy(Gm_->getRenderer(), background_, &src, &dst);
+    SDL_RenderCopy(Gm_->getRenderer(), background_0, &src, &dst);
+    //SDL_RenderCopy(Gm_->getRenderer(), background_1, &src, &dst);
     //hudTD->render();
     Manager::render();
 }
