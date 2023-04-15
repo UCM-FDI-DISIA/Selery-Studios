@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.9" tiledversion="1.9.2" orientation="orthogonal" renderorder="right-down" width="309" height="176" tilewidth="32" tileheight="32" infinite="0" nextlayerid="46" nextobjectid="822">
+<map version="1.9" tiledversion="1.9.2" orientation="orthogonal" renderorder="right-down" width="309" height="176" tilewidth="32" tileheight="32" infinite="0" nextlayerid="46" nextobjectid="840">
  <tileset firstgid="1" source="AncientRuins/TiledMap Editor/Atlas-Props.tsx"/>
  <tileset firstgid="2501" source="AncientRuins/TiledMap Editor/Terrain - Ancient Ruins.tsx"/>
  <tileset firstgid="4710" source="AncientRuins/TiledMap Editor/Ancient Ruins-Tileset-wall-2.tsx"/>
@@ -4569,19 +4569,55 @@
   </object>
  </objectgroup>
  <objectgroup id="11" name="NPC">
-  <object id="32" x="3458" y="840">
+  <object id="822" name="01" x="3538" y="1068">
    <point/>
   </object>
-  <object id="33" x="3642" y="976">
+  <object id="823" name="02" x="2708" y="974.667">
    <point/>
   </object>
-  <object id="237" x="1713.33" y="2880">
+  <object id="824" name="03" x="2858.67" y="1424">
    <point/>
   </object>
-  <object id="244" x="1356" y="2892">
+  <object id="825" name="04" x="3604" y="2174.67">
    <point/>
   </object>
-  <object id="245" x="1534" y="4838">
+  <object id="826" name="05" x="4590.67" y="1902.67">
+   <point/>
+  </object>
+  <object id="827" name="06" x="4689.33" y="978.667">
+   <point/>
+  </object>
+  <object id="828" name="07" x="2904" y="2470">
+   <point/>
+  </object>
+  <object id="829" name="08" x="1256" y="3712">
+   <point/>
+  </object>
+  <object id="830" name="09" x="1368" y="4630">
+   <point/>
+  </object>
+  <object id="831" name="10" x="5026" y="2348">
+   <point/>
+  </object>
+  <object id="832" name="11" x="6200" y="2320">
+   <point/>
+  </object>
+  <object id="833" name="12" x="6562" y="1992">
+   <point/>
+  </object>
+  <object id="834" name="13" x="6882" y="2422">
+   <point/>
+  </object>
+  <object id="836" name="14" x="5042" y="3212">
+   <point/>
+  </object>
+  <object id="837" name="15" x="6890" y="3088">
+   <point/>
+  </object>
+  <object id="838" name="16" x="6604" y="426">
+   <point/>
+  </object>
+  <object id="839" name="17" x="3516" y="1354">
    <point/>
   </object>
  </objectgroup>
