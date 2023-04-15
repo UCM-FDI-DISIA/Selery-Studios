@@ -116,7 +116,8 @@ private:
 	// SHOP
 	Entity* upturnButton_;
 	Entity* exitShopButton_;
-	vector<Entity*> buttons;
+	vector<Entity*> buttons1;
+	vector<Entity*> buttons2;
 	vector<Button*> buttonsComp;
 	ShopComponent* shopComp_;
 	Vector2D upturnButtonPos_;
@@ -128,6 +129,7 @@ private:
 	Button* upturnButtonComp_;
 	Transform* exitShopButtonTr_;
 	Button* exitShopButtonComp_;
+	bool shopCreated_ = false;
 
 public:
 	void actSectors(int idChange, bool nowValue)

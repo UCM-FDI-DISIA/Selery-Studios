@@ -6,9 +6,9 @@ Game::Game() {
 	window = SDLUtils::instance()->window();
 	exit = false;
 	Elements::instance();
-	//GameStateMachine::instance()->pushState(new MainMenuState());
+	GameStateMachine::instance()->pushState(new MainMenuState());
 	//GameStateMachine::instance()->pushState(new BeatEmUpState(false, nullptr));
-	GameStateMachine::instance()->pushState(new BeatEmUpState(true, nullptr, "earth"));
+	//GameStateMachine::instance()->pushState(new BeatEmUpState(true, nullptr, "earth"));
 	//GameStateMachine::instance()->pushState(new BeatEmUpState(true, nullptr, "water"));
 	//GameStateMachine::instance()->pushState(new PauseState());
 	//GameStateMachine::instance()->pushState(new BeatEmUpState());
