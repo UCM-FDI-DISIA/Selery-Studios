@@ -126,7 +126,7 @@
     {"id": "fondo2","file": "assets/Scenes/Backgrounds/BeatEmUp/DorjeSofia 400x325.png"},
     {"id": "fondo3",  "file": "assets/Scenes/Backgrounds/BeatEmUp/DorjeeSofia180x398.png"},
     {"id": "fondo4","file": "assets/Scenes/Backgrounds/BeatEmUp/DorjeeSofia1800x900.png"},
-    {"id": "fondoNieve", "file": "assets/Scenes/Backgrounds/BeatEmUp/DorjeeSofia 1500x844.png"},
+    {"id": "fondoBossAgua", "file": "assets/Scenes/Backgrounds/BeatEmUp/nieve.png"},
 
     {"id": "Fire_LifeBar","file": "assets/Enemies/HUD/LifeBars/Horizontal/Bars/Bar2.png"},
     {"id": "Fire_LifeBarBack", "file": "assets/Enemies/HUD/LifeBars/Horizontal/Backs/Back6.png"},
@@ -259,7 +259,7 @@
     {"id": "waterBoss_attack", "file":  "assets/Enemies/BeatEmUp/Bosses/WaterBoss/frost_guardian_attack.png"},
     {"id": "waterBoss_walk", "file":  "assets/Enemies/BeatEmUp/Bosses/WaterBoss/frost_guardian_walk.png"},
     {"id": "waterBoss_death", "file":  "assets/Enemies/BeatEmUp/Bosses/WaterBoss/frost_guardian_death.png"},
-    {"id": "waves", "file": "assets/Enemies/BeatEmUp/Bosses/WaterBoss/waves.png"},
+    {"id": "iceBlock", "file": "assets/Enemies/BeatEmUp/Bosses/WaterBoss/iceBlocks.png"},
     {"id": "ice", "file": "assets/Enemies/BeatEmUp/Bosses/WaterBoss/icicle.png"},
     {"id": "iceShadow", "file": "assets/Enemies/BeatEmUp/Bosses/WaterBoss/icicleShadow.png"},
     {"id": "iceDestroy", "file": "assets/Enemies/BeatEmUp/Bosses/WaterBoss/icecleDestroy.png"},
@@ -304,7 +304,8 @@
     {"id": "batDie", "file": "assets/sounds/enemy/bat/batDeath.wav"},
     {"id": "NPC_Chat", "file": "assets/Sounds/NPCs/npcchat.wav"},
     {"id": "coinSound", "file": "assets/Sounds/objects/coin.wav"},
-    {"id": "magic", "file": "assets/Sounds/objects/magic.wav"}
+    {"id": "magic", "file": "assets/Sounds/objects/magic.wav"},
+    {"id": "iceBlock", "file": "assets/Sounds/bosses/water/iceBlock.wav"}
   ],
 
   "musics": [
