@@ -97,7 +97,7 @@ const uint AVATAR_WIDTH = 64;
 const uint AVATAR_HEIGHT = 64;
 const float EXITSHOP_WIDTH = 557.0f;
 const float EXITSHOP_HEIGHT = 131.0f;
-
+const int MAX_MONEY = 1200;
 /*const string FUEGO = "fire";
 const string AIRE = "wind";
 const string AGUA = "water";

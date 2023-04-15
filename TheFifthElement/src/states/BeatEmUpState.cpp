@@ -217,12 +217,16 @@ void BeatEmUpState::handleEvents() {
 void BeatEmUpState::finishBEU() {
 	numEnemies -= 1;
 	if (numEnemies <= 0)
-	{
+	{		
 		// DESBLOQUEO DE PERSONAJES
 		if (boss) {
 			if (typeBoss_ == "water") Elements::instance()->setWater();
 			else if (typeBoss_ == "earth") Elements::instance()->setEarth();
 			else if (typeBoss_ == "fire") Elements::instance()->setFire();
+			props_->instance()->addMoney(200); // monedas ganadas al derrotar un boss
+		}
+		else {
+			props_->instance()->addMoney(50); // monedas ganadas al derrotar non-bosses
 		}
 		Saving::instance()->deletePos();
 		SDLUtils::instance()->soundEffects().at("Battle").haltChannel();
