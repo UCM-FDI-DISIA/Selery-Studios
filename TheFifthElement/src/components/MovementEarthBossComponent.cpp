@@ -36,7 +36,6 @@ void MovementEarthBossComponent::update() {
 				animator->newAnimation(AnimationEarthBossComponent::Moving);
 				im_->setFlip(SDL_FLIP_HORIZONTAL);
 				bossTransform->setVel(1);
-
 			}
 			else if (atLeft) {
 				bossTransform->setDir(Vector2D(1, 0));
@@ -45,7 +44,7 @@ void MovementEarthBossComponent::update() {
 				bossTransform->setVel(1);
 			}
 		}
-		if (!attack) {////&& !im_->isAnimPlaying()) { // Se mueve cuando no esta atacando
+		if (!attack && !im_->getIsAnimUnstoppable()) { // Se mueve cuando no esta atacando
 			bossTransform->setPos(bossTransform->getPos() + bossTransform->getDir() * bossTransform->getVel());
 		}
 
@@ -63,9 +62,5 @@ void MovementEarthBossComponent::update() {
 		else {
 			attack = false;
 		}
-		//bossTransform->setDir(playerTransform->getPos() - bossTransform->getPos());
-		//bossTransform->setPos(bossTransform->getPos() + (bossTransform->getDir() / sqrt(pow(bossTransform->getPos().getX(), 2) + pow(bossTransform->getPos().getY(), 2))) * bossTransform->getVel());
-		//bossTransform->setDir(fightPlayerComp->getPointRightFight() - fightBossComp->getPointLeftFight());
-		//bossTransform->setPos(bossTransform->getPos() + (bossTransform->getDir() / sqrt(pow(bossTransform->getPos().getX(), 2) + pow(bossTransform->getPos().getY(), 2))) * bossTransform->getVel());
 	}
 }

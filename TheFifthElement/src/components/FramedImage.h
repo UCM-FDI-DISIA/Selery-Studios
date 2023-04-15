@@ -52,6 +52,9 @@ public:
 	inline string getTexKey() { return texKey_; }
 
 	inline void setIsAnimUnstoppable(bool newValue) { isAnimUnstoppable_ = newValue; }
+
+	inline void setWidthFrame(int newWidth) { widthFrame_ = newWidth; }
+	inline void setHeightFrame(int newHeight) { heightFrame_ = newHeight; }
 	//matriz
 	//void setAnim(bool Anim, int Fila, int Frames, int I, int tope); //Metodo generico para cambiar de animacion en BEU
 

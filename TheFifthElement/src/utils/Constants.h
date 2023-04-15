@@ -69,6 +69,9 @@ const int WAVE_HEIGHT = 109;
 const int EARTHBOSS_WIDTH = 224;
 const int EARTHBOSS_HEIGHT = 192;
 
+const int MOOSE_WIDTH = 347;
+const int MOOSE_HEIGHT = 192;
+
 #pragma endregion
 
 #pragma region LightBoss_Data

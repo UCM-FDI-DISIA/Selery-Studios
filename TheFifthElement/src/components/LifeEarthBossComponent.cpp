@@ -1,7 +1,7 @@
 #include "LifeEarthBossComponent.h"
 #include "../states/BeatEmUpState.h"
 LifeEarthBossComponent::LifeEarthBossComponent() {
-	maxLife = 2000;
+	maxLife = 500;
 	life = maxLife;
 }
 
@@ -10,6 +10,7 @@ void LifeEarthBossComponent::initComponent() {
 	animEarthBoss = ent_->getComponent<AnimationEarthBossComponent>(ANIMATIONEARTHBOSSCOMPONENT_H);
 	bossTransform = ent_->getComponent<Transform>(TRANSFORM_H);
 	bossImage = ent_->getComponent<FramedImage>(FRAMEDIMAGE_H);
+	bossCol = ent_->getComponent<ColliderComponent>(COLLIDERCOMPONENT_H);
 
 	backTexture_ = &SDLUtils::instance()->images().at("Earth_LifeBarBack");
 	barTexture_ = &SDLUtils::instance()->images().at("Earth_LifeBar");
@@ -40,7 +41,8 @@ void LifeEarthBossComponent::stageTwo() {
 	ent_->addComponent<ProtectionEarthBossComponent>(PROTECTIONEARTHBOSSCOMPONENT_H);
 	Entity* stone = new Entity();
 	Vector2D pos = bossTransform->getPos();
-	bossTransform->setPos(Vector2D(WIN_WIDTH, 200));
+	Vector2D posPlayer = static_cast<BeatEmUpState*>(mngr_)->getPlayer()->getComponent<Transform>(TRANSFORM_H)->getPos();
+	bossTransform->setPos(posPlayer + Vector2D(WIN_WIDTH, 0));
 	stone->setContext(mngr_);
 	stone->addComponent<Transform>(TRANSFORM_H, pos, EARTHBOSS_WIDTH * 2, EARTHBOSS_HEIGHT * 2);
 	stone->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("v1stone6"));
@@ -55,13 +57,20 @@ void LifeEarthBossComponent::stageThree() {
 	animEarthBoss->newStage();
 	Entity* stone = new Entity();
 	Vector2D pos = bossTransform->getPos();
-	bossTransform->setPos(Vector2D(WIN_WIDTH, 200));
+	Vector2D posPlayer = static_cast<BeatEmUpState*>(mngr_)->getPlayer()->getComponent<Transform>(TRANSFORM_H)->getPos();
+	bossTransform->setPos(posPlayer + Vector2D(WIN_WIDTH, 0));
 	stone->setContext(mngr_);
 	stone->addComponent<Transform>(TRANSFORM_H, pos, EARTHBOSS_WIDTH * 2, EARTHBOSS_HEIGHT * 2);
 	stone->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("v2stone6"));
 	stone->addComponent<ObjectsComponent>(OBJECTSCOMPONENT_H);
 	stone->addComponent<StoneComponent>(STONECOMPONENT_H, 2);
 	mngr_->addEntity(stone);
+
+	ent_->removeComponent(PROTECTIONEARTHBOSSCOMPONENT_H);
+	bossImage->setAnim("Moose_idle", 8, false);
+	bossImage->setWidthFrame(MOOSE_WIDTH);
+	bossTransform->setW(MOOSE_WIDTH * 2);
+	bossCol->setCollider(Vector2D(330, 120), (MOOSE_HEIGHT * 2) - 240, 100);
 }
 
 void LifeEarthBossComponent::render() {

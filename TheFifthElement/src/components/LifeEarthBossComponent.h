@@ -15,6 +15,7 @@ class BeatEmUpState;
 class LifeEarthBossComponent : public Component
 {
 private:
+	ColliderComponent* bossCol;
 	MovementEarthBossComponent* bossMovement;
 	AnimationEarthBossComponent* animEarthBoss;
 	FramedImage* bossImage;
