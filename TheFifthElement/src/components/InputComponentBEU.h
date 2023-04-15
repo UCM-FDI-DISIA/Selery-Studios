@@ -44,5 +44,7 @@ public:
     void setWater(bool b);
     void setEarth(bool b);
 
+    void vibrate(SDL_GameController* controller, int duration_ms, float intensity);
+
     inline void setEarthStage3(bool newValue) { earthStage3 = newValue; }
 };

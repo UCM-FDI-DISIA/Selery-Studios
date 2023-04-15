@@ -290,3 +290,43 @@ void InputComponentBEU::setEarth(bool b)
 		else sk_->changeSkin("water");
 	}
 }
+
+// Función para hacer que el mando de Xbox vibre
+void InputComponentBEU::vibrate(SDL_GameController* controller, int duration_ms, float intensity) {
+	// Comprobar si el mando está conectado
+	if (!SDL_GameControllerGetAttached(controller)) {
+		printf("El mando no está conectado\n");
+		return;
+	}
+
+	// Comprobar si el mando tiene retroalimentación de fuerza
+	if (!SDL_JoystickIsHaptic(SDL_GameControllerGetJoystick(controller))) {
+		printf("El mando no tiene retroalimentación de fuerza\n");
+		return;
+	}
+
+	// Abrir el dispositivo de retroalimentación de fuerza (haptic device)
+	SDL_Haptic* haptic = SDL_HapticOpenFromJoystick(SDL_GameControllerGetJoystick(controller));
+	if (haptic == NULL) {
+		printf("No se pudo abrir el dispositivo haptic: %s\n", SDL_GetError());
+		return;
+	}
+
+	// Configurar la intensidad y duración de la vibración
+	if (SDL_HapticRumbleInit(haptic) != 0) {
+		printf("No se pudo inicializar la retroalimentación de fuerza: %s\n", SDL_GetError());
+		SDL_HapticClose(haptic);
+		return;
+	}
+	if (SDL_HapticRumblePlay(haptic, intensity, duration_ms) != 0) {
+		printf("No se pudo hacer que el mando vibre: %s\n", SDL_GetError());
+		SDL_HapticClose(haptic);
+		return;
+	}
+
+	// Esperar hasta que termine la vibración
+	SDL_Delay(duration_ms);
+
+	// Liberar los recursos usados por el dispositivo haptic
+	SDL_HapticClose(haptic);
+}
