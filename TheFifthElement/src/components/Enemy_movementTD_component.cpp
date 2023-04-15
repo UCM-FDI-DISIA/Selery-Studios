@@ -2,7 +2,8 @@
 #include "../utils/Entity.h"
 Enemy_movementTD_component::Enemy_movementTD_component(string type) {
 	type_ = type;
-	state_ = "left";
+	if (type_ != "boss") state_ = "left";
+	else state_ = "right";
 }
 
 void Enemy_movementTD_component::initComponent() {
@@ -22,8 +23,8 @@ void Enemy_movementTD_component::changeState(Vector2D dir) {
 		else state_ = "left";
 	}
 
-
-	if (type_ == "mushroom") {
+	if (type_ == "boss");
+	else if (type_ == "mushroom") {
 		im_->setAnim("TD_mushroom_" + state_, 7, false);
 		//im_->setAnimTexture("TD_mushroom_" + state_, 7, 68);
 	}

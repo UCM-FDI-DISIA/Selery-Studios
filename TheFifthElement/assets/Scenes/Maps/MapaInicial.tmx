@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.0" orientation="orthogonal" renderorder="right-down" width="309" height="176" tilewidth="32" tileheight="32" infinite="0" nextlayerid="46" nextobjectid="821">
+<map version="1.9" tiledversion="1.9.2" orientation="orthogonal" renderorder="right-down" width="309" height="176" tilewidth="32" tileheight="32" infinite="0" nextlayerid="46" nextobjectid="822">
  <tileset firstgid="1" source="AncientRuins/TiledMap Editor/Atlas-Props.tsx"/>
  <tileset firstgid="2501" source="AncientRuins/TiledMap Editor/Terrain - Ancient Ruins.tsx"/>
  <tileset firstgid="4710" source="AncientRuins/TiledMap Editor/Ancient Ruins-Tileset-wall-2.tsx"/>
@@ -3990,7 +3990,7 @@
 </data>
  </layer>
  <objectgroup id="10" name="Player">
-  <object id="38" x="3686.33" y="807.333">
+  <object id="38" x="4032" y="1216">
    <point/>
   </object>
  </objectgroup>
@@ -4562,6 +4562,9 @@
    <point/>
   </object>
   <object id="653" name="up" x="4736" y="448">
+   <point/>
+  </object>
+  <object id="821" name="water" x="5216" y="288">
    <point/>
   </object>
  </objectgroup>

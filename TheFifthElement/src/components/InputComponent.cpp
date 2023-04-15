@@ -10,8 +10,6 @@ const int joystick_deadzone = 8000;
 InputComponent::InputComponent(Roulette* r) :Component() {
 	d = NONE;
 	roulet = r;
-	elements[0] = true;
-	for (int i = 1; i < 4; i++) elements[i] = true;
 	// por defecto solo está disponible aire
 }
 
@@ -90,22 +88,22 @@ void InputComponent::handleEvents(SDL_Event event)
 				skin_->changeState(SkinComponent::Idle);
 			}
 
-			if (ih().isKeyDown(SDL_SCANCODE_1) && elements[0]) {
+			if (ih().isKeyDown(SDL_SCANCODE_1) && Elements::instance()->getAir()) {
 				skin_->changeSkin("air");
 				roulet->changeplayer(1);
 				//static_cast<HUD*>(ent_)->
 			}
-			else if (ih().isKeyDown(SDL_SCANCODE_2) && elements[1]) {
+			else if (ih().isKeyDown(SDL_SCANCODE_2) && Elements::instance()->getFire()) {
 				roulet->changeplayer(2);
 
 				skin_->changeSkin("fire");
 			}
-			else  if (ih().isKeyDown(SDL_SCANCODE_3) && elements[2]) {
+			else  if (ih().isKeyDown(SDL_SCANCODE_3) && Elements::instance()->getWater()) {
 				roulet->changeplayer(3);
 
 				skin_->changeSkin("water");
 			}
-			else if (ih().isKeyDown(SDL_SCANCODE_4) && elements[3]) {
+			else if (ih().isKeyDown(SDL_SCANCODE_4) && Elements::instance()->getEarth()) {
 				roulet->changeplayer(4);
 
 				skin_->changeSkin("earth");

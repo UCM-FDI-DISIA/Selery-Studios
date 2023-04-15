@@ -1,12 +1,13 @@
 ﻿#include "BeatEmUpState.h"
 #include "../components/SkinBEUComponent.h"
+#include "../Elements.h"
 
 BeatEmUpState::BeatEmUpState(bool Boss,Entity* enemySends, string typeBoss, int nEnemies, int timeGen) {
 	enemySender = enemySends;
 	numEnemies = nEnemies;
 	timeToGenerate = timeGen;
 	boss = Boss;
-
+	typeBoss_ = typeBoss;
 	//SDLUtils::instance()->soundEffects().at("Battle").play();
 
 	random = &SDLUtils::instance()->rand();
@@ -122,6 +123,7 @@ void BeatEmUpState::AddEnemies(int n_enemies) {
 }
 
 void BeatEmUpState::AddWaterBoss() {
+	numEnemies = 1;
 	Vector2D position = Vector2D(sdlutils().width() * 3 / 4 - WATERBOSS_WIDTH , sdlutils().height()/2);
 
 	Entity* waterBoss = addEntity();
@@ -130,7 +132,7 @@ void BeatEmUpState::AddWaterBoss() {
 	waterBoss->addComponent<FramedImage>(FRAMEDIMAGE_H, &sdlutils().images().at("waterBoss"), WATERBOSS_WIDTH, WATERBOSS_HEIGHT, 16, 0, "water");
 	waterBoss->addComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
 	waterBoss->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(50, 10), WATERBOSS_HEIGHT, WATERBOSS_WIDTH/2);
-	waterBoss->addComponent<WaterBossLife>(WATERBOSSLIFE_H, 100);
+	waterBoss->addComponent<WaterBossLife>(WATERBOSSLIFE_H, 1);
 	waterBoss->addComponent<WaterBossIA>(WATERBOSSIA_H, player_);
 	// buscar assets olas
 }
@@ -140,6 +142,7 @@ void BeatEmUpState::AddFireBoss() {
 }
 
 void BeatEmUpState::AddEarthBoss() {
+	numEnemies = 1;
 	//Vector2D pos = { WIN_WIDTH , WIN_HEIGHT / 2 };
 	Vector2D pos = Vector2D(sdlutils().width() * 3 / 4 - WATERBOSS_WIDTH, sdlutils().height() / 2);
 	earthBoss_ = new Entity();
@@ -202,6 +205,12 @@ void BeatEmUpState::finishBEU() {
 	numEnemies -= 1;
 	if (numEnemies <= 0)
 	{
+		// DESBLOQUEO DE PERSONAJES
+		if (boss) {
+			if (typeBoss_ == "water") Elements::instance()->setWater();
+			else if (typeBoss_ == "earth") Elements::instance()->setEarth();
+			else if (typeBoss_ == "fire") Elements::instance()->setFire();
+		}
 		Saving::instance()->deletePos();
 		SDLUtils::instance()->soundEffects().at("Battle").haltChannel();
 		GameManager::instance()->goTopDown();

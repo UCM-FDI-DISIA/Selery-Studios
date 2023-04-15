@@ -7,8 +7,10 @@
 
 
 InputComponentBEU::InputComponentBEU(Roulette* r):Component() {
-	elements[0] = true;
-	for (int i = 1; i < 4; i++) elements[i] = true;
+	elements[0] = Elements::instance()->getAir();
+	elements[1] = Elements::instance()->getFire();
+	elements[2] = Elements::instance()->getWater();
+	elements[3] = Elements::instance()->getEarth();
 	// por defecto solo está disponible aire
 	roulette = r;
 

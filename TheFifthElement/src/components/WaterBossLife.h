@@ -5,6 +5,8 @@
 #include "Transform.h"
 #include "FramedImage.h"
 
+class BeatEmUpState;
+
 class WaterBossLife : public Component
 {
 private:

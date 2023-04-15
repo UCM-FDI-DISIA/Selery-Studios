@@ -1,4 +1,5 @@
 #include "WaterBossLife.h"
+#include "../states/BeatEmUpState.h"
 
 WaterBossLife::WaterBossLife(int LIFE) {
     maxLife = LIFE;
@@ -42,7 +43,11 @@ void WaterBossLife::damage(float damage, float mul) {
 }
 
 void WaterBossLife::update() {
-    if (die_ && !im_->isAnimPlaying()) ent_->setAlive(false);
+    if (die_ && !im_->isAnimPlaying()) {
+        ent_->setAlive(false);
+        BeatEmUpState* beatemupstate = static_cast<BeatEmUpState*>(mngr_);
+        beatemupstate->finishBEU();
+    }
     else if (hit_ && cont_ >= 20) hit_ = false;
     cont_++;
 }
