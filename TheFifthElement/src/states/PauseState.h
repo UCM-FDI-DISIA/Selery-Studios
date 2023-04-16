@@ -19,6 +19,7 @@ public:
 	void render();
 
 	Entity* addNewEntity(string t, float w, float h, Vector2D pos, int nframes, bool flip, float size = 1, bool neg = false);
+	Entity* createCharacter(string t, float w, float h, Vector2D pos, int nframes, bool flip, float size);
 	void Background(string file);
 	void createButtons();
 

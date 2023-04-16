@@ -1,24 +1,35 @@
 ﻿#include "BeatEmUpState.h"
 #include "../components/SkinBEUComponent.h"
+#include "../Elements.h"
 
 BeatEmUpState::BeatEmUpState(bool Boss,Entity* enemySends, string typeBoss, int nEnemies, int timeGen) {
 	enemySender = enemySends;
 	numEnemies = nEnemies;
 	timeToGenerate = timeGen;
 	boss = Boss;
-
-	//SDLUtils::instance()->soundEffects().at("Battle").play();
+	typeBoss_ = typeBoss;
+	SDLUtils::instance()->soundEffects().at("Battle").play();
 
 	random = &SDLUtils::instance()->rand();
 
+	//BACKGROUND
 	background_ = new Entity();
-	background_->addComponent<Transform>(TRANSFORM_H, Vector2D(0,0), BACKGROUNDBEU_WIDTH, WIN_HEIGHT);
-	background_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("BEU_Background"));
+	if (typeBoss == "water") {
+		background_->addComponent<Transform>(TRANSFORM_H, Vector2D(0, 0), WIN_WIDTH, WIN_HEIGHT);
+		background_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("fondoBossAgua"));
+	}
+	else {
+		background_->addComponent<Transform>(TRANSFORM_H, Vector2D(0, 0), BACKGROUNDBEU_WIDTH, WIN_HEIGHT);
+		background_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("BEU_Background"));
+	}
 	addEntity(background_);
+
+	//HUD
 	Hud_ = new Entity();
 	Hud_->setContext(this);
 	roulete = Hud_->addComponent<Roulette>(ROULETTECOMPONENT_H);
 
+	//PLAYER
 	player_ = new Entity();
 	player_->setContext(this);
 	trans_player_ = player_->addComponent<Transform>(TRANSFORM_H, Vector2D(PlayerPosition_X, PlayerPosition_Y), PLAYERBEU_WIDTH_FRAME, PLAYERBEU_HEIGHT_FRAME, 2);
@@ -33,7 +44,10 @@ BeatEmUpState::BeatEmUpState(bool Boss,Entity* enemySends, string typeBoss, int 
 	in_ = player_->addComponent<InputComponentBEU>(INPUTCOMPONENTBEU_H, roulete);
 	player_->addComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
 	player_->addComponent<AttackBoxComponent>(ATTACKBOXCOMPONENT_H);
-	player_->addComponent<LimitBEU>(LIMITBEU_H);
+	
+	if (typeBoss == "water") player_->addComponent<LimitBEU>(LIMITBEU_H, true);
+	else player_->addComponent<LimitBEU>(LIMITBEU_H);
+
 	player_->addComponent<ColliderComponent>(int(COLLIDERCOMPONENT_H), Vector2D(90, 80), 1.2*PLAYERBEU_HEIGHT_FRAME / 3, PLAYERBEU_WIDTH_FRAME / 7);
 	player_->addComponent<PointOfFightComponent>(POINTOFFIGHTCOMPONENT_H, 30, 10);
 	sk_->initComponent();
@@ -122,6 +136,7 @@ void BeatEmUpState::AddEnemies(int n_enemies) {
 }
 
 void BeatEmUpState::AddWaterBoss() {
+	numEnemies = 1;
 	Vector2D position = Vector2D(sdlutils().width() * 3 / 4 - WATERBOSS_WIDTH , sdlutils().height()/2);
 
 	Entity* waterBoss = addEntity();
@@ -130,7 +145,7 @@ void BeatEmUpState::AddWaterBoss() {
 	waterBoss->addComponent<FramedImage>(FRAMEDIMAGE_H, &sdlutils().images().at("waterBoss"), WATERBOSS_WIDTH, WATERBOSS_HEIGHT, 16, 0, "water");
 	waterBoss->addComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
 	waterBoss->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(50, 10), WATERBOSS_HEIGHT, WATERBOSS_WIDTH/2);
-	waterBoss->addComponent<WaterBossLife>(WATERBOSSLIFE_H, 100);
+	waterBoss->addComponent<WaterBossLife>(WATERBOSSLIFE_H, 1);
 	waterBoss->addComponent<WaterBossIA>(WATERBOSSIA_H, player_);
 	// buscar assets olas
 }
@@ -140,6 +155,7 @@ void BeatEmUpState::AddFireBoss() {
 }
 
 void BeatEmUpState::AddEarthBoss() {
+	numEnemies = 1;
 	//Vector2D pos = { WIN_WIDTH , WIN_HEIGHT / 2 };
 	Vector2D pos = Vector2D(sdlutils().width() * 3 / 4 - WATERBOSS_WIDTH, sdlutils().height() / 2);
 	earthBoss_ = new Entity();
@@ -201,13 +217,27 @@ void BeatEmUpState::handleEvents() {
 void BeatEmUpState::finishBEU() {
 	numEnemies -= 1;
 	if (numEnemies <= 0)
-	{
+	{		
+		// DESBLOQUEO DE PERSONAJES
+		if (boss) {
+			if (typeBoss_ == "water") Elements::instance()->setWater();
+			else if (typeBoss_ == "earth") Elements::instance()->setEarth();
+			else if (typeBoss_ == "fire") Elements::instance()->setFire();
+			props_->instance()->addMoney(200); // monedas ganadas al derrotar un boss
+		}
+		else {
+			props_->instance()->addMoney(50); // monedas ganadas al derrotar non-bosses
+		}
 		Saving::instance()->deletePos();
 		SDLUtils::instance()->soundEffects().at("Battle").haltChannel();
 		GameManager::instance()->goTopDown();
 		
 		enemySender->~Entity();
 	}
+	//if (!player_->isAlive()) {
+	//	SDLUtils::instance()->soundEffects().at("Battle").haltChannel();
+	//	GameManager::instance()->goTopDown();
+	//}
 }
 
 string BeatEmUpState::getStateID() {
@@ -228,7 +258,7 @@ void BeatEmUpState::update() {
 	camRect_.x = camRect_.x + ((trans_player_->getPos().getX() + camOffset_ - camRect_.x) - WIN_WIDTH / 2) * 0.05;
 	camRect_.y = 0;
 	// Clamp de la cámara
-	if (camRect_.x < 0) {
+	if (camRect_.x < 0 || typeBoss_ == "water") {
 		camRect_.x = 0;
 	}	
 	else if (camRect_.x > BACKGROUNDBEU_WIDTH - WIN_WIDTH) {

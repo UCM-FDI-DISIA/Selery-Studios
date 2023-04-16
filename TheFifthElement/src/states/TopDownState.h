@@ -62,9 +62,13 @@ class TopDownState : public Manager {
 private:
 	//TILE
 	tileset_map tilesets_;	// textures map (string -> texture)
-	SDL_Texture* background_;
+	SDL_Texture* background_0;
+	SDL_Texture* background_1;
+	SDL_Texture* background_2;
+	SDL_Texture* background_3;
+	//SDL_Texture* background_;
 	MapInfo mapInfo;	//struct
-	vector<bool> sectors{ true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true };
+	vector<bool> sectors{ true,false,false,false };
 	Entity* pruebaCollider;
 	int idSector = 0;
 	//PLAYER 
@@ -78,9 +82,8 @@ private:
 	MovementComponent* movcomp_player_;
 	//NPCS
 	Entity* Npc_;
+	Entity* Contexto;
 	Entity* Blacksmith_;
-	//Transform* Nptr_;
-	int number_npc_ = 0;
 	int contBlksm = 0;
 	//HUD
 	Entity* Hud_;
@@ -116,7 +119,8 @@ private:
 	// SHOP
 	Entity* upturnButton_;
 	Entity* exitShopButton_;
-	vector<Entity*> buttons;
+	vector<Entity*> buttons1;
+	vector<Entity*> buttons2;
 	vector<Button*> buttonsComp;
 	ShopComponent* shopComp_;
 	Vector2D upturnButtonPos_;
@@ -129,36 +133,34 @@ private:
 	Transform* exitShopButtonTr_;
 	Button* exitShopButtonComp_;
 
+	//void actSectors(int idChange, bool nowValue)
+	//{
+	//	if (sectors[idChange] != nowValue)
+	//	{
+	//		sectors[idChange] = nowValue;
+	//		printMap();
+	//	}
+	//	//printMap();
+	//}
+	bool shopCreated_ = false;
 public:
-	void actSectors(int idChange, bool nowValue)
-	{
-		if (sectors[idChange] != nowValue)
-		{
-			sectors[idChange] = nowValue;
-			printMap();
-		}
-		//printMap();
-	}
 	string getStateID(); // stringID
 	PuzzleCopas* puzzle1;
 	TopDownState();	
 	~TopDownState() {}
 	void LoadMap(string const& filename);
-	void printMap();
+	//void printMap();
+	void DeleteContexto() {
+		Contexto->setAlive(false);
+	}
 	void update();	
 	void handleEvents();
 	void render();
 	void createShopButtons();
 	void cleanShopButtons();
 	Texture* npcTexture() {
-		int a = SDLUtils::instance()->rand().nextInt(0, 1);
-		if (a == 0) {
-			return &SDLUtils::instance()->images().at("NPC_1");
-		}
-		else if (a == 1) {
-			return &SDLUtils::instance()->images().at("NPC_2");
-		}
-		
+		int a = SDLUtils::instance()->rand().nextInt(1, 11);
+		return &SDLUtils::instance()->images().at("NPC_"+ to_string(a));
 	}
 	Texture* blacksmithTexture() {
 		return &SDLUtils::instance()->images().at("Blacksmith");

@@ -9,6 +9,7 @@
 #include "DialogueComponent.h"
 #include <array>
 #include "rouletteComponent.h"
+#include "../Elements.h"
 
 enum Directions {
     NONE=-1,
@@ -25,7 +26,6 @@ private:
     SkinComponent* skin_ = nullptr;
     DialogueComponent* dialog = nullptr;
     Roulette* roulet;
-    bool elements[4];
     bool controladorDetectado;
     SoundManager* smg_=nullptr;
 public:
@@ -37,10 +37,9 @@ public:
     inline void setDirection(int dd) {
         d = Directions(dd);
     }
-
-    void setAir(bool b) { elements[0] = b; }
+    /*void setAir(bool b) { elements[0] = b; }
     void setFire(bool b) { elements[1] = b; }
     void setWater(bool b) { elements[2] = b; }
-    void setEarth(bool b) { elements[3] = b; }
+    void setEarth(bool b) { elements[3] = b; }*/
 };
 #endif

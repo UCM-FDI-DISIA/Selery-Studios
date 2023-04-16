@@ -12,6 +12,7 @@
 #include "ObjectsComponent.h"
 #include "StoneComponent.h"
 #include <array>
+#include "../Elements.h"
 class Image;
 
 class InputComponentBEU : public Component {
@@ -42,6 +43,8 @@ public:
     void setFire(bool b);
     void setWater(bool b);
     void setEarth(bool b);
+
+    void vibrate(SDL_GameController* controller, int duration_ms, float intensity);
 
     inline void setEarthStage3(bool newValue) { earthStage3 = newValue; }
 };

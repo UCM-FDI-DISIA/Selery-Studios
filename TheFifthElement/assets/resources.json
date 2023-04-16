@@ -1,15 +1,30 @@
 {
-  "dialog": [
+   "dialog": [
     {"id": "1","text": "Buenos dias buen viajero $ Que se le ofrece? "},
     {"id": "2","text": "O compras o te apartas $ Que va a ser entonces?"},
     {"id": "3","text": "Amigo! $ Todo bueno, bonito y barato!"},
-    {"id": "4","text": "Bienvenide a mi tienda "},
-    {"id": "5","text": "Carlos Leon trabajando? $ imposible $ Dialogo 5"},
-    {"id": "6","text": "Carlos Leon trabajando? $ imposible $ Dialogo 6"},
-    {"id": "7","text": "Dialogo extra"}
+     {"id": "5","text": "Desde que te separastes de tus hermanos $ este reino no se siente igual $ no se, quizas abrir fronteras seria una $ buena idea No crees?"},
+    {"id": "6","text": "Yo te driria que si decides reconciliarte $ con tus hermanos empezaras $ por el rojo, no te confundas, no hablo de politica, $ era el que  mejor me caia, con su temperamento, pero firme $ y dios ese bigote..."},
+    {"id": "7","text": "Siempre he sido mas dado a tu hermana, Florencia, $ su reino es el mas bonito, una pena que este cerrado $ Sabes que no gobiernas aqui solo para ti $ verdad?  "}, 
+    {"id": "21","text": "Debo decir que no soy muy religioso, pero  $ tu hermano, Feliciano, ese que mueve rocas, $ me hacia creer muchas veces $ como predicaba, ensenaba e instruia $ ojala lo trajeras de vuelta"},
+    {"id": "8","text": "Si sigues adelante entraras en el Reino de fuego, gobernado por tu hermano Charmander $ la gente comenta que vuestra pelea entre hermanos fue  $ por una tonteria de verdad fue asi? $ Luz siempre fue el que mediaba entre vosotros no? $ Donde esta? "},
+    {"id": "9", "text": "Si sigues adelante entraras en el Reino de Roca, gobernado por tu hermano Feliciano, si es verdad que habeis decido reuniros todos $ Donde esta Luz?"},
+    {"id": "10","text": "Con una tia con la que me estuve liando un tiempo $ y tenia buena relacion, me llamo $ porque se le habia muerto el perro.$ Yo estaba entrenando y le dije que iba a su casa $ y me duchaba alli para estar acompanandola. Cuando llegue le di un abrazo y le dije: $ perdon, huelo a perros muertos"},
+    {"id": "11","text": "Oh que sorpresa verte por aqui! $ es el momento de superar vuestras diferencias $ por cierto....De donde nace vuestra disputa? $ Todos comentan que fue por la division del terreno, $ que ambicion esta de los dioses"},
+    {"id": "12","text": "Me temo que se que haces aqui. $ Si buscas a tu hermano esta todo hacia el sur, $ hace mucho que no lo vemos por aqui, $ estara enfadado, como de costumbre."},
+    {"id": "13","text": "Siento que si sigues adelante... $ Vas a encontrarte con algo dificil de superar!"},
+    {"id": "14","text": "La paz que se respira en este reino siempre me calma. $ El que va tras la justicia y el amor $ halla la paz interior. $ Proverbios 21:21 "},
+    {"id": "15","text": "Tanto camino recorrido... $ espero que valga la pena todo el esfuerzo. $ Se ve que tus esfuerzos por arreglar tus diferencias con tus hermanos $ son sinceras y encomieables, o eso espero."},
+    {"id": "16","text": "Guiame, pues eres mi roca y mi fortaleza. Salmo 31:3"},
+    {"id": "17","text": "Tengo sentimientos encontrados con que rechazarais tanto tu como el resto de hermanos $ que Feliciano predicara su palabra por todos los reinos $ Que dano podria hacer?"},
+    {"id": "18","text": "Y en la soledad del camino lo encontre a el $ mi Dios y mi espiritu en comunion con la Paz"},
+    {"id": "19","text": "Esta estatua destruida solo muestra la barbarie que perpetrasteis todos $ en vuestras diferencias ideologicas,$ al menos dejasteis el pie, mi parte favorita"},
+    {"id": "20","text": "El reino de la sabiduria, Florencia puede que haya cambiado con el tiempo $ pero se que podras convencerla $ de vover a reuniros"},
+    {"id": "22","text": "Hola hermano $ si te ha llegado esta carta significa $ que estoy muerto. $ Se que tras todo lo que sucedio $ no esperabas vovler a saber de mi $ se que no va a ser facil,$ pero me gustaria, $ poder reuniros a todos en mi funeral $ reune a tus hermanos luchando$ contra los monstruos $ y convenceles..... $ para que se unan a tu lucha"},
 
+    {"id": "4","text": "Bienvenide a mi tienda "}
   ],
-
+   
   "fonts": [
     {"id": "TCentury","file": "assets/Texts/text.TTF","size": 16},
     {"id": "TCenturyScale","file": "assets/Texts/text.TTF","size": 26}
@@ -17,7 +32,15 @@
 
   "images": [
     {"id": "NPC_1","file": "./assets/NPCs/Villagers/ChicoMoreno/IdleLeft.png"},
-    {"id": "NPC_2","file": "./assets/NPCs/Villagers/ChicaMorena/IdleLeft.png"},
+    {"id": "NPC_2","file": "./assets/NPCs/Villagers/ChicoMoreno/IdleRight.png"},
+    {"id": "NPC_3","file": "./assets/NPCs/Villagers/ChicaMorena/IdleLeft.png"},
+    {"id": "NPC_4","file": "./assets/NPCs/Villagers/ChicaMorena/IdleRight.png"},
+    {"id": "NPC_5","file": "./assets/NPCs/Villagers/ChicaRubia/IdleRight.png"},
+    {"id": "NPC_6","file": "./assets/NPCs/Villagers/ChicaRubia/IdleLeft.png"},
+     {"id": "NPC_7","file": "./assets/NPCs/Villagers/ViejoGris/IdleRight.png"},
+    {"id": "NPC_8","file": "./assets/NPCs/Villagers/ViejoGris/IdleLeft.png"},
+     {"id": "NPC_9","file": "./assets/NPCs/Villagers/ViejoPelirrojo/IdleRight.png"},
+    {"id": "NPC_10","file": "./assets/NPCs/Villagers/ViejoPelirrojo/IdleLeft.png"},
     {"id": "Blacksmith", "file": "./assets/NPCs/Shop/Blacksmith/working.png"},
     {"id": "BEU_air_Mushroom_run","file": "./assets/Enemies/BeatEmUP/Air/Mushroom/Run.png"},
     {"id": "BEU_air_Mushroom_attack","file": "./assets/Enemies/BeatEmUP/Air/Mushroom/Attack.png"},
@@ -126,7 +149,7 @@
     {"id": "fondo2","file": "assets/Scenes/Backgrounds/BeatEmUp/DorjeSofia 400x325.png"},
     {"id": "fondo3",  "file": "assets/Scenes/Backgrounds/BeatEmUp/DorjeeSofia180x398.png"},
     {"id": "fondo4","file": "assets/Scenes/Backgrounds/BeatEmUp/DorjeeSofia1800x900.png"},
-    {"id": "fondoNieve", "file": "assets/Scenes/Backgrounds/BeatEmUp/DorjeeSofia 1500x844.png"},
+    {"id": "fondoBossAgua", "file": "assets/Scenes/Backgrounds/BeatEmUp/nieve.png"},
 
     {"id": "Fire_LifeBar","file": "assets/Enemies/HUD/LifeBars/Horizontal/Bars/Bar2.png"},
     {"id": "Fire_LifeBarBack", "file": "assets/Enemies/HUD/LifeBars/Horizontal/Backs/Back6.png"},
@@ -259,7 +282,7 @@
     {"id": "waterBoss_attack", "file":  "assets/Enemies/BeatEmUp/Bosses/WaterBoss/frost_guardian_attack.png"},
     {"id": "waterBoss_walk", "file":  "assets/Enemies/BeatEmUp/Bosses/WaterBoss/frost_guardian_walk.png"},
     {"id": "waterBoss_death", "file":  "assets/Enemies/BeatEmUp/Bosses/WaterBoss/frost_guardian_death.png"},
-    {"id": "waves", "file": "assets/Enemies/BeatEmUp/Bosses/WaterBoss/waves.png"},
+    {"id": "iceBlock", "file": "assets/Enemies/BeatEmUp/Bosses/WaterBoss/iceBlocks.png"},
     {"id": "ice", "file": "assets/Enemies/BeatEmUp/Bosses/WaterBoss/icicle.png"},
     {"id": "iceShadow", "file": "assets/Enemies/BeatEmUp/Bosses/WaterBoss/icicleShadow.png"},
     {"id": "iceDestroy", "file": "assets/Enemies/BeatEmUp/Bosses/WaterBoss/icecleDestroy.png"},
@@ -304,7 +327,8 @@
     {"id": "batDie", "file": "assets/sounds/enemy/bat/batDeath.wav"},
     {"id": "NPC_Chat", "file": "assets/Sounds/NPCs/npcchat.wav"},
     {"id": "coinSound", "file": "assets/Sounds/objects/coin.wav"},
-    {"id": "magic", "file": "assets/Sounds/objects/magic.wav"}
+    {"id": "magic", "file": "assets/Sounds/objects/magic.wav"},
+    {"id": "iceBlock", "file": "assets/Sounds/bosses/water/iceBlock.wav"}
   ],
 
   "musics": [

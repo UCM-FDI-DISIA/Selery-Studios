@@ -7,8 +7,10 @@
 
 
 InputComponentBEU::InputComponentBEU(Roulette* r):Component() {
-	elements[0] = true;
-	for (int i = 1; i < 4; i++) elements[i] = true;
+	elements[0] = Elements::instance()->getAir();
+	elements[1] = Elements::instance()->getFire();
+	elements[2] = Elements::instance()->getWater();
+	elements[3] = Elements::instance()->getEarth();
 	// por defecto solo está disponible aire
 	roulette = r;
 
@@ -36,7 +38,7 @@ void InputComponentBEU::initComponent() {
 }
 
 void InputComponentBEU::update() {	
-	if (!im_->getIsAnimUnstoppable() && jmp_->isJumpEnabled()) { // Si no esta realizando ninguna acci�n no cancelable
+	if (!im_->getIsAnimUnstoppable() && jmp_->isJumpEnabled()) { // Si no esta realizando ninguna accion no cancelable
 		if (moveLeft) {
 			tr_->setDir(Vector2D(-1, 0));
 			sk_->changeState(SkinBEUComponent::Left);
@@ -58,10 +60,10 @@ void InputComponentBEU::update() {
 			sk_->changeState(SkinBEUComponent::Idle);
 		}
 	}
-	else if (jmp_->isJumpEnabled()) { // Esta realizando una acci�n no cancelable (distinta del salto)
+	else if (jmp_->isJumpEnabled()) { // Esta realizando una accion no cancelable (distinta del salto)
 		tr_->setDir(Vector2D(0, 0));
 	}
-	else { // Est� saltando
+	else { // Esta saltando
 		if (moveLeft) {
 			tr_->setDir(Vector2D(-1, tr_->getDir().getY()));
 			im_->setFlip(SDL_FLIP_HORIZONTAL);
@@ -76,18 +78,9 @@ void InputComponentBEU::update() {
 void InputComponentBEU::handleEvents(SDL_Event event) {
 	ih().update(event);
 
-	//if (ih().isKeyDown(SDL_SCANCODE_SPACE) && !im_->getIsAnimUnstoppable() && jmp_->isJumpEnabled()) { // Salto
-	//if (SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_DPAD_LEFT)) {
-	//	setAir(true);
-	//}
-	//else {
-	//	setAir(false);
-	//}
-
-	if (ih().isKeyDown(SDL_SCANCODE_SPACE) && !im_->getIsAnimUnstoppable() && jmp_->isJumpEnabled() || SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_A)) { // Salto
+	if ((ih().isKeyDown(SDL_SCANCODE_SPACE) || SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_A)) && !im_->getIsAnimUnstoppable() && jmp_->isJumpEnabled()) { // Salto
 		jmp_->jump();
 		sk_->changeState(SkinBEUComponent::Jump); // A lo mejor 15 cambia porque se le pueden dar o puede necesitar mas frames de salto
-
 		shadow->Setpos_y(tr_->getPos().getY());
 	}
 
@@ -113,27 +106,27 @@ void InputComponentBEU::handleEvents(SDL_Event event) {
 	else if (ih().isKeyUp(SDL_SCANCODE_S) || SDL_GameControllerGetAxis(controller, SDL_CONTROLLER_AXIS_LEFTY) <= 8000) { moveDown = false; }
 
 
-	if (ih().isKeyDown(SDL_SCANCODE_1) && elements[0] && !im_->getIsAnimUnstoppable() || SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_DPAD_LEFT)) {
+	if ((ih().isKeyDown(SDL_SCANCODE_1) || SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_DPAD_LEFT)) && elements[0] && !im_->getIsAnimUnstoppable()) {
 		sk_->changeSkin("air");
 		roulette->changeplayer(1);
 	}
 
-	if (ih().isKeyDown(SDL_SCANCODE_2) && elements[1] && !im_->getIsAnimUnstoppable() || SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_DPAD_UP)) {
+	if ((ih().isKeyDown(SDL_SCANCODE_2) || SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_DPAD_UP)) && elements[1] && !im_->getIsAnimUnstoppable() ) {
 		sk_->changeSkin("fire");
 		roulette->changeplayer(2);
 	}
 
-	if (ih().isKeyDown(SDL_SCANCODE_3) && elements[2] && !im_->getIsAnimUnstoppable() || SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_DPAD_RIGHT)) {
+	if ((ih().isKeyDown(SDL_SCANCODE_3) || SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_DPAD_RIGHT)) && elements[2] && !im_->getIsAnimUnstoppable()) {
 		sk_->changeSkin("water");
 		roulette->changeplayer(3);
 	}
 
-	if (ih().isKeyDown(SDL_SCANCODE_4) && elements[3] && !im_->getIsAnimUnstoppable() || SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_DPAD_DOWN)) {
+	if ((ih().isKeyDown(SDL_SCANCODE_4) || SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_DPAD_DOWN)) && elements[3] && !im_->getIsAnimUnstoppable()) {
 		sk_->changeSkin("earth");
 		roulette->changeplayer(4);
 	}
 
-	if (ih().isKeyJustDown(SDL_SCANCODE_O) || SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_X)) {
+	if ((ih().isKeyJustDown(SDL_SCANCODE_O) || SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_X)) && jmp_->isJumpEnabled()) {
 		if (!alreadyPressedBasic) {
 			sdlutils().soundEffects().at("playerAttack").play();
 			alreadyPressedBasic = true;
@@ -206,7 +199,7 @@ void InputComponentBEU::handleEvents(SDL_Event event) {
 	}
 	else if (ih().isKeyJustUp(SDL_SCANCODE_O) || !ih().isGamePadButtonDown(SDL_CONTROLLER_BUTTON_X)) alreadyPressedBasic = false;
 
-	if (ih().isKeyDown(SDL_SCANCODE_P) && !alreadyPressedBasic || SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_Y)) {
+	if ((ih().isKeyDown(SDL_SCANCODE_P) || SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_Y)) && !alreadyPressedBasic && jmp_->isJumpEnabled()) {
 		// Ataque Especial
 		if (im_->getType() == "fire" || im_->getType() == "water")
 		{
@@ -296,4 +289,44 @@ void InputComponentBEU::setEarth(bool b)
 		else if (elements[1])sk_->changeSkin("fire");
 		else sk_->changeSkin("water");
 	}
+}
+
+// Función para hacer que el mando de Xbox vibre
+void InputComponentBEU::vibrate(SDL_GameController* controller, int duration_ms, float intensity) {
+	// Comprobar si el mando está conectado
+	if (!SDL_GameControllerGetAttached(controller)) {
+		printf("El mando no está conectado\n");
+		return;
+	}
+
+	// Comprobar si el mando tiene retroalimentación de fuerza
+	if (!SDL_JoystickIsHaptic(SDL_GameControllerGetJoystick(controller))) {
+		printf("El mando no tiene retroalimentación de fuerza\n");
+		return;
+	}
+
+	// Abrir el dispositivo de retroalimentación de fuerza (haptic device)
+	SDL_Haptic* haptic = SDL_HapticOpenFromJoystick(SDL_GameControllerGetJoystick(controller));
+	if (haptic == NULL) {
+		printf("No se pudo abrir el dispositivo haptic: %s\n", SDL_GetError());
+		return;
+	}
+
+	// Configurar la intensidad y duración de la vibración
+	if (SDL_HapticRumbleInit(haptic) != 0) {
+		printf("No se pudo inicializar la retroalimentación de fuerza: %s\n", SDL_GetError());
+		SDL_HapticClose(haptic);
+		return;
+	}
+	if (SDL_HapticRumblePlay(haptic, intensity, duration_ms) != 0) {
+		printf("No se pudo hacer que el mando vibre: %s\n", SDL_GetError());
+		SDL_HapticClose(haptic);
+		return;
+	}
+
+	// Esperar hasta que termine la vibración
+	SDL_Delay(duration_ms);
+
+	// Liberar los recursos usados por el dispositivo haptic
+	SDL_HapticClose(haptic);
 }

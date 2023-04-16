@@ -11,13 +11,13 @@ void WaterBossIA::initComponent() {
 	cont = 0;
 	chrono = 3000;
 	lastWave_ = nullptr;
-	offset = 150;
+	offset = 200;
 	tr_ = ent_->getComponent<Transform>(TRANSFORM_H);
-	downLimit = sdlutils().height() - 100;
-	topLimit = sdlutils().height()* 0.38;
+	downLimit = sdlutils().height();
+	topLimit = sdlutils().height()* 0.55;
 
 	attackIcePos_ = WIN_WIDTH / 2 - (tr_->getW() * tr_->getS())/ 2;
-	attackWavesPos_ = WIN_WIDTH * 9 / 11;
+	attackWavesPos_ = WIN_WIDTH * 7 / 11;
 
 	iceCont_ = 0;// al principio el contador estará a 0
 }
@@ -44,11 +44,11 @@ void WaterBossIA::update() {
 				////im_->setAnim(true, 2, 14, 0, 14); 
 				
 				// espaciado entre olas
-				if (lastWave_ == nullptr || lastWave_->getPos().getX() < WIN_WIDTH - WAVE_WIDTH - offset) {
+				if (lastWave_ == nullptr || lastWave_->getPos().getX() < WIN_WIDTH - ICEBLOCK_WIDTH - offset) {
 					summonWave();
 					cont++;
 					// numero de olas
-					if (cont > 1) {
+					if (cont > 4) {
 						currentState_ = NONE;
 						chrono = sdlutils().currRealTime() + 3000;
 						cont = 0;
@@ -149,12 +149,12 @@ void WaterBossIA::summonWave() { // crea 2 olas
 	if (rnd_ == 0) { // no arriba
 		wavePos_ = topLimit + (downLimit - topLimit) * 1 / 3;
 		createWave(wavePos_);
-		wavePos_ = topLimit + (downLimit - topLimit) * 2 / 3;
+		wavePos_ = topLimit + (downLimit - topLimit) - ICEBLOCK_HEIGHT;
 	}
 	else if (rnd_ == 1) { // no medio
 		wavePos_ = topLimit;
 		createWave(wavePos_);
-		wavePos_ = topLimit + (downLimit - topLimit) * 2 / 3;
+		wavePos_ = topLimit + (downLimit - topLimit) -ICEBLOCK_HEIGHT;
 	}
 	else { // no abajo
 		wavePos_ = topLimit + (downLimit - topLimit) * 1 / 3;
@@ -162,15 +162,16 @@ void WaterBossIA::summonWave() { // crea 2 olas
 		wavePos_ = topLimit;
 	}
 	lastWave_ = createWave(wavePos_)->getComponent<Transform>(TRANSFORM_H);
+	sdlutils().soundEffects().at("iceBlock").play();
 }
 
 Entity* WaterBossIA::createWave(float y) {
 	Vector2D pos = Vector2D(WIN_WIDTH, y);
 	Entity* wave = mngr_->addEntity();
-	wave->addComponent<Transform>(TRANSFORM_H, pos, WAVE_WIDTH, (downLimit - topLimit) / 3, 1, 4)->setDir(Vector2D(-1, 0));
-	wave->addComponent<Image>(IMAGE_H, &sdlutils().images().at("waves"));
+	wave->addComponent<Transform>(TRANSFORM_H, pos, ICEBLOCK_WIDTH, ICEBLOCK_HEIGHT, 1, 4)->setDir(Vector2D(-1, 0));
+	wave->addComponent<FramedImage>(FRAMEDIMAGE_H, &sdlutils().images().at("iceBlock"), ICEBLOCK_WIDTH, ICEBLOCK_HEIGHT, 8);
 	wave->addComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
-	wave->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(0, 25), (downLimit - topLimit) / 3 - 25, WAVE_WIDTH);
+	wave->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(0, 0), ICEBLOCK_HEIGHT, ICEBLOCK_WIDTH);
 	wave->addComponent<DisableOnExit>(DISABLEONEXIT_H);
 	wave->addComponent<ColDetectorComponent>(COLDETECTORCOMPONENT_H, wave, player_);
 	return wave;
