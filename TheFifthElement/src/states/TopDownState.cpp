@@ -1,6 +1,5 @@
 ﻿#include "TopDownState.h"
 
-
 TopDownState::TopDownState() {
     puzzle1 = new PuzzleCopas();
     ////HUD
@@ -18,6 +17,7 @@ TopDownState::TopDownState() {
     LoadMap("assets/Scenes/Maps/MapaInicial.tmx");
     addEntity(Hud_);  
     SDLUtils::instance()->soundEffects().at("Title").play();
+    dialog_->inicombe();
 }
 
 void TopDownState::LoadMap(string const& filename) {
@@ -41,10 +41,16 @@ void TopDownState::LoadMap(string const& filename) {
 
 
     // convertir a textura
-    background_ = SDL_CreateTexture(Gm_->getRenderer(), SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, fondowidth_, fondoheight_);
-    SDL_SetTextureBlendMode(background_, SDL_BLENDMODE_BLEND);
-    SDL_SetRenderTarget(Gm_->getRenderer(), background_);
-
+    background_0 = SDL_CreateTexture(Gm_->getRenderer(), SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, fondowidth_, fondoheight_);
+    SDL_SetTextureBlendMode(background_0, SDL_BLENDMODE_BLEND);
+    background_1 = SDL_CreateTexture(Gm_->getRenderer(), SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, fondowidth_, fondoheight_);
+    SDL_SetTextureBlendMode(background_1, SDL_BLENDMODE_BLEND);
+    background_2 = SDL_CreateTexture(Gm_->getRenderer(), SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, fondowidth_, fondoheight_);
+    SDL_SetTextureBlendMode(background_2, SDL_BLENDMODE_BLEND);
+    background_3 = SDL_CreateTexture(Gm_->getRenderer(), SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, fondowidth_, fondoheight_);
+    SDL_SetTextureBlendMode(background_3, SDL_BLENDMODE_BLEND);
+    SDL_SetRenderTarget(Gm_->getRenderer(), background_0);
+    //CARGAR AQUI LAS DIFERENTES TEXTURAS
 
     //Cargamos y almacenamos los tilesets utilizados por el tilemap
     vector<tmx::Tileset> mapTilesets = mapInfo.tile_MAP->getTilesets();
@@ -60,11 +66,102 @@ void TopDownState::LoadMap(string const& filename) {
 
     // recorremos cada una de las capas (de momento solo las de tiles) del mapa    
     auto& mapLayers = mapInfo.tile_MAP->getLayers();
+    for (auto& layer : mapLayers) {
+        if (layer->getType() == tmx::Layer::Type::Tile) {
+            // cargamos la capa
+            tmx::TileLayer* tile_layer = dynamic_cast<tmx::TileLayer*>(layer.get());
+            string name = tile_layer->getName();
+            auto& layer_tiles = tile_layer->getTiles();
+            if (name != "Nada") {
+                // recorremos todos los tiles para obtener su informacion
+                for (auto y = 0; y < mapInfo.rows; ++y) {
+                    for (auto x = 0; x < mapInfo.cols; ++x) {
+                        if (y < mapInfo.rows/10) {
+                            if (x < mapInfo.cols / 5) { //primer 
+                                SDL_SetRenderTarget(Gm_->getRenderer(), background_0);
 
-    for (auto& layer : mapLayers) 
-    {
-        if (layer->getType() == tmx::Layer::Type::Object) 
-        {
+                            }
+                            else {//segundo
+                                SDL_SetRenderTarget(Gm_->getRenderer(), background_1);
+
+                            }
+                        }
+                        else {//tercero
+                            if (x < mapInfo.cols / 2) {
+                                SDL_SetRenderTarget(Gm_->getRenderer(), background_2);
+
+                            }
+                            else {//cuarto
+                                SDL_SetRenderTarget(Gm_->getRenderer(), background_3);
+
+                            }
+                        }
+                        // obtenemos el indice relativo del tile en el mapa de tiles
+                        int tile_index = x + (y * mapInfo.cols);
+
+                        // con dicho indice obtenemos el indice del tile dentro de su tileset
+                        int cur_gid = layer_tiles[tile_index].ID;
+
+                        // si es 0 esta vacio asi que continuamos a la siguiente iteracion
+                        if (cur_gid == 0) continue;
+
+                        // guardamos el tileset que utiliza este tile (nos quedamos con el tileset cuyo gid sea
+                        // el mas cercano, y a la vez menor, al gid del tile)         
+                        int tset_gid = -1, tsx_file = 0;
+                        for (auto& ts : mapInfo.tilesets) {
+                            if (ts.first <= cur_gid) {
+                                tset_gid = ts.first;
+                                tsx_file++;
+                            }
+                            else
+                                break;
+                        }
+
+                        // si no hay tileset valido, continuamos a la siguiente iteracion
+                        if (tset_gid == -1) continue;
+
+                        // normalizamos el indice           
+                        cur_gid -= tset_gid;
+
+                        // calculamos dimensiones del tileset       
+                        auto ts_width = 0;
+                        auto ts_height = 0;
+                        SDL_QueryTexture(mapInfo.tilesets[tset_gid]->getSDLTexture(),
+                            NULL, NULL, &ts_width, &ts_height);
+
+                        // calculamos el area del tileset que corresponde al dibujo del tile
+                        auto region_x = (cur_gid % (ts_width / mapInfo.tile_width)) * mapInfo.tile_width;
+                        auto region_y = (cur_gid / (ts_width / mapInfo.tile_width)) * mapInfo.tile_height;
+
+                        // calculamos la posicion del tile
+                        auto x_pos = x * mapInfo.tile_width;
+                        auto y_pos = y * mapInfo.tile_height;
+
+                        // metemos el tile
+                        auto tileTex = mapInfo.tilesets[tset_gid];
+
+                        SDL_Rect src;
+                        src.x = region_x;
+                        src.y = region_y;
+                        src.w = mapInfo.tile_width;
+                        src.h = mapInfo.tile_height;
+
+                        SDL_Rect dest;
+                        dest.x = x_pos;
+                        dest.y = y_pos;
+                        dest.w = src.w;
+                        dest.h = src.h;
+
+                        int tileRot = layer_tiles[tile_index].flipFlags;
+                        mapInfo.tilesets[tset_gid]->render(src, dest, tileRot);
+
+                    }
+                }
+
+
+            }
+        }        
+        if (layer->getType() == tmx::Layer::Type::Object) {
             tmx::ObjectGroup* object_layer = dynamic_cast<tmx::ObjectGroup*>(layer.get());
             auto& objs = object_layer->getObjects();
 
@@ -86,7 +183,7 @@ void TopDownState::LoadMap(string const& filename) {
                     // PLAYER
                     player_ = new Entity();
                     player_->setContext(this);
-                    trans_player_ = player_->addComponent<Transform>(TRANSFORM_H, Vector2D(obj.getPosition().x, obj.getPosition().y), PLAYERTD_WIDTH_FRAME, PLAYERTD_HEIGHT_FRAME);
+                    trans_player_ = player_->addComponent<Transform>(TRANSFORM_H, Vector2D(obj.getPosition().x , obj.getPosition().y), PLAYERTD_WIDTH_FRAME, PLAYERTD_HEIGHT_FRAME);
                     trans_player_->setVel(PLAYERTD_SPEED);
                     sk_ = player_->addComponent<SkinComponent>(SKINCOMPONENT_H, "air");
                     sk_->changeState(SkinComponent::Idle);
@@ -106,21 +203,16 @@ void TopDownState::LoadMap(string const& filename) {
 
                 }
                 else if (name == "NPC") {
-                    if (contnpc >= 21)
-                    {
-                        contnpc = 5;
-                    }
-                    else { contnpc++; }
-                    //contnpc++;
+                    contnpc++; 
                     Npc_ = new Entity();
                     Npc_->setContext(this);
                     Npc_->addComponent<Transform>(TRANSFORM_H,Vector2D(obj.getPosition().x, obj.getPosition().y), NPC_WIDTH, NPC_HEIGHT);
                     Npc_->addComponent<FramedImage>(FRAMEDIMAGE_H, npcTexture(), NPC_WIDTH, NPC_HEIGHT, 7);
                     Npc_->addComponent<NPCcollisioncomponent>(NPCCOLLISIONCOMPONENTT, player_,  contnpc );
-					Npc_->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(0, 0), NPC_HEIGHT, NPC_WIDTH / NPC_FRAMES);
-                    number_npc_++;
                     addEntity(Npc_);
-
+                    if (obj.getName() == "Contexto") {
+                        Contexto = Npc_;
+                    }
                 }
                 else if (name == "Herreros") {
                     contBlksm++;
@@ -130,7 +222,6 @@ void TopDownState::LoadMap(string const& filename) {
                     Blacksmith_->addComponent<FramedImage>(IMAGE_H, blacksmithTexture(), BLACKSMITH_WIDTH, BLACKSMITH_HEIGHT, BLACKSMITH_FRAMES);
                     Blacksmith_->addComponent<NPCcollisioncomponent>(NPCCOLLISIONCOMPONENTT, player_, contBlksm);
                     Blacksmith_->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(0, 0), BLACKSMITH_HEIGHT, BLACKSMITH_WIDTH / BLACKSMITH_FRAMES);
-                    number_npc_++;
                     addEntity(Blacksmith_);
 
                 }
@@ -139,7 +230,7 @@ void TopDownState::LoadMap(string const& filename) {
                     pruebaCollider = new Entity();
                     pruebaCollider->setContext(this);
                     pruebaCollider->addComponent<Transform>(TRANSFORM_H, Vector2D(obj.getPosition().x, obj.getPosition().y), obj.getAABB().width, obj.getAABB().height);
-                    pruebaCollider->addComponent <SectorCollisionComponent>(SECTORCOLLISIONCOMPONENT_H, player_, idSector);
+                    //pruebaCollider->addComponent <SectorCollisionComponent>(SECTORCOLLISIONCOMPONENT_H, player_, idSector);
                     pruebaCollider->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(0, 0), obj.getAABB().height, obj.getAABB().width);
                     addEntity(pruebaCollider);
                     idSector++;
@@ -241,106 +332,104 @@ void TopDownState::LoadMap(string const& filename) {
             }
         }
 
-
     }
     addEntity(player_);
-    //SDL_RenderPresent(Gm_->getRenderer());
-    //SDL_SetRenderTarget(Gm_->getRenderer(), nullptr);
-
-    printMap();
-}
-void TopDownState::printMap()
-{
-    auto& mapLayers = mapInfo.tile_MAP->getLayers();
-
-    for (auto& layer : mapLayers)
-    {
-        if (layer->getType() == tmx::Layer::Type::Tile) {
-            // cargamos la capa
-            tmx::TileLayer* tile_layer = dynamic_cast<tmx::TileLayer*>(layer.get());
-            string name = tile_layer->getName();
-            auto& layer_tiles = tile_layer->getTiles();
-            if (name != "Nada") {
-                for (int i = 0; i < sectors.size(); i++)
-                {
-                    if (sectors[i])
-                    {
-                        float sumX = 77.25 * (i % 4);
-                        float sumY = 44 * (i / 4);
-                        float divX = 1 + i % 4;
-                        float divY = 1 + i / 4;
-                        // recorremos todos los tiles para obtener su informacion
-                        for (auto y = sumY; y < mapInfo.rows * divY / 4; ++y) {
-                            for (auto x = sumX; x < mapInfo.cols * divX / 4; ++x) {
-                                // obtenemos el indice relativo del tile en el mapa de tiles
-                                int tile_index = x + (y * mapInfo.cols);
-
-                                // con dicho indice obtenemos el indice del tile dentro de su tileset
-                                int cur_gid = layer_tiles[tile_index].ID;
-
-                                // si es 0 esta vacio asi que continuamos a la siguiente iteracion
-                                if (cur_gid == 0) continue;
-
-                                // guardamos el tileset que utiliza este tile (nos quedamos con el tileset cuyo gid sea
-                                // el mas cercano, y a la vez menor, al gid del tile)         
-                                int tset_gid = -1, tsx_file = 0;
-                                for (auto& ts : mapInfo.tilesets) {
-                                    if (ts.first <= cur_gid) {
-                                        tset_gid = ts.first;
-                                        tsx_file++;
-                                    }
-                                    else
-                                        break;
-                                }
-
-                                // si no hay tileset valido, continuamos a la siguiente iteracion
-                                if (tset_gid == -1) continue;
-
-                                // normalizamos el indice           
-                                cur_gid -= tset_gid;
-
-                                // calculamos dimensiones del tileset       
-                                auto ts_width = 0;
-                                auto ts_height = 0;
-                                SDL_QueryTexture(mapInfo.tilesets[tset_gid]->getSDLTexture(),
-                                    NULL, NULL, &ts_width, &ts_height);
-
-                                // calculamos el area del tileset que corresponde al dibujo del tile
-                                auto region_x = (cur_gid % (ts_width / mapInfo.tile_width)) * mapInfo.tile_width;
-                                auto region_y = (cur_gid / (ts_width / mapInfo.tile_width)) * mapInfo.tile_height;
-
-                                // calculamos la posicion del tile
-                                auto x_pos = x * mapInfo.tile_width;
-                                auto y_pos = y * mapInfo.tile_height;
-
-                                // metemos el tile
-                                auto tileTex = mapInfo.tilesets[tset_gid];
-
-                                SDL_Rect src;
-                                src.x = region_x;
-                                src.y = region_y;
-                                src.w = mapInfo.tile_width;
-                                src.h = mapInfo.tile_height;
-
-                                SDL_Rect dest;
-                                dest.x = x_pos;
-                                dest.y = y_pos;
-                                dest.w = src.w;
-                                dest.h = src.h;
-
-                                int tileRot = layer_tiles[tile_index].flipFlags;
-                                mapInfo.tilesets[tset_gid]->render(src, dest, tileRot);
-
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
     SDL_RenderPresent(Gm_->getRenderer());
     SDL_SetRenderTarget(Gm_->getRenderer(), nullptr);
+
 }
+//void TopDownState::printMap()
+//{
+//    auto& mapLayers = mapInfo.tile_MAP->getLayers();
+//
+//    for (auto& layer : mapLayers)
+//    {
+//        if (layer->getType() == tmx::Layer::Type::Tile) {
+//            // cargamos la capa
+//            tmx::TileLayer* tile_layer = dynamic_cast<tmx::TileLayer*>(layer.get());
+//            string name = tile_layer->getName();
+//            auto& layer_tiles = tile_layer->getTiles();
+//            if (name != "Nada") {
+//                for (int i = 0; i < sectors.size(); i++)
+//                {
+//                    if (sectors[i])
+//                    {
+//                        float sumX = 77.25 * (i % 4);
+//                        float sumY = 44 * (i / 4);
+//                        float divX = 1 + i % 4;
+//                        float divY = 1 + i / 4;
+//                        // recorremos todos los tiles para obtener su informacion
+//                        for (auto y = sumY; y < mapInfo.rows * divY / 4; ++y) {
+//                            for (auto x = sumX; x < mapInfo.cols * divX / 4; ++x) {
+//                                // obtenemos el indice relativo del tile en el mapa de tiles
+//                                int tile_index = x + (y * mapInfo.cols);
+//
+//                                // con dicho indice obtenemos el indice del tile dentro de su tileset
+//                                int cur_gid = layer_tiles[tile_index].ID;
+//
+//                                // si es 0 esta vacio asi que continuamos a la siguiente iteracion
+//                                if (cur_gid == 0) continue;
+//
+//                                // guardamos el tileset que utiliza este tile (nos quedamos con el tileset cuyo gid sea
+//                                // el mas cercano, y a la vez menor, al gid del tile)         
+//                                int tset_gid = -1, tsx_file = 0;
+//                                for (auto& ts : mapInfo.tilesets) {
+//                                    if (ts.first <= cur_gid) {
+//                                        tset_gid = ts.first;
+//                                        tsx_file++;
+//                                    }
+//                                    else
+//                                        break;
+//                                }
+//
+//                                // si no hay tileset valido, continuamos a la siguiente iteracion
+//                                if (tset_gid == -1) continue;
+//
+//                                // normalizamos el indice           
+//                                cur_gid -= tset_gid;
+//
+//                                // calculamos dimensiones del tileset       
+//                                auto ts_width = 0;
+//                                auto ts_height = 0;
+//                                SDL_QueryTexture(mapInfo.tilesets[tset_gid]->getSDLTexture(),
+//                                    NULL, NULL, &ts_width, &ts_height);
+//
+//                                // calculamos el area del tileset que corresponde al dibujo del tile
+//                                auto region_x = (cur_gid % (ts_width / mapInfo.tile_width)) * mapInfo.tile_width;
+//                                auto region_y = (cur_gid / (ts_width / mapInfo.tile_width)) * mapInfo.tile_height;
+//
+//                                // calculamos la posicion del tile
+//                                auto x_pos = x * mapInfo.tile_width;
+//                                auto y_pos = y * mapInfo.tile_height;
+//
+//                                // metemos el tile
+//                                auto tileTex = mapInfo.tilesets[tset_gid];
+//
+//                                SDL_Rect src;
+//                                src.x = region_x;
+//                                src.y = region_y;
+//                                src.w = mapInfo.tile_width;
+//                                src.h = mapInfo.tile_height;
+//
+//                                SDL_Rect dest;
+//                                dest.x = x_pos;
+//                                dest.y = y_pos;
+//                                dest.w = src.w;
+//                                dest.h = src.h;
+//
+//                                int tileRot = layer_tiles[tile_index].flipFlags;
+//                                mapInfo.tilesets[tset_gid]->render(src, dest, tileRot);
+//
+//                            }
+//                        }
+//                    }
+//                }
+//            }
+//        }
+//    }
+//    SDL_RenderPresent(Gm_->getRenderer());
+//    SDL_SetRenderTarget(Gm_->getRenderer(), nullptr);
+//}
 
 void TopDownState::update() {
     Vector2D savedPos = Saving::instance()->getPos();
@@ -377,11 +466,14 @@ void TopDownState::handleEvents() {
     {
         in_->handleEvents(event);
         if (dialog_->getopenedShop()) {
-            for (auto e : buttons) {               
+            for (auto e : buttons1) {
                 e->handleEvent(event);
-            }   
+            }
+            for (auto e : buttons2) {
+                e->handleEvent(event);
+            }
             exitShopButton_->handleEvent(event);
-        } 
+        }
     }
 }
 
@@ -397,7 +489,9 @@ void TopDownState::render() {
     dst.x -= Manager::camRect_.x;
     dst.y -= Manager::camRect_.y;
     SDL_Rect src = { 0, 0, fondowidth_, fondoheight_ };
-    SDL_RenderCopy(Gm_->getRenderer(), background_, &src, &dst);
+
+    SDL_RenderCopy(Gm_->getRenderer(), background_0, &src, &dst);
+    //SDL_RenderCopy(Gm_->getRenderer(), background_1, &src, &dst);
     //hudTD->render();
     Manager::render();
 }
@@ -405,75 +499,138 @@ void TopDownState::render() {
 void TopDownState::createShopButtons() {
     upturnButtonX = trans_player_->getPos().getX();
     upturnButtonY = trans_player_->getPos().getY();
-    if (WIN_WIDTH / 900 == 1920/900) upturnButtonPos_ = Vector2D(upturnButtonX - 195,upturnButtonY - 20);
-    else upturnButtonPos_ = Vector2D(upturnButtonX - upturnButtonOffsetX,upturnButtonY + upturnButtonOffsetY);
+    if (WIN_WIDTH / 900 == 1920 / 900) upturnButtonPos_ = Vector2D(upturnButtonX - 195, upturnButtonY - 20);
+    else upturnButtonPos_ = Vector2D(upturnButtonX - upturnButtonOffsetX, upturnButtonY + upturnButtonOffsetY);
 
-    for (int i = 0; i < 4; i++) {
-        upturnButton_ = new Entity();
-        upturnButton_->setContext(this);
-        Vector2D pos = Vector2D(upturnButtonPos_.getX(), upturnButtonPos_.getY() + i * (50 * WIN_HEIGHT / 600));
-        if (WIN_WIDTH / 900 == 1920 / 900) {
-            upturnButtonTr_ = upturnButton_->addComponent<Transform>(TRANSFORM_H, pos, (UPTURNBUTTON_WIDTH * WIN_WIDTH / 900) / 2,
-                (UPTURNBUTTON_HEIGHT * WIN_HEIGHT / 600) / 2, 0.5);
+    if (shopCreated_) {
+        int i = 0;
+        for (auto e : buttons1) {
+
+            Vector2D pos;
+            if (WIN_WIDTH / 900 == 1920 / 900) {
+                pos = Vector2D((upturnButtonPos_.getX()),
+                    upturnButtonPos_.getY() + i * (50 * WIN_HEIGHT / 600));
+            }
+            else
+            {
+                pos = Vector2D(upturnButtonPos_.getX(), upturnButtonPos_.getY() + i * 50);
+            }
+            i++;
+
+            e->getComponent<Transform>(TRANSFORM_H)->setPos(pos);
+            e->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("UpturnButton"));
         }
-        else upturnButtonTr_ = upturnButton_->addComponent<Transform>(TRANSFORM_H, pos, UPTURNBUTTON_WIDTH / 2,UPTURNBUTTON_HEIGHT / 2);
 
-        upturnButtonComp_ = upturnButton_->addComponent<Button>(BUTTON_H, "UPTURN");
-        upturnButton_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("UpturnButton"));
-        buttonsComp.push_back(upturnButtonComp_);
-        buttons.push_back(upturnButton_);
-    }
-    for (int i = 0; i < 4; i++) {
-        upturnButton_ = new Entity();
-        upturnButton_->setContext(this);
+        int j = 0;
+        for (auto e : buttons2) {
+
+            Vector2D pos;
+            if (WIN_WIDTH / 900 == 1920 / 900) {
+                pos = Vector2D((upturnButtonPos_.getX() + 350),
+                    upturnButtonPos_.getY() + j * (50 * WIN_HEIGHT / 600));
+            }
+            else
+            {
+                pos = Vector2D((upturnButtonPos_.getX() + upturnButtonOffsetX * 3), upturnButtonPos_.getY() + j * 50);
+            }
+            j++;
+
+            e->getComponent<Transform>(TRANSFORM_H)->setPos(pos);
+            e->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("UpturnButton"));
+        }
+        exitShopButton_ = new Entity();
+        exitShopButton_->setContext(this);
         Vector2D pos;
         if (WIN_WIDTH / 900 == 1920 / 900) {
-            pos = Vector2D((upturnButtonPos_.getX() + 350),
-                upturnButtonPos_.getY() + i * (50 * WIN_HEIGHT / 600));
-
-            upturnButtonTr_ = upturnButton_->addComponent<Transform>(TRANSFORM_H, pos, (UPTURNBUTTON_WIDTH / 2) * WIN_WIDTH / 900,
-                (UPTURNBUTTON_HEIGHT / 2) * WIN_HEIGHT / 600, 0.5);
+            pos = Vector2D(upturnButtonPos_.getX() - 60, upturnButtonPos_.getY() + 510);
         }
-        else 
-        { 
-            pos = Vector2D((upturnButtonPos_.getX() + upturnButtonOffsetX * 3), upturnButtonPos_.getY() + i * 50); 
-            upturnButtonTr_ = upturnButton_->addComponent<Transform>(TRANSFORM_H, pos, UPTURNBUTTON_WIDTH / 2,UPTURNBUTTON_HEIGHT / 2);
+        else pos = Vector2D(upturnButtonX - SHOP_WIDTH / 9, upturnButtonPos_.getY() + 275);
+
+        if (WIN_WIDTH / 900 == 1920 / 900) {
+            exitShopButtonTr_ = exitShopButton_->addComponent<Transform>(TRANSFORM_H, pos, (EXITSHOP_WIDTH / 2) * WIN_WIDTH / 900, (EXITSHOP_HEIGHT / 2) * WIN_HEIGHT / 600, 0.5);
         }
+        else exitShopButtonTr_ = exitShopButton_->addComponent<Transform>(TRANSFORM_H, pos, EXITSHOP_WIDTH / 2, EXITSHOP_HEIGHT / 2);
+
+        exitShopButton_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("ExitShop"));
+        exitShopButtonComp_ = exitShopButton_->addComponent<Button>(BUTTON_H, "EXITSHOP");
+        addEntity(exitShopButton_);
+    }
+    else { // creo botones por primera vez
 
 
-        upturnButtonComp_ = upturnButton_->addComponent<Button>(BUTTON_H, "UPTURN");
-        upturnButton_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("UpturnButton"));
-        buttonsComp.push_back(upturnButtonComp_);
-        buttons.push_back(upturnButton_);
-    }
-    for (auto e : buttons) {
-        addEntity(e);
-    }
-    exitShopButton_ = new Entity();
-    exitShopButton_->setContext(this);
-    //exitShopButtonTr_ = exitShopButton_->addComponent<Transform>(TRANSFORM_H, Vector2D(upturnButtonX - SHOP_WIDTH / 9, upturnButtonPos_.getY() + 275), EXITSHOP_WIDTH / 2, EXITSHOP_HEIGHT / 2, 1);
-    //exitShopButton_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("ExitShop"));
-    Vector2D pos;
-    if (WIN_WIDTH / 900 == 1920 / 900) {
-        pos = Vector2D(upturnButtonPos_.getX() - 60, upturnButtonPos_.getY() + 510);
-    }
-    else pos = Vector2D(upturnButtonX - SHOP_WIDTH / 9, upturnButtonPos_.getY() + 275);
-    
-    if(WIN_WIDTH / 900 == 1920 / 900) {
-        exitShopButtonTr_ = exitShopButton_->addComponent<Transform>(TRANSFORM_H, pos, (EXITSHOP_WIDTH / 2) * WIN_WIDTH / 900, (EXITSHOP_HEIGHT / 2) * WIN_HEIGHT / 600, 0.5);
-    }
-    else exitShopButtonTr_ = exitShopButton_->addComponent<Transform>(TRANSFORM_H, pos, EXITSHOP_WIDTH / 2, EXITSHOP_HEIGHT / 2);
+        for (int i = 0; i < 4; i++) {
+            upturnButton_ = new Entity();
+            upturnButton_->setContext(this);
+            Vector2D pos = Vector2D(upturnButtonPos_.getX(), upturnButtonPos_.getY() + i * (50 * WIN_HEIGHT / 600));
+            if (WIN_WIDTH / 900 == 1920 / 900) {
+                upturnButtonTr_ = upturnButton_->addComponent<Transform>(TRANSFORM_H, pos, (UPTURNBUTTON_WIDTH * WIN_WIDTH / 900) / 2,
+                    (UPTURNBUTTON_HEIGHT * WIN_HEIGHT / 600) / 2, 0.5);
+            }
+            else upturnButtonTr_ = upturnButton_->addComponent<Transform>(TRANSFORM_H, pos, UPTURNBUTTON_WIDTH / 2, UPTURNBUTTON_HEIGHT / 2);
 
-    exitShopButton_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("ExitShop"));
-    exitShopButtonComp_ = exitShopButton_->addComponent<Button>(BUTTON_H, "EXITSHOP");
-    addEntity(exitShopButton_);
+            upturnButtonComp_ = upturnButton_->addComponent<Button>(BUTTON_H, "UPTURN");
+            upturnButton_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("UpturnButton"));
+            buttonsComp.push_back(upturnButtonComp_);
+            buttons1.push_back(upturnButton_);
+        }
+        for (int i = 0; i < 4; i++) {
+            upturnButton_ = new Entity();
+            upturnButton_->setContext(this);
+            Vector2D pos;
+            if (WIN_WIDTH / 900 == 1920 / 900) {
+                pos = Vector2D((upturnButtonPos_.getX() + 350),
+                    upturnButtonPos_.getY() + i * (50 * WIN_HEIGHT / 600));
+
+                upturnButtonTr_ = upturnButton_->addComponent<Transform>(TRANSFORM_H, pos, (UPTURNBUTTON_WIDTH / 2) * WIN_WIDTH / 900,
+                    (UPTURNBUTTON_HEIGHT / 2) * WIN_HEIGHT / 600, 0.5);
+            }
+            else
+            {
+                pos = Vector2D((upturnButtonPos_.getX() + upturnButtonOffsetX * 3), upturnButtonPos_.getY() + i * 50);
+                upturnButtonTr_ = upturnButton_->addComponent<Transform>(TRANSFORM_H, pos, UPTURNBUTTON_WIDTH / 2, UPTURNBUTTON_HEIGHT / 2);
+            }
+
+
+            upturnButtonComp_ = upturnButton_->addComponent<Button>(BUTTON_H, "UPTURN");
+            upturnButton_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("UpturnButton"));
+            buttonsComp.push_back(upturnButtonComp_);
+            buttons2.push_back(upturnButton_);
+        }
+        for (auto e : buttons1) {
+            addEntity(e);
+        }
+        for (auto e : buttons2) {
+            addEntity(e);
+        }
+        exitShopButton_ = new Entity();
+        exitShopButton_->setContext(this);
+        Vector2D pos;
+        if (WIN_WIDTH / 900 == 1920 / 900) {
+            pos = Vector2D(upturnButtonPos_.getX() - 60, upturnButtonPos_.getY() + 510);
+        }
+        else pos = Vector2D(upturnButtonX - SHOP_WIDTH / 9, upturnButtonPos_.getY() + 275);
+
+        if (WIN_WIDTH / 900 == 1920 / 900) {
+            exitShopButtonTr_ = exitShopButton_->addComponent<Transform>(TRANSFORM_H, pos, (EXITSHOP_WIDTH / 2) * WIN_WIDTH / 900, (EXITSHOP_HEIGHT / 2) * WIN_HEIGHT / 600, 0.5);
+        }
+        else exitShopButtonTr_ = exitShopButton_->addComponent<Transform>(TRANSFORM_H, pos, EXITSHOP_WIDTH / 2, EXITSHOP_HEIGHT / 2);
+
+        exitShopButton_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("ExitShop"));
+        exitShopButtonComp_ = exitShopButton_->addComponent<Button>(BUTTON_H, "EXITSHOP");
+        addEntity(exitShopButton_);
+    }
+
 }
 
 void TopDownState::cleanShopButtons() {
-    for (auto e : buttons) {
-        e->setAlive(false);
+    for (auto e : buttons1) {
+        e->removeComponent(IMAGE_H);
+    }
+    for (auto e : buttons2) {
+        e->removeComponent(IMAGE_H);
     }
     exitShopButton_->setAlive(false);
+    shopCreated_ = true;
 }
 
 string TopDownState::getStateID() {

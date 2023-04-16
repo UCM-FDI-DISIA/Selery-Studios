@@ -17,8 +17,12 @@ const uint PLAYERTD_HEIGHT_FRAME = 120; // altura de PlayerTD
 const float PLAYERTD_SPEED = 3.0f; //velocidad PlayerTD
 const uint PLAYERTD_NUMFRAMES = 7; //numero de frames PlayerTD
 
+#pragma region backgrounds
 const uint BACKGROUNDBEU_WIDTH = 3987; // anchura de BackgroundAir
 const uint BACKGROUNDBEU_HEIGHT = 1080; // altura de BackgroundAir
+const uint BACKGROUNDWATERBOSS_WIDTH = 1000; // anchura de BackgroundAir
+const uint BACKGROUNDWATERBOSS_HEIGHT = 667; // altura de BackgroundAir
+#pragma endregion
 
 const uint DIALOGUE_WIDTH = 620; // anchura de Dialogue
 const uint DIALOGUE_HEIGHT = 452; // anchura de Dialogue
@@ -59,8 +63,8 @@ const int enemy_rock_life = 200;
 
 const int WATERBOSS_WIDTH = 192;
 const int WATERBOSS_HEIGHT = 128;
-const int WAVE_WIDTH = 400;
-const int WAVE_HEIGHT = 109;
+const int ICEBLOCK_WIDTH = 192;
+const int ICEBLOCK_HEIGHT = 64;
 
 #pragma endregion
 
@@ -96,7 +100,7 @@ const uint AVATAR_WIDTH = 64;
 const uint AVATAR_HEIGHT = 64;
 const float EXITSHOP_WIDTH = 557.0f;
 const float EXITSHOP_HEIGHT = 131.0f;
-
+const int MAX_MONEY = 1200;
 /*const string FUEGO = "fire";
 const string AIRE = "wind";
 const string AGUA = "water";

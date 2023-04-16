@@ -7,11 +7,11 @@ using namespace std;
 class  PlayerNPC : public Component
 {
 private:
-	int colnpc;
+	int colnpc = 22;
 public:
 	PlayerNPC() {
 
-		colnpc = -1;
+		colnpc = 22;
 	}
 	virtual ~PlayerNPC() {}
 	int getcol() { return colnpc; }

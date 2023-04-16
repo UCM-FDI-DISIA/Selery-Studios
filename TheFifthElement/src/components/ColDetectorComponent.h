@@ -1,6 +1,5 @@
 #pragma once
 #include "../utils/Component.h"
-//#include "./src/components/ColliderComponent.h"
 #include "ColliderComponent.h"
 #include "../utils/Entity.h"
 #include "../utils/Collision.h"

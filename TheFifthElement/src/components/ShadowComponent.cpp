@@ -11,6 +11,7 @@ void ShadowComponent::initComponent() {
 	assert(trans_player != nullptr);
 	Jump_player = ent_->getComponent<JumpComponent>(JUMP_H);
 	assert(Jump_player != nullptr);
+	i = (trans_player->getW() * trans_player->getS() / 2);
  }
 void ShadowComponent::update() {
 
@@ -24,26 +25,31 @@ void ShadowComponent::render() {
 			- src_width / 2;
 		rect.h = src_width;
 		rect.w = (trans_player->getW()*trans_player->getS()) / 2;
+		i = (trans_player->getW() * trans_player->getS() / 2);
 	}
 	else {
-		rect.x = (trans_player->getPos().getX() - mngr_->camRect_.x + (trans_player->getW()*trans_player->getS()) / 2
-			- ((trans_player->getW()*trans_player->getS())/4) 
-			+ ((10 * trans_player->getS()) + ((trans_player->getW()*trans_player->getS()) / 2 ) *
-				(1 / abs(jump_poss_y - trans_player->getPos().getY())))+
-			(src_width * trans_player->getS())/2);
-		rect.y = (jump_poss_y - mngr_->camRect_.y + (trans_player->getH()*trans_player->getS()) -
-			src_width / 2);
-		rect.h = src_width;
-		
-		rect.w = ((10 * trans_player->getS()) +((trans_player->getW()*trans_player->getS()) / 2)*
-			(1/abs(jump_poss_y-trans_player->getPos().getY())));
-		if (rect.w < 20) {
-			rect.w = 20;
-			rect.x = trans_player->getPos().getX() - mngr_->camRect_.x + (trans_player->getW()*trans_player->getS()) / 2
-				- ((trans_player->getW()*trans_player->getS()) / 4)
-			+rect.w+src_width/2-5;
+		if (trans_player->getDir().getY() > 0) {//abajo
+	
+			++i;
+			rect.h = src_width;
+			rect.w =  i;
+			rect.x = trans_player->getPos().getX() - mngr_->camRect_.x + i / 2;
+			rect.y = jump_poss_y - mngr_->camRect_.y + (trans_player->getH() * trans_player->getS()) -
+				src_width / 2;
 		}
+		else{
+			
+			--i;
+			rect.h = src_width;
+			rect.w = i;
+			rect.x = trans_player->getPos().getX()  - mngr_->camRect_.x+i/2;
+			rect.y = jump_poss_y - mngr_->camRect_.y+(trans_player->getH() * trans_player->getS()) -
+				src_width / 2;
+		}
+		
+
 	}
+	cout << i <<endl<<rect.x<<endl;
 	SDL_Rect src;
 	src.x = 0;
 	src.y = 0;
