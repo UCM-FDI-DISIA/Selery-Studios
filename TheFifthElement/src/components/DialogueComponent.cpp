@@ -75,6 +75,9 @@ void DialogueComponent::inicombe() {
 			else {
 				hasstarted = false;
 				conespacios.clear();
+				if (plynpc->getcol() == 22) {
+					static_cast<TopDownState*>(mngr_)->DeleteContexto();
+				}
 				if (plynpc->getcol() <=4) {
 					openedShop_ = true;
 					static_cast<TopDownState*>(mngr_)->createShopButtons();

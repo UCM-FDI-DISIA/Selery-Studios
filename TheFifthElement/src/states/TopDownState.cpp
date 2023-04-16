@@ -17,6 +17,7 @@ TopDownState::TopDownState() {
     LoadMap("assets/Scenes/Maps/MapaInicial.tmx");
     addEntity(Hud_);  
     SDLUtils::instance()->soundEffects().at("Title").play();
+    dialog_->inicombe();
 }
 
 void TopDownState::LoadMap(string const& filename) {
@@ -202,21 +203,16 @@ void TopDownState::LoadMap(string const& filename) {
 
                 }
                 else if (name == "NPC") {
-                    if (contnpc >= 7)
-                    {
-                        contnpc = 5;
-                    }
-                    else { contnpc++; }
-                    //contnpc++;
+                    contnpc++; 
                     Npc_ = new Entity();
                     Npc_->setContext(this);
                     Npc_->addComponent<Transform>(TRANSFORM_H,Vector2D(obj.getPosition().x, obj.getPosition().y), NPC_WIDTH, NPC_HEIGHT);
                     Npc_->addComponent<FramedImage>(FRAMEDIMAGE_H, npcTexture(), NPC_WIDTH, NPC_HEIGHT, 7);
                     Npc_->addComponent<NPCcollisioncomponent>(NPCCOLLISIONCOMPONENTT, player_,  contnpc );
-                    Npc_->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(0, 0), NPC_HEIGHT, NPC_WIDTH / NPC_FRAMES);
-                    number_npc_++;
                     addEntity(Npc_);
-
+                    if (obj.getName() == "Contexto") {
+                        Contexto = Npc_;
+                    }
                 }
                 else if (name == "Herreros") {
                     contBlksm++;
@@ -226,7 +222,6 @@ void TopDownState::LoadMap(string const& filename) {
                     Blacksmith_->addComponent<FramedImage>(IMAGE_H, blacksmithTexture(), BLACKSMITH_WIDTH, BLACKSMITH_HEIGHT, BLACKSMITH_FRAMES);
                     Blacksmith_->addComponent<NPCcollisioncomponent>(NPCCOLLISIONCOMPONENTT, player_, contBlksm);
                     Blacksmith_->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(0, 0), BLACKSMITH_HEIGHT, BLACKSMITH_WIDTH / BLACKSMITH_FRAMES);
-                    number_npc_++;
                     addEntity(Blacksmith_);
 
                 }

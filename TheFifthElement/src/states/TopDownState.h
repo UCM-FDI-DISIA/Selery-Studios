@@ -82,9 +82,8 @@ private:
 	MovementComponent* movcomp_player_;
 	//NPCS
 	Entity* Npc_;
+	Entity* Contexto;
 	Entity* Blacksmith_;
-	//Transform* Nptr_;
-	int number_npc_ = 0;
 	int contBlksm = 0;
 	//HUD
 	Entity* Hud_;
@@ -151,21 +150,17 @@ public:
 	~TopDownState() {}
 	void LoadMap(string const& filename);
 	//void printMap();
-
+	void DeleteContexto() {
+		Contexto->setAlive(false);
+	}
 	void update();	
 	void handleEvents();
 	void render();
 	void createShopButtons();
 	void cleanShopButtons();
 	Texture* npcTexture() {
-		int a = SDLUtils::instance()->rand().nextInt(0, 1);
-		if (a == 0) {
-			return &SDLUtils::instance()->images().at("NPC_1");
-		}
-		else if (a == 1) {
-			return &SDLUtils::instance()->images().at("NPC_2");
-		}
-		
+		int a = SDLUtils::instance()->rand().nextInt(1, 11);
+		return &SDLUtils::instance()->images().at("NPC_"+ to_string(a));
 	}
 	Texture* blacksmithTexture() {
 		return &SDLUtils::instance()->images().at("Blacksmith");
