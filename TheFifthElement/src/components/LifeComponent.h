@@ -76,4 +76,6 @@ public:
 	
 	void playDamageSound();
 	void playDieSound();
+
+	inline string getType() { return type_; }
 };

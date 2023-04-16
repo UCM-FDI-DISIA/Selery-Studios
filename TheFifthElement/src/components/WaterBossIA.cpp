@@ -85,8 +85,7 @@ void WaterBossIA::update() {
 						im_->setAnim("waterBoss", 6, false, fila_);
 					}
 					else if (iceCont_ >= 10) {
-						int rnd = rand() % 4;
-						rnd += 2;// número de carámbanos aleatorio entre 2 y 6
+						int rnd = rand() % 2;// número de carámbanos aleatorio entre 0 y 1
 						addIce(rnd);
 						iceCont_ == 0;
 					}
@@ -178,5 +177,26 @@ Entity* WaterBossIA::createWave(float y) {
 }
 
 void WaterBossIA::addIce(int n) {
-	for (int i = 0; i < n; i++)cout << "carámbano " << endl;
+	for (int i = 0; i < n; i++) {
+		Entity* ice_ = new Entity();
+
+		int size_ = 48; // cada carámbano tiene un src de 48x48
+
+		int rndX_ = rand() % (WIN_WIDTH - size_);
+		int rndY_ = rand() % (WIN_HEIGHT/2); // position
+		ice_->addComponent<Transform>(TRANSFORM_H, Vector2D(rndX_, rndY_), size_, size_, 0.7, 2);
+		rndY_ += (WIN_HEIGHT/2 - size_);// shadow position
+
+		ice_->addComponent<IceShadowComponent>(ICESHADOWCOMPONENT_H, Vector2D(rndX_, rndY_), 0.7, player_);
+		
+		ice_->addComponent<FramedImage>(FRAMEDIMAGE_H, &sdlutils().images().at("ice"), size_, size_, 3);
+		ice_->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(0, 0), size_, size_);
+		ice_->addComponent<ColDetectorComponent>(COLDETECTORCOMPONENT_H, ice_, player_);
+		ice_->addComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
+		ice_->addComponent<IceIAComponent>(ICEIACOMPONENT_H, player_);
+
+
+		mngr_->addEntity(ice_);
+	}
+
 }

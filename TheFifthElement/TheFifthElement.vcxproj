@@ -133,6 +133,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\components\IceIAComponent.h" />
+    <ClInclude Include="src\components\IceShadowComponent.h" />
     <ClInclude Include="src\components\AnimationLightBossComponent.h" />
     <ClInclude Include="src\components\AttackLightBossComponent.h" />
     <ClInclude Include="src\components\BossCollision.h" />
@@ -222,6 +224,8 @@
     <ClInclude Include="src\components\WaterBossLife.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\components\IceIAComponent.cpp" />
+    <ClCompile Include="src\components\IceShadowComponent.cpp" />
     <ClCompile Include="src\components\AnimationLightBossComponent.cpp" />
     <ClCompile Include="src\components\AttackLightBossComponent.cpp" />
     <ClCompile Include="src\components\DisableOnExit.cpp" />

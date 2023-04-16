@@ -16,7 +16,6 @@ void ShadowComponent::update() {
 
  }
 void ShadowComponent::render() {
-	SDL_Rect rect;
 	if (Jump_player->isJumpEnabled()) {
 		rect.x = trans_player->getPos().getX() - mngr_->camRect_.x + (trans_player->getW()*trans_player->getS()) / 2 
 			- ((trans_player->getW()*trans_player->getS()) / 2) / 2;
