@@ -11,16 +11,13 @@ private:
 	Entity* player_;
 	Transform* playerTrans;
 	Transform* bossTrans;
-	Vector2D newPosRight{ 600,200 };
-	Vector2D newPosLeft{ 100,200 };
-	float closeX=100;
-	float closeY=100;
-	float negCloseX = -100;
-	float negCloseY = -100;
+	Vector2D movDir;
 public:
 	MovementLightBossComponent(Entity* player);
 	void initComponent();
 	void update();
+	void teleport(Vector2D newPos);
+	void move(Vector2D dir);
 
 	virtual ~MovementLightBossComponent() {};
 };

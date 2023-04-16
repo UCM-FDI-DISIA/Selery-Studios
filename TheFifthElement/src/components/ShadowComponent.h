@@ -16,6 +16,8 @@ protected:
 	int jump_poss_y;
 	int i = 0;
 
+	SDL_Rect rect;
+
 public:
 	ShadowComponent();
 	virtual ~ShadowComponent();
@@ -27,4 +29,6 @@ public:
 	inline void Setpos_y(int i) {
 		jump_poss_y = i;
 	}
+
+	inline SDL_Rect getRect() { return rect; }
 };

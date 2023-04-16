@@ -6,6 +6,7 @@
 #include "ColliderComponent.h"
 #include "LifeComponent.h"
 #include "AnimationEnemyBEUComponent.h"
+#include "IceIAComponent.h"
 
 class ColDetectorComponent : public Component
 

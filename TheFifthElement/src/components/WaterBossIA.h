@@ -7,6 +7,8 @@
 #include "../states/BeatEmUpState.h"
 #include "DisableOnExit.h"
 #include "WaterBossLife.h"
+#include "IceShadowComponent.h"
+#include "IceIAComponent.h"
 
 class WaterBossIA : public Component
 {
@@ -26,6 +28,7 @@ private:
 	float downLimit, topLimit;
 	float offset, chrono;
 	int cont;
+
 	Entity* player_;
 	//Entity* lastWave_ = nullptr;
 

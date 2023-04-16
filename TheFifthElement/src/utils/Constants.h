@@ -25,7 +25,7 @@ const uint BACKGROUNDWATERBOSS_HEIGHT = 667; // altura de BackgroundAir
 #pragma endregion
 
 const uint DIALOGUE_WIDTH = 620; // anchura de Dialogue
-const uint DIALOGUE_HEIGHT = 452; // anchura de Dialogue
+const uint DIALOGUE_HEIGHT = 333;  // altura de Dialogue
 
 const uint ELEMENT_WIDTH = 64; // anchura de Element
 const uint ELEMENT_HEIGHT = 64; // altura de Element

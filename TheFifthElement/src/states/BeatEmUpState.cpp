@@ -8,7 +8,7 @@ BeatEmUpState::BeatEmUpState(bool Boss,Entity* enemySends, string typeBoss, int 
 	timeToGenerate = timeGen;
 	boss = Boss;
 	typeBoss_ = typeBoss;
-	//SDLUtils::instance()->soundEffects().at("Battle").play();
+	SDLUtils::instance()->soundEffects().at("Battle").play();
 
 	random = &SDLUtils::instance()->rand();
 
@@ -32,7 +32,7 @@ BeatEmUpState::BeatEmUpState(bool Boss,Entity* enemySends, string typeBoss, int 
 	//PLAYER
 	player_ = new Entity();
 	player_->setContext(this);
-	trans_player_ = player_->addComponent<Transform>(TRANSFORM_H, Vector2D(PlayerPosition_X, PlayerPosition_Y), PLAYERBEU_WIDTH_FRAME, PLAYERBEU_HEIGHT_FRAME, 2);
+	trans_player_ = player_->addComponent<Transform>(TRANSFORM_H, Vector2D(PlayerPosition_X, PlayerPosition_Y), PLAYERBEU_WIDTH_FRAME, PLAYERBEU_HEIGHT_FRAME, 1);
 	sk_ = player_->addComponent<SkinBEUComponent>(SKINBEUCOMPONENT_H, "air");
 	sk_->changeState(SkinBEUComponent::Idle);
 	texture_player_ = &SDLUtils::instance()->images().at(sk_->getSkin());
@@ -184,9 +184,9 @@ void BeatEmUpState::AddLightBoss()
 	lightBoss->addComponent<FramedImage>(FRAMEDIMAGE_H, &SDLUtils::instance()->images().at("BEULightBossIdle"), LIGHTBOSS_WIDTH, LIGHTBOSS_HEIGHT, 12, "light");
 	lightBoss->addComponent<MovementLightBossComponent>(MOVEMENTLIGHTBOSSCOMPONENT_H, player_);
 	lightBoss->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(0, 0), LIGHTBOSS_HEIGHT, LIGHTBOSS_WIDTH);
+	lightBoss->addComponent<AttackLightBossComponent>(ATTACKLIGHTBOSSCOMPONENT_H,player_);
 	lightBoss->addComponent<LifeLightBossComponent>(LIFELIGHTBOSSCOMPONENT_H);
 	//animation
-	//attack
 	//attack box y point of fight ns
 	addEntity(lightBoss);
 }
@@ -234,6 +234,10 @@ void BeatEmUpState::finishBEU() {
 		
 		enemySender->~Entity();
 	}
+	//if (!player_->isAlive()) {
+	//	SDLUtils::instance()->soundEffects().at("Battle").haltChannel();
+	//	GameManager::instance()->goTopDown();
+	//}
 }
 
 string BeatEmUpState::getStateID() {

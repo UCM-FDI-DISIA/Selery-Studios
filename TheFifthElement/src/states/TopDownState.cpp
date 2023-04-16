@@ -76,26 +76,26 @@ void TopDownState::LoadMap(string const& filename) {
                 // recorremos todos los tiles para obtener su informacion
                 for (auto y = 0; y < mapInfo.rows; ++y) {
                     for (auto x = 0; x < mapInfo.cols; ++x) {
-                        if (y < mapInfo.rows/10) {
-                            if (x < mapInfo.cols / 5) { //primer 
-                                SDL_SetRenderTarget(Gm_->getRenderer(), background_0);
+                        //if (y < mapInfo.rows/10) {
+                        //    if (x < mapInfo.cols / 5) { //primer 
+                        //        SDL_SetRenderTarget(Gm_->getRenderer(), background_0);
 
-                            }
-                            else {//segundo
-                                SDL_SetRenderTarget(Gm_->getRenderer(), background_1);
+                        //    }
+                        //    else {//segundo
+                        //        SDL_SetRenderTarget(Gm_->getRenderer(), background_1);
 
-                            }
-                        }
-                        else {//tercero
-                            if (x < mapInfo.cols / 2) {
-                                SDL_SetRenderTarget(Gm_->getRenderer(), background_2);
+                        //    }
+                        //}
+                        //else {//tercero
+                        //    if (x < mapInfo.cols / 2) {
+                        //        SDL_SetRenderTarget(Gm_->getRenderer(), background_2);
 
-                            }
-                            else {//cuarto
-                                SDL_SetRenderTarget(Gm_->getRenderer(), background_3);
+                        //    }
+                        //    else {//cuarto
+                        //        SDL_SetRenderTarget(Gm_->getRenderer(), background_3);
 
-                            }
-                        }
+                        //    }
+                        //}
                         // obtenemos el indice relativo del tile en el mapa de tiles
                         int tile_index = x + (y * mapInfo.cols);
 
@@ -183,8 +183,8 @@ void TopDownState::LoadMap(string const& filename) {
                     // PLAYER
                     player_ = new Entity();
                     player_->setContext(this);
-                    trans_player_ = player_->addComponent<Transform>(TRANSFORM_H, Vector2D(obj.getPosition().x , obj.getPosition().y), PLAYERTD_WIDTH_FRAME, PLAYERTD_HEIGHT_FRAME);
-                    trans_player_->setVel(PLAYERTD_SPEED);
+                    trans_player_ = player_->addComponent<Transform>(TRANSFORM_H, Vector2D((obj.getPosition().x * 2.5), obj.getPosition().y * 2.5), PLAYERTD_WIDTH_FRAME, PLAYERTD_HEIGHT_FRAME);
+                    trans_player_->setVel(PLAYERTD_SPEED);                                      /*(fondowidth_ * 2.5)* (WIN_WIDTH / 900), (fondoheight_ * 2.5)* (WIN_HEIGHT / 600)*/
                     sk_ = player_->addComponent<SkinComponent>(SKINCOMPONENT_H, "air");
                     sk_->changeState(SkinComponent::Idle);
 
@@ -206,8 +206,8 @@ void TopDownState::LoadMap(string const& filename) {
                     contnpc++; 
                     Npc_ = new Entity();
                     Npc_->setContext(this);
-                    Npc_->addComponent<Transform>(TRANSFORM_H,Vector2D(obj.getPosition().x, obj.getPosition().y), NPC_WIDTH, NPC_HEIGHT);
-                    Npc_->addComponent<FramedImage>(FRAMEDIMAGE_H, npcTexture(), NPC_WIDTH, NPC_HEIGHT, 7);
+                    Npc_->addComponent<Transform>(TRANSFORM_H,Vector2D((obj.getPosition().x * 2.5), obj.getPosition().y * 2.5), NPC_WIDTH, NPC_HEIGHT);
+                    if (obj.getName() != "Contexto") { Npc_->addComponent<FramedImage>(FRAMEDIMAGE_H, npcTexture(), NPC_WIDTH, NPC_HEIGHT, 7);}
                     Npc_->addComponent<NPCcollisioncomponent>(NPCCOLLISIONCOMPONENTT, player_,  contnpc );
                     addEntity(Npc_);
                     if (obj.getName() == "Contexto") {
@@ -218,7 +218,7 @@ void TopDownState::LoadMap(string const& filename) {
                     contBlksm++;
                     Blacksmith_ = new Entity();
                     Blacksmith_->setContext(this);
-                    Blacksmith_->addComponent<Transform>(TRANSFORM_H, Vector2D(obj.getPosition().x, obj.getPosition().y), BLACKSMITH_WIDTH, BLACKSMITH_HEIGHT);
+                    Blacksmith_->addComponent<Transform>(TRANSFORM_H, Vector2D((obj.getPosition().x * 2.5), obj.getPosition().y * 2.5), BLACKSMITH_WIDTH, BLACKSMITH_HEIGHT);
                     Blacksmith_->addComponent<FramedImage>(IMAGE_H, blacksmithTexture(), BLACKSMITH_WIDTH, BLACKSMITH_HEIGHT, BLACKSMITH_FRAMES);
                     Blacksmith_->addComponent<NPCcollisioncomponent>(NPCCOLLISIONCOMPONENTT, player_, contBlksm);
                     Blacksmith_->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(0, 0), BLACKSMITH_HEIGHT, BLACKSMITH_WIDTH / BLACKSMITH_FRAMES);
@@ -229,7 +229,7 @@ void TopDownState::LoadMap(string const& filename) {
                 {
                     pruebaCollider = new Entity();
                     pruebaCollider->setContext(this);
-                    pruebaCollider->addComponent<Transform>(TRANSFORM_H, Vector2D(obj.getPosition().x, obj.getPosition().y), obj.getAABB().width, obj.getAABB().height);
+                    pruebaCollider->addComponent<Transform>(TRANSFORM_H, Vector2D((obj.getPosition().x * 2.5), obj.getPosition().y * 2.5), obj.getAABB().width, obj.getAABB().height);
                     //pruebaCollider->addComponent <SectorCollisionComponent>(SECTORCOLLISIONCOMPONENT_H, player_, idSector);
                     pruebaCollider->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(0, 0), obj.getAABB().height, obj.getAABB().width);
                     addEntity(pruebaCollider);
@@ -239,7 +239,7 @@ void TopDownState::LoadMap(string const& filename) {
                 {
                     boss_ = new Entity();
                     boss_->setContext(this);
-                    boss_->addComponent<Transform>(TRANSFORM_H, Vector2D(obj.getPosition().x, obj.getPosition().y), 600, 400);
+                    boss_->addComponent<Transform>(TRANSFORM_H, Vector2D((obj.getPosition().x * 2.5), obj.getPosition().y * 2.5), 600, 400);
                     boss_->addComponent<FramedImage>(FRAMEDIMAGE_H, bossLuzTexture(), 600, 400, 1);
                     boss_->addComponent<BossCollision>(BOSSCOLLISION_H, player_, "light");
                     boss_->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(0, 0), 288, 188);
@@ -250,7 +250,7 @@ void TopDownState::LoadMap(string const& filename) {
                         enemy_ = new Entity();
                         enemy_->setContext(this);
                         Texture* enemyT_ = EnemyTexture();
-                        enemy_->addComponent<Transform>(TRANSFORM_H, Vector2D(obj.getPosition().x, obj.getPosition().y), enemy_width, enemy_height);
+                        enemy_->addComponent<Transform>(TRANSFORM_H, Vector2D((obj.getPosition().x * 2.5), obj.getPosition().y * 2.5), enemy_width, enemy_height);
                         enemy_->addComponent<FramedImage>(FRAMEDIMAGE_H, enemyT_, enemy_width, enemy_height, 7 , type_);
                         float a = -1.0f;
                         float lookingRange = 150.0f;
@@ -264,8 +264,8 @@ void TopDownState::LoadMap(string const& filename) {
                     }
                     else if (obj.getName() == "left") {
                         redirect_ = new Entity();
-                        redBox_.x = obj.getPosition().x;
-                        redBox_.y = obj.getPosition().y;
+                        redBox_.x = obj.getPosition().x * 2.5;
+                        redBox_.y = obj.getPosition().y * 2.5;
                         redBox_.w = 10;
                         redBox_.h = 10;
                         redirect_->addComponent<RedirectEnemy>(REDIRECTENEMY_H, Vector2D(-1, 0), redBox_, enemies_);
@@ -273,8 +273,8 @@ void TopDownState::LoadMap(string const& filename) {
                     }
                     else if (obj.getName() == "right") {
                         redirect_ = new Entity();
-                        redBox_.x = obj.getPosition().x;
-                        redBox_.y = obj.getPosition().y;
+                        redBox_.x = obj.getPosition().x * 2.5;
+                        redBox_.y = obj.getPosition().y * 2.5;
                         redBox_.w = 10;
                         redBox_.h = 10;
                         redirect_->addComponent<RedirectEnemy>(REDIRECTENEMY_H, Vector2D(1, 0), redBox_, enemies_);
@@ -282,8 +282,8 @@ void TopDownState::LoadMap(string const& filename) {
                     }
                     else if (obj.getName() == "up") {
                         redirect_ = new Entity();
-                        redBox_.x = obj.getPosition().x;
-                        redBox_.y = obj.getPosition().y;
+                        redBox_.x = obj.getPosition().x * 2.5;
+                        redBox_.y = obj.getPosition().y * 2.5;
                         redBox_.w = 10;
                         redBox_.h = 10;
                         redirect_->addComponent<RedirectEnemy>(REDIRECTENEMY_H, Vector2D(0, -1), redBox_, enemies_);
@@ -291,8 +291,8 @@ void TopDownState::LoadMap(string const& filename) {
                     }
                     else if (obj.getName() == "down") {
                         redirect_ = new Entity();
-                        redBox_.x = obj.getPosition().x;
-                        redBox_.y = obj.getPosition().y;
+                        redBox_.x = obj.getPosition().x * 2.5;
+                        redBox_.y = obj.getPosition().y * 2.5;
                         redBox_.w = 10;
                         redBox_.h = 10;
                         redirect_->addComponent<RedirectEnemy>(REDIRECTENEMY_H, Vector2D(0, 1), redBox_, enemies_);
@@ -314,20 +314,20 @@ void TopDownState::LoadMap(string const& filename) {
                     }
                 }
                 else if (name == "Portal") {
-                    Entity* portal_ = new Entity();
-                    portal_->setContext(this);
-                    portal_->addComponent<Transform>(TRANSFORM_H, Vector2D(obj.getPosition().x, obj.getPosition().y), PORTAL_WIDTH, PORTAL_HEIGHT);
-                    portal_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("portal"));
-                    portal_->addComponent<PortalComponent>(PORTALCOMPONENT_H, trans_player_);
-                    addEntity(portal_);
+                Entity* portal_ = new Entity();
+                portal_->setContext(this);
+                portal_->addComponent<Transform>(TRANSFORM_H, Vector2D((obj.getPosition().x * 2.5), obj.getPosition().y * 2.5), PORTAL_WIDTH, PORTAL_HEIGHT);
+                portal_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("portal"));
+                portal_->addComponent<PortalComponent>(PORTALCOMPONENT_H, trans_player_);
+                addEntity(portal_);
                 }
                 else if (name == "Element") {
-                    float element_width = 50, element_height = 50;
-                    Entity* element_ = new Entity();
-                    element_->addComponent<Transform>(TRANSFORM_H, Vector2D(obj.getPosition().x, obj.getPosition().y), element_width, element_height);
-                    element_->addComponent<FramedImage>(FRAMEDIMAGE_H, &SDLUtils::instance()->images().at("fireball"), ELEMENT_WIDTH, ELEMENT_HEIGHT, 4);
-                    element_->addComponent<CheckCollision>(CHECKCOLLISION_H, player_, "element");
-                    addEntity(element_);
+                float element_width = 50, element_height = 50;
+                Entity* element_ = new Entity();
+                element_->addComponent<Transform>(TRANSFORM_H, Vector2D((obj.getPosition().x * 2.5), obj.getPosition().y * 2.5), element_width, element_height);
+                element_->addComponent<FramedImage>(FRAMEDIMAGE_H, &SDLUtils::instance()->images().at("fireball"), ELEMENT_WIDTH, ELEMENT_HEIGHT, 4);
+                element_->addComponent<CheckCollision>(CHECKCOLLISION_H, player_, "element");
+                addEntity(element_);
                 }
             }
         }
