@@ -3,7 +3,8 @@
     {"id": "1","text": "Buenos dias buen viajero $ Que se le ofrece? "},
     {"id": "2","text": "O compras o te apartas $ Que va a ser entonces?"},
     {"id": "3","text": "Amigo! $ Todo bueno, bonito y barato!"},
-     {"id": "5","text": "Desde que te separastes de tus hermanos $ este reino no se siente igual $ no se, quizas abrir fronteras seria una $ buena idea No crees?"},
+    {"id": "4","text": "Bienvenide a mi tienda "},
+    {"id": "5","text": "Desde que te separastes de tus hermanos $ este reino no se siente igual $ no se, quizas abrir fronteras seria una $ buena idea No crees?"},
     {"id": "6","text": "Yo te driria que si decides reconciliarte $ con tus hermanos empezaras $ por el rojo, no te confundas, no hablo de politica, $ era el que  mejor me caia, con su temperamento, pero firme $ y dios ese bigote..."},
     {"id": "7","text": "Siempre he sido mas dado a tu hermana, Florencia, $ su reino es el mas bonito, una pena que este cerrado $ Sabes que no gobiernas aqui solo para ti $ verdad?  "}, 
     {"id": "21","text": "Debo decir que no soy muy religioso, pero  $ tu hermano, Feliciano, ese que mueve rocas, $ me hacia creer muchas veces $ como predicaba, ensenaba e instruia $ ojala lo trajeras de vuelta"},
@@ -37,9 +38,9 @@
     {"id": "NPC_4","file": "./assets/NPCs/Villagers/ChicaMorena/IdleRight.png"},
     {"id": "NPC_5","file": "./assets/NPCs/Villagers/ChicaRubia/IdleRight.png"},
     {"id": "NPC_6","file": "./assets/NPCs/Villagers/ChicaRubia/IdleLeft.png"},
-     {"id": "NPC_7","file": "./assets/NPCs/Villagers/ViejoGris/IdleRight.png"},
+    {"id": "NPC_7","file": "./assets/NPCs/Villagers/ViejoGris/IdleRight.png"},
     {"id": "NPC_8","file": "./assets/NPCs/Villagers/ViejoGris/IdleLeft.png"},
-     {"id": "NPC_9","file": "./assets/NPCs/Villagers/ViejoPelirrojo/IdleRight.png"},
+    {"id": "NPC_9","file": "./assets/NPCs/Villagers/ViejoPelirrojo/IdleRight.png"},
     {"id": "NPC_10","file": "./assets/NPCs/Villagers/ViejoPelirrojo/IdleLeft.png"},
     {"id": "Blacksmith", "file": "./assets/NPCs/Shop/Blacksmith/working.png"},
     {"id": "BEU_air_Mushroom_run","file": "./assets/Enemies/BeatEmUP/Air/Mushroom/Run.png"},
@@ -300,7 +301,9 @@
     {"id": "BEULightBossIdle", "file": "assets/Enemies/BeatEmUp/Bosses/LightBoss/animations/spritesheets/idle.png"},
     {"id": "BEULightBossTakeHit", "file": "assets/Enemies/BeatEmUp/Bosses/LightBoss/animations/spritesheets/takeHit.png"},
     {"id": "BEULightBossAttackSphere", "file": "assets/Enemies/BeatEmUp/Bosses/LightBoss/animations/spritesheets/attackSphere.png"},
-    {"id": "BEULightBossSpecialAttack", "file": "assets/Enemies/BeatEmUp/Bosses/LightBoss/animations/spritesheets/SpecialAttack.png"}
+    {"id": "BEULightBossSpecialAttack", "file": "assets/Enemies/BeatEmUp/Bosses/LightBoss/animations/spritesheets/SpecialAttack.png"},
+    {"id": "SphereArrow", "file": "assets/enemies/BeatEmUp/Bosses/LightBoss/animations/spritesheets/arrowSphere.png"},
+    {"id": "Ray", "file": "assets/enemies/BeatEmUp/Bosses/LightBoss/animations/spritesheets/ray.png"}
 
   ],
 
