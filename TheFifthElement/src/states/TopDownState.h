@@ -120,7 +120,8 @@ private:
 	// SHOP
 	Entity* upturnButton_;
 	Entity* exitShopButton_;
-	vector<Entity*> buttons;
+	vector<Entity*> buttons1;
+	vector<Entity*> buttons2;
 	vector<Button*> buttonsComp;
 	ShopComponent* shopComp_;
 	Vector2D upturnButtonPos_;
@@ -133,7 +134,6 @@ private:
 	Transform* exitShopButtonTr_;
 	Button* exitShopButtonComp_;
 
-public:
 	//void actSectors(int idChange, bool nowValue)
 	//{
 	//	if (sectors[idChange] != nowValue)
@@ -143,12 +143,15 @@ public:
 	//	}
 	//	//printMap();
 	//}
+	bool shopCreated_ = false;
+
 	string getStateID(); // stringID
 	PuzzleCopas* puzzle1;
 	TopDownState();	
 	~TopDownState() {}
 	void LoadMap(string const& filename);
 	//void printMap();
+
 	void update();	
 	void handleEvents();
 	void render();

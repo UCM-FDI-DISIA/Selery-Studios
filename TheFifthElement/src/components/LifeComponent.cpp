@@ -11,19 +11,19 @@ void LifeComponent::initComponent() {
 	type_ = im_->getType();
 
 	enemy_ = ent_->hasComponent(ANIMATIONENEMYBEUCOMPONENT_H);
-	scale = WIN_WIDTH / 900;
 
 	if (enemy_) {
 		anim_ = ent_->getComponent<AnimationEnemyBEUComponent>(ANIMATIONENEMYBEUCOMPONENT_H);
 		eMov_ = ent_->getComponent<EnemyBEUDirectionComponent>(ENEMYBEUDIRECTIONCOMPONENT_H);
 		entTransform_ = ent_->getComponent<Transform>(TRANSFORM_H);
-		barWidth_ = backWidth_ = borderWidth_ = (entTransform_->getW() / 4) * scale;
-		barHeight_ = backHeight_ = borderHeight_ = (entTransform_->getH() / 11) * scale;
+		barWidth_ = backWidth_ = borderWidth_ = (entTransform_->getW() / 4) * entTransform_->getS();
+		barHeight_ = backHeight_ = borderHeight_ = (entTransform_->getH() / 11) * entTransform_->getS();
 		pos_ = Vector2D(entTransform_->getPos().getX(), entTransform_->getPos().getY());
 	}
 	else {
-		barWidth_ = backWidth_ = borderWidth_ = 100 * scale;
-		barHeight_ = backHeight_ = borderHeight_ = 30 * scale;
+		entTransform_ = ent_->getComponent<Transform>(TRANSFORM_H);
+		barWidth_ = backWidth_ = borderWidth_ = 100 * entTransform_->getScale();
+		barHeight_ = backHeight_ = borderHeight_ = 30 * entTransform_->getScale();
 		skin_ = ent_->getComponent<SkinBEUComponent>(SKINBEUCOMPONENT_H);
 	}
 	chooseTexture();
@@ -118,6 +118,7 @@ void LifeComponent::Hit(float damage)
 		if (getLife() - damage > 0) {
 			if (enemy_) {// enemy
 				anim_->changeState(AnimationEnemyBEUComponent::Hit);
+				eMov_->moveBackX();
 				eMov_->stop(true);
 			}
 			else {// player
@@ -184,16 +185,16 @@ void LifeComponent::chageType(float maxLife) {
 }
 
 void LifeComponent::render() {
-		SDL_Rect src;
-		src.x = 0;
-		src.y = 0;
-		src.h = 50;
-		src.w = 400;
+	SDL_Rect src;
+	src.x = 0;
+	src.y = 0;
+	src.h = 50;
+	src.w = 400;
 
-		SDL_Rect dest;
+	SDL_Rect dest;
 	if(enemy_){
-		dest.x = pos_.getX() + (60*scale);
-		dest.y = pos_.getY() + (35*scale);
+		dest.x = pos_.getX() + (60*entTransform_->getS());
+		dest.y = pos_.getY() + (35*entTransform_->getS());
 		dest.h = backHeight_;
 		dest.w = backWidth_;
 		backTexture_->render(src, dest);
@@ -209,8 +210,8 @@ void LifeComponent::render() {
 		borderTexture_->render(src, dest);
 	}
 	else {
-		dest.x = 90 * scale;
-		dest.y = 25 * scale;
+		dest.x = 90 * entTransform_->getScale();
+		dest.y = 25 * entTransform_->getScale();
 		dest.h = backHeight_;
 		dest.w = backWidth_;
 		backTexture_->render(src, dest);

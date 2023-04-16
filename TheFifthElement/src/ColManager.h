@@ -19,7 +19,7 @@ private:
 public:
 	ColManager(Manager* manager): mngr_(manager) {};
 	void checkCollisionP(SDL_Rect boxAttack,string type);
-	void checkCollisionE(SDL_Rect boxAttack, string type);
+	void checkCollisionE(SDL_Rect boxAttack, string type, int extraDamage);
 
 };
 

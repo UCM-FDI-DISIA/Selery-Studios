@@ -9,7 +9,10 @@
 #include "../components/ShadowComponent.h"
 #include "SkinBEUComponent.h"
 #include "rouletteComponent.h"
+#include "ObjectsComponent.h"
+#include "StoneComponent.h"
 #include <array>
+#include "../Elements.h"
 class Image;
 
 class InputComponentBEU : public Component {
@@ -18,7 +21,6 @@ private:
     FramedImage* im_ = nullptr;
     SDL_GameController* controller;
     JumpComponent* jmp_ = nullptr;
-    Texture* t_ = nullptr;
     LifeComponent* lifeC_ = nullptr;
     ShadowComponent* shadow = nullptr;
     SkinBEUComponent* sk_ = nullptr;
@@ -27,7 +29,7 @@ private:
     bool alreadyPressedSpecial = false;
     bool alreadyPressed2 = false;
     bool moveLeft, moveRight, moveUp, moveDown, jump;
-
+    bool earthStage3 = false;
 
 public:
     bool elements[4];
@@ -41,4 +43,8 @@ public:
     void setFire(bool b);
     void setWater(bool b);
     void setEarth(bool b);
+
+    void vibrate(SDL_GameController* controller, int duration_ms, float intensity);
+
+    inline void setEarthStage3(bool newValue) { earthStage3 = newValue; }
 };

@@ -1,6 +1,5 @@
 ﻿#include "TopDownState.h"
 
-
 TopDownState::TopDownState() {
     puzzle1 = new PuzzleCopas();
     ////HUD
@@ -76,6 +75,8 @@ void TopDownState::LoadMap(string const& filename) {
                 // recorremos todos los tiles para obtener su informacion
                 for (auto y = 0; y < mapInfo.rows; ++y) {
                     for (auto x = 0; x < mapInfo.cols; ++x) {
+                        if (y < mapInfo.rows/2) {
+                            if (x < mapInfo.cols / 2) { //primer 
                         if (y < mapInfo.rows/10) {
                             if (x < mapInfo.cols / 5) { //primer 
                                 SDL_SetRenderTarget(Gm_->getRenderer(), background_0);
@@ -214,7 +215,7 @@ void TopDownState::LoadMap(string const& filename) {
                     Npc_->addComponent<Transform>(TRANSFORM_H,Vector2D(obj.getPosition().x, obj.getPosition().y), NPC_WIDTH, NPC_HEIGHT);
                     Npc_->addComponent<FramedImage>(FRAMEDIMAGE_H, npcTexture(), NPC_WIDTH, NPC_HEIGHT, 7);
                     Npc_->addComponent<NPCcollisioncomponent>(NPCCOLLISIONCOMPONENTT, player_,  contnpc );
-					Npc_->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(0, 0), NPC_HEIGHT, NPC_WIDTH / NPC_FRAMES);
+                    Npc_->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(0, 0), NPC_HEIGHT, NPC_WIDTH / NPC_FRAMES);
                     number_npc_++;
                     addEntity(Npc_);
 
@@ -331,7 +332,6 @@ void TopDownState::LoadMap(string const& filename) {
     SDL_RenderPresent(Gm_->getRenderer());
     SDL_SetRenderTarget(Gm_->getRenderer(), nullptr);
 
-  //  printMap();
 }
 //void TopDownState::printMap()
 //{
@@ -461,11 +461,14 @@ void TopDownState::handleEvents() {
     {
         in_->handleEvents(event);
         if (dialog_->getopenedShop()) {
-            for (auto e : buttons) {               
+            for (auto e : buttons1) {
                 e->handleEvent(event);
-            }   
+            }
+            for (auto e : buttons2) {
+                e->handleEvent(event);
+            }
             exitShopButton_->handleEvent(event);
-        } 
+        }
     }
 }
 
@@ -476,11 +479,12 @@ void TopDownState::render() {
     for (auto p : collisions_) {
         p->render();
     }
-    SDL_Rect dst = { 0,0,fondowidth_*2.5,fondoheight_*2.5};
+    SDL_Rect dst = { 0,0,(fondowidth_ * 2.5)* (WIN_WIDTH / 900),(fondoheight_ * 2.5)* (WIN_HEIGHT / 600) };
     // posición según el transform de la Camara
     dst.x -= Manager::camRect_.x;
     dst.y -= Manager::camRect_.y;
     SDL_Rect src = { 0, 0, fondowidth_, fondoheight_ };
+
     SDL_RenderCopy(Gm_->getRenderer(), background_0, &src, &dst);
     //SDL_RenderCopy(Gm_->getRenderer(), background_1, &src, &dst);
     //hudTD->render();
@@ -490,75 +494,138 @@ void TopDownState::render() {
 void TopDownState::createShopButtons() {
     upturnButtonX = trans_player_->getPos().getX();
     upturnButtonY = trans_player_->getPos().getY();
-    if (WIN_WIDTH / 900 == 1920/900) upturnButtonPos_ = Vector2D(upturnButtonX - 195,upturnButtonY - 20);
-    else upturnButtonPos_ = Vector2D(upturnButtonX - upturnButtonOffsetX,upturnButtonY + upturnButtonOffsetY);
+    if (WIN_WIDTH / 900 == 1920 / 900) upturnButtonPos_ = Vector2D(upturnButtonX - 195, upturnButtonY - 20);
+    else upturnButtonPos_ = Vector2D(upturnButtonX - upturnButtonOffsetX, upturnButtonY + upturnButtonOffsetY);
 
-    for (int i = 0; i < 4; i++) {
-        upturnButton_ = new Entity();
-        upturnButton_->setContext(this);
-        Vector2D pos = Vector2D(upturnButtonPos_.getX(), upturnButtonPos_.getY() + i * (50 * WIN_HEIGHT / 600));
-        if (WIN_WIDTH / 900 == 1920 / 900) {
-            upturnButtonTr_ = upturnButton_->addComponent<Transform>(TRANSFORM_H, pos, (UPTURNBUTTON_WIDTH * WIN_WIDTH / 900) / 2,
-                (UPTURNBUTTON_HEIGHT * WIN_HEIGHT / 600) / 2, 0.5);
+    if (shopCreated_) {
+        int i = 0;
+        for (auto e : buttons1) {
+
+            Vector2D pos;
+            if (WIN_WIDTH / 900 == 1920 / 900) {
+                pos = Vector2D((upturnButtonPos_.getX()),
+                    upturnButtonPos_.getY() + i * (50 * WIN_HEIGHT / 600));
+            }
+            else
+            {
+                pos = Vector2D(upturnButtonPos_.getX(), upturnButtonPos_.getY() + i * 50);
+            }
+            i++;
+
+            e->getComponent<Transform>(TRANSFORM_H)->setPos(pos);
+            e->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("UpturnButton"));
         }
-        else upturnButtonTr_ = upturnButton_->addComponent<Transform>(TRANSFORM_H, pos, UPTURNBUTTON_WIDTH / 2,UPTURNBUTTON_HEIGHT / 2);
 
-        upturnButtonComp_ = upturnButton_->addComponent<Button>(BUTTON_H, "UPTURN");
-        upturnButton_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("UpturnButton"));
-        buttonsComp.push_back(upturnButtonComp_);
-        buttons.push_back(upturnButton_);
-    }
-    for (int i = 0; i < 4; i++) {
-        upturnButton_ = new Entity();
-        upturnButton_->setContext(this);
+        int j = 0;
+        for (auto e : buttons2) {
+
+            Vector2D pos;
+            if (WIN_WIDTH / 900 == 1920 / 900) {
+                pos = Vector2D((upturnButtonPos_.getX() + 350),
+                    upturnButtonPos_.getY() + j * (50 * WIN_HEIGHT / 600));
+            }
+            else
+            {
+                pos = Vector2D((upturnButtonPos_.getX() + upturnButtonOffsetX * 3), upturnButtonPos_.getY() + j * 50);
+            }
+            j++;
+
+            e->getComponent<Transform>(TRANSFORM_H)->setPos(pos);
+            e->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("UpturnButton"));
+        }
+        exitShopButton_ = new Entity();
+        exitShopButton_->setContext(this);
         Vector2D pos;
         if (WIN_WIDTH / 900 == 1920 / 900) {
-            pos = Vector2D((upturnButtonPos_.getX() + 350),
-                upturnButtonPos_.getY() + i * (50 * WIN_HEIGHT / 600));
-
-            upturnButtonTr_ = upturnButton_->addComponent<Transform>(TRANSFORM_H, pos, (UPTURNBUTTON_WIDTH / 2) * WIN_WIDTH / 900,
-                (UPTURNBUTTON_HEIGHT / 2) * WIN_HEIGHT / 600, 0.5);
+            pos = Vector2D(upturnButtonPos_.getX() - 60, upturnButtonPos_.getY() + 510);
         }
-        else 
-        { 
-            pos = Vector2D((upturnButtonPos_.getX() + upturnButtonOffsetX * 3), upturnButtonPos_.getY() + i * 50); 
-            upturnButtonTr_ = upturnButton_->addComponent<Transform>(TRANSFORM_H, pos, UPTURNBUTTON_WIDTH / 2,UPTURNBUTTON_HEIGHT / 2);
+        else pos = Vector2D(upturnButtonX - SHOP_WIDTH / 9, upturnButtonPos_.getY() + 275);
+
+        if (WIN_WIDTH / 900 == 1920 / 900) {
+            exitShopButtonTr_ = exitShopButton_->addComponent<Transform>(TRANSFORM_H, pos, (EXITSHOP_WIDTH / 2) * WIN_WIDTH / 900, (EXITSHOP_HEIGHT / 2) * WIN_HEIGHT / 600, 0.5);
         }
+        else exitShopButtonTr_ = exitShopButton_->addComponent<Transform>(TRANSFORM_H, pos, EXITSHOP_WIDTH / 2, EXITSHOP_HEIGHT / 2);
+
+        exitShopButton_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("ExitShop"));
+        exitShopButtonComp_ = exitShopButton_->addComponent<Button>(BUTTON_H, "EXITSHOP");
+        addEntity(exitShopButton_);
+    }
+    else { // creo botones por primera vez
 
 
-        upturnButtonComp_ = upturnButton_->addComponent<Button>(BUTTON_H, "UPTURN");
-        upturnButton_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("UpturnButton"));
-        buttonsComp.push_back(upturnButtonComp_);
-        buttons.push_back(upturnButton_);
-    }
-    for (auto e : buttons) {
-        addEntity(e);
-    }
-    exitShopButton_ = new Entity();
-    exitShopButton_->setContext(this);
-    //exitShopButtonTr_ = exitShopButton_->addComponent<Transform>(TRANSFORM_H, Vector2D(upturnButtonX - SHOP_WIDTH / 9, upturnButtonPos_.getY() + 275), EXITSHOP_WIDTH / 2, EXITSHOP_HEIGHT / 2, 1);
-    //exitShopButton_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("ExitShop"));
-    Vector2D pos;
-    if (WIN_WIDTH / 900 == 1920 / 900) {
-        pos = Vector2D(upturnButtonPos_.getX() - 60, upturnButtonPos_.getY() + 510);
-    }
-    else pos = Vector2D(upturnButtonX - SHOP_WIDTH / 9, upturnButtonPos_.getY() + 275);
-    
-    if(WIN_WIDTH / 900 == 1920 / 900) {
-        exitShopButtonTr_ = exitShopButton_->addComponent<Transform>(TRANSFORM_H, pos, (EXITSHOP_WIDTH / 2) * WIN_WIDTH / 900, (EXITSHOP_HEIGHT / 2) * WIN_HEIGHT / 600, 0.5);
-    }
-    else exitShopButtonTr_ = exitShopButton_->addComponent<Transform>(TRANSFORM_H, pos, EXITSHOP_WIDTH / 2, EXITSHOP_HEIGHT / 2);
+        for (int i = 0; i < 4; i++) {
+            upturnButton_ = new Entity();
+            upturnButton_->setContext(this);
+            Vector2D pos = Vector2D(upturnButtonPos_.getX(), upturnButtonPos_.getY() + i * (50 * WIN_HEIGHT / 600));
+            if (WIN_WIDTH / 900 == 1920 / 900) {
+                upturnButtonTr_ = upturnButton_->addComponent<Transform>(TRANSFORM_H, pos, (UPTURNBUTTON_WIDTH * WIN_WIDTH / 900) / 2,
+                    (UPTURNBUTTON_HEIGHT * WIN_HEIGHT / 600) / 2, 0.5);
+            }
+            else upturnButtonTr_ = upturnButton_->addComponent<Transform>(TRANSFORM_H, pos, UPTURNBUTTON_WIDTH / 2, UPTURNBUTTON_HEIGHT / 2);
 
-    exitShopButton_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("ExitShop"));
-    exitShopButtonComp_ = exitShopButton_->addComponent<Button>(BUTTON_H, "EXITSHOP");
-    addEntity(exitShopButton_);
+            upturnButtonComp_ = upturnButton_->addComponent<Button>(BUTTON_H, "UPTURN");
+            upturnButton_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("UpturnButton"));
+            buttonsComp.push_back(upturnButtonComp_);
+            buttons1.push_back(upturnButton_);
+        }
+        for (int i = 0; i < 4; i++) {
+            upturnButton_ = new Entity();
+            upturnButton_->setContext(this);
+            Vector2D pos;
+            if (WIN_WIDTH / 900 == 1920 / 900) {
+                pos = Vector2D((upturnButtonPos_.getX() + 350),
+                    upturnButtonPos_.getY() + i * (50 * WIN_HEIGHT / 600));
+
+                upturnButtonTr_ = upturnButton_->addComponent<Transform>(TRANSFORM_H, pos, (UPTURNBUTTON_WIDTH / 2) * WIN_WIDTH / 900,
+                    (UPTURNBUTTON_HEIGHT / 2) * WIN_HEIGHT / 600, 0.5);
+            }
+            else
+            {
+                pos = Vector2D((upturnButtonPos_.getX() + upturnButtonOffsetX * 3), upturnButtonPos_.getY() + i * 50);
+                upturnButtonTr_ = upturnButton_->addComponent<Transform>(TRANSFORM_H, pos, UPTURNBUTTON_WIDTH / 2, UPTURNBUTTON_HEIGHT / 2);
+            }
+
+
+            upturnButtonComp_ = upturnButton_->addComponent<Button>(BUTTON_H, "UPTURN");
+            upturnButton_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("UpturnButton"));
+            buttonsComp.push_back(upturnButtonComp_);
+            buttons2.push_back(upturnButton_);
+        }
+        for (auto e : buttons1) {
+            addEntity(e);
+        }
+        for (auto e : buttons2) {
+            addEntity(e);
+        }
+        exitShopButton_ = new Entity();
+        exitShopButton_->setContext(this);
+        Vector2D pos;
+        if (WIN_WIDTH / 900 == 1920 / 900) {
+            pos = Vector2D(upturnButtonPos_.getX() - 60, upturnButtonPos_.getY() + 510);
+        }
+        else pos = Vector2D(upturnButtonX - SHOP_WIDTH / 9, upturnButtonPos_.getY() + 275);
+
+        if (WIN_WIDTH / 900 == 1920 / 900) {
+            exitShopButtonTr_ = exitShopButton_->addComponent<Transform>(TRANSFORM_H, pos, (EXITSHOP_WIDTH / 2) * WIN_WIDTH / 900, (EXITSHOP_HEIGHT / 2) * WIN_HEIGHT / 600, 0.5);
+        }
+        else exitShopButtonTr_ = exitShopButton_->addComponent<Transform>(TRANSFORM_H, pos, EXITSHOP_WIDTH / 2, EXITSHOP_HEIGHT / 2);
+
+        exitShopButton_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("ExitShop"));
+        exitShopButtonComp_ = exitShopButton_->addComponent<Button>(BUTTON_H, "EXITSHOP");
+        addEntity(exitShopButton_);
+    }
+
 }
 
 void TopDownState::cleanShopButtons() {
-    for (auto e : buttons) {
-        e->setAlive(false);
+    for (auto e : buttons1) {
+        e->removeComponent(IMAGE_H);
+    }
+    for (auto e : buttons2) {
+        e->removeComponent(IMAGE_H);
     }
     exitShopButton_->setAlive(false);
+    shopCreated_ = true;
 }
 
 string TopDownState::getStateID() {

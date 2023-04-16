@@ -7,8 +7,10 @@
 
 
 InputComponentBEU::InputComponentBEU(Roulette* r):Component() {
-	elements[0] = true;
-	for (int i = 1; i < 4; i++) elements[i] = true;
+	elements[0] = Elements::instance()->getAir();
+	elements[1] = Elements::instance()->getFire();
+	elements[2] = Elements::instance()->getWater();
+	elements[3] = Elements::instance()->getEarth();
 	// por defecto solo está disponible aire
 	roulette = r;
 
@@ -18,7 +20,6 @@ void InputComponentBEU::initComponent() {
 	tr_ = ent_->getComponent<Transform>(TRANSFORM_H);
 	im_ = ent_->getComponent<FramedImage>(FRAMEDIMAGE_H);
 	jmp_ = ent_->getComponent<JumpComponent>(JUMP_H);
-	t_ = new Texture(GameManager::instance()->getRenderer(), "./assets/Player/BeatEmUp/Fire/spritesheets/fireMatrix.png");
 	lifeC_ = ent_->getComponent<LifeComponent>(LIFECOMPONENT_H);
 	shadow = ent_->getComponent<ShadowComponent>(SHADOWCOMPONENT_H);
 	assert(shadow != nullptr);
@@ -36,8 +37,8 @@ void InputComponentBEU::initComponent() {
 	}
 }
 
-void InputComponentBEU::update() {
-	if (!im_->getIsAnimUnstoppable() && jmp_->isJumpEnabled()) { // Si no esta realizando ninguna acci�n no cancelable
+void InputComponentBEU::update() {	
+	if (!im_->getIsAnimUnstoppable() && jmp_->isJumpEnabled()) { // Si no esta realizando ninguna accion no cancelable
 		if (moveLeft) {
 			tr_->setDir(Vector2D(-1, 0));
 			sk_->changeState(SkinBEUComponent::Left);
@@ -59,10 +60,10 @@ void InputComponentBEU::update() {
 			sk_->changeState(SkinBEUComponent::Idle);
 		}
 	}
-	else if (jmp_->isJumpEnabled()) { // Esta realizando una acci�n no cancelable (distinta del salto)
+	else if (jmp_->isJumpEnabled()) { // Esta realizando una accion no cancelable (distinta del salto)
 		tr_->setDir(Vector2D(0, 0));
 	}
-	else { // Est� saltando
+	else { // Esta saltando
 		if (moveLeft) {
 			tr_->setDir(Vector2D(-1, tr_->getDir().getY()));
 			im_->setFlip(SDL_FLIP_HORIZONTAL);
@@ -77,18 +78,9 @@ void InputComponentBEU::update() {
 void InputComponentBEU::handleEvents(SDL_Event event) {
 	ih().update(event);
 
-	//if (ih().isKeyDown(SDL_SCANCODE_SPACE) && !im_->getIsAnimUnstoppable() && jmp_->isJumpEnabled()) { // Salto
-	//if (SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_DPAD_LEFT)) {
-	//	setAir(true);
-	//}
-	//else {
-	//	setAir(false);
-	//}
-
-	if (ih().isKeyDown(SDL_SCANCODE_SPACE) && !im_->getIsAnimUnstoppable() && jmp_->isJumpEnabled() || SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_A)) { // Salto
+	if ((ih().isKeyDown(SDL_SCANCODE_SPACE) || SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_A)) && !im_->getIsAnimUnstoppable() && jmp_->isJumpEnabled()) { // Salto
 		jmp_->jump();
 		sk_->changeState(SkinBEUComponent::Jump); // A lo mejor 15 cambia porque se le pueden dar o puede necesitar mas frames de salto
-
 		shadow->Setpos_y(tr_->getPos().getY());
 	}
 
@@ -114,46 +106,34 @@ void InputComponentBEU::handleEvents(SDL_Event event) {
 	else if (ih().isKeyUp(SDL_SCANCODE_S) || SDL_GameControllerGetAxis(controller, SDL_CONTROLLER_AXIS_LEFTY) <= 8000) { moveDown = false; }
 
 
-	if (ih().isKeyDown(SDL_SCANCODE_1) && elements[0] && !im_->getIsAnimUnstoppable() || SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_DPAD_LEFT)) {
+	if ((ih().isKeyDown(SDL_SCANCODE_1) || SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_DPAD_LEFT)) && elements[0] && !im_->getIsAnimUnstoppable()) {
 		sk_->changeSkin("air");
 		roulette->changeplayer(1);
 	}
 
-	if (ih().isKeyDown(SDL_SCANCODE_2) && elements[1] && !im_->getIsAnimUnstoppable() || SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_DPAD_UP)) {
+	if ((ih().isKeyDown(SDL_SCANCODE_2) || SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_DPAD_UP)) && elements[1] && !im_->getIsAnimUnstoppable() ) {
 		sk_->changeSkin("fire");
 		roulette->changeplayer(2);
 	}
 
-	if (ih().isKeyDown(SDL_SCANCODE_3) && elements[2] && !im_->getIsAnimUnstoppable() || SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_DPAD_RIGHT)) {
+	if ((ih().isKeyDown(SDL_SCANCODE_3) || SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_DPAD_RIGHT)) && elements[2] && !im_->getIsAnimUnstoppable()) {
 		sk_->changeSkin("water");
 		roulette->changeplayer(3);
 	}
 
-	if (ih().isKeyDown(SDL_SCANCODE_4) && elements[3] && !im_->getIsAnimUnstoppable() || SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_DPAD_DOWN)) {
+	if ((ih().isKeyDown(SDL_SCANCODE_4) || SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_DPAD_DOWN)) && elements[3] && !im_->getIsAnimUnstoppable()) {
 		sk_->changeSkin("earth");
 		roulette->changeplayer(4);
 	}
 
-	if (ih().isKeyJustDown(SDL_SCANCODE_O) || SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_X)) {
+	if ((ih().isKeyJustDown(SDL_SCANCODE_O) || SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_X)) && jmp_->isJumpEnabled()) {
 		if (!alreadyPressedBasic) {
 			sdlutils().soundEffects().at("playerAttack").play();
 			alreadyPressedBasic = true;
-			/*if (im_->getRow() == 9) {
-				if (im_->getTope() < 3 * 8) {
-					im_->setTope(im_->getTope() + 8);
-				}
-			}
-			else {
-				im_->setAnim(true, 9, 24, 0, 8);
-			}*/
-			//im_->setAnim("Player_BEU_" + im_->getType() + "_attack1", 24, true);
-
-			if(im_->getType()=="fire" || im_->getType() == "water" || im_->getType() == "air")
+			if(im_->getType()=="fire")
 			{
-				/*sdlutils().soundEffects().at("playerAttack").play();
-				alreadyPressedBasic = true;*/
-				/*if (im_->getRow() == 9) {
-					if (im_->getTope() < 2 * 8) {
+				if (im_->getTexKey() == "Player_BEU_" + im_->getType() + "_attack3") {
+					if (im_->getTope() <=  8) {
 						im_->setTope(im_->getTope() + 8);
 					}
 					else
@@ -162,51 +142,64 @@ void InputComponentBEU::handleEvents(SDL_Event event) {
 					}
 				}
 				else {
-					im_->setAnim(true, 9, 26, 0, 8);
-				}*/
-				im_->setAnim("Player_BEU_" + im_->getType() + "_attack3", 26, true);
+					im_->setAnim("Player_BEU_" + im_->getType() + "_attack3",0, 26, true);
+					im_->setTope(8);
+				}
+				
 			}
-			//else if (im_->getType() == "air")
-			//{
-			//	/*sdlutils().soundEffects().at("playerAttack").play();
-			//	alreadyPressedBasic = true;*/
-			//	/*if (im_->getRow() == 9) {
-			//		if (im_->getTope() < 2 * 7) {
-			//			im_->setTope(im_->getTope() + 7);
-			//		}
-			//		else
-			//		{
-			//			im_->setTope(im_->getTope() + 13);
-			//		}
-			//	}
-			//	else {
-			//		im_->setAnim(true, 9, 26, 0, 7);
-			//	}*/
-			//}
-			else
+			else if (im_->getType()=="water")
 			{
-				/*sdlutils().soundEffects().at("playerAttack").play();
-				alreadyPressedBasic = true;
-				if (im_->getRow() == 7) {
-					if (im_->getTope() < 3 * 4) {
-						im_->setTope(im_->getTope() + 4);
+				if (im_->getTexKey() == "Player_BEU_" + im_->getType() + "_attack3") {
+					if (im_->getTope() <= 8) {
+						im_->setTope(im_->getTope() + 7);
 					}
 					else
 					{
-						im_->setTope(im_->getTope() + 12);
+						im_->setTope(im_->getTope() + 10);
 					}
 				}
 				else {
-					im_->setAnim(true, 7, 23, 0, 4);
-				}*/
-				im_->setAnim("Player_BEU_" + im_->getType() + "_attack3", 23, true);
+					im_->setAnim("Player_BEU_" + im_->getType() + "_attack3", 0, 26, true);
+					im_->setTope(8);
+				}
 			}
-		
+			else if(im_->getType()=="air")
+			{
+				if (im_->getTexKey() == "Player_BEU_" + im_->getType() + "_attack3") {
+					if (im_->getTope() <= 8) {
+						im_->setTope(im_->getTope() + 6);
+					}
+					else
+					{
+						im_->setTope(im_->getTope() + 14);
+					}
+				}
+				else {
+					im_->setAnim("Player_BEU_" + im_->getType() + "_attack3", 0, 26, true);
+					im_->setTope(6);
+				}
+			}
+			else
+			{
+				if (im_->getTexKey() == "Player_BEU_" + im_->getType() + "_attack3") {
+					if (im_->getTope() <= 4) {
+						im_->setTope(im_->getTope() + 5);
+					}
+					else
+					{
+						im_->setTope(im_->getTope() + 14);
+					}
+				}
+				else {
+					im_->setAnim("Player_BEU_" + im_->getType() + "_attack3", 0, 23, true);
+					im_->setTope(4);
+				}
+			}
 		}
 	}
 	else if (ih().isKeyJustUp(SDL_SCANCODE_O) || !ih().isGamePadButtonDown(SDL_CONTROLLER_BUTTON_X)) alreadyPressedBasic = false;
 
-	if (ih().isKeyDown(SDL_SCANCODE_P) && !alreadyPressedBasic || SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_Y)) {
+	if ((ih().isKeyDown(SDL_SCANCODE_P) || SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_Y)) && !alreadyPressedBasic && jmp_->isJumpEnabled()) {
 		// Ataque Especial
 		if (im_->getType() == "fire" || im_->getType() == "water")
 		{
@@ -214,7 +207,14 @@ void InputComponentBEU::handleEvents(SDL_Event event) {
 				alreadyPressedSpecial = true;
 				sdlutils().soundEffects().at("playerSpecialAttack").play();
 				im_->setAnim("Player_BEU_" + im_->getType() + "_super", 18, true);
-				////im_->setAnim(true, 10, 18, 0, 100);
+			}
+		}
+		else if(im_->getType()=="air")
+		{
+			if (!alreadyPressedSpecial) {
+				alreadyPressedSpecial = true;
+				sdlutils().soundEffects().at("playerSpecialAttack").play();
+				im_->setAnim("Player_BEU_" + im_->getType() + "_super", 28, true);
 			}
 		}
 		else
@@ -222,22 +222,26 @@ void InputComponentBEU::handleEvents(SDL_Event event) {
 			if (!alreadyPressedSpecial) {
 				alreadyPressedSpecial = true;
 				sdlutils().soundEffects().at("playerSpecialAttack").play();
-				im_->setAnim("Player_BEU_" + im_->getType() + "_super", 28, true);
-				////im_->setAnim(true, 10, 28, 0, 100);
+				im_->setAnim("Player_BEU_" + im_->getType() + "_super", 25, true);
 			}
 		}
 	
 	}
 	else if (ih().isKeyJustUp(SDL_SCANCODE_P) || !ih().isGamePadButtonDown(SDL_CONTROLLER_BUTTON_Y)) alreadyPressedSpecial = false;
 
-	if (ih().isKeyJustDown(SDL_SCANCODE_M)) {
-		if (!alreadyPressed2)
+	if (ih().isKeyJustDown(SDL_SCANCODE_E)) {
+		if (!alreadyPressed2 && earthStage3) // Recogida de piedras en el stage 3 del boss de tierra
 		{
-			alreadyPressed2 = true;
-			static_cast<BeatEmUpState*>(mngr_)->finishBEU();
+			for (auto it : mngr_->getEntities()) {
+				if (it->hasComponent(OBJECTSCOMPONENT_H) && it->getComponent<ObjectsComponent>(OBJECTSCOMPONENT_H)->getInRange()) {
+					static_cast<StoneComponent*>(it->getComponent<StoneComponent>(STONECOMPONENT_H))->stonePicked();
+					alreadyPressed2 = true;
+				}
+			}
+			
 		}
 	}
-	else if (ih().isKeyJustUp(SDL_SCANCODE_M)) {
+	else if (ih().isKeyJustUp(SDL_SCANCODE_E)) {
 		alreadyPressed2 = false;
 	}
 
@@ -285,4 +289,44 @@ void InputComponentBEU::setEarth(bool b)
 		else if (elements[1])sk_->changeSkin("fire");
 		else sk_->changeSkin("water");
 	}
+}
+
+// Función para hacer que el mando de Xbox vibre
+void InputComponentBEU::vibrate(SDL_GameController* controller, int duration_ms, float intensity) {
+	// Comprobar si el mando está conectado
+	if (!SDL_GameControllerGetAttached(controller)) {
+		printf("El mando no está conectado\n");
+		return;
+	}
+
+	// Comprobar si el mando tiene retroalimentación de fuerza
+	if (!SDL_JoystickIsHaptic(SDL_GameControllerGetJoystick(controller))) {
+		printf("El mando no tiene retroalimentación de fuerza\n");
+		return;
+	}
+
+	// Abrir el dispositivo de retroalimentación de fuerza (haptic device)
+	SDL_Haptic* haptic = SDL_HapticOpenFromJoystick(SDL_GameControllerGetJoystick(controller));
+	if (haptic == NULL) {
+		printf("No se pudo abrir el dispositivo haptic: %s\n", SDL_GetError());
+		return;
+	}
+
+	// Configurar la intensidad y duración de la vibración
+	if (SDL_HapticRumbleInit(haptic) != 0) {
+		printf("No se pudo inicializar la retroalimentación de fuerza: %s\n", SDL_GetError());
+		SDL_HapticClose(haptic);
+		return;
+	}
+	if (SDL_HapticRumblePlay(haptic, intensity, duration_ms) != 0) {
+		printf("No se pudo hacer que el mando vibre: %s\n", SDL_GetError());
+		SDL_HapticClose(haptic);
+		return;
+	}
+
+	// Esperar hasta que termine la vibración
+	SDL_Delay(duration_ms);
+
+	// Liberar los recursos usados por el dispositivo haptic
+	SDL_HapticClose(haptic);
 }

@@ -1,15 +1,29 @@
 {
-  "dialog": [
+   "dialog": [
     {"id": "1","text": "Buenos dias buen viajero $ Que se le ofrece? "},
     {"id": "2","text": "O compras o te apartas $ Que va a ser entonces?"},
     {"id": "3","text": "Amigo! $ Todo bueno, bonito y barato!"},
-    {"id": "4","text": "Bienvenide a mi tienda "},
-    {"id": "5","text": "Carlos Leon trabajando? $ imposible $ Dialogo 5"},
-    {"id": "6","text": "Carlos Leon trabajando? $ imposible $ Dialogo 6"},
-    {"id": "7","text": "Dialogo extra"}
+     {"id": "5","text": "Desde que te separastes de tus hermanos $ este reino no se siente igual $ no se, quizas abrir fronteras seria una $ buena idea No crees?"},
+    {"id": "6","text": "Yo te driria que si decides reconciliarte con tus hermanos empezaras $ por el rojo, no te confundas, no hablo de politica, $ era el que  mejor me caia, con su temperamento, pero firme $ y dios ese bigote..."},
+    {"id": "7","text": "Siempre he sido mas dado a tu hermana, Florencia, $ su reino es el mas bonito, una pena que este cerrado $ Sabes que no gobiernas aqui solo para ti $ verdad?  "}, 
+    {"id": "21","text": "Debo decir que no soy muy religioso, pero  $ tu hermano, Feliciano, ese que mueve rocas, $ me hacia creer muchas veces $ como predicaba, ensenaba e instruia $ ojala lo trajeras de vuelta"},
+    {"id": "8","text": "Si sigues adelante entraras en el Reino de fuego, gobernado por tu hermano Charmander $ la gente comenta que vuestra pelea entre hermanos fue  $ por una tonteria de verdad fue asi? $ Luz siempre fue el que mediaba entre vosotros no? $ Donde esta? "},
+    {"id": "9","text": "Si sigues adelante entraras en el Reino de Roca, gobernado por tu hermano Feliciano, si es verdad que habeis decido reuniros todos $ Donde esta Luz?"},
+    {"id": "10","text": "Con una tia con la que me estuve liando un tiempo y tenia buena relacion $ me llamo porque se le habia muerto el perro. Yo estaba $ entrenando y le dije que iba a su casa y me duchaba alli $ para estar acompanandola. Cuando llegue le di un abrazo y le dije: $ perdon, huelo a perros muertos"},
+    {"id": "11","text": "Oh! Que sorpresa verte por aqui $ momento de superar vuestras diferencias supongo $ por cierto De donde nace vuestra disputa? $ Todos comentan que fue por la division del terreno, que ambicion esta de los dioses"},
+    {"id": "12","text": "Me temo que se que haces aqui, si buscas a tu hermano $ esta todo hacia el sur hace mucho que no lo vemos por aqui $ estara cabreado $ como de costumbre"},
+    {"id": "13","text": "Siento que si sigues adelante vas a encontrarte con algo dificil de superar"},
+    {"id": "14","text": "La paz que se respira en este reino siempre me calma $ El que va tras la justicia y el amor halla vida, prosperidad y honra. $ Proverbios 21:21 "},
+    {"id": "15","text": "Tanto camino que llevas recorrrido, $ espero que te valga la pena todo es esfuerzo $ se ve que tus esfuerzos por arreglar $ tus diferencias con tus hermanos son sinceras y encomieables"},
+    {"id": "16","text": "Guiame, pues eres mi roca y mi fortaleza, dirigeme por amor a tu nombre. Salmo 31:3"},
+    {"id": "17","text": "Tengo sentimientos encontrados con que rechazarais tanto tu como el resto de hermanos $ que Feliciano predicara su palabra por todos los reinos $ Que dano podria hacer?"},
+    {"id": "18","text": "Y en la soledad del camino lo encontre a el $ mi Dios y mi espiritu en comunion con la Paz"},
+    {"id": "19","text": "Esta estatua destruida solo muestra la barbarie que perpetrasteis todos $ en vuestras diferencias ideologicas,$ al menos dejasteis el pie, mi parte favorita"},
+    {"id": "20","text": "El reino de la sabiduria, Florencia puede que haya cambiado con el tiempo $ pero se que podras convencerla de vover a reuniros"},
 
+    {"id": "4","text": "Bienvenide a mi tienda "}
   ],
-
+   
   "fonts": [
     {"id": "TCentury","file": "assets/Texts/text.TTF","size": 16},
     {"id": "TCenturyScale","file": "assets/Texts/text.TTF","size": 26}
@@ -126,7 +140,7 @@
     {"id": "fondo2","file": "assets/Scenes/Backgrounds/BeatEmUp/DorjeSofia 400x325.png"},
     {"id": "fondo3",  "file": "assets/Scenes/Backgrounds/BeatEmUp/DorjeeSofia180x398.png"},
     {"id": "fondo4","file": "assets/Scenes/Backgrounds/BeatEmUp/DorjeeSofia1800x900.png"},
-    {"id": "fondoNieve", "file": "assets/Scenes/Backgrounds/BeatEmUp/DorjeeSofia 1500x844.png"},
+    {"id": "fondoBossAgua", "file": "assets/Scenes/Backgrounds/BeatEmUp/nieve.png"},
 
     {"id": "Fire_LifeBar","file": "assets/Enemies/HUD/LifeBars/Horizontal/Bars/Bar2.png"},
     {"id": "Fire_LifeBarBack", "file": "assets/Enemies/HUD/LifeBars/Horizontal/Backs/Back6.png"},
@@ -234,19 +248,35 @@
     {"id": "GolemFase1_idle", "file": "assets/Enemies/BeatEmUp/Bosses/EarthBoss/Stone-golem-idle.png"},
     {"id": "GolemFase1_run", "file": "assets/Enemies/BeatEmUp/Bosses/EarthBoss/Stone-golem-run-224x192.png"},
     {"id": "GolemFase2", "file": "assets/Enemies/BeatEmUp/Bosses/EarthBoss/Stone-golem v2-all animations-224x192.png"},
-    {"id": "stone", "file": "assets/Enemies/BeatEmUp/Bosses/EarthBoss/stone.png"},
-    {"id": "stone2", "file": "assets/Enemies/BeatEmUp/Bosses/EarthBoss/stone2.png"},
-    {"id": "stone3", "file": "assets/Enemies/BeatEmUp/Bosses/EarthBoss/stone3.png"},
-    {"id": "stone4", "file": "assets/Enemies/BeatEmUp/Bosses/EarthBoss/stone4.png"},
-    {"id": "stone5", "file": "assets/Enemies/BeatEmUp/Bosses/EarthBoss/stone5.png"},
-    {"id": "stone6", "file": "assets/Enemies/BeatEmUp/Bosses/EarthBoss/stone6.png"},
+    {"id": "GolemFase2_attack", "file": "assets/Enemies/BeatEmUp/Bosses/EarthBoss/Stone-golem v2-attack-224x192.png"},
+    {"id": "GolemFase2_death", "file": "assets/Enemies/BeatEmUp/Bosses/EarthBoss/Stone-golem v2-death-224x192.png"},
+    {"id": "GolemFase2_hit", "file": "assets/Enemies/BeatEmUp/Bosses/EarthBoss/Stone-golem v2-hurt-224x192.png"},
+    {"id": "GolemFase2_idle", "file": "assets/Enemies/BeatEmUp/Bosses/EarthBoss/Stone-golem v2-idle-224x192.png"},
+    {"id": "GolemFase2_run", "file": "assets/Enemies/BeatEmUp/Bosses/EarthBoss/Stone-golem v2-run-224x192.png"},
+    {"id": "GolemFase2_protection", "file": "assets/Enemies/BeatEmUp/Bosses/EarthBoss/Stone-golem v2-PROTECTION-224x192.png"},
+    {"id": "GolemFase2_idleProtection", "file": "assets/Enemies/BeatEmUp/Bosses/EarthBoss/Stone-golem v2-idlePROTECTION-224x192.png"},
+    {"id": "v1stone1", "file": "assets/Enemies/BeatEmUp/Bosses/EarthBoss/v1stone1.png"},
+    {"id": "v1stone2", "file": "assets/Enemies/BeatEmUp/Bosses/EarthBoss/v1stone2.png"},
+    {"id": "v1stone3", "file": "assets/Enemies/BeatEmUp/Bosses/EarthBoss/v1stone3.png"},
+    {"id": "v1stone4", "file": "assets/Enemies/BeatEmUp/Bosses/EarthBoss/v1stone4.png"},
+    {"id": "v1stone5", "file": "assets/Enemies/BeatEmUp/Bosses/EarthBoss/v1stone5.png"},
+    {"id": "v1stone6", "file": "assets/Enemies/BeatEmUp/Bosses/EarthBoss/v1stone6.png"},
+    {"id": "v2stone1", "file": "assets/Enemies/BeatEmUp/Bosses/EarthBoss/v2stone1.png"},
+    {"id": "v2stone2", "file": "assets/Enemies/BeatEmUp/Bosses/EarthBoss/v2stone2.png"},
+    {"id": "v2stone3", "file": "assets/Enemies/BeatEmUp/Bosses/EarthBoss/v2stone3.png"},
+    {"id": "v2stone4", "file": "assets/Enemies/BeatEmUp/Bosses/EarthBoss/v2stone4.png"},
+    {"id": "v2stone5", "file": "assets/Enemies/BeatEmUp/Bosses/EarthBoss/v2stone5.png"},
+    {"id": "v2stone6", "file": "assets/Enemies/BeatEmUp/Bosses/EarthBoss/v2stone6.png"},
     {"id": "waterBoss", "file":  "assets/Enemies/BeatEmUp/Bosses/WaterBoss/frost_guardian_free_192x128_SpriteSheet.png"},
     {"id": "waterBoss_idle", "file":  "assets/Enemies/BeatEmUp/Bosses/WaterBoss/frost_guardian_idle.png"},
     {"id": "waterBoss_hit", "file":  "assets/Enemies/BeatEmUp/Bosses/WaterBoss/frost_guardian_hit.png"},
     {"id": "waterBoss_attack", "file":  "assets/Enemies/BeatEmUp/Bosses/WaterBoss/frost_guardian_attack.png"},
     {"id": "waterBoss_walk", "file":  "assets/Enemies/BeatEmUp/Bosses/WaterBoss/frost_guardian_walk.png"},
     {"id": "waterBoss_death", "file":  "assets/Enemies/BeatEmUp/Bosses/WaterBoss/frost_guardian_death.png"},
-    {"id": "waves", "file": "assets/Enemies/BeatEmUp/Bosses/WaterBoss/waves.png"},
+    {"id": "iceBlock", "file": "assets/Enemies/BeatEmUp/Bosses/WaterBoss/iceBlocks.png"},
+    {"id": "ice", "file": "assets/Enemies/BeatEmUp/Bosses/WaterBoss/icicle.png"},
+    {"id": "iceShadow", "file": "assets/Enemies/BeatEmUp/Bosses/WaterBoss/icicleShadow.png"},
+    {"id": "iceDestroy", "file": "assets/Enemies/BeatEmUp/Bosses/WaterBoss/icecleDestroy.png"},
     {"id": "shadow","file": "assets/Enemies/BeatEmUp/Bosses/EarthBoss/golem-shadow.png"},
     {"id": "espada", "file": "assets/HUD/espada.png"},
     {"id": "cora", "file": "assets/HUD/cora.png"},
@@ -261,9 +291,7 @@
     {"id": "BEULightBossIdle", "file": "assets/Enemies/BeatEmUp/Bosses/LightBoss/animations/spritesheets/idle.png"},
     {"id": "BEULightBossTakeHit", "file": "assets/Enemies/BeatEmUp/Bosses/LightBoss/animations/spritesheets/takeHit.png"},
     {"id": "BEULightBossAttackSphere", "file": "assets/Enemies/BeatEmUp/Bosses/LightBoss/animations/spritesheets/attackSphere.png"},
-    {"id": "BEULightBossSpecialAttack", "file": "assets/Enemies/BeatEmUp/Bosses/LightBoss/animations/spritesheets/SpecialAttack.png"},
-    {"id": "SphereArrow", "file": "assets/enemies/BeatEmUp/Bosses/LightBoss/animations/spritesheets/arrowSphere.png"},
-    {"id": "Ray", "file": "assets/enemies/BeatEmUp/Bosses/LightBoss/animations/spritesheets/ray.png"}
+    {"id": "BEULightBossSpecialAttack", "file": "assets/Enemies/BeatEmUp/Bosses/LightBoss/animations/spritesheets/SpecialAttack.png"}
 
   ],
 
@@ -290,7 +318,8 @@
     {"id": "batDie", "file": "assets/sounds/enemy/bat/batDeath.wav"},
     {"id": "NPC_Chat", "file": "assets/Sounds/NPCs/npcchat.wav"},
     {"id": "coinSound", "file": "assets/Sounds/objects/coin.wav"},
-    {"id": "magic", "file": "assets/Sounds/objects/magic.wav"}
+    {"id": "magic", "file": "assets/Sounds/objects/magic.wav"},
+    {"id": "iceBlock", "file": "assets/Sounds/bosses/water/iceBlock.wav"}
   ],
 
   "musics": [

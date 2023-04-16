@@ -72,8 +72,9 @@ private:
 	Entity* Hud_;
 	Roulette* roulete;
 	//BOSSES
-	Entity* boss_;
+	Entity* earthBoss_;
 	bool boss;
+	string typeBoss_;
 
 	//PROPERTIES
 	PropertiesManager* props_;

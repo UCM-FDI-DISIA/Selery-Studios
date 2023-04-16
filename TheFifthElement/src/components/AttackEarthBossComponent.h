@@ -13,10 +13,14 @@ private:
 	Image* imBoss;
 	MovementEarthBossComponent* bossMovement;
 	AnimationEarthBossComponent* animator;
+	float extraDamage = 0;
 public:
 	AttackEarthBossComponent();
 	virtual ~AttackEarthBossComponent() {}
 	void initComponent();
 	void update();
+
+	inline float getExtraDamage() { return extraDamage; }
+	inline void addExtraDamage() { extraDamage += 0.1; }
 };
 #endif

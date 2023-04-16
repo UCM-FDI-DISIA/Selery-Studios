@@ -10,6 +10,7 @@ class AnimationEarthBossComponent : public Component
 {
 private:
 	FramedImage* imBoss;
+	int stage;
 public:
 	enum Animations {
 		Idle, Moving, Attack, Hit, Death, IdleProtection, Protection, Null
@@ -22,6 +23,8 @@ public:
 	void initComponent();
 	void newAnimation(Animations newAnim);
 	void update();
+	inline void newStage() { stage++; }
+	inline int getStage() { return stage; }
 };
 #endif
 

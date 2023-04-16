@@ -93,6 +93,12 @@ void EnemyBEUDirectionComponent::update() {
 			speed = 0.5f;
 			cont++;
 		}
+
+		direction = 1; // Por defecto, se mueve hacia la derecha
+		if (playerTr_->getPos().getX() < tr_->getPos().getX()) {
+			direction = -1; // Si el jugador está a la delrecha, se mueve hacia la izquierda
+		}
+
 	}
 	mov_->setDir(dir_ * speed);//move
 }
@@ -100,6 +106,12 @@ void EnemyBEUDirectionComponent::update() {
 void EnemyBEUDirectionComponent::changeDir(Vector2D d)
 {
 	dir_ = d;
+}
+
+void EnemyBEUDirectionComponent::moveBackX() {
+	Vector2D currPos = tr_->getPos();
+	currPos.set(currPos.getX() - 35.0 * direction, currPos.getY());
+	tr_->setPos(currPos);
 }
 
 void EnemyBEUDirectionComponent::stop(bool s)
