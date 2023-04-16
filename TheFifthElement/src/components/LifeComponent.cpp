@@ -157,7 +157,7 @@ void LifeComponent::subLife(float damage) {
 	// Si han pasado menos de 5 segundos desde que se recibió el potenciador, se hace el doble de daño
 	if (difftime(currentTime, deathTime_) <= 15 && damageMultiplier_ > 1) {
 		damage *= damageMultiplier_;
-		damageMultiplier_ = 1; // Resetea el potenciador de daño después de 5 segundos
+		damageMultiplier_ = 1; // Resetea el potenciador de dadddo después de 5 segundos
 	}
 	barWidth_ = ((life_ * backWidth_) / maxLife_);
 	
