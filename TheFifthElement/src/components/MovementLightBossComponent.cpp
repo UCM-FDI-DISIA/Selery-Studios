@@ -9,11 +9,15 @@ void MovementLightBossComponent::initComponent()
 	playerTrans = player_->getComponent<Transform>(TRANSFORM_H);
 
 	bossTrans = ent_->getComponent<Transform>(TRANSFORM_H);
+	bossTrans->setVel(5.0);
+	bossTrans->setDir(Vector2D(0, 0));
+	movDir = Vector2D(0, 0);
 }
 void MovementLightBossComponent::update()
 {
-	int difX = playerTrans->getPos().getX() - bossTrans->getPos().getX();
-	int difY = playerTrans->getPos().getY() - bossTrans->getPos().getY();
+	/*int difX = playerTrans->getPos().getX() - bossTrans->getPos().getX();
+	int difY = playerTrans->getPos().getY() - bossTrans->getPos().getY();*/
+	move(movDir);
 	//checkeo de posiciones solo en caso de fase X ademas esto lo debe tratar el collision
 	/*if (( difX< closeX && difX> negCloseX) && (difY< closeY && difY> negCloseY))
 	{
