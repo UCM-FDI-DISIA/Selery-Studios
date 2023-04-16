@@ -144,7 +144,7 @@ private:
 	//	//printMap();
 	//}
 	bool shopCreated_ = false;
-
+public:
 	string getStateID(); // stringID
 	PuzzleCopas* puzzle1;
 	TopDownState();	

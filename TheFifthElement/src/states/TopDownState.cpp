@@ -75,8 +75,6 @@ void TopDownState::LoadMap(string const& filename) {
                 // recorremos todos los tiles para obtener su informacion
                 for (auto y = 0; y < mapInfo.rows; ++y) {
                     for (auto x = 0; x < mapInfo.cols; ++x) {
-                        if (y < mapInfo.rows/2) {
-                            if (x < mapInfo.cols / 2) { //primer 
                         if (y < mapInfo.rows/10) {
                             if (x < mapInfo.cols / 5) { //primer 
                                 SDL_SetRenderTarget(Gm_->getRenderer(), background_0);
@@ -307,22 +305,20 @@ void TopDownState::LoadMap(string const& filename) {
                     }
                 }
                 else if (name == "Portal") {
-                    Entity* portal_ = new Entity();
-                    portal_->setContext(this);
-                    portal_->addComponent<Transform>(TRANSFORM_H, Vector2D(obj.getPosition().x, obj.getPosition().y), PORTAL_WIDTH, PORTAL_HEIGHT);
-                    portal_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("portal"));
-                    portal_->addComponent<ObjectsComponent>(OBJECTSCOMPONENT_H);
-                    portal_->addComponent<PortalComponent>(PORTALCOMPONENT_H, trans_player_);
-                    addEntity(portal_);
+                Entity* portal_ = new Entity();
+                portal_->setContext(this);
+                portal_->addComponent<Transform>(TRANSFORM_H, Vector2D(obj.getPosition().x, obj.getPosition().y), PORTAL_WIDTH, PORTAL_HEIGHT);
+                portal_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("portal"));
+                portal_->addComponent<PortalComponent>(PORTALCOMPONENT_H, trans_player_);
+                addEntity(portal_);
                 }
                 else if (name == "Element") {
-                    float element_width = 50, element_height = 50;
-                    Entity* element_ = new Entity();
-                    element_->addComponent<Transform>(TRANSFORM_H, Vector2D(obj.getPosition().x, obj.getPosition().y), element_width, element_height);
-                    element_->addComponent<FramedImage>(FRAMEDIMAGE_H, &SDLUtils::instance()->images().at("fireball"), ELEMENT_WIDTH, ELEMENT_HEIGHT, 4);
-                    element_->addComponent<ObjectsComponent>(OBJECTSCOMPONENT_H);
-                    element_->addComponent<CheckCollision>(CHECKCOLLISION_H, player_, "element");
-                    addEntity(element_);
+                float element_width = 50, element_height = 50;
+                Entity* element_ = new Entity();
+                element_->addComponent<Transform>(TRANSFORM_H, Vector2D(obj.getPosition().x, obj.getPosition().y), element_width, element_height);
+                element_->addComponent<FramedImage>(FRAMEDIMAGE_H, &SDLUtils::instance()->images().at("fireball"), ELEMENT_WIDTH, ELEMENT_HEIGHT, 4);
+                element_->addComponent<CheckCollision>(CHECKCOLLISION_H, player_, "element");
+                addEntity(element_);
                 }
             }
         }
