@@ -70,6 +70,26 @@ void InputComponent::handleEvents(SDL_Event event)
 			}
 			actionDelay = 0;
 		}
+		if (SDL_GameControllerGetButton(controller,SDL_CONTROLLER_BUTTON_DPAD_DOWN) && Elements::instance()->getAir()) {
+			skin_->changeSkin("air");
+			roulet->changeplayer(1);
+			//static_cast<HUD*>(ent_)->
+		}
+		else if (SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_DPAD_UP) && Elements::instance()->getFire()) {
+			roulet->changeplayer(2);
+
+			skin_->changeSkin("fire");
+		}
+		else  if (SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_DPAD_LEFT) && Elements::instance()->getWater()) {
+			roulet->changeplayer(3);
+
+			skin_->changeSkin("water");
+		}
+		else if (SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_DPAD_RIGHT) && Elements::instance()->getEarth()) {
+			roulet->changeplayer(4);
+
+			skin_->changeSkin("earth");
+		}
 	}
 
 	ih().update(event);

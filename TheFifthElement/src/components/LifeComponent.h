@@ -26,6 +26,7 @@ private:
 #pragma region parameters
 	float life_, maxLife_;
 	float speed_ = 1.0f;
+	float damageMultiplier_ = 1.0;
 	bool die_ = false;
 	bool hit_ = false;
 	bool collision = false;
@@ -33,6 +34,7 @@ private:
 	string type_;
 	float scale;
 	bool set_ = false;
+	time_t deathTime_;
 #pragma endregion
 
 #pragma region propierties

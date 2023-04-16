@@ -115,7 +115,7 @@ void LifeComponent::Death() {
 void LifeComponent::Hit(float damage)
 {
 	if (!hit_) {
-		if (getLife() - damage > 0) {
+		if (getLife() - (damage *= damageMultiplier_) > 0) {
 			if (enemy_) {// enemy
 				anim_->changeState(AnimationEnemyBEUComponent::Hit);
 				eMov_->moveBackX();
@@ -135,15 +135,34 @@ void LifeComponent::Hit(float damage)
 }
 
 void LifeComponent::subLife(float damage) {
-	life_ -= damage;
-	if (life_ <= 0)
-	{
+	cout << damage << endl;
+
+
+	life_ -= (damage *= damageMultiplier_);
+
+	if (life_ <= 0) {
 		life_ = 0;
 		Death();
+		if (enemy_ && rand() % 10 + 1 <= 8) {
+			time(&deathTime_);
+			damageMultiplier_ = 99;
+		}
 	}
+
 	playDamageSound();
+	
+	time_t currentTime;
+	time(&currentTime);
+
+	// Si han pasado menos de 5 segundos desde que se recibió el potenciador, se hace el doble de daño
+	if (difftime(currentTime, deathTime_) <= 15 && damageMultiplier_ > 1) {
+		damage *= damageMultiplier_;
+		damageMultiplier_ = 1; // Resetea el potenciador de daño después de 5 segundos
+	}
 	barWidth_ = ((life_ * backWidth_) / maxLife_);
+	
 }
+
 
 void LifeComponent::chageType(float maxLife) {
 
