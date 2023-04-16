@@ -48,11 +48,11 @@ void OptionsState::handleEvents()
 		sliderBrillo->handleEvent(event);
 		sliderSonido->handleEvent(event);
 		muteButton->handleEvent(event);
-		resumeButton->handleEvent(event);
-		if (exitActive)
-		{
-			exitControlsButton->handleEvent(event);
-		}
+		//resumeButton->handleEvent(event);
+		//if (exitActive)
+		//{
+		//	exitControlsButton->handleEvent(event);
+		//}
 	}
 
 }
@@ -81,8 +81,8 @@ void OptionsState::createButtons() {
 	backButton = addNewEntity("BackButton", 289, 86, Vector2D(WIN_WIDTH-150, WIN_HEIGHT -50), 1, false, 0.5);
 	backButton->addComponent<Button>(BUTTON_H, "BACK");
 
-	resumeButton = addNewEntity("ResumeButton", 289, 86, Vector2D(5, WIN_HEIGHT - 50), 1, false, 0.5);
-	resumeButton->addComponent<Button>(BUTTON_H, "RESUME");
+	//resumeButton = addNewEntity("ResumeButton", 289, 86, Vector2D(5, WIN_HEIGHT - 50), 1, false, 0.5);
+	//resumeButton->addComponent<Button>(BUTTON_H, "RESUME");
 
 	muteButton = addNewEntity("MuteButton", 20, 20, Vector2D(WIN_WIDTH / 2+42, WIN_HEIGHT / 5-40), 1, false, 1);
 	muteButton->addComponent<Button>(BUTTON_H, "MUTE");
@@ -125,7 +125,7 @@ void OptionsState::deleteButtonsBEU()
 
 void OptionsState::exitControls()
 {
-	exitActive = true;
-	exitControlsButton = addNewEntity("exitControlsButton", 50, 50, Vector2D(10, 10), 1, false, 0.5);
-	exitControlsButton->addComponent<Button>(BUTTON_H, "EXITCONTROLS");
+	//exitActive = true;
+	//exitControlsButton = addNewEntity("exitControlsButton", 50, 50, Vector2D(10, 10), 1, false, 0.5);
+	//exitControlsButton->addComponent<Button>(BUTTON_H, "EXITCONTROLS");
 }
