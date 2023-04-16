@@ -25,4 +25,18 @@ void MovementLightBossComponent::update()
 	}*/
 	//tengo que hacer comprobaciones sobre donde y cuando hace tp el enemigo y ajustar el collider vendra con el colliderComponent
 }
-//void MovementLightBossComponent::
+void MovementLightBossComponent::teleport(Vector2D newPos)
+{
+	bossTrans->setPos(newPos);
+}
+
+void MovementLightBossComponent::move(Vector2D dir)
+{
+	movDir = dir;
+
+	if ((bossTrans->getPos().getX() >= (playerTrans->getPos().getX() + 300)) || (bossTrans->getPos().getX() <= (playerTrans->getPos().getX() - 300)))
+	{
+		movDir.setX(0);
+	}
+	bossTrans->setPos(bossTrans->getPos() + movDir * bossTrans->getVel());
+}
