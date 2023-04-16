@@ -83,8 +83,16 @@ void AttackLightBossComponent::attack1()//esto debe ser para generar siempre bol
 {
 	if (distX<closeX && distX>negCloseX && distY<closeY && distY>negCloseY)//si esta muy cerca se aleja para disparar
 	{
-		if (distX <= 0) { dirMov.setX(1); }
-		else { dirMov.setX(-1); }
+		if (distX <= 0 && bossTrans->getPos().getX() <= (BACKGROUNDBEU_WIDTH - 500)) { dirMov.setX(1); }
+		else if (distX <= 0 && bossTrans->getPos().getX() >= (BACKGROUNDBEU_WIDTH - 500)) //player a la izquierda y boss cerca del borde derecho
+		{
+			dirMov.setX(-1);
+		}
+		else if (distX >= 0 && bossTrans->getPos().getX() >= 500) //player a la derecha y boss lejos del borde izquierdo
+		{
+			dirMov.setX(-1);
+		}
+		else { dirMov.setX(1); } //player a la derecha y cerca del borde izquierdo
 		movBoss_->move(dirMov);
 	}
 	//orden de ejecucion: move, set anim al atk2 y despues crear la flecha
