@@ -171,7 +171,8 @@ void TopDownState::LoadMap(string const& filename) {
 
                 if (name == "COL") {
                     Entity* colision = new Entity();
-                    colision->addComponent<Transform>(TRANSFORM_H, Vector2D(rect.left, rect.top), rect.width, rect.height);
+                    colision->addComponent<Transform>(TRANSFORM_H, Vector2D(rect.left*2.5, rect.top*2.5), (rect.width * 2.5)* (WIN_WIDTH / 900), (rect.height * 2.5)* (WIN_HEIGHT / 600));
+                    //(fondowidth_ * 2.5)* (WIN_WIDTH / 900),(fondoheight_ * 2.5)* (WIN_HEIGHT / 600)
                     collisions_.push_back(colision);
                     // collisions_.push_back(collidertile);
                 }

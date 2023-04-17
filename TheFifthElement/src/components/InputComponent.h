@@ -39,6 +39,7 @@ public:
     void handleEvents(SDL_Event event);
     void changebool(){ npccol = false; }
     inline void setDirection(int dd) {
+        cout << Directions(dd) << endl;
         d = Directions(dd);
     }
     /*void setAir(bool b) { elements[0] = b; }
