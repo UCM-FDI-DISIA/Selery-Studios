@@ -24,14 +24,13 @@ void ColliderTile::update() {
 		colision->w = trans_col->getW();
 		colision->x = trans_col->getPos().getX();
 		colision->y = trans_col->getPos().getY();
-		
 
 		/*topLeft_ = trans_col->getPos();
 		topRight_ = { trans_col->getPos().getX() + trans_col->getW(), trans_col->getPos().getY() };
 		bottomLeft_ = { trans_col->getPos().getX(), trans_col->getPos().getY() + trans_col->getH() };
 		bottomRight_ = { trans_col->getPos().getX() + trans_col->getW(), trans_col->getPos().getY() + trans_col->getH() };*/
-		bool a = SDL_IntersectRect(player, colision, area);
-		if (a) {
+		
+		if (SDL_IntersectRect(player, colision, area)) {
 			/*pTopLeft = trans_player->getPos();
 			pBottomLeft = { pTopLeft.getX(), pTopLeft.getY() + trans_player->getH() };
 			pTopRight = { pTopLeft.getX() + trans_player->getW(), pTopLeft.getY() };

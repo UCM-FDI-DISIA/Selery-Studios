@@ -27,6 +27,10 @@ private:
     DialogueComponent* dialog = nullptr;
     Roulette* roulet;
     bool controladorDetectado;
+    bool moveLeft = false;
+    bool moveRight = false;
+    bool moveUp = false;
+    bool moveDown = false;
     SoundManager* smg_=nullptr;
 public:
     InputComponent(Roulette* r);

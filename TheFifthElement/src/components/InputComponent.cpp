@@ -31,6 +31,27 @@ void InputComponent::initComponent() {
 void InputComponent::update() { //Actualizamos el contador que mide el tiempo
 	unsigned timer = clock();
 	actionDelay = (double(timer) / CLOCKS_PER_SEC);
+
+	if (moveLeft) {
+		mov_->setDir(Vector2D(-1, 0));
+		skin_->changeState(SkinComponent::Left);
+	}
+	else if (moveRight) {
+		mov_->setDir(Vector2D(1, 0));
+		skin_->changeState(SkinComponent::Right);
+	}
+	else if (moveUp) {
+		mov_->setDir(Vector2D(0, -1));
+		skin_->changeState(SkinComponent::Up);
+	}
+	else if (moveDown) {
+		mov_->setDir(Vector2D(0, 1));
+		skin_->changeState(SkinComponent::Down);
+	}
+	else {
+		mov_->setDir(Vector2D(0, 0));
+		skin_->changeState(SkinComponent::Idle);
+	}
 }
 
 
@@ -42,6 +63,7 @@ void InputComponent::handleEvents(SDL_Event event)
 			mov_->setDir(Vector2D(-1, 0));
 			skin_->changeState(SkinComponent::Left);
 		}
+		
 		else if (SDL_GameControllerGetAxis(controller, SDL_CONTROLLER_AXIS_LEFTX) > 8000 && d != RIGHT) {
 			mov_->setDir(Vector2D(1, 0));
 			skin_->changeState(SkinComponent::Right);
@@ -97,29 +119,27 @@ void InputComponent::handleEvents(SDL_Event event)
 		if (!dialog->gethasstarted() && !dialog->getopenedShop()) {
 			
 			if (ih().isKeyDown(SDL_SCANCODE_A) && d != LEFT) {
-				mov_->setDir(Vector2D(-1, 0));
-				skin_->changeState(SkinComponent::Left);
+				moveLeft = true;
 			}
+			else if (ih().isKeyUp(SDL_SCANCODE_A) || d == LEFT) { moveLeft = false; }
+			if (ih().isKeyDown(SDL_SCANCODE_D) && d != RIGHT) {
+				moveRight = true;
+			}
+			else if (ih().isKeyUp(SDL_SCANCODE_D) || d == LEFT) { moveRight = false; }
 			
-			else if (ih().isKeyDown(SDL_SCANCODE_D) && d != RIGHT) {
-				mov_->setDir(Vector2D(1, 0));
-				skin_->changeState(SkinComponent::Right);
+			if (ih().isKeyDown(SDL_SCANCODE_W) && d != UP ) {
+				moveUp = true;
 			}
-			
-			else  if (ih().isKeyDown(SDL_SCANCODE_W) && d != UP ) {
-				mov_->setDir(Vector2D(0, -1));
-				skin_->changeState(SkinComponent::Up);
-			}
+			else if (ih().isKeyUp(SDL_SCANCODE_W) || d == UP) { moveUp = false; }
 
-			else if (ih().isKeyDown(SDL_SCANCODE_S)&&d!=DOWN ) {
-				mov_->setDir(Vector2D(0, 1));
-				skin_->changeState(SkinComponent::Down);
+			if (ih().isKeyDown(SDL_SCANCODE_S)&&d!=DOWN ) {
+				moveDown = true;
 			}
-
-			else {
-				mov_->setDir(Vector2D(0, 0));
-				skin_->changeState(SkinComponent::Idle);
-			}
+			else if (ih().isKeyUp(SDL_SCANCODE_S) || d == DOWN) { moveDown = false; }
+			//else {
+			//	mov_->setDir(Vector2D(0, 0));
+			//	skin_->changeState(SkinComponent::Idle);
+			//}
 
 			if (ih().isKeyDown(SDL_SCANCODE_1) && Elements::instance()->getAir()) {
 				skin_->changeSkin("air");
