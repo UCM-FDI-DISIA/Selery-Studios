@@ -48,7 +48,6 @@ void ShadowComponent::render() {
 		
 
 	}
-	cout << i <<endl<<rect.x<<endl;
 	SDL_Rect src;
 	src.x = 0;
 	src.y = 0;

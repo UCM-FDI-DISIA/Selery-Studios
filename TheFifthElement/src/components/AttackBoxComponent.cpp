@@ -27,7 +27,6 @@ void AttackBoxComponent::initComponent()
 		anim_ = ent_->getComponent<AnimationEnemyBEUComponent>(ANIMATIONENEMYBEUCOMPONENT_H);
 		type = anim_->getType();
 	}
-
 }
 void AttackBoxComponent::render()
 {
@@ -54,7 +53,6 @@ void AttackBoxComponent::handleBoxes()
 	if (isPlayer) {
 		if (type == "fire")
 		{
-
 			//Comprobamos que animaci�n estamos ejecutando y en que punto de la animaci�n estamos 
 			if (im_->getTexKey() == "Player_BEU_fire_attack3"  && im_->getCol() < 8)
 			{
@@ -944,13 +942,52 @@ void AttackBoxComponent::handleBoxes()
 			}
 			else {
 				static_cast<BeatEmUpState*>(mngr_)->getColManager()->checkCollisionE(boxes[0], "earth", ent_->getComponent<AttackEarthBossComponent>(ATTACKEARTHBOSSCOMPONENT_H)->getExtraDamage());
-				if (im_->getCol() == 16)
+				if (im_->getCol() >= 16)
 				{
 					unsigned timer = clock();
 					boxTime = (double(timer) / CLOCKS_PER_SEC);
 					boxes.clear();
 					boxCreated = false;
 				}
+			}
+		}
+		else if ((im_->getTexKey() == "Moose_attack") && im_->getCol() >= 8) {
+			if (!boxCreated && im_->getCol() < 16) {
+				boxes.clear();
+
+				//Para poder cambiar satisfactoriamente la direccion del cuadrado
+				if (im_->getFlip() == SDL_FLIP_NONE) {
+					boxes.push_back(build_sdlrect(entityTr->getPos().getX() - mngr_->camRect_.x + 120 + (entityTr->getW() * entityTr->getS()) / 2, entityTr->getPos().getY() + (entityTr->getH() * entityTr->getS()) / 2 - 20, 100, 100));
+				}
+				else {
+					boxes.push_back(build_sdlrect(entityTr->getPos().getX() - mngr_->camRect_.x - 210 + (entityTr->getW() * entityTr->getS()) / 2, entityTr->getPos().getY() + (entityTr->getH() * entityTr->getS()) / 2 - 20, 100, 100));
+				}
+				boxCreated = true;
+			}
+			else {
+				if (im_->getCol() < 16) {
+					static_cast<BeatEmUpState*>(mngr_)->getColManager()->checkCollisionE(boxes[0], "earth", ent_->getComponent<AttackEarthBossComponent>(ATTACKEARTHBOSSCOMPONENT_H)->getExtraDamage());
+				}
+				else if (im_->getCol() == 16)
+				{
+					unsigned timer = clock();
+					boxTime = (double(timer) / CLOCKS_PER_SEC);
+					boxes.clear();
+					boxCreated = false;
+				}
+			}
+		}
+		else if (im_->getTexKey() == "v1stone1")
+		{
+			cout << "att" << entityTr->getPos().getX()<<endl;
+			if (!boxCreated) {
+				boxes.clear();
+				boxes.push_back(build_sdlrect(entityTr->getPos().getX() - mngr_->camRect_.x, entityTr->getPos().getY() , 100, 100));
+				boxCreated = true;
+			}
+			else {
+				//boxes[0] = build_sdlrect(entityTr->getPos().getX() - mngr_->camRect_.x, entityTr->getPos().getY(), 100, 100);
+				static_cast<BeatEmUpState*>(mngr_)->getColManager()->checkCollisionP(boxes[0], "earth");
 			}
 		}
 	}

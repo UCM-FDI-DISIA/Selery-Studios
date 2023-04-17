@@ -31,6 +31,8 @@ public:
 
 	inline bool getBossProtected() { return bossProtected; }
 	inline void setBossProtected(bool newValue) { bossProtected = newValue; }
+
+	inline void setMarginToAttack(int newValue) { marginToAttack = newValue; }
 };
 #endif
 

@@ -3,7 +3,7 @@
 
 void ColManager::checkCollisionP(SDL_Rect boxAttack,string type)
 {
-	for(auto it: mngr_->getEntities())
+	for (auto it: mngr_->getEntities())
 	{
 		if (it->hasComponent(ENEMYBEUDIRECTIONCOMPONENT_H))
 		{
@@ -53,6 +53,8 @@ void ColManager::checkCollisionP(SDL_Rect boxAttack,string type)
 		}
 		else if (it->hasComponent(LIFEEARTHBOSSCOMPONENT_H)) {
 			ColliderComponent* col = it->getComponent<ColliderComponent>(COLLIDERCOMPONENT_H);
+			cout << "Box: " << boxAttack.x << " , " << boxAttack.y << " , " << boxAttack.w << " , " << boxAttack.h << endl;
+			cout << "Ciervo: " << col->getColRect().x << " , " << col->getColRect().y << " , " << col->getColRect().w << " , " << col->getColRect().h << endl;
 			if (Collision::collides(Vector2D(boxAttack.x, boxAttack.y), boxAttack.w, boxAttack.h, Vector2D(col->getColRect().x, col->getColRect().y), col->getColRect().w, col->getColRect().h))
 			{
 				if (!it->getComponent<MovementEarthBossComponent>(MOVEMENTEARTHBOSSCOMPONENT_H)->getBossProtected()) {

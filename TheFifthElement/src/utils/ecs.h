@@ -63,6 +63,7 @@ enum cmpId : cmpId_type {
 	ICESHADOWCOMPONENT_H = 55,
 	ICEIACOMPONENT_H = 56,
 	LIGHTBOSSELEMENT_H=57,
+	THROWABLEOBJECT_H = 58,
 	// do not remove this
 	_LAST_CMP_ID
 };

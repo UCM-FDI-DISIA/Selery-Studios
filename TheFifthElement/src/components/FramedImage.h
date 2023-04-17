@@ -50,6 +50,7 @@ public:
 	inline string getType() { return type_; }
 
 	inline string getTexKey() { return texKey_; }
+	inline void setTexKey(string newValue) { texKey_ = newValue; }
 
 	inline void setIsAnimUnstoppable(bool newValue) { isAnimUnstoppable_ = newValue; }
 

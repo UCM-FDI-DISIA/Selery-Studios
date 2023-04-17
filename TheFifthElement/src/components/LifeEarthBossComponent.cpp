@@ -11,6 +11,8 @@ void LifeEarthBossComponent::initComponent() {
 	bossTransform = ent_->getComponent<Transform>(TRANSFORM_H);
 	bossImage = ent_->getComponent<FramedImage>(FRAMEDIMAGE_H);
 	bossCol = ent_->getComponent<ColliderComponent>(COLLIDERCOMPONENT_H);
+	bossMovement = ent_->getComponent<MovementEarthBossComponent>(MOVEMENTEARTHBOSSCOMPONENT_H);
+	bossAttackComp = ent_->getComponent<AttackEarthBossComponent>(ATTACKEARTHBOSSCOMPONENT_H);
 
 	backTexture_ = &SDLUtils::instance()->images().at("Earth_LifeBarBack");
 	barTexture_ = &SDLUtils::instance()->images().at("Earth_LifeBar");
@@ -71,6 +73,8 @@ void LifeEarthBossComponent::stageThree() {
 	bossImage->setWidthFrame(MOOSE_WIDTH);
 	bossTransform->setW(MOOSE_WIDTH * 2);
 	bossCol->setCollider(Vector2D(330, 120), (MOOSE_HEIGHT * 2) - 240, 100);
+	bossMovement->setMarginToAttack(65);
+	bossAttackComp->setExtraDamage(0);
 }
 
 void LifeEarthBossComponent::render() {

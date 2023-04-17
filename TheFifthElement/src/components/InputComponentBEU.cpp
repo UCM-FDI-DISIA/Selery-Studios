@@ -127,7 +127,7 @@ void InputComponentBEU::handleEvents(SDL_Event event) {
 	}
 
 	if ((ih().isKeyJustDown(SDL_SCANCODE_O) || SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_X)) && jmp_->isJumpEnabled()) {
-		if (!alreadyPressedBasic) {
+		if (!alreadyPressedBasic && !ent_->hasComponent(THROWABLEOBJECT_H)) {
 			sdlutils().soundEffects().at("playerAttack").play();
 			alreadyPressedBasic = true;
 			if(im_->getType()=="fire")
@@ -196,6 +196,11 @@ void InputComponentBEU::handleEvents(SDL_Event event) {
 				}
 			}
 		}
+		else if (!alreadyPressedBasic && ent_->hasComponent(THROWABLEOBJECT_H))
+		{
+			alreadyPressedBasic = true;
+			ent_->getComponent<ThrowableObject>(THROWABLEOBJECT_H)->throwStone();
+		}
 	}
 	else if (ih().isKeyJustUp(SDL_SCANCODE_O) || !ih().isGamePadButtonDown(SDL_CONTROLLER_BUTTON_X)) alreadyPressedBasic = false;
 
@@ -230,15 +235,15 @@ void InputComponentBEU::handleEvents(SDL_Event event) {
 	else if (ih().isKeyJustUp(SDL_SCANCODE_P) || !ih().isGamePadButtonDown(SDL_CONTROLLER_BUTTON_Y)) alreadyPressedSpecial = false;
 
 	if (ih().isKeyJustDown(SDL_SCANCODE_E)) {
-		if (!alreadyPressed2 && earthStage3) // Recogida de piedras en el stage 3 del boss de tierra
+		if (!alreadyPressed2 && earthStage3 && !ent_->hasComponent(THROWABLEOBJECT_H)) // Recogida de piedras en el stage 3 del boss de tierra
 		{
 			for (auto it : mngr_->getEntities()) {
 				if (it->hasComponent(OBJECTSCOMPONENT_H) && it->getComponent<ObjectsComponent>(OBJECTSCOMPONENT_H)->getInRange()) {
 					static_cast<StoneComponent*>(it->getComponent<StoneComponent>(STONECOMPONENT_H))->stonePicked();
+					ent_->addComponent<ThrowableObject>(THROWABLEOBJECT_H);
 					alreadyPressed2 = true;
 				}
 			}
-			
 		}
 	}
 	else if (ih().isKeyJustUp(SDL_SCANCODE_E)) {

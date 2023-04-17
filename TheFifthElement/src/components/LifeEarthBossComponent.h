@@ -11,10 +11,12 @@
 #include "InputComponentBEU.h"
 #include "ProtectionEarthBossComponent.h"
 #include "MovementEarthBossComponent.h"
+#include "AttackEarthBossComponent.h"
 class BeatEmUpState;
 class LifeEarthBossComponent : public Component
 {
 private:
+	AttackEarthBossComponent* bossAttackComp;
 	ColliderComponent* bossCol;
 	MovementEarthBossComponent* bossMovement;
 	AnimationEarthBossComponent* animEarthBoss;

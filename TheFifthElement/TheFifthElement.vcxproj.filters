@@ -68,6 +68,7 @@
     <ClCompile Include="src\components\ProtectionEarthBossComponent.cpp" />
     <ClCompile Include="src\components\IceShadowComponent.cpp" />
     <ClCompile Include="src\components\IceIAComponent.cpp" />
+    <ClCompile Include="src\components\ThrowableObject.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\components\Button.h" />
@@ -159,6 +160,7 @@
     <ClInclude Include="src\components\ProtectionEarthBossComponent.h" />
     <ClInclude Include="src\components\IceShadowComponent.h" />
     <ClInclude Include="src\components\IceIAComponent.h" />
+    <ClInclude Include="src\components\ThrowableObject.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="TheFifthElement.rc" />

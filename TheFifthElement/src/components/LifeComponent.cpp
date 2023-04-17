@@ -135,9 +135,6 @@ void LifeComponent::Hit(float damage)
 }
 
 void LifeComponent::subLife(float damage) {
-	cout << damage << endl;
-
-
 	life_ -= (damage *= damageMultiplier_);
 
 	if (life_ <= 0) {

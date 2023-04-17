@@ -166,8 +166,8 @@ void BeatEmUpState::AddEarthBoss() {
 	earthBoss_->addComponent<PointOfFightComponent>(POINTOFFIGHTCOMPONENT_H, 60, 140);
 	AnimationEarthBossComponent* earthAnim = earthBoss_->addComponent<AnimationEarthBossComponent>(ANIMATIONEARTHBOSSCOMPONENT_H);
 	earthBoss_->addComponent<MovementEarthBossComponent>(MOVEMENTEARTHBOSSCOMPONENT_H, player_);
-	earthBoss_->addComponent<LifeEarthBossComponent>(LIFEEARTHBOSSCOMPONENT_H);
 	earthBoss_->addComponent<AttackEarthBossComponent>(ATTACKEARTHBOSSCOMPONENT_H);
+	earthBoss_->addComponent<LifeEarthBossComponent>(LIFEEARTHBOSSCOMPONENT_H);
 	earthBoss_->addComponent<AttackBoxComponent>(ATTACKBOXCOMPONENT_H);
 
 

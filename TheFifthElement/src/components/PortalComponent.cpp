@@ -13,7 +13,6 @@ void PortalComponent::initComponent() {
 
 void PortalComponent::elementEarned() {
 	++elementsCollected;
-	cout << "Elemento recogido";
 	if (elementsCollected == 3) {
 		ent_->addComponent<CheckCollision>(CHECKCOLLISION_H, static_cast<TopDownState*> (mngr_)->getplayer(), "portal");
 	}
