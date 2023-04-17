@@ -43,13 +43,21 @@ void ColDetectorComponent::update() {
             col1_->getColRect().y), col1_->getColRect().w, col1_->getColRect().h,
             Vector2D(rect_.x, rect_.y), rect_.w, rect_.h)) lifeC_->Hit(damage_);
     }
-    else { //OLA A PLAYER
+    else { //OLA A PLAYER y ademas cuenta con las flechas de lightboss
         if (obj1_->hasComponent(DISABLEONEXIT_H)) {
             if (Collision::collides(Vector2D(col1_->getColRect().x,
                 col1_->getColRect().y), col1_->getColRect().w, col1_->getColRect().h,
                 Vector2D(col2_->getColRect().x, col2_->getColRect().y),
                 col2_->getColRect().w, col2_->getColRect().h))
-                obj2_->getComponent<LifeComponent>(LIFECOMPONENT_H)->Hit(1.2);
+                if (obj2_->hasComponent(LIFECOMPONENT_H))
+                {
+                    obj2_->getComponent<LifeComponent>(LIFECOMPONENT_H)->Hit(1.2);
+                }
+                else if (obj2_->hasComponent(LIFELIGHTBOSSCOMPONENT_H))
+                {
+                    obj2_->getComponent<LifeLightBossComponent>(LIFELIGHTBOSSCOMPONENT_H)->damage(50);
+                }
+                
         }
         if (obj1_->hasComponent(ICEIACOMPONENT_H))
             obj1_->getComponent<IceIAComponent>(ICEIACOMPONENT_H)->colPlayer(Collision::collides(Vector2D(col1_->getColRect().x,

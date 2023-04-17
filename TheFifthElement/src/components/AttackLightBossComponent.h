@@ -12,6 +12,7 @@
 #include "ColliderComponent.h"
 #include "ColDetectorComponent.h"
 #include "LightBossElement.h"
+#include "../GameManager.h"
 
 class AttackLightBossComponent : public Component
 {
@@ -29,10 +30,19 @@ private:
 	Vector2D dirAtk;
 	Vector2D dirMov;
 	int timer;
+	int timerRand;
+	int opacity = 0;
+	bool blacker = true;
 	int contAtks;
 	Transform* arrowTrans_;
 	FramedImage* arrowIm_;
 	Transform* rayTrans_;
+	GameManager* Gm_;
+	SDL_Rect BSrect = { 0,0,BACKGROUNDBEU_WIDTH,BACKGROUNDBEU_HEIGHT };
+	SDL_Rect BSsrc = { 0,0,100,100 };
+	Texture* blackScreenTex_;
+	RandomNumberGenerator* random;
+
 public:
 	AttackLightBossComponent(Entity* player);
 	void initComponent();
@@ -40,6 +50,7 @@ public:
 	void update();
 	void attack1();
 	void attack2();
+	void render();
 	void shootArrow(); //para solo disparar una flecha de luz
 	void anim1(); //para hacer la animacion y al terminarla atacar
 };
