@@ -96,6 +96,20 @@ void ColManager::checkCollisionP(SDL_Rect boxAttack,string type)
 				it->getComponent<LifeLightBossComponent>(LIFELIGHTBOSSCOMPONENT_H)->damage(10);
 			}
 		}
+		else if (it->hasComponent(FIREBOSSCOMPONENT_H)) {
+			ColliderComponent* col = it->getComponent<ColliderComponent>(COLLIDERCOMPONENT_H);
+			if (Collision::collides(Vector2D(boxAttack.x, boxAttack.y), boxAttack.w, boxAttack.h, Vector2D(col->getColRect().x, col->getColRect().y), col->getColRect().w, col->getColRect().h))
+			{
+				it->getComponent<FireBossComponent>(FIREBOSSCOMPONENT_H)->subLife(10);
+			}
+		}
+		else if (it->hasComponent(LIFEBASICCOMPONENT_H)) {
+			ColliderComponent* col = it->getComponent<ColliderComponent>(COLLIDERCOMPONENT_H);
+			if (Collision::collides(Vector2D(boxAttack.x, boxAttack.y), boxAttack.w, boxAttack.h, Vector2D(col->getColRect().x, col->getColRect().y), col->getColRect().w, col->getColRect().h))
+			{
+				it->getComponent<LifeBasicComponent>(LIFEBASICCOMPONENT_H)->lesslife(1);
+			}
+		}
 	}
 }
 

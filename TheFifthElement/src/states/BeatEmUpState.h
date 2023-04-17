@@ -30,6 +30,7 @@
 #include "../components/AnimationLightBossComponent.h"
 #include "../components/WaterBossIA.h"
 #include "../components/WaterBossLife.h"
+#include "../components/FireBossComponent.h"
 
 using name = string;
 using damage = int;

@@ -15,7 +15,7 @@ protected:
 	int src_height = 40;
 	int jump_poss_y;
 	int i = 0;
-
+	int init_i;
 	SDL_Rect rect;
 
 public:

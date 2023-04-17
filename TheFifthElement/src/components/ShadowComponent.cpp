@@ -24,7 +24,7 @@ void ShadowComponent::render() {
 			- src_width / 2;
 		rect.h = src_width;
 		rect.w = (trans_player->getW()*trans_player->getS()) / 2;
-		i = (trans_player->getW() * trans_player->getS() / 2);
+		i =init_i= (trans_player->getW() * trans_player->getS() / 2);
 	}
 	else {
 		if (trans_player->getDir().getY() > 0) {//abajo
@@ -32,7 +32,7 @@ void ShadowComponent::render() {
 			++i;
 			rect.h = src_width;
 			rect.w =  i;
-			rect.x = trans_player->getPos().getX() - mngr_->camRect_.x + i / 2;
+			rect.x = trans_player->getPos().getX() - mngr_->camRect_.x + init_i-(i / 2);
 			rect.y = jump_poss_y - mngr_->camRect_.y + (trans_player->getH() * trans_player->getS()) -
 				src_width / 2;
 		}
@@ -41,7 +41,7 @@ void ShadowComponent::render() {
 			--i;
 			rect.h = src_width;
 			rect.w = i;
-			rect.x = trans_player->getPos().getX()  - mngr_->camRect_.x+i/2;
+			rect.x = trans_player->getPos().getX()  - mngr_->camRect_.x+ init_i - (i / 2);
 			rect.y = jump_poss_y - mngr_->camRect_.y+(trans_player->getH() * trans_player->getS()) -
 				src_width / 2;
 		}

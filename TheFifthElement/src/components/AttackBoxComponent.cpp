@@ -991,6 +991,52 @@ void AttackBoxComponent::handleBoxes()
 			}
 		}
 	}
+	else if (im_->getType() == "FireBoss") {	//para jefe fuego
+
+		if (im_->getRow() == 2 && im_->getCol() > 3 && im_->getCol() <= 15) {
+			if (!boxCreated) {
+				boxes.clear();
+				for (int i = 0; i < 5; i++) {
+					boxes.push_back(build_sdlrect(entityTr->getPos().getX() - mngr_->camRect_.x + entityTr->getW() / 2, entityTr->getPos().getY() + entityTr->getH(), 15, 10));
+				}
+				boxCreated = true;
+
+				//Para poder cambiar satisfactoriamente la direccion del cuadrado
+				if (im_->getFlip() == SDL_FLIP_HORIZONTAL) {
+					way = 1;
+					stoppingAngle = 182;
+					for (int i = 0; i < boxes.size(); i++)
+					{
+						angles[i] = 180;
+					}
+				}
+				else {
+					way = -1;
+					for (int i = 0; i < boxes.size(); i++) {
+						angles[i] = 5;
+					}
+					stoppingAngle = 3.5;
+				}
+			}
+			else {
+				for (int i = 0; i < boxes.size(); i++) {
+
+					moveBoxCurve(boxes[i], 40 + 15 * i, Vector2D(entityTr->getPos().getX() - mngr_->camRect_.x + entityTr->getW() / 2, entityTr->getPos().getY() + entityTr->getH()), 0.04, angles[i], stoppingAngle, way);
+					static_cast<BeatEmUpState*>(mngr_)->getColManager()->checkCollisionE(boxes[i], type,0);
+				}
+
+
+				if (im_->getCol() >= 14)
+				{
+					unsigned timer = clock();
+					boxTime = (double(timer) / CLOCKS_PER_SEC);
+					boxes.clear();
+					boxCreated = false;
+				}
+			}
+
+		}
+	}
 	else 
 	{
 		if (anim_->getEnemy()=="skeleton")

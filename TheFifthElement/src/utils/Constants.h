@@ -59,6 +59,13 @@ const int enemy_rock_life = 200;
 
 #pragma endregion
 
+#pragma region Fire_Boss_dats
+const int FIREBOSS_WIDTH = 288;
+const int FIREBOSS_HEIGHT = 160;
+const int COLUMN_HEIGHT = 100;
+const int COLUMN_WIDTH = 20;
+#pragma endregion
+
 #pragma region WaterBoss_data
 
 const int WATERBOSS_WIDTH = 192;

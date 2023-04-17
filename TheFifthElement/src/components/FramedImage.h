@@ -36,6 +36,8 @@ public:
 	inline int getCol() { return col; }
 	inline int getLastFrame() { return frames_; }
 
+	inline int getRow() { return fila_; }
+
 	void setAnim(string textureKey, int frames, bool isAnimUnstoppable, int fila = 0); //Metodo generico para cambiar de animacion
 	void setAnim(string textureKey, int col,int frames, bool isAnimUnstoppable, int fila = 0); //Metodo generico para cambiar de animacion
 

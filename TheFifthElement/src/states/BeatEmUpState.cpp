@@ -151,6 +151,14 @@ void BeatEmUpState::AddWaterBoss() {
 }
 
 void BeatEmUpState::AddFireBoss() {
+	Vector2D pos = { WIN_WIDTH / 2,WIN_HEIGHT / 2 };
+	Entity* boss = addEntity();
+	Transform* t = boss->addComponent<Transform>(TRANSFORM_H, pos, FIREBOSS_WIDTH, FIREBOSS_HEIGHT);
+	boss->addComponent<FramedImage>(FRAMEDIMAGE_H, &sdlutils().images().at("FireBoss"),  FIREBOSS_WIDTH, FIREBOSS_HEIGHT,6,0, "FireBoss");
+	boss->addComponent<AttackBoxComponent>(ATTACKBOXCOMPONENT_H);
+	boss->addComponent<FireBossComponent>(FIREBOSSCOMPONENT_H, player_);
+	boss->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(100, 40), (FIREBOSS_WIDTH / 2 - 25), (FIREBOSS_HEIGHT - 75));
+	boss->addComponent<LimitBEU>(LIMITBEU_H);
 
 }
 
