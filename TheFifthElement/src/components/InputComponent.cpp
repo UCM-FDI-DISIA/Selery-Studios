@@ -125,7 +125,7 @@ void InputComponent::handleEvents(SDL_Event event)
 			if (ih().isKeyDown(SDL_SCANCODE_D) && d != RIGHT) {
 				moveRight = true;
 			}
-			else if (ih().isKeyUp(SDL_SCANCODE_D) || d == LEFT) { moveRight = false; }
+			else if (ih().isKeyUp(SDL_SCANCODE_D) || d == RIGHT) { moveRight = false; }
 			
 			if (ih().isKeyDown(SDL_SCANCODE_W) && d != UP ) {
 				moveUp = true;

@@ -169,8 +169,9 @@ void TopDownState::LoadMap(string const& filename) {
                 auto rect = obj.getAABB();
                 string name = object_layer->getName();
 
-                if (name == "COL") {
+                if (name == "Colisiones") {
                     Entity* colision = new Entity();
+
                     colision->addComponent<Transform>(TRANSFORM_H, Vector2D(rect.left*2.5, rect.top*2.5), (rect.width * 2.5)* (WIN_WIDTH / 900), (rect.height * 2.5)* (WIN_HEIGHT / 600));
                     //(fondowidth_ * 2.5)* (WIN_WIDTH / 900),(fondoheight_ * 2.5)* (WIN_HEIGHT / 600)
                     collisions_.push_back(colision);
@@ -441,12 +442,12 @@ void TopDownState::update() {
     }
     // player_->setCollision(false);
     Playernpc_->setcol();
-    for (auto p : collisions_) {
+    /*for (auto p : collisions_) {
         p->update();
     }
     for (auto p : interactions_) {
         p->update();
-    }
+    }*/
     Manager::refresh();
     Manager::update();
     
@@ -463,8 +464,7 @@ void TopDownState::update() {
 
 void TopDownState::handleEvents() {
     SDL_Event event;
-    while (SDL_PollEvent(&event))
-    {
+    SDL_PollEvent(&event);
         in_->handleEvents(event);
         if (dialog_->getopenedShop()) {
             for (auto e : buttons1) {
@@ -475,16 +475,11 @@ void TopDownState::handleEvents() {
             }
             exitShopButton_->handleEvent(event);
         }
-    }
+    
 }
 
 void TopDownState::render() {
-    for (auto p : interactions_) {
-        p->render();
-    }
-    for (auto p : collisions_) {
-        p->render();
-    }
+    
     SDL_Rect dst = { 0,0,(fondowidth_ * 2.5)* (WIN_WIDTH / 900),(fondoheight_ * 2.5)* (WIN_HEIGHT / 600) };
     // posición según el transform de la Camara
     dst.x -= Manager::camRect_.x;
@@ -492,6 +487,12 @@ void TopDownState::render() {
     SDL_Rect src = { 0, 0, fondowidth_, fondoheight_ };
 
     SDL_RenderCopy(Gm_->getRenderer(), background_0, &src, &dst);
+    for (auto p : interactions_) {
+        p->render();
+    }
+    for (auto p : collisions_) {
+        p->render();
+    }
     //SDL_RenderCopy(Gm_->getRenderer(), background_1, &src, &dst);
     //hudTD->render();
     Manager::render();
