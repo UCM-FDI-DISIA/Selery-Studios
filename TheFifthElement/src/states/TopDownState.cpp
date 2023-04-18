@@ -1,6 +1,8 @@
 ﻿#include "TopDownState.h"
 #include "../Game.h"
 
+#include <fstream>
+#include "../Elements.h"
 TopDownState::TopDownState() {
     puzzle1 = new PuzzleCopas();
     ////HUD
@@ -461,6 +463,42 @@ void TopDownState::update() {
     if (camRect_.y < 0) {
         camRect_.y = 0;
     }   
+}
+void TopDownState::SaveGame(){
+
+    if (!saved) {
+        saved = true;
+        ofstream save;
+        save.open("File1.txt");
+        if (save.is_open()) {
+            cout << "hola" << endl;
+            //escribir cosas deñ player
+            save << "PLAYER" << endl;
+            save << player_->getComponent<EconomyComponent>(ECONOMYCOMPONENT_H)->getMoney()<<" MONEY"<<endl;
+            save << trans_player_->getPos().getX() << " " << trans_player_->getPos().getY() << endl;
+            save << Elements::instance()->getEarth() << endl;
+            save << PropertiesManager::instance()->getStrength(3) << " " << PropertiesManager::instance()->getLives(3)<<endl;
+            save << Elements::instance()->getFire() << endl;
+            save<< PropertiesManager::instance()->getStrength(1) << " " << PropertiesManager::instance()->getLives(1) << endl;
+            save << Elements::instance()->getWater() << endl;
+            save<< PropertiesManager::instance()->getStrength(2) << " " << PropertiesManager::instance()->getLives(2) << endl<<endl;
+            
+
+            //ENEMIGUESSS
+            for (auto c : ents_) {
+                if (c->hasComponent(ENEMY_MOVEMENT_TD_H)) {
+                    Transform* f = c->getComponent<Transform>(TRANSFORM_H);
+                    save << c->getComponent<FramedImage>(FRAMEDIMAGE_H)->getTexKey() << endl;
+                    save << f->getPos().getX() << " " << f->getPos().getY() << endl;
+
+
+
+
+                }
+            }
+
+        }
+    }
 }
 
 void TopDownState::handleEvents() {

@@ -62,5 +62,6 @@ public:
 	void shopEconomy();
 	void showShopBackground();
 	void showShopAvatar(Vector2D avatarPos, Vector2D framePos, Texture* avatar, Texture* frame);
+	
 };
 #endif

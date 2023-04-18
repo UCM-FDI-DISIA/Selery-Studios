@@ -117,8 +117,10 @@ void InputComponent::handleEvents(SDL_Event event)
 	ih().update(event);
 	if (ih().keyDownEvent()){
 		if (!dialog->gethasstarted() && !dialog->getopenedShop()) {
-			
-			if (ih().isKeyDown(SDL_SCANCODE_A) && d != LEFT) {
+			if ((ih().isKeyDown(SDL_SCANCODE_J))) {
+				static_cast<TopDownState*>(mngr_)->SaveGame();
+			}
+			else if (ih().isKeyDown(SDL_SCANCODE_A) && d != LEFT) {
 				moveLeft = true;
 			}
 			else if (ih().isKeyUp(SDL_SCANCODE_A) || d == LEFT) { moveLeft = false; }

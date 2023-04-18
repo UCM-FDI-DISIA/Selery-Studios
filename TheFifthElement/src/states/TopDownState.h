@@ -142,6 +142,7 @@ private:
 	//	}
 	//	//printMap();
 	//}
+	bool saved = false;
 	bool shopCreated_ = false;
 public:
 	string getStateID(); // stringID
@@ -153,6 +154,7 @@ public:
 	void DeleteContexto() {
 		Contexto->setAlive(false);
 	}
+	void SaveGame();
 	void update();	
 	void handleEvents();
 	void render();
