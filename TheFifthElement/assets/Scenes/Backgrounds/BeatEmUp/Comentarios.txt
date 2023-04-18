@@ -1,0 +1,2 @@
+Hay que escalar todas las imagenes al mismo tamaño
+Habría que dar nombre a cada imagen para distinguirlas

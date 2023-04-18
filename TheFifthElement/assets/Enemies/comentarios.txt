@@ -1,0 +1,2 @@
+La división principal es entre modo TD y BEU con además un apartado para las varras de vida y cualquier otro elemento que surja de los enemies que sea parta del HUD o de la IU
+Dentro de cada modo los enemigos estarán divididos en reinos

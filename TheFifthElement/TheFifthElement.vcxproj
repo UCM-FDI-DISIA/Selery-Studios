@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{05259677-d139-4be5-b8de-9e33fa2755cf}</ProjectGuid>
+    <RootNamespace>TheFifthElement</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>SDL2-2.26.2\include;.\lib\tmxlite-1.2.1\include;.\lib\SDL2_ttf-2.0.15\include;.\lib\SDL2_mixer-2.0.2\include;.\lib\SDL2_image-2.0.1\include</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>lib\SDL libs\x64;.\lib\tmxlite-1.2.1\lib\x64;.\lib\SDL2_mixer-2.0.2\lib\x64;.\lib\SDL2_image-2.0.1\lib\x64;.\lib\SDL2_ttf-2.0.15\lib\x64</AdditionalLibraryDirectories>
+      <AdditionalDependencies>ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;SDL2.lib;SDL2main.lib;SDL2test.lib;SDL2_ttf.lib;SDL2_image.lib;SDL2_mixer.lib;tmxlite-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>SDL2-2.26.2\include;.\lib\tmxlite-1.2.1\include;.\lib\SDL2_ttf-2.0.15\include;.\lib\SDL2_mixer-2.0.2\include;.\lib\SDL2_image-2.0.1\include</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>lib\SDL libs\x64;$(ProjectDir)lib\tmxlite-1.2.1\lib\x64;.\lib\SDL2_mixer-2.0.2\lib\x64;.\lib\SDL2_image-2.0.1\lib\x64;.\lib\SDL2_ttf-2.0.15\lib\x64</AdditionalLibraryDirectories>
+      <AdditionalDependencies>ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;SDL2.lib;SDL2main.lib;SDL2test.lib;SDL2_ttf.lib;SDL2_image.lib;SDL2_mixer.lib;tmxlite.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="src\components\FireBossComponent.h" />
+    <ClInclude Include="src\components\IceIAComponent.h" />
+    <ClInclude Include="src\components\IceShadowComponent.h" />
+    <ClInclude Include="src\components\AnimationLightBossComponent.h" />
+    <ClInclude Include="src\components\AttackLightBossComponent.h" />
+    <ClInclude Include="src\components\BossCollision.h" />
+    <ClInclude Include="src\components\DisableOnExit.h" />
+    <ClInclude Include="src\components\Damage.h" />
+    <ClInclude Include="src\components\FramedImage.h" />
+    <ClInclude Include="src\components\LifeBasicComponent.h" />
+    <ClInclude Include="src\components\LifeLightBossComponent.h" />
+    <ClInclude Include="src\components\LifeTD.h" />
+    <ClInclude Include="src\components\MovementLightBossComponent.h" />
+    <ClInclude Include="src\components\NPCcollisioncomponent.h" />
+    <ClInclude Include="src\components\Playernpc.h" />
+    <ClInclude Include="src\components\PortalComponent.h" />
+    <ClInclude Include="src\components\ProtectionEarthBossComponent.h" />
+    <ClInclude Include="src\components\rouletteComponent.h" />
+    <ClInclude Include="src\components\SectorCollisionComponent.h" />
+    <ClInclude Include="src\components\StoneComponent.h" />
+    <ClInclude Include="src\components\ThrowableObject.h" />
+    <ClInclude Include="src\components\VolumeSlider.h" />
+    <ClInclude Include="src\states\PauseState.h" />
+    <ClInclude Include="src\components\AttackEarthBossComponent.h" />
+    <ClInclude Include="src\components\EconomyComponent.h" />
+    <ClInclude Include="src\components\SkinBEUComponent.h" />
+    <ClInclude Include="src\components\brightSliderComponent.h" />
+    <ClInclude Include="src\states\OptionsState.h" />
+    <ClInclude Include="src\components\SliderComponent.h" />
+    <ClInclude Include="src\components\PointOfFightComponent.h" />
+    <ClInclude Include="src\components\RedirectEnemy.h" />
+    <ClInclude Include="src\ColManager.h" />
+    <ClInclude Include="src\components\AnimationEarthBossComponent.h" />
+    <ClInclude Include="src\components\ColliderTile.h" />
+    <ClInclude Include="src\components\JumpComponent.h" />
+    <ClInclude Include="src\components\Button.h" />
+    <ClInclude Include="src\components\AnimationEnemyBEUComponent.h" />
+    <ClInclude Include="src\components\ColDetectorComponent.h" />
+    <ClInclude Include="src\components\ColliderComponent.h" />
+    <ClInclude Include="src\components\AttackBoxComponent.h" />
+    <ClInclude Include="src\components\LifeEarthBossComponent.h" />
+    <ClInclude Include="src\components\LimitBEU.h" />
+    <ClInclude Include="src\components\MovementEarthBossComponent.h" />
+    <ClInclude Include="src\components\ObjectsComponent.h" />
+    <ClInclude Include="src\components\ShadowComponent.h" />
+    <ClInclude Include="src\components\ShopComponent.h" />
+    <ClInclude Include="src\Game.h" />
+    <ClInclude Include="src\states\BeatEmUpState.h" />
+    <ClInclude Include="src\components\CheckCollision.h" />
+    <ClInclude Include="src\utils\Collision.h" />
+    <ClInclude Include="src\components\Enemy_movementTD_component.h" />
+    <ClInclude Include="src\components\DialogueComponent.h" />
+    <ClInclude Include="src\components\EnemyBEUDirectionComponent.h" />
+    <ClInclude Include="framework.h" />
+    <ClInclude Include="src\GameManager.h" />
+    <ClInclude Include="src\components\Image.h" />
+    <ClInclude Include="src\components\InputComponent.h" />
+    <ClInclude Include="src\components\InputComponentBEU.h" />
+    <ClInclude Include="src\components\LifeComponent.h" />
+    <ClInclude Include="src\components\MovementComponent.h" />
+    <ClInclude Include="src\components\SkinComponent.h" />
+    <ClInclude Include="src\states\GameState.h" />
+    <ClInclude Include="src\states\GameStateMachine.h" />
+    <ClInclude Include="src\states\MainMenuState.h" />
+    <ClInclude Include="json\JSON.h" />
+    <ClInclude Include="json\JSONValue.h" />
+    <ClInclude Include="Resource.h" />
+    <ClInclude Include="src\sdlutils\Font.h" />
+    <ClInclude Include="src\sdlutils\InputHandler.h" />
+    <ClInclude Include="src\sdlutils\macros.h" />
+    <ClInclude Include="src\sdlutils\Music.h" />
+    <ClInclude Include="src\sdlutils\RandomNumberGenerator.h" />
+    <ClInclude Include="src\sdlutils\SDLUtils.h" />
+    <ClInclude Include="src\sdlutils\SoundEffect.h" />
+    <ClInclude Include="src\sdlutils\SoundManager.h" />
+    <ClInclude Include="src\sdlutils\Texture.h" />
+    <ClInclude Include="src\sdlutils\VirtualTimer.h" />
+    <ClInclude Include="src\states\TopDownState.h" />
+    <ClInclude Include="src\utils\Constants.h" />
+    <ClInclude Include="src\utils\PropertiesManager.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="TheFifthElement.h" />
+    <ClInclude Include="src\components\Transform.h" />
+    <ClInclude Include="src\utils\checkML.h" />
+    <ClInclude Include="src\utils\Component.h" />
+    <ClInclude Include="src\utils\ecs.h" />
+    <ClInclude Include="src\utils\Entity.h" />
+    <ClInclude Include="src\utils\Manager.h" />
+    <ClInclude Include="src\utils\Singleton.h" />
+    <ClInclude Include="src\utils\Vector2D.h" />
+    <ClInclude Include="src\components\WaterBossIA.h" />
+    <ClInclude Include="src\components\WaterBossLife.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\components\FireBossComponent.cpp" />
+    <ClCompile Include="src\components\IceIAComponent.cpp" />
+    <ClCompile Include="src\components\IceShadowComponent.cpp" />
+    <ClCompile Include="src\components\AnimationLightBossComponent.cpp" />
+    <ClCompile Include="src\components\AttackLightBossComponent.cpp" />
+    <ClCompile Include="src\components\DisableOnExit.cpp" />
+    <ClCompile Include="src\components\Damage.cpp" />
+    <ClCompile Include="src\components\FramedImage.cpp" />
+    <ClCompile Include="src\components\LifeBasicComponent.cpp" />
+    <ClCompile Include="src\components\LifeLightBossComponent.cpp" />
+    <ClCompile Include="src\components\MovementLightBossComponent.cpp" />
+    <ClCompile Include="src\components\NPCcollisioncomponent.cpp" />
+    <ClCompile Include="src\components\LifeTD.cpp" />
+    <ClCompile Include="src\components\PortalComponent.cpp" />
+    <ClCompile Include="src\components\ProtectionEarthBossComponent.cpp" />
+    <ClCompile Include="src\components\SectorCollisionComponent.cpp" />
+    <ClCompile Include="src\components\StoneComponent.cpp" />
+    <ClCompile Include="src\components\ThrowableObject.cpp" />
+    <ClCompile Include="src\states\PauseState.cpp" />
+    <ClCompile Include="src\components\AttackEarthBossComponent.cpp" />
+    <ClCompile Include="src\components\EconomyComponent.cpp" />
+    <ClCompile Include="src\components\SkinBEUComponent.cpp" />
+    <ClCompile Include="src\states\OptionsState.cpp" />
+    <ClCompile Include="src\components\sliderComponent.cpp" />
+    <ClCompile Include="src\components\PointOfFightComponent.cpp" />
+    <ClCompile Include="src\components\RedirectEnemy.cpp" />
+    <ClCompile Include="src\ColManager.cpp" />
+    <ClCompile Include="src\components\AnimationEarthBossComponent.cpp" />
+    <ClCompile Include="src\components\ColliderTile.cpp" />
+    <ClCompile Include="src\components\JumpComponent.cpp" />
+    <ClCompile Include="src\components\Button.cpp" />
+    <ClCompile Include="src\components\AnimationEnemyBEUComponent.cpp" />
+    <ClCompile Include="src\components\ColDetectorComponent.cpp" />
+    <ClCompile Include="src\components\AttackBoxComponent.cpp" />
+    <ClCompile Include="src\components\DialogueComponent.cpp" />
+    <ClCompile Include="src\components\Image.cpp" />
+    <ClCompile Include="src\components\LifeEarthBossComponent.cpp" />
+    <ClCompile Include="src\components\LimitBEU.cpp" />
+    <ClCompile Include="src\components\MovementEarthBossComponent.cpp" />
+    <ClCompile Include="src\components\ShadowComponent.cpp" />
+    <ClCompile Include="src\components\ShopComponent.cpp" />
+    <ClCompile Include="src\Game.cpp" />
+    <ClCompile Include="src\states\BeatEmUpState.cpp" />
+    <ClCompile Include="src\components\CheckCollision.cpp" />
+    <ClCompile Include="src\utils\Collision.cpp" />
+    <ClCompile Include="src\components\Enemy_movementTD_component.cpp" />
+    <ClCompile Include="src\components\EnemyBEUDirectionComponent.cpp" />
+    <ClCompile Include="src\GameManager.cpp" />
+    <ClCompile Include="src\components\InputComponent.cpp" />
+    <ClCompile Include="src\components\InputComponentBEU.cpp" />
+    <ClCompile Include="src\components\LifeComponent.cpp" />
+    <ClCompile Include="src\components\MovementComponent.cpp" />
+    <ClCompile Include="src\components\ObjectsComponent.cpp" />
+    <ClCompile Include="src\components\SkinComponent.cpp" />
+    <ClCompile Include="src\states\GameState.cpp" />
+    <ClCompile Include="src\states\GameStateMachine.cpp" />
+    <ClCompile Include="src\states\MainMenuState.cpp" />
+    <ClCompile Include="src\states\TopDownState.cpp" />
+    <ClCompile Include="json\JSON.cpp" />
+    <ClCompile Include="json\JSONValue.cpp" />
+    <ClCompile Include="src\sdlutils\SDLUtils.cpp" />
+    <ClCompile Include="src\sdlutils\SoundEffect.cpp" />
+    <ClCompile Include="src\sdlutils\Texture.cpp" />
+    <ClCompile Include="TheFifthElement.cpp" />
+    <ClCompile Include="src\utils\Component.cpp" />
+    <ClCompile Include="src\utils\Entity.cpp" />
+    <ClCompile Include="src\utils\Manager.cpp" />
+    <ClCompile Include="src\utils\Vector2D.cpp" />
+    <ClCompile Include="src\components\WaterBossIA.cpp" />
+    <ClCompile Include="src\components\WaterBossLife.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="TheFifthElement.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="small.ico" />
+    <Image Include="TheFifthElement.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\resources.json" />
+    <None Include="assets\Scenes\Maps\MapaInicial.tmx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="assets\Sounds\Battle.mp3" />
+    <Media Include="assets\Sounds\Battle.wav" />
+    <Media Include="assets\Sounds\Title.mp3" />
+    <Media Include="assets\Sounds\Title.wav" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>
