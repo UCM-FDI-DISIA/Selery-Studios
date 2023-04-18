@@ -143,8 +143,19 @@ void ColManager::update()
 			ColliderComponent* col = it->getComponent<ColliderComponent>(COLLIDERCOMPONENT_H);
 			if (it->hasComponent(ENEMYBEUDIRECTIONCOMPONENT_H) && !col->getCollisionWithPlayer())
 			{
+				Transform* trPlayer = static_cast<BeatEmUpState*>(mngr_)->getPlayer()->getComponent<Transform>(TRANSFORM_H);
 				Transform* tr = it->getComponent<Transform>(TRANSFORM_H);
-				//poner idle
+				AnimationEnemyBEUComponent* anim = it->getComponent<AnimationEnemyBEUComponent>(ANIMATIONENEMYBEUCOMPONENT_H);
+				FramedImage* im = it->getComponent<FramedImage>(FRAMEDIMAGE_H);
+				anim->changeState(AnimationEnemyBEUComponent::Idle);
+				if (trPlayer->getPos().getX()< tr->getPos().getX())
+				{
+					im->setFlip(SDL_FLIP_HORIZONTAL);
+				}
+				else
+				{
+					im->setFlip(SDL_FLIP_NONE);
+				}
 				tr->setVel(0);
 			}
 		}
