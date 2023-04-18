@@ -14,6 +14,7 @@ private:
     SDL_Rect r;
     Transform* tr_;
     Vector2D offset_;
+    bool collidedWithPlayer = false;
 
 public:
 
@@ -69,5 +70,7 @@ public:
     int getColHeight() { return h_; }
     int getColWidth() { return w_; }
     Vector2D getOffset() { return offset_; }
+    inline void setCollisionWithPlayer(bool col) { collidedWithPlayer = col; }
+    inline bool getCollisionWithPlayer() { return collidedWithPlayer; }
 };
 

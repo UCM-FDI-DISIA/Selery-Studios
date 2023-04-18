@@ -56,7 +56,7 @@ BeatEmUpState::BeatEmUpState(bool Boss,Entity* enemySends, string typeBoss, int 
 	colManager_ = new ColManager(this);
 
 	if (!boss) {
-		//AddEnemies(3);
+		AddEnemies(3);
 		//AddEnemy();
 	}
 	else if (boss && typeBoss == "water") {
@@ -250,6 +250,7 @@ string BeatEmUpState::getStateID() {
 void BeatEmUpState::update() {
 	Manager::refresh();
 	Manager::update();
+	colManager_->update();
 	
 	if (!boss && createdEnemies < numEnemies && cont <= 0) { //aqui salta un fallo porque esta leyendo numenemies que no es fijo, se reduce cuando matas a un enemigo y si matas a un enemigo antes de que se genere otro dejan de generarse
 		AddEnemy();
