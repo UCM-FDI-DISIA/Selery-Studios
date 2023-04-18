@@ -31,6 +31,7 @@ private:
     bool moveRight = false;
     bool moveUp = false;
     bool moveDown = false;
+    bool canTalk = false;
     SoundManager* smg_=nullptr;
 public:
     InputComponent(Roulette* r);

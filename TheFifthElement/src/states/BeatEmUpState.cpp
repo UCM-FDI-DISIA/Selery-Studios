@@ -44,7 +44,6 @@ BeatEmUpState::BeatEmUpState(bool Boss,Entity* enemySends, string typeBoss, int 
 	in_ = player_->addComponent<InputComponentBEU>(INPUTCOMPONENTBEU_H, roulete);
 	player_->addComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
 	player_->addComponent<AttackBoxComponent>(ATTACKBOXCOMPONENT_H);
-	
 	if (typeBoss == "water") player_->addComponent<LimitBEU>(LIMITBEU_H, true);
 	else player_->addComponent<LimitBEU>(LIMITBEU_H);
 
