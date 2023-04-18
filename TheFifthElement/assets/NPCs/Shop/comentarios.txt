@@ -1,4 +1,0 @@
-MerchantWater es un viajero mercante que parece del reino del agua
-Items son los items que se pueden meter en una tienda
-Blacksmith es una coleccion de pngs de un blacksmith pero no de cuerpo entero, parecen icons mas que character
-Vendor es el vendedor de una tienda, no un viajero mercante
