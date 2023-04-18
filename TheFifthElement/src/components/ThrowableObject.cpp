@@ -7,7 +7,7 @@ void ThrowableObject::initComponent() {
 	trStone = stone->addComponent<Transform>(TRANSFORM_H, trPlayer->getPos(), trPlayer->getW(), trPlayer->getH(), 1, 5);
 	imageStone = stone->addComponent<FramedImage>(FRAMEDIMAGE_H, &SDLUtils::instance()->images().at("v1stone1"), 224, 192, 1, "earth");
 	imageStone->setTexKey("v1stone1");
-	stone->addComponent<AttackBoxComponent>(ATTACKBOXCOMPONENT_H);
+	
 	mngr_->addEntity(stone);
 }
 
@@ -37,6 +37,7 @@ void ThrowableObject::render() {
 }
 
 void ThrowableObject::throwStone() {
+	stone->addComponent<AttackBoxComponent>(ATTACKBOXCOMPONENT_H);
 	unsigned timer = clock();
 	throwTime = (double(timer) / CLOCKS_PER_SEC);
 	thrown = true;

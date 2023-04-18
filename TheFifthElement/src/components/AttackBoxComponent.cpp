@@ -959,10 +959,10 @@ void AttackBoxComponent::handleBoxes()
 
 				//Para poder cambiar satisfactoriamente la direccion del cuadrado
 				if (im_->getFlip() == SDL_FLIP_NONE) {
-					boxes.push_back(build_sdlrect(entityTr->getPos().getX() - mngr_->camRect_.x + 120 + (entityTr->getW() * entityTr->getS()) / 2, entityTr->getPos().getY() + (entityTr->getH() * entityTr->getS()) / 2 - 20, 100, 100));
+					boxes.push_back(build_sdlrect(entityTr->getPos().getX() - mngr_->camRect_.x + 80 + (entityTr->getW() * entityTr->getS()) / 2, entityTr->getPos().getY() + (entityTr->getH() * entityTr->getS()) / 2 - 20, 100, 100));
 				}
 				else {
-					boxes.push_back(build_sdlrect(entityTr->getPos().getX() - mngr_->camRect_.x - 210 + (entityTr->getW() * entityTr->getS()) / 2, entityTr->getPos().getY() + (entityTr->getH() * entityTr->getS()) / 2 - 20, 100, 100));
+					boxes.push_back(build_sdlrect(entityTr->getPos().getX() - mngr_->camRect_.x - 170 + (entityTr->getW() * entityTr->getS()) / 2, entityTr->getPos().getY() + (entityTr->getH() * entityTr->getS()) / 2 - 20, 100, 100));
 				}
 				boxCreated = true;
 			}
