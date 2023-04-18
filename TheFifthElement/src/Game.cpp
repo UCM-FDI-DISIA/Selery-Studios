@@ -8,10 +8,10 @@ Game::Game() {
 	Elements::instance();
 	//GameStateMachine::instance()->pushState(new MainMenuState());
 	//GameStateMachine::instance()->pushState(new BeatEmUpState(false, nullptr));
-	//GameStateMachine::instance()->pushState(new BeatEmUpState(true, nullptr, "fire"));
+	GameStateMachine::instance()->pushState(new BeatEmUpState(true, nullptr, "fire"));
 	//GameStateMachine::instance()->pushState(new BeatEmUpState(true, nullptr, "water"));
 	//GameStateMachine::instance()->pushState(new PauseState());
-	GameStateMachine::instance()->pushState(new BeatEmUpState());
+	//GameStateMachine::instance()->pushState(new BeatEmUpState());
 }
 
 Game::~Game(){ // destructora

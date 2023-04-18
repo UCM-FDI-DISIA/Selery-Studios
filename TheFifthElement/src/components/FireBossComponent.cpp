@@ -29,6 +29,7 @@ void FireBossComponent::initComponent() {
 
 	barWidth_ = backWidth_ = borderWidth_ = 300 * scale;
 	barHeight_ = backHeight_ = borderHeight_ = 50 * scale;
+	death->play();
  }
 
 void FireBossComponent::update() {
@@ -48,7 +49,7 @@ void FireBossComponent::update() {
 			velocity_x = (((  initial_posotion.getX()- player_pos.getX()) / WIN_WIDTH)) * 2;
 			velocity_y = ((( initial_posotion.getY()- player_pos.getY()) / WIN_HEIGHT)) * 2;
 			//current = moving_towards_initialpoint;
-
+			hit->play();
 			current = attack;//ATACAMOS
 		}
 		break;
@@ -122,6 +123,8 @@ void FireBossComponent::update() {
 		break;
 
 	case attack: 
+		
+		
 		if (trans_player->getPos().getX() < my_transform->getPos().getX()) {
 			image->setFlip(SDL_FLIP_NONE);
 			image->setAnim("FireBoss", 15, false, 2);
@@ -132,7 +135,7 @@ void FireBossComponent::update() {
 		}
 		velocity_x = 0;
 		velocity_y = 0;
-		cout << image->getCol() << endl;
+		
 		if (image->getCol()>=14) {//acaba el ataque
 			image->setAnim("FireBoss", 12, false, 1);
 			image->setFlip(SDL_FLIP_HORIZONTAL);
@@ -192,7 +195,7 @@ void FireBossComponent::subLife(float dmg) {
 	if (current != recovery && current != paused) {
 		current = attack;
 	}
-	
+	hit->play();
 	//ESTO FUNCIONA
 	if (current_life <= 0.25 * maxLife_ &&  current!=recovery && canfire2 ) {
 		image->setAnim("FireBoss", 8, true, 4);
@@ -202,6 +205,7 @@ void FireBossComponent::subLife(float dmg) {
 		createColumns(column3);
 		canfire2 = false;
 		current = recovery;
+		vanish->play();
 	}
 	else if(current_life <= 0.5 * maxLife_ && canSummonEnemies && current != recovery){
 		summonEnemies(nEnemies);
@@ -215,6 +219,7 @@ void FireBossComponent::subLife(float dmg) {
 		createColumns(column1);
 		createColumns(column2);
 		current = recovery;
+		vanish->play();
 	}
 	else if (current_life <= 0) {
 		ent_->setAlive(false);

@@ -339,7 +339,10 @@
     {"id": "NPC_Chat", "file": "assets/Sounds/NPCs/npcchat.wav"},
     {"id": "coinSound", "file": "assets/Sounds/objects/coin.wav"},
     {"id": "magic", "file": "assets/Sounds/objects/magic.wav"},
-    {"id": "iceBlock", "file": "assets/Sounds/bosses/water/iceBlock.wav"}
+    {"id": "iceBlock", "file": "assets/Sounds/bosses/water/iceBlock.wav"},
+    {"id": "fireboss_death","file": "assets/Enemies/BeatEmUp/Bosses/FireBoss/sounds/sonido_muerte.wav"},
+    {"id": "vanish","file":  "assets/Enemies/BeatEmUp/Bosses/FireBoss/sounds/fire_vanish.wav"},
+    {"id": "fire_golpe","file":  "assets/Enemies/BeatEmUp/Bosses/FireBoss/sounds/Golpe.wav"}
   ],
 
   "musics": [
