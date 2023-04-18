@@ -3,29 +3,18 @@
 #include "../utils/Vector2D.h"
 #include "../sdlutils/SDLUtils.h"
 #include "../sdlutils/Texture.h"
-#include "../components/Transform.h"
-#include "../components/Image.h"
+#include "Transform.h"
+#include "FramedImage.h"
+#include "ColliderComponent.h"
 #include <string>
 using namespace std;
 
-class AnimationEnemyBEUComponent :
-	public Component
-{
-public:
-#pragma region EnumAnims
-	enum AnimationStates
-	{
-		Moving, Attack, Hit, Death, Null
-	};
-
-	AnimationStates currentState_;
-	AnimationStates nextState_;
-
-#pragma endregion
+class AnimationEnemyBEUComponent : public Component {
 private:
 #pragma region ColliderData
 	Vector2D offset_ = Vector2D(0, 0);
 	float ColWidth_, ColHeight_;
+	float scale;
 #pragma endregion
 
 #pragma region spritesData
@@ -38,22 +27,40 @@ private:
 #pragma endregion
 
 #pragma region references
-	Texture* t_;
-	Image* im_;
+	Entity* player_;
+
+	string t_;
+	FramedImage* im_;
 	Transform* tr_;
 	Transform* playerTr_;
+	ColliderComponent* col_;
+	ColliderComponent* playerCol_;
 #pragma endregion
 
+#pragma region parameters
 	bool set_ = false;
+	float posX, playerPosX;
+#pragma endregion
+
 
 public:
-	AnimationEnemyBEUComponent(string type, string enemy) {
+	AnimationEnemyBEUComponent(string type, string enemy, Entity* player) {
 		currentState_ = nextState_ = Null;
 
 		type_ = type;
 		enemy_ = enemy;
+		player_ = player;
+		scale = WIN_WIDTH / 900;
 	}
+#pragma region EnumAnims
+	enum AnimationStates {
+		Moving, Attack, Hit, Death, Null
+	};
 
+	AnimationStates currentState_;
+	AnimationStates nextState_;
+#pragma endregion
+	void initComponent();
 	void update();
 	void changeState(AnimationStates newState);
 	void updateAnimation();
@@ -63,11 +70,16 @@ public:
 	void setAttackTexture();
 	void setHitTexture();
 	void setDeathTexture();
-	inline int Get_enemy_Width() { return EnemyWidth_; }
-	inline int Get_enemy_Height() { return EnemyHeight_; }
-	inline Texture* Get_enemy_Texture() { return t_; }
-	inline string Get_enemy() { return enemy_; }
-	inline string Get_type() { return type_; }
-};
 
+	int getNFrames() { return nframes_; }
+	Texture* getTexture() { return  &SDLUtils::instance()->images().at(t_); }
+	Vector2D getOffset() { return offset_; }
+	int getColWidth() { return ColWidth_; }
+	int getColHeight() { return ColHeight_; }
+	inline string getEnemy() { return enemy_; }
+	inline string getType() { return type_; }
+	inline float getWidth() { return EnemyWidth_; }
+	inline float getHeight() { return EnemyHeight_; }
+	inline int getState() { return currentState_; }
+};
 

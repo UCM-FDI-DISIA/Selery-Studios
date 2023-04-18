@@ -5,16 +5,13 @@ Game::Game() {
 	renderer = SDLUtils::instance()->renderer();
 	window = SDLUtils::instance()->window();
 	exit = false;
-<<<<<<< Updated upstream
-	//GameStateMachine::instance()->pushState(new TopDownState());
+	Elements::instance();
 	GameStateMachine::instance()->pushState(new MainMenuState());
-	//GameStateMachine::instance()->pushState(new BeatEmUpState());
-=======
-	GameStateMachine::instance()->pushState(new TopDownState());
-	//GameStateMachine::instance()->pushState(new MainMenuState());
-	//GameStateMachine::instance()->pushState(new BeatEmUpState(false));
+	//GameStateMachine::instance()->pushState(new BeatEmUpState(false, nullptr));
+	//GameStateMachine::instance()->pushState(new BeatEmUpState(true, nullptr, "fire"));
+	//GameStateMachine::instance()->pushState(new BeatEmUpState(true, nullptr, "water"));
 	//GameStateMachine::instance()->pushState(new PauseState());
->>>>>>> Stashed changes
+	//GameStateMachine::instance()->pushState(new BeatEmUpState());
 }
 
 Game::~Game(){ // destructora
@@ -58,3 +55,7 @@ void Game::render() { //render
 	GameManager::instance()->render();
 	//gameStMc->render();
 }
+
+//void Game::refresh() {
+//	
+//}

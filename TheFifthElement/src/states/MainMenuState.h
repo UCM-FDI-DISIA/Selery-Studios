@@ -1,20 +1,28 @@
 #pragma once
 #include "GameState.h"
 #include "../sdlutils/SDLUtils.h"
-#include "../Entities/Button.h"
-class MainMenuState: public Manager
+#include "../components/Button.h"
+#include "../components/sliderComponent.h"
+#include "../components/FramedImage.h"
+class MainMenuState : public Manager
 {
 private:
-	virtual string getStateID() { return "MainMenu"; }; // stringID
 	Entity* playButton;
-	float playButtonWidth, playButtonHeight;
-	Vector2D playButtonPos;
+	Entity* exitButton;
+	Entity* optionsButton;
+	Entity* slider;
 public:
 	MainMenuState();
 	~MainMenuState() {};
-
+	virtual string getStateID() { return "MainMenu"; }; // stringID
 	void update();
 	void handleEvents();
 	void render();
+
+	Entity* addNewEntity(string t, float w, float h, Vector2D pos, int nframes, int wFrame, int hFrame, bool flip, float size = 1);
+
+	void Background(string file);
+
+	void createButtons();
 };
 

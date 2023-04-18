@@ -1,73 +1,200 @@
 ﻿#include "BeatEmUpState.h"
+#include "../components/SkinBEUComponent.h"
+#include "../Elements.h"
 
+BeatEmUpState::BeatEmUpState(bool Boss,Entity* enemySends, string typeBoss, int nEnemies, int timeGen) {
+	enemySender = enemySends;
+	numEnemies = nEnemies;
+	timeToGenerate = timeGen;
+	boss = Boss;
+	typeBoss_ = typeBoss;
+	SDLUtils::instance()->soundEffects().at("Battle").play();
 
-BeatEmUpState::BeatEmUpState() {
+	random = &SDLUtils::instance()->rand();
+
+	//BACKGROUND
+	background_ = new Entity();
+	if (typeBoss == "water") {
+		background_->addComponent<Transform>(TRANSFORM_H, Vector2D(0, 0), WIN_WIDTH, WIN_HEIGHT);
+		background_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("fondoBossAgua"));
+	}
+	else {
+		background_->addComponent<Transform>(TRANSFORM_H, Vector2D(0, 0), BACKGROUNDBEU_WIDTH, WIN_HEIGHT);
+		background_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("BEU_Background"));
+	}
+	addEntity(background_);
+
+	//HUD
+	Hud_ = new Entity();
+	Hud_->setContext(this);
+	roulete = Hud_->addComponent<Roulette>(ROULETTECOMPONENT_H);
+
+	//PLAYER
 	player_ = new Entity();
 	player_->setContext(this);
-	trans_player_ = player_->addComponent<Transform>(TRANSFORM_H,Vector2D( PlayerPosition_X, PlayerPosition_Y), PLAYERBEU_WIDTH_FRAME, PLAYERBEU_HEIGHT_FRAME);
-	player_->addComponent<Image>(int(IMAGE_H), &SDLUtils::instance()->images().at("Player_BEU") , 7, 28, 0, PLAYERBEU_WIDTH_FRAME, PLAYERBEU_HEIGHT_FRAME);
+	trans_player_ = player_->addComponent<Transform>(TRANSFORM_H, Vector2D(PlayerPosition_X, PlayerPosition_Y), PLAYERBEU_WIDTH_FRAME, PLAYERBEU_HEIGHT_FRAME, 1);
+	sk_ = player_->addComponent<SkinBEUComponent>(SKINBEUCOMPONENT_H, "air");
+	sk_->changeState(SkinBEUComponent::Idle);
+	texture_player_ = &SDLUtils::instance()->images().at(sk_->getSkin());
+	player_->addComponent<FramedImage>(FRAMEDIMAGE_H, texture_player_, PLAYERBEU_WIDTH_FRAME, PLAYERBEU_HEIGHT_FRAME, 8, "air");
 	player_->addComponent<JumpComponent>(JUMP_H);
-	in_ = player_->addComponent<InputComponentBEU>(INPUTCOMPONENTBEU_H);
+	addEntity(Hud_);
+	player_->addComponent<LifeComponent>(LIFECOMPONENT_H, props_->instance()->getLives(0));
+	player_->addComponent<ShadowComponent>(SHADOWCOMPONENT_H);
+	in_ = player_->addComponent<InputComponentBEU>(INPUTCOMPONENTBEU_H, roulete);
 	player_->addComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
 	player_->addComponent<AttackBoxComponent>(ATTACKBOXCOMPONENT_H);
-	player_->addComponent<LimitBEU>(LIMITBEU_H);
-	player_->addComponent<ColliderComponent>(int(COLLIDERCOMPONENT_H), Vector2D(120, 70), PLAYERBEU_HEIGHT_FRAME / 2, PLAYERBEU_WIDTH_FRAME / 7);
-	player_->getComponent<AttackBoxComponent>(ATTACKBOXCOMPONENT_H);
+	
+	if (typeBoss == "water") player_->addComponent<LimitBEU>(LIMITBEU_H, true);
+	else player_->addComponent<LimitBEU>(LIMITBEU_H);
+
+	player_->addComponent<ColliderComponent>(int(COLLIDERCOMPONENT_H), Vector2D(90, 80), 1.2*PLAYERBEU_HEIGHT_FRAME / 3, PLAYERBEU_WIDTH_FRAME / 7);
+	player_->addComponent<PointOfFightComponent>(POINTOFFIGHTCOMPONENT_H, 30, 10);
+	sk_->initComponent();
 	addEntity(player_);
-
-	background_ = new Entity();
-	background_->addComponent<Transform>(int(TRANSFORM_H), Vector2D(0,0), WIN_WIDTH, WIN_HEIGHT);
-	background_->addComponent<Image>(int(IMAGE_H), &SDLUtils::instance()->images().at("airBackground"), 0, 0, 0, BACKGROUNDAIR_WIDTH_FRAME, BACKGROUNDAIR_HEIGHT_FRAME);
-	addEntity(background_);
 	
-	AddEnemies(3);
+	colManager_ = new ColManager(this);
 
-	
-
-	//colMan_ = new ColManager(this);
-
-	
+	if (!boss) {
+		//AddEnemies(3);
+		//AddEnemy();
+	}
+	else if (boss && typeBoss == "water") {
+		AddWaterBoss();
+	}
+	else if (boss && typeBoss == "earth") {
+		AddEarthBoss();
+	}
+	else if (boss && typeBoss == "light") {
+		AddLightBoss();
+	}
+	else if (boss && typeBoss == "fire") {
+		AddFireBoss();
+	}
 }
+
+void BeatEmUpState::AddEnemy() {
+	int character = random->nextInt(0, 4);
+	int type = random->nextInt(0, 4);
+	int dist = 900 * (WIN_WIDTH / 900);
+	Vector2D pos = { trans_player_->getPos().getX() + dist ,(float)random->nextInt(50,WIN_HEIGHT - 50) };
+	enemy_ = new Entity();
+	enemy_->setContext(this);
+	if (character == 0) animation_ = enemy_->addComponent<AnimationEnemyBEUComponent>(ANIMATIONENEMYBEUCOMPONENT_H, getEnemyType(type), "bat", player_);
+
+	else if (character == 1) animation_ = enemy_->addComponent<AnimationEnemyBEUComponent>(ANIMATIONENEMYBEUCOMPONENT_H, getEnemyType(type), "skeleton", player_);
+
+	else if (character == 2) animation_ = enemy_->addComponent<AnimationEnemyBEUComponent>(ANIMATIONENEMYBEUCOMPONENT_H, getEnemyType(type), "shroom", player_);
+
+	else animation_ = enemy_->addComponent<AnimationEnemyBEUComponent>(ANIMATIONENEMYBEUCOMPONENT_H, getEnemyType(type), "goblin", player_);
+
+	enemy_->addComponent<Transform>(TRANSFORM_H, pos, ENEMYBEU_WIDTH, ENEMYBEU_HEIGHT, 2)->setDir(Vector2D(1, 0));
+	enemy_->addComponent<FramedImage>(FRAMEDIMAGE_H, animation_->getTexture(), ENEMYBEU_WIDTH, ENEMYBEU_HEIGHT, animation_->getNFrames(), getEnemyType(type));
+	enemy_->addComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
+	enemy_->addComponent<EnemyBEUDirectionComponent>(ENEMYBEUDIRECTIONCOMPONENT_H, player_, animation_->getEnemy());
+	enemy_->addComponent<LifeComponent>(LIFECOMPONENT_H, ENEMYBEU_MAXLIFE);
+	enemy_->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, animation_->getOffset(), animation_->getColHeight(), animation_->getColWidth());
+	enemy_->addComponent<ColDetectorComponent>(COLDETECTORCOMPONENT_H, enemy_, player_);
+	animation_->initComponent();
+	enemy_->addComponent<AttackBoxComponent>(ATTACKBOXCOMPONENT_H);
+
+	addEntity(enemy_);
+}
+
 void BeatEmUpState::AddEnemies(int n_enemies) {
 	for (int i = 0; i < n_enemies; ++i) {
+		numEnemies = n_enemies;
 		int character = random->nextInt(0, 4);
 		int type = random->nextInt(0, 4);
 		Vector2D pos={ (float)random->nextInt(50,WIN_WIDTH - 80),(float)random->nextInt(50,WIN_HEIGHT - 50) };
-		if (character == 0) {
-			
-			//enemy_ = addEntity(new EnemyBEU(pos, player_, 10, "bat", getEnemyType(element)));
-			animation_=enemy_->addComponent<AnimationEnemyBEUComponent>(ANIMATIONENEMYBEUCOMPONENT_H, getEnemyType(type), "bat");
-		}
-		else if (character == 1) {
-			animation_=enemy_->addComponent<AnimationEnemyBEUComponent>(ANIMATIONENEMYBEUCOMPONENT_H, getEnemyType(type), "skeleton");
+		enemy_ = new Entity();
+		enemy_->setContext(this);
+		if (character == 0) animation_=enemy_->addComponent<AnimationEnemyBEUComponent>(ANIMATIONENEMYBEUCOMPONENT_H, getEnemyType(type), "bat", player_);
 
-			
-		}
-		else if (character == 2) {
-			animation_ = enemy_->addComponent<AnimationEnemyBEUComponent>(ANIMATIONENEMYBEUCOMPONENT_H, getEnemyType(type), "shroom");
-			
-		}
-		else {
-			//en_ = addEntity(new EnemyBEU(pos, player_, 10, "goblin", getEnemyType(element)));
-			animation_ = enemy_->addComponent<AnimationEnemyBEUComponent>(ANIMATIONENEMYBEUCOMPONENT_H, getEnemyType(type), "goblin");
-			
-		}
-		animation_->changeState(AnimationEnemyBEUComponent::Moving);
-		animation_->updateAnimation();
+		else if (character == 1) animation_=enemy_->addComponent<AnimationEnemyBEUComponent>(ANIMATIONENEMYBEUCOMPONENT_H, getEnemyType(type), "skeleton", player_);
 
-		enemy_->addComponent<Transform>(TRANSFORM_H, pos, animation_->Get_enemy_Width(), animation_->Get_enemy_Height());
-		//enemy->addComponent<Image>(IMAGE_H, animation_->Get_enemy_Texture(), nframes_, nframes_, fila_, ENEMYBEU_WIDTH, ENEMYBEU_HEIGHT);
+		else if (character == 2) animation_ = enemy_->addComponent<AnimationEnemyBEUComponent>(ANIMATIONENEMYBEUCOMPONENT_H, getEnemyType(type), "shroom", player_);
+
+		else animation_ = enemy_->addComponent<AnimationEnemyBEUComponent>(ANIMATIONENEMYBEUCOMPONENT_H, getEnemyType(type), "goblin", player_);
+
+		////animation_->changeState(AnimationEnemyBEUComponent::Moving);
+		////animation_->updateAnimation();
+
+		enemy_->addComponent<Transform>(TRANSFORM_H, pos, ENEMYBEU_WIDTH, ENEMYBEU_HEIGHT)->setDir(Vector2D(1, 0));
+		enemy_->addComponent<FramedImage>(FRAMEDIMAGE_H, animation_->getTexture(), ENEMYBEU_WIDTH, ENEMYBEU_HEIGHT, animation_->getNFrames(), getEnemyType(type));
 		enemy_->addComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
-		enemy_->addComponent<EnemyBEUDirectionComponent>(ENEMYBEUDIRECTIONCOMPONENT_H, player_, animation_->Get_enemy());
-		enemy_->addComponent<LifeComponent>(LIFECOMPONENT_H, ENEMYBEU_MAXLIFE, nullptr);
-		//enemy->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, offset_, ColHeight_, ColWidth_);
-		addEntity(enemy_);
-
+		enemy_->addComponent<EnemyBEUDirectionComponent>(ENEMYBEUDIRECTIONCOMPONENT_H, player_, animation_->getEnemy());
+		enemy_->addComponent<LifeComponent>(LIFECOMPONENT_H, ENEMYBEU_MAXLIFE);
+		enemy_->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, animation_->getOffset(), animation_->getColHeight(), animation_->getColWidth());
+		enemy_->addComponent<ColDetectorComponent>(COLDETECTORCOMPONENT_H, enemy_, player_);
+		animation_->initComponent();
+		enemy_->addComponent<AttackBoxComponent>(ATTACKBOXCOMPONENT_H);
 		
-	
-		//en_->getComponent<LifeComponent>(LIFECOMPONENT_H)->setLifeBar(lb_);
+		addEntity(enemy_);
 	}
 }
+
+void BeatEmUpState::AddWaterBoss() {
+	numEnemies = 1;
+	Vector2D position = Vector2D(sdlutils().width() * 3 / 4 - WATERBOSS_WIDTH , sdlutils().height()/2);
+
+	Entity* waterBoss = addEntity();
+	waterBoss->addComponent<Transform>(TRANSFORM_H, position, WATERBOSS_WIDTH, WATERBOSS_HEIGHT, 2.4);
+	////waterBoss->addComponent<FramedImage>(FRAMEDIMAGE_H, &sdlutils().images().at("waterBoss"), 6, 16, 0, WATERBOSS_WIDTH, WATERBOSS_HEIGHT);
+	waterBoss->addComponent<FramedImage>(FRAMEDIMAGE_H, &sdlutils().images().at("waterBoss"), WATERBOSS_WIDTH, WATERBOSS_HEIGHT, 16, 0, "water");
+	waterBoss->addComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
+	waterBoss->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(50, 10), WATERBOSS_HEIGHT, WATERBOSS_WIDTH/2);
+	waterBoss->addComponent<WaterBossLife>(WATERBOSSLIFE_H, 1);
+	waterBoss->addComponent<WaterBossIA>(WATERBOSSIA_H, player_);
+}
+
+void BeatEmUpState::AddFireBoss() {
+	numEnemies = 4; // Boss + enemigos que spawnea
+	Vector2D pos = { WIN_WIDTH / 2,WIN_HEIGHT / 2 };
+	Entity* boss = addEntity();
+	Transform* t = boss->addComponent<Transform>(TRANSFORM_H, pos, FIREBOSS_WIDTH, FIREBOSS_HEIGHT);
+	boss->addComponent<FramedImage>(FRAMEDIMAGE_H, &sdlutils().images().at("FireBoss"),  FIREBOSS_WIDTH, FIREBOSS_HEIGHT,6,0, "FireBoss");
+	boss->addComponent<AttackBoxComponent>(ATTACKBOXCOMPONENT_H);
+	boss->addComponent<FireBossComponent>(FIREBOSSCOMPONENT_H, player_);
+	boss->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(100, 40), (FIREBOSS_WIDTH / 2 - 25), (FIREBOSS_HEIGHT - 75));
+	boss->addComponent<LimitBEU>(LIMITBEU_H);
+}
+
+void BeatEmUpState::AddEarthBoss() {
+	numEnemies = 1;
+	//Vector2D pos = { WIN_WIDTH , WIN_HEIGHT / 2 };
+	Vector2D pos = Vector2D(sdlutils().width() * 3 / 4 - WATERBOSS_WIDTH, sdlutils().height() / 2);
+	earthBoss_ = new Entity();
+	earthBoss_->setContext(this);
+	Transform* t = earthBoss_->addComponent<Transform>(TRANSFORM_H, pos, EARTHBOSS_WIDTH * 2, EARTHBOSS_HEIGHT * 2);
+	earthBoss_->addComponent<FramedImage>(FRAMEDIMAGE_H, &SDLUtils::instance()->images().at("GolemFase1_idle"), EARTHBOSS_WIDTH, EARTHBOSS_HEIGHT, 8, "earth");
+	earthBoss_->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(150, 120), (EARTHBOSS_HEIGHT * 2) - 240, (EARTHBOSS_WIDTH * 2) - 300);
+	earthBoss_->addComponent<PointOfFightComponent>(POINTOFFIGHTCOMPONENT_H, 60, 140);
+	AnimationEarthBossComponent* earthAnim = earthBoss_->addComponent<AnimationEarthBossComponent>(ANIMATIONEARTHBOSSCOMPONENT_H);
+	earthBoss_->addComponent<MovementEarthBossComponent>(MOVEMENTEARTHBOSSCOMPONENT_H, player_);
+	earthBoss_->addComponent<AttackEarthBossComponent>(ATTACKEARTHBOSSCOMPONENT_H);
+	earthBoss_->addComponent<LifeEarthBossComponent>(LIFEEARTHBOSSCOMPONENT_H);
+	earthBoss_->addComponent<AttackBoxComponent>(ATTACKBOXCOMPONENT_H);
+
+	addEntity(earthBoss_);
+}
+
+void BeatEmUpState::AddLightBoss() {
+	//AddEnemies(5);
+	numEnemies = 1;
+	Entity* lightBoss = new Entity();
+	lightBoss->setContext(this);
+	lightBoss->addComponent<Transform>(TRANSFORM_H, Vector2D(700, WIN_HEIGHT/2), LIGHTBOSS_WIDTH, LIGHTBOSS_HEIGHT);
+	lightBoss->addComponent<FramedImage>(FRAMEDIMAGE_H, &SDLUtils::instance()->images().at("BEULightBossIdle"), LIGHTBOSS_WIDTH, LIGHTBOSS_HEIGHT, 12, "light");
+	lightBoss->addComponent<MovementLightBossComponent>(MOVEMENTLIGHTBOSSCOMPONENT_H, player_);
+	lightBoss->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(0, 0), LIGHTBOSS_HEIGHT, LIGHTBOSS_WIDTH);
+	lightBoss->addComponent<AttackLightBossComponent>(ATTACKLIGHTBOSSCOMPONENT_H,player_);
+	lightBoss->addComponent<LifeLightBossComponent>(LIFELIGHTBOSSCOMPONENT_H);
+	//animation
+	//attack box y point of fight ns
+	addEntity(lightBoss);
+}
+
 string BeatEmUpState::getEnemyType(int i) {
 	if (i == 0) {
 		return "fire";
@@ -79,21 +206,41 @@ string BeatEmUpState::getEnemyType(int i) {
 		return "earth";
 	}
 	else {
-		return "wind";
+		return "air";
 	}
-
 }
+
 void BeatEmUpState::handleEvents() {
 	SDL_Event event;
 	while (SDL_PollEvent(&event)) { in_->handleEvents(event); }
 	if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_V)) { finishBEU(); };
-	
+
 }
 
 void BeatEmUpState::finishBEU() {
-	GameManager::instance()->goTopDown();
-	SDLUtils::instance()->soundEffects().at("Battle").haltChannel();
-	
+	numEnemies -= 1;
+	if (numEnemies <= 0)
+	{		
+		// DESBLOQUEO DE PERSONAJES
+		if (boss) {
+			if (typeBoss_ == "water") Elements::instance()->setWater();
+			else if (typeBoss_ == "earth") Elements::instance()->setEarth();
+			else if (typeBoss_ == "fire") Elements::instance()->setFire();
+			props_->instance()->addMoney(200); // monedas ganadas al derrotar un boss
+		}
+		else {
+			props_->instance()->addMoney(50); // monedas ganadas al derrotar non-bosses
+		}
+		Saving::instance()->deletePos();
+		SDLUtils::instance()->soundEffects().at("Battle").haltChannel();
+		GameManager::instance()->goTopDown();
+		
+		if(enemySender != nullptr)enemySender->~Entity();
+	}
+	//if (!player_->isAlive()) {
+	//	SDLUtils::instance()->soundEffects().at("Battle").haltChannel();
+	//	GameManager::instance()->goTopDown();
+	//}
 }
 
 string BeatEmUpState::getStateID() {
@@ -101,16 +248,24 @@ string BeatEmUpState::getStateID() {
 }
 
 void BeatEmUpState::update() {
-	/*Manager::refresh();*/
+	Manager::refresh();
 	Manager::update();
-	camRect_.x = (trans_player_->getPos().getX() + camOffset_) - WIN_WIDTH / 2;
-	camRect_.y = (trans_player_->getPos().getY() - WIN_HEIGHT / 2);
-	// Clamp
-	if (camRect_.x < 0) {
-		camRect_.x = 0;
+	
+	if (!boss && createdEnemies < numEnemies && cont <= 0) { //aqui salta un fallo porque esta leyendo numenemies que no es fijo, se reduce cuando matas a un enemigo y si matas a un enemigo antes de que se genere otro dejan de generarse
+		AddEnemy();
+		cont = timeToGenerate;
+		createdEnemies++;
 	}
+	cont--;
+
+	camRect_.x = (trans_player_->getPos().getX() + camOffset_) - WIN_WIDTH / 2;
+	//camRect_.x = camRect_.x + ((trans_player_->getPos().getX() + camOffset_ - camRect_.x) - WIN_WIDTH / 2) * 0.05;
 	camRect_.y = 0;
-	if (camRect_.x > (BACKGROUNDAIR_WIDTH_FRAME)) {
-			camRect_.x = BACKGROUNDAIR_WIDTH_FRAME;
+	// Clamp de la cámara
+	if (camRect_.x < 0 || typeBoss_ == "water") {
+		camRect_.x = 0;
+	}	
+	else if (camRect_.x > BACKGROUNDBEU_WIDTH - WIN_WIDTH) {
+		camRect_.x = BACKGROUNDBEU_WIDTH - WIN_WIDTH;
 	}
 }

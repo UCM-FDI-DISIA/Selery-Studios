@@ -5,28 +5,25 @@ JumpComponent::~JumpComponent() {}
 
 void JumpComponent::initComponent() {
     tr_ = ent_->getComponent<Transform>(TRANSFORM_H);
-    im_ = ent_->getComponent<Image>(IMAGE_H);
     assert(tr_ != nullptr);
-    assert(im_ != nullptr);
+    jumpHeigth = 150;
 }
 
 void JumpComponent::update() {
     if (!canJump) {
         // Si el jugador ha alcanzado el punto mas alto del salto, invertir la velocidad del salto
-        if (im_->getCol() == 3) { ctr = true; }
-        else if (im_->getCol() == 7 && ctr) {
+        if (groundHeigth - jumpHeigth >= tr_->getPos().getY()) {
             jumpSpeed = -jumpSpeed;
-            ctr = false;
+            ctr = true;
         }
-        else if (im_->getCol() == 9) { ctr = true; }
-
+       
         // Actualizar la posicion vertical del jugador en funci�n de la velocidad del salto
         tr_->setDir(Vector2D(tr_->getDir().getX(), -jumpSpeed));
 
-        // Si el jugador ha alcanzado la altura m�xima del salto, establecer canJump en verdadero
-        if (tr_->getPos().getY() >= jumpHeigth && ctr) {
+        // Si el jugador ha alcanzado la altura maxima del salto, establecer canJump en verdadero
+        if (ctr && tr_->getPos().getY() >= groundHeigth) {
             canJump = true;
-            tr_->setDir(Vector2D(0, 0));
+            tr_->setDir(Vector2D(tr_->getDir().getX(), 0));
             jumpSpeed = -jumpSpeed;
             ctr = false;
         }
@@ -35,7 +32,8 @@ void JumpComponent::update() {
 
 void JumpComponent::jump() {
     if (canJump) {
-        jumpHeigth = tr_->getPos().getY();
+        groundHeigth = tr_->getPos().getY();
         canJump = false;
+        ctr = false;
     }
 }

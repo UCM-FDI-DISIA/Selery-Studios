@@ -6,6 +6,8 @@
 #include "states/TopDownState.h"
 #include "states/BeatEmUpState.h"
 #include "states/MainMenuState.h"
+#include "states/PauseState.h"
+#include "Elements.h"
 class Game
 {
 private:
@@ -19,6 +21,7 @@ public:
 	void render();
 	void update();
 	void run();// blucle de juego
+	/*void refresh();*/
 	SDL_Renderer* getRenderer() {
 		return SDLUtils::instance()->renderer();
 	}

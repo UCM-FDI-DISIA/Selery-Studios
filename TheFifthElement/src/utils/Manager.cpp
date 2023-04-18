@@ -2,9 +2,6 @@
 SDL_Rect Manager::camRect_ = { 0,0, WIN_WIDTH, WIN_HEIGHT };
 Manager::Manager() {
 	ents_.reserve(100);
-	/*for (auto& grpEnts : entsByGroup_) {
-		grpEnts.reserve(100);
-	}*///groups
 }
 
 

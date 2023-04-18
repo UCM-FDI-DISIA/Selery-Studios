@@ -11,3 +11,6 @@ C:\Users\Msi1\Desktop\Selery-Studios\TheFifthElement\x64\Debug\TheFifthElement.e
 C:\Users\julve\Desktop\UNIVERSIDAD\SEGUNDO\P2\Selery-Studios\TheFifthElement\x64\Debug\TheFifthElement.exe
 C:\Selery-Studios\TheFifthElement\x64\Debug\TheFifthElement.exe
 D:\GitHub\Selery-Studios\TheFifthElement\x64\Debug\TheFifthElement.exe
+C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\x64\Debug\TheFifthElement.exe
+C:\Users\david\Downloads\Selery-Studios\TheFifthElement\x64\Debug\TheFifthElement.exe
+C:\Users\pmq12\OneDrive\Escritorio\SeleryStudios\TheFifthElement\x64\Debug\TheFifthElement.exe
