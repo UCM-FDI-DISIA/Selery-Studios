@@ -3,12 +3,15 @@
 #include "../utils/Entity.h"
 #include <cmath>
 #include <math.h>
+
 FireBossComponent::FireBossComponent(Entity* player) {
 	this->player = player;
 }
+
 FireBossComponent::~FireBossComponent() {
 
 }
+
 void FireBossComponent::initComponent() {
 	my_transform = ent_->getComponent<Transform>(TRANSFORM_H);
 	assert(my_transform != nullptr);
@@ -26,12 +29,7 @@ void FireBossComponent::initComponent() {
 
 	barWidth_ = backWidth_ = borderWidth_ = 300 * scale;
 	barHeight_ = backHeight_ = borderHeight_ = 50 * scale;
-
-
-
-
  }
-
 
 void FireBossComponent::update() {
 	//cout << image->getCol() << endl;
@@ -68,7 +66,6 @@ void FireBossComponent::update() {
 		break;
 
 	case paused: 
-		
 		//Movimiento
 		if (my_transform->getPos().getX() > sdlutils().width()) { 
 			velocity_x = 0; 
@@ -80,14 +77,17 @@ void FireBossComponent::update() {
 		}
 
 		//Vuelta del Boss a la batalla
-		for (int i = 0; i < nEnemies; i++) if (enemyRef[i]->getLife() > 0) {
-			if (current_life < maxLife_) {
-				current_life += 2;
-				int save = barWidth_;
-				barWidth_ = ((current_life * backWidth_) / maxLife_);
+		for (int i = 0; i < nEnemies; i++) {
+			if (enemyRef[i] == nullptr || enemyRef[i]->getLife() > 0) {
+				if (current_life < maxLife_) {
+					current_life += 2;
+					int save = barWidth_;
+					barWidth_ = ((current_life * backWidth_) / maxLife_);
+				}
+				return;
 			}
-			return;
-		}// Si hay algun enemigo vivo se acaba el update
+		}
+		// Si hay algun enemigo vivo se acaba el update
 		// Si no, se cambia de estado y vuelve a pelear
 		velocity_x = -1;
 		current = moving_towards_player; 
@@ -110,7 +110,6 @@ void FireBossComponent::update() {
 			}
 
 		}
-		
 		my_transform->setPos(initial_posotion);
 		image->setAnim("FireBoss", 12, false, 1);
 		image->setFlip(SDL_FLIP_NONE);
@@ -153,20 +152,20 @@ void FireBossComponent::summonEnemies(int n) { // Crea 4 enemigos de fuego aleat
 		enemy->addComponent<Transform>(TRANSFORM_H, pos, ENEMYBEU_WIDTH, ENEMYBEU_HEIGHT, 1)->setDir(Vector2D(1, 0));
 		AnimationEnemyBEUComponent* anim = enemy->addComponent<AnimationEnemyBEUComponent>(ANIMATIONENEMYBEUCOMPONENT_H, "fire", enemyTypes[rand() % 4], player);
 		anim->changeState(AnimationEnemyBEUComponent::Moving);
-		anim->updateAnimation();
-		enemy->addComponent<FramedImage>(FRAMEDIMAGE_H, anim->getTexture(), ENEMYBEU_WIDTH, ENEMYBEU_HEIGHT, anim->getNFrames(), anim->getNFrames());
+		enemy->addComponent<Transform>(TRANSFORM_H, pos, ENEMYBEU_WIDTH, ENEMYBEU_HEIGHT, 2)->setDir(Vector2D(1, 0));
+		enemy->addComponent<FramedImage>(FRAMEDIMAGE_H, anim->getTexture(), ENEMYBEU_WIDTH, ENEMYBEU_HEIGHT, anim->getNFrames(), anim->getType());
 		enemy->addComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
 		enemy->addComponent<EnemyBEUDirectionComponent>(ENEMYBEUDIRECTIONCOMPONENT_H, player, anim->getEnemy());
 		enemy->addComponent<LifeComponent>(LIFECOMPONENT_H, ENEMYBEU_MAXLIFE);
 		enemy->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, anim->getOffset(), anim->getColHeight(), anim->getColWidth());
 		enemy->addComponent<ColDetectorComponent>(COLDETECTORCOMPONENT_H, enemy, player);
+		anim->initComponent();
 		enemy->addComponent<AttackBoxComponent>(ATTACKBOXCOMPONENT_H);
 		enemyRef[i] = enemy->getComponent<LifeComponent>(LIFECOMPONENT_H);
 	}
 }
 
 void FireBossComponent::createColumns(Vector2D pos) {
-
 	Entity* c = mngr_->addEntity();
 	trans_column = c->addComponent<Transform>(TRANSFORM_H,pos,45,90);
 	column_image = c->addComponent<FramedImage>(IMAGE_H, &sdlutils().images().at("FireColumn"), 45, 90,15,0);
@@ -174,7 +173,6 @@ void FireBossComponent::createColumns(Vector2D pos) {
 	//c->addComponent<ColDetectorComponent>(COLDETECTORCOMPONENT_H, c, player);
 	c->addComponent<LifeBasicComponent>(LIFEBASICCOMPONENT_H,1);
 	fire_colums.push_back(c);
-
 }
 
 void FireBossComponent::subLife(float dmg) {
@@ -211,12 +209,13 @@ void FireBossComponent::subLife(float dmg) {
 	}
 	else if (current_life <= 0) {
 		ent_->setAlive(false);
+		static_cast<BeatEmUpState*>(mngr_)->finishBEU(); // Restar nEnemies para que acabe la batalla
 	}
 }
+
 void FireBossComponent::moreLife() {
 	current_life += 10;
 	barWidth_ = ((current_life * backWidth_) / maxLife_);
-
 }
 
 void FireBossComponent::render() {
@@ -239,5 +238,4 @@ void FireBossComponent::render() {
 	dest.w = borderWidth_;
 	//cout<<borderHeight_<<"  "<<
 	borderTexture->render(src, dest);
-	
  }

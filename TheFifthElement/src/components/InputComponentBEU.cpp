@@ -130,14 +130,12 @@ void InputComponentBEU::handleEvents(SDL_Event event) {
 		if (!alreadyPressedBasic && !ent_->hasComponent(THROWABLEOBJECT_H)) {
 			sdlutils().soundEffects().at("playerAttack").play();
 			alreadyPressedBasic = true;
-			if(im_->getType()=="fire")
-			{
+			if(im_->getType()=="fire") {
 				if (im_->getTexKey() == "Player_BEU_" + im_->getType() + "_attack3") {
 					if (im_->getTope() <=  8) {
 						im_->setTope(im_->getTope() + 8);
 					}
-					else
-					{
+					else {
 						im_->setTope(im_->getTope() + 10);
 					}
 				}
@@ -147,14 +145,12 @@ void InputComponentBEU::handleEvents(SDL_Event event) {
 				}
 				
 			}
-			else if (im_->getType()=="water")
-			{
+			else if (im_->getType()=="water") {
 				if (im_->getTexKey() == "Player_BEU_" + im_->getType() + "_attack3") {
 					if (im_->getTope() <= 8) {
 						im_->setTope(im_->getTope() + 7);
 					}
-					else
-					{
+					else {
 						im_->setTope(im_->getTope() + 10);
 					}
 				}
@@ -163,14 +159,12 @@ void InputComponentBEU::handleEvents(SDL_Event event) {
 					im_->setTope(8);
 				}
 			}
-			else if(im_->getType()=="air")
-			{
+			else if(im_->getType()=="air") {
 				if (im_->getTexKey() == "Player_BEU_" + im_->getType() + "_attack3") {
 					if (im_->getTope() <= 8) {
 						im_->setTope(im_->getTope() + 6);
 					}
-					else
-					{
+					else {
 						im_->setTope(im_->getTope() + 14);
 					}
 				}
@@ -179,14 +173,12 @@ void InputComponentBEU::handleEvents(SDL_Event event) {
 					im_->setTope(6);
 				}
 			}
-			else
-			{
+			else {
 				if (im_->getTexKey() == "Player_BEU_" + im_->getType() + "_attack3") {
 					if (im_->getTope() <= 4) {
 						im_->setTope(im_->getTope() + 5);
 					}
-					else
-					{
+					else {
 						im_->setTope(im_->getTope() + 14);
 					}
 				}
@@ -196,8 +188,7 @@ void InputComponentBEU::handleEvents(SDL_Event event) {
 				}
 			}
 		}
-		else if (!alreadyPressedBasic && ent_->hasComponent(THROWABLEOBJECT_H))
-		{
+		else if (!alreadyPressedBasic && ent_->hasComponent(THROWABLEOBJECT_H)) {
 			alreadyPressedBasic = true;
 			auto comp = ent_->getComponent<ThrowableObject>(THROWABLEOBJECT_H);
 			if (!comp->getThrown()) {
@@ -209,37 +200,32 @@ void InputComponentBEU::handleEvents(SDL_Event event) {
 
 	if ((ih().isKeyDown(SDL_SCANCODE_P) || SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_Y)) && !alreadyPressedBasic && jmp_->isJumpEnabled()) {
 		// Ataque Especial
-		if (im_->getType() == "fire" || im_->getType() == "water")
-		{
+		if (im_->getType() == "fire" || im_->getType() == "water") {
 			if (!alreadyPressedSpecial) {
 				alreadyPressedSpecial = true;
 				sdlutils().soundEffects().at("playerSpecialAttack").play();
 				im_->setAnim("Player_BEU_" + im_->getType() + "_super", 18, true);
 			}
 		}
-		else if(im_->getType()=="air")
-		{
+		else if(im_->getType()=="air") {
 			if (!alreadyPressedSpecial) {
 				alreadyPressedSpecial = true;
 				sdlutils().soundEffects().at("playerSpecialAttack").play();
 				im_->setAnim("Player_BEU_" + im_->getType() + "_super", 28, true);
 			}
 		}
-		else
-		{
+		else {
 			if (!alreadyPressedSpecial) {
 				alreadyPressedSpecial = true;
 				sdlutils().soundEffects().at("playerSpecialAttack").play();
 				im_->setAnim("Player_BEU_" + im_->getType() + "_super", 25, true);
 			}
 		}
-	
 	}
 	else if (ih().isKeyJustUp(SDL_SCANCODE_P) || !ih().isGamePadButtonDown(SDL_CONTROLLER_BUTTON_Y)) alreadyPressedSpecial = false;
 
 	if (ih().isKeyJustDown(SDL_SCANCODE_E)) {
-		if (!alreadyPressed2 && earthStage3 && !ent_->hasComponent(THROWABLEOBJECT_H)) // Recogida de piedras en el stage 3 del boss de tierra
-		{
+		if (!alreadyPressed2 && earthStage3 && !ent_->hasComponent(THROWABLEOBJECT_H)) { // Recogida de piedras en el stage 3 del boss de tierra
 			for (auto it : mngr_->getEntities()) {
 				if (it->hasComponent(OBJECTSCOMPONENT_H) && it->getComponent<ObjectsComponent>(OBJECTSCOMPONENT_H)->getInRange()) {
 					static_cast<StoneComponent*>(it->getComponent<StoneComponent>(STONECOMPONENT_H))->stonePicked();
@@ -258,15 +244,13 @@ void InputComponentBEU::handleEvents(SDL_Event event) {
 	}
 }
 
-void InputComponentBEU::setAir(bool b) 
-{ 
+void InputComponentBEU::setAir(bool b) { 
 	elements[0] = b; 
 	if (!b) {
 		if (elements[1]) sk_->changeSkin("fire");
 		else if (elements[2])sk_->changeSkin("water");
 		else sk_->changeSkin("earth");
 	}
-
 }
 
 void InputComponentBEU::setFire(bool b) 

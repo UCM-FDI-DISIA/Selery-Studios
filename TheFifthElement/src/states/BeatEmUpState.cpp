@@ -117,7 +117,6 @@ void BeatEmUpState::AddEnemies(int n_enemies) {
 
 		else animation_ = enemy_->addComponent<AnimationEnemyBEUComponent>(ANIMATIONENEMYBEUCOMPONENT_H, getEnemyType(type), "goblin", player_);
 
-		
 		////animation_->changeState(AnimationEnemyBEUComponent::Moving);
 		////animation_->updateAnimation();
 
@@ -147,10 +146,10 @@ void BeatEmUpState::AddWaterBoss() {
 	waterBoss->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(50, 10), WATERBOSS_HEIGHT, WATERBOSS_WIDTH/2);
 	waterBoss->addComponent<WaterBossLife>(WATERBOSSLIFE_H, 1);
 	waterBoss->addComponent<WaterBossIA>(WATERBOSSIA_H, player_);
-	// buscar assets olas
 }
 
 void BeatEmUpState::AddFireBoss() {
+	numEnemies = 4; // Boss + enemigos que spawnea
 	Vector2D pos = { WIN_WIDTH / 2,WIN_HEIGHT / 2 };
 	Entity* boss = addEntity();
 	Transform* t = boss->addComponent<Transform>(TRANSFORM_H, pos, FIREBOSS_WIDTH, FIREBOSS_HEIGHT);
@@ -159,7 +158,6 @@ void BeatEmUpState::AddFireBoss() {
 	boss->addComponent<FireBossComponent>(FIREBOSSCOMPONENT_H, player_);
 	boss->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(100, 40), (FIREBOSS_WIDTH / 2 - 25), (FIREBOSS_HEIGHT - 75));
 	boss->addComponent<LimitBEU>(LIMITBEU_H);
-
 }
 
 void BeatEmUpState::AddEarthBoss() {
@@ -178,12 +176,10 @@ void BeatEmUpState::AddEarthBoss() {
 	earthBoss_->addComponent<LifeEarthBossComponent>(LIFEEARTHBOSSCOMPONENT_H);
 	earthBoss_->addComponent<AttackBoxComponent>(ATTACKBOXCOMPONENT_H);
 
-
 	addEntity(earthBoss_);
 }
 
-void BeatEmUpState::AddLightBoss() 
-{
+void BeatEmUpState::AddLightBoss() {
 	//AddEnemies(5);
 	numEnemies = 1;
 	Entity* lightBoss = new Entity();
@@ -212,7 +208,6 @@ string BeatEmUpState::getEnemyType(int i) {
 	else {
 		return "air";
 	}
-
 }
 
 void BeatEmUpState::handleEvents() {
@@ -240,7 +235,7 @@ void BeatEmUpState::finishBEU() {
 		SDLUtils::instance()->soundEffects().at("Battle").haltChannel();
 		GameManager::instance()->goTopDown();
 		
-		enemySender->~Entity();
+		if(enemySender != nullptr)enemySender->~Entity();
 	}
 	//if (!player_->isAlive()) {
 	//	SDLUtils::instance()->soundEffects().at("Battle").haltChannel();
