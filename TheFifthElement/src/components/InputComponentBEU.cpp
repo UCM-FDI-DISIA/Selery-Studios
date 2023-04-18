@@ -199,7 +199,10 @@ void InputComponentBEU::handleEvents(SDL_Event event) {
 		else if (!alreadyPressedBasic && ent_->hasComponent(THROWABLEOBJECT_H))
 		{
 			alreadyPressedBasic = true;
-			ent_->getComponent<ThrowableObject>(THROWABLEOBJECT_H)->throwStone();
+			auto comp = ent_->getComponent<ThrowableObject>(THROWABLEOBJECT_H);
+			if (!comp->getThrown()) {
+				comp->throwStone();
+			}
 		}
 	}
 	else if (ih().isKeyJustUp(SDL_SCANCODE_O) || !ih().isGamePadButtonDown(SDL_CONTROLLER_BUTTON_X)) alreadyPressedBasic = false;

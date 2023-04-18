@@ -26,6 +26,8 @@ public:
 	void render();
 
 	void throwStone();
+
+	inline bool getThrown() { return thrown; }
 };
 #endif
 

@@ -34,6 +34,10 @@ private:
 
 	float borderWidth_, borderHeight_;
 	Texture* borderTexture_;
+
+	int hitTime = 30, cont = 0;
+	bool slow = false, die_ = false, hit_ = false;
+	float timeExecution, slowTime;
 public:
 	LifeEarthBossComponent();
 	virtual ~LifeEarthBossComponent() {}
@@ -42,6 +46,7 @@ public:
 	void stageTwo();
 	void stageThree();
 	void render();
+	void update();
 };
 #endif
 

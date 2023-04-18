@@ -263,7 +263,8 @@ void BeatEmUpState::update() {
 	}
 	cont--;
 
-	camRect_.x = camRect_.x + ((trans_player_->getPos().getX() + camOffset_ - camRect_.x) - WIN_WIDTH / 2) * 0.05;
+	camRect_.x = (trans_player_->getPos().getX() + camOffset_) - WIN_WIDTH / 2;
+	//camRect_.x = camRect_.x + ((trans_player_->getPos().getX() + camOffset_ - camRect_.x) - WIN_WIDTH / 2) * 0.05;
 	camRect_.y = 0;
 	// Clamp de la cámara
 	if (camRect_.x < 0 || typeBoss_ == "water") {

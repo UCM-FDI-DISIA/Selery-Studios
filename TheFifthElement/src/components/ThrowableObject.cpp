@@ -4,7 +4,7 @@ void ThrowableObject::initComponent() {
 	trPlayer = ent_->getComponent<Transform>(TRANSFORM_H);
 	stone = new Entity();
 	stone->setContext(mngr_);
-	trStone = stone->addComponent<Transform>(TRANSFORM_H, trPlayer->getPos(), trPlayer->getW(), trPlayer->getH());
+	trStone = stone->addComponent<Transform>(TRANSFORM_H, trPlayer->getPos(), trPlayer->getW(), trPlayer->getH(), 1, 5);
 	imageStone = stone->addComponent<FramedImage>(FRAMEDIMAGE_H, &SDLUtils::instance()->images().at("v1stone1"), 224, 192, 1, "earth");
 	imageStone->setTexKey("v1stone1");
 	stone->addComponent<AttackBoxComponent>(ATTACKBOXCOMPONENT_H);
@@ -16,7 +16,7 @@ void ThrowableObject::update() {
 	timeExecution = (double(timer) / CLOCKS_PER_SEC);
 
 	Vector2D posPlayer = trPlayer->getPos();
-	cout << trStone->getPos().getX() << endl;
+
 	if (!thrown) {
 		trStone->setPos(posPlayer - Vector2D(0, 20));
 	}

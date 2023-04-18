@@ -11,7 +11,6 @@ void MovementEarthBossComponent::initComponent() {
 	animator = ent_->getComponent<AnimationEarthBossComponent>(ANIMATIONEARTHBOSSCOMPONENT_H);
 	fightBossComp = ent_->getComponent<PointOfFightComponent>(POINTOFFIGHTCOMPONENT_H);
 	bossTransform = ent_->getComponent<Transform>(TRANSFORM_H);
-	bossTransform->setVel(1);
 }
 
 void MovementEarthBossComponent::update() {
@@ -23,25 +22,25 @@ void MovementEarthBossComponent::update() {
 		if (verticalDistance < 0 && verticalDistance < -marginToMove) { // Si no esta en la misma vertical el golem se reposiciona verticalmente
 			bossTransform->setDir(Vector2D(0, -1));
 			animator->newAnimation(AnimationEarthBossComponent::Moving);
-			bossTransform->setVel(0.75);
+			bossTransform->setVel(1);
 		}
 		else if (verticalDistance > 0 && verticalDistance > marginToMove) {
 			bossTransform->setDir(Vector2D(0, 1));
 			animator->newAnimation(AnimationEarthBossComponent::Moving);
-			bossTransform->setVel(0.75);
+			bossTransform->setVel(1);
 		}
 		else { // Si esta en la misma vertical el golem se reposiciona horizontalmente
 			if (atRight) {
 				bossTransform->setDir(Vector2D(-1, 0));
 				animator->newAnimation(AnimationEarthBossComponent::Moving);
 				im_->setFlip(SDL_FLIP_HORIZONTAL);
-				bossTransform->setVel(1);
+				bossTransform->setVel(velocity);
 			}
 			else if (atLeft) {
 				bossTransform->setDir(Vector2D(1, 0));
 				animator->newAnimation(AnimationEarthBossComponent::Moving);
 				im_->setFlip();
-				bossTransform->setVel(1);
+				bossTransform->setVel(velocity);
 			}
 		}
 		if (!attack && !im_->getIsAnimUnstoppable()) { // Se mueve cuando no esta atacando
