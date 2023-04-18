@@ -1,5 +1,5 @@
 #include "OptionsState.h"
-
+#include "../Game.h"
 OptionsState::OptionsState() {
 	Background("fondoPausa");
 	ControlsBackground("controlPanel");
@@ -42,6 +42,10 @@ void OptionsState::handleEvents()
 {
 	SDL_Event event;
 	while (SDL_PollEvent(&event)) {
+		if (event.type == SDL_QUIT )
+		{
+			GameManager::instance()->getGame()->setExit(true);
+		}
 		backButton->handleEvent(event);
 		TDcontrolsButton->handleEvent(event);
 		BEUcontrolsButton->handleEvent(event);

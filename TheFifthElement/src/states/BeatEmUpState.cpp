@@ -1,7 +1,7 @@
 ﻿#include "BeatEmUpState.h"
 #include "../components/SkinBEUComponent.h"
 #include "../Elements.h"
-
+#include "../Game.h"
 BeatEmUpState::BeatEmUpState(bool Boss,Entity* enemySends, string typeBoss, int nEnemies, int timeGen) {
 	enemySender = enemySends;
 	numEnemies = nEnemies;
@@ -211,7 +211,14 @@ string BeatEmUpState::getEnemyType(int i) {
 
 void BeatEmUpState::handleEvents() {
 	SDL_Event event;
-	while (SDL_PollEvent(&event)) { in_->handleEvents(event); }
+	while (SDL_PollEvent(&event)) 
+	{
+		if (event.type == SDL_QUIT )
+		{
+			GameManager::instance()->getGame()->setExit(true);
+		}
+		in_->handleEvents(event); 
+	}
 	if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_V)) { finishBEU(); };
 
 }

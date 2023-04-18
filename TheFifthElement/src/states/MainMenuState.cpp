@@ -2,6 +2,7 @@
 #include "../Game.h"
 MainMenuState::MainMenuState()
 {
+	
 
 	Background("fondoMainMenu3");
 
@@ -36,6 +37,10 @@ void MainMenuState::handleEvents()
 {
 	SDL_Event event;
 	while (SDL_PollEvent(&event)) {
+		if (event.type == SDL_QUIT )
+		{
+			GameManager::instance()->getGame()->setExit(true);
+		}
 		playButton->handleEvent(event);
 		exitButton->handleEvent(event);
 		optionsButton->handleEvent(event);

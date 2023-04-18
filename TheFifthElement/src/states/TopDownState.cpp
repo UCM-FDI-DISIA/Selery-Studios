@@ -1,4 +1,5 @@
 ﻿#include "TopDownState.h"
+#include "../Game.h"
 
 TopDownState::TopDownState() {
     puzzle1 = new PuzzleCopas();
@@ -466,6 +467,10 @@ void TopDownState::handleEvents() {
     SDL_Event event;
     SDL_PollEvent(&event);
         in_->handleEvents(event);
+        if (event.type == SDL_QUIT)
+        {
+            GameManager::instance()->getGame()->setExit(true);
+        }
         if (dialog_->getopenedShop()) {
             for (auto e : buttons1) {
                 e->handleEvent(event);
@@ -473,6 +478,7 @@ void TopDownState::handleEvents() {
             for (auto e : buttons2) {
                 e->handleEvent(event);
             }
+          
             exitShopButton_->handleEvent(event);
         }
     

@@ -3,6 +3,7 @@
 #include "states/TopDownState.h"
 #include "states/BeatEmUpState.h"
 #include "states/PauseState.h"
+#include "Game.h"
 
 	////Audio de prueba
 	////SDLUtils::instance()->soundEffects().at("prueba").play();

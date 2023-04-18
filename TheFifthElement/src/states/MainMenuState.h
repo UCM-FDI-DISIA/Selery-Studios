@@ -4,6 +4,8 @@
 #include "../components/Button.h"
 #include "../components/sliderComponent.h"
 #include "../components/FramedImage.h"
+
+
 class MainMenuState : public Manager
 {
 private:
@@ -22,6 +24,8 @@ public:
 	Entity* addNewEntity(string t, float w, float h, Vector2D pos, int nframes, int wFrame, int hFrame, bool flip, float size = 1);
 
 	void Background(string file);
+
+
 
 	void createButtons();
 };
