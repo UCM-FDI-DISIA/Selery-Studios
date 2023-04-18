@@ -43,11 +43,11 @@ void TopDownState::LoadMap(string const& filename) {
     // convertir a textura
     background_0 = SDL_CreateTexture(Gm_->getRenderer(), SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, fondowidth_, fondoheight_);
     SDL_SetTextureBlendMode(background_0, SDL_BLENDMODE_BLEND);
-    background_1 = SDL_CreateTexture(Gm_->getRenderer(), SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, fondowidth_, fondoheight_);
+    background_1 = SDL_CreateTexture(Gm_->getRenderer(), SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, fondowidth_,fondoheight_);
     SDL_SetTextureBlendMode(background_1, SDL_BLENDMODE_BLEND);
-    background_2 = SDL_CreateTexture(Gm_->getRenderer(), SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, fondowidth_, fondoheight_);
+    background_2 = SDL_CreateTexture(Gm_->getRenderer(), SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, fondowidth_ , fondoheight_ );
     SDL_SetTextureBlendMode(background_2, SDL_BLENDMODE_BLEND);
-    background_3 = SDL_CreateTexture(Gm_->getRenderer(), SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, fondowidth_, fondoheight_);
+    background_3 = SDL_CreateTexture(Gm_->getRenderer(), SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, fondowidth_ , fondoheight_ ;
     SDL_SetTextureBlendMode(background_3, SDL_BLENDMODE_BLEND);
     SDL_SetRenderTarget(Gm_->getRenderer(), background_0);
     //CARGAR AQUI LAS DIFERENTES TEXTURAS
@@ -76,26 +76,26 @@ void TopDownState::LoadMap(string const& filename) {
                 // recorremos todos los tiles para obtener su informacion
                 for (auto y = 0; y < mapInfo.rows; ++y) {
                     for (auto x = 0; x < mapInfo.cols; ++x) {
-                        //if (y < mapInfo.rows/10) {
-                        //    if (x < mapInfo.cols / 5) { //primer 
-                        //        SDL_SetRenderTarget(Gm_->getRenderer(), background_0);
+                        if (y < mapInfo.rows/2) {
+                            if (x < mapInfo.cols / 2) { //primer 
+                                SDL_SetRenderTarget(Gm_->getRenderer(), background_0);
 
-                        //    }
-                        //    else {//segundo
-                        //        SDL_SetRenderTarget(Gm_->getRenderer(), background_1);
+                            }
+                            else {//segundo
+                                SDL_SetRenderTarget(Gm_->getRenderer(), background_1);
 
-                        //    }
-                        //}
-                        //else {//tercero
-                        //    if (x < mapInfo.cols / 2) {
-                        //        SDL_SetRenderTarget(Gm_->getRenderer(), background_2);
+                            }
+                        }
+                        else {//tercero
+                            if (x < mapInfo.cols / 2) {
+                                SDL_SetRenderTarget(Gm_->getRenderer(), background_2);
 
-                        //    }
-                        //    else {//cuarto
-                        //        SDL_SetRenderTarget(Gm_->getRenderer(), background_3);
+                            }
+                            else {//cuarto
+                                SDL_SetRenderTarget(Gm_->getRenderer(), background_3);
 
-                        //    }
-                        //}
+                            }
+                        }
                         // obtenemos el indice relativo del tile en el mapa de tiles
                         int tile_index = x + (y * mapInfo.cols);
 
