@@ -150,6 +150,7 @@ public:
 	TopDownState();	
 	~TopDownState() {}
 	void LoadMap(string const& filename);
+	void LoadGame();
 	//void printMap();
 	void DeleteContexto() {
 		Contexto->setAlive(false);

@@ -118,18 +118,18 @@ C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\The
 C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(333,94): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
 C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(458,29): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
 C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(459,29): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(528,45): warning C4838: la conversión de 'double' en 'int' requiere una conversión de restricción
-C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(528,45): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(528,85): warning C4838: la conversión de 'double' en 'int' requiere una conversión de restricción
-C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(528,85): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(547,49): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(548,49): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(549,103): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(549,82): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(550,89): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(550,52): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(594,43): warning C4244: 'argumento': conversión de 'uint' a 'float'; posible pérdida de datos
-C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(658,43): warning C4244: 'argumento': conversión de 'uint' a 'float'; posible pérdida de datos
+C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(588,45): warning C4838: la conversión de 'double' en 'int' requiere una conversión de restricción
+C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(588,45): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(588,85): warning C4838: la conversión de 'double' en 'int' requiere una conversión de restricción
+C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(588,85): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(607,49): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(608,49): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(609,103): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(609,82): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(610,89): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(610,52): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(654,43): warning C4244: 'argumento': conversión de 'uint' a 'float'; posible pérdida de datos
+C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(718,43): warning C4244: 'argumento': conversión de 'uint' a 'float'; posible pérdida de datos
 C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\utils\Entity.h(36,27): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
           with
           [
@@ -177,6 +177,5 @@ C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\The
           [
               _Ty=int
           ]
-C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\states\TopDownState.h(201): warning C4715: 'TopDownState::EnemyTexture': no todas las rutas de acceso de control devuelven un valor
-     Creando biblioteca C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\x64\Debug\TheFifthElement.lib y objeto C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\x64\Debug\TheFifthElement.exp
+C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\states\TopDownState.h(202): warning C4715: 'TopDownState::EnemyTexture': no todas las rutas de acceso de control devuelven un valor
   TheFifthElement.vcxproj -> C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\x64\Debug\TheFifthElement.exe

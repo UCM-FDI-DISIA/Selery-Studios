@@ -394,7 +394,7 @@ void TopDownState::LoadMap(string const& filename) {
 //                                // normalizamos el indice           
 //                                cur_gid -= tset_gid;
 //
-//                                // calculamos dimensiones del tileset       
+//                                // calculamos dimensiones del tileset     f  
 //                                auto ts_width = 0;
 //                                auto ts_height = 0;
 //                                SDL_QueryTexture(mapInfo.tilesets[tset_gid]->getSDLTexture(),
@@ -475,8 +475,9 @@ void TopDownState::SaveGame(){
             cout << "hola" << endl;
             //escribir cosas deñ player
             save << "PLAYER" << endl;
-            save << player_->getComponent<EconomyComponent>(ECONOMYCOMPONENT_H)->getMoney()<<" MONEY"<<endl;
+            save << player_->getComponent<EconomyComponent>(ECONOMYCOMPONENT_H)->getMoney()<<endl;
             save << trans_player_->getPos().getX() << " " << trans_player_->getPos().getY() << endl;
+            cout<< trans_player_->getPos().getX() << " " << trans_player_->getPos().getY() << endl;
             save << Elements::instance()->getEarth() << endl;
             save << PropertiesManager::instance()->getStrength(3) << " " << PropertiesManager::instance()->getLives(3)<<endl;
             save << Elements::instance()->getFire() << endl;
@@ -488,6 +489,7 @@ void TopDownState::SaveGame(){
             //ENEMIGUESSS
             for (auto c : ents_) {
                 if (c->hasComponent(ENEMY_MOVEMENT_TD_H)) {
+                   
                     Transform* f = c->getComponent<Transform>(TRANSFORM_H);
                     save << c->getComponent<FramedImage>(FRAMEDIMAGE_H)->getType() << endl;
                     save << f->getPos().getX() << " " << f->getPos().getY() << endl;
@@ -495,11 +497,69 @@ void TopDownState::SaveGame(){
 
 
 
+
                 }
             }
+            save << -1 << endl;
+            save.close();
 
         }
     }
+}
+
+void TopDownState::LoadGame() {
+
+    ifstream f;
+    f.open("File1.txt");
+    if (f.is_open()) {
+        string player;
+        f >> player;
+
+        if (player == "PLAYER") {
+
+            float number;
+            f >> number;
+            EconomyComponent* ec = Hud_->getComponent<EconomyComponent>(ECONOMYCOMPONENT_H);
+            ec->setMoney(int(number));
+            float number2,number3;
+            f >> number2;
+            f >> number3;
+            cout << number2 << endl;
+            Vector2D v{number2,number3 };
+            trans_player_->setPos(v);
+            cout << v.getX() << " " << v.getY() << endl;
+            bool d;
+            f >> d;
+            Elements::instance()->setEarth(d);
+            f >> number2 >> number3;
+            PropertiesManager::instance()->setStrength(3,number2);
+            PropertiesManager::instance()->setLives(3,number3);
+            f >> d;
+            f >> number2 >> number3;
+            Elements::instance()->setFire(d);
+            PropertiesManager::instance()->setStrength(1, number2);
+            PropertiesManager::instance()->setLives(1, number3);
+            f >> d;
+            f >> number2 >> number3;
+            Elements::instance()->setWater(d);
+            PropertiesManager::instance()->setStrength(2, number2);
+            PropertiesManager::instance()->setLives(2, number3);
+
+            string name;
+            f >> name;
+            while (name != "-1") {
+                
+                f >> name;
+
+
+            }
+            
+
+        }
+
+
+    }
+
 }
 
 void TopDownState::handleEvents() {

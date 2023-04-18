@@ -10,6 +10,7 @@ const int joystick_deadzone = 8000;
 InputComponent::InputComponent(Roulette* r) :Component() {
 	d = NONE;
 	roulet = r;
+	//s = td;
 	// por defecto solo está disponible aire
 }
 
@@ -119,6 +120,11 @@ void InputComponent::handleEvents(SDL_Event event)
 		if (!dialog->gethasstarted() && !dialog->getopenedShop()) {
 			if ((ih().isKeyDown(SDL_SCANCODE_J))) {
 				static_cast<TopDownState*>(mngr_)->SaveGame();
+				//s->SaveGame();
+			}
+			else if ((ih().isKeyDown(SDL_SCANCODE_T))) {
+				static_cast<TopDownState*>(mngr_)->LoadGame();
+				//s->LoadGame();
 			}
 			else if (ih().isKeyDown(SDL_SCANCODE_A) && d != LEFT) {
 				moveLeft = true;
