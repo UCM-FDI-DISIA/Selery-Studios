@@ -256,7 +256,7 @@ void TopDownState::LoadMap(string const& filename) {
                         enemy_->setContext(this);
                         Texture* enemyT_ = EnemyTexture();
                         enemy_->addComponent<Transform>(TRANSFORM_H, Vector2D((obj.getPosition().x * 2.5), obj.getPosition().y * 2.5), enemy_width, enemy_height);
-                        enemy_->addComponent<FramedImage>(FRAMEDIMAGE_H, enemyT_, enemy_width, enemy_height, 7 , type_);
+                        FramedImage* img=enemy_->addComponent<FramedImage>(FRAMEDIMAGE_H, enemyT_, enemy_width, enemy_height, 7 , type_);
                         float a = -1.0f;
                         float lookingRange = 150.0f;
                         float lookingWidth = 100.0f;
@@ -264,6 +264,7 @@ void TopDownState::LoadMap(string const& filename) {
                         enemy_->addComponent<CheckCollision>(CHECKCOLLISION_H, player_, lookingRange, lookingWidth, a);
                         enemy_->addComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
                         enemy_->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(0, 0), enemy_height, enemy_width);
+     
                         addEntity(enemy_);
                         enemies_.push_back(enemy_);
                     }
@@ -488,7 +489,7 @@ void TopDownState::SaveGame(){
             for (auto c : ents_) {
                 if (c->hasComponent(ENEMY_MOVEMENT_TD_H)) {
                     Transform* f = c->getComponent<Transform>(TRANSFORM_H);
-                    save << c->getComponent<FramedImage>(FRAMEDIMAGE_H)->getTexKey() << endl;
+                    save << c->getComponent<FramedImage>(FRAMEDIMAGE_H)->getType() << endl;
                     save << f->getPos().getX() << " " << f->getPos().getY() << endl;
 
 
