@@ -17,6 +17,7 @@ Game::Game() {
 
 Game::~Game(){ // destructora
 	GameStateMachine::instance()->~GameStateMachine();
+	
 	SDL_DestroyRenderer(renderer);
 	SDL_DestroyWindow(window);
 	SDL_Quit();
@@ -32,6 +33,7 @@ void Game::run(){// bucle de juego
 		frameTime = SDL_GetTicks() - startTime;
 		if (frameTime >= FRAME_RATE) {
 			update();
+			//refresh();
 			//gameStMc->clearStates(); // elimina estados
 			startTime = SDL_GetTicks();
 		}
@@ -57,6 +59,6 @@ void Game::render() { //render
 	//gameStMc->render();
 }
 
-//void Game::refresh() {
-//	
-//}
+void Game::refresh() {
+	/*GameStateMachine::instance()->currentState()->refresh();*/
+}

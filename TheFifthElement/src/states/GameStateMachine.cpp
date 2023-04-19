@@ -1,14 +1,10 @@
 #include "GameStateMachine.h"
 GameStateMachine::~GameStateMachine() { // destructora
 	clearStates();
-	while (!st.empty())
-	{
-		delete(st.top());
-		st.pop();
-	}
 }
 
 Manager* GameStateMachine::currentState() { // consulta del estado actual
+	
 	return st.top();
 }
 
@@ -35,9 +31,16 @@ void GameStateMachine::popState() { // pop si la pila no está vacía y salida del
 }
 
 void GameStateMachine::clearStates() {
-	while (!stToDelete.empty()) {
-		delete(stToDelete.top());// elimina estado
-		stToDelete.pop();// quita estado de la lista de eliminados
+	while (!st.empty())
+	{
+		stToDelete.push(st.top());
+		st.pop();
+	}
+
+	while (!stToDelete.empty())
+	{
+		delete(stToDelete.top());
+		stToDelete.pop();
 	}
 }
 

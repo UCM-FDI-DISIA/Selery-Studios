@@ -13,9 +13,10 @@ private:
 	Entity* exitButton;
 	Entity* optionsButton;
 	Entity* slider;
+	
 public:
 	MainMenuState();
-	~MainMenuState() {};
+	~MainMenuState();
 	virtual string getStateID() { return "MainMenu"; }; // stringID
 	void update();
 	void handleEvents();

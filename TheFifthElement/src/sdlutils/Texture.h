@@ -36,7 +36,9 @@ public:
 
 	virtual ~Texture() {
 		if (texture_ != nullptr)
+		{
 			SDL_DestroyTexture(texture_); // delete the SDL texture
+		}
 	}
 
 	inline int width() const {

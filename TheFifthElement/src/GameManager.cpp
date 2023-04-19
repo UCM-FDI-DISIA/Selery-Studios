@@ -48,7 +48,7 @@ void GameManager::handleEvents() { // handleEvents
 
 void GameManager::update() { //update
 	GameStateMachine::instance()->update();// actualiza el juego
-	GameStateMachine::instance()->clearStates();
+	/*GameStateMachine::instance()->clearStates();*/
 }
 
 void GameManager::render() { //render
