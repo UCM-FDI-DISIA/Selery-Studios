@@ -39,5 +39,9 @@ void Damage::render() {
 		fuerza = std::to_string(props_->instance()->getStrength(3));
 	}
 	
-	f->render(SDLUtils::instance()->renderer(), fuerza, (position.getX() + 20) * WIN_WIDTH / 900, (position.getY() + 4) * WIN_HEIGHT / 600, color);
+	char chars[] = { fuerza[0], fuerza[1], fuerza[2]};
+	int longitud = sizeof(chars) / sizeof(chars[0]);
+	string str(chars, longitud);
+
+	f->render(SDLUtils::instance()->renderer(), str, (position.getX() + 20) * WIN_WIDTH / 900, (position.getY() + 4) * WIN_HEIGHT / 600, color);
 }
