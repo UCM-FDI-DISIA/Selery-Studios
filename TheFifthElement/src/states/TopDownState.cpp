@@ -320,20 +320,12 @@ void TopDownState::LoadMap(string const& filename) {
                     }
                 }
                 else if (name == "Portal") {
-                Entity* portal_ = new Entity();
-                portal_->setContext(this);
-                portal_->addComponent<Transform>(TRANSFORM_H, Vector2D((obj.getPosition().x * 2.5), obj.getPosition().y * 2.5), PORTAL_WIDTH, PORTAL_HEIGHT);
-                portal_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("portal"));
-                portal_->addComponent<PortalComponent>(PORTALCOMPONENT_H, trans_player_);
-                addEntity(portal_);
-                }
-                else if (name == "Element") {
-                float element_width = 50, element_height = 50;
-                Entity* element_ = new Entity();
-                element_->addComponent<Transform>(TRANSFORM_H, Vector2D((obj.getPosition().x * 2.5), obj.getPosition().y * 2.5), element_width, element_height);
-                element_->addComponent<FramedImage>(FRAMEDIMAGE_H, &SDLUtils::instance()->images().at("fireball"), ELEMENT_WIDTH, ELEMENT_HEIGHT, 4);
-                element_->addComponent<CheckCollision>(CHECKCOLLISION_H, player_, "element");
-                addEntity(element_);
+                    Entity* portal_ = new Entity();
+                    portal_->setContext(this);
+                    portal_->addComponent<Transform>(TRANSFORM_H, Vector2D((obj.getPosition().x * 2.5), obj.getPosition().y * 2.5), PORTAL_WIDTH, PORTAL_HEIGHT);
+                    portal_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("portal"));
+                    portal_->addComponent<PortalComponent>(PORTALCOMPONENT_H, trans_player_);
+                    addEntity(portal_);
                 }
             }
         }

@@ -45,6 +45,9 @@ const uint NPC_FRAMES = 7; // frame del npcs
 const uint PORTAL_WIDTH = 290; // anchura de Portal
 const uint PORTAL_HEIGHT = 192; // altura de Portal
 
+const int OBELISK_WIDTH = 70; // anchura de Obelisco
+const int OBELISK_HEIGHT = 150; // altura de Obelisco
+
 #pragma region enemy_data
 
 const int enemy_fire_dmg = 200;
