@@ -14,9 +14,6 @@ void GameStateMachine::pushState(Manager* myState) { // push del nuevo estado y 
 
 void GameStateMachine::changeState(Manager* myState) // cambio de estado
 {
-	//le pasa el nuevo playState a game para que siempre tenga acceso al último PlayState (es decir el que se está ejecutando)
-	//if (myState->getStateID() == "play") game->ChangePlayState(static_cast<PlayState*>(myState)); // cambio de playState de game
-
 	if (currentState()->getStateID() != myState->getStateID()) {
 		popState();
 		pushState(myState);

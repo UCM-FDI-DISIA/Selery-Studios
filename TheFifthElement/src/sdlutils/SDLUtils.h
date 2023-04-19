@@ -192,7 +192,8 @@ private:
 	SDL_Window* window_; // the window
 	SDL_Renderer* renderer_; // the renderer
 
-	std::vector<Texture*> texturesToDelete_;
+	
+	
 	
 	sdl_resource_table<std::string> dialog_; // fonts map (string -> dialog)
 	sdl_resource_table<Font> fonts_; // fonts map (string -> font)
@@ -211,6 +212,7 @@ private:
 
 	RandomNumberGenerator random_; // (pseudo) random numbers generator
 	VirtualTimer timer_; // virtual timer
+	std::vector<Texture*> texturesToDelete_;
 };
 
 // This macro defines a compact way for using the singleton SDLUtils, instead of
