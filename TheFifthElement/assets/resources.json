@@ -322,7 +322,11 @@
     {"id": "FireBoss","file": "assets/Enemies/BeatEmUp/Bosses/FireBoss/spritesheets/demon_slime_FREE_v1.0_288x160_spritesheet.png"},
     {"id": "FireColumn","file": "assets/Unknown/fire_column_medium/fire_column.png"},
 
-    {"id": "Obelisk","file": "assets/Scenes/Maps/AncientRuins/Props/Obelisk1-animation1-activating-70x150.png"}
+    {"id": "Obelisk","file": "assets/Scenes/Maps/AncientRuins/Props/Obelisk1-animation1-activating-70x150.png"},
+    {"id": "ObeliskAir","file": "assets/Scenes/Maps/AncientRuins/Props/Obelisk1Air-animation1-activating-70x150.png"},
+    {"id": "ObeliskEarth","file": "assets/Scenes/Maps/AncientRuins/Props/Obelisk1Earth-animation1-activating-70x150.png"},
+    {"id": "ObeliskFire","file": "assets/Scenes/Maps/AncientRuins/Props/Obelisk1Fire-animation1-activating-70x150.png"},
+    {"id": "ObeliskWater","file": "assets/Scenes/Maps/AncientRuins/Props/Obelisk1Water-animation1-activating-70x150.png"}
   ],
 
   "messages": [

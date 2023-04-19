@@ -7,6 +7,7 @@ class PortalComponent : public Component
 private:
 	Transform* trPlayer_;
 	Transform* trPortal;
+	FramedImage* portalImage;
 public:
 	PortalComponent(Transform* trPlayer);
 	void initComponent();
