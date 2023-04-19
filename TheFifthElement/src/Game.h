@@ -22,7 +22,7 @@ public:
 	void render();
 	void update();
 	void run();// blucle de juego
-	/*void refresh();*/
+	void refresh();
 	inline void setExit(bool exit_) { exit = exit_; }
 	SDL_Renderer* getRenderer() {
 		return SDLUtils::instance()->renderer();

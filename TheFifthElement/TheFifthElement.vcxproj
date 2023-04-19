@@ -136,6 +136,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\components\PowerUpControler.h" />
     <ClInclude Include="src\components\FireBossComponent.h" />
     <ClInclude Include="src\components\IceIAComponent.h" />
     <ClInclude Include="src\components\IceShadowComponent.h" />
@@ -230,6 +231,7 @@
     <ClInclude Include="src\components\WaterBossLife.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\components\PowerUpControler.cpp" />
     <ClCompile Include="src\components\FireBossComponent.cpp" />
     <ClCompile Include="src\components\IceIAComponent.cpp" />
     <ClCompile Include="src\components\IceShadowComponent.cpp" />

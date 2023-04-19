@@ -5,6 +5,7 @@
 #include <memory>
 #include "../../json/JSON.h"
 
+
 SDLUtils::SDLUtils() :
 		SDLUtils("El quinto elemento :)", WIN_WIDTH, WIN_HEIGHT, "assets/resources.json") {
 }
@@ -28,7 +29,9 @@ SDLUtils::SDLUtils(std::string windowTitle, int width, int height) :
 
 SDLUtils::SDLUtils(std::string windowTitle, int width, int height,
 	std::string filename) :
-	SDLUtils(windowTitle, width, height) {
+	SDLUtils(windowTitle, width, height) 
+{
+	
 	loadReasources(filename);
 }
 
@@ -314,7 +317,10 @@ void SDLUtils::loadReasources(std::string filename) {
 					std::cout << "Loading tileset with id: " << key << std::endl;
 #endif
 					auto a = new Texture(renderer(), file);
+					texturesToDelete_.push_back(a);
 					tilesets_.emplace(key, a);
+					
+					
 				}
 				else {
 					throw "'tilesets' array in '" + filename
@@ -334,7 +340,14 @@ void SDLUtils::closeSDLExtensions() {
 	musics_.clear();
 	sounds_.clear();
 	msgs_.clear();
+
+	for(int i=0;i<texturesToDelete_.size();i++)
+	{
+		delete texturesToDelete_[i];
+	}
+	
 	images_.clear();
+	
 	fonts_.clear();
 
 	Mix_Quit(); // quit SDL_mixer

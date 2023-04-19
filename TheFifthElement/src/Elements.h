@@ -1,19 +1,20 @@
 #pragma once
 #include "./utils/Singleton.h"
-class Elements :  public Singleton <Elements>
-{
-private:
+class Elements :  public Singleton <Elements> {
+	friend Singleton<Elements>;
 
+private:
 	bool elements[4];
 
-public:
-	
 	Elements() {
 		elements[0] = true; // aire
 		elements[1] = false; // fuego
 		elements[2] = false; // agua
 		elements[3] = false; // tierra
 	}
+
+public:
+	
 	void setAir(bool b = true) { elements[0] = b; }
 	void setFire (bool b = true) { elements[1] = b; }
 	void setWater (bool b = true) { elements[2] = b; }
@@ -23,4 +24,3 @@ public:
 	bool getWater() { return elements[2]; }
 	bool getEarth() { return elements[3]; }
 };
-

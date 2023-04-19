@@ -6,7 +6,7 @@ MainMenuState::MainMenuState()
 
 	Background("fondoMainMenu3");
 
-	SDLUtils::instance()->soundEffects().at("Title").play();
+	//SDLUtils::instance()->soundEffects().at("Title").play();
 	addNewEntity("campfire", 128, 128, Vector2D(4 * WIN_WIDTH / 9, 3 * WIN_HEIGHT / 4), 8, 128, 128, false);
 
 	addNewEntity("NPC_1", NPC_WIDTH, NPC_HEIGHT, Vector2D(48 * WIN_WIDTH / 90, 3 * WIN_HEIGHT / 4), 7, NPC_WIDTH, NPC_HEIGHT, false);
@@ -28,6 +28,11 @@ MainMenuState::MainMenuState()
 
 	//SDLUtils::instance()->soundEffects().at("Menu").play();
 
+}
+
+MainMenuState::~MainMenuState()
+{
+	Manager::~Manager();
 }
 
 void MainMenuState::update() {
@@ -54,8 +59,7 @@ void MainMenuState::render() {
 
 Entity* MainMenuState::addNewEntity(string t, float w, float h, Vector2D pos, int nframes, int wFrame, int hFrame, bool flip, float size) {
 	Entity* e = new Entity();
-	//e->setContext(this);
-	//float size_ = size * WIN_WIDTH / 900;
+
 	e->addComponent<Transform>(TRANSFORM_H, pos, w, h, size);
 	e->addComponent<FramedImage>(FRAMEDIMAGE_H, &SDLUtils::instance()->images().at(t), wFrame, h, nframes);
 	addEntity(e);
