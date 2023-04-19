@@ -625,7 +625,7 @@ void TopDownState::createShopButtons() {
 
             Vector2D pos;
             if (WIN_WIDTH / 900 == 1920 / 900) {
-                pos = Vector2D((upturnButtonPos_.getX() + 350),
+                pos = Vector2D((upturnButtonPos_.getX() + 330),
                     upturnButtonPos_.getY() + j * (50 * WIN_HEIGHT / 600));
             }
             else
@@ -655,8 +655,6 @@ void TopDownState::createShopButtons() {
         addEntity(exitShopButton_);
     }
     else { // creo botones por primera vez
-
-
         for (int i = 0; i < 4; i++) {
             upturnButton_ = new Entity();
             upturnButton_->setContext(this);
@@ -677,7 +675,7 @@ void TopDownState::createShopButtons() {
             upturnButton_->setContext(this);
             Vector2D pos;
             if (WIN_WIDTH / 900 == 1920 / 900) {
-                pos = Vector2D((upturnButtonPos_.getX() + 350),
+                pos = Vector2D((upturnButtonPos_.getX() + 330),
                     upturnButtonPos_.getY() + i * (50 * WIN_HEIGHT / 600));
 
                 upturnButtonTr_ = upturnButton_->addComponent<Transform>(TRANSFORM_H, pos, (UPTURNBUTTON_WIDTH / 2) * WIN_WIDTH / 900,
