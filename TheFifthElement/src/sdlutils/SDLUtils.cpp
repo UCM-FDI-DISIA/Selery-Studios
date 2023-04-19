@@ -340,16 +340,12 @@ void SDLUtils::closeSDLExtensions() {
 	musics_.clear();
 	sounds_.clear();
 	msgs_.clear();
-
 	for(int i=0;i<texturesToDelete_.size();i++)
 	{
 		delete texturesToDelete_[i];
-	}
-	
+	}	
 	images_.clear();
-	
 	fonts_.clear();
-
 	Mix_Quit(); // quit SDL_mixer
 	IMG_Quit(); // quit SDL_image
 	TTF_Quit(); // quit SDL_ttf
