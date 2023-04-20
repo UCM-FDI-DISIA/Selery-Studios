@@ -23,6 +23,17 @@ TopDownState::TopDownState() {
     dialog_->inicombe();
 }
 
+TopDownState::~TopDownState()
+{
+    for(auto it:collisions_)
+    {
+        delete it;
+    }
+    collisions_.clear();
+    delete puzzle1;
+    Manager::~Manager();
+
+}
 void TopDownState::LoadMap(string const& filename) {
 
     mapInfo.tile_MAP = new tmx::Map();  //crea el mapa
@@ -174,7 +185,6 @@ void TopDownState::LoadMap(string const& filename) {
 
                 if (name == "Colisiones") {
                     Entity* colision = new Entity();
-
                     colision->addComponent<Transform>(TRANSFORM_H, Vector2D(rect.left*2.5, rect.top*2.5), (rect.width * 2.5)* (WIN_WIDTH / 900), (rect.height * 2.5)* (WIN_HEIGHT / 600));
                     //(fondowidth_ * 2.5)* (WIN_WIDTH / 900),(fondoheight_ * 2.5)* (WIN_HEIGHT / 600)
                     collisions_.push_back(colision);
@@ -245,7 +255,7 @@ void TopDownState::LoadMap(string const& filename) {
                     boss_ = new Entity();
                     boss_->setContext(this);
                     boss_->addComponent<Transform>(TRANSFORM_H, Vector2D((obj.getPosition().x * 2.5), obj.getPosition().y * 2.5), 600, 400);
-                    boss_->addComponent<FramedImage>(FRAMEDIMAGE_H, bossLuzTexture(), 600, 400, 1);
+                    boss_->addComponent<FramedImage>(IMAGE_H, bossLuzTexture(), LIGHTBOSS_TP_WIDTH, LIGHTBOSS_TP_HEIGHT, LIGHTBOSS_TP_FRAMES);
                     boss_->addComponent<BossCollision>(BOSSCOLLISION_H, player_, "light");
                     boss_->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(0, 0), 288, 188);
                     addEntity(boss_);

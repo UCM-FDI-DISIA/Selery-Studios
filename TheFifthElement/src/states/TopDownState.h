@@ -147,7 +147,7 @@ public:
 	string getStateID(); // stringID
 	PuzzleCopas* puzzle1;
 	TopDownState();	
-	~TopDownState() {}
+	~TopDownState();
 	void LoadMap(string const& filename);
 	void LoadGame();
 	//void printMap();

@@ -83,7 +83,7 @@ private:
 
 public:
 	BeatEmUpState(bool Boss = false, Entity* enemySends = nullptr, string typeBoss = "", int nEnemies = 3, int timeGen = 1000);
-	~BeatEmUpState() {}
+	~BeatEmUpState() { delete colManager_; }
 	string getStateID(); // stringID
 	void AddEnemies(int i);
 	void AddEnemy();

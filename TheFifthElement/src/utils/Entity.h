@@ -20,6 +20,7 @@ public:
 	virtual ~Entity() {
 		for (auto c : currCmps_) {
 			delete c;
+			
 		}
 	}
 	// Asigna a la entidad su manager

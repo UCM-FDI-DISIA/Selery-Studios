@@ -93,6 +93,10 @@ const int MOOSE_HEIGHT = 192;
 const int LIGHTBOSS_WIDTH = 288;
 const int LIGHTBOSS_HEIGHT = 128;
 
+
+const int LIGHTBOSS_TP_WIDTH = 600;
+const int LIGHTBOSS_TP_HEIGHT = 400;
+const int LIGHTBOSS_TP_FRAMES= 1;
 #pragma endregion
 
 // SHOP

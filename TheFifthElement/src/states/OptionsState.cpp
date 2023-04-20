@@ -7,6 +7,10 @@ OptionsState::OptionsState() {
 	createButtons();
 }
 
+OptionsState::~OptionsState()
+{
+}
+
 void OptionsState::Background(string file) {
 	Entity* e = new Entity();
 
