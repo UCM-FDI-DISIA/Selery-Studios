@@ -13,19 +13,19 @@ void PortalComponent::initComponent() {
 		Vector2D pos = trPortal->getPos();
 		if (i == 0) {
 			obelisk->addComponent<Transform>(TRANSFORM_H, pos + Vector2D(OBELISK_WIDTH * (-1), trPortal->getH() / 2 - 20), OBELISK_WIDTH, OBELISK_HEIGHT);
-			obelisk->addComponent<FramedImage>(FRAMEDIMAGE_H, &SDLUtils::instance()->images().at("ObeliskAir"), OBELISK_WIDTH, OBELISK_HEIGHT, 16);
+			fireObeliskImage = obelisk->addComponent<FramedImage>(FRAMEDIMAGE_H, &SDLUtils::instance()->images().at("Obelisk"), OBELISK_WIDTH, OBELISK_HEIGHT, 1);
 		}
 		else if (i == 1) {
 			obelisk->addComponent<Transform>(TRANSFORM_H, pos + Vector2D(trPortal->getW() / 4 - OBELISK_WIDTH, -20), OBELISK_WIDTH, OBELISK_HEIGHT);
-			obelisk->addComponent<FramedImage>(FRAMEDIMAGE_H, &SDLUtils::instance()->images().at("ObeliskFire"), OBELISK_WIDTH, OBELISK_HEIGHT, 16);
+			obelisk->addComponent<FramedImage>(FRAMEDIMAGE_H, &SDLUtils::instance()->images().at("ObeliskAir"), OBELISK_WIDTH, OBELISK_HEIGHT, 16);
 		}
 		else if (i == 2) {
 			obelisk->addComponent<Transform>(TRANSFORM_H, pos + Vector2D(trPortal->getW() / (4.0 / 3.0), -20), OBELISK_WIDTH, OBELISK_HEIGHT);
-			obelisk->addComponent<FramedImage>(FRAMEDIMAGE_H, &SDLUtils::instance()->images().at("ObeliskEarth"), OBELISK_WIDTH, OBELISK_HEIGHT, 16);
+			waterObeliskImage = obelisk->addComponent<FramedImage>(FRAMEDIMAGE_H, &SDLUtils::instance()->images().at("Obelisk"), OBELISK_WIDTH, OBELISK_HEIGHT, 1);
 		}
 		else if (i == 3) {
 			obelisk->addComponent<Transform>(TRANSFORM_H, pos + Vector2D(trPortal->getW(), trPortal->getH() / 2 - 20), OBELISK_WIDTH, OBELISK_HEIGHT);
-			obelisk->addComponent<FramedImage>(FRAMEDIMAGE_H, &SDLUtils::instance()->images().at("ObeliskWater"), OBELISK_WIDTH, OBELISK_HEIGHT, 16);
+			earthObeliskImage = obelisk->addComponent<FramedImage>(FRAMEDIMAGE_H, &SDLUtils::instance()->images().at("Obelisk"), OBELISK_WIDTH, OBELISK_HEIGHT, 1);
 		}
 		
 		mngr_->addEntity(obelisk);
@@ -33,14 +33,22 @@ void PortalComponent::initComponent() {
 }
 
 void PortalComponent::update() {
-
-}
-
-void PortalComponent::elementEarned() {
-	//ent_->addComponent<CheckCollision>(CHECKCOLLISION_H, static_cast<TopDownState*> (mngr_)->getplayer(), "portal");
-	if (Elements::instance()->getAir() && Elements::instance()->getEarth() && Elements::instance()->getFire() && Elements::instance()->getWater()) {
+	if (!setFire && Elements::instance()->getFire()) {
+		fireObeliskImage->setAnim("ObeliskFire", 16, true);
+		setFire = true;
+	}
+	if (!setWater && Elements::instance()->getWater()) {
+		waterObeliskImage->setAnim("ObeliskWater", 16, true);
+		setWater = true;
+	}
+	if (!setEarth && Elements::instance()->getEarth()) {
+		earthObeliskImage->setAnim("ObeliskEarth", 16, true);
+		setEarth = true;
+	}
+	if (!setCheckCollision && Elements::instance()->getAir() && Elements::instance()->getEarth() && Elements::instance()->getFire() && Elements::instance()->getWater()) {
 		ent_->addComponent<CheckCollision>(CHECKCOLLISION_H, static_cast<TopDownState*> (mngr_)->getplayer(), "portal");
-		
+		portalImage->setAnim("portalAnimated", 30, 10, 3, true);
+		setCheckCollision = true;
 	}
 }
 

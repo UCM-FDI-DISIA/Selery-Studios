@@ -159,6 +159,7 @@
     <ClInclude Include="src\components\StoneComponent.h" />
     <ClInclude Include="src\components\ThrowableObject.h" />
     <ClInclude Include="src\components\VolumeSlider.h" />
+    <ClInclude Include="src\Elements.h" />
     <ClInclude Include="src\states\PauseState.h" />
     <ClInclude Include="src\components\AttackEarthBossComponent.h" />
     <ClInclude Include="src\components\EconomyComponent.h" />
@@ -250,6 +251,7 @@
     <ClCompile Include="src\components\SectorCollisionComponent.cpp" />
     <ClCompile Include="src\components\StoneComponent.cpp" />
     <ClCompile Include="src\components\ThrowableObject.cpp" />
+    <ClCompile Include="src\Elements.cpp" />
     <ClCompile Include="src\states\PauseState.cpp" />
     <ClCompile Include="src\components\AttackEarthBossComponent.cpp" />
     <ClCompile Include="src\components\EconomyComponent.cpp" />

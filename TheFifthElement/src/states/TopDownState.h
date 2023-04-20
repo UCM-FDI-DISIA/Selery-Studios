@@ -114,8 +114,7 @@ private:
 	int fondowidth_, fondoheight_;
 
 	DialogueComponent* dialog_;
-	
-	
+
 	// SHOP
 	Entity* upturnButton_;
 	Entity* exitShopButton_;

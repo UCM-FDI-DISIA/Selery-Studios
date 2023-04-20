@@ -62,7 +62,7 @@ void CheckCollision::update()
 	else if (id_ == "portal") {
 		if (Collision::collides(Vector2D(rectPlayer.x, rectPlayer.y), rectPlayer.w, rectPlayer.h, Vector2D(tr1->getPos().getX(), tr1->getPos().getY()), tr1->getW() * tr1->getS(), tr1->getH() * tr1->getS()))					//Aumentado el numero por el que dividimos las alturas y anchuras, tambien aumentamos lo que tarda en detectarnos el enemigo
 		{
-			portal->Teleport(Vector2D(0, 0)); // Al mapa de luz
+			portal->Teleport(Vector2D(800, 800)); // Al mapa de luz
 		}
 	}
 }

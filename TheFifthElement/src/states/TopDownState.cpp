@@ -318,6 +318,20 @@ void TopDownState::LoadMap(string const& filename) {
                         addEntity(enemy_);
                         enemies_.push_back(enemy_);
                     }
+                    else if (obj.getName() == "earth") {
+                        //PARA CREAR EL RESTO DE BOSSES AÑADIR AL TILEMAP (EN LA CAPA DE ENEMY) UN ENEMIGO NUEVO Y MODIFICAR SU NOMBRE
+                        enemy_ = new Entity();
+                        enemy_->setContext(this);
+                        enemy_->addComponent<Transform>(TRANSFORM_H, Vector2D(obj.getPosition().x, obj.getPosition().y), EARTHBOSS_HEIGHT, EARTHBOSS_HEIGHT, 2);
+                        enemy_->addComponent<FramedImage>(FRAMEDIMAGE_H, &sdlutils().images().at("GolemFase1_idle"), EARTHBOSS_WIDTH, EARTHBOSS_HEIGHT, 6);
+                        float a = 1.0f;
+                        float lookingRange = 50.0f;
+                        float lookingWidth = -40;
+                        enemy_->addComponent<Enemy_movementTD_component>(ENEMY_MOVEMENT_TD_H, "boss");
+                        enemy_->addComponent<CheckCollision>(CHECKCOLLISION_H, player_, lookingRange, lookingWidth, a, -300, "earth");
+                        addEntity(enemy_);
+                        enemies_.push_back(enemy_);
+                    }
                 }
                 else if (name == "Portal") {
                     Entity* portal_ = new Entity();

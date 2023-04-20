@@ -72,6 +72,7 @@
     <ClCompile Include="src\components\FireBossComponent.cpp" />
     <ClCompile Include="src\components\LifeBasicComponent.cpp" />
     <ClCompile Include="src\components\PowerUpControler.cpp" />
+    <ClCompile Include="src\Elements.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\components\Button.h" />
@@ -167,6 +168,7 @@
     <ClInclude Include="src\components\FireBossComponent.h" />
     <ClInclude Include="src\components\LifeBasicComponent.h" />
     <ClInclude Include="src\components\PowerUpControler.h" />
+    <ClInclude Include="src\Elements.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="TheFifthElement.rc" />
