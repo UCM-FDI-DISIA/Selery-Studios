@@ -132,3 +132,74 @@ void ColManager::checkCollisionE(SDL_Rect boxAttack, string type, int extraDamag
 		else player->getComponent<LifeComponent>(LIFECOMPONENT_H)->Hit(1 + extraDamage);
 	}
 }
+
+void ColManager::update()
+{
+
+	if (howManyNear() > 0)
+	{
+		for (auto it : mngr_->getEntities())
+		{
+			ColliderComponent* col = it->getComponent<ColliderComponent>(COLLIDERCOMPONENT_H);
+			if (it->hasComponent(ENEMYBEUDIRECTIONCOMPONENT_H) && !col->getCollisionWithPlayer())
+			{
+				Transform* trPlayer = static_cast<BeatEmUpState*>(mngr_)->getPlayer()->getComponent<Transform>(TRANSFORM_H);
+				Transform* tr = it->getComponent<Transform>(TRANSFORM_H);
+				AnimationEnemyBEUComponent* anim = it->getComponent<AnimationEnemyBEUComponent>(ANIMATIONENEMYBEUCOMPONENT_H);
+				FramedImage* im = it->getComponent<FramedImage>(FRAMEDIMAGE_H);
+				anim->changeState(AnimationEnemyBEUComponent::Idle);
+				if (trPlayer->getPos().getX()< tr->getPos().getX())
+				{
+					im->setFlip(SDL_FLIP_HORIZONTAL);
+				}
+				else
+				{
+					im->setFlip(SDL_FLIP_NONE);
+				}
+				tr->setVel(0);
+			}
+		}
+	}
+	else
+	{
+		for (auto it : mngr_->getEntities())
+		{
+			if (it->hasComponent(ENEMYBEUDIRECTIONCOMPONENT_H))
+			{
+				Transform* tr = it->getComponent<Transform>(TRANSFORM_H);
+				if (tr->getVel() == 0)
+				{
+					//move
+					tr->setVel(3);
+				}
+
+			}
+		}
+	}
+
+}
+
+int ColManager::howManyNear()
+{
+	enemiesNearPlayer = 0;
+	int i = 0;
+	for (auto it : mngr_->getEntities())
+	{
+		if (it->hasComponent(ENEMYBEUDIRECTIONCOMPONENT_H))
+		{
+			ColliderComponent* col = it->getComponent<ColliderComponent>(COLLIDERCOMPONENT_H);
+			Entity* player = static_cast<BeatEmUpState*>(mngr_)->getPlayer();
+			Transform* tr = player->getComponent<Transform>(TRANSFORM_H);
+			if (Collision::collides(Vector2D(tr->getPos().getX(), tr->getPos().getY()), tr->getW(), tr->getH(), Vector2D(col->getColRect().x, col->getColRect().y), col->getColRect().w, col->getColRect().h))
+			{
+				enemiesNearPlayer++;
+				col->setCollisionWithPlayer(true);
+			}
+			else
+			{
+				col->setCollisionWithPlayer(false);
+			}
+		}
+	}
+	return enemiesNearPlayer;
+}

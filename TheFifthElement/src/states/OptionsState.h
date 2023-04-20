@@ -8,7 +8,7 @@
 class OptionsState : public Manager {
 public:
 	OptionsState();
-	~OptionsState() {};
+	~OptionsState();
 	virtual string getStateID() { return "OptionsState"; }
 	void Background(string file);
 	void render();

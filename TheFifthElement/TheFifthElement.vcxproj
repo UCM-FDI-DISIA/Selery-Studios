@@ -70,6 +70,9 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(SolutionDir)</OutDir>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -133,6 +136,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\components\PowerUpControler.h" />
     <ClInclude Include="src\components\FireBossComponent.h" />
     <ClInclude Include="src\components\IceIAComponent.h" />
     <ClInclude Include="src\components\IceShadowComponent.h" />
@@ -155,6 +159,7 @@
     <ClInclude Include="src\components\StoneComponent.h" />
     <ClInclude Include="src\components\ThrowableObject.h" />
     <ClInclude Include="src\components\VolumeSlider.h" />
+    <ClInclude Include="src\Elements.h" />
     <ClInclude Include="src\states\PauseState.h" />
     <ClInclude Include="src\components\AttackEarthBossComponent.h" />
     <ClInclude Include="src\components\EconomyComponent.h" />
@@ -227,6 +232,7 @@
     <ClInclude Include="src\components\WaterBossLife.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\components\PowerUpControler.cpp" />
     <ClCompile Include="src\components\FireBossComponent.cpp" />
     <ClCompile Include="src\components\IceIAComponent.cpp" />
     <ClCompile Include="src\components\IceShadowComponent.cpp" />
@@ -245,6 +251,7 @@
     <ClCompile Include="src\components\SectorCollisionComponent.cpp" />
     <ClCompile Include="src\components\StoneComponent.cpp" />
     <ClCompile Include="src\components\ThrowableObject.cpp" />
+    <ClCompile Include="src\Elements.cpp" />
     <ClCompile Include="src\states\PauseState.cpp" />
     <ClCompile Include="src\components\AttackEarthBossComponent.cpp" />
     <ClCompile Include="src\components\EconomyComponent.cpp" />

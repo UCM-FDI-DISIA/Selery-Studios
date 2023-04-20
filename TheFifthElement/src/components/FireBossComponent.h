@@ -7,6 +7,7 @@
 #include "AttackBoxComponent.h"
 #include "FramedImage.h"
 #include "LifeBasicComponent.h"
+#include "../sdlutils/SoundEffect.h"
 
 class BeatEmUpState;
 
@@ -57,6 +58,11 @@ protected:
 	const static int nEnemies = 3;
 	LifeComponent* enemyRef[nEnemies];
 	const char* const enemyTypes[4]{ "bat" ,"shroom" ,"goblin" ,"skeleton" };
+
+	SoundEffect* death = &SDLUtils::instance()->soundEffects().at("fireboss_death");
+	SoundEffect* hit = &SDLUtils::instance()->soundEffects().at("fire_golpe");
+	SoundEffect* vanish = &SDLUtils::instance()->soundEffects().at("vanish");
+
 
 	
 	

@@ -109,7 +109,7 @@ void LifeEarthBossComponent::stageThree() {
 	bossImage->setAnim("Moose_idle", 8, false);
 	bossImage->setWidthFrame(MOOSE_WIDTH);
 	bossTransform->setW(MOOSE_WIDTH * 2);
-	bossCol->setCollider(Vector2D(330, 120), (MOOSE_HEIGHT * 2) - 240, 100);
+	bossCol->setCollider(Vector2D(250, 120), (MOOSE_HEIGHT * 2) - 240, 100);
 	bossMovement->setMarginToAttack(65);
 	bossAttackComp->setExtraDamage(0);
 }

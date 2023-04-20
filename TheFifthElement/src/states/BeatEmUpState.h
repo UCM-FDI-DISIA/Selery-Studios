@@ -31,6 +31,7 @@
 #include "../components/WaterBossIA.h"
 #include "../components/WaterBossLife.h"
 #include "../components/FireBossComponent.h"
+#include "../components/PowerUpControler.h"
 
 using name = string;
 using damage = int;
@@ -82,7 +83,7 @@ private:
 
 public:
 	BeatEmUpState(bool Boss = false, Entity* enemySends = nullptr, string typeBoss = "", int nEnemies = 3, int timeGen = 1000);
-	~BeatEmUpState() {}
+	~BeatEmUpState() { delete colManager_; }
 	string getStateID(); // stringID
 	void AddEnemies(int i);
 	void AddEnemy();

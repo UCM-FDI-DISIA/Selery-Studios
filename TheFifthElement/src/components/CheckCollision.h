@@ -6,7 +6,6 @@
 #include "../utils/Collision.h"
 #include "../sdlutils/SDLUtils.h"
 #include "../GameManager.h"
-#include "ObjectsComponent.h"
 #include "PortalComponent.h"
 #include "Enemy_movementTD_component.h"
 #include "../Saving.h"
@@ -17,7 +16,6 @@ private:
 	Entity* player_;
 	Transform* tr1;
 	Transform* tr2;
-	ObjectsComponent* obj;
 	PortalComponent* portal;
 	Enemy_movementTD_component* enM_;
 	SDL_Rect rectFight, rectDetection, rectPlayer;
@@ -25,7 +23,7 @@ private:
 	float lookingHeight_;
 	float offset;
 	int side_;
-	bool enemies, objects_, demo = true;
+	bool enemies, demo = true;
 	string id_;
 	Saving* savePos;
 	string boss_;

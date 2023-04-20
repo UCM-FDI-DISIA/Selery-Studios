@@ -3,7 +3,7 @@ using uint = unsigned int;
 
 const uint WIN_WIDTH = 900; // anchura de ventana
 const uint WIN_HEIGHT = 600; // altura de ventana
-const float FRAME_RATE = 5.0f; // número de frames que tardará en actualizarse el juego
+const float FRAME_RATE = 7.0f; // número de frames que tardará en actualizarse el juego
 
 const uint PLAYERBEU_WIDTH_FRAME = 208; // anchura de PlayerBEU
 const uint PLAYERBEU_HEIGHT_FRAME = 128; // altura de PlayerBEU
@@ -45,6 +45,9 @@ const uint NPC_FRAMES = 7; // frame del npcs
 const uint PORTAL_WIDTH = 290; // anchura de Portal
 const uint PORTAL_HEIGHT = 192; // altura de Portal
 
+const int OBELISK_WIDTH = 70; // anchura de Obelisco
+const int OBELISK_HEIGHT = 150; // altura de Obelisco
+
 #pragma region enemy_data
 
 const int enemy_fire_dmg = 200;
@@ -80,7 +83,7 @@ const int ICEBLOCK_HEIGHT = 64;
 const int EARTHBOSS_WIDTH = 224;
 const int EARTHBOSS_HEIGHT = 192;
 
-const int MOOSE_WIDTH = 347;
+const int MOOSE_WIDTH = 307;
 const int MOOSE_HEIGHT = 192;
 
 #pragma endregion
@@ -90,6 +93,10 @@ const int MOOSE_HEIGHT = 192;
 const int LIGHTBOSS_WIDTH = 288;
 const int LIGHTBOSS_HEIGHT = 128;
 
+
+const int LIGHTBOSS_TP_WIDTH = 600;
+const int LIGHTBOSS_TP_HEIGHT = 400;
+const int LIGHTBOSS_TP_FRAMES= 1;
 #pragma endregion
 
 // SHOP

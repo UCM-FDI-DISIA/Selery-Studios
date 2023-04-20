@@ -5,6 +5,7 @@
 #include <memory>
 #include "../../json/JSON.h"
 
+
 SDLUtils::SDLUtils() :
 		SDLUtils("El quinto elemento :)", WIN_WIDTH, WIN_HEIGHT, "assets/resources.json") {
 }
@@ -28,7 +29,9 @@ SDLUtils::SDLUtils(std::string windowTitle, int width, int height) :
 
 SDLUtils::SDLUtils(std::string windowTitle, int width, int height,
 	std::string filename) :
-	SDLUtils(windowTitle, width, height) {
+	SDLUtils(windowTitle, width, height) 
+{
+	
 	loadReasources(filename);
 }
 
@@ -40,7 +43,7 @@ SDLUtils::~SDLUtils() {
 void SDLUtils::initWindow() {
 
 #ifdef _DEBUG
-	std::cout << "Initializing SDL" << std::endl;
+	//std::cout << "Initializing SDL" << std::endl;
 #endif
 
 	// initialise SDL
@@ -48,7 +51,7 @@ void SDLUtils::initWindow() {
 	assert(sdlInit_ret == 0);
 
 #ifdef _DEBUG
-	std::cout << "Creating SDL window" << std::endl;
+	//std::cout << "Creating SDL window" << std::endl;
 #endif
 
 	// Create window
@@ -58,7 +61,7 @@ void SDLUtils::initWindow() {
 	assert(window_ != nullptr);
 
 #ifdef _DEBUG
-	std::cout << "Creating SDL renderer" << std::endl;
+	//std::cout << "Creating SDL renderer" << std::endl;
 #endif
 	// Create the renderer
 	renderer_ = SDL_CreateRenderer(window_, -1,
@@ -82,14 +85,14 @@ void SDLUtils::closeWindow() {
 void SDLUtils::initSDLExtensions() {
 
 #ifdef _DEBUG
-	std::cout << "Initializing SDL_ttf" << std::endl;
+	//std::cout << "Initializing SDL_ttf" << std::endl;
 #endif
 	// initialize SDL_ttf
 	int ttfInit_r = TTF_Init();
 	assert(ttfInit_r == 0);
 
 #ifdef _DEBUG
-	std::cout << "Initializing SDL_img" << std::endl;
+	//std::cout << "Initializing SDL_img" << std::endl;
 #endif
 	// initialize SDL_image
 	int imgInit_ret = IMG_Init(
@@ -97,7 +100,7 @@ void SDLUtils::initSDLExtensions() {
 	assert(imgInit_ret != 0);
 
 #ifdef _DEBUG
-	std::cout << "Initializing SEL_Mixer" << std::endl;
+	//std::cout << "Initializing SEL_Mixer" << std::endl;
 #endif
 	// initialize SDL_Mixer
 	int mixOpenAudio = Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048);
@@ -141,7 +144,8 @@ void SDLUtils::loadReasources(std::string filename) {
 					std::string key = vObj["id"]->AsString();
 					std::string file = vObj["text"]->AsString();
 #ifdef _DEBUG
-					std::cout << "Loading dialog with id: " << key << std::endl;
+					//
+					//std::cout << "Loading dialog with id: " << key << std::endl;
 #endif
 					dialog_.emplace(key, file);
 				}
@@ -168,7 +172,7 @@ void SDLUtils::loadReasources(std::string filename) {
 					uint8_t size =
 						static_cast<uint8_t>(vObj["size"]->AsNumber());
 #ifdef _DEBUG
-					std::cout << "Loading font with id: " << key << std::endl;
+					//std::cout << "Loading font with id: " << key << std::endl;
 #endif
 					fonts_.emplace(key, Font(file, size));
 				}
@@ -194,7 +198,7 @@ void SDLUtils::loadReasources(std::string filename) {
 					std::string key = vObj["id"]->AsString();
 					std::string file = vObj["file"]->AsString();
 #ifdef _DEBUG
-					std::cout << "Loading image with id: " << key << std::endl;
+					//std::cout << "Loading image with id: " << key << std::endl;
 #endif
 					images_.emplace(key, Texture(renderer(), file));
 				}
@@ -221,8 +225,7 @@ void SDLUtils::loadReasources(std::string filename) {
 					std::string txt = vObj["text"]->AsString();
 					auto& font = fonts_.at(vObj["font"]->AsString());
 #ifdef _DEBUG
-					std::cout << "Loading message with id: " << key
-						<< std::endl;
+					//std::cout << "Loading message with id: " << key	<< std::endl;
 #endif
 					if (vObj["bg"] == nullptr)
 						msgs_.emplace(key,
@@ -259,8 +262,7 @@ void SDLUtils::loadReasources(std::string filename) {
 					std::string key = vObj["id"]->AsString();
 					std::string file = vObj["file"]->AsString();
 #ifdef _DEBUG
-					std::cout << "Loading sound effect with id: " << key
-						<< std::endl;
+					//std::cout << "Loading sound effect with id: " << key << std::endl;
 #endif
 					sounds_.emplace(key, SoundEffect(file));
 				}
@@ -286,7 +288,7 @@ void SDLUtils::loadReasources(std::string filename) {
 					std::string key = vObj["id"]->AsString();
 					std::string file = vObj["file"]->AsString();
 #ifdef _DEBUG
-					std::cout << "Loading music with id: " << key << std::endl;
+					//std::cout << "Loading music with id: " << key << std::endl;
 #endif
 					musics_.emplace(key, Music(file));
 				}
@@ -311,10 +313,13 @@ void SDLUtils::loadReasources(std::string filename) {
 					std::string key = vObj["id"]->AsString();
 					std::string file = vObj["file"]->AsString();
 #ifdef _DEBUG
-					std::cout << "Loading tileset with id: " << key << std::endl;
+					//std::cout << "Loading tileset with id: " << key << std::endl;
 #endif
 					auto a = new Texture(renderer(), file);
+					texturesToDelete_.push_back(a);
 					tilesets_.emplace(key, a);
+					
+					
 				}
 				else {
 					throw "'tilesets' array in '" + filename
@@ -334,9 +339,12 @@ void SDLUtils::closeSDLExtensions() {
 	musics_.clear();
 	sounds_.clear();
 	msgs_.clear();
+	for(int i=0;i<texturesToDelete_.size();i++)
+	{
+		delete texturesToDelete_[i];
+	}	
 	images_.clear();
 	fonts_.clear();
-
 	Mix_Quit(); // quit SDL_mixer
 	IMG_Quit(); // quit SDL_image
 	TTF_Quit(); // quit SDL_ttf

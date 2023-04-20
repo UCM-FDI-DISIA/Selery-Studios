@@ -13,7 +13,6 @@ InputComponentBEU::InputComponentBEU(Roulette* r):Component() {
 	elements[3] = Elements::instance()->getEarth();
 	// por defecto solo está disponible aire
 	roulette = r;
-
 }
 
 void InputComponentBEU::initComponent() {

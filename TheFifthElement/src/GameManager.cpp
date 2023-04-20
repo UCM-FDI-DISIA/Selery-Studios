@@ -3,6 +3,7 @@
 #include "states/TopDownState.h"
 #include "states/BeatEmUpState.h"
 #include "states/PauseState.h"
+#include "Game.h"
 
 	////Audio de prueba
 	////SDLUtils::instance()->soundEffects().at("prueba").play();
@@ -47,7 +48,7 @@ void GameManager::handleEvents() { // handleEvents
 
 void GameManager::update() { //update
 	GameStateMachine::instance()->update();// actualiza el juego
-	GameStateMachine::instance()->clearStates();
+	/*GameStateMachine::instance()->clearStates();*/
 }
 
 void GameManager::render() { //render

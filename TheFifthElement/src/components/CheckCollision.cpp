@@ -38,10 +38,7 @@ void CheckCollision::initComponent() {
 		rectDetection = getRectDetection();
 	}
 	rectPlayer = getPlayerRect();
-
 	enemies = ent_->hasComponent(ENEMY_MOVEMENT_TD_H);
-	objects_ = ent_->hasComponent(OBJECTSCOMPONENT_H);
-	obj = ent_->getComponent<ObjectsComponent>(OBJECTSCOMPONENT_H);
 	portal = ent_->getComponent<PortalComponent>(PORTALCOMPONENT_H);
 
 }
@@ -62,22 +59,10 @@ void CheckCollision::update()
 		}
 
 	}
-	else if (objects_ && id_ == "portal") {
+	else if (id_ == "portal") {
 		if (Collision::collides(Vector2D(rectPlayer.x, rectPlayer.y), rectPlayer.w, rectPlayer.h, Vector2D(tr1->getPos().getX(), tr1->getPos().getY()), tr1->getW() * tr1->getS(), tr1->getH() * tr1->getS()))					//Aumentado el numero por el que dividimos las alturas y anchuras, tambien aumentamos lo que tarda en detectarnos el enemigo
 		{
-			//static_cast<Portal*>(ent_)->Teleport(Vector2D(700, 400));
-			portal->Teleport(Vector2D(700, 400));
-		}
-	}
-	else if (objects_ && id_ == "element") {
-		//if (!static_cast<Element*>(ent_)->GetPicked() && Collision::collides(Vector2D(rectPlayer.x, rectPlayer.y), rectPlayer.w, rectPlayer.h, Vector2D(tr1->getPos().getX(), tr1->getPos().getY()), tr1->getW(), tr1->getH()))					//Aumentado el numero por el que dividimos las alturas y anchuras, tambien aumentamos lo que tarda en detectarnos el enemigo
-		//{
-		//	static_cast<Element*>(ent_)->SetPicked(true);
-		//}
-		if (!obj->getPicked() && Collision::collides(Vector2D(rectPlayer.x, rectPlayer.y), rectPlayer.w, rectPlayer.h, Vector2D(tr1->getPos().getX(), tr1->getPos().getY()), tr1->getW() * tr1->getS(), tr1->getH() * tr1->getS()))					//Aumentado el numero por el que dividimos las alturas y anchuras, tambien aumentamos lo que tarda en detectarnos el enemigo
-		{
-			obj->setPicked(true);
-			portal->elementEarned();
+			portal->Teleport(Vector2D(800, 800)); // Al mapa de luz
 		}
 	}
 }
@@ -115,8 +100,10 @@ void CheckCollision::updateRects()
 {
 	//Modo para actualizar los rect?gulos
 	rectPlayer = getPlayerRect();
-	rectFight = getRectFight();
-	rectDetection = getRectDetection();
+	if (enemies) {
+		rectFight = getRectFight();
+		rectDetection = getRectDetection();
+	}
 	/*if (ent_->hasComponent(LIFECOMPONENT_H))
 	{
 		rectFight = getRectFight();

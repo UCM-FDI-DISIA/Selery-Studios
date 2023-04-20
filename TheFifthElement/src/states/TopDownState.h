@@ -114,8 +114,7 @@ private:
 	int fondowidth_, fondoheight_;
 
 	DialogueComponent* dialog_;
-	
-	
+
 	// SHOP
 	Entity* upturnButton_;
 	Entity* exitShopButton_;
@@ -126,7 +125,7 @@ private:
 	Vector2D upturnButtonPos_;
 	int upturnButtonX, upturnButtonY;
 	int upturnButtonWidth_, upturnButtonHeight_;
-	int upturnButtonOffsetX = 50;
+	int upturnButtonOffsetX = 57;
 	int upturnButtonOffsetY = 20;
 	Transform* upturnButtonTr_;
 	Button* upturnButtonComp_;
@@ -142,17 +141,20 @@ private:
 	//	}
 	//	//printMap();
 	//}
+	bool saved = false;
 	bool shopCreated_ = false;
 public:
 	string getStateID(); // stringID
 	PuzzleCopas* puzzle1;
 	TopDownState();	
-	~TopDownState() {}
+	~TopDownState();
 	void LoadMap(string const& filename);
+	void LoadGame();
 	//void printMap();
 	void DeleteContexto() {
 		Contexto->setAlive(false);
 	}
+	void SaveGame();
 	void update();	
 	void handleEvents();
 	void render();

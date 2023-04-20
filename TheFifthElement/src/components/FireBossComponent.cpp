@@ -24,11 +24,12 @@ void FireBossComponent::initComponent() {
 	image->setAnim("FireBoss", 12, false, 1);
 	
 	//diferencia de posicion entre player y BOSS
-	velocity_x =(((player_pos.getX() - initial_posotion.getX())/WIN_WIDTH))*1.4;
-	velocity_y = (((player_pos.getY() - initial_posotion.getY())/WIN_HEIGHT))*1.4;
+	velocity_x =(((player_pos.getX() - initial_posotion.getX())/WIN_WIDTH))*2;
+	velocity_y = (((player_pos.getY() - initial_posotion.getY()) / WIN_HEIGHT)) * 2;
 
 	barWidth_ = backWidth_ = borderWidth_ = 300 * scale;
 	barHeight_ = backHeight_ = borderHeight_ = 50 * scale;
+	death->play();
  }
 
 void FireBossComponent::update() {
@@ -42,25 +43,25 @@ void FireBossComponent::update() {
 	case moving_towards_player:
 		image->setAnim("FireBoss", 12, false, 1);
 		//Si has llegado a la posicion  cogida anteriormente por el player vuelve pa atras
-		if (my_transform->getPos().getX() <= player_pos.getX()) {
+		if (abs(my_transform->getPos().getX() - player_pos.getX())<=3) {
 			image->setAnim("FireBoss", 12, false, 1);
 			image->setFlip(SDL_FLIP_HORIZONTAL);
-			velocity_x = (((  initial_posotion.getX()- player_pos.getX()) / WIN_WIDTH)) * 1.4;
-			velocity_y = ((( initial_posotion.getY()- player_pos.getY()) / WIN_HEIGHT)) * 1.4;
-			current = moving_towards_initialpoint;
-
+			velocity_x = (((  initial_posotion.getX()- player_pos.getX()) / WIN_WIDTH)) * 2;
+			velocity_y = ((( initial_posotion.getY()- player_pos.getY()) / WIN_HEIGHT)) * 2;
+			//current = moving_towards_initialpoint;
+			hit->play();
 			current = attack;//ATACAMOS
 		}
 		break;
 
 	case moving_towards_initialpoint:
 		//si has llegado a la posicion base vuelve pa el player
-		if (my_transform->getPos().getX() > initial_posotion.getX()) {
+		if (abs(my_transform->getPos().getX() - initial_posotion.getX())<=3) {
 			image->setAnim("FireBoss", 12, false, 1);
 			image->setFlip(SDL_FLIP_NONE);
 			player_pos = trans_player->getPos();
-			velocity_x = (((player_pos.getX() - initial_posotion.getX()) / WIN_WIDTH)) * 1.4;
-			velocity_y = (((player_pos.getY() - initial_posotion.getY()) / WIN_HEIGHT)) * 1.4;
+			velocity_x = (((player_pos.getX() - initial_posotion.getX()) / WIN_WIDTH)) *2;
+			velocity_y = (((player_pos.getY() - initial_posotion.getY()) / WIN_HEIGHT)) *2;
 			current = moving_towards_player;
 		}
 		break;
@@ -122,6 +123,8 @@ void FireBossComponent::update() {
 		break;
 
 	case attack: 
+		
+		
 		if (trans_player->getPos().getX() < my_transform->getPos().getX()) {
 			image->setFlip(SDL_FLIP_NONE);
 			image->setAnim("FireBoss", 15, false, 2);
@@ -132,7 +135,8 @@ void FireBossComponent::update() {
 		}
 		velocity_x = 0;
 		velocity_y = 0;
-		if (image->getCol()>15) {//acaba el ataque
+		
+		if (image->getCol()>=14) {//acaba el ataque
 			image->setAnim("FireBoss", 12, false, 1);
 			image->setFlip(SDL_FLIP_HORIZONTAL);
 			velocity_x = (((initial_posotion.getX() - player_pos.getX()) / WIN_WIDTH)) * 2;
@@ -141,6 +145,14 @@ void FireBossComponent::update() {
 		}
 		break;
 	}
+
+	//if (my_transform->getDir().getX() > 0) {
+	//	image->setFlip(SDL_FLIP_NONE);
+	//
+	//}
+	//else {
+	//	image->setFlip(SDL_FLIP_HORIZONTAL);
+	//}
  }
 
 void FireBossComponent::summonEnemies(int n) { // Crea 4 enemigos de fuego aleatorios entre los 4 "tipos" posibles
@@ -183,16 +195,17 @@ void FireBossComponent::subLife(float dmg) {
 	if (current != recovery && current != paused) {
 		current = attack;
 	}
-	
+	hit->play();
 	//ESTO FUNCIONA
 	if (current_life <= 0.25 * maxLife_ &&  current!=recovery && canfire2 ) {
 		image->setAnim("FireBoss", 8, true, 4);
-		my_transform->setPos({ 1000, 1000 });
+		my_transform->setPos({ 1000, -1000 });
 		createColumns(column1);
 		createColumns(column2);
 		createColumns(column3);
 		canfire2 = false;
 		current = recovery;
+		vanish->play();
 	}
 	else if(current_life <= 0.5 * maxLife_ && canSummonEnemies && current != recovery){
 		summonEnemies(nEnemies);
@@ -202,10 +215,11 @@ void FireBossComponent::subLife(float dmg) {
 	else if (current_life <= 0.7 * maxLife_ && canfire &&current!=recovery) {
 		image->setAnim("FireBoss", 10, true, 4);
 		canfire = false;
-		my_transform->setPos({ 1000, 1000 });
+		my_transform->setPos({ 1000, -1000 });
 		createColumns(column1);
 		createColumns(column2);
 		current = recovery;
+		vanish->play();
 	}
 	else if (current_life <= 0) {
 		ent_->setAlive(false);
