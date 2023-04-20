@@ -143,6 +143,7 @@ private:
 	//}
 	bool saved = false;
 	bool shopCreated_ = false;
+	bool loadGame = false;
 public:
 	string getStateID(); // stringID
 	PuzzleCopas* puzzle1;

@@ -19,7 +19,13 @@ public:
         redBox_ = redBox;
         enemies_ = v;
     }
+    inline SDL_Rect getBox() {
+        return redBox_;
+    }
+    inline Vector2D getVector() {
+        return redVector;
 
+    }
     void update() {
         for (auto it : enemies_) {
             if (it->hasComponent(CHECKCOLLISION_H)) {

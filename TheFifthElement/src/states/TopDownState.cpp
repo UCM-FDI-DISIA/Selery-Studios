@@ -260,13 +260,14 @@ void TopDownState::LoadMap(string const& filename) {
                     boss_->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(0, 0), 288, 188);
                     addEntity(boss_);
                 }
-                else if (name == "Enemy") {
-                    if (obj.getName() == "") {
+                if (!loadGame) {
+                 if (name == "Enemy") {
+                    if (obj.getName() == "" && !loadGame) {
                         enemy_ = new Entity();
                         enemy_->setContext(this);
                         Texture* enemyT_ = EnemyTexture();
                         enemy_->addComponent<Transform>(TRANSFORM_H, Vector2D((obj.getPosition().x * 2.5), obj.getPosition().y * 2.5), enemy_width, enemy_height);
-                        FramedImage* img=enemy_->addComponent<FramedImage>(FRAMEDIMAGE_H, enemyT_, enemy_width, enemy_height, 7 , type_);
+                        FramedImage* img = enemy_->addComponent<FramedImage>(FRAMEDIMAGE_H, enemyT_, enemy_width, enemy_height, 7, type_);
                         float a = -1.0f;
                         float lookingRange = 150.0f;
                         float lookingWidth = 100.0f;
@@ -274,7 +275,7 @@ void TopDownState::LoadMap(string const& filename) {
                         enemy_->addComponent<CheckCollision>(CHECKCOLLISION_H, player_, lookingRange, lookingWidth, a);
                         enemy_->addComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
                         enemy_->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(0, 0), enemy_height, enemy_width);
-     
+
                         addEntity(enemy_);
                         enemies_.push_back(enemy_);
                     }
@@ -314,6 +315,8 @@ void TopDownState::LoadMap(string const& filename) {
                         redirect_->addComponent<RedirectEnemy>(REDIRECTENEMY_H, Vector2D(0, 1), redBox_, enemies_);
                         addEntity(redirect_);
                     }
+                }
+               
                     else if (obj.getName() == "water") {
                         //PARA CREAR EL RESTO DE BOSSES AÑADIR AL TILEMAP (EN LA CAPA DE ENEMY) UN ENEMIGO NUEVO Y MODIFICAR SU NOMBRE
                         enemy_ = new Entity();
@@ -505,9 +508,15 @@ void TopDownState::SaveGame(){
             //ENEMIGUESSS
             for (auto c : ents_) {
                 if (c->hasComponent(ENEMY_MOVEMENT_TD_H)) {
-                   
+                    save << "enemy" << endl;
                     Transform* f = c->getComponent<Transform>(TRANSFORM_H);
-                    save << c->getComponent<FramedImage>(FRAMEDIMAGE_H)->getType() << endl;
+                    if (c->getComponent<FramedImage>(FRAMEDIMAGE_H)->getType() == "") {
+                        save << "skeleton"<<endl;
+                    }
+                    else {
+                        save << c->getComponent<FramedImage>(FRAMEDIMAGE_H)->getType() << endl;
+                    }
+             
                     save << f->getPos().getX() << " " << f->getPos().getY() << endl;
 
 
@@ -515,7 +524,15 @@ void TopDownState::SaveGame(){
 
 
                 }
+                else if (c->hasComponent(REDIRECTENEMY_H)) {
+                    save << "redirect" << endl;
+                    RedirectEnemy* f = c->getComponent<RedirectEnemy>(REDIRECTENEMY_H);
+                    save << f->getVector().getX() << " " << f->getVector().getY() << endl;
+                    save << f->getBox().x << " " << f->getBox().y << " " << f->getBox().w << " " << f->getBox().h << endl;
+                }
+             
             }
+          
             save << -1 << endl;
             save.close();
 
@@ -564,9 +581,42 @@ void TopDownState::LoadGame() {
             string name;
             f >> name;
             while (name != "-1") {
-                
-                f >> name;
+                if (name == "enemy") {
+                    Vector2D pos;
+                    string name;
+                    f >> name;
+                    float x, y;
+                    f >> x >> y;
+                    pos = { x,y };
+                    enemy_ = new Entity();
+                    enemy_->setContext(this);
+                    Texture* enemyT_ = EnemyTexture();
+                    enemy_->addComponent<Transform>(TRANSFORM_H, Vector2D(x, y), enemy_width, enemy_height);
+                    FramedImage* img = enemy_->addComponent<FramedImage>(FRAMEDIMAGE_H, enemyT_, enemy_width, enemy_height, 7, name);
+                    float a = -1.0f;
+                    float lookingRange = 150.0f;
+                    float lookingWidth = 100.0f;
+                    enemy_->addComponent<Enemy_movementTD_component>(ENEMY_MOVEMENT_TD_H, type_);
+                    enemy_->addComponent<CheckCollision>(CHECKCOLLISION_H, player_, lookingRange, lookingWidth, a);
+                    enemy_->addComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
+                    enemy_->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(0, 0), enemy_height, enemy_width);
 
+                    addEntity(enemy_);
+                    enemies_.push_back(enemy_);
+                }
+                else if (name == "redirect") {
+                    float x, y, x2, y2, w, h;
+                    f >> x >> y >> x2 >> y2 >> w >> h;
+                    redirect_ = new Entity();
+                    redBox_.x =x2;
+                    redBox_.y = y2;
+                    redBox_.w = w;
+                    redBox_.h = h;
+                    redirect_->addComponent<RedirectEnemy>(REDIRECTENEMY_H, Vector2D(x, y), redBox_, enemies_);
+                    addEntity(redirect_);
+
+                }
+                f >> name;
 
             }
             

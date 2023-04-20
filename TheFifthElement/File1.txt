@@ -1,6 +1,6 @@
 PLAYER
 500
-9858 3040
+9753 2959
 0
 1 10
 0
@@ -8,30 +8,55 @@ PLAYER
 0
 1 10
 
+enemy
 goblin
-11746 490
-goblin
+11773 736
+enemy
+skeleton
 5010 7686.67
-mushroom
+enemy
+goblin
 4985 9485
+enemy
 bat
 5470 9800
-skeleton
-3150 10150
+enemy
 goblin
+3150 10150
+enemy
+mushroom
 3695 9330
-
+redirect
+1 0
+10960 1120 10 10
+redirect
+0 1
+10960 480 10 10
+redirect
+-1 0
+11840 480 10 10
+redirect
+0 -1
+11840 1120 10 10
+enemy
+skeleton
 5216 288
+enemy
 goblin
 15130 6195
-skeleton
-15140 6305
-mushroom
-15135 6555
+enemy
 goblin
+15140 6305
+enemy
+goblin
+15135 6555
+enemy
+skeleton
 15150 6755
-bat
+enemy
+goblin
 15120 6400
-mushroom
+enemy
+skeleton
 15130 6585
 -1
