@@ -67,6 +67,7 @@ enum cmpId : cmpId_type {
 	FIREBOSSCOMPONENT_H=59,
 	LIFEBASICCOMPONENT_H=60,
 	POWERUPCTRL_H = 61,
+	QUESTINFOCOMPONENT_H = 62,
 	// do not remove this
 	_LAST_CMP_ID
 };

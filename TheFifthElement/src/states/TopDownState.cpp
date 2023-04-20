@@ -471,6 +471,8 @@ void TopDownState::update() {
     for (auto p : interactions_) {
         p->update();
     }*/
+
+    actQuests();
     Manager::refresh();
     Manager::update();
     
@@ -646,7 +648,6 @@ void TopDownState::handleEvents() {
           
             exitShopButton_->handleEvent(event);
         }
-    
 }
 
 void TopDownState::render() {
@@ -667,6 +668,7 @@ void TopDownState::render() {
     //SDL_RenderCopy(Gm_->getRenderer(), background_1, &src, &dst);
     //hudTD->render();
     Manager::render();
+    if(questsMenu)renderQuestList();
 }
 
 void TopDownState::createShopButtons() {
@@ -802,6 +804,87 @@ void TopDownState::cleanShopButtons() {
     }
     exitShopButton_->setAlive(false);
     shopCreated_ = true;
+}
+
+void TopDownState::newQuest(string nombre, string text, string reward, int coins) {
+    Entity* q = new Entity();
+    q->addComponent<QuestInfoComponent>(QUESTINFOCOMPONENT_H, nombre, text, reward, coins);
+    addEntity(q);
+    quests.push_back(q);
+}
+
+void TopDownState::completedQuest(string nombre) {
+    auto it = quests.begin();
+    bool found = false;
+    while (!found && it != quests.end()) {
+        QuestInfoComponent* q_ = it.operator*()->getComponent<QuestInfoComponent>(QUESTINFOCOMPONENT_H);
+        if (q_->getName() == nombre) { q_->setAlive(false); found = true; }
+        ++it;
+    }
+}
+
+void TopDownState::actQuests() {// actualiza las quests
+    for (auto it = quests.begin(); it != quests.end();) {
+        QuestInfoComponent* q_ = it.operator*()->getComponent<QuestInfoComponent>(QUESTINFOCOMPONENT_H);
+        if (!q_->getAlive())
+        {
+            auto aux = it;
+            it = ++it;
+            quests.erase(aux);
+        }
+        else ++it;
+    }
+}
+
+void TopDownState::renderQuestList() {
+    Texture* t_ = &SDLUtils::instance()->images().at("papiro");
+    Font* font_ = &SDLUtils::instance()->fonts().at("TCentury");
+    Vector2D a;
+    int w, h;
+    if (WIN_WIDTH == 1920) 
+    { 
+        a = Vector2D(100, 0); 
+        w = 500;
+        h = 900;
+    }
+    else 
+    { 
+        a = Vector2D(0, 0); 
+        w = 400;
+        h = 480;
+    }
+    SDL_Rect dest = build_sdlrect(a, w, h);
+    t_->render(dest, 0);
+
+    if (quests.size() == 0) {
+        string s;
+        if (WIN_WIDTH == 1920) 
+        { 
+            a = Vector2D(200, 300);
+            s = "    NO TIENES QUESTS PENDIENTES";
+        }
+        else 
+        { 
+            a = Vector2D(85, 170); 
+            s = "No tienes quests pendientes";
+        }
+        font_->render(GameManager::instance()->getRenderer(), s, a.getX(), a.getY(), { 50,50,0 });
+    }
+    else {
+        int y1 = 310, y2 = 170, i = 1;
+
+        for (auto it = quests.begin(); it != quests.end(); ++it) {
+            QuestInfoComponent* q_ = it.operator*()->getComponent<QuestInfoComponent>(QUESTINFOCOMPONENT_H);
+            if (WIN_WIDTH == 1920) a = Vector2D(250, y1);
+            else a = Vector2D(85, y2);
+            string s = to_string(i) + ". " + q_->getText();
+            font_->render(GameManager::instance()->getRenderer(), s, a.getX(), a.getY(), { 50,50,0 });
+
+            y1 += 25;
+            y2 += 25;
+            i++;
+        }
+    }
 }
 
 string TopDownState::getStateID() {

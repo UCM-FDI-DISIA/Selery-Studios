@@ -170,7 +170,7 @@ void InputComponent::handleEvents(SDL_Event event)
 				skin_->changeSkin("earth");
 			}
 		}
-		
+
 		if (ih().isKeyDown(SDL_SCANCODE_E) && !dialog->getopenedShop()){
 
 			if (canTalk)
@@ -194,9 +194,17 @@ void InputComponent::handleEvents(SDL_Event event)
 			GameManager::goPauseMenu();
 		}
 
+		//if (ih().isKeyDown(SDL_SCANCODE_Q)) static_cast<TopDownState*>(mngr_)->questsMenu = !static_cast<TopDownState*>(mngr_)->questsMenu;
+
+		if (ih().isKeyDown(SDL_SCANCODE_X) && static_cast<TopDownState*>(mngr_)->getMenuQuest()) 
+			static_cast<TopDownState*>(mngr_)->setMenuQuest(false);
+		else if (ih().isKeyDown(SDL_SCANCODE_Q) && !static_cast<TopDownState*>(mngr_)->getMenuQuest()) 
+			static_cast<TopDownState*>(mngr_)->setMenuQuest(true);
+
 		if (ih().isKeyDown(SDL_SCANCODE_0)) //cambio a pantalla completa podria ser una opcion
 		{
 			SDL_SetWindowFullscreen(SDLUtils::instance()->window(), SDL_WINDOW_FULLSCREEN); //tambien se puede usar _DESKTOP
 		}
+
 	}
 }
