@@ -225,8 +225,7 @@ void SDLUtils::loadReasources(std::string filename) {
 					std::string txt = vObj["text"]->AsString();
 					auto& font = fonts_.at(vObj["font"]->AsString());
 #ifdef _DEBUG
-					std::cout << "Loading message with id: " << key
-						<< std::endl;
+					//std::cout << "Loading message with id: " << key	<< std::endl;
 #endif
 					if (vObj["bg"] == nullptr)
 						msgs_.emplace(key,
