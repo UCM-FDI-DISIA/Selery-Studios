@@ -166,7 +166,7 @@ public:
 	void render();
 	void createShopButtons();
 	void cleanShopButtons();
-	void newQuest(string nombre, string text, string reward, int coins = 0);
+	void newQuest(string nombre, string text, string reward, int coins = 0, int fases = 0);
 	void completedQuest(string nombre);
 	void actQuests();
 	void renderQuestList();

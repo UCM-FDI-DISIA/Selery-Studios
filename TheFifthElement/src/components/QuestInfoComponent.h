@@ -7,23 +7,23 @@
 #include "../sdlutils/SDLUtils.h"
 #include <sstream>
 #include "../GameManager.h"
+#include "../utils/PropertiesManager.h"
 
 class QuestInfoComponent :
     public Component
 {
 private:
     string name_;// nombre de la quest
-    string text_;// descripci n de la quest
+    string text_;// descripcion de la quest
     string reward_;// tipo de recompesa (hermano, monedas...)
 
-    int coins_;// n mero de monedas de recompensa
+    int coins_;// numero de monedas de recompensa
 
     bool alive_;
     bool end;
 
     bool init_;
-    int cont_, fin, linea_;
-    float maxTime_;
+    int cont_, fin, linea_, currFase, maxFase;
 
     vector<string> conespacios;
     string out;
@@ -31,10 +31,12 @@ private:
     Font* font_;
     Texture* t_;
 public:
-    QuestInfoComponent(string Name, string text, string reward, int coins = 0) {
+    QuestInfoComponent(string Name, string text, string reward, int coins = 0, int fases = 0) {
         name_ = Name;
         text_ = text;
         reward_ = reward;
+        maxFase = fases;
+        currFase = 0;
 
         if (reward == "monedas")coins_ = coins;
 
@@ -58,11 +60,15 @@ public:
                 out += conespacios[linea_][cont_];
             }
             else if (cont_ >= fin + 100) {
-                if (init_) { init_ = false; }
+                if (init_) { init_ = false;}
                 else
                 {
                     if (end) ent_->setAlive(false);
-                    else setDialogue("reward");
+                    else 
+                    { 
+                        if (currFase == maxFase)setDialogue("reward");
+                        else alive_ = true;
+                    }
                 }
             }
         }
@@ -84,10 +90,23 @@ public:
 
     void setDialogue(string i) {
         string s;
-        if (i == "init") s = "NUEVA QUEST: " + text_;
-        else if (i == "end")s = "COMPLETADA: " + text_;
+        if (i == "init") 
+        { 
+            if(maxFase > 0) s = "NUEVA QUEST: " + text_ + " " + to_string(currFase) + "/" + to_string(maxFase);
+            else s = "NUEVA QUEST: " + text_;
+        }
+        else if (i == "end") 
+        { 
+            currFase++;
+            if (maxFase > 0)s = "COMPLETADA: " + text_ + " " + to_string(currFase) + "/" + to_string(maxFase);
+            else s = "COMPLETADA: " + text_;
+        }
         else {
-            if (reward_ == "monedas") s = "RECOMPENSA: " + to_string(coins_) + " monedas";
+            if (reward_ == "monedas") 
+            { 
+                s = "RECOMPENSA: " + to_string(coins_) + " monedas"; 
+                PropertiesManager::instance()->addMoney(coins_);// añade las monedas
+            }
             else s = "RECOMPENSA: " + reward_;
             end = true;
         }
@@ -108,6 +127,8 @@ public:
     string getReward() { return reward_; }
     int getCoins() { return coins_; }
     bool getAlive() { return alive_; }
+    int getCurrFase() { return currFase; }
+    int getMaxFase() { return maxFase; }
 
     void setAlive(bool b)
     {

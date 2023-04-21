@@ -667,8 +667,8 @@ void TopDownState::render() {
     }
     //SDL_RenderCopy(Gm_->getRenderer(), background_1, &src, &dst);
     //hudTD->render();
+    if (questsMenu)renderQuestList();
     Manager::render();
-    if(questsMenu)renderQuestList();
 }
 
 void TopDownState::createShopButtons() {
@@ -806,9 +806,9 @@ void TopDownState::cleanShopButtons() {
     shopCreated_ = true;
 }
 
-void TopDownState::newQuest(string nombre, string text, string reward, int coins) {
+void TopDownState::newQuest(string nombre, string text, string reward, int coins, int fases) {
     Entity* q = new Entity();
-    q->addComponent<QuestInfoComponent>(QUESTINFOCOMPONENT_H, nombre, text, reward, coins);
+    q->addComponent<QuestInfoComponent>(QUESTINFOCOMPONENT_H, nombre, text, reward, coins, fases);
     addEntity(q);
     quests.push_back(q);
 }
@@ -826,7 +826,7 @@ void TopDownState::completedQuest(string nombre) {
 void TopDownState::actQuests() {// actualiza las quests
     for (auto it = quests.begin(); it != quests.end();) {
         QuestInfoComponent* q_ = it.operator*()->getComponent<QuestInfoComponent>(QUESTINFOCOMPONENT_H);
-        if (!q_->getAlive())
+        if (!q_->getAlive() && q_->getCurrFase() == q_->getMaxFase())
         {
             auto aux = it;
             it = ++it;
@@ -875,9 +875,12 @@ void TopDownState::renderQuestList() {
 
         for (auto it = quests.begin(); it != quests.end(); ++it) {
             QuestInfoComponent* q_ = it.operator*()->getComponent<QuestInfoComponent>(QUESTINFOCOMPONENT_H);
-            if (WIN_WIDTH == 1920) a = Vector2D(250, y1);
+            if (WIN_WIDTH == 1920) a = Vector2D(210, y1);
             else a = Vector2D(85, y2);
-            string s = to_string(i) + ". " + q_->getText();
+            string s;
+            if(q_->getMaxFase() == 0)s = to_string(i) + ". " + q_->getText();
+            else s = to_string(i) + ". " + q_->getText() + " " + to_string(q_->getCurrFase()) + 
+                "/" + to_string(q_->getMaxFase());
             font_->render(GameManager::instance()->getRenderer(), s, a.getX(), a.getY(), { 50,50,0 });
 
             y1 += 25;
@@ -885,6 +888,11 @@ void TopDownState::renderQuestList() {
             i++;
         }
     }
+
+    if (WIN_WIDTH == 1920) a = Vector2D(320, 600);
+    else a = Vector2D(150, 300);
+    string s = "Pulsa X para salir";
+    font_->render(GameManager::instance()->getRenderer(), s, a.getX(), a.getY(), { 50,50,0 });
 }
 
 string TopDownState::getStateID() {

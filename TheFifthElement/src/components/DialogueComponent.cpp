@@ -77,7 +77,7 @@ void DialogueComponent::inicombe() {
 				conespacios.clear();
 				if (plynpc->getcol() == 22) {
 					static_cast<TopDownState*>(mngr_)->DeleteContexto();
-					static_cast<TopDownState*>(mngr_)->newQuest("hermanos", "Reune a tus hermanos", "monedas", 300);
+					static_cast<TopDownState*>(mngr_)->newQuest("hermanos", "Reune a tus hermanos", "monedas", 300, 3);
 				}
 				if (plynpc->getcol() <=4) {
 					openedShop_ = true;
