@@ -21,6 +21,7 @@ TopDownState::TopDownState() {
     addEntity(Hud_);  
     SDLUtils::instance()->soundEffects().at("Title").play();
     dialog_->inicombe();
+    //trans_player_->setPos({ 11668 ,547 });
 }
 
 TopDownState::~TopDownState()
@@ -519,7 +520,7 @@ void TopDownState::SaveGame(){
                         save << c->getComponent<FramedImage>(FRAMEDIMAGE_H)->getType() << endl;
                     }
              
-                    save << f->getPos().getX() << " " << f->getPos().getY() << endl;
+                    save << f->getPos().getX() << " " << f->getPos().getY() <<" "<<f->getDir().getX()<<" "<<f->getDir().getY()<<endl;
 
 
 
@@ -543,90 +544,97 @@ void TopDownState::SaveGame(){
 }
 
 void TopDownState::LoadGame() {
+    if (!loaded) {
+        loaded = true;
+        ifstream f;
+        f.open("File1.txt");
+        if (f.is_open()) {
+            string player;
+            f >> player;
 
-    ifstream f;
-    f.open("File1.txt");
-    if (f.is_open()) {
-        string player;
-        f >> player;
+            if (player == "PLAYER") {
 
-        if (player == "PLAYER") {
+                float number;
+                f >> number;
+                EconomyComponent* ec = Hud_->getComponent<EconomyComponent>(ECONOMYCOMPONENT_H);
+                ec->setMoney(int(number));
+                float number2, number3;
+                f >> number2;
+                f >> number3;
+                cout << number2 << endl;
+                Vector2D v{ number2,number3 };
+                trans_player_->setPos(v);
+                cout << v.getX() << " " << v.getY() << endl;
+                bool d;
+                f >> d;
+                Elements::instance()->setEarth(d);
+                f >> number2 >> number3;
+                PropertiesManager::instance()->setStrength(3, number2);
+                PropertiesManager::instance()->setLives(3, number3);
+                f >> d;
+                f >> number2 >> number3;
+                Elements::instance()->setFire(d);
+                PropertiesManager::instance()->setStrength(1, number2);
+                PropertiesManager::instance()->setLives(1, number3);
+                f >> d;
+                f >> number2 >> number3;
+                Elements::instance()->setWater(d);
+                PropertiesManager::instance()->setStrength(2, number2);
+                PropertiesManager::instance()->setLives(2, number3);
 
-            float number;
-            f >> number;
-            EconomyComponent* ec = Hud_->getComponent<EconomyComponent>(ECONOMYCOMPONENT_H);
-            ec->setMoney(int(number));
-            float number2,number3;
-            f >> number2;
-            f >> number3;
-            cout << number2 << endl;
-            Vector2D v{number2,number3 };
-            trans_player_->setPos(v);
-            cout << v.getX() << " " << v.getY() << endl;
-            bool d;
-            f >> d;
-            Elements::instance()->setEarth(d);
-            f >> number2 >> number3;
-            PropertiesManager::instance()->setStrength(3,number2);
-            PropertiesManager::instance()->setLives(3,number3);
-            f >> d;
-            f >> number2 >> number3;
-            Elements::instance()->setFire(d);
-            PropertiesManager::instance()->setStrength(1, number2);
-            PropertiesManager::instance()->setLives(1, number3);
-            f >> d;
-            f >> number2 >> number3;
-            Elements::instance()->setWater(d);
-            PropertiesManager::instance()->setStrength(2, number2);
-            PropertiesManager::instance()->setLives(2, number3);
-
-            string name;
-            f >> name;
-            while (name != "-1") {
-                if (name == "enemy") {
-                    Vector2D pos;
-                    string name;
-                    f >> name;
-                    float x, y;
-                    f >> x >> y;
-                    pos = { x,y };
-                    enemy_ = new Entity();
-                    enemy_->setContext(this);
-                    Texture* enemyT_ = EnemyTexture();
-                    enemy_->addComponent<Transform>(TRANSFORM_H, Vector2D(x, y), enemy_width, enemy_height);
-                    FramedImage* img = enemy_->addComponent<FramedImage>(FRAMEDIMAGE_H, enemyT_, enemy_width, enemy_height, 7, name);
-                    float a = -1.0f;
-                    float lookingRange = 150.0f;
-                    float lookingWidth = 100.0f;
-                    enemy_->addComponent<Enemy_movementTD_component>(ENEMY_MOVEMENT_TD_H, type_);
-                    enemy_->addComponent<CheckCollision>(CHECKCOLLISION_H, player_, lookingRange, lookingWidth, a);
-                    enemy_->addComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
-                    enemy_->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(0, 0), enemy_height, enemy_width);
-
-                    addEntity(enemy_);
-                    enemies_.push_back(enemy_);
-                }
-                else if (name == "redirect") {
-                    float x, y, x2, y2, w, h;
-                    f >> x >> y >> x2 >> y2 >> w >> h;
-                    redirect_ = new Entity();
-                    redBox_.x =x2;
-                    redBox_.y = y2;
-                    redBox_.w = w;
-                    redBox_.h = h;
-                    redirect_->addComponent<RedirectEnemy>(REDIRECTENEMY_H, Vector2D(x, y), redBox_, enemies_);
-                    addEntity(redirect_);
-
-                }
+                string name;
                 f >> name;
+                while (name != "-1") {
+                    if (name == "enemy") {
+                        Vector2D pos;
+                        string name;
+                        f >> name;
+                        float x, y, dirx, diry;
+                        f >> x >> y >> dirx >> diry;
+
+                        pos = { x,y };
+                        cout << pos << endl;
+                        enemy_ = new Entity();
+                        enemy_->setContext(this);
+                        Texture* enemyT_ = EnemyTexture();
+                        Transform* m = enemy_->addComponent<Transform>(TRANSFORM_H, pos, enemy_width, enemy_height);
+                        m->setDir(Vector2D{ dirx,diry });
+                        FramedImage* img = enemy_->addComponent<FramedImage>(FRAMEDIMAGE_H, enemyT_, enemy_width, enemy_height, 7, name);
+                        float a = -1.0f;
+                        float lookingRange = 150.0f;
+                        float lookingWidth = 100.0f;
+                        enemy_->addComponent<Enemy_movementTD_component>(ENEMY_MOVEMENT_TD_H, type_);
+                        enemy_->addComponent<CheckCollision>(CHECKCOLLISION_H, player_, lookingRange, lookingWidth, a);
+                        enemy_->addComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
+                        enemy_->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(0, 0), enemy_height, enemy_width);
+
+                        addEntity(enemy_);
+                        enemies_.push_back(enemy_);
+                    }
+                    else if (name == "redirect") {
+                        float x, y, x2, y2, w, h;
+                        f >> x >> y >> x2 >> y2 >> w >> h;
+                        redirect_ = new Entity();
+                        redBox_.x = x2;
+                        redBox_.y = y2;
+                        redBox_.w = w;
+                        redBox_.h = h;
+                        redirect_->addComponent<RedirectEnemy>(REDIRECTENEMY_H, Vector2D(x, y), redBox_, enemies_);
+                        addEntity(redirect_);
+
+                    }
+                    f >> name;
+
+                }
+
 
             }
-            
+
 
         }
-
-
     }
+
+  
 
 }
 

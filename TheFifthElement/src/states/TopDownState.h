@@ -145,6 +145,7 @@ private:
 	//	//printMap();
 	//}
 	bool saved = false;
+	bool loaded = false;
 	bool shopCreated_ = false;
 	bool loadGame = false;
 	bool questsMenu = false;
