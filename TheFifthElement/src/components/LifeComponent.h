@@ -20,7 +20,6 @@ private:
 	InputComponentBEU* inp_ = nullptr;
 	FramedImage* im_ = nullptr;
 	Transform* entTransform_ = nullptr;
-
 #pragma endregion
 
 #pragma region parameters
@@ -31,6 +30,7 @@ private:
 	bool hit_ = false;
 	bool collision = false;
 	bool enemy_ = false;
+	bool boss_=false;
 	string type_;
 	float scale;
 	bool set_ = false;

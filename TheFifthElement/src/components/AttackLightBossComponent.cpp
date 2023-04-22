@@ -1,10 +1,12 @@
 #include "AttackLightBossComponent.h"
+#include "ColDetectorComponent.h"
 
 AttackLightBossComponent::AttackLightBossComponent(Entity* player)
 {
 	player_ = player;
 	contAtks = 0;
 	dirMov = Vector2D(0, 0);
+	fightState = 1;
 }
 
 void AttackLightBossComponent::initComponent()
@@ -14,7 +16,6 @@ void AttackLightBossComponent::initComponent()
 	bossTrans = ent_->getComponent<Transform>(TRANSFORM_H);
 	timer = sdlutils().currRealTime() + 3000;
 	timerRand = sdlutils().currRealTime() + 5000;
-	fightState = 1;
 	blackScreenTex_ = &SDLUtils::instance()->images().at("BlackScreen");
 	random = &SDLUtils::instance()->rand();
 }
@@ -150,7 +151,7 @@ void AttackLightBossComponent::attack1()//esto debe ser para generar siempre bol
 	sphere->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(96, 48), 32, 64);//datos metidos a mano deberian ser mediante metodos
 	sphere->addComponent<DisableOnExit>(DISABLEONEXIT_H);
 	sphere->addComponent<ColDetectorComponent>(COLDETECTORCOMPONENT_H, sphere, player_);
-	sphere->addComponent<ColDetectorComponent>(COLDETECTORCOMPONENT_H, sphere, ent_);
+	//sphere->addComponent<ColDetectorComponent>(COLDETECTORCOMPONENT_H, sphere, ent_); necesito un collider para que revise al propio boss
 	sphere->addComponent<LightBossElement>(LIGHTBOSSELEMENT_H);
 	mngr_->addEntity(sphere);
 }

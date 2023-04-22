@@ -10,7 +10,6 @@
 #include "MovementComponent.h"
 #include "DisableOnExit.h"
 #include "ColliderComponent.h"
-#include "ColDetectorComponent.h"
 #include "LightBossElement.h"
 #include "../GameManager.h"
 

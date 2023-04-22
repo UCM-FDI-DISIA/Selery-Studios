@@ -12,6 +12,7 @@ void LifeComponent::initComponent() {
 
 	enemy_ = ent_->hasComponent(ANIMATIONENEMYBEUCOMPONENT_H);
 
+
 	if (enemy_) {
 		anim_ = ent_->getComponent<AnimationEnemyBEUComponent>(ANIMATIONENEMYBEUCOMPONENT_H);
 		eMov_ = ent_->getComponent<EnemyBEUDirectionComponent>(ENEMYBEUDIRECTIONCOMPONENT_H);
@@ -121,6 +122,7 @@ void LifeComponent::Hit(float damage)
 				eMov_->moveBackX();
 				eMov_->stop(true);
 			}
+
 			else {// player
 				skin_->changeState(SkinBEUComponent::Hit);
 			}
