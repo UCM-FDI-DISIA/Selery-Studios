@@ -3,6 +3,7 @@
 
 PauseState::PauseState()
 {
+	
 	float scaleX = WIN_WIDTH / 900;
 	float scaleY = WIN_HEIGHT / 600;
 	float y;
@@ -40,6 +41,10 @@ void PauseState::handleEvents()
 {
 	SDL_Event event;
 	while (SDL_PollEvent(&event)) {
+		if (event.type == SDL_QUIT || event.type == SDL_KEYDOWN && event.key.keysym.sym == SDLK_ESCAPE)
+		{
+			GameManager::instance()->getGame()->setExit(true);
+		}
 		resumeButton->handleEvent(event);
 		menuButton->handleEvent(event);
 		optionsButton->handleEvent(event);

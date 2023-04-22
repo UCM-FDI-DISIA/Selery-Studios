@@ -142,20 +142,12 @@ void LifeComponent::subLife(float damage) {
 		Death();
 		if (enemy_ && rand() % 10 + 1 <= 8) {
 			time(&deathTime_);
-			damageMultiplier_ = 99;
+			properties().getPowerUpRef()->strenghtBonus();
 		}
 	}
 
 	playDamageSound();
-	
-	time_t currentTime;
-	time(&currentTime);
 
-	// Si han pasado menos de 5 segundos desde que se recibió el potenciador, se hace el doble de daño
-	if (difftime(currentTime, deathTime_) <= 15 && damageMultiplier_ > 1) {
-		damage *= damageMultiplier_;
-		damageMultiplier_ = 1; // Resetea el potenciador de dadddo después de 5 segundos
-	}
 	barWidth_ = ((life_ * backWidth_) / maxLife_);
 	
 }

@@ -3,6 +3,8 @@
 #include "GameState.h"
 #include "../sdlutils/SDLUtils.h"
 #include "../components/Button.h"
+
+
 class PauseState : public Manager
 {
 private:
@@ -10,6 +12,7 @@ private:
 	Entity* menuButton;
 	Entity* optionsButton;
 	Image* im_;
+	
 public:
 	PauseState();
 	~PauseState() {};

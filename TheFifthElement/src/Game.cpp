@@ -6,9 +6,10 @@ Game::Game() {
 	window = SDLUtils::instance()->window();
 	exit = false;
 	Elements::instance();
+	GameManager::instance()->setGame(this);
 	GameStateMachine::instance()->pushState(new MainMenuState());
 	//GameStateMachine::instance()->pushState(new BeatEmUpState(false, nullptr));
-	//GameStateMachine::instance()->pushState(new BeatEmUpState(true, nullptr, "fire"));
+	//GameStateMachine::instance()->pushState(new BeatEmUpState(true, nullptr, "earth"));
 	//GameStateMachine::instance()->pushState(new BeatEmUpState(true, nullptr, "water"));
 	//GameStateMachine::instance()->pushState(new PauseState());
 	//GameStateMachine::instance()->pushState(new BeatEmUpState());
@@ -16,6 +17,7 @@ Game::Game() {
 
 Game::~Game(){ // destructora
 	GameStateMachine::instance()->~GameStateMachine();
+	
 	SDL_DestroyRenderer(renderer);
 	SDL_DestroyWindow(window);
 	SDL_Quit();
@@ -31,6 +33,7 @@ void Game::run(){// bucle de juego
 		frameTime = SDL_GetTicks() - startTime;
 		if (frameTime >= FRAME_RATE) {
 			update();
+			//refresh();
 			//gameStMc->clearStates(); // elimina estados
 			startTime = SDL_GetTicks();
 		}
@@ -56,6 +59,6 @@ void Game::render() { //render
 	//gameStMc->render();
 }
 
-//void Game::refresh() {
-//	
-//}
+void Game::refresh() {
+	/*GameStateMachine::instance()->currentState()->refresh();*/
+}

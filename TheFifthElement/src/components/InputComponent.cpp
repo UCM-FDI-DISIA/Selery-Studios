@@ -10,6 +10,7 @@ const int joystick_deadzone = 8000;
 InputComponent::InputComponent(Roulette* r) :Component() {
 	d = NONE;
 	roulet = r;
+	//s = td;
 	// por defecto solo está disponible aire
 }
 
@@ -117,15 +118,22 @@ void InputComponent::handleEvents(SDL_Event event)
 	ih().update(event);
 	if (ih().keyDownEvent()){
 		if (!dialog->gethasstarted() && !dialog->getopenedShop()) {
-			
-			if (ih().isKeyDown(SDL_SCANCODE_A) && d != LEFT) {
+			if ((ih().isKeyDown(SDL_SCANCODE_J))) {
+				static_cast<TopDownState*>(mngr_)->SaveGame();
+				//s->SaveGame();
+			}
+			else if ((ih().isKeyDown(SDL_SCANCODE_T))) {
+				static_cast<TopDownState*>(mngr_)->LoadGame();
+				//s->LoadGame();
+			}
+			else if (ih().isKeyDown(SDL_SCANCODE_A) && d != LEFT) {
 				moveLeft = true;
 			}
 			else if (ih().isKeyUp(SDL_SCANCODE_A) || d == LEFT) { moveLeft = false; }
 			if (ih().isKeyDown(SDL_SCANCODE_D) && d != RIGHT) {
 				moveRight = true;
 			}
-			else if (ih().isKeyUp(SDL_SCANCODE_D) || d == LEFT) { moveRight = false; }
+			else if (ih().isKeyUp(SDL_SCANCODE_D) || d == RIGHT) { moveRight = false; }
 			
 			if (ih().isKeyDown(SDL_SCANCODE_W) && d != UP ) {
 				moveUp = true;
@@ -165,12 +173,21 @@ void InputComponent::handleEvents(SDL_Event event)
 		
 		if (ih().isKeyDown(SDL_SCANCODE_E) && !dialog->getopenedShop()){
 
-			mov_->setDir(Vector2D(0, 0));
-			if (actionDelay > 0) {
-				dialog->inicombe();
-				sdlutils().soundEffects().at("NPC_Chat").play();
+			if (canTalk)
+			{
+				canTalk = false;
+				mov_->setDir(Vector2D(0, 0));
+				if (actionDelay > 0) {
+					dialog->inicombe();
+					sdlutils().soundEffects().at("NPC_Chat").play();
+				}
+				actionDelay = 0;
 			}
-			actionDelay = 0;
+			
+		}
+		else if(ih().isKeyUp(SDL_SCANCODE_E))
+		{
+			canTalk = true;
 		}
 
 		if (ih().isKeyDown(SDL_SCANCODE_ESCAPE) && !dialog->gethasstarted() && !dialog->getopenedShop() /* || SDL_GameControllerButton(SDL_CONTROLLER_BUTTON_A)*/) {

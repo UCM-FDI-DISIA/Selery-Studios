@@ -92,6 +92,7 @@ public:
             SDL_SetRenderDrawColor(sdlutils().renderer(), 255, 0, 255, 0);
             SDL_RenderDrawRect(sdlutils().renderer(), &rect);
             SDL_SetRenderDrawColor(sdlutils().renderer(), 0, 0, 0, 0);
+
         }
     }
 };

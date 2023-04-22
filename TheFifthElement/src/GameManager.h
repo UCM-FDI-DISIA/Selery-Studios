@@ -8,11 +8,12 @@ using namespace std;
 using uint = unsigned int;
 
 
-
+class Game;
 class GameManager : public Singleton<GameManager>
 {
 private:
 	bool exit;
+	Game* game;
 public:
 	void handleEvents();
 	void render();
@@ -23,6 +24,8 @@ public:
 	}
 	SDL_Window* getWindow() { return SDLUtils::instance()->window(); }
 
+	inline void setGame(Game* game_) { game = game_; }
+	inline Game* getGame() { return game; }
 	void goBeatEmUp(bool boss, Entity* enemy, string typeboss);
 	void goTopDown();
 	void backToMainMenu();

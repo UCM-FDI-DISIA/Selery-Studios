@@ -5,7 +5,7 @@ Image::Image(Texture* tex) {
 }
 
 // Destructora
-Image::~Image() { }
+Image::~Image() {  }
 
 void Image::initComponent() { 	// Inicializa el componente
 	tr_ = ent_->getComponent<Transform>(TRANSFORM_H);

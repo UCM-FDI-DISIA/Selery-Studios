@@ -1,7 +1,7 @@
 #include "LifeEarthBossComponent.h"
 #include "../states/BeatEmUpState.h"
 LifeEarthBossComponent::LifeEarthBossComponent() {
-	maxLife = 500;
+	maxLife = 50;
 	life = maxLife;
 }
 
@@ -20,20 +20,57 @@ void LifeEarthBossComponent::initComponent() {
 	barWidth_ = backWidth_ = borderWidth_ = 300 * scale;
 	barHeight_ = backHeight_ = borderHeight_ = 50 * scale;
 }
-void LifeEarthBossComponent::receiveDamage(float damage, float mul) {
-	life -= damage * mul;
-	barWidth_ = ((life * backWidth_) / maxLife);
-	animEarthBoss->newAnimation(AnimationEarthBossComponent::Hit);
-	if (life <= maxLife / 1.5 && stage == 1) {
-		animEarthBoss->newAnimation(AnimationEarthBossComponent::Death);
-		stageTwo();
+
+void LifeEarthBossComponent::update() {
+	unsigned timer = clock();
+	timeExecution = (double(timer) / CLOCKS_PER_SEC);
+	if (stage == 3) {
+		if (!slow) {
+			float vel = bossMovement->getVelocity();
+			float increment = ((float)life / (float)maxLife) / 20.0f;
+			if (vel + increment < 5) {
+				bossMovement->setVelocity(vel + increment);
+			}
+			
+		}
+		else if (slowTime + 2 < timeExecution)
+		{
+			slow = false;
+		}
 	}
-	else if (life <= maxLife / 3 && stage == 2) {
-		animEarthBoss->newAnimation(AnimationEarthBossComponent::Death);
-		stageThree();
-	}
-	else if (life <= 0) {
+	if (die_ && !bossImage->isAnimPlaying()) {
 		ent_->setAlive(false);
+		static_cast<BeatEmUpState*>(mngr_)->finishBEU();
+	}
+	else if (hit_ && cont >= hitTime) hit_ = false;
+	cont++;
+}
+void LifeEarthBossComponent::receiveDamage(float damage, float mul) {
+	if (!die_ && !hit_) {
+		life -= damage * mul;
+		barWidth_ = ((life * backWidth_) / maxLife);
+
+		if (stage == 3) {
+			slow = true;
+			bossMovement->setVelocity(1.75);
+			unsigned timer = clock();
+			slowTime = (double(timer) / CLOCKS_PER_SEC);
+		}
+		animEarthBoss->newAnimation(AnimationEarthBossComponent::Hit);
+		if (life <= maxLife / 1.5 && stage == 1) {
+			animEarthBoss->newAnimation(AnimationEarthBossComponent::Death);
+			stageTwo();
+		}
+		else if (life <= maxLife / 3 && stage == 2) {
+			animEarthBoss->newAnimation(AnimationEarthBossComponent::Death);
+			stageThree();
+		}
+		else if (life <= 0) {
+			animEarthBoss->newAnimation(AnimationEarthBossComponent::Death);
+			die_ = true;
+		}
+		hit_ = true;
+		cont = 0;
 	}
 }
 
@@ -50,7 +87,7 @@ void LifeEarthBossComponent::stageTwo() {
 	stone->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("v1stone6"));
 	stone->addComponent<ObjectsComponent>(OBJECTSCOMPONENT_H);
 	stone->addComponent<StoneComponent>(STONECOMPONENT_H, 1);
-	mngr_->addEntity(stone);
+	mngr_->addEntityAtI(stone, 2);
 }
 
 void LifeEarthBossComponent::stageThree() {
@@ -66,13 +103,13 @@ void LifeEarthBossComponent::stageThree() {
 	stone->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("v2stone6"));
 	stone->addComponent<ObjectsComponent>(OBJECTSCOMPONENT_H);
 	stone->addComponent<StoneComponent>(STONECOMPONENT_H, 2);
-	mngr_->addEntity(stone);
+	mngr_->addEntityAtI(stone, 2);
 
 	ent_->removeComponent(PROTECTIONEARTHBOSSCOMPONENT_H);
 	bossImage->setAnim("Moose_idle", 8, false);
 	bossImage->setWidthFrame(MOOSE_WIDTH);
 	bossTransform->setW(MOOSE_WIDTH * 2);
-	bossCol->setCollider(Vector2D(330, 120), (MOOSE_HEIGHT * 2) - 240, 100);
+	bossCol->setCollider(Vector2D(250, 120), (MOOSE_HEIGHT * 2) - 240, 100);
 	bossMovement->setMarginToAttack(65);
 	bossAttackComp->setExtraDamage(0);
 }

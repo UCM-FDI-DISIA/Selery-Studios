@@ -1,10 +1,14 @@
 #include "OptionsState.h"
-
+#include "../Game.h"
 OptionsState::OptionsState() {
 	Background("fondoPausa");
 	ControlsBackground("controlPanel");
 	createCharacter("PTD_water_right", PLAYERTD_WIDTH_FRAME, PLAYERTD_HEIGHT_FRAME, Vector2D(WIN_WIDTH / 5, 350), 7, false, 1);
 	createButtons();
+}
+
+OptionsState::~OptionsState()
+{
 }
 
 void OptionsState::Background(string file) {
@@ -42,6 +46,10 @@ void OptionsState::handleEvents()
 {
 	SDL_Event event;
 	while (SDL_PollEvent(&event)) {
+		if (event.type == SDL_QUIT )
+		{
+			GameManager::instance()->getGame()->setExit(true);
+		}
 		backButton->handleEvent(event);
 		TDcontrolsButton->handleEvent(event);
 		BEUcontrolsButton->handleEvent(event);

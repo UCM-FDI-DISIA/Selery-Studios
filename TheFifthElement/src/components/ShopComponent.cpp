@@ -12,11 +12,15 @@ ShopComponent::ShopComponent(EconomyComponent* economyComp, Damage* damage, Life
 }
 
 void ShopComponent::initComponent() {  
-    dialog_ = ent_->getComponent<DialogueComponent>(DIALOGCOMPONENT_H);    
+    dialog_ = ent_->getComponent<DialogueComponent>(DIALOGCOMPONENT_H);  
+    playerTr_ = ent_->getComponent<Transform>(TRANSFORM_H);    
 }
 
 void ShopComponent::update() {
-   
+    if (dialog_->getopenedShop()) 
+    {
+        shopPos_ = { (playerTr_->getPos().getX() - mngr_->camRect_.x) * WIN_WIDTH / 900 - backgroundOffsetX_, (playerTr_->getPos().getY() - mngr_->camRect_.y) * WIN_HEIGHT / 600 - backgroundOffsetY_ };
+    }   
 }
 
 void ShopComponent::render() {
@@ -24,10 +28,10 @@ void ShopComponent::render() {
     if (dialog_->getopenedShop()) {
         showShopBackground();
 
-        showShopAvatar(Vector2D(420 * WIN_WIDTH / 900, 265 * WIN_HEIGHT / 600), Vector2D(415 * WIN_WIDTH / 900, 260 * WIN_HEIGHT / 600), airAvatar_, avatarFrame_);
-        showShopAvatar(Vector2D(420 * WIN_WIDTH / 900, 315 * WIN_HEIGHT / 600), Vector2D(415 * WIN_WIDTH / 900, 310 * WIN_HEIGHT / 600), fireAvatar_, avatarFrame_);
-        showShopAvatar(Vector2D(420 * WIN_WIDTH / 900, 365 * WIN_HEIGHT / 600), Vector2D(415 * WIN_WIDTH / 900, 360 * WIN_HEIGHT / 600), waterAvatar_, avatarFrame_);
-        showShopAvatar(Vector2D(420 * WIN_WIDTH / 900, 415 * WIN_HEIGHT / 600), Vector2D(415 * WIN_WIDTH / 900, 410 * WIN_HEIGHT / 600), earthAvatar_, avatarFrame_);
+        showShopAvatar(Vector2D((playerTr_->getPos().getX() - mngr_->camRect_.x) * WIN_WIDTH / 900 + (WIN_WIDTH / 900 * avatarOffsetX_), (playerTr_->getPos().getY() - mngr_->camRect_.y) * WIN_HEIGHT / 600 + avatarOffsetY_), Vector2D((playerTr_->getPos().getX() - mngr_->camRect_.x) * WIN_WIDTH / 900 + frameOffsetX_, (playerTr_->getPos().getY() - mngr_->camRect_.y) * WIN_HEIGHT / 600 + frameOffsetY_), airAvatar_, avatarFrame_);
+        showShopAvatar(Vector2D((playerTr_->getPos().getX() - mngr_->camRect_.x) * WIN_WIDTH / 900 + (WIN_WIDTH / 900 * avatarOffsetX_), (50 + playerTr_->getPos().getY() - mngr_->camRect_.y) * WIN_HEIGHT / 600 + avatarOffsetY_), Vector2D((playerTr_->getPos().getX() - mngr_->camRect_.x) * WIN_WIDTH / 900 + (WIN_WIDTH / 900 * frameOffsetX_), (50 + playerTr_->getPos().getY() - mngr_->camRect_.y) * WIN_HEIGHT / 600 + frameOffsetY_), fireAvatar_, avatarFrame_);
+        showShopAvatar(Vector2D((playerTr_->getPos().getX() - mngr_->camRect_.x) * WIN_WIDTH / 900 + (WIN_WIDTH / 900 * avatarOffsetX_), (100 + playerTr_->getPos().getY() - mngr_->camRect_.y) * WIN_HEIGHT / 600 + avatarOffsetY_), Vector2D((playerTr_->getPos().getX() - mngr_->camRect_.x) * WIN_WIDTH / 900 + (WIN_WIDTH / 900 * frameOffsetX_), (100 + playerTr_->getPos().getY() - mngr_->camRect_.y) * WIN_HEIGHT / 600 + frameOffsetY_), waterAvatar_, avatarFrame_);
+        showShopAvatar(Vector2D((playerTr_->getPos().getX() - mngr_->camRect_.x) * WIN_WIDTH / 900 + (WIN_WIDTH / 900 * avatarOffsetX_), (150 + playerTr_->getPos().getY() - mngr_->camRect_.y) * WIN_HEIGHT / 600 + avatarOffsetY_), Vector2D((playerTr_->getPos().getX() - mngr_->camRect_.x) * WIN_WIDTH / 900 + (WIN_WIDTH / 900 * frameOffsetX_), (150 + playerTr_->getPos().getY() - mngr_->camRect_.y) * WIN_HEIGHT / 600 + frameOffsetY_), earthAvatar_, avatarFrame_);
 
         showUpgradeText(u1, 0, 0, 90, 0, price1_);
         showUpgradeText(u2, 0, 50, 90, 50, price2_);
@@ -39,17 +43,6 @@ void ShopComponent::render() {
         showUpgradeText(u8, 250, 150, 170, 150, price8_);
     }
 
-}
-
-void ShopComponent::showUpgradeText(int value, int offsetXup, int offsetYup, int offsetXcoin, int offsetYcoin, int price) {
-    // Textos mejoras
-    textUp_ = std::to_string(value) + "/" + std::to_string(MAX_UPGRADE);
-    font_->render(GameManager::instance()->getRenderer(), textUp_, (textX + offsetXup)*WIN_WIDTH/900,
-        (textY + offsetYup) * WIN_HEIGHT / 600, color_);
-    // Textos monedas
-    textCoin_ = std::to_string(price);
-    font_->render(GameManager::instance()->getRenderer(), textCoin_, (textX + offsetXcoin)*WIN_WIDTH/900,
-        (textY + offsetYcoin) * WIN_HEIGHT / 600, color_);
 }
 
 // incrementa los valores de las mejoras en la tienda
@@ -108,6 +101,19 @@ void ShopComponent::shopEconomy() {
         price8_ += 10;
         life_->addLife(3, 5.0f);
     }
+}
+
+void ShopComponent::showUpgradeText(int value, int offsetXup, int offsetYup, int offsetXcoin, int offsetYcoin, int price) {
+    // Textos mejoras
+    textX = (playerTr_->getPos().getX() - mngr_->camRect_.x) * WIN_WIDTH / 900 - textOffsetX_;
+    textY = (playerTr_->getPos().getY() - mngr_->camRect_.y) * WIN_HEIGHT / 600 + textOffsetY_;
+    textUp_ = std::to_string(value) + "/" + std::to_string(MAX_UPGRADE);
+    font_->render(GameManager::instance()->getRenderer(), textUp_, (textX + offsetXup) * WIN_WIDTH / 900,
+        (textY + offsetYup) * WIN_HEIGHT / 600, color_);
+    // Textos monedas
+    textCoin_ = std::to_string(price);
+    font_->render(GameManager::instance()->getRenderer(), textCoin_, (textX + offsetXcoin) * WIN_WIDTH / 900,
+        (textY + offsetYcoin) * WIN_HEIGHT / 600, color_);
 }
 
 void ShopComponent::showShopBackground() {

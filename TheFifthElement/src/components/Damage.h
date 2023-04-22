@@ -7,6 +7,7 @@
 #include <string>
 #include <iostream>
 #include "../utils/PropertiesManager.h"
+#include <iomanip>
 
 using namespace std;
 

@@ -66,6 +66,7 @@ enum cmpId : cmpId_type {
 	THROWABLEOBJECT_H = 58,
 	FIREBOSSCOMPONENT_H=59,
 	LIFEBASICCOMPONENT_H=60,
+	POWERUPCTRL_H = 61,
 	// do not remove this
 	_LAST_CMP_ID
 };

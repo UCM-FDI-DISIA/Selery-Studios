@@ -48,6 +48,7 @@ public:
 	
 	ColliderTile(vector<Entity*> colisions);
 	
+	virtual ~ColliderTile();
 	void initComponent();
 	
 	inline bool isActive() { return isActive_; }

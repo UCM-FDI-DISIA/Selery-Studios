@@ -11,6 +11,7 @@
 #include "rouletteComponent.h"
 #include "../Elements.h"
 
+
 enum Directions {
     NONE=-1,
     UP=0, DOWN=1, LEFT=2, RIGHT=3
@@ -31,7 +32,9 @@ private:
     bool moveRight = false;
     bool moveUp = false;
     bool moveDown = false;
+    bool canTalk = false;
     SoundManager* smg_=nullptr;
+
 public:
     InputComponent(Roulette* r);
     void initComponent();
@@ -39,7 +42,7 @@ public:
     void handleEvents(SDL_Event event);
     void changebool(){ npccol = false; }
     inline void setDirection(int dd) {
-        cout << Directions(dd) << endl;
+ 
         d = Directions(dd);
     }
     /*void setAir(bool b) { elements[0] = b; }

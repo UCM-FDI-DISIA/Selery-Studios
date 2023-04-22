@@ -8,20 +8,18 @@
 
 class FramedImage : public Component {
 private:
-	int frames_, col = 0, widthFrame_, heightFrame_, cont = 0,tope =100;
+	int frames_, col = 0, widthFrame_, heightFrame_, cont = 0, tope = 100, fila_;
+	int framesPerRow_, nFilas_; // Se utiliza para imagenes con la misma animacion repartida en varias filas
 	Transform* tr_; // Consulta las caracteristicas fisicas
 	Texture* tex_;	// Imagen a rederizar
 	SDL_RendererFlip s = SDL_FLIP_NONE;
 	SDL_Rect dest, src;
 	bool isAnimUnstoppable_ = false;
 	string type_, texKey_ = "";
-	int fila_;
 public:
 	//Constructora
-	FramedImage(Texture* tex, int width, int height, int frames, string type = "");
-	FramedImage(Texture* tex, int width, int height, int frames, int fila, string type = "");
-	//FramedImage(Texture* tex, int nframes, int framesT, int fila, int widthFrame, int heightFrame);//Constructora
-	//FramedImage(Texture* tex, int nframes, int framesT, int fila, int widthFrame, int heightFrame, string type);//Constructora
+	FramedImage(Texture* tex, int width, int height, int frames, string type = ""); // Imagen con una animacion en una fila
+	FramedImage(Texture* tex, int width, int height, int frames, int fila, string type = ""); // Imagen con varias animaciones
 
 	// Destructora
 	virtual ~FramedImage();
@@ -38,8 +36,9 @@ public:
 
 	inline int getRow() { return fila_; }
 
-	void setAnim(string textureKey, int frames, bool isAnimUnstoppable, int fila = 0); //Metodo generico para cambiar de animacion
-	void setAnim(string textureKey, int col,int frames, bool isAnimUnstoppable, int fila = 0); //Metodo generico para cambiar de animacion
+	void setAnim(string textureKey, int frames, bool isAnimUnstoppable, int fila = 0); // Metodo generico para cambiar de animacion
+	void setAnim(string textureKey, int col,int frames, bool isAnimUnstoppable, int fila = 0); // Metodo generico para cambiar de animacion desde una columna determinada
+	void setAnim(string textureKey, int frames, int framesPerRow, int nFilas, bool isAnimUnstoppable, int fila = 0); // Metodo generico para cambiar de animacion repartida en varias filas
 
 	inline bool isAnimPlaying() { return col <  frames_ - 1; }
 
@@ -58,13 +57,6 @@ public:
 
 	inline void setWidthFrame(int newWidth) { widthFrame_ = newWidth; }
 	inline void setHeightFrame(int newHeight) { heightFrame_ = newHeight; }
-	//matriz
-	//void setAnim(bool Anim, int Fila, int Frames, int I, int tope); //Metodo generico para cambiar de animacion en BEU
-
-	//void setAnimTexture(string textureKey, int Frames, int Width, int Fila = 0);
-
-	////spritesheet
-	//void setSpriteAnim(bool Anim, int Frames, int I, Texture* t); //Metodo generico para cambiar de animacion en BEU
 
 	void setFlip(SDL_RendererFlip Flip = SDL_FLIP_NONE) { s = Flip; }
 

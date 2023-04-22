@@ -10,7 +10,7 @@ class ObjectsComponent : public Component {
 private:
 	bool inRange = false;
 	bool picked = false;
-	ColliderComponent* trPlayer;
+	Transform* trPlayer;
 	Transform* trObject;
 public:
 	ObjectsComponent() {}

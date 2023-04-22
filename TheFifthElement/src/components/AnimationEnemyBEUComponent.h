@@ -54,7 +54,7 @@ public:
 	}
 #pragma region EnumAnims
 	enum AnimationStates {
-		Moving, Attack, Hit, Death, Null
+		Moving, Attack, Hit, Death, Null,Idle
 	};
 
 	AnimationStates currentState_;
@@ -70,6 +70,7 @@ public:
 	void setAttackTexture();
 	void setHitTexture();
 	void setDeathTexture();
+	void setIdleTexture();
 
 	int getNFrames() { return nframes_; }
 	Texture* getTexture() { return  &SDLUtils::instance()->images().at(t_); }

@@ -1,7 +1,7 @@
 ﻿#include "BeatEmUpState.h"
 #include "../components/SkinBEUComponent.h"
 #include "../Elements.h"
-
+#include "../Game.h"
 BeatEmUpState::BeatEmUpState(bool Boss,Entity* enemySends, string typeBoss, int nEnemies, int timeGen) {
 	enemySender = enemySends;
 	numEnemies = nEnemies;
@@ -44,19 +44,20 @@ BeatEmUpState::BeatEmUpState(bool Boss,Entity* enemySends, string typeBoss, int 
 	in_ = player_->addComponent<InputComponentBEU>(INPUTCOMPONENTBEU_H, roulete);
 	player_->addComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
 	player_->addComponent<AttackBoxComponent>(ATTACKBOXCOMPONENT_H);
-	
 	if (typeBoss == "water") player_->addComponent<LimitBEU>(LIMITBEU_H, true);
 	else player_->addComponent<LimitBEU>(LIMITBEU_H);
 
 	player_->addComponent<ColliderComponent>(int(COLLIDERCOMPONENT_H), Vector2D(90, 80), 1.2*PLAYERBEU_HEIGHT_FRAME / 3, PLAYERBEU_WIDTH_FRAME / 7);
 	player_->addComponent<PointOfFightComponent>(POINTOFFIGHTCOMPONENT_H, 30, 10);
+	PowerUpControler* puCtrl = player_->addComponent<PowerUpControler>(POWERUPCTRL_H);
+	properties().setPowerUpRef(puCtrl);
 	sk_->initComponent();
 	addEntity(player_);
 	
 	colManager_ = new ColManager(this);
 
 	if (!boss) {
-		//AddEnemies(3);
+		AddEnemies(3);
 		//AddEnemy();
 	}
 	else if (boss && typeBoss == "water") {
@@ -117,7 +118,6 @@ void BeatEmUpState::AddEnemies(int n_enemies) {
 
 		else animation_ = enemy_->addComponent<AnimationEnemyBEUComponent>(ANIMATIONENEMYBEUCOMPONENT_H, getEnemyType(type), "goblin", player_);
 
-		
 		////animation_->changeState(AnimationEnemyBEUComponent::Moving);
 		////animation_->updateAnimation();
 
@@ -147,10 +147,10 @@ void BeatEmUpState::AddWaterBoss() {
 	waterBoss->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(50, 10), WATERBOSS_HEIGHT, WATERBOSS_WIDTH/2);
 	waterBoss->addComponent<WaterBossLife>(WATERBOSSLIFE_H, 1);
 	waterBoss->addComponent<WaterBossIA>(WATERBOSSIA_H, player_);
-	// buscar assets olas
 }
 
 void BeatEmUpState::AddFireBoss() {
+	numEnemies = 4; // Boss + enemigos que spawnea
 	Vector2D pos = { WIN_WIDTH / 2,WIN_HEIGHT / 2 };
 	Entity* boss = addEntity();
 	Transform* t = boss->addComponent<Transform>(TRANSFORM_H, pos, FIREBOSS_WIDTH, FIREBOSS_HEIGHT);
@@ -159,7 +159,6 @@ void BeatEmUpState::AddFireBoss() {
 	boss->addComponent<FireBossComponent>(FIREBOSSCOMPONENT_H, player_);
 	boss->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(100, 40), (FIREBOSS_WIDTH / 2 - 25), (FIREBOSS_HEIGHT - 75));
 	boss->addComponent<LimitBEU>(LIMITBEU_H);
-
 }
 
 void BeatEmUpState::AddEarthBoss() {
@@ -178,12 +177,12 @@ void BeatEmUpState::AddEarthBoss() {
 	earthBoss_->addComponent<LifeEarthBossComponent>(LIFEEARTHBOSSCOMPONENT_H);
 	earthBoss_->addComponent<AttackBoxComponent>(ATTACKBOXCOMPONENT_H);
 
-
 	addEntity(earthBoss_);
 }
 
-void BeatEmUpState::AddLightBoss() 
-{
+void BeatEmUpState::AddLightBoss() {
+	//AddEnemies(5);
+
 	numEnemies = 1;
 	Entity* lightBoss = new Entity();
 	lightBoss->setContext(this);
@@ -211,12 +210,18 @@ string BeatEmUpState::getEnemyType(int i) {
 	else {
 		return "air";
 	}
-
 }
 
 void BeatEmUpState::handleEvents() {
 	SDL_Event event;
-	while (SDL_PollEvent(&event)) { in_->handleEvents(event); }
+	while (SDL_PollEvent(&event)) 
+	{
+		if (event.type == SDL_QUIT )
+		{
+			GameManager::instance()->getGame()->setExit(true);
+		}
+		in_->handleEvents(event); 
+	}
 	if (InputHandler::instance()->isKeyDown(SDL_SCANCODE_V)) { finishBEU(); };
 
 }
@@ -239,7 +244,7 @@ void BeatEmUpState::finishBEU() {
 		SDLUtils::instance()->soundEffects().at("Battle").haltChannel();
 		GameManager::instance()->goTopDown();
 		
-		enemySender->~Entity();
+		if(enemySender != nullptr)enemySender->~Entity();
 	}
 	//if (!player_->isAlive()) {
 	//	SDLUtils::instance()->soundEffects().at("Battle").haltChannel();
@@ -254,6 +259,7 @@ string BeatEmUpState::getStateID() {
 void BeatEmUpState::update() {
 	Manager::refresh();
 	Manager::update();
+	colManager_->update();
 	
 	if (!boss && createdEnemies < numEnemies && cont <= 0) { //aqui salta un fallo porque esta leyendo numenemies que no es fijo, se reduce cuando matas a un enemigo y si matas a un enemigo antes de que se genere otro dejan de generarse
 		AddEnemy();
@@ -262,6 +268,7 @@ void BeatEmUpState::update() {
 	}
 	cont--;
 
+	//camRect_.x = (trans_player_->getPos().getX() + camOffset_) - WIN_WIDTH / 2;
 	camRect_.x = camRect_.x + ((trans_player_->getPos().getX() + camOffset_ - camRect_.x) - WIN_WIDTH / 2) * 0.05;
 	camRect_.y = 0;
 	// Clamp de la cámara

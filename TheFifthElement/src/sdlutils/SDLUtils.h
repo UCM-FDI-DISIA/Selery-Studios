@@ -14,7 +14,7 @@
 #include "Texture.h"
 #include "VirtualTimer.h"
 #include "../utils/Constants.h"
-
+#include <vector>
 class SDLUtils : public Singleton<SDLUtils> {
 
 	friend Singleton<SDLUtils>; // needed to give access to private constructors
@@ -184,7 +184,7 @@ private:
 	void initSDLExtensions(); // initialize resources (fonts, textures, audio, etc.)
 	void closeSDLExtensions(); // free resources the
 	void loadReasources(std::string filename); // load resources from the json file
-
+	
 	std::string windowTitle_; // window title
 	int width_; // window width
 	int height_; // window height
@@ -192,6 +192,9 @@ private:
 	SDL_Window* window_; // the window
 	SDL_Renderer* renderer_; // the renderer
 
+	
+	
+	
 	sdl_resource_table<std::string> dialog_; // fonts map (string -> dialog)
 	sdl_resource_table<Font> fonts_; // fonts map (string -> font)
 	sdl_resource_table<Texture> images_; // textures map (string -> texture)
@@ -209,6 +212,7 @@ private:
 
 	RandomNumberGenerator random_; // (pseudo) random numbers generator
 	VirtualTimer timer_; // virtual timer
+	std::vector<Texture*> texturesToDelete_;
 };
 
 // This macro defines a compact way for using the singleton SDLUtils, instead of

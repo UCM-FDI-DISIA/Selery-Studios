@@ -31,6 +31,9 @@ public:
 #pragma region properties
 	int getMoney() const;
 	bool can_Substract(int cuantity);
+	inline void setMoney(int cuantity) {
+		money_ = cuantity;
+	}
 	inline void addMoney(int cuantity);
 #pragma endregion
 };
