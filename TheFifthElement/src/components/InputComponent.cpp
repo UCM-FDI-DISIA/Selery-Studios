@@ -119,14 +119,35 @@ void InputComponent::handleEvents(SDL_Event event)
 	if (ih().keyDownEvent()){
 		if (!dialog->gethasstarted() && !dialog->getopenedShop()) {
 			if ((ih().isKeyDown(SDL_SCANCODE_J))) {
-				static_cast<TopDownState*>(mngr_)->SaveGame();
-				//s->SaveGame();
+				if(canSave)
+				{
+					static_cast<TopDownState*>(mngr_)->SaveGame();
+					canSave = false;
+					//s->SaveGame();
+				}
 			}
-			else if ((ih().isKeyDown(SDL_SCANCODE_T))) {
-				static_cast<TopDownState*>(mngr_)->LoadGame();
-				//s->LoadGame();
+			else if (ih().isKeyUp(SDL_SCANCODE_J))
+			{
+				canSave = true;
 			}
-			else if (ih().isKeyDown(SDL_SCANCODE_A) && d != LEFT) {
+		
+			if ((ih().isKeyDown(SDL_SCANCODE_T))) {
+				if (canLoad)
+				{
+					canLoad = false;
+					static_cast<TopDownState*>(mngr_)->LoadGame();
+					//s->LoadGame();
+
+				}
+			}
+			else if (ih().isKeyUp(SDL_SCANCODE_T))
+			{
+				canLoad = true;
+			}
+
+
+
+			if (ih().isKeyDown(SDL_SCANCODE_A) && d != LEFT) {
 				moveLeft = true;
 			}
 			else if (ih().isKeyUp(SDL_SCANCODE_A) || d == LEFT) { moveLeft = false; }
@@ -144,10 +165,7 @@ void InputComponent::handleEvents(SDL_Event event)
 				moveDown = true;
 			}
 			else if (ih().isKeyUp(SDL_SCANCODE_S) || d == DOWN) { moveDown = false; }
-			//else {
-			//	mov_->setDir(Vector2D(0, 0));
-			//	skin_->changeState(SkinComponent::Idle);
-			//}
+			
 
 			if (ih().isKeyDown(SDL_SCANCODE_1) && Elements::instance()->getAir()) {
 				skin_->changeSkin("air");
