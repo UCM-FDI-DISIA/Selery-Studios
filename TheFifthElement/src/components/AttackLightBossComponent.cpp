@@ -166,10 +166,10 @@ void AttackLightBossComponent::attack2()
 	else 
 	{
 		rayTrans_ = ray->addComponent<Transform>(TRANSFORM_H, Vector2D(bossTrans->getPos().getX() + bossTrans->getW() / 2, bossTrans->getPos().getY() + bossTrans->getH() / 2), BACKGROUNDBEU_WIDTH - bossTrans->getPos().getX(), 128); 
-	}	
-	ray->addComponent<FramedImage>(FRAMEDIMAGE_H, &SDLUtils::instance()->images().at("Ray"), 256, 128, 8);
+	}		
 	ray->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(0, bossTrans->getH() / 4), bossTrans->getH() / 2, rayTrans_->getW());
 	ray->addComponent<ColDetectorComponent>(COLDETECTORCOMPONENT_H, ray, player_);
 	ray->addComponent<LightBossElement>(LIGHTBOSSELEMENT_H);
+	ray->addComponent<FramedImage>(FRAMEDIMAGE_H, &SDLUtils::instance()->images().at("Ray"), 256, 128, 8);
 	mngr_->addEntity(ray);
 }
