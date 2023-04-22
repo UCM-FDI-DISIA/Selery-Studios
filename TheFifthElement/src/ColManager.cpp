@@ -110,13 +110,15 @@ void ColManager::checkCollisionP(SDL_Rect boxAttack,string type)
 		}
 		else if (it->hasComponent(LIGHTBOSSELEMENT_H) && it->hasComponent(DISABLEONEXIT_H))
 		{
+			bool arrowreturning = it->getComponent<LightBossElement>(LIGHTBOSSELEMENT_H)->getReturning();
 			ColliderComponent* col = it->getComponent<ColliderComponent>(COLLIDERCOMPONENT_H);
-			if (Collision::collides(Vector2D(boxAttack.x, boxAttack.y), boxAttack.w, boxAttack.h, Vector2D(col->getColRect().x, col->getColRect().y), col->getColRect().w, col->getColRect().h))
+			if (Collision::collides(Vector2D(boxAttack.x, boxAttack.y), boxAttack.w, boxAttack.h, Vector2D(col->getColRect().x, col->getColRect().y), col->getColRect().w, col->getColRect().h) && !arrowreturning)
 			{
 				Transform* arrowTransform = it->getComponent<Transform>(TRANSFORM_H);
 				FramedImage* arrowImage = it->getComponent<FramedImage>(FRAMEDIMAGE_H);
 				arrowTransform->setDir(arrowTransform->getDir()* (-1));
 				arrowImage->setFlip(SDL_FLIP_HORIZONTAL);
+				it->getComponent<LightBossElement>(LIGHTBOSSELEMENT_H)->setReturning();
 			}
 			
 		}

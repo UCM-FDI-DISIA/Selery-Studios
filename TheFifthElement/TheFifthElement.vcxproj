@@ -136,6 +136,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\components\LightBossElement.h" />
     <ClInclude Include="src\components\PowerUpControler.h" />
     <ClInclude Include="src\components\FireBossComponent.h" />
     <ClInclude Include="src\components\IceIAComponent.h" />

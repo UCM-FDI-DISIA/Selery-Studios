@@ -169,6 +169,7 @@
     <ClInclude Include="src\components\LifeBasicComponent.h" />
     <ClInclude Include="src\components\PowerUpControler.h" />
     <ClInclude Include="src\Elements.h" />
+    <ClInclude Include="src\components\LightBossElement.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="TheFifthElement.rc" />

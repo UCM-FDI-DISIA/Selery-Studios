@@ -50,14 +50,7 @@ void ColDetectorComponent::update() {
                 Vector2D(col2_->getColRect().x, col2_->getColRect().y),
                 col2_->getColRect().w, col2_->getColRect().h))
                 obj2_->getComponent<LifeComponent>(LIFECOMPONENT_H)->Hit(1.2);
-                /*if (obj2_->hasComponent(LIFECOMPONENT_H))
-                {
-                    obj2_->getComponent<LifeComponent>(LIFECOMPONENT_H)->Hit(1.2);
-                }
-                else if (obj2_->hasComponent(LIFELIGHTBOSSCOMPONENT_H))
-                {
-                    obj2_->getComponent<LifeLightBossComponent>(LIFELIGHTBOSSCOMPONENT_H)->damage(50);
-                }*/
+                
                 
         }
         else if (obj1_->hasComponent(LIGHTBOSSELEMENT_H))//para los ataques del lightboss

@@ -113,12 +113,10 @@ void AttackLightBossComponent::render()
 			opacity--;
 			if (opacity <= 0)
 			{
-				cout << "volvi" << endl;
 				blacker = true;
 			}
 		}
 		blackScreenTex_->setAlpha(opacity);
-		//blackScreenTex_->render(BSrect);
 		SDL_RenderCopy(Gm_->getRenderer(), blackScreenTex_->getSDLTexture(), nullptr, &BSrect);
 	}
 }
