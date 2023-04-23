@@ -12,6 +12,7 @@
 #include "ColliderComponent.h"
 #include "LightBossElement.h"
 #include "../GameManager.h"
+#include "AnimationLightBossComponent.h"
 
 class AttackLightBossComponent : public Component
 {
@@ -41,8 +42,9 @@ private:
 	SDL_Rect BSsrc = { 0,0,100,100 };
 	Texture* blackScreenTex_;
 	RandomNumberGenerator* random;
-	FramedImage* imBoss;
+	FramedImage* imBoss_;
 	bool attacking = false;
+	AnimationLightBossComponent* animBoss_;
 
 public:
 	AttackLightBossComponent(Entity* player);

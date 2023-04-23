@@ -18,7 +18,8 @@ void AttackLightBossComponent::initComponent()
 	timerRand = sdlutils().currRealTime() + 5000;
 	blackScreenTex_ = &SDLUtils::instance()->images().at("BlackScreen");
 	random = &SDLUtils::instance()->rand();
-	imBoss = ent_->getComponent<FramedImage>(FRAMEDIMAGE_H);
+	animBoss_ = ent_->getComponent<AnimationLightBossComponent>(ANIMATIONLIGHTBOSSCOMPONENT_H);
+	imBoss_ = ent_->getComponent<FramedImage>(FRAMEDIMAGE_H);
 }
 
 void AttackLightBossComponent::setState(int state)
@@ -82,11 +83,12 @@ void AttackLightBossComponent::update()
 		}
 	}	
 
-	if (timer <= sdlutils().currRealTime() && !attacking) //aqui dentro tengo que manejar las animaciones ya que los ataques van en mitad de ellas
+	if (timer <= sdlutils().currRealTime() && !attacking) //añadir sonidos
 	{
 		contAtks++;
 		if (contAtks == 3)
-		{			
+		{		
+			animBoss_->newAnim(AnimationLightBossComponent::Attack2); //el ataque 2 sale del lateral derecho 
 			attack2();
 			contAtks = 0;
 			timer = sdlutils().currRealTime() + 3000;
@@ -94,19 +96,18 @@ void AttackLightBossComponent::update()
 
 		else 
 		{ 
-			imBoss->setAnim("BEULightBossAttackSphere", 15, true);
+			animBoss_->newAnim(AnimationLightBossComponent::Attack);
 			attacking = true;
 		}
 	}
 
 	if (attacking)
 	{
-		if (imBoss->getCol() >= 8)
+		if (imBoss_->getCol() >= 8)
 		{
 			timer = sdlutils().currRealTime() + 3000;
 			attack1();
 			attacking = false;
-			imBoss->setAnim("BEULightBossIdle", 12, false);
 		}
 	}
 }
@@ -165,7 +166,6 @@ void AttackLightBossComponent::attack1()//esto debe ser para generar siempre bol
 	sphere->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(96, 48), 32, 64);//datos metidos a mano deberian ser mediante metodos
 	sphere->addComponent<DisableOnExit>(DISABLEONEXIT_H);
 	sphere->addComponent<ColDetectorComponent>(COLDETECTORCOMPONENT_H, sphere, player_,ent_);
-	//sphere->addComponent<ColDetectorComponent>(COLDETECTORCOMPONENT_H, sphere, ent_); necesito un collider para que revise al propio boss
 	sphere->addComponent<LightBossElement>(LIGHTBOSSELEMENT_H);
 	mngr_->addEntity(sphere);
 }

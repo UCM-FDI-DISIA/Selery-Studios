@@ -8,6 +8,7 @@
 #include "FramedImage.h"
 #include "../states/BeatEmUpState.h"
 #include "AttackLightBossComponent.h"
+#include "AnimationLightBossComponent.h"
 
 class LifeLightBossComponent: public Component
 {
@@ -29,6 +30,7 @@ private:
 
 	FramedImage* im_;
 	Transform* tr_;
+	AnimationLightBossComponent* animBoss_;
 
 public:
 	LifeLightBossComponent();

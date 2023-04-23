@@ -16,6 +16,7 @@ void LifeLightBossComponent::initComponent()
 	barWidth_ = backWidth_ = borderWidth_ = 300*scale;
 	barHeight_ = backHeight_ = borderHeight_ = 50*scale;
 	atk_ = ent_->getComponent<AttackLightBossComponent>(ATTACKLIGHTBOSSCOMPONENT_H);
+	animBoss_ = ent_->getComponent<AnimationLightBossComponent>(ANIMATIONLIGHTBOSSCOMPONENT_H);
 }
 
 void LifeLightBossComponent::damage(float dam)
@@ -23,14 +24,14 @@ void LifeLightBossComponent::damage(float dam)
 	life -= dam;
 	if (life <= 0)
 	{
-		//die animation
+		animBoss_->newAnim(AnimationLightBossComponent::Die);
 		static_cast<BeatEmUpState*>(mngr_)->finishBEU();
 		ent_->~Entity(); //esto esta añadido ya que en 1 solo ataque se producen multiples daños y se llamaba a esta funcion demasiadas veces
 	}
 	else
 	{
 		checkState();
-		//take hit animation
+		animBoss_->newAnim(AnimationLightBossComponent::Hit);
 	}
 }
 

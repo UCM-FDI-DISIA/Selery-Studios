@@ -317,6 +317,7 @@
     {"id": "BEULightBossTakeHit", "file": "assets/Enemies/BeatEmUp/Bosses/LightBoss/animations/spritesheets/takeHit.png"},
     {"id": "BEULightBossAttackSphere", "file": "assets/Enemies/BeatEmUp/Bosses/LightBoss/animations/spritesheets/attackSphere.png"},
     {"id": "BEULightBossSpecialAttack", "file": "assets/Enemies/BeatEmUp/Bosses/LightBoss/animations/spritesheets/SpecialAttack.png"},
+    {"id": "BEULightBossDie", "file": "assets/Enemies/BeatEmUp/Bosses/LightBoss/animations/spritesheets/die.png"},
     {"id": "SphereArrow", "file": "assets/enemies/BeatEmUp/Bosses/LightBoss/animations/spritesheets/arrowSphere.png"},
     {"id": "Ray", "file": "assets/enemies/BeatEmUp/Bosses/LightBoss/animations/spritesheets/ray.png"},
     {"id": "BlackScreen", "file": "assets/enemies/BeatEmUp/Bosses/LightBoss/animations/PNG/BlackScreen.png"},
