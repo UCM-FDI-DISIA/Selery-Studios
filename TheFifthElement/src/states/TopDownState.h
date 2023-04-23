@@ -35,6 +35,7 @@
 #include "../components/SectorCollisionComponent.h"
 #include "../components/BossCollision.h"
 #include "../Saving.h"
+#include "../components/QuestInfoComponent.h"
 
 using uint = unsigned int;
 using tileset_map = std::map<std::string, Texture*>; //mapa con CLAVE:string, ARGUMENTO: puntero a textura
@@ -132,6 +133,8 @@ private:
 	Transform* exitShopButtonTr_;
 	Button* exitShopButtonComp_;
 
+	list<Entity*> quests;
+
 	//void actSectors(int idChange, bool nowValue)
 	//{
 	//	if (sectors[idChange] != nowValue)
@@ -142,8 +145,22 @@ private:
 	//	//printMap();
 	//}
 	bool saved = false;
+	bool loaded = false;
 	bool shopCreated_ = false;
 	bool loadGame = false;
+	bool questsMenu = false;
+
+	// MINIMAPA
+	Texture* m_ = &SDLUtils::instance()->images().at("mapFrame");
+	Texture* airAvatar_ = &SDLUtils::instance()->images().at("AirAvatar");
+	int mapFrameX_ = 180;
+	int mapFrameY_ = 100;
+	float zoom_ = 3.0f;
+	int mapOffsetX_ = 50;
+	int mapOffsetY_ = 100;
+	int iconWidth_ = 15;
+	int iconHeight_ = 15;
+
 public:
 	string getStateID(); // stringID
 	PuzzleCopas* puzzle1;
@@ -161,6 +178,10 @@ public:
 	void render();
 	void createShopButtons();
 	void cleanShopButtons();
+	void newQuest(string nombre, string text, string reward, int coins = 0, int fases = 0);
+	void completedQuest(string nombre);
+	void actQuests();
+	void renderQuestList();
 	Texture* npcTexture() {
 		int a = SDLUtils::instance()->rand().nextInt(1, 11);
 		return &SDLUtils::instance()->images().at("NPC_"+ to_string(a));
@@ -205,5 +226,7 @@ public:
 	DialogueComponent* getDialog() { return dialog_; }
 	Button* getShopButton(int i) { return buttonsComp.at(i); }
 	SkinComponent* getPlayerSkin() { return sk_; }
+	bool getMenuQuest() { return questsMenu; }
+	void setMenuQuest(bool b) { questsMenu = b; }
 };
 

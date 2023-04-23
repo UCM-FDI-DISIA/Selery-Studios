@@ -328,7 +328,8 @@
     {"id": "ObeliskEarth","file": "assets/Scenes/Maps/AncientRuins/Props/Obelisk1Earth-animation1-activating-70x150.png"},
     {"id": "ObeliskFire","file": "assets/Scenes/Maps/AncientRuins/Props/Obelisk1Fire-animation1-activating-70x150.png"},
     {"id": "ObeliskWater","file": "assets/Scenes/Maps/AncientRuins/Props/Obelisk1Water-animation1-activating-70x150.png"},
-    {"id": "portalAnimated","file": "assets/Scenes/Maps/AncientRuins/Props/portal-on grass-crypt-all animations.png"}
+    {"id": "portalAnimated","file": "assets/Scenes/Maps/AncientRuins/Props/portal-on grass-crypt-all animations.png"},
+    {"id": "mapFrame", "file": "assets/HUD/marcoMapa.png"}
   ],
 
   "messages": [

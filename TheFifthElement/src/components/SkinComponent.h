@@ -22,10 +22,11 @@ private:
     int nframes_;
     int fila_;
     FramedImage* im_;
+    Texture* avatar_;
 
 public:
 
-    SkinComponent(string skin);
+    SkinComponent(string skin, Texture* avatar);
     void setIdle();
     void setLeft();
     void setRight();
@@ -38,8 +39,12 @@ public:
     void changeSkin(string skin) {
         skin_ = skin;
     }
+    void changeAvatar(Texture* avatar) { // cambia el icono en el minimapa
+        avatar_ = avatar;
+    }
     inline string getSkin() { return t_; }
     inline string getSkinPlayer() { return skin_; } // método para obtener el id "air", "fire",...
+    inline Texture* getAvatar() { return avatar_; } // obtiene el icono para el minimapa
 
 };
 #endif
