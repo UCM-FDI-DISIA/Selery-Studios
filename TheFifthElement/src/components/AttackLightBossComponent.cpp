@@ -58,7 +58,7 @@ void AttackLightBossComponent::update()
 
 	else if (fightState == 3) //marcamos la excepcion del teletransporte esto deberia sere el 3 y el state 2 aleatorio y cada 5 segundos
 	{
-		if (distX<closeX && distX>negCloseX && distY<closeY && distY>negCloseY)
+		if (distX<closeX && distX>negCloseX )
 		{
 			Vector2D newPos=Vector2D (0,bossTrans->getPos().getY());
 			if (distX <= 0 && bossTrans->getPos().getX() <= (BACKGROUNDBEU_WIDTH - 500)) //player a la izquierda y boss lejos del borde derecho
@@ -139,7 +139,6 @@ void AttackLightBossComponent::render()
 			opacity++;
 			if (opacity >= 255)
 			{
-				cout << "llegue" << endl;
 				blacker = false;
 			}
 		}
@@ -174,7 +173,14 @@ void AttackLightBossComponent::attack1()//esto debe ser para generar siempre bol
 	}
 	//orden de ejecucion: move, set anim al atk2 y despues crear la flecha
 	Entity* sphere = new Entity();
-	arrowTrans_ = sphere->addComponent<Transform>(TRANSFORM_H, Vector2D(bossTrans->getPos().getX(), bossTrans->getPos().getY() + bossTrans->getH() / 2), 256, 128);
+	if (distX <= 0)
+	{
+		arrowTrans_ = sphere->addComponent<Transform>(TRANSFORM_H, Vector2D(bossTrans->getPos().getX() - 68, bossTrans->getPos().getY() + bossTrans->getH() / 2), 256, 128);
+	}
+	else
+	{
+		arrowTrans_ = sphere->addComponent<Transform>(TRANSFORM_H, Vector2D(bossTrans->getPos().getX() + 186, bossTrans->getPos().getY() + bossTrans->getH() / 2), 256, 128);
+	}	
 	arrowIm_ = sphere->addComponent<FramedImage>(FRAMEDIMAGE_H, &SDLUtils::instance()->images().at("SphereArrow"), 256, 128, 12);
 	if (distX <= 0) { dirAtk = Vector2D(-1, 0); arrowIm_->setFlip(SDL_FLIP_HORIZONTAL); }
 	else { dirAtk = Vector2D(1, 0); }
@@ -193,15 +199,15 @@ void AttackLightBossComponent::attack2()
 	Entity* ray = new Entity();
 	if (distX <= 0) 
 	{ 
-		rayTrans_ = ray->addComponent<Transform>(TRANSFORM_H, Vector2D(0, bossTrans->getPos().getY() + bossTrans->getH() / 2), bossTrans->getPos().getX() + 96, 128); 
+		rayTrans_ = ray->addComponent<Transform>(TRANSFORM_H, Vector2D(0, bossTrans->getPos().getY() + bossTrans->getH() / 2), bossTrans->getPos().getX()-bossTrans->getW(), 128);
 	}
 	else 
 	{
-		rayTrans_ = ray->addComponent<Transform>(TRANSFORM_H, Vector2D(bossTrans->getPos().getX() + bossTrans->getW() / 2, bossTrans->getPos().getY() + bossTrans->getH() / 2), BACKGROUNDBEU_WIDTH - bossTrans->getPos().getX(), 128); 
+		rayTrans_ = ray->addComponent<Transform>(TRANSFORM_H, Vector2D(bossTrans->getPos().getX() + bossTrans->getW() + 96, bossTrans->getPos().getY() + bossTrans->getH() / 2), BACKGROUNDBEU_WIDTH - bossTrans->getPos().getX(), 128); 
 	}		
 	ray->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(0, bossTrans->getH() / 4), bossTrans->getH() / 2, rayTrans_->getW());
 	ray->addComponent<ColDetectorComponent>(COLDETECTORCOMPONENT_H, ray, player_);
 	ray->addComponent<LightBossElement>(LIGHTBOSSELEMENT_H);
-	ray->addComponent<FramedImage>(FRAMEDIMAGE_H, &SDLUtils::instance()->images().at("Ray"), 256, 128, 8);
+	ray->addComponent<FramedImage>(FRAMEDIMAGE_H, &SDLUtils::instance()->images().at("Ray"), 256, 128, 5);
 	mngr_->addEntity(ray);
 }
