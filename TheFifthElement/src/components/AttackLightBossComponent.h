@@ -41,6 +41,8 @@ private:
 	SDL_Rect BSsrc = { 0,0,100,100 };
 	Texture* blackScreenTex_;
 	RandomNumberGenerator* random;
+	FramedImage* imBoss;
+	bool attacking = false;
 
 public:
 	AttackLightBossComponent(Entity* player);

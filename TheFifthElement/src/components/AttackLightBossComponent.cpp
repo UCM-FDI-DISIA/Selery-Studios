@@ -18,6 +18,7 @@ void AttackLightBossComponent::initComponent()
 	timerRand = sdlutils().currRealTime() + 5000;
 	blackScreenTex_ = &SDLUtils::instance()->images().at("BlackScreen");
 	random = &SDLUtils::instance()->rand();
+	imBoss = ent_->getComponent<FramedImage>(FRAMEDIMAGE_H);
 }
 
 void AttackLightBossComponent::setState(int state)
@@ -30,7 +31,7 @@ void AttackLightBossComponent::update()
 	distX = playerTrans->getPos().getX() - bossTrans->getPos().getX();
 	distY = playerTrans->getPos().getY() - bossTrans->getPos().getY();
 
-	if (fightState == 1) //cambiar 
+	if (fightState == 2) 
 	{
 		if (timerRand <= sdlutils().currRealTime())
 		{
@@ -81,17 +82,32 @@ void AttackLightBossComponent::update()
 		}
 	}	
 
-	if (timer <= sdlutils().currRealTime()) //todas las fases tienen los mismo ataques, quiza podria usarse menos codigo y usar factor comun
+	if (timer <= sdlutils().currRealTime() && !attacking) //aqui dentro tengo que manejar las animaciones ya que los ataques van en mitad de ellas
 	{
 		contAtks++;
 		if (contAtks == 3)
-		{
+		{			
+			attack2();
 			contAtks = 0;
 			timer = sdlutils().currRealTime() + 3000;
-			attack2();
 		}
 
-		else { timer = sdlutils().currRealTime() + 3000; attack1(); }
+		else 
+		{ 
+			imBoss->setAnim("BEULightBossAttackSphere", 15, true);
+			attacking = true;
+		}
+	}
+
+	if (attacking)
+	{
+		if (imBoss->getCol() >= 8)
+		{
+			timer = sdlutils().currRealTime() + 3000;
+			attack1();
+			attacking = false;
+			imBoss->setAnim("BEULightBossIdle", 12, false);
+		}
 	}
 }
 
