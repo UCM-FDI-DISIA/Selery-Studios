@@ -182,6 +182,7 @@ void BeatEmUpState::AddEarthBoss() {
 
 void BeatEmUpState::AddLightBoss() {
 	//AddEnemies(5);
+
 	numEnemies = 1;
 	Entity* lightBoss = new Entity();
 	lightBoss->setContext(this);

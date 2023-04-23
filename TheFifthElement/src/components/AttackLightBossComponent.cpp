@@ -1,11 +1,12 @@
 #include "AttackLightBossComponent.h"
+#include "ColDetectorComponent.h"
 
 AttackLightBossComponent::AttackLightBossComponent(Entity* player)
 {
 	player_ = player;
-	fightState = 1;
 	contAtks = 0;
 	dirMov = Vector2D(0, 0);
+	fightState = 1;
 }
 
 void AttackLightBossComponent::initComponent()
@@ -14,6 +15,9 @@ void AttackLightBossComponent::initComponent()
 	playerTrans = player_->getComponent<Transform>(TRANSFORM_H);
 	bossTrans = ent_->getComponent<Transform>(TRANSFORM_H);
 	timer = sdlutils().currRealTime() + 3000;
+	timerRand = sdlutils().currRealTime() + 5000;
+	blackScreenTex_ = &SDLUtils::instance()->images().at("BlackScreen");
+	random = &SDLUtils::instance()->rand();
 }
 
 void AttackLightBossComponent::setState(int state)
@@ -26,11 +30,35 @@ void AttackLightBossComponent::update()
 	distX = playerTrans->getPos().getX() - bossTrans->getPos().getX();
 	distY = playerTrans->getPos().getY() - bossTrans->getPos().getY();
 
-	if (fightState == 2) //marcamos la excepcion del teletransporte
+	if (fightState == 1) //cambiar 
+	{
+		if (timerRand <= sdlutils().currRealTime())
+		{
+			//escoge una x al azar y mueve al boss a ese sitio, ademas realiza un ataque debo añadir unbooleano de ataque para que no realize ataques muy seguidos
+			int limitX = bossTrans->getPos().getX();
+			int limitI=0, limitD=0;
+			if (limitX-500<=0)
+			{
+				limitI = 100;
+				limitD = limitX + 500;
+			}
+			else if (limitX + 500 <= 0)
+			{
+				limitD = BACKGROUNDBEU_WIDTH-100;
+				limitI = limitX - 500;
+			}
+			else { limitI = limitX - 500; limitD = limitX + 500; }
+			int newX = random->nextInt(limitI,limitD);
+			movBoss_->teleport(Vector2D(newX, bossTrans->getPos().getY()));
+			timerRand = sdlutils().currRealTime() + 5000;
+		}
+	}
+
+	else if (fightState == 3) //marcamos la excepcion del teletransporte esto deberia sere el 3 y el state 2 aleatorio y cada 5 segundos
 	{
 		if (distX<closeX && distX>negCloseX && distY<closeY && distY>negCloseY)
 		{
-			Vector2D newPos;
+			Vector2D newPos=Vector2D (0,bossTrans->getPos().getY());
 			if (distX <= 0 && bossTrans->getPos().getX() <= (BACKGROUNDBEU_WIDTH - 500)) //player a la izquierda y boss lejos del borde derecho
 			{
 				newPos.setX(bossTrans->getPos().getX() + 400);
@@ -47,35 +75,49 @@ void AttackLightBossComponent::update()
 			{
 				newPos.setX(bossTrans->getPos().getX() + 500);
 			}
-			newPos.setY(playerTrans->getPos().getY()); //siemre hace tp a la altura del player
+			//newPos.setY(playerTrans->getPos().getY()); //siemre hace tp a la altura del player
 			movBoss_->teleport(newPos);//paso por el movement ya que esto es un movimiento y este script no debe modificar transforms, solo hacer gets
 			attack1();
 		}
-	}
+	}	
 
-	if (timer <= sdlutils().currRealTime())
+	if (timer <= sdlutils().currRealTime()) //todas las fases tienen los mismo ataques, quiza podria usarse menos codigo y usar factor comun
 	{
-		if (fightState == 1 || fightState == 2)
+		contAtks++;
+		if (contAtks == 3)
 		{
-			contAtks++;
-			if (contAtks == 3)
+			contAtks = 0;
+			timer = sdlutils().currRealTime() + 3000;
+			attack2();
+		}
+
+		else { timer = sdlutils().currRealTime() + 3000; attack1(); }
+	}
+}
+
+void AttackLightBossComponent::render()
+{
+	if (fightState == 4) 
+	{
+		if (blacker)
+		{
+			opacity++;
+			if (opacity >= 255)
 			{
-				contAtks = 0;
-				timer = sdlutils().currRealTime() + 3000;
-				attack2();
+				cout << "llegue" << endl;
+				blacker = false;
 			}
-
-			else { timer = sdlutils().currRealTime() + 3000; attack1(); }
 		}
-		//else if (fightState == 2) lo dejo vacio porque los ataques de fase 1 y 2 son iguales a excepcion del tp
-		else if (fightState == 3)
+		else if (!blacker)
 		{
-
+			opacity--;
+			if (opacity <= 0)
+			{
+				blacker = true;
+			}
 		}
-		else if (fightState == 4)
-		{
-
-		}
+		blackScreenTex_->setAlpha(opacity);
+		SDL_RenderCopy(Gm_->getRenderer(), blackScreenTex_->getSDLTexture(), nullptr, &BSrect);
 	}
 }
 
@@ -107,6 +149,7 @@ void AttackLightBossComponent::attack1()//esto debe ser para generar siempre bol
 	sphere->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(96, 48), 32, 64);//datos metidos a mano deberian ser mediante metodos
 	sphere->addComponent<DisableOnExit>(DISABLEONEXIT_H);
 	sphere->addComponent<ColDetectorComponent>(COLDETECTORCOMPONENT_H, sphere, player_);
+	//sphere->addComponent<ColDetectorComponent>(COLDETECTORCOMPONENT_H, sphere, ent_); necesito un collider para que revise al propio boss
 	sphere->addComponent<LightBossElement>(LIGHTBOSSELEMENT_H);
 	mngr_->addEntity(sphere);
 }
@@ -121,10 +164,10 @@ void AttackLightBossComponent::attack2()
 	else 
 	{
 		rayTrans_ = ray->addComponent<Transform>(TRANSFORM_H, Vector2D(bossTrans->getPos().getX() + bossTrans->getW() / 2, bossTrans->getPos().getY() + bossTrans->getH() / 2), BACKGROUNDBEU_WIDTH - bossTrans->getPos().getX(), 128); 
-	}	
-	ray->addComponent<FramedImage>(FRAMEDIMAGE_H, &SDLUtils::instance()->images().at("Ray"), 256, 128, 8);
+	}		
 	ray->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(0, bossTrans->getH() / 4), bossTrans->getH() / 2, rayTrans_->getW());
 	ray->addComponent<ColDetectorComponent>(COLDETECTORCOMPONENT_H, ray, player_);
 	ray->addComponent<LightBossElement>(LIGHTBOSSELEMENT_H);
+	ray->addComponent<FramedImage>(FRAMEDIMAGE_H, &SDLUtils::instance()->images().at("Ray"), 256, 128, 8);
 	mngr_->addEntity(ray);
 }

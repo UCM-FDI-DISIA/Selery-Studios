@@ -51,14 +51,14 @@ void FramedImage::update() {
 	}
 	cont++;
 
-	if (col >= framesPerRow_ - 1) {
+	/*if (col >= framesPerRow_ - 1) { //esta parte la ha comentado CAO porque al estar aqui abajo por orden de ejecucion nunca se ejecutará el codigo del primer if, hay que echar un ojo
 		col = 0;
 		fila_++;
 	}
 	if (fila_ >= nFilas_) {
 		fila_ = 0;
 		isAnimUnstoppable_ = false;
-	}
+	}*/
 }
 
 // Dibuja en escena

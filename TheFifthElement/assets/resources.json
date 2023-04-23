@@ -319,6 +319,7 @@
     {"id": "BEULightBossSpecialAttack", "file": "assets/Enemies/BeatEmUp/Bosses/LightBoss/animations/spritesheets/SpecialAttack.png"},
     {"id": "SphereArrow", "file": "assets/enemies/BeatEmUp/Bosses/LightBoss/animations/spritesheets/arrowSphere.png"},
     {"id": "Ray", "file": "assets/enemies/BeatEmUp/Bosses/LightBoss/animations/spritesheets/ray.png"},
+    {"id": "BlackScreen", "file": "assets/enemies/BeatEmUp/Bosses/LightBoss/animations/PNG/BlackScreen.png"},
     {"id": "FireBoss","file": "assets/Enemies/BeatEmUp/Bosses/FireBoss/spritesheets/demon_slime_FREE_v1.0_288x160_spritesheet.png"},
     {"id": "FireColumn","file": "assets/Unknown/fire_column_medium/fire_column.png"},
 
@@ -327,7 +328,8 @@
     {"id": "ObeliskEarth","file": "assets/Scenes/Maps/AncientRuins/Props/Obelisk1Earth-animation1-activating-70x150.png"},
     {"id": "ObeliskFire","file": "assets/Scenes/Maps/AncientRuins/Props/Obelisk1Fire-animation1-activating-70x150.png"},
     {"id": "ObeliskWater","file": "assets/Scenes/Maps/AncientRuins/Props/Obelisk1Water-animation1-activating-70x150.png"},
-    {"id": "portalAnimated","file": "assets/Scenes/Maps/AncientRuins/Props/portal-on grass-crypt-all animations.png"}
+    {"id": "portalAnimated","file": "assets/Scenes/Maps/AncientRuins/Props/portal-on grass-crypt-all animations.png"},
+    {"id": "mapFrame", "file": "assets/HUD/marcoMapa.png"}
   ],
 
   "messages": [

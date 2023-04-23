@@ -119,14 +119,35 @@ void InputComponent::handleEvents(SDL_Event event)
 	if (ih().keyDownEvent()){
 		if (!dialog->gethasstarted() && !dialog->getopenedShop()) {
 			if ((ih().isKeyDown(SDL_SCANCODE_J))) {
-				static_cast<TopDownState*>(mngr_)->SaveGame();
-				//s->SaveGame();
+				if(canSave)
+				{
+					static_cast<TopDownState*>(mngr_)->SaveGame();
+					canSave = false;
+					//s->SaveGame();
+				}
 			}
-			else if ((ih().isKeyDown(SDL_SCANCODE_T))) {
-				static_cast<TopDownState*>(mngr_)->LoadGame();
-				//s->LoadGame();
+			else if (ih().isKeyUp(SDL_SCANCODE_J))
+			{
+				canSave = true;
 			}
-			else if (ih().isKeyDown(SDL_SCANCODE_A) && d != LEFT) {
+		
+			if ((ih().isKeyDown(SDL_SCANCODE_T))) {
+				if (canLoad)
+				{
+					canLoad = false;
+					static_cast<TopDownState*>(mngr_)->LoadGame();
+					//s->LoadGame();
+
+				}
+			}
+			else if (ih().isKeyUp(SDL_SCANCODE_T))
+			{
+				canLoad = true;
+			}
+
+
+
+			if (ih().isKeyDown(SDL_SCANCODE_A) && d != LEFT) {
 				moveLeft = true;
 			}
 			else if (ih().isKeyUp(SDL_SCANCODE_A) || d == LEFT) { moveLeft = false; }
@@ -144,33 +165,30 @@ void InputComponent::handleEvents(SDL_Event event)
 				moveDown = true;
 			}
 			else if (ih().isKeyUp(SDL_SCANCODE_S) || d == DOWN) { moveDown = false; }
-			//else {
-			//	mov_->setDir(Vector2D(0, 0));
-			//	skin_->changeState(SkinComponent::Idle);
-			//}
+			
 
 			if (ih().isKeyDown(SDL_SCANCODE_1) && Elements::instance()->getAir()) {
 				skin_->changeSkin("air");
 				roulet->changeplayer(1);
-				//static_cast<HUD*>(ent_)->
+				skin_->changeAvatar(&SDLUtils::instance()->images().at("AirAvatar"));
 			}
 			else if (ih().isKeyDown(SDL_SCANCODE_2) && Elements::instance()->getFire()) {
 				roulet->changeplayer(2);
-
 				skin_->changeSkin("fire");
+				skin_->changeAvatar(&SDLUtils::instance()->images().at("FireAvatar"));
 			}
 			else  if (ih().isKeyDown(SDL_SCANCODE_3) && Elements::instance()->getWater()) {
 				roulet->changeplayer(3);
-
 				skin_->changeSkin("water");
+				skin_->changeAvatar(&SDLUtils::instance()->images().at("WaterAvatar"));
 			}
 			else if (ih().isKeyDown(SDL_SCANCODE_4) && Elements::instance()->getEarth()) {
 				roulet->changeplayer(4);
-
 				skin_->changeSkin("earth");
+				skin_->changeAvatar(&SDLUtils::instance()->images().at("EarthAvatar"));
 			}
 		}
-		
+
 		if (ih().isKeyDown(SDL_SCANCODE_E) && !dialog->getopenedShop()){
 
 			if (canTalk)
@@ -194,9 +212,17 @@ void InputComponent::handleEvents(SDL_Event event)
 			GameManager::goPauseMenu();
 		}
 
+		//if (ih().isKeyDown(SDL_SCANCODE_Q)) static_cast<TopDownState*>(mngr_)->questsMenu = !static_cast<TopDownState*>(mngr_)->questsMenu;
+
+		if (ih().isKeyDown(SDL_SCANCODE_X) && static_cast<TopDownState*>(mngr_)->getMenuQuest()) 
+			static_cast<TopDownState*>(mngr_)->setMenuQuest(false);
+		else if (ih().isKeyDown(SDL_SCANCODE_Q) && !static_cast<TopDownState*>(mngr_)->getMenuQuest()) 
+			static_cast<TopDownState*>(mngr_)->setMenuQuest(true);
+
 		if (ih().isKeyDown(SDL_SCANCODE_0)) //cambio a pantalla completa podria ser una opcion
 		{
 			SDL_SetWindowFullscreen(SDLUtils::instance()->window(), SDL_WINDOW_FULLSCREEN); //tambien se puede usar _DESKTOP
 		}
+
 	}
 }

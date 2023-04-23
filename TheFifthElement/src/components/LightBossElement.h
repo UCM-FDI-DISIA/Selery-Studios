@@ -6,6 +6,12 @@
 
 class LightBossElement : public Component
 {
+public:
+	void initComponent() { returning = false; }
+	bool getReturning() { return returning; }
+	void setReturning() { returning = true; }
+private:
+	bool returning;
 };
 
 #endif 

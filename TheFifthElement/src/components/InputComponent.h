@@ -33,6 +33,8 @@ private:
     bool moveUp = false;
     bool moveDown = false;
     bool canTalk = false;
+    bool canSave = false;
+    bool canLoad = false;
     SoundManager* smg_=nullptr;
 
 public:

@@ -1,8 +1,8 @@
 #pragma once
 using uint = unsigned int;
 
-const uint WIN_WIDTH = 900; // anchura de ventana
-const uint WIN_HEIGHT = 600; // altura de ventana
+const uint WIN_WIDTH = 1920; // anchura de ventana
+const uint WIN_HEIGHT = 1080; // altura de ventana
 const float FRAME_RATE = 7.0f; // número de frames que tardará en actualizarse el juego
 
 const uint PLAYERBEU_WIDTH_FRAME = 208; // anchura de PlayerBEU
@@ -16,6 +16,7 @@ const uint PLAYERTD_WIDTH_FRAME = 68; // anchura de PlayerTD
 const uint PLAYERTD_HEIGHT_FRAME = 120; // altura de PlayerTD
 const float PLAYERTD_SPEED = 3.0f; //velocidad PlayerTD
 const uint PLAYERTD_NUMFRAMES = 7; //numero de frames PlayerTD
+const uint PLAYERAVATAR_DIMENSION = 64; // avatar de los players 64x64
 
 #pragma region backgrounds
 const uint BACKGROUNDBEU_WIDTH = 3987; // anchura de BackgroundAir

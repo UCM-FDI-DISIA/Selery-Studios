@@ -21,6 +21,7 @@ TopDownState::TopDownState() {
     addEntity(Hud_);  
     SDLUtils::instance()->soundEffects().at("Title").play();
     dialog_->inicombe();
+    //trans_player_->setPos({ 11668 ,547 });
 }
 
 TopDownState::~TopDownState()
@@ -200,7 +201,7 @@ void TopDownState::LoadMap(string const& filename) {
                     player_->setContext(this);
                     trans_player_ = player_->addComponent<Transform>(TRANSFORM_H, Vector2D((obj.getPosition().x * 2.5), obj.getPosition().y * 2.5), PLAYERTD_WIDTH_FRAME, PLAYERTD_HEIGHT_FRAME);
                     trans_player_->setVel(PLAYERTD_SPEED);                                      /*(fondowidth_ * 2.5)* (WIN_WIDTH / 900), (fondoheight_ * 2.5)* (WIN_HEIGHT / 600)*/
-                    sk_ = player_->addComponent<SkinComponent>(SKINCOMPONENT_H, "air");
+                    sk_ = player_->addComponent<SkinComponent>(SKINCOMPONENT_H, "air", airAvatar_);
                     sk_->changeState(SkinComponent::Idle);
 
                     texture_player_ = &SDLUtils::instance()->images().at("PTD_air_idle");
@@ -260,13 +261,14 @@ void TopDownState::LoadMap(string const& filename) {
                     boss_->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(0, 0), 288, 188);
                     addEntity(boss_);
                 }
-                else if (name == "Enemy") {
-                    if (obj.getName() == "") {
+                if (!loadGame) {
+                 if (name == "Enemy") {
+                    if (obj.getName() == "" && !loadGame) {
                         enemy_ = new Entity();
                         enemy_->setContext(this);
                         Texture* enemyT_ = EnemyTexture();
                         enemy_->addComponent<Transform>(TRANSFORM_H, Vector2D((obj.getPosition().x * 2.5), obj.getPosition().y * 2.5), enemy_width, enemy_height);
-                        FramedImage* img=enemy_->addComponent<FramedImage>(FRAMEDIMAGE_H, enemyT_, enemy_width, enemy_height, 7 , type_);
+                        FramedImage* img = enemy_->addComponent<FramedImage>(FRAMEDIMAGE_H, enemyT_, enemy_width, enemy_height, 7, type_);
                         float a = -1.0f;
                         float lookingRange = 150.0f;
                         float lookingWidth = 100.0f;
@@ -274,7 +276,7 @@ void TopDownState::LoadMap(string const& filename) {
                         enemy_->addComponent<CheckCollision>(CHECKCOLLISION_H, player_, lookingRange, lookingWidth, a);
                         enemy_->addComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
                         enemy_->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(0, 0), enemy_height, enemy_width);
-     
+
                         addEntity(enemy_);
                         enemies_.push_back(enemy_);
                     }
@@ -314,6 +316,8 @@ void TopDownState::LoadMap(string const& filename) {
                         redirect_->addComponent<RedirectEnemy>(REDIRECTENEMY_H, Vector2D(0, 1), redBox_, enemies_);
                         addEntity(redirect_);
                     }
+                }
+               
                     else if (obj.getName() == "water") {
                         //PARA CREAR EL RESTO DE BOSSES AÑADIR AL TILEMAP (EN LA CAPA DE ENEMY) UN ENEMIGO NUEVO Y MODIFICAR SU NOMBRE
                         enemy_ = new Entity();
@@ -468,6 +472,8 @@ void TopDownState::update() {
     for (auto p : interactions_) {
         p->update();
     }*/
+
+    actQuests();
     Manager::refresh();
     Manager::update();
     
@@ -505,17 +511,31 @@ void TopDownState::SaveGame(){
             //ENEMIGUESSS
             for (auto c : ents_) {
                 if (c->hasComponent(ENEMY_MOVEMENT_TD_H)) {
-                   
+                    save << "enemy" << endl;
                     Transform* f = c->getComponent<Transform>(TRANSFORM_H);
-                    save << c->getComponent<FramedImage>(FRAMEDIMAGE_H)->getType() << endl;
-                    save << f->getPos().getX() << " " << f->getPos().getY() << endl;
+                    if (c->getComponent<FramedImage>(FRAMEDIMAGE_H)->getType() == "") {
+                        save << "skeleton"<<endl;
+                    }
+                    else {
+                        save << c->getComponent<FramedImage>(FRAMEDIMAGE_H)->getType() << endl;
+                    }
+             
+                    save << f->getPos().getX() << " " << f->getPos().getY() <<" "<<f->getDir().getX()<<" "<<f->getDir().getY()<<endl;
 
 
 
 
 
                 }
+                else if (c->hasComponent(REDIRECTENEMY_H)) {
+                    save << "redirect" << endl;
+                    RedirectEnemy* f = c->getComponent<RedirectEnemy>(REDIRECTENEMY_H);
+                    save << f->getVector().getX() << " " << f->getVector().getY() << endl;
+                    save << f->getBox().x << " " << f->getBox().y << " " << f->getBox().w << " " << f->getBox().h << endl;
+                }
+             
             }
+          
             save << -1 << endl;
             save.close();
 
@@ -524,57 +544,97 @@ void TopDownState::SaveGame(){
 }
 
 void TopDownState::LoadGame() {
+    if (!loaded) {
+        loaded = true;
+        ifstream f;
+        f.open("File1.txt");
+        if (f.is_open()) {
+            string player;
+            f >> player;
 
-    ifstream f;
-    f.open("File1.txt");
-    if (f.is_open()) {
-        string player;
-        f >> player;
+            if (player == "PLAYER") {
 
-        if (player == "PLAYER") {
+                float number;
+                f >> number;
+                EconomyComponent* ec = Hud_->getComponent<EconomyComponent>(ECONOMYCOMPONENT_H);
+                ec->setMoney(int(number));
+                float number2, number3;
+                f >> number2;
+                f >> number3;
+                cout << number2 << endl;
+                Vector2D v{ number2,number3 };
+                trans_player_->setPos(v);
+                cout << v.getX() << " " << v.getY() << endl;
+                bool d;
+                f >> d;
+                Elements::instance()->setEarth(d);
+                f >> number2 >> number3;
+                PropertiesManager::instance()->setStrength(3, number2);
+                PropertiesManager::instance()->setLives(3, number3);
+                f >> d;
+                f >> number2 >> number3;
+                Elements::instance()->setFire(d);
+                PropertiesManager::instance()->setStrength(1, number2);
+                PropertiesManager::instance()->setLives(1, number3);
+                f >> d;
+                f >> number2 >> number3;
+                Elements::instance()->setWater(d);
+                PropertiesManager::instance()->setStrength(2, number2);
+                PropertiesManager::instance()->setLives(2, number3);
 
-            float number;
-            f >> number;
-            EconomyComponent* ec = Hud_->getComponent<EconomyComponent>(ECONOMYCOMPONENT_H);
-            ec->setMoney(int(number));
-            float number2,number3;
-            f >> number2;
-            f >> number3;
-            cout << number2 << endl;
-            Vector2D v{number2,number3 };
-            trans_player_->setPos(v);
-            cout << v.getX() << " " << v.getY() << endl;
-            bool d;
-            f >> d;
-            Elements::instance()->setEarth(d);
-            f >> number2 >> number3;
-            PropertiesManager::instance()->setStrength(3,number2);
-            PropertiesManager::instance()->setLives(3,number3);
-            f >> d;
-            f >> number2 >> number3;
-            Elements::instance()->setFire(d);
-            PropertiesManager::instance()->setStrength(1, number2);
-            PropertiesManager::instance()->setLives(1, number3);
-            f >> d;
-            f >> number2 >> number3;
-            Elements::instance()->setWater(d);
-            PropertiesManager::instance()->setStrength(2, number2);
-            PropertiesManager::instance()->setLives(2, number3);
-
-            string name;
-            f >> name;
-            while (name != "-1") {
-                
+                string name;
                 f >> name;
+                while (name != "-1") {
+                    if (name == "enemy") {
+                        Vector2D pos;
+                        string name;
+                        f >> name;
+                        float x, y, dirx, diry;
+                        f >> x >> y >> dirx >> diry;
+
+                        pos = { x,y };
+                        cout << pos << endl;
+                        enemy_ = new Entity();
+                        enemy_->setContext(this);
+                        Texture* enemyT_ = EnemyTexture();
+                        Transform* m = enemy_->addComponent<Transform>(TRANSFORM_H, pos, enemy_width, enemy_height);
+                        m->setDir(Vector2D{ dirx,diry });
+                        FramedImage* img = enemy_->addComponent<FramedImage>(FRAMEDIMAGE_H, enemyT_, enemy_width, enemy_height, 7, name);
+                        float a = -1.0f;
+                        float lookingRange = 150.0f;
+                        float lookingWidth = 100.0f;
+                        enemy_->addComponent<Enemy_movementTD_component>(ENEMY_MOVEMENT_TD_H, type_);
+                        enemy_->addComponent<CheckCollision>(CHECKCOLLISION_H, player_, lookingRange, lookingWidth, a);
+                        enemy_->addComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
+                        enemy_->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(0, 0), enemy_height, enemy_width);
+
+                        addEntity(enemy_);
+                        enemies_.push_back(enemy_);
+                    }
+                    else if (name == "redirect") {
+                        float x, y, x2, y2, w, h;
+                        f >> x >> y >> x2 >> y2 >> w >> h;
+                        redirect_ = new Entity();
+                        redBox_.x = x2;
+                        redBox_.y = y2;
+                        redBox_.w = w;
+                        redBox_.h = h;
+                        redirect_->addComponent<RedirectEnemy>(REDIRECTENEMY_H, Vector2D(x, y), redBox_, enemies_);
+                        addEntity(redirect_);
+
+                    }
+                    f >> name;
+
+                }
 
 
             }
-            
+
 
         }
-
-
     }
+
+  
 
 }
 
@@ -596,7 +656,6 @@ void TopDownState::handleEvents() {
           
             exitShopButton_->handleEvent(event);
         }
-    
 }
 
 void TopDownState::render() {
@@ -616,6 +675,22 @@ void TopDownState::render() {
     }
     //SDL_RenderCopy(Gm_->getRenderer(), background_1, &src, &dst);
     //hudTD->render();
+    if (questsMenu)renderQuestList();
+
+    // MINIMAPA
+    Vector2D scale = { (WIN_WIDTH / 900.0f), (WIN_HEIGHT / 600.0f) };
+    SDL_Rect mapFrame = { (WIN_WIDTH - 190*scale.getX()), 10 * scale.getY(), mapFrameX_ * scale.getX(), mapFrameY_ * scale.getY() };
+    SDL_Rect srcMinMap = { 0, 0, fondowidth_ / zoom_, fondoheight_ / zoom_ };
+    srcMinMap.x += Manager::camRect_.x / 4 + WIN_WIDTH / 2 + mapOffsetX_;
+    srcMinMap.y += Manager::camRect_.y / 4 - WIN_HEIGHT / 4 + mapOffsetY_;
+    SDL_RenderCopy(Gm_->getRenderer(), background_0, &srcMinMap, &mapFrame);
+    m_->render(mapFrame);
+
+    SDL_Rect icon = { (WIN_WIDTH - 190 / 2 * scale.getX()), 60 * scale.getY(), iconWidth_, iconHeight_ };
+    SDL_Rect srcIc = { 0, 0, PLAYERAVATAR_DIMENSION, PLAYERAVATAR_DIMENSION };
+    SDL_RenderCopy(Gm_->getRenderer(), background_0, &srcIc, &icon);
+    sk_->getAvatar()->render(icon);
+
     Manager::render();
 }
 
@@ -752,6 +827,95 @@ void TopDownState::cleanShopButtons() {
     }
     exitShopButton_->setAlive(false);
     shopCreated_ = true;
+}
+
+void TopDownState::newQuest(string nombre, string text, string reward, int coins, int fases) {
+    Entity* q = new Entity();
+    q->addComponent<QuestInfoComponent>(QUESTINFOCOMPONENT_H, nombre, text, reward, coins, fases);
+    addEntity(q);
+    quests.push_back(q);
+}
+
+void TopDownState::completedQuest(string nombre) {
+    auto it = quests.begin();
+    bool found = false;
+    while (!found && it != quests.end()) {
+        QuestInfoComponent* q_ = it.operator*()->getComponent<QuestInfoComponent>(QUESTINFOCOMPONENT_H);
+        if (q_->getName() == nombre) { q_->setAlive(false); found = true; }
+        ++it;
+    }
+}
+
+void TopDownState::actQuests() {// actualiza las quests
+    for (auto it = quests.begin(); it != quests.end();) {
+        QuestInfoComponent* q_ = it.operator*()->getComponent<QuestInfoComponent>(QUESTINFOCOMPONENT_H);
+        if (!q_->getAlive() && q_->getCurrFase() == q_->getMaxFase())
+        {
+            auto aux = it;
+            it = ++it;
+            quests.erase(aux);
+        }
+        else ++it;
+    }
+}
+
+void TopDownState::renderQuestList() {
+    Texture* t_ = &SDLUtils::instance()->images().at("papiro");
+    Font* font_ = &SDLUtils::instance()->fonts().at("TCentury");
+    Vector2D a;
+    int w, h;
+    if (WIN_WIDTH == 1920) 
+    { 
+        a = Vector2D(100, 0); 
+        w = 500;
+        h = 900;
+    }
+    else 
+    { 
+        a = Vector2D(0, 0); 
+        w = 400;
+        h = 480;
+    }
+    SDL_Rect dest = build_sdlrect(a, w, h);
+    t_->render(dest, 0);
+
+    if (quests.size() == 0) {
+        string s;
+        if (WIN_WIDTH == 1920) 
+        { 
+            a = Vector2D(200, 300);
+            s = "    NO TIENES QUESTS PENDIENTES";
+        }
+        else 
+        { 
+            a = Vector2D(85, 170); 
+            s = "No tienes quests pendientes";
+        }
+        font_->render(GameManager::instance()->getRenderer(), s, a.getX(), a.getY(), { 50,50,0 });
+    }
+    else {
+        int y1 = 310, y2 = 170, i = 1;
+
+        for (auto it = quests.begin(); it != quests.end(); ++it) {
+            QuestInfoComponent* q_ = it.operator*()->getComponent<QuestInfoComponent>(QUESTINFOCOMPONENT_H);
+            if (WIN_WIDTH == 1920) a = Vector2D(210, y1);
+            else a = Vector2D(85, y2);
+            string s;
+            if(q_->getMaxFase() == 0)s = to_string(i) + ". " + q_->getText();
+            else s = to_string(i) + ". " + q_->getText() + " " + to_string(q_->getCurrFase()) + 
+                "/" + to_string(q_->getMaxFase());
+            font_->render(GameManager::instance()->getRenderer(), s, a.getX(), a.getY(), { 50,50,0 });
+
+            y1 += 25;
+            y2 += 25;
+            i++;
+        }
+    }
+
+    if (WIN_WIDTH == 1920) a = Vector2D(320, 600);
+    else a = Vector2D(150, 300);
+    string s = "Pulsa X para salir";
+    font_->render(GameManager::instance()->getRenderer(), s, a.getX(), a.getY(), { 50,50,0 });
 }
 
 string TopDownState::getStateID() {
