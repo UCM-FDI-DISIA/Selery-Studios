@@ -1,7 +1,7 @@
 #include "SkinBEUComponent.h"
-#include "../utils/Entity.h"
-#include "../utils/ecs.h"
 #include "LifeComponent.h"
+#include "../utils/PropertiesManager.h"
+
 SkinBEUComponent::SkinBEUComponent(string skin) {
 	skin_ = skin;
 	prevSkin_ = skin;

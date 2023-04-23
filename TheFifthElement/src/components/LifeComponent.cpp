@@ -142,9 +142,20 @@ void LifeComponent::subLife(float damage) {
 	if (life_ <= 0) {
 		life_ = 0;
 		Death();
-		if (enemy_ && rand() % 10 + 1 <= 8) {
-			time(&deathTime_);
-			properties().getPowerUpRef()->strenghtBonus();
+		if (enemy_) {
+			int prct = 1 + (rand() % 100);
+			if (prct <= 30) { // Fuerza
+				properties().getPowerUpRef()->strenghtBonus();
+			}
+			else if (prct <= 45) { // Velocidad
+				properties().getPowerUpRef()->speedBonus();
+			}
+			else if (prct <= 55) { // Reducción
+
+			}
+			else if (prct <= 65) { // Invulnerabilidad
+
+			}
 		}
 	}
 
@@ -156,7 +167,6 @@ void LifeComponent::subLife(float damage) {
 
 
 void LifeComponent::chageType(float maxLife) {
-
 	if (type_ == "air") {
 		types[0].life = life_;
 	}

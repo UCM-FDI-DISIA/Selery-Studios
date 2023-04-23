@@ -1,10 +1,12 @@
 #pragma once
+#include "../utils/Entity.h"
+#include "../utils/ecs.h"
 #include "../utils/Component.h"
 #include "../sdlutils/Texture.h"
-#include "../utils/PropertiesManager.h"
 #include "../GameManager.h"
 #include "FramedImage.h"
 
+class PropertiesManager;
 class LifeComponent;
 
 class SkinBEUComponent : public Component
