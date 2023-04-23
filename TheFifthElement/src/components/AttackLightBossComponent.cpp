@@ -29,7 +29,7 @@ void AttackLightBossComponent::setState(int state)
 
 void AttackLightBossComponent::update()
 {
-	distX = playerTrans->getPos().getX() - bossTrans->getPos().getX();
+	distX = (playerTrans->getPos().getX()+playerTrans->getW()/2) - (bossTrans->getPos().getX()+ bossTrans->getW()/2);
 	distY = playerTrans->getPos().getY() - bossTrans->getPos().getY();
 
 	if (fightState == 2) 
