@@ -390,9 +390,8 @@
     {"id": "Obelisk3-animation2-deactivating-70x150","file": "assets/Scenes/Maps/AncientRuins/Props/Obelisk3-animation2-deactivating-70x150.png"},
     { "id": "Ritual site-style1-anim-1","file": "assets/Scenes/Maps/AncientRuins/Props/Ritual site-style1-anim-1.png"},
     { "id": "Tileset-Animated Terrains2-8 frames","file": "assets/Scenes/Maps/AncientRuins/Tilesets/Tileset-Animated Terrains2-8 frames.png"},
-    {
-      "id": "Tileset-Animated Terrains2-8 frames-with transparency",
-      "file": "assets/Scenes/Maps/AncientRuins/Tilesets/The same tiles but with transparency instead of flat color/Tileset-Animated Terrains2-8 frames-with transparency.png"
-    }
+    {"id": "Tileset-Animated Terrains2-8 frames-with transparency","file": "assets/Scenes/Maps/AncientRuins/Tilesets/The same tiles but with transparency instead of flat color/Tileset-Animated Terrains2-8 frames-with transparency.png" },
+    {"id": "shrine or fountain 160x128-on flat surface","file": "assets/Scenes/Maps/AncientRuins/Props/shrine or fountain 160x128-on flat surface.png" }
+
   ]
 } 
