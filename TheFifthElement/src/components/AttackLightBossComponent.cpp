@@ -89,24 +89,34 @@ void AttackLightBossComponent::update()
 		if (contAtks == 3)
 		{		
 			animBoss_->newAnim(AnimationLightBossComponent::Attack2); //el ataque 2 sale del lateral derecho 
-			attack2();
-			contAtks = 0;
-			timer = sdlutils().currRealTime() + 3000;
+			attacking = true;
+			atk2 = true;
 		}
 
 		else 
 		{ 
 			animBoss_->newAnim(AnimationLightBossComponent::Attack);
 			attacking = true;
+			atk1 = true;
 		}
 	}
 
 	if (attacking)
 	{
-		if (imBoss_->getCol() >= 8)
+		if (imBoss_->getCol() >= 8 && atk1)
 		{
 			timer = sdlutils().currRealTime() + 3000;
 			attack1();
+			atk1 = false;
+			attacking = false;
+		}
+
+		if (imBoss_->getCol() >= 9 && atk2)
+		{
+			timer = sdlutils().currRealTime() + 3000;
+			attack2();
+			contAtks = 0;
+			atk2 = false;
 			attacking = false;
 		}
 	}
@@ -114,6 +124,14 @@ void AttackLightBossComponent::update()
 
 void AttackLightBossComponent::render()
 {
+	if (distX <= 0)
+	{
+		imBoss_->setFlip(SDL_FLIP_HORIZONTAL);
+	}
+	else if (distX > 0)
+	{
+		imBoss_->setFlip(SDL_FLIP_NONE);
+	}
 	if (fightState == 4) 
 	{
 		if (blacker)

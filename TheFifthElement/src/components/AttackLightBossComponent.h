@@ -44,6 +44,8 @@ private:
 	RandomNumberGenerator* random;
 	FramedImage* imBoss_;
 	bool attacking = false;
+	bool atk1 = false;
+	bool atk2 = false;
 	AnimationLightBossComponent* animBoss_;
 
 public:
