@@ -170,22 +170,22 @@ void InputComponent::handleEvents(SDL_Event event)
 			if (ih().isKeyDown(SDL_SCANCODE_1) && Elements::instance()->getAir()) {
 				skin_->changeSkin("air");
 				roulet->changeplayer(1);
-				//static_cast<HUD*>(ent_)->
+				skin_->changeAvatar(&SDLUtils::instance()->images().at("AirAvatar"));
 			}
 			else if (ih().isKeyDown(SDL_SCANCODE_2) && Elements::instance()->getFire()) {
 				roulet->changeplayer(2);
-
 				skin_->changeSkin("fire");
+				skin_->changeAvatar(&SDLUtils::instance()->images().at("FireAvatar"));
 			}
 			else  if (ih().isKeyDown(SDL_SCANCODE_3) && Elements::instance()->getWater()) {
 				roulet->changeplayer(3);
-
 				skin_->changeSkin("water");
+				skin_->changeAvatar(&SDLUtils::instance()->images().at("WaterAvatar"));
 			}
 			else if (ih().isKeyDown(SDL_SCANCODE_4) && Elements::instance()->getEarth()) {
 				roulet->changeplayer(4);
-
 				skin_->changeSkin("earth");
+				skin_->changeAvatar(&SDLUtils::instance()->images().at("EarthAvatar"));
 			}
 		}
 

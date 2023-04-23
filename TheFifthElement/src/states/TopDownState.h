@@ -150,6 +150,17 @@ private:
 	bool loadGame = false;
 	bool questsMenu = false;
 
+	// MINIMAPA
+	Texture* m_ = &SDLUtils::instance()->images().at("mapFrame");
+	Texture* airAvatar_ = &SDLUtils::instance()->images().at("AirAvatar");
+	int mapFrameX_ = 180;
+	int mapFrameY_ = 100;
+	float zoom_ = 3.0f;
+	int mapOffsetX_ = 50;
+	int mapOffsetY_ = 100;
+	int iconWidth_ = 15;
+	int iconHeight_ = 15;
+
 public:
 	string getStateID(); // stringID
 	PuzzleCopas* puzzle1;

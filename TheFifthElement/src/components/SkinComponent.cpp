@@ -2,9 +2,10 @@
 #include "../utils/Entity.h"
 #include "../utils/ecs.h"
 
-SkinComponent::SkinComponent(string skin) {
+SkinComponent::SkinComponent(string skin, Texture* avatar) {
 	skin_ = skin;
 	prevSkin_ = skin;
+	avatar_ = avatar;
 }
 
 void SkinComponent::initComponent() {

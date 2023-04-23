@@ -201,7 +201,7 @@ void TopDownState::LoadMap(string const& filename) {
                     player_->setContext(this);
                     trans_player_ = player_->addComponent<Transform>(TRANSFORM_H, Vector2D((obj.getPosition().x * 2.5), obj.getPosition().y * 2.5), PLAYERTD_WIDTH_FRAME, PLAYERTD_HEIGHT_FRAME);
                     trans_player_->setVel(PLAYERTD_SPEED);                                      /*(fondowidth_ * 2.5)* (WIN_WIDTH / 900), (fondoheight_ * 2.5)* (WIN_HEIGHT / 600)*/
-                    sk_ = player_->addComponent<SkinComponent>(SKINCOMPONENT_H, "air");
+                    sk_ = player_->addComponent<SkinComponent>(SKINCOMPONENT_H, "air", airAvatar_);
                     sk_->changeState(SkinComponent::Idle);
 
                     texture_player_ = &SDLUtils::instance()->images().at("PTD_air_idle");
@@ -676,6 +676,21 @@ void TopDownState::render() {
     //SDL_RenderCopy(Gm_->getRenderer(), background_1, &src, &dst);
     //hudTD->render();
     if (questsMenu)renderQuestList();
+
+    // MINIMAPA
+    Vector2D scale = { (WIN_WIDTH / 900.0f), (WIN_HEIGHT / 600.0f) };
+    SDL_Rect mapFrame = { (WIN_WIDTH - 190*scale.getX()), 10 * scale.getY(), mapFrameX_ * scale.getX(), mapFrameY_ * scale.getY() };
+    SDL_Rect srcMinMap = { 0, 0, fondowidth_ / zoom_, fondoheight_ / zoom_ };
+    srcMinMap.x += Manager::camRect_.x / 4 + WIN_WIDTH / 2 + mapOffsetX_;
+    srcMinMap.y += Manager::camRect_.y / 4 - WIN_HEIGHT / 4 + mapOffsetY_;
+    SDL_RenderCopy(Gm_->getRenderer(), background_0, &srcMinMap, &mapFrame);
+    m_->render(mapFrame);
+
+    SDL_Rect icon = { (WIN_WIDTH - 190 / 2 * scale.getX()), 60 * scale.getY(), iconWidth_, iconHeight_ };
+    SDL_Rect srcIc = { 0, 0, PLAYERAVATAR_DIMENSION, PLAYERAVATAR_DIMENSION };
+    SDL_RenderCopy(Gm_->getRenderer(), background_0, &srcIc, &icon);
+    sk_->getAvatar()->render(icon);
+
     Manager::render();
 }
 
