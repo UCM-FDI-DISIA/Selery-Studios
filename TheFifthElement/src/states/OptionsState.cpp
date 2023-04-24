@@ -26,12 +26,13 @@ void OptionsState::Background(string file) {
 void OptionsState::ControlsBackground(string file)
 {
 	Entity* e = new Entity();
-
+	float w = 444;
+	float h = 719;
 	int f = 0;
 	bool matrix = false;
-	Vector2D v = { WIN_WIDTH / 2-135, WIN_HEIGHT / 2-250 };
+	Vector2D pos = { (WIN_WIDTH / 2) - (w / 4), (WIN_HEIGHT / 2) - (h / 4) };
 	int r = 0;
-	e->addComponent<Transform>(TRANSFORM_H, v, 270, 500, r, 0, f, matrix);
+	e->addComponent<Transform>(TRANSFORM_H, pos, w, h, 0.5);
 	e->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at(file));
 	addEntity(e);
 }
@@ -86,8 +87,8 @@ Entity* OptionsState::addNewEntity(string t, float w, float h, Vector2D pos, int
 
 void OptionsState::createButtons() {
 
-	backButton = addNewEntity("BackButton", 289, 86, Vector2D(WIN_WIDTH-150, WIN_HEIGHT -50), 1, false, 0.5);
-	backButton->addComponent<Button>(BUTTON_H, "BACK");
+	backButton = addNewEntity("ReturnButton", 289, 86, Vector2D(WIN_WIDTH-150, WIN_HEIGHT -50), 1, false, 0.5);
+	backButton->addComponent<Button>(BUTTON_H, "RETURN");
 
 	//resumeButton = addNewEntity("ResumeButton", 289, 86, Vector2D(5, WIN_HEIGHT - 50), 1, false, 0.5);
 	//resumeButton->addComponent<Button>(BUTTON_H, "RESUME");
@@ -134,6 +135,6 @@ void OptionsState::deleteButtonsBEU()
 void OptionsState::exitControls()
 {
 	exitActive = true;
-	exitControlsButton = addNewEntity("exitControlsButton", 50, 50, Vector2D(10, 10), 1, false, 0.5);
-	exitControlsButton->addComponent<Button>(BUTTON_H, "EXITCONTROLS");
+	exitControlsButton = addNewEntity("ReturnButton", 50, 50, Vector2D(10, 10), 1, false, 0.5);
+	exitControlsButton->addComponent<Button>(BUTTON_H, "RETURN");
 }

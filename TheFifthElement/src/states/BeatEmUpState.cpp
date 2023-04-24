@@ -15,8 +15,9 @@ BeatEmUpState::BeatEmUpState(bool Boss,Entity* enemySends, string typeBoss, int 
 	//BACKGROUND
 	background_ = new Entity();
 	if (typeBoss == "water") {
-		background_->addComponent<Transform>(TRANSFORM_H, Vector2D(0, 0), WIN_WIDTH, WIN_HEIGHT);
-		background_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("fondoBossAgua"));
+		//background_->addComponent<Transform>(TRANSFORM_H, Vector2D(0, 0), WIN_WIDTH, WIN_HEIGHT);
+		//background_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("fondoBossAgua"));
+		Background("fondoBossAgua");
 	}
 	else {
 		background_->addComponent<Transform>(TRANSFORM_H, Vector2D(0, 0), BACKGROUNDBEU_WIDTH, WIN_HEIGHT);
@@ -89,7 +90,7 @@ void BeatEmUpState::AddEnemy() {
 
 	else animation_ = enemy_->addComponent<AnimationEnemyBEUComponent>(ANIMATIONENEMYBEUCOMPONENT_H, getEnemyType(type), "goblin", player_);
 
-	enemy_->addComponent<Transform>(TRANSFORM_H, pos, ENEMYBEU_WIDTH, ENEMYBEU_HEIGHT, 2)->setDir(Vector2D(1, 0));
+	enemy_->addComponent<Transform>(TRANSFORM_H, pos, ENEMYBEU_WIDTH, ENEMYBEU_HEIGHT)->setDir(Vector2D(1, 0));
 	enemy_->addComponent<FramedImage>(FRAMEDIMAGE_H, animation_->getTexture(), ENEMYBEU_WIDTH, ENEMYBEU_HEIGHT, animation_->getNFrames(), getEnemyType(type));
 	enemy_->addComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
 	enemy_->addComponent<EnemyBEUDirectionComponent>(ENEMYBEUDIRECTIONCOMPONENT_H, player_, animation_->getEnemy());
@@ -145,7 +146,7 @@ void BeatEmUpState::AddWaterBoss() {
 	waterBoss->addComponent<FramedImage>(FRAMEDIMAGE_H, &sdlutils().images().at("waterBoss"), WATERBOSS_WIDTH, WATERBOSS_HEIGHT, 16, 0, "water");
 	waterBoss->addComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
 	waterBoss->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(50, 10), WATERBOSS_HEIGHT, WATERBOSS_WIDTH/2);
-	waterBoss->addComponent<WaterBossLife>(WATERBOSSLIFE_H, 1);
+	waterBoss->addComponent<WaterBossLife>(WATERBOSSLIFE_H, 30);
 	waterBoss->addComponent<WaterBossIA>(WATERBOSSIA_H, player_);
 }
 
@@ -275,4 +276,17 @@ void BeatEmUpState::update() {
 	else if (camRect_.x > BACKGROUNDBEU_WIDTH - WIN_WIDTH) {
 		camRect_.x = BACKGROUNDBEU_WIDTH - WIN_WIDTH;
 	}
+}
+
+void BeatEmUpState::Background(string file) {
+	Entity* e = new Entity();
+	//e->setContext(this);
+	int f = 0;
+	bool matrix = false;
+	Vector2D v = { 0,0 };
+	int r = 0;
+	e->addComponent<Transform>(TRANSFORM_H, v, 900, 600, r, 0, f, matrix);
+	Texture* t = &SDLUtils::instance()->images().at(file);
+	e->addComponent<Image>(IMAGE_H, t);
+	addEntity(e);
 }

@@ -8,9 +8,9 @@ private:
 
 	Elements() {
 		elements[0] = true; // aire
-		elements[1] = false; // fuego
-		elements[2] = false; // agua
-		elements[3] = false; // tierra
+		elements[1] = true; // fuego
+		elements[2] = true; // agua
+		elements[3] = true; // tierra
 	}
 
 public:

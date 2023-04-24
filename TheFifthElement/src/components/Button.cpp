@@ -22,6 +22,7 @@ void Button::update() {
 		else if (identifier == "BEUCONTROLS")im_->setTexture("BEUControlsButtonPressed");
 		else if (identifier == "MUTE")im_->setTexture("MuteButtonPressed");
 		else if (identifier == "EXITCONTROLS")im_->setTexture("TDControlsButtonPressed");
+		else if (identifier == "RETURN")im_->setTexture("ReturnButtonPressed");
 	
 	}
 	else
@@ -36,6 +37,7 @@ void Button::update() {
 		else if (identifier == "BEUCONTROLS")im_->setTexture("BEUControlsButton");
 		else if (identifier == "MUTE")im_->setTexture("MuteButton");
 		else if (identifier == "EXITCONTROLS")im_->setTexture("TDControlsButton");
+		else if (identifier == "RETURN")im_->setTexture("ReturnButton");
 		currentPositionState = MOUSE_OUT;
 	}
 	updateMousePosition();
@@ -85,6 +87,10 @@ void Button::handleEvent(SDL_Event event)
 					topdownstate->cleanShopButtons();
 					topdownstate->getDialog()->setopenedShop();
 					
+				}
+				else if (identifier == "RETURN") {
+					GameManager::instance()->backToMainMenu();
+
 				}
 				else if (identifier == "BACK") {
 					GameManager::instance()->backToMainMenu();

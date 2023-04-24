@@ -239,6 +239,8 @@
     {"id": "TDControlsButton", "file": "assets/Scenes/Backgrounds/Pausa/Buttons/TDControlsButton.png"},
     {"id": "TDControlsButtonPressed", "file": "assets/Scenes/Backgrounds/Pausa/Buttons/TDControlsButtonPress.png"},
     {"id": "BEUControlsButton", "file": "assets/Scenes/Backgrounds/Pausa/Buttons/BEUControlsButton.png"},
+    {"id": "ReturnButton", "file": "assets/Scenes/Backgrounds/Pausa/Buttons/ReturnButton.png"},
+    {"id": "ReturnButtonPressed", "file": "assets/Scenes/Backgrounds/Pausa/Buttons/ReturnButtonPressed.png"},
     {"id": "BEUControlsButtonPressed", "file": "assets/Scenes/Backgrounds/Pausa/Buttons/BEUControlsButtonPress.png"},
     {"id": "exitControlsButton", "file": "assets/Scenes/Backgrounds/Pausa/Buttons/BEUControlsButton.png"},
     {"id": "exitControlsButtonPressed", "file": "assets/Scenes/Backgrounds/Pausa/Buttons/BEUControlsButtonPress.png"},
@@ -309,7 +311,7 @@
     {"id": "E", "file": "assets/NPCs/E.png"},
     {"id": "TopDownControls", "file": "assets/HUD/Menu/TopDownControls.png"},
     {"id": "BEUControls", "file": "assets/HUD/Menu/BEUControls.png"},
-    {"id": "controlPanel", "file": "assets/HUD/Menu/controlPanel.png"},
+    {"id": "controlPanel", "file": "assets/Scenes/Backgrounds/Pausa/Buttons/PapiroPlex.png"},
     {"id": "slider", "file": "assets/HUD/Menu/slider.png"},
 
     {"id": "TDLightBoss", "file": "assets/Enemies/BeatEmUp/Bosses/LightBoss/animations/PNG/idle/idle_1.png"},

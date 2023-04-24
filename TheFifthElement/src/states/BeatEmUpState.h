@@ -97,5 +97,6 @@ public:
 	inline Entity* getPlayer() { return player_; }
 	ColManager* getColManager() { return colManager_; }
 	void update();
+	void Background(string file);
 };
 
