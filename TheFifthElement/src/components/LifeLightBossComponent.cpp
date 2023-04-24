@@ -42,7 +42,6 @@ void LifeLightBossComponent::damage(float dam)
 
 void LifeLightBossComponent::checkState()
 {
-	//if (life > ((maxLife * 3) / 4))	{ cout << "fase1"; } la fase 1 no hace falta comprobarla ya que comienza siempre en esta fase
 
 	if ((life <= ((maxLife * 3) / 4)) && (life > ((maxLife * 2) / 5)))
 	{

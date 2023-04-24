@@ -19,9 +19,6 @@ void sliderComponent::updateMousePosition() {
 
 void sliderComponent::update() {
 	mouseRect = build_sdlrect(mousePos, mouseWidth, mouseHeight);
-	//cout << mousePosX << " " << mousePosY << endl;
-	/*cout << valor << endl;
-	cout << sliderTransform->getPos().getX() << " " << sliderTransform->getPos().getY() << endl;*/
 	if (clicked && (sliderTransform->getPos().getX() + sliderTransform->getW() / 2 <= topeDer && sliderTransform->getPos().getX() - sliderTransform->getW() / 2 >= topeIzq)){
 		sliderTransform->setPos(Vector2D(mousePosX - sliderTransform->getW() / 2, sliderTransform->getPos().getY()));
 	}

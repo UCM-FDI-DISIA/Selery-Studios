@@ -261,63 +261,62 @@ void TopDownState::LoadMap(string const& filename) {
                     boss_->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(0, 0), 288, 188);
                     addEntity(boss_);
                 }
-                if (!loadGame) {
-                 if (name == "Enemy") {
-                    if (obj.getName() == "" && !loadGame) {
-                        enemy_ = new Entity();
-                        enemy_->setContext(this);
-                        Texture* enemyT_ = EnemyTexture();
-                        enemy_->addComponent<Transform>(TRANSFORM_H, Vector2D((obj.getPosition().x * 2.5), obj.getPosition().y * 2.5), enemy_width, enemy_height);
-                        FramedImage* img = enemy_->addComponent<FramedImage>(FRAMEDIMAGE_H, enemyT_, enemy_width, enemy_height, 7, type_);
-                        float a = -1.0f;
-                        float lookingRange = 150.0f;
-                        float lookingWidth = 100.0f;
-                        enemy_->addComponent<Enemy_movementTD_component>(ENEMY_MOVEMENT_TD_H, type_);
-                        enemy_->addComponent<CheckCollision>(CHECKCOLLISION_H, player_, lookingRange, lookingWidth, a);
-                        enemy_->addComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
-                        enemy_->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(0, 0), enemy_height, enemy_width);
+                if (!loadGame) { //carga
+                     if (name == "Enemy") {
+                        if (obj.getName() == "" && !loadGame) {
+                            enemy_ = new Entity();
+                            enemy_->setContext(this);
+                            Texture* enemyT_ = EnemyTexture();
+                            enemy_->addComponent<Transform>(TRANSFORM_H, Vector2D((obj.getPosition().x * 2.5), obj.getPosition().y * 2.5), enemy_width, enemy_height);
+                            FramedImage* img = enemy_->addComponent<FramedImage>(FRAMEDIMAGE_H, enemyT_, enemy_width, enemy_height, 7, type_);
+                            float a = -1.0f;
+                            float lookingRange = 150.0f;
+                            float lookingWidth = 100.0f;
+                            enemy_->addComponent<Enemy_movementTD_component>(ENEMY_MOVEMENT_TD_H, type_);
+                            enemy_->addComponent<CheckCollision>(CHECKCOLLISION_H, player_, lookingRange, lookingWidth, a);
+                            enemy_->addComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
+                            enemy_->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(0, 0), enemy_height, enemy_width);
 
-                        addEntity(enemy_);
-                        enemies_.push_back(enemy_);
+                            addEntity(enemy_);
+                            enemies_.push_back(enemy_);
+                        }
+                        else if (obj.getName() == "left") {
+                            redirect_ = new Entity();
+                            redBox_.x = obj.getPosition().x * 2.5;
+                            redBox_.y = obj.getPosition().y * 2.5;
+                            redBox_.w = 10;
+                            redBox_.h = 10;
+                            redirect_->addComponent<RedirectEnemy>(REDIRECTENEMY_H, Vector2D(-1, 0), redBox_, enemies_);
+                            addEntity(redirect_);
+                        }
+                        else if (obj.getName() == "right") {
+                            redirect_ = new Entity();
+                            redBox_.x = obj.getPosition().x * 2.5;
+                            redBox_.y = obj.getPosition().y * 2.5;
+                            redBox_.w = 10;
+                            redBox_.h = 10;
+                            redirect_->addComponent<RedirectEnemy>(REDIRECTENEMY_H, Vector2D(1, 0), redBox_, enemies_);
+                            addEntity(redirect_);
+                        }
+                        else if (obj.getName() == "up") {
+                            redirect_ = new Entity();
+                            redBox_.x = obj.getPosition().x * 2.5;
+                            redBox_.y = obj.getPosition().y * 2.5;
+                            redBox_.w = 10;
+                            redBox_.h = 10;
+                            redirect_->addComponent<RedirectEnemy>(REDIRECTENEMY_H, Vector2D(0, -1), redBox_, enemies_);
+                            addEntity(redirect_);
+                        }
+                        else if (obj.getName() == "down") {
+                            redirect_ = new Entity();
+                            redBox_.x = obj.getPosition().x * 2.5;
+                            redBox_.y = obj.getPosition().y * 2.5;
+                            redBox_.w = 10;
+                            redBox_.h = 10;
+                            redirect_->addComponent<RedirectEnemy>(REDIRECTENEMY_H, Vector2D(0, 1), redBox_, enemies_);
+                            addEntity(redirect_);
+                        }
                     }
-                    else if (obj.getName() == "left") {
-                        redirect_ = new Entity();
-                        redBox_.x = obj.getPosition().x * 2.5;
-                        redBox_.y = obj.getPosition().y * 2.5;
-                        redBox_.w = 10;
-                        redBox_.h = 10;
-                        redirect_->addComponent<RedirectEnemy>(REDIRECTENEMY_H, Vector2D(-1, 0), redBox_, enemies_);
-                        addEntity(redirect_);
-                    }
-                    else if (obj.getName() == "right") {
-                        redirect_ = new Entity();
-                        redBox_.x = obj.getPosition().x * 2.5;
-                        redBox_.y = obj.getPosition().y * 2.5;
-                        redBox_.w = 10;
-                        redBox_.h = 10;
-                        redirect_->addComponent<RedirectEnemy>(REDIRECTENEMY_H, Vector2D(1, 0), redBox_, enemies_);
-                        addEntity(redirect_);
-                    }
-                    else if (obj.getName() == "up") {
-                        redirect_ = new Entity();
-                        redBox_.x = obj.getPosition().x * 2.5;
-                        redBox_.y = obj.getPosition().y * 2.5;
-                        redBox_.w = 10;
-                        redBox_.h = 10;
-                        redirect_->addComponent<RedirectEnemy>(REDIRECTENEMY_H, Vector2D(0, -1), redBox_, enemies_);
-                        addEntity(redirect_);
-                    }
-                    else if (obj.getName() == "down") {
-                        redirect_ = new Entity();
-                        redBox_.x = obj.getPosition().x * 2.5;
-                        redBox_.y = obj.getPosition().y * 2.5;
-                        redBox_.w = 10;
-                        redBox_.h = 10;
-                        redirect_->addComponent<RedirectEnemy>(REDIRECTENEMY_H, Vector2D(0, 1), redBox_, enemies_);
-                        addEntity(redirect_);
-                    }
-                }
-               
                     else if (obj.getName() == "water") {
                         //PARA CREAR EL RESTO DE BOSSES AÑADIR AL TILEMAP (EN LA CAPA DE ENEMY) UN ENEMIGO NUEVO Y MODIFICAR SU NOMBRE
                         enemy_ = new Entity();
@@ -364,98 +363,6 @@ void TopDownState::LoadMap(string const& filename) {
     SDL_SetRenderTarget(Gm_->getRenderer(), nullptr);
 
 }
-//void TopDownState::printMap()
-//{
-//    auto& mapLayers = mapInfo.tile_MAP->getLayers();
-//
-//    for (auto& layer : mapLayers)
-//    {
-//        if (layer->getType() == tmx::Layer::Type::Tile) {
-//            // cargamos la capa
-//            tmx::TileLayer* tile_layer = dynamic_cast<tmx::TileLayer*>(layer.get());
-//            string name = tile_layer->getName();
-//            auto& layer_tiles = tile_layer->getTiles();
-//            if (name != "Nada") {
-//                for (int i = 0; i < sectors.size(); i++)
-//                {
-//                    if (sectors[i])
-//                    {
-//                        float sumX = 77.25 * (i % 4);
-//                        float sumY = 44 * (i / 4);
-//                        float divX = 1 + i % 4;
-//                        float divY = 1 + i / 4;
-//                        // recorremos todos los tiles para obtener su informacion
-//                        for (auto y = sumY; y < mapInfo.rows * divY / 4; ++y) {
-//                            for (auto x = sumX; x < mapInfo.cols * divX / 4; ++x) {
-//                                // obtenemos el indice relativo del tile en el mapa de tiles
-//                                int tile_index = x + (y * mapInfo.cols);
-//
-//                                // con dicho indice obtenemos el indice del tile dentro de su tileset
-//                                int cur_gid = layer_tiles[tile_index].ID;
-//
-//                                // si es 0 esta vacio asi que continuamos a la siguiente iteracion
-//                                if (cur_gid == 0) continue;
-//
-//                                // guardamos el tileset que utiliza este tile (nos quedamos con el tileset cuyo gid sea
-//                                // el mas cercano, y a la vez menor, al gid del tile)         
-//                                int tset_gid = -1, tsx_file = 0;
-//                                for (auto& ts : mapInfo.tilesets) {
-//                                    if (ts.first <= cur_gid) {
-//                                        tset_gid = ts.first;
-//                                        tsx_file++;
-//                                    }
-//                                    else
-//                                        break;
-//                                }
-//
-//                                // si no hay tileset valido, continuamos a la siguiente iteracion
-//                                if (tset_gid == -1) continue;
-//
-//                                // normalizamos el indice           
-//                                cur_gid -= tset_gid;
-//
-//                                // calculamos dimensiones del tileset     f  
-//                                auto ts_width = 0;
-//                                auto ts_height = 0;
-//                                SDL_QueryTexture(mapInfo.tilesets[tset_gid]->getSDLTexture(),
-//                                    NULL, NULL, &ts_width, &ts_height);
-//
-//                                // calculamos el area del tileset que corresponde al dibujo del tile
-//                                auto region_x = (cur_gid % (ts_width / mapInfo.tile_width)) * mapInfo.tile_width;
-//                                auto region_y = (cur_gid / (ts_width / mapInfo.tile_width)) * mapInfo.tile_height;
-//
-//                                // calculamos la posicion del tile
-//                                auto x_pos = x * mapInfo.tile_width;
-//                                auto y_pos = y * mapInfo.tile_height;
-//
-//                                // metemos el tile
-//                                auto tileTex = mapInfo.tilesets[tset_gid];
-//
-//                                SDL_Rect src;
-//                                src.x = region_x;
-//                                src.y = region_y;
-//                                src.w = mapInfo.tile_width;
-//                                src.h = mapInfo.tile_height;
-//
-//                                SDL_Rect dest;
-//                                dest.x = x_pos;
-//                                dest.y = y_pos;
-//                                dest.w = src.w;
-//                                dest.h = src.h;
-//
-//                                int tileRot = layer_tiles[tile_index].flipFlags;
-//                                mapInfo.tilesets[tset_gid]->render(src, dest, tileRot);
-//
-//                            }
-//                        }
-//                    }
-//                }
-//            }
-//        }
-//    }
-//    SDL_RenderPresent(Gm_->getRenderer());
-//    SDL_SetRenderTarget(Gm_->getRenderer(), nullptr);
-//}
 
 void TopDownState::update() {
     Vector2D savedPos = Saving::instance()->getPos();
@@ -464,14 +371,7 @@ void TopDownState::update() {
         movcomp_player_->setNewPos(savedPos);
         Saving::instance()->deletePos();
     }
-    // player_->setCollision(false);
     Playernpc_->setcol();
-    /*for (auto p : collisions_) {
-        p->update();
-    }
-    for (auto p : interactions_) {
-        p->update();
-    }*/
 
     actQuests();
     Manager::refresh();
@@ -494,12 +394,10 @@ void TopDownState::SaveGame(){
         ofstream save;
         save.open("File1.txt");
         if (save.is_open()) {
-            cout << "hola" << endl;
             //escribir cosas deñ player
             save << "PLAYER" << endl;
             save << player_->getComponent<EconomyComponent>(ECONOMYCOMPONENT_H)->getMoney()<<endl;
             save << trans_player_->getPos().getX() << " " << trans_player_->getPos().getY() << endl;
-            cout<< trans_player_->getPos().getX() << " " << trans_player_->getPos().getY() << endl;
             save << Elements::instance()->getEarth() << endl;
             save << PropertiesManager::instance()->getStrength(3) << " " << PropertiesManager::instance()->getLives(3)<<endl;
             save << Elements::instance()->getFire() << endl;
@@ -561,10 +459,8 @@ void TopDownState::LoadGame() {
                 float number2, number3;
                 f >> number2;
                 f >> number3;
-                cout << number2 << endl;
                 Vector2D v{ number2,number3 };
                 trans_player_->setPos(v);
-                cout << v.getX() << " " << v.getY() << endl;
                 bool d;
                 f >> d;
                 Elements::instance()->setEarth(d);
@@ -593,7 +489,6 @@ void TopDownState::LoadGame() {
                         f >> x >> y >> dirx >> diry;
 
                         pos = { x,y };
-                        cout << pos << endl;
                         enemy_ = new Entity();
                         enemy_->setContext(this);
                         Texture* enemyT_ = EnemyTexture();

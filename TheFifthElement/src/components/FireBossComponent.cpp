@@ -33,11 +33,9 @@ void FireBossComponent::initComponent() {
  }
 
 void FireBossComponent::update() {
-	//cout << image->getCol() << endl;
 	Vector2D new_pos = my_transform->getPos();
 	new_pos.setX(new_pos.getX() + velocity_x*2);
 	new_pos.setY(new_pos.getY() + velocity_y*2);
-	//cout << current << endl;
 	my_transform->setPos(new_pos);
 	switch (current) {
 	case moving_towards_player:
@@ -250,6 +248,5 @@ void FireBossComponent::render() {
 	dest.x = 8 * (WIN_WIDTH / 13);
 	dest.h = borderHeight_;
 	dest.w = borderWidth_;
-	//cout<<borderHeight_<<"  "<<
 	borderTexture->render(src, dest);
  }
