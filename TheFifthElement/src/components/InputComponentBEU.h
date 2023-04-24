@@ -18,6 +18,9 @@ class Image;
 
 class InputComponentBEU : public Component {
 private:
+    SDL_Color color = { 50, 50, 0 };
+    Font* font_;
+    Texture* p;
     Transform* tr_ = nullptr;
     FramedImage* im_ = nullptr;
     SDL_GameController* controller;
@@ -31,6 +34,9 @@ private:
     bool alreadyPressed2 = false;
     bool moveLeft, moveRight, moveUp, moveDown, jump;
     bool earthStage3 = false;
+    
+
+    float timeExecution, ultiTime;
 
 public:
     bool elements[4];
@@ -38,6 +44,7 @@ public:
     InputComponentBEU(Roulette* r);
     void initComponent();
     void update();
+    void render();
     void handleEvents(SDL_Event event);
 
     void setAir(bool b);

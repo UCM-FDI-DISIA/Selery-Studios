@@ -10,6 +10,7 @@ const uint PLAYERBEU_HEIGHT_FRAME = 128; // altura de PlayerBEU
 const uint PlayerPosition_X =30; //pos inicial de PlayerBEU
 const uint PlayerPosition_Y = 300;
 const float PLAYERBEU_SPEED = 3.0f; //velocidad PlayerBEU
+const float PLAYERBEU_COOLDOWNULTIMATE = 10.0f; //velocidad PlayerBEU
 
 
 const uint PLAYERTD_WIDTH_FRAME = 68; // anchura de PlayerTD

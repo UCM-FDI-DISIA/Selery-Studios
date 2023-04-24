@@ -16,6 +16,8 @@ InputComponentBEU::InputComponentBEU(Roulette* r):Component() {
 }
 
 void InputComponentBEU::initComponent() {
+	p = &SDLUtils::instance()->images().at("P");
+	font_ = &SDLUtils::instance()->fonts().at("TCentury");
 	tr_ = ent_->getComponent<Transform>(TRANSFORM_H);
 	im_ = ent_->getComponent<FramedImage>(FRAMEDIMAGE_H);
 	jmp_ = ent_->getComponent<JumpComponent>(JUMP_H);
@@ -35,8 +37,25 @@ void InputComponentBEU::initComponent() {
 		}
 	}
 }
+void InputComponentBEU::render() {
+	int r = abs(ultiTime - timeExecution);
 
+	if (r < 10) {
+		font_->render(SDLUtils::instance()->renderer(), to_string(r).c_str(), 90 * tr_->getScale() + 100 + 8, 25 * tr_->getScale() + 8, color);
+	}
+	else {
+		SDL_Rect dest;
+		dest.x = 90 * tr_->getScale() + 100;
+		dest.y = 25 * tr_->getScale();
+		dest.h = 32;
+		dest.w = 32;
+		p->render(dest);
+	}
+}
 void InputComponentBEU::update() {	
+	unsigned timer = clock();
+	timeExecution = (double(timer) / CLOCKS_PER_SEC);
+
 	if (!im_->getIsAnimUnstoppable() && jmp_->isJumpEnabled()) { // Si no esta realizando ninguna accion no cancelable
 		if (moveLeft) {
 			tr_->setDir(Vector2D(-1, 0));
@@ -197,7 +216,7 @@ void InputComponentBEU::handleEvents(SDL_Event event) {
 	}
 	else if (ih().isKeyJustUp(SDL_SCANCODE_O) || !ih().isGamePadButtonDown(SDL_CONTROLLER_BUTTON_X)) alreadyPressedBasic = false;
 
-	if ((ih().isKeyDown(SDL_SCANCODE_P) || SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_Y)) && !alreadyPressedBasic && jmp_->isJumpEnabled()) {
+	if ((ih().isKeyDown(SDL_SCANCODE_P) || SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_Y)) && !alreadyPressedBasic && jmp_->isJumpEnabled() && ultiTime + PLAYERBEU_COOLDOWNULTIMATE < timeExecution) {
 		// Ataque Especial
 		if (im_->getType() == "fire" || im_->getType() == "water") {
 			if (!alreadyPressedSpecial) {
@@ -223,6 +242,9 @@ void InputComponentBEU::handleEvents(SDL_Event event) {
 				im_->setTope(25);
 			}
 		}
+
+		unsigned timer = clock();
+		ultiTime = (double(timer) / CLOCKS_PER_SEC);
 	}
 	else if (ih().isKeyJustUp(SDL_SCANCODE_P) || !ih().isGamePadButtonDown(SDL_CONTROLLER_BUTTON_Y)) alreadyPressedSpecial = false;
 
