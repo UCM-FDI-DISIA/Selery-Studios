@@ -14,12 +14,14 @@ private:
     const float DMG_MULT = 1.2f;
     const float SPD_MULT = 2.0f;
     const float DMG_REDUCTION_MULT = 0.5f;
-    const float INV_HITS = 2;
+    const float MAX_INV_HITS = 2;
+    const float LF_HEAL = 2;
 
-    int invulnerabilityHits = 0;
     int timeEndStrenght;
     int timeEndSpeed;
     int timeEndDamageReduction;
+    int invulnerabilityHits = 0;
+    float invLife;
 
     Transform* _myTransform;
     LifeComponent* _myLifeComponent;
@@ -29,8 +31,11 @@ public:
     void initComponent();
     void update();
 
+    void instancePowerUp();
+
     void strenghtBonus();
     void speedBonus();
     void reductionBonus();
     void invulnerabilityBonus();
+    void healBonus();
 };

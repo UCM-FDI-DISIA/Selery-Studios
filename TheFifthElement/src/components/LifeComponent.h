@@ -64,14 +64,17 @@ public:
 
 	void render();
 	void update();
+	void setLife(float newLife) { life_ = newLife; }
 	void subLife(float damage);
 
 	void Hit(float damage);
 	void Death();
 
 
-	void resetLife() { life_ = maxLife_; }
 	float getLife() { return life_; }
+	float getMaxLife() { return maxLife_; }
+	void resetLife() { life_ = maxLife_; }
+
 	void setCollision(bool col) { collision = col; }
 	void chageType(float maxLife);
 
@@ -84,4 +87,6 @@ public:
 
 	void setDamageReduction(float prctg = 1.0f) { damageReduction_ = prctg; }
 	float getDamageReduction() { return damageReduction_; }
+
+	void updateLifeBar();
 };

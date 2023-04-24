@@ -19,6 +19,33 @@ void PowerUpControler::update() {
         _myLifeComponent->setDamageReduction();
         cout << "TOMATE UNA SENZU" << endl;
     }
+    if (invulnerabilityHits > 0 && _myLifeComponent->getLife() < invLife) {
+        invulnerabilityHits--;
+        _myLifeComponent->setLife(invLife);
+        cout << "ESCUDO ROTO, ESTA A UNA BALA" << endl;
+    }
+}
+
+
+
+void PowerUpControler::instancePowerUp() {
+    int prct = 1 + (rand() % 100);
+    if (prct <= 30) { // Fuerza
+        strenghtBonus();
+    }
+    else if (prct <= 45) { // Velocidad
+        speedBonus();
+    }
+    else if (prct <= 60) { // Reducción
+        reductionBonus();
+    }
+    else if (prct <= 70) { // Invulnerabilidad
+        invulnerabilityBonus();
+    }
+    else if (prct <= 80) { // Curación
+        healBonus();
+    }
+    // 80 < prct <= 100 // No recibe powerUp
 }
 
 
@@ -44,5 +71,22 @@ void PowerUpControler::reductionBonus() {
 }
 
 void PowerUpControler::invulnerabilityBonus() {
+    if (invulnerabilityHits < MAX_INV_HITS){
+        ++invulnerabilityHits; 
+        invLife = _myLifeComponent->getLife();
+    }
     cout << "CAN'T TOUCH THIS" << endl;
+}
+
+void PowerUpControler::healBonus() {
+    int currentLife = _myLifeComponent->getLife();
+    int maxLife = _myLifeComponent->getMaxLife();
+
+    if (currentLife + LF_HEAL > maxLife) 
+        _myLifeComponent->setLife(maxLife);
+    else
+        _myLifeComponent->setLife(currentLife + LF_HEAL);
+
+    _myLifeComponent->updateLifeBar();
+    cout << "KAKAROTO VEN Y SANA MI DOLOOOOOOR" << endl;
 }

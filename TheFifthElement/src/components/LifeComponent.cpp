@@ -31,11 +31,9 @@ void LifeComponent::initComponent() {
 }
 
 void LifeComponent::update() {
-	if (!set_ && !enemy_) 
-	{ 
+	if (!set_ && !enemy_) { 
 		inp_ = ent_->getComponent<InputComponentBEU>(INPUTCOMPONENTBEU_H); 
-		for (int i = 0; i < 4; i++)
-		{
+		for (int i = 0; i < 4; i++) {
 			types[i].life = -1.0f;
 			types[i].alive = inp_->elements[i];
 		}
@@ -46,20 +44,16 @@ void LifeComponent::update() {
 	
 	if (die_) {
 		if (!im_->getIsAnimUnstoppable()) {
-		/////if (!im_->isAnimPlaying()) {
-
 			if (enemy_)ent_->setAlive(false);
 			else {
 				int i = 0;
 				while (!types[i].alive && i < 4) i++;
 
-				if (i == 4) 
-				{
+				if (i == 4) {
 					ent_->setAlive(false);
 					GameManager::instance()->goTopDown();
 				}
-				else 
-				{
+				else  {
 					if (type_ == "air") inp_->setAir(false);// bloquea aire
 					else if (type_ == "fire")inp_->setFire(false);// bloquea fuego
 					else if (type_ == "water")inp_->setWater(false);// bloquea agua
@@ -143,23 +137,15 @@ void LifeComponent::subLife(float damage) {
 		life_ = 0;
 		Death();
 		if (enemy_) {
-			int prct = 1 + (rand() % 100);
-			if (prct <= 30) { // Fuerza
-				properties().getPowerUpRef()->strenghtBonus();
-			}
-			else if (prct <= 45) { // Velocidad
-				properties().getPowerUpRef()->speedBonus();
-			}
-			else if (prct <= 60) { // Reducción
-				properties().getPowerUpRef()->reductionBonus();
-			}
-			else if (prct <= 70) { // Invulnerabilidad
-
-			}
+			properties().getPowerUpRef()->instancePowerUp();
 		}
 	}
 
 	playDamageSound();
+	updateLifeBar();
+}
+
+void LifeComponent::updateLifeBar() {
 	barWidth_ = ((life_ * backWidth_) / maxLife_);
 }
 
@@ -199,7 +185,7 @@ void LifeComponent::chageType(float maxLife) {
 	}
 	
 	chooseTexture();
-	barWidth_ = ((life_ * backWidth_) / maxLife_);
+	updateLifeBar();
 }
 
 void LifeComponent::render() {
