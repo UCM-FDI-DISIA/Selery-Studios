@@ -30,7 +30,7 @@ public:
 	virtual ~PropertiesManager() {}
 	void setStrength(int i, float cuantity) { strength[i] += cuantity; }
 	void setLives(int i, float cuantity) { lives[i] += cuantity; }
-	void setMult(float Mult = 1) { mult = Mult; }
+	void setMult(float Mult = 1.0f) { mult = Mult; }
 	void setPowerUpRef(PowerUpControler* PUCTRL) { puCtrl = PUCTRL; }
 	
 	float getStrength(int i) { return strength[i] * mult; }

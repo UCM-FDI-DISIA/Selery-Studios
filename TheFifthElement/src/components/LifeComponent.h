@@ -35,6 +35,7 @@ private:
 	float scale;
 	bool set_ = false;
 	time_t deathTime_;
+	float damageReduction_ = 1.0f; // 1=0% 0=100%
 #pragma endregion
 
 #pragma region propierties
@@ -80,4 +81,7 @@ public:
 	void playDieSound();
 
 	inline string getType() { return type_; }
+
+	void setDamageReduction(float prctg = 1.0f) { damageReduction_ = prctg; }
+	float getDamageReduction() { return damageReduction_; }
 };

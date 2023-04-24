@@ -113,16 +113,15 @@ void LifeComponent::Death() {
 	}
 }
 
-void LifeComponent::Hit(float damage)
-{
+void LifeComponent::Hit(float damage) {
 	if (!hit_) {
-		if (getLife() - (damage *= damageMultiplier_) > 0) {
+		float realDamage = damage * damageMultiplier_ * damageReduction_;
+		if (getLife() - (realDamage) > 0) {
 			if (enemy_) {// enemy
 				anim_->changeState(AnimationEnemyBEUComponent::Hit);
 				eMov_->moveBackX();
 				eMov_->stop(true);
 			}
-
 			else {// player
 				skin_->changeState(SkinBEUComponent::Hit);
 			}
@@ -137,7 +136,8 @@ void LifeComponent::Hit(float damage)
 }
 
 void LifeComponent::subLife(float damage) {
-	life_ -= (damage *= damageMultiplier_);
+	float realDamage = damage * damageMultiplier_ * damageReduction_;
+	life_ -= (realDamage);
 
 	if (life_ <= 0) {
 		life_ = 0;
@@ -150,19 +150,17 @@ void LifeComponent::subLife(float damage) {
 			else if (prct <= 45) { // Velocidad
 				properties().getPowerUpRef()->speedBonus();
 			}
-			else if (prct <= 55) { // Reducción
-
+			else if (prct <= 60) { // Reducción
+				properties().getPowerUpRef()->reductionBonus();
 			}
-			else if (prct <= 65) { // Invulnerabilidad
+			else if (prct <= 70) { // Invulnerabilidad
 
 			}
 		}
 	}
 
 	playDamageSound();
-
 	barWidth_ = ((life_ * backWidth_) / maxLife_);
-	
 }
 
 

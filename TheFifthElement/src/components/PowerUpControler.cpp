@@ -3,6 +3,7 @@
 
 void PowerUpControler::initComponent() {
     _myTransform = ent_->getComponent<Transform>(TRANSFORM_H);
+    _myLifeComponent = ent_->getComponent<LifeComponent>(LIFECOMPONENT_H);
 }
 
 void PowerUpControler::update() {
@@ -14,9 +15,9 @@ void PowerUpControler::update() {
         _myTransform->setVel(_myTransform->getVel() / SPD_MULT);
         cout << "l  e  n  t  o  o  o" << endl;
     }
-    if (timeEndDamageReduction <= sdlutils().currRealTime()) {
-
-        //cout << "TOMATE UNA SENZU" << endl;
+    if (_myLifeComponent->getDamageReduction() != 1 && timeEndDamageReduction <= sdlutils().currRealTime()) {
+        _myLifeComponent->setDamageReduction();
+        cout << "TOMATE UNA SENZU" << endl;
     }
 }
 
@@ -37,6 +38,8 @@ void PowerUpControler::speedBonus() {
 }
 
 void PowerUpControler::reductionBonus() {
+    _myLifeComponent->setDamageReduction(DMG_REDUCTION_MULT);
+    timeEndDamageReduction = sdlutils().currRealTime() + POWERUP_DURATION;
     cout << "WISH" << endl;
 }
 

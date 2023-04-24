@@ -3,7 +3,6 @@
 #include "../utils/Component.h"
 #include "../sdlutils/SDLUtils.h"
 #include "Transform.h"
-#include "MovementComponent.h"
 #include "LifeComponent.h"
 
 class PropertiesManager;
@@ -23,6 +22,7 @@ private:
     int timeEndDamageReduction;
 
     Transform* _myTransform;
+    LifeComponent* _myLifeComponent;
 
 public:
     PowerUpControler(){}
