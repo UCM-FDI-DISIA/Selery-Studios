@@ -681,7 +681,7 @@ void TopDownState::render() {
     Vector2D scale = { (WIN_WIDTH / 900.0f), (WIN_HEIGHT / 600.0f) };
     SDL_Rect mapFrame = { (WIN_WIDTH - 190*scale.getX()), 10 * scale.getY(), mapFrameX_ * scale.getX(), mapFrameY_ * scale.getY() };
     SDL_Rect srcMinMap = { 0, 0, fondowidth_ / zoom_, fondoheight_ / zoom_ };
-    srcMinMap.x += Manager::camRect_.x / 4 + WIN_WIDTH / 2 + mapOffsetX_;
+    srcMinMap.x += Manager::camRect_.x / 4 - WIN_WIDTH / 2 - mapOffsetX_;
     srcMinMap.y += Manager::camRect_.y / 4 - WIN_HEIGHT / 4 + mapOffsetY_;
     SDL_RenderCopy(Gm_->getRenderer(), background_0, &srcMinMap, &mapFrame);
     m_->render(mapFrame);

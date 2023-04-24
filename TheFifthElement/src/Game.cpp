@@ -8,12 +8,12 @@ Game::Game() {
 	Elements::instance();
 	GameManager::instance()->setGame(this);
 
-	//GameStateMachine::instance()->pushState(new MainMenuState());
+	GameStateMachine::instance()->pushState(new MainMenuState());
 	//GameStateMachine::instance()->pushState(new TopDownState());
 	//GameStateMachine::instance()->pushState(new BeatEmUpState(false, nullptr));
 	//GameStateMachine::instance()->pushState(new BeatEmUpState(true, nullptr, "earth"));
 	//GameStateMachine::instance()->pushState(new BeatEmUpState(true, nullptr, "water"));
-	GameStateMachine::instance()->pushState(new BeatEmUpState(true, nullptr, "light"));
+	//GameStateMachine::instance()->pushState(new BeatEmUpState(true, nullptr, "light"));
 	//GameStateMachine::instance()->pushState(new PauseState());
 	//GameStateMachine::instance()->pushState(new BeatEmUpState());
 }
