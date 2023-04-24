@@ -49,7 +49,7 @@ void MainMenuState::handleEvents()
 		playButton->handleEvent(event);
 		exitButton->handleEvent(event);
 		optionsButton->handleEvent(event);
-		slider->handleEvent(event);
+		
 	}
 
 }
@@ -104,8 +104,4 @@ void MainMenuState::createButtons() {
 	optionsButton->addComponent<Button>(BUTTON_H, "OPTIONS");
 	addEntity(optionsButton);
 
-	slider = addEntity(new Entity());
-	slider->addComponent<Transform>(TRANSFORM_H, Vector2D(220,10), 20, 20, 1);
-	slider->addComponent<brightSliderComponent>(BRIGHTSLIDER_H);
-	slider->addComponent<sliderComponent>(SLIDERCOMPONENT_H);
 }
