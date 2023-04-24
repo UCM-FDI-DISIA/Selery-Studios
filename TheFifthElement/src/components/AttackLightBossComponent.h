@@ -58,6 +58,7 @@ public:
 	void render();
 	void shootArrow(); //para solo disparar una flecha de luz
 	void anim1(); //para hacer la animacion y al terminarla atacar
+	bool isAtkn() { return attacking; }
 };
 
 #endif

@@ -10,6 +10,7 @@ class AnimationLightBossComponent: public Component
 {
 private:
 	FramedImage* imBoss_;
+	bool dead = false;
 public:
 	enum Animations {
 		Idle, Attack, Hit, Die, Attack2
@@ -20,6 +21,7 @@ public:
 	void update();
 	void initComponent();
 	void newAnim(Animations anim);
+	void setDeath() { dead = true; }
 };
 
 #endif

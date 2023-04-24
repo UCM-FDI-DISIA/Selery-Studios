@@ -24,14 +24,19 @@ void LifeLightBossComponent::damage(float dam)
 	life -= dam;
 	if (life <= 0)
 	{
-		animBoss_->newAnim(AnimationLightBossComponent::Die);
-		static_cast<BeatEmUpState*>(mngr_)->finishBEU();
-		ent_->~Entity(); //esto esta añadido ya que en 1 solo ataque se producen multiples daños y se llamaba a esta funcion demasiadas veces
+		animBoss_->setDeath();
+		//animBoss_->newAnim(AnimationLightBossComponent::Die);
+		//static_cast<BeatEmUpState*>(mngr_)->finishBEU();
+		//ent_->~Entity(); //esto esta añadido ya que en 1 solo ataque se producen multiples daños y se llamaba a esta funcion demasiadas veces
 	}
 	else
 	{
-		checkState();
-		animBoss_->newAnim(AnimationLightBossComponent::Hit);
+		if (!atk_->isAtkn())
+		{
+			checkState();
+			animBoss_->newAnim(AnimationLightBossComponent::Hit);
+		}
+		
 	}
 }
 

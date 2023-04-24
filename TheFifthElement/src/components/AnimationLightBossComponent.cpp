@@ -1,4 +1,6 @@
 #include "AnimationLightBossComponent.h"
+#include "../states//BeatEmUpState.h"
+
 
 void AnimationLightBossComponent::initComponent()
 {
@@ -20,8 +22,17 @@ void AnimationLightBossComponent::newAnim(Animations anim)
 
 void AnimationLightBossComponent::update()
 {
-	if (!imBoss_->getIsAnimUnstoppable() && currentAnim != Idle)
+	if (!imBoss_->getIsAnimUnstoppable() && currentAnim != Idle && !dead)
 	{
 		newAnim(Idle);
+	}
+
+	if (dead)
+	{
+		newAnim(Die);
+		if (imBoss_->getIsAnimUnstoppable())
+		{
+			static_cast<BeatEmUpState*>(mngr_)->finishBEU();
+		}
 	}
 }

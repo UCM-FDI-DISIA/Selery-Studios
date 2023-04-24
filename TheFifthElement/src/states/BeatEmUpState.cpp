@@ -245,12 +245,8 @@ void BeatEmUpState::finishBEU() {
 		SDLUtils::instance()->soundEffects().at("Battle").haltChannel();
 		GameManager::instance()->goTopDown();
 		
-		if(enemySender != nullptr)enemySender->~Entity();
+		if (enemySender != nullptr)enemySender->~Entity();
 	}
-	//if (!player_->isAlive()) {
-	//	SDLUtils::instance()->soundEffects().at("Battle").haltChannel();
-	//	GameManager::instance()->goTopDown();
-	//}
 }
 
 string BeatEmUpState::getStateID() {
