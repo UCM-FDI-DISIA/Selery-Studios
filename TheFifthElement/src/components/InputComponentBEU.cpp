@@ -346,3 +346,10 @@ void InputComponentBEU::vibrate(SDL_GameController* controller, int duration_ms,
 	// Liberar los recursos usados por el dispositivo haptic
 	SDL_HapticClose(haptic);
 }
+
+void InputComponentBEU::MovePlayerBack()
+{
+	Vector2D currPos = tr_->getPos();
+	currPos.set(currPos.getX() - 500.0 * direction, currPos.getY());
+	tr_->setPos(currPos);
+}

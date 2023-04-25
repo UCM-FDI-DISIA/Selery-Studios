@@ -276,6 +276,7 @@ void BeatEmUpState::update() {
 	else if (camRect_.x > BACKGROUNDBEU_WIDTH - WIN_WIDTH) {
 		camRect_.x = BACKGROUNDBEU_WIDTH - WIN_WIDTH;
 	}
+	shakeme = camRect_.x;
 }
 
 void BeatEmUpState::Background(string file) {
@@ -292,7 +293,8 @@ void BeatEmUpState::Background(string file) {
 }
 
 
-void BeatEmUpState::ShakeCam() {
+void BeatEmUpState::ShakeCam(int shaking) {
 	//Aplicar temblor de pantalla.
-
+	
+	camRect_.x += shaking;
 }
