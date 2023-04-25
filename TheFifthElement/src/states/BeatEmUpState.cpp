@@ -19,6 +19,14 @@ BeatEmUpState::BeatEmUpState(bool Boss,Entity* enemySends, string typeBoss, int 
 		//background_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("fondoBossAgua"));
 		Background("fondoBossAgua");
 	}
+	else if (typeBoss_ == "fire")
+	{
+		Background("fondoBossFire");
+	}
+	else if (typeBoss_ == "light")
+	{
+		Background("fondoBossLight");
+	}
 	else {
 		background_->addComponent<Transform>(TRANSFORM_H, Vector2D(0, 0), BACKGROUNDBEU_WIDTH, WIN_HEIGHT);
 		background_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("BEU_Background"));
@@ -58,7 +66,7 @@ BeatEmUpState::BeatEmUpState(bool Boss,Entity* enemySends, string typeBoss, int 
 	colManager_ = new ColManager(this);
 
 	if (!boss) {
-		AddEnemies(3);
+		AddEnemies(10);
 		//AddEnemy();
 	}
 	else if (boss && typeBoss == "water") {
