@@ -30,9 +30,9 @@ void OptionsState::ControlsBackground(string file)
 	float h = 719;
 	int f = 0;
 	bool matrix = false;
-	Vector2D pos = { (WIN_WIDTH / 2) - (w / 4), (WIN_HEIGHT / 2) - (h / 4) };
+	Vector2D pos = { (WIN_WIDTH / 2) - (w * 0.75f) / 2, (WIN_HEIGHT / 2) - (h / 2.5f) };
 	int r = 0;
-	e->addComponent<Transform>(TRANSFORM_H, pos, w, h, 0.5);
+	e->addComponent<Transform>(TRANSFORM_H, pos, w, h, 0.75);
 	e->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at(file));
 	addEntity(e);
 }
@@ -87,19 +87,19 @@ Entity* OptionsState::addNewEntity(string t, float w, float h, Vector2D pos, int
 
 void OptionsState::createButtons() {
 
-	backButton = addNewEntity("ReturnButton", 289, 86, Vector2D(WIN_WIDTH-150, WIN_HEIGHT -50), 1, false, 0.5);
+	backButton = addNewEntity("ReturnButton", 194, 45, Vector2D(WIN_WIDTH - (194 * 0.75), WIN_HEIGHT - (45 * 0.75)), 1, false, 0.75);
 	backButton->addComponent<Button>(BUTTON_H, "RETURN");
 
 	//resumeButton = addNewEntity("ResumeButton", 289, 86, Vector2D(5, WIN_HEIGHT - 50), 1, false, 0.5);
 	//resumeButton->addComponent<Button>(BUTTON_H, "RESUME");
 
-	muteButton = addNewEntity("MuteButton", 20, 20, Vector2D(WIN_WIDTH / 2+42, WIN_HEIGHT / 5-40), 1, false, 1);
+	muteButton = addNewEntity("MuteButton", 20, 20, Vector2D(WIN_WIDTH / 2 - 10, WIN_HEIGHT / 5-40), 1, false, 1);
 	muteButton->addComponent<Button>(BUTTON_H, "MUTE");
 
-	TDcontrolsButton = addNewEntity("TDControlsButton", 289, 86, Vector2D(WIN_WIDTH/2-72, WIN_HEIGHT/2+90), 1, false, 0.5);
+	TDcontrolsButton = addNewEntity("TDControlsButton", 194, 45, Vector2D(WIN_WIDTH/2 - (194 * 0.75) / 2, WIN_HEIGHT/1.75f), 1, false, 0.75);
 	TDcontrolsButton->addComponent<Button>(BUTTON_H, "TDCONTROLS");
 
-	BEUcontrolsButton = addNewEntity("BEUControlsButton", 289, 86, Vector2D(WIN_WIDTH / 2-72, WIN_HEIGHT/1.5+60), 1, false, 0.5);
+	BEUcontrolsButton = addNewEntity("BEUControlsButton", 194, 45, Vector2D(WIN_WIDTH / 2 - (194 * 0.75) / 2, WIN_HEIGHT/1.5), 1, false, 0.75);
 	BEUcontrolsButton->addComponent<Button>(BUTTON_H, "BEUCONTROLS");
 
 	sliderBrillo = addEntity(new Entity());
@@ -108,7 +108,7 @@ void OptionsState::createButtons() {
 	sliderBrillo->addComponent<sliderComponent>(SLIDERCOMPONENT_H);
 
 	sliderSonido = addEntity(new Entity());
-	sliderSonido->addComponent<Transform>(TRANSFORM_H, Vector2D(WIN_WIDTH / 2-10, WIN_HEIGHT / 5), 20, 20, 1);
+	sliderSonido->addComponent<Transform>(TRANSFORM_H, Vector2D(WIN_WIDTH / 2-10, WIN_HEIGHT / 3.75f), 20, 20, 1);
 	sliderSonido->addComponent<VolumeSlider>(VOLUMESLIDER_H); 
 	sliderSonido->addComponent<sliderComponent>(SLIDERCOMPONENT_H);
 
@@ -135,6 +135,6 @@ void OptionsState::deleteButtonsBEU()
 void OptionsState::exitControls()
 {
 	exitActive = true;
-	exitControlsButton = addNewEntity("ReturnButton", 50, 50, Vector2D(10, 10), 1, false, 0.5);
+	exitControlsButton = addNewEntity("ReturnButton", 194, 45, Vector2D(10, 10), 1, false, 0.75);
 	exitControlsButton->addComponent<Button>(BUTTON_H, "RETURN");
 }
