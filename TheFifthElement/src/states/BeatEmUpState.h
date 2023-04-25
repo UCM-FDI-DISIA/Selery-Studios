@@ -98,5 +98,6 @@ public:
 	ColManager* getColManager() { return colManager_; }
 	void update();
 	void Background(string file);
+	void ShakeCam();
 };
 

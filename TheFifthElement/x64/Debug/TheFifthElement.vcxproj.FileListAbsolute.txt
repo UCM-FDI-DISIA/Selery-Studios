@@ -15,3 +15,4 @@ C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthEle
 C:\Users\david\Downloads\Selery-Studios\TheFifthElement\x64\Debug\TheFifthElement.exe
 C:\Users\pmq12\OneDrive\Escritorio\SeleryStudios\TheFifthElement\x64\Debug\TheFifthElement.exe
 U:\hlocal\Selery-Studios-main\TheFifthElement\x64\Debug\TheFifthElement.exe
+C:\Users\Dorjee\Desktop\PROYECTOS 2\Selery-Studios\TheFifthElement\x64\Debug\TheFifthElement.exe

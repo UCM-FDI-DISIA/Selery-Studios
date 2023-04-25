@@ -345,6 +345,7 @@ $('#btn-3').on('click', function() {
   $('.video-wrapper').hide();
   $('#download-section').hide();  
   player.pauseVideo();
+  $('.banner').hide();
   $('.grid-container').css("display", "grid");
   // Oculta los gifs
     $('#text-section').hide();
@@ -356,6 +357,7 @@ $('#btn-1').on('click', function() {
   $('.grid-container').hide();
    $('#download-section').show();  
   $('#text-section').hide();
+  $('.banner').show();
   $('.video-wrapper').show();
   player.pauseVideo();
   // Muestra los gifs
@@ -366,7 +368,7 @@ $('#btn-2').on('click', function() {
   $('.grid-container').hide();
   $('.video-wrapper').hide();
   player.pauseVideo();
-  
+  $('.banner').hide();
   $('#download-section').hide();  
   $('#text-section').show();
   // Oculta los gifs
@@ -411,49 +413,48 @@ $('#btn-2').on('click', function() {
 
     <div class="grid-container">
 <div class="grid-item grid-image">
-  <img src="b.gif" alt="GIF A">
+  <img src="agustin.gif" alt="GIF A">
+  <div class="name">Agustín</div>
+</div>
+<div class="grid-item grid-image">
+  <img src="ciscoypatri.gif" alt="GIF A">
+  <div class="name">Cisco</div>
+</div>
+<div class="grid-item grid-image">
+  <img src="putocangrejo.gif" alt="GIF A">
+  <div class="name">Sheila</div>
+</div>
+<div class="grid-item grid-image">
+  <img src="bebeinseminado.gif" alt="GIF A">
   <div class="name">Cristina</div>
 </div>
 <div class="grid-item grid-image">
-  <img src="a.gif" alt="GIF A">
-  <div class="name">Dorjee</div>
+  <img src="mami.gif" alt="GIF A">
+  <div class="name">Paceve</div>
 </div>
 <div class="grid-item grid-image">
-  <img src="a.gif" alt="GIF A">
+  <img src="pablouwu.gif" alt="GIF A">
   <div class="name">Pablo</div>
 </div>
 <div class="grid-item grid-image">
-  <img src="a.gif" alt="GIF A">
+  <img src="catkiss.gif" alt="GIF A">
   <div class="name">Dorjee</div>
 </div>
 <div class="grid-item grid-image">
-  <img src="a.gif" alt="GIF A">
-  <div class="name">Dorjee</div>
+  <img src="saoko.gif" alt="GIF A">
+  <div class="name">José</div>
 </div>
 <div class="grid-item grid-image">
-  <img src="a.gif" alt="GIF A">
-  <div class="name">Dorjee</div>
+  <img src="sofiamovil.gif" alt="GIF A">
+  <div class="name">Sofía</div>
 </div>
 <div class="grid-item grid-image">
-  <img src="a.gif" alt="GIF A">
-  <div class="name">Dorjee</div>
-</div>
-<div class="grid-item grid-image">
-  <img src="a.gif" alt="GIF A">
-  <div class="name">Dorjee</div>
-</div>
-<div class="grid-item grid-image">
-  <img src="a.gif" alt="GIF A">
-  <div class="name">Dorjee</div>
-</div>
-<div class="grid-item grid-image">
-  <img src="a.gif" alt="GIF A">
-  <div class="name">Dorjee</div>
+  <img src="necesimatosotroholocausto.gif" alt="GIF A">
+  <div class="name">Alberto</div>
 </div>
     </div>
   </section>
 </div>
-<!-- Añade la barra lateral izquierda con los botones -->
 <div id="sidebar">
   <button id="btn-1">Botón 1</button>
   <button id="btn-2">Botón 2</button>

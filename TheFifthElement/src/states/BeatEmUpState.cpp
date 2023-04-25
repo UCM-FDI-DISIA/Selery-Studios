@@ -290,3 +290,9 @@ void BeatEmUpState::Background(string file) {
 	e->addComponent<Image>(IMAGE_H, t);
 	addEntity(e);
 }
+
+
+void BeatEmUpState::ShakeCam() {
+	//Aplicar temblor de pantalla.
+
+}
