@@ -15,6 +15,7 @@ private:
 	SDL_RendererFlip s = SDL_FLIP_NONE;
 	SDL_Rect dest, src;
 	bool isAnimUnstoppable_ = false;
+	float frameRate = FRAME_RATE;
 	string type_, texKey_ = "";
 public:
 	//Constructora
@@ -37,10 +38,10 @@ public:
 	inline int getRow() { return fila_; }
 
 	void setAnim(string textureKey, int frames, bool isAnimUnstoppable, int fila = 0); // Metodo generico para cambiar de animacion
-	void setAnim(string textureKey, int col,int frames, bool isAnimUnstoppable, int fila = 0); // Metodo generico para cambiar de animacion desde una columna determinada
+	void setAnim(string textureKey, int col, int frames, bool isAnimUnstoppable, int fila = 0); // Metodo generico para cambiar de animacion desde una columna determinada
 	void setAnim(string textureKey, int frames, int framesPerRow, int nFilas, bool isAnimUnstoppable, int fila = 0); // Metodo generico para cambiar de animacion repartida en varias filas
 
-	inline bool isAnimPlaying() { return col <  frames_ - 1; }
+	inline bool isAnimPlaying() { return col < frames_ - 1; }
 
 	inline void setTope(int i) { tope = i; }
 	inline int getTope() const { return tope; }
@@ -49,6 +50,7 @@ public:
 
 	inline void setType(string newValue) { type_ = newValue; }
 	inline string getType() { return type_; }
+
 
 	inline string getTexKey() { return texKey_; }
 	inline void setTexKey(string newValue) { texKey_ = newValue; }

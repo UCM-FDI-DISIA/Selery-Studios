@@ -25,13 +25,17 @@ FramedImage::~FramedImage() { }
 
 void FramedImage::initComponent() { 	// Inicializa el componente
 	tr_ = ent_->getComponent<Transform>(TRANSFORM_H);
+	if (ent_->hasComponent(SKINBEUCOMPONENT_H))
+	{
+		frameRate = FRAME_RATE_BEU_PLAYER;
+	}
 }
 
 void FramedImage::update() {
 	dest.x = tr_->getPos().getX() - mngr_->camRect_.x;
 	dest.y = tr_->getPos().getY() - mngr_->camRect_.y;
-	dest.h = (tr_->getH() * tr_->getSize() * WIN_HEIGHT)/600;
-	dest.w = (tr_->getW() * tr_->getSize() * WIN_WIDTH)/900;
+	dest.h = (tr_->getH() * tr_->getSize() * WIN_HEIGHT) / 600;
+	dest.w = (tr_->getW() * tr_->getSize() * WIN_WIDTH) / 900;
 	src.x = col * widthFrame_;
 	src.y = fila_ * heightFrame_;
 	src.h = heightFrame_;
@@ -45,7 +49,7 @@ void FramedImage::update() {
 			ent_->setAlive(false);
 		}
 	}
-	else if (cont > FRAME_RATE){
+	else if (cont > frameRate) {
 		col++;
 		cont = 0;
 	}
@@ -77,7 +81,7 @@ void FramedImage::setAnim(string textureKey, int frames, bool isAnimUnstoppable,
 }
 
 
-void FramedImage::setAnim(string textureKey,int col_, int frames, bool isAnimUnstoppable, int fila) {
+void FramedImage::setAnim(string textureKey, int col_, int frames, bool isAnimUnstoppable, int fila) {
 	if (!isAnimUnstoppable_) {
 		tex_ = &SDLUtils::instance()->images().at(textureKey);
 		texKey_ = textureKey;

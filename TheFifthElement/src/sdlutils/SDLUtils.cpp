@@ -23,7 +23,7 @@ SDLUtils::SDLUtils(std::string windowTitle, int width, int height) :
 {
 
 	initWindow();
-	toggleFullScreen();
+	//toggleFullScreen();
 	initSDLExtensions();
 }
 

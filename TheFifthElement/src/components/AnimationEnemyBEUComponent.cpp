@@ -541,12 +541,12 @@ void AnimationEnemyBEUComponent::setIdleTexture()
 	if (enemy_ == "shroom") {
 
 		nframes_ = 4;
-		EnemyWidth_ = 800;
+		EnemyWidth_ = 1200;
 		EnemyHeight_ = 150;
 
 		offset_ = Vector2D(60, 55);
 		ColHeight_ = ENEMYBEU_HEIGHT / 3;
-		ColWidth_ = ENEMYBEU_WIDTH / 25;
+		ColWidth_ = ENEMYBEU_WIDTH / 5;
 
 		if (type_ == "fire") {
 			t_ = "BEU_fire_Mushroom_idle";
@@ -571,9 +571,9 @@ void AnimationEnemyBEUComponent::setIdleTexture()
 		EnemyWidth_ = 600;
 		EnemyHeight_ = 150;
 
-		offset_ = Vector2D(55, 70);
-		ColHeight_ = ENEMYBEU_HEIGHT / 4;
-		ColWidth_ = ENEMYBEU_WIDTH / 15;
+		offset_ = Vector2D(55, 42);
+		ColHeight_ = 2.5 * ENEMYBEU_HEIGHT / 6;
+		ColWidth_ = ENEMYBEU_WIDTH / 5;
 
 		if (type_ == "fire") {
 			t_ = "BEU_fire_Skeleton_idle";
@@ -595,12 +595,12 @@ void AnimationEnemyBEUComponent::setIdleTexture()
 	else if (enemy_ == "goblin") {
 
 		nframes_ = 4;
-		EnemyWidth_ = 1000;
+		EnemyWidth_ = 1200;
 		EnemyHeight_ = 150;
 
-		offset_ = Vector2D(70, 75);
-		ColHeight_ = ENEMYBEU_HEIGHT / 5;
-		ColWidth_ = ENEMYBEU_WIDTH / 12;
+		offset_ = Vector2D(55, 55);
+		ColHeight_ = ENEMYBEU_HEIGHT / 3;
+		ColWidth_ = ENEMYBEU_WIDTH / 5;
 
 		if (type_ == "fire") {
 			t_ = "BEU_fire_Goblin_idle";
@@ -621,13 +621,13 @@ void AnimationEnemyBEUComponent::setIdleTexture()
 
 	else if (enemy_ == "bat") {
 
-		nframes_ = 4;
-		EnemyWidth_ = 600;
+		nframes_ = 8;
+		EnemyWidth_ = 1200;
 		EnemyHeight_ = 150;
 
-		offset_ = Vector2D(50, 75);
-		ColHeight_ = ENEMYBEU_HEIGHT / 6;
-		ColWidth_ = ENEMYBEU_WIDTH / 12;
+		offset_ = Vector2D(55, 55);
+		ColHeight_ = ENEMYBEU_HEIGHT / 4;
+		ColWidth_ = ENEMYBEU_WIDTH / 4;
 
 		if (type_ == "fire") {
 			t_ = "BEU_fire_Bat_fly";

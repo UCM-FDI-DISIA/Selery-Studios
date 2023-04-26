@@ -1,16 +1,17 @@
 #include "ColManager.h"
 #include "states/BeatEmUpState.h"
+#include "components/EnemyBEUDirectionComponent.h"
 
-void ColManager::checkCollisionP(SDL_Rect boxAttack,string type)
+void ColManager::checkCollisionP(SDL_Rect boxAttack, string type, bool strongAttack)
 {
-	for (auto it: mngr_->getEntities())
+	for (auto it : mngr_->getEntities())
 	{
 		if (it->hasComponent(ENEMYBEUDIRECTIONCOMPONENT_H))
 		{
 			ColliderComponent* col = it->getComponent<ColliderComponent>(COLLIDERCOMPONENT_H);
 			{
 
-				if(Collision::collides(Vector2D(boxAttack.x, boxAttack.y), boxAttack.w, boxAttack.h, Vector2D(col->getColRect().x, col->getColRect().y), col->getColRect().w, col->getColRect().h))
+				if (Collision::collides(Vector2D(boxAttack.x, boxAttack.y), boxAttack.w, boxAttack.h, Vector2D(col->getColRect().x, col->getColRect().y), col->getColRect().w, col->getColRect().h))
 				{
 					string typeHitted = it->getComponent<AnimationEnemyBEUComponent>(ANIMATIONENEMYBEUCOMPONENT_H)->getType();
 
@@ -48,6 +49,13 @@ void ColManager::checkCollisionP(SDL_Rect boxAttack,string type)
 					}
 
 					else it->getComponent<LifeComponent>(LIFECOMPONENT_H)->Hit(1 * props_->instance()->getStrength(0));
+
+
+
+					if (strongAttack)
+					{
+						it->getComponent<EnemyBEUDirectionComponent>(ENEMYBEUDIRECTIONCOMPONENT_H)->moveBackX();
+					}
 				}
 			}
 		}
@@ -116,11 +124,11 @@ void ColManager::checkCollisionP(SDL_Rect boxAttack,string type)
 			{
 				Transform* arrowTransform = it->getComponent<Transform>(TRANSFORM_H);
 				FramedImage* arrowImage = it->getComponent<FramedImage>(FRAMEDIMAGE_H);
-				arrowTransform->setDir(arrowTransform->getDir()* (-1));
+				arrowTransform->setDir(arrowTransform->getDir() * (-1));
 				arrowImage->setFlip(SDL_FLIP_HORIZONTAL);
 				it->getComponent<LightBossElement>(LIGHTBOSSELEMENT_H)->setReturning();
 			}
-			
+
 		}
 	}
 }
@@ -134,7 +142,7 @@ void ColManager::checkCollisionE(SDL_Rect boxAttack, string type, int extraDamag
 		string typeHitted = player->getComponent<FramedImage>(FRAMEDIMAGE_H)->getType();
 
 		if (type == typeHitted || typeHitted == "fire" && type == "earth" || typeHitted == "water" && type == "fire" || typeHitted == "earth" && type == "water")
-		{		
+		{
 			player->getComponent<LifeComponent>(LIFECOMPONENT_H)->Hit(0.5 + extraDamage);
 		}
 
@@ -150,7 +158,7 @@ void ColManager::checkCollisionE(SDL_Rect boxAttack, string type, int extraDamag
 void ColManager::update()
 {
 
-	if (howManyNear() > 0)
+	if (howManyNear() > 1)
 	{
 		for (auto it : mngr_->getEntities())
 		{
@@ -162,7 +170,7 @@ void ColManager::update()
 				AnimationEnemyBEUComponent* anim = it->getComponent<AnimationEnemyBEUComponent>(ANIMATIONENEMYBEUCOMPONENT_H);
 				FramedImage* im = it->getComponent<FramedImage>(FRAMEDIMAGE_H);
 				anim->changeState(AnimationEnemyBEUComponent::Idle);
-				if (trPlayer->getPos().getX()< tr->getPos().getX())
+				if (trPlayer->getPos().getX() < tr->getPos().getX())
 				{
 					im->setFlip(SDL_FLIP_HORIZONTAL);
 				}
@@ -196,7 +204,6 @@ void ColManager::update()
 int ColManager::howManyNear()
 {
 	enemiesNearPlayer = 0;
-	int i = 0;
 	for (auto it : mngr_->getEntities())
 	{
 		if (it->hasComponent(ENEMYBEUDIRECTIONCOMPONENT_H))

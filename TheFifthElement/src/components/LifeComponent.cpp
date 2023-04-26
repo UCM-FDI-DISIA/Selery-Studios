@@ -113,7 +113,7 @@ void LifeComponent::Hit(float damage) {
 		if (getLife() - (realDamage) > 0) {
 			if (enemy_) {// enemy
 				anim_->changeState(AnimationEnemyBEUComponent::Hit);
-				eMov_->moveBackX();
+				//eMov_->moveBackX();
 				eMov_->stop(true);
 				
 				
