@@ -35,6 +35,121 @@ TopDownState::~TopDownState()
     Manager::~Manager();
 
 }
+
+void TopDownState::update() {
+    Vector2D savedPos = Saving::instance()->getPos();
+    if (savedPos != Vector2D(0, 0))
+    {
+        movcomp_player_->setNewPos(savedPos);
+        Saving::instance()->deletePos();
+    }
+    Playernpc_->setcol();
+
+    actQuests();
+    Manager::refresh();
+    Manager::update();
+
+    camRect_.x = camRect_.x + ((trans_player_->getPos().getX() + camOffset_ - camRect_.x) - WIN_WIDTH / 2) * 0.05;
+    camRect_.y = camRect_.y + ((trans_player_->getPos().getY() + camOffset_ - camRect_.y) - WIN_HEIGHT / 2) * 0.05;
+    // Clamp
+    if (camRect_.x < 0) {
+        camRect_.x = 0;
+    }
+    if (camRect_.y < 0) {
+        camRect_.y = 0;
+    }
+}
+void TopDownState::SaveGame() {
+
+    if (!saved) {
+        saved = true;
+        ofstream save;
+        save.open("File1.txt");
+        if (save.is_open()) {
+            //escribir cosas deñ player
+            save << "PLAYER" << endl;
+            save << player_->getComponent<EconomyComponent>(ECONOMYCOMPONENT_H)->getMoney() << endl;
+            save << trans_player_->getPos().getX() << " " << trans_player_->getPos().getY() << endl;
+            save << Elements::instance()->getEarth() << endl;
+            save << PropertiesManager::instance()->getStrength(3) << " " << PropertiesManager::instance()->getLives(3) << endl;
+            save << Elements::instance()->getFire() << endl;
+            save << PropertiesManager::instance()->getStrength(1) << " " << PropertiesManager::instance()->getLives(1) << endl;
+            save << Elements::instance()->getWater() << endl;
+            save << PropertiesManager::instance()->getStrength(2) << " " << PropertiesManager::instance()->getLives(2) << endl << endl;
+
+
+            //ENEMIGUESSS
+            for (auto c : ents_) {
+                if (c->hasComponent(ENEMY_MOVEMENT_TD_H)) {
+                    save << "enemy" << endl;
+                    Transform* f = c->getComponent<Transform>(TRANSFORM_H);
+                    if (c->getComponent<FramedImage>(FRAMEDIMAGE_H)->getType() == "") {
+                        save << "skeleton" << endl;
+                    }
+                    else {
+                        save << c->getComponent<FramedImage>(FRAMEDIMAGE_H)->getType() << endl;
+                    }
+
+                    save << f->getPos().getX() << " " << f->getPos().getY() << " " << f->getDir().getX() << " " << f->getDir().getY() << endl;
+
+
+
+
+
+                }
+                else if (c->hasComponent(REDIRECTENEMY_H)) {
+                    save << "redirect" << endl;
+                    RedirectEnemy* f = c->getComponent<RedirectEnemy>(REDIRECTENEMY_H);
+                    save << f->getVector().getX() << " " << f->getVector().getY() << endl;
+                    save << f->getBox().x << " " << f->getBox().y << " " << f->getBox().w << " " << f->getBox().h << endl;
+                }
+
+            }
+
+            save << -1 << endl;
+            save.close();
+
+        }
+    }
+}
+
+void TopDownState::render() {
+
+    SDL_Rect dst = { 0,0,(fondowidth_ * 2.5) * (WIN_WIDTH / 900),(fondoheight_ * 2.5) * (WIN_HEIGHT / 600) };
+    // posición según el transform de la Camara
+    dst.x -= Manager::camRect_.x;
+    dst.y -= Manager::camRect_.y;
+    SDL_Rect src = { 0, 0, fondowidth_, fondoheight_ };
+
+    SDL_RenderCopy(Gm_->getRenderer(), background_0, &src, &dst);
+    for (auto p : interactions_) {
+        p->render();
+    }
+    for (auto p : collisions_) {
+        p->render();
+    }
+    //SDL_RenderCopy(Gm_->getRenderer(), background_1, &src, &dst);
+    //hudTD->render();
+    if (questsMenu)renderQuestList();
+    // MINIMAPA
+    Vector2D scale = { (WIN_WIDTH / 900.0f), (WIN_HEIGHT / 600.0f) };
+    SDL_Rect mapFrame = { (WIN_WIDTH - 190 * scale.getX()), 10 * scale.getY(), mapFrameX_ * scale.getX(), mapFrameY_ * scale.getY() };
+    SDL_Rect srcMinMap = { 0, 0, fondowidth_ / zoom_, fondoheight_ / zoom_ };
+    srcMinMap.x += Manager::camRect_.x / 4 - WIN_WIDTH / 2 - mapOffsetX_;
+    srcMinMap.y += Manager::camRect_.y / 4 - WIN_HEIGHT / 4 + mapOffsetY_;
+    SDL_RenderCopy(Gm_->getRenderer(), background_0, &srcMinMap, &mapFrame);
+    m_->render(mapFrame);
+
+    SDL_Rect icon = { (WIN_WIDTH - 190 / 2 * scale.getX()), 60 * scale.getY(), iconWidth_, iconHeight_ };
+    SDL_Rect srcIc = { 0, 0, PLAYERAVATAR_DIMENSION, PLAYERAVATAR_DIMENSION };
+    SDL_RenderCopy(Gm_->getRenderer(), background_0, &srcIc, &icon);
+    sk_->getAvatar()->render(icon);
+
+    Manager::render();
+
+
+
+}
 void TopDownState::LoadMap(string const& filename) {
 
     mapInfo.tile_MAP = new tmx::Map();  //crea el mapa
@@ -364,82 +479,7 @@ void TopDownState::LoadMap(string const& filename) {
 
 }
 
-void TopDownState::update() {
-    Vector2D savedPos = Saving::instance()->getPos();
-    if(savedPos!=Vector2D(0,0))
-    {
-        movcomp_player_->setNewPos(savedPos);
-        Saving::instance()->deletePos();
-    }
-    Playernpc_->setcol();
 
-    actQuests();
-    Manager::refresh();
-    Manager::update();
-    
-    camRect_.x = camRect_.x + ((trans_player_->getPos().getX() + camOffset_ - camRect_.x) - WIN_WIDTH / 2) * 0.05;
-    camRect_.y = camRect_.y + ((trans_player_->getPos().getY() + camOffset_ - camRect_.y) - WIN_HEIGHT / 2) * 0.05;
-    // Clamp
-    if (camRect_.x < 0) {
-        camRect_.x = 0;
-    }
-    if (camRect_.y < 0) {
-        camRect_.y = 0;
-    }   
-}
-void TopDownState::SaveGame(){
-
-    if (!saved) {
-        saved = true;
-        ofstream save;
-        save.open("File1.txt");
-        if (save.is_open()) {
-            //escribir cosas deñ player
-            save << "PLAYER" << endl;
-            save << player_->getComponent<EconomyComponent>(ECONOMYCOMPONENT_H)->getMoney()<<endl;
-            save << trans_player_->getPos().getX() << " " << trans_player_->getPos().getY() << endl;
-            save << Elements::instance()->getEarth() << endl;
-            save << PropertiesManager::instance()->getStrength(3) << " " << PropertiesManager::instance()->getLives(3)<<endl;
-            save << Elements::instance()->getFire() << endl;
-            save<< PropertiesManager::instance()->getStrength(1) << " " << PropertiesManager::instance()->getLives(1) << endl;
-            save << Elements::instance()->getWater() << endl;
-            save<< PropertiesManager::instance()->getStrength(2) << " " << PropertiesManager::instance()->getLives(2) << endl<<endl;
-            
-
-            //ENEMIGUESSS
-            for (auto c : ents_) {
-                if (c->hasComponent(ENEMY_MOVEMENT_TD_H)) {
-                    save << "enemy" << endl;
-                    Transform* f = c->getComponent<Transform>(TRANSFORM_H);
-                    if (c->getComponent<FramedImage>(FRAMEDIMAGE_H)->getType() == "") {
-                        save << "skeleton"<<endl;
-                    }
-                    else {
-                        save << c->getComponent<FramedImage>(FRAMEDIMAGE_H)->getType() << endl;
-                    }
-             
-                    save << f->getPos().getX() << " " << f->getPos().getY() <<" "<<f->getDir().getX()<<" "<<f->getDir().getY()<<endl;
-
-
-
-
-
-                }
-                else if (c->hasComponent(REDIRECTENEMY_H)) {
-                    save << "redirect" << endl;
-                    RedirectEnemy* f = c->getComponent<RedirectEnemy>(REDIRECTENEMY_H);
-                    save << f->getVector().getX() << " " << f->getVector().getY() << endl;
-                    save << f->getBox().x << " " << f->getBox().y << " " << f->getBox().w << " " << f->getBox().h << endl;
-                }
-             
-            }
-          
-            save << -1 << endl;
-            save.close();
-
-        }
-    }
-}
 
 void TopDownState::LoadGame() {
     if (!loaded) {
@@ -551,42 +591,6 @@ void TopDownState::handleEvents() {
           
             exitShopButton_->handleEvent(event);
         }
-}
-
-void TopDownState::render() {
-    
-    SDL_Rect dst = { 0,0,(fondowidth_ * 2.5)* (WIN_WIDTH / 900),(fondoheight_ * 2.5)* (WIN_HEIGHT / 600) };
-    // posición según el transform de la Camara
-    dst.x -= Manager::camRect_.x;
-    dst.y -= Manager::camRect_.y;
-    SDL_Rect src = { 0, 0, fondowidth_, fondoheight_ };
-
-    SDL_RenderCopy(Gm_->getRenderer(), background_0, &src, &dst);
-    for (auto p : interactions_) {
-        p->render();
-    }
-    for (auto p : collisions_) {
-        p->render();
-    }
-    //SDL_RenderCopy(Gm_->getRenderer(), background_1, &src, &dst);
-    //hudTD->render();
-    if (questsMenu)renderQuestList();
-
-    // MINIMAPA
-    Vector2D scale = { (WIN_WIDTH / 900.0f), (WIN_HEIGHT / 600.0f) };
-    SDL_Rect mapFrame = { (WIN_WIDTH - 190*scale.getX()), 10 * scale.getY(), mapFrameX_ * scale.getX(), mapFrameY_ * scale.getY() };
-    SDL_Rect srcMinMap = { 0, 0, fondowidth_ / zoom_, fondoheight_ / zoom_ };
-    srcMinMap.x += Manager::camRect_.x / 4 - WIN_WIDTH / 2 - mapOffsetX_;
-    srcMinMap.y += Manager::camRect_.y / 4 - WIN_HEIGHT / 4 + mapOffsetY_;
-    SDL_RenderCopy(Gm_->getRenderer(), background_0, &srcMinMap, &mapFrame);
-    m_->render(mapFrame);
-
-    SDL_Rect icon = { (WIN_WIDTH - 190 / 2 * scale.getX()), 60 * scale.getY(), iconWidth_, iconHeight_ };
-    SDL_Rect srcIc = { 0, 0, PLAYERAVATAR_DIMENSION, PLAYERAVATAR_DIMENSION };
-    SDL_RenderCopy(Gm_->getRenderer(), background_0, &srcIc, &icon);
-    sk_->getAvatar()->render(icon);
-
-    Manager::render();
 }
 
 void TopDownState::createShopButtons() {
