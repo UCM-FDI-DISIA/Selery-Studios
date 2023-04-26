@@ -74,6 +74,7 @@
     <ClCompile Include="src\components\PowerUpControler.cpp" />
     <ClCompile Include="src\Elements.cpp" />
     <ClCompile Include="src\components\QuestInfoComponent.cpp" />
+    <ClCompile Include="src\states\EndState.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\components\Button.h" />
@@ -171,6 +172,7 @@
     <ClInclude Include="src\components\PowerUpControler.h" />
     <ClInclude Include="src\Elements.h" />
     <ClInclude Include="src\components\QuestInfoComponent.h" />
+    <ClInclude Include="src\states\EndState.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="TheFifthElement.rc" />

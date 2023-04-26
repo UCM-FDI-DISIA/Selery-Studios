@@ -64,9 +64,6 @@ private:
 	//TILE
 	tileset_map tilesets_;	// textures map (string -> texture)
 	SDL_Texture* background_0;
-	SDL_Texture* background_1;
-	SDL_Texture* background_2;
-	SDL_Texture* background_3;
 	SDL_Texture* prueba;
 	//SDL_Texture* background_;
 	MapInfo mapInfo;	//struct

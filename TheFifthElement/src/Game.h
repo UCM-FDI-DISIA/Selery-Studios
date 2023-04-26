@@ -7,6 +7,7 @@
 #include "states/BeatEmUpState.h"
 #include "states/MainMenuState.h"
 #include "states/PauseState.h"
+#include "states/EndState.h"
 #include "Elements.h"
 #include "utils/Singleton.h"
 class Game
