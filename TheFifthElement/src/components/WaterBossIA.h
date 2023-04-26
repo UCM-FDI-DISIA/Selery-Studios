@@ -13,7 +13,7 @@
 class WaterBossIA : public Component
 {
 private:
-	float attackWavesPos_, attackIcePos_;
+	float attackWavesPos_, attackIcePos_, idlePos_;
 	enum State {
 		NONE, WAVES, ICE,
 	};

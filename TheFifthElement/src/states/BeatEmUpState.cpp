@@ -27,9 +27,9 @@ BeatEmUpState::BeatEmUpState(bool Boss,Entity* enemySends, string typeBoss, int 
 		Background("fondoBossLight");
 	}
 	else {
-		
-		background_->addComponent<Transform>(TRANSFORM_H, Vector2D(0, 0), BACKGROUNDBEU_WIDTH, WIN_HEIGHT,1);
-		background_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("BEU_Background"));// paralax
+		if (WIN_WIDTH == 1920) background_->addComponent<Transform>(TRANSFORM_H, Vector2D(0, 0), WIN_WIDTH, 600, 1);
+		else background_->addComponent<Transform>(TRANSFORM_H, Vector2D(0, 0), BACKGROUNDBEU_WIDTH, WIN_HEIGHT, 1);
+		background_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("BEU_Background"));
 	}
 	addEntity(background_);
 
@@ -146,7 +146,7 @@ void BeatEmUpState::AddEnemies(int n_enemies) {
 
 void BeatEmUpState::AddWaterBoss() {
 	numEnemies = 1;
-	Vector2D position = Vector2D(sdlutils().width() * 3 / 4 - WATERBOSS_WIDTH , sdlutils().height()/2);
+	Vector2D position = Vector2D(sdlutils().width() * 3 / 4 - (192 * 2.4*(WIN_WIDTH/900)) / 2, sdlutils().height()/2);
 
 	Entity* waterBoss = addEntity();
 	waterBoss->addComponent<Transform>(TRANSFORM_H, position, WATERBOSS_WIDTH, WATERBOSS_HEIGHT, 2.4);

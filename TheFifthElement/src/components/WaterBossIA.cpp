@@ -18,13 +18,14 @@ void WaterBossIA::initComponent() {
 
 	attackIcePos_ = WIN_WIDTH / 2 - (tr_->getW() * tr_->getS())/ 2;
 	attackWavesPos_ = WIN_WIDTH * 7 / 11;
+	idlePos_ = (WIN_WIDTH * 3 / 4 - (tr_->getW() * tr_->getS()) / 2);
 
 	iceCont_ = 0;// al principio el contador estar� a 0
 }
 
 void WaterBossIA::update() {
 	if (currentState_ == NONE) {// no ataca
-		if (!(abs(tr_->getPos().getX() - (WIN_WIDTH * 3 / 4 - (WATERBOSS_WIDTH))) >= 3)) {
+		if (!(abs(tr_->getPos().getX() - idlePos_) >= 3)) {
 			setIdle();
 			tr_->setDir(Vector2D(0,0));
 			if(chrono <= sdlutils().currRealTime())	newAttack();
@@ -52,7 +53,7 @@ void WaterBossIA::update() {
 						currentState_ = NONE;
 						chrono = sdlutils().currRealTime() + 3000;
 						cont = 0;
-						dir_ = Vector2D((WIN_WIDTH * 3 / 4 -(tr_->getW() * tr_->getS())) - tr_->getPos().getX(), 0).normalize();
+						dir_ = Vector2D(idlePos_ - tr_->getPos().getX(), 0).normalize();
 						tr_->setDir(dir_);
 						setWalk(dir_);
 					}
@@ -70,7 +71,6 @@ void WaterBossIA::update() {
 					set_ = true;
 				}
 
-				// esto tiene que ir dentro de un condicional de si est� en la animaci�n del ataque
 				if (fila_ == 5 && !im_->isAnimPlaying()) {
 					fila_ = 6; 
 					//im_->setAnim("waterBoss", 21, false, fila_);
@@ -97,7 +97,7 @@ void WaterBossIA::update() {
 					currentState_ = NONE;
 					chrono = sdlutils().currRealTime() + 3000;
 					cont = 0;
-					dir_ = Vector2D(tr_->getPos().getX() - (WIN_WIDTH * 3 / 4 - (tr_->getW() * tr_->getS())), 0).normalize();
+					dir_ = Vector2D(idlePos_ - tr_->getPos().getX(), 0).normalize();
 					tr_->setDir(dir_);
 					setWalk(dir_);
 				}
@@ -149,12 +149,12 @@ void WaterBossIA::summonWave() { // crea 2 olas
 	if (rnd_ == 0) { // no arriba
 		wavePos_ = topLimit + (downLimit - topLimit) * 1 / 3;
 		createWave(wavePos_);
-		wavePos_ = topLimit + (downLimit - topLimit) - ICEBLOCK_HEIGHT;
+		wavePos_ = topLimit + (downLimit - topLimit) - (ICEBLOCK_HEIGHT);
 	}
 	else if (rnd_ == 1) { // no medio
 		wavePos_ = topLimit;
 		createWave(wavePos_);
-		wavePos_ = topLimit + (downLimit - topLimit) -ICEBLOCK_HEIGHT;
+		wavePos_ = topLimit + (downLimit - topLimit) -(ICEBLOCK_HEIGHT);
 	}
 	else { // no abajo
 		wavePos_ = topLimit + (downLimit - topLimit) * 1 / 3;
@@ -168,7 +168,8 @@ void WaterBossIA::summonWave() { // crea 2 olas
 Entity* WaterBossIA::createWave(float y) {
 	Vector2D pos = Vector2D(WIN_WIDTH, y);
 	Entity* wave = mngr_->addEntity();
-	wave->addComponent<Transform>(TRANSFORM_H, pos, ICEBLOCK_WIDTH, ICEBLOCK_HEIGHT, 1, 4)->setDir(Vector2D(-1, 0));
+	if (WIN_WIDTH == 1920)wave->addComponent<Transform>(TRANSFORM_H, pos, ICEBLOCK_WIDTH, ICEBLOCK_HEIGHT, 0.8, 4)->setDir(Vector2D(-1, 0));
+	else wave->addComponent<Transform>(TRANSFORM_H, pos, ICEBLOCK_WIDTH, ICEBLOCK_HEIGHT, 1, 4)->setDir(Vector2D(-1, 0));
 	wave->addComponent<FramedImage>(FRAMEDIMAGE_H, &sdlutils().images().at("iceBlock"), ICEBLOCK_WIDTH, ICEBLOCK_HEIGHT, 8);
 	wave->addComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
 	wave->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(0, 0), ICEBLOCK_HEIGHT, ICEBLOCK_WIDTH);
