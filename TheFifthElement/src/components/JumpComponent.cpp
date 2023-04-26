@@ -6,7 +6,7 @@ JumpComponent::~JumpComponent() {}
 void JumpComponent::initComponent() {
     tr_ = ent_->getComponent<Transform>(TRANSFORM_H);
     assert(tr_ != nullptr);
-    jumpHeigth = 150;
+    jumpHeigth = tr_->getH()*3/4;
 }
 
 void JumpComponent::update() {

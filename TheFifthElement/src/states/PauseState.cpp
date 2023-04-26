@@ -41,7 +41,7 @@ void PauseState::handleEvents()
 {
 	SDL_Event event;
 	while (SDL_PollEvent(&event)) {
-		if (event.type == SDL_QUIT || event.type == SDL_KEYDOWN && event.key.keysym.sym == SDLK_ESCAPE)
+		if (event.type == SDL_QUIT )
 		{
 			GameManager::instance()->getGame()->setExit(true);
 		}

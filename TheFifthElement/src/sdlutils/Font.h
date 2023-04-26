@@ -49,12 +49,16 @@ public:
 		assert(font_ != nullptr);
 		return TTF_RenderUTF8_Shaded(font_, text.c_str(), fgColor, bgColor);
 	}
-	void render(SDL_Renderer* renderer,std::string text, int x, int y, SDL_Color color) {
+	void render(SDL_Renderer* renderer,std::string text, int x, int y, SDL_Color color, int height = 0 ,int with = 0) {
+	
 		SDL_Surface* textSurface = TTF_RenderText_Blended(font_, text.c_str(), color);
 		SDL_Texture* textTexture = SDL_CreateTextureFromSurface(renderer, textSurface);
-		SDL_Rect rect = SDL_Rect{ x, y, textSurface->w, textSurface->h };
-		SDL_RenderCopy(renderer, textTexture, NULL, &rect);
-
+		SDL_Rect rect;
+		if (with == 0 && height == 0)rect = SDL_Rect{ x, y, textSurface->w, textSurface->h };
+		else if(with == 0)rect = SDL_Rect{ x, y, textSurface->w,height };
+		else rect = SDL_Rect{ x, y,with,height};
+			SDL_RenderCopy(renderer, textTexture, NULL, &rect);
+	
 		SDL_FreeSurface(textSurface);
 		SDL_DestroyTexture(textTexture);
 	}

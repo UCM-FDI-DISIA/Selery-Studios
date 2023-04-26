@@ -89,7 +89,7 @@ void Button::handleEvent(SDL_Event event)
 					
 				}
 				else if (identifier == "RETURN") {
-					GameManager::instance()->backToMainMenu();
+					GameManager::instance()->Pop();
 
 				}
 				else if (identifier == "BACK") {

@@ -175,12 +175,6 @@ void TopDownState::LoadMap(string const& filename) {
     // convertir a textura
     background_0 = SDL_CreateTexture(Gm_->getRenderer(), SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, fondowidth_, fondoheight_);
     SDL_SetTextureBlendMode(background_0, SDL_BLENDMODE_BLEND);
-    background_1 = SDL_CreateTexture(Gm_->getRenderer(), SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, fondowidth_, fondoheight_);
-    SDL_SetTextureBlendMode(background_1, SDL_BLENDMODE_BLEND);
-    background_2 = SDL_CreateTexture(Gm_->getRenderer(), SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, fondowidth_, fondoheight_);
-    SDL_SetTextureBlendMode(background_2, SDL_BLENDMODE_BLEND);
-    background_3 = SDL_CreateTexture(Gm_->getRenderer(), SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, fondowidth_, fondoheight_);
-    SDL_SetTextureBlendMode(background_3, SDL_BLENDMODE_BLEND);
     prueba = SDL_CreateTexture(Gm_->getRenderer(), SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, fondowidth_, fondoheight_);
     SDL_SetTextureBlendMode(prueba, SDL_BLENDMODE_BLEND);
     SDL_SetRenderTarget(Gm_->getRenderer(), background_0);

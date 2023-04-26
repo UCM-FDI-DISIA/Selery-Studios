@@ -1,17 +1,17 @@
 #include "Game.h"
 Game::Game() {
 	SDLUtils::init();
-	SDLUtils::instance()->showCursor();
-	renderer = SDLUtils::instance()->renderer();
-	window = SDLUtils::instance()->window();
+	sdlutils().showCursor();
+	renderer = sdlutils().renderer();
+	window = sdlutils().window();
 	exit = false;
 	Elements::instance();
 	GameManager::instance()->setGame(this);
 
 	GameStateMachine::instance()->pushState(new MainMenuState());
 	//GameStateMachine::instance()->pushState(new TopDownState());
-	//GameStateMachine::instance()->pushState(new BeatEmUpState(false, nullptr));
-	//GameStateMachine::instance()->pushState(new BeatEmUpState(true, nullptr, "earth"));
+	//ameStateMachine::instance()->pushState(new BeatEmUpState(false, nullptr));
+	//GameStateMachine::instance()->pushState(new BeatEmUpState(true, nullptr, "fire"));
 	//GameStateMachine::instance()->pushState(new BeatEmUpState(true, nullptr, "water"));
 	//GameStateMachine::instance()->pushState(new BeatEmUpState(true, nullptr, "light"));
 	//GameStateMachine::instance()->pushState(new BeatEmUpState(true, nullptr, "fire"));
@@ -21,7 +21,7 @@ Game::Game() {
 
 Game::~Game(){ // destructora
 	GameStateMachine::instance()->~GameStateMachine();
-	
+
 	SDL_DestroyRenderer(renderer);
 	SDL_DestroyWindow(window);
 	SDL_Quit();

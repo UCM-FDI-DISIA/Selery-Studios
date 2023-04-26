@@ -4,6 +4,8 @@ using uint = unsigned int;
 const uint WIN_WIDTH = 900; // anchura de ventana
 const uint WIN_HEIGHT = 600; // altura de ventana
 const float FRAME_RATE = 7.0f; // número de frames que tardará en actualizarse el juego
+const float FRAME_RATE_BEU_PLAYER = 5.0f; // número de frames que tardará en actualizarse el juego
+
 
 const uint PLAYERBEU_WIDTH_FRAME = 208; // anchura de PlayerBEU
 const uint PLAYERBEU_HEIGHT_FRAME = 128; // altura de PlayerBEU
@@ -49,6 +51,8 @@ const uint PORTAL_HEIGHT = 192; // altura de Portal
 
 const int OBELISK_WIDTH = 70; // anchura de Obelisco
 const int OBELISK_HEIGHT = 150; // altura de Obelisco
+
+const int ICON_SIZE = 20;
 
 #pragma region enemy_data
 
@@ -126,5 +130,3 @@ const string SETA = "shroom";
 const string ESQUELETO = "skeleton";
 const string DUENDE = "goblin";
 const string MURCIELAGO = "bat";*/
-	
-

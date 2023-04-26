@@ -21,8 +21,8 @@ private:
 	PropertiesManager* props_;
 	int enemiesNearPlayer = 0;
 public:
-	ColManager(Manager* manager): mngr_(manager) {};
-	void checkCollisionP(SDL_Rect boxAttack,string type);
+	ColManager(Manager* manager) : mngr_(manager) {};
+	void checkCollisionP(SDL_Rect boxAttack, string type, bool strongAttack);
 	void checkCollisionE(SDL_Rect boxAttack, string type, int extraDamage);
 
 	void update();
