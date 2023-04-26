@@ -42,10 +42,10 @@ public:
     SDL_Rect getColRect() { return r; }
 
     void render() {
-        r.x -= mngr_->camRect_.x;
+       /* r.x -= mngr_->camRect_.x;
         r.y -= mngr_->camRect_.y;
         SDL_SetRenderDrawColor(sdlutils().renderer(), 0, 0, 0, 0);
-        SDL_RenderDrawRect(sdlutils().renderer(), &r);
+        SDL_RenderDrawRect(sdlutils().renderer(), &r);*/
     }
 
     void update() {
