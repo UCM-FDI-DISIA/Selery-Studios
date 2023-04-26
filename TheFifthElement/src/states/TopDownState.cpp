@@ -310,7 +310,7 @@ void TopDownState::LoadMap(string const& filename) {
                 auto rect = obj.getAABB();
                 string name = object_layer->getName();
 
-                if (name == "Colisiones") {
+                if (name == "Collisions") {
                     Entity* colision = new Entity();
                     colision->addComponent<Transform>(TRANSFORM_H, Vector2D(rect.left*2.5, rect.top*2.5), (rect.width * 2.5)* (WIN_WIDTH / 900), (rect.height * 2.5)* (WIN_HEIGHT / 600));
                     //(fondowidth_ * 2.5)* (WIN_WIDTH / 900),(fondoheight_ * 2.5)* (WIN_HEIGHT / 600)

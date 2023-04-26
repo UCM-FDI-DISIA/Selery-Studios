@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.9" tiledversion="1.9.0" orientation="orthogonal" renderorder="right-down" width="314" height="203" tilewidth="16" tileheight="16" infinite="0" nextlayerid="63" nextobjectid="1260">
+<map version="1.9" tiledversion="1.9.2" orientation="orthogonal" renderorder="right-down" width="314" height="203" tilewidth="16" tileheight="16" infinite="0" nextlayerid="63" nextobjectid="1260">
  <tileset firstgid="1" source="AncientRuins/TiledMap Editor/Terrain - Ancient Ruins.tsx"/>
  <tileset firstgid="8837" source="AncientRuins/TiledMap Editor/Puentes escaleras.tsx"/>
  <tileset firstgid="24957" source="AncientRuins/TiledMap Editor/PlataformaA.tsx"/>
@@ -1472,56 +1472,6 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <objectgroup id="54" name="Player">
-  <object id="1148" x="490.667" y="572">
-   <point/>
-  </object>
- </objectgroup>
- <objectgroup id="57" name="Shop">
-  <object id="1152" x="930" y="414">
-   <point/>
-  </object>
- </objectgroup>
- <objectgroup id="58" name="Portal">
-  <object id="1153" x="2399" y="1162">
-   <point/>
-  </object>
- </objectgroup>
- <objectgroup id="59" name="NPC">
-  <object id="1154" name="Contexto" x="490.667" y="572">
-   <point/>
-  </object>
-  <object id="1155" x="1124" y="580">
-   <point/>
-  </object>
-  <object id="1156" x="1020" y="972">
-   <point/>
-  </object>
-  <object id="1157" x="1668" y="996">
-   <point/>
-  </object>
-  <object id="1158" x="2278" y="352">
-   <point/>
-  </object>
-  <object id="1159" x="710" y="2266">
-   <point/>
-  </object>
-  <object id="1160" x="2600" y="2238">
-   <point/>
-  </object>
-  <object id="1161" x="4088" y="1058">
-   <point/>
-  </object>
-  <object id="1162" x="4184" y="1104">
-   <point/>
-  </object>
-  <object id="1163" x="4002" y="2498">
-   <point/>
-  </object>
-  <object id="1164" x="3304" y="1848">
-   <point/>
-  </object>
- </objectgroup>
  <objectgroup id="56" name="Collisions">
   <object id="1107" x="6.06061" y="1215.15" width="2439.39" height="2045.45"/>
   <object id="1108" x="2400" y="1160.61" width="2648.48" height="2093.94"/>
@@ -1609,6 +1559,56 @@
   <object id="1255" x="1718" y="2488" width="66" height="44"/>
   <object id="1256" x="1738" y="2531" width="36" height="34"/>
   <object id="1258" x="1810" y="2591" width="130" height="44"/>
+ </objectgroup>
+ <objectgroup id="54" name="Player">
+  <object id="1148" x="490.667" y="572">
+   <point/>
+  </object>
+ </objectgroup>
+ <objectgroup id="57" name="Shop">
+  <object id="1152" x="930" y="414">
+   <point/>
+  </object>
+ </objectgroup>
+ <objectgroup id="58" name="Portal">
+  <object id="1153" x="2399" y="1162">
+   <point/>
+  </object>
+ </objectgroup>
+ <objectgroup id="59" name="NPC">
+  <object id="1154" name="Contexto" x="490.667" y="572">
+   <point/>
+  </object>
+  <object id="1155" x="1124" y="580">
+   <point/>
+  </object>
+  <object id="1156" x="1020" y="972">
+   <point/>
+  </object>
+  <object id="1157" x="1668" y="996">
+   <point/>
+  </object>
+  <object id="1158" x="2278" y="352">
+   <point/>
+  </object>
+  <object id="1159" x="710" y="2266">
+   <point/>
+  </object>
+  <object id="1160" x="2600" y="2238">
+   <point/>
+  </object>
+  <object id="1161" x="4088" y="1058">
+   <point/>
+  </object>
+  <object id="1162" x="4184" y="1104">
+   <point/>
+  </object>
+  <object id="1163" x="4002" y="2498">
+   <point/>
+  </object>
+  <object id="1164" x="3304" y="1848">
+   <point/>
+  </object>
  </objectgroup>
  <objectgroup id="60" name="Herreros">
   <object id="1208" x="630.303" y="1736.36">
