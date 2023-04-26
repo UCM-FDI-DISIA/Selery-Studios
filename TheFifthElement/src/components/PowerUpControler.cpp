@@ -12,6 +12,10 @@ void PowerUpControler::initComponent() {
 }
 
 void PowerUpControler::update() {
+    if (previousFrameType != _myLifeComponent->getType()) { // Si tiene escudo y cambia de personaje no lo pierde (hasta que le golpeen)
+        invLife = _myLifeComponent->getLife();
+    }
+
     if (properties().getMult() != 1 && timeEndStrenght <= sdlutils().currRealTime()) { // Fuerza
         properties().setMult();
         sdlutils().soundEffects().at("dmgEnd").play();
@@ -27,8 +31,11 @@ void PowerUpControler::update() {
     if (invulnerabilityHits > 0 && _myLifeComponent->getLife() < invLife) { // Invulnerabilidad
         invulnerabilityHits--;
         _myLifeComponent->setLife(invLife);
+        _myLifeComponent->updateLifeBar();
         sdlutils().soundEffects().at("shieldEnd").play();
     }
+
+    previousFrameType = _myLifeComponent->getType();
 }
 
 

@@ -22,6 +22,7 @@ private:
     int timeEndDamageReduction;
     int invulnerabilityHits = 0;
     float invLife;
+    string previousFrameType; // Si el jugador cambia de skin no debe perder la invulnerabilidad
 
     Transform* _myTransform;
     LifeComponent* _myLifeComponent;
