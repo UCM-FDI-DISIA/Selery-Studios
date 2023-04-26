@@ -67,6 +67,7 @@ private:
 	SDL_Texture* background_1;
 	SDL_Texture* background_2;
 	SDL_Texture* background_3;
+	SDL_Texture* prueba;
 	//SDL_Texture* background_;
 	MapInfo mapInfo;	//struct
 	vector<bool> sectors{ true,false,false,false };

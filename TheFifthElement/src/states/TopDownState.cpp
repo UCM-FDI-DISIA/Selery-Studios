@@ -130,7 +130,7 @@ void TopDownState::render() {
     }
     //SDL_RenderCopy(Gm_->getRenderer(), background_1, &src, &dst);
     //hudTD->render();
-    if (questsMenu)renderQuestList();
+    
     // MINIMAPA
     Vector2D scale = { (WIN_WIDTH / 900.0f), (WIN_HEIGHT / 600.0f) };
     SDL_Rect mapFrame = { (WIN_WIDTH - 190 * scale.getX()), 10 * scale.getY(), mapFrameX_ * scale.getX(), mapFrameY_ * scale.getY() };
@@ -147,7 +147,9 @@ void TopDownState::render() {
 
     Manager::render();
 
-
+    SDL_RenderCopy(Gm_->getRenderer(), prueba, &src, &dst);
+    Hud_->render();
+    if (questsMenu)renderQuestList();
 
 }
 void TopDownState::LoadMap(string const& filename) {
@@ -179,6 +181,8 @@ void TopDownState::LoadMap(string const& filename) {
     SDL_SetTextureBlendMode(background_2, SDL_BLENDMODE_BLEND);
     background_3 = SDL_CreateTexture(Gm_->getRenderer(), SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, fondowidth_, fondoheight_);
     SDL_SetTextureBlendMode(background_3, SDL_BLENDMODE_BLEND);
+    prueba = SDL_CreateTexture(Gm_->getRenderer(), SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, fondowidth_, fondoheight_);
+    SDL_SetTextureBlendMode(prueba, SDL_BLENDMODE_BLEND);
     SDL_SetRenderTarget(Gm_->getRenderer(), background_0);
     //CARGAR AQUI LAS DIFERENTES TEXTURAS
 
@@ -203,6 +207,13 @@ void TopDownState::LoadMap(string const& filename) {
             string name = tile_layer->getName();
             auto& layer_tiles = tile_layer->getTiles();
             if (name != "Nada") {
+
+                //vemos si es una capa que debe renderizar por delante o por detras del jugador
+                if (name == "pruebapasardetras") {
+                    SDL_SetRenderTarget(Gm_->getRenderer(), prueba); // poner en el if todas las capas que renderizan por delante de las entidades
+                }
+                else SDL_SetRenderTarget(Gm_->getRenderer(), background_0);  // todo el resto de capas
+
                 // recorremos todos los tiles para obtener su informacion
                 for (auto y = 0; y < mapInfo.rows; ++y) {
                     for (auto x = 0; x < mapInfo.cols; ++x) {
