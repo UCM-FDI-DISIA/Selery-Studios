@@ -52,6 +52,8 @@ const uint PORTAL_HEIGHT = 192; // altura de Portal
 const int OBELISK_WIDTH = 70; // anchura de Obelisco
 const int OBELISK_HEIGHT = 150; // altura de Obelisco
 
+const int ICON_SIZE = 20;
+
 #pragma region enemy_data
 
 const int enemy_fire_dmg = 200;
@@ -128,5 +130,3 @@ const string SETA = "shroom";
 const string ESQUELETO = "skeleton";
 const string DUENDE = "goblin";
 const string MURCIELAGO = "bat";*/
-	
-

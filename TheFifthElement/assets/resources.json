@@ -339,7 +339,12 @@
     {"id": "ObeliskFire","file": "assets/Scenes/Maps/AncientRuins/Props/Obelisk1Fire-animation1-activating-70x150.png"},
     {"id": "ObeliskWater","file": "assets/Scenes/Maps/AncientRuins/Props/Obelisk1Water-animation1-activating-70x150.png"},
     {"id": "portalAnimated","file": "assets/Scenes/Maps/AncientRuins/Props/portal-on grass-crypt-all animations.png"},
-    {"id": "mapFrame", "file": "assets/HUD/marcoMapa.png"}
+    {"id": "mapFrame", "file": "assets/HUD/marcoMapa.png"},
+
+    { "id":"dmgIcon", "file": "assets/HUD/powerUps/sword.png"},
+    { "id":"spdIcon", "file": "assets/HUD/powerUps/boot.png"},
+    { "id":"shieldIcon", "file": "assets/HUD/powerUps/bubble.png"},
+    { "id":"dmgRedIcon", "file": "assets/HUD/powerUps/shield.png"}
   ],
 
   "messages": [
@@ -369,7 +374,16 @@
     {"id": "iceBlock", "file": "assets/Sounds/bosses/water/iceBlock.wav"},
     {"id": "fireboss_death","file": "assets/Enemies/BeatEmUp/Bosses/FireBoss/sounds/sonido_muerte.wav"},
     {"id": "vanish","file":  "assets/Enemies/BeatEmUp/Bosses/FireBoss/sounds/fire_vanish.wav"},
-    {"id": "fire_golpe","file":  "assets/Enemies/BeatEmUp/Bosses/FireBoss/sounds/Golpe.wav"}
+    {"id": "fire_golpe","file":  "assets/Enemies/BeatEmUp/Bosses/FireBoss/sounds/Golpe.wav"},
+    {"id": "spdStart","file":  "assets/Sounds/powerUps/spdStart.wav"},
+    {"id": "spdEnd","file":  "assets/Sounds/powerUps/spdEnd.wav"},
+    {"id": "dmgStart","file":  "assets/Sounds/powerUps/dmgStart.wav"},
+    {"id": "dmgEnd","file":  "assets/Sounds/powerUps/dmgEnd.wav"},
+    {"id": "dmgRedStart","file":  "assets/Sounds/powerUps/dmgRedStart.wav"},
+    {"id": "dmgRedEnd","file":  "assets/Sounds/powerUps/dmgRedEnd.wav"},
+    {"id": "shieldStart","file":  "assets/Sounds/powerUps/shieldStart.wav"},
+    {"id": "shieldEnd","file":  "assets/Sounds/powerUps/shieldEnd.wav"},
+    {"id": "heal","file":  "assets/Sounds/powerUps/heal.wav"}
   ],
 
   "musics": [
