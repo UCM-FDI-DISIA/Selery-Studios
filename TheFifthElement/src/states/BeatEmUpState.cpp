@@ -17,11 +17,12 @@ BeatEmUpState::BeatEmUpState(bool Boss,Entity* enemySends, string typeBoss, int 
 	if (typeBoss == "water") {
 		//background_->addComponent<Transform>(TRANSFORM_H, Vector2D(0, 0), WIN_WIDTH, WIN_HEIGHT);
 		//background_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("fondoBossAgua"));
-		Background("fondoBossAgua");
+		Background("fondoBossAgua");// fondo estático
 	}
 	else {
-		background_->addComponent<Transform>(TRANSFORM_H, Vector2D(0, 0), BACKGROUNDBEU_WIDTH, WIN_HEIGHT);
-		background_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("BEU_Background"));
+		
+		background_->addComponent<Transform>(TRANSFORM_H, Vector2D(0, 0), BACKGROUNDBEU_WIDTH, WIN_HEIGHT,1);
+		background_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("BEU_Background"));// paralax
 	}
 	addEntity(background_);
 
@@ -285,7 +286,9 @@ void BeatEmUpState::Background(string file) {
 	bool matrix = false;
 	Vector2D v = { 0,0 };
 	int r = 0;
-	e->addComponent<Transform>(TRANSFORM_H, v, 900, 600, r, 0, f, matrix);
+	//if(WIN_WIDTH == 1920)e->addComponent<Transform>(TRANSFORM_H, v, WIN_WIDTH/2, WIN_HEIGHT, 1);
+	//else e->addComponent<Transform>(TRANSFORM_H, v, WIN_WIDTH, WIN_HEIGHT, 1);
+	e->addComponent<Transform>(TRANSFORM_H, v, 900,600, 1);
 	Texture* t = &SDLUtils::instance()->images().at(file);
 	e->addComponent<Image>(IMAGE_H, t);
 	addEntity(e);

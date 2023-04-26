@@ -13,8 +13,8 @@ void WaterBossIA::initComponent() {
 	lastWave_ = nullptr;
 	offset = 200;
 	tr_ = ent_->getComponent<Transform>(TRANSFORM_H);
-	downLimit = sdlutils().height();
-	topLimit = sdlutils().height()* 0.55;
+	downLimit = /*sdlutils().height()*/ WIN_HEIGHT;
+	topLimit = /*sdlutils().height()*/ WIN_HEIGHT * 0.55;
 
 	attackIcePos_ = WIN_WIDTH / 2 - (tr_->getW() * tr_->getS())/ 2;
 	attackWavesPos_ = WIN_WIDTH * 7 / 11;
@@ -24,7 +24,7 @@ void WaterBossIA::initComponent() {
 
 void WaterBossIA::update() {
 	if (currentState_ == NONE) {// no ataca
-		if (!(abs(tr_->getPos().getX() - (WIN_WIDTH * 3 / 4 -WATERBOSS_WIDTH)) >= 3)) {
+		if (!(abs(tr_->getPos().getX() - (WIN_WIDTH * 3 / 4 - (WATERBOSS_WIDTH))) >= 3)) {
 			setIdle();
 			tr_->setDir(Vector2D(0,0));
 			if(chrono <= sdlutils().currRealTime())	newAttack();
@@ -191,7 +191,7 @@ void WaterBossIA::addIce(int n) {
 		ice_->addComponent<IceShadowComponent>(ICESHADOWCOMPONENT_H, Vector2D(rndX_, rndY_), 0.7, player_);
 		
 		ice_->addComponent<FramedImage>(FRAMEDIMAGE_H, &sdlutils().images().at("ice"), size_, size_, 3);
-		ice_->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(0, 0), size_, size_);
+		ice_->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(0, 0), size_/2, size_);
 		ice_->addComponent<ColDetectorComponent>(COLDETECTORCOMPONENT_H, ice_, player_);
 		ice_->addComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
 		ice_->addComponent<IceIAComponent>(ICEIACOMPONENT_H, player_);

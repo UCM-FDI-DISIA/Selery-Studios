@@ -17,7 +17,8 @@ InputComponentBEU::InputComponentBEU(Roulette* r):Component() {
 
 void InputComponentBEU::initComponent() {
 	p = &SDLUtils::instance()->images().at("P");
-	font_ = &SDLUtils::instance()->fonts().at("TCentury");
+	if (WIN_WIDTH == 1920)font_ = &SDLUtils::instance()->fonts().at("TCenturyScale");
+	else font_ = &SDLUtils::instance()->fonts().at("TCentury");
 	tr_ = ent_->getComponent<Transform>(TRANSFORM_H);
 	im_ = ent_->getComponent<FramedImage>(FRAMEDIMAGE_H);
 	jmp_ = ent_->getComponent<JumpComponent>(JUMP_H);
@@ -41,14 +42,14 @@ void InputComponentBEU::render() {
 	int r = abs(ultiTime - timeExecution);
 
 	if (r < 10) {
-		font_->render(SDLUtils::instance()->renderer(), to_string(r).c_str(), 90 * tr_->getScale() + 100 + 8, 25 * tr_->getScale() + 8, color);
+		font_->render(SDLUtils::instance()->renderer(), to_string(r).c_str(), (90 + 100 + 8) * tr_->getS(), (25 + 8) * tr_->getS(), color);
 	}
 	else {
 		SDL_Rect dest;
-		dest.x = 90 * tr_->getScale() + 100;
-		dest.y = 25 * tr_->getScale();
-		dest.h = 32;
-		dest.w = 32;
+		dest.x = (90 + 100) * tr_->getS();
+		dest.y = 25 * tr_->getS();
+		dest.h = 32 * tr_->getS();
+		dest.w = 32 * tr_->getS();
 		p->render(dest);
 	}
 }

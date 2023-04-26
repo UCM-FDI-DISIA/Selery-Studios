@@ -7,8 +7,8 @@ LimitBEU::LimitBEU(bool staticCamera) {
 void LimitBEU::initComponent() {
 	tr_ = ent_->getComponent<Transform>(TRANSFORM_H);
 	jmp_ = ent_->getComponent<JumpComponent>(JUMP_H);
-	downLimit = sdlutils().height() - tr_->getH();
-	topLimit = sdlutils().height() * 0.4;
+	downLimit = /*sdlutils().height()*/WIN_HEIGHT - (tr_->getH()*tr_->getS());
+	topLimit = /*sdlutils().height()*/ WIN_HEIGHT * 0.4;
 }
 
 void LimitBEU::update() {
@@ -18,7 +18,7 @@ void LimitBEU::update() {
 	else if (tr_->getPos().getY() > downLimit) { tr_->setPos(Vector2D(tr_->getPos().getX(), downLimit)); }
 	
 	// límites horizontales
-	if (tr_->getPos().getX() < -tr_->getW() * 0.75) { tr_->setPos(Vector2D(-tr_->getW() * 0.75, tr_->getPos().getY())); }
+	if (tr_->getPos().getX() < -(tr_->getW() * tr_->getS()) * 0.75) { tr_->setPos(Vector2D(-(tr_->getW() * tr_->getS()) * 0.75, tr_->getPos().getY())); }
 	else{
 
 		if (stCam_ && tr_->getPos().getX() > WIN_WIDTH - (tr_->getW()*tr_->getS()))

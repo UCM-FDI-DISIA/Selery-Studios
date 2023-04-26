@@ -14,6 +14,7 @@ Game::Game() {
 	//GameStateMachine::instance()->pushState(new BeatEmUpState(true, nullptr, "earth"));
 	//GameStateMachine::instance()->pushState(new BeatEmUpState(true, nullptr, "water"));
 	//GameStateMachine::instance()->pushState(new BeatEmUpState(true, nullptr, "light"));
+	//GameStateMachine::instance()->pushState(new BeatEmUpState(true, nullptr, "fire"));
 	//GameStateMachine::instance()->pushState(new PauseState());
 	//GameStateMachine::instance()->pushState(new BeatEmUpState());
 }

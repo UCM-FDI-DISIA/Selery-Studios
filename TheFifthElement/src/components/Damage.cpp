@@ -8,7 +8,7 @@ Damage::Damage() {
 void Damage::initComponent() {
 	TopDownState* topdownstate = static_cast<TopDownState*>(mngr_);
 	sk_ = topdownstate->getPlayerSkin();
-	if (WIN_WIDTH / 900 == 1920 / 900)f = &SDLUtils::instance()->fonts().at("TCenturyScale");
+	if (WIN_WIDTH == 1920)f = &SDLUtils::instance()->fonts().at("TCenturyScale");
 	else f = &SDLUtils::instance()->fonts().at("TCentury");
 }
 
