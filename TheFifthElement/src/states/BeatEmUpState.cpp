@@ -9,7 +9,6 @@ BeatEmUpState::BeatEmUpState(bool Boss,Entity* enemySends, string typeBoss, int 
 	boss = Boss;
 	typeBoss_ = typeBoss;
 	SDLUtils::instance()->soundEffects().at("Battle").play();
-
 	random = &SDLUtils::instance()->rand();
 
 	//BACKGROUND
@@ -66,7 +65,7 @@ BeatEmUpState::BeatEmUpState(bool Boss,Entity* enemySends, string typeBoss, int 
 	colManager_ = new ColManager(this);
 
 	if (!boss) {
-		AddEnemies(10);
+		AddEnemies(3);
 		//AddEnemy();
 	}
 	else if (boss && typeBoss == "water") {
@@ -271,6 +270,7 @@ void BeatEmUpState::update() {
 		AddEnemy();
 		cont = timeToGenerate;
 		createdEnemies++;
+		numEnemies++;
 	}
 	cont--;
 
