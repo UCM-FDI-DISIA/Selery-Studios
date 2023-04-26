@@ -57,13 +57,6 @@
 }
 
 .name {
-  /* Remueve o comenta las siguientes líneas */
-  /* position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 2; */
-
-  /* Agrega un margen en la parte superior */
   margin-top: 10px;
 }
 
@@ -89,29 +82,29 @@
   position: fixed;
   top: 50%;
   transform: translateY(-50%);
-  z-index: -1; /* Agrega esta línea para asegurarte de que los gifs estén detrás de los demás elementos */
+  z-index: -1; 
 }
 .gif-left img, .gif-right img {
   max-width: 100%;
-  height: auto;
+  height: 70%;
 }
 .gif-left {
   position: fixed;
-  top: 50%;
-  left: 20%; /* Modifica este valor para mover el gif hacia el centro */
+  top: 70%;
+  scale: 150%;
+  left: 15%;
   transform: translateY(-50%);
   z-index: -1;
 }
 
 .gif-right {
   position: fixed;
-  top: 50%;
+  top: 80%;
+  scale: 200%;
   right: 20%; /* Modifica este valor para mover el gif hacia el centro */
   transform: translateY(-50%);
   z-index: -1;
 }
-
-
     .social-icons a {
       color: white;
       margin-left: 0.5rem;
@@ -122,7 +115,7 @@
     }
     .container {
       flex: 1;
-      width: 90%;
+      align-items: center;
       margin: 0 auto;
       display: flex;
       flex-direction: column;
@@ -157,8 +150,7 @@
       transition: box-shadow 0.3s;
     }
     h1 {
-      font-size: 24px;
-      animation: zoomInOut 15s infinite;
+      font-size: xx-large;
     }
 
     @keyframes zoomInOut {
@@ -169,6 +161,7 @@
         transform: scale(1.5);
       }
     }
+    
 
 
 
@@ -183,6 +176,7 @@
       padding: 1rem;
       border-radius: 0 4px 4px 0;
       z-index: 1000;
+      justify-content: center;
       display: none;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
       background-color: rgba(34, 34, 34, 0.8);
@@ -193,8 +187,9 @@
     .banner a {
   display: contents;
   color: white;
+  font-size: large;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
-  text-decoration: none;
+  text-decoration:wavy;
     }
   .banner a:hover {
   color: #f1f1f1;
@@ -214,9 +209,11 @@
 #download-section {
   text-align: center;
   padding: 1rem;
-  border: 1px solid #ccc;
-  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid transparent;
+  background-color: transparent;
   margin-top: 1rem;
+  font-size: x-large;
+  color: white;
 }
 
 #download-section a {
@@ -254,7 +251,10 @@
   opacity: 1;
   transition: opacity 0.5s ease-in-out; /* Aquí se define el efecto de fade in y fade out */
 }
-
+h2{
+  animation: zoomInOut 15s infinite;
+  background-color: transparent;
+}
 .hidden {
   opacity: 0;
   display: none;
@@ -267,10 +267,16 @@ button {
   border-radius: 4px;
   padding: 0.5rem 1rem;
   font-size: 1rem;
-  cursor: pointer;
+  cursor: pointer; 
+  margin-bottom: 10px;
   margin-bottom: 1rem;
   transition: background-color 0.3s, box-shadow 0.3s;
 }
+.button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
 button:hover {
   background-color: #0055aa;
@@ -289,7 +295,9 @@ button:hover {
   display: flex;
   justify-content: center;
 }
-
+.btn-1{
+  position: relative;
+}
 #ytplayer {
   position: absolute;
   top: 0;
@@ -311,7 +319,7 @@ button:hover {
       });
     }
     function onPlayerReady(event) {
-      event.target.playVideo();
+      event.target.pauseVideo();
     }
 
     document.addEventListener("DOMContentLoaded", function() {
@@ -326,6 +334,16 @@ button:hover {
     }, 4500);
   }, 2000);
 });
+
+function changeBackground1() {
+    document.body.style.backgroundImage = "url('DorjeeSofia 873x436.png')";
+  }
+  function changeBackground2() {
+    document.body.style.backgroundImage = "url('fondoFire.jpg')";
+  }
+  function changeBackground3() {
+    document.body.style.backgroundImage = "url('fondoPausa.png')";
+  }
 document.addEventListener("DOMContentLoaded", function() {
       AOS.init();
     });
@@ -345,6 +363,7 @@ $('#btn-3').on('click', function() {
   $('.video-wrapper').hide();
   $('#download-section').hide();  
   player.pauseVideo();
+  $('.banner').hide();
   $('.grid-container').css("display", "grid");
   // Oculta los gifs
     $('#text-section').hide();
@@ -356,6 +375,7 @@ $('#btn-1').on('click', function() {
   $('.grid-container').hide();
    $('#download-section').show();  
   $('#text-section').hide();
+  $('.banner').show();
   $('.video-wrapper').show();
   player.pauseVideo();
   // Muestra los gifs
@@ -366,7 +386,7 @@ $('#btn-2').on('click', function() {
   $('.grid-container').hide();
   $('.video-wrapper').hide();
   player.pauseVideo();
-  
+  $('.banner').hide();
   $('#download-section').hide();  
   $('#text-section').show();
   // Oculta los gifs
@@ -376,6 +396,7 @@ $('#btn-2').on('click', function() {
 </script>
 </head>
 <body>
+
   <div id="detector"></div>
 <header>
   <div class="container">
@@ -391,6 +412,7 @@ $('#btn-2').on('click', function() {
      <section id="download-section" data-aos="fade-up" data-aos-duration="1000">
   <h2>Descargar archivo</h2>
   <a href="a.gif" download="archivo-ejemplo">Descargar archivo de ejemplo</a>
+  
 </section>
   <div class="gif-left">
     <img id="gif-a" src="a.gif" alt="GIF A">
@@ -398,7 +420,7 @@ $('#btn-2').on('click', function() {
   <div class="gif-right">
     <img id="gif-b" src="b.gif" alt="GIF B">
   </div>
-  
+
 <section id="text-section" data-aos="fade-up" data-aos-duration="1000" style="display:none;">
   <div style="padding: 1rem;">
       <p>
@@ -408,56 +430,54 @@ $('#btn-2').on('click', function() {
     <div class="video-wrapper">
       <div id="ytplayer"></div> 
     </div>
-
     <div class="grid-container">
 <div class="grid-item grid-image">
-  <img src="b.gif" alt="GIF A">
+  <img src="agustin.gif" alt="GIF A">
+  <div class="name">Agustín</div>
+</div>
+<div class="grid-item grid-image">
+  <img src="ciscoypatri.gif" alt="GIF A">
+  <div class="name">Cisco</div>
+</div>
+<div class="grid-item grid-image">
+  <img src="putocangrejo.gif" alt="GIF A">
+  <div class="name">Sheila</div>
+</div>
+<div class="grid-item grid-image">
+  <img src="bebeinseminado.gif" alt="GIF A">
   <div class="name">Cristina</div>
 </div>
 <div class="grid-item grid-image">
-  <img src="a.gif" alt="GIF A">
-  <div class="name">Dorjee</div>
+  <img src="mami.gif" alt="GIF A">
+  <div class="name">Paceve</div>
 </div>
 <div class="grid-item grid-image">
-  <img src="a.gif" alt="GIF A">
+  <img src="pablouwu.gif" alt="GIF A">
   <div class="name">Pablo</div>
 </div>
 <div class="grid-item grid-image">
-  <img src="a.gif" alt="GIF A">
+  <img src="catkiss.gif" alt="GIF A">
   <div class="name">Dorjee</div>
 </div>
 <div class="grid-item grid-image">
-  <img src="a.gif" alt="GIF A">
-  <div class="name">Dorjee</div>
+  <img src="saoko.gif" alt="GIF A">
+  <div class="name">José</div>
 </div>
 <div class="grid-item grid-image">
-  <img src="a.gif" alt="GIF A">
-  <div class="name">Dorjee</div>
+  <img src="sofiamovil.gif" alt="GIF A">
+  <div class="name">Sofía</div>
 </div>
 <div class="grid-item grid-image">
-  <img src="a.gif" alt="GIF A">
-  <div class="name">Dorjee</div>
-</div>
-<div class="grid-item grid-image">
-  <img src="a.gif" alt="GIF A">
-  <div class="name">Dorjee</div>
-</div>
-<div class="grid-item grid-image">
-  <img src="a.gif" alt="GIF A">
-  <div class="name">Dorjee</div>
-</div>
-<div class="grid-item grid-image">
-  <img src="a.gif" alt="GIF A">
-  <div class="name">Dorjee</div>
+  <img src="necesimatosotroholocausto.gif" alt="GIF A">
+  <div class="name">Alberto</div>
 </div>
     </div>
   </section>
 </div>
-<!-- Añade la barra lateral izquierda con los botones -->
 <div id="sidebar">
-  <button id="btn-1">Botón 1</button>
-  <button id="btn-2">Botón 2</button>
-  <button id="btn-3">Botón 3</button>
+  <button id="btn-1" onclick="changeBackground1()">DESCARGA</button>
+  <button id="btn-2" onclick="changeBackground2()">HISTORIA</button>
+  <button id="btn-3" onclick="changeBackground3()">EQUIPO</button>
 </div>
 </body>
 </html>

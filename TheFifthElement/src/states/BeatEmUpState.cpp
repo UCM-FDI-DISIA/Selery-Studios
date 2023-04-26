@@ -19,6 +19,14 @@ BeatEmUpState::BeatEmUpState(bool Boss,Entity* enemySends, string typeBoss, int 
 		//background_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("fondoBossAgua"));
 		Background("fondoBossAgua");// fondo estático
 	}
+	else if (typeBoss_ == "fire")
+	{
+		Background("fondoBossFire");
+	}
+	else if (typeBoss_ == "light")
+	{
+		Background("fondoBossLight");
+	}
 	else {
 		
 		background_->addComponent<Transform>(TRANSFORM_H, Vector2D(0, 0), BACKGROUNDBEU_WIDTH, WIN_HEIGHT,1);
@@ -59,7 +67,7 @@ BeatEmUpState::BeatEmUpState(bool Boss,Entity* enemySends, string typeBoss, int 
 	colManager_ = new ColManager(this);
 
 	if (!boss) {
-		AddEnemies(3);
+		AddEnemies(10);
 		//AddEnemy();
 	}
 	else if (boss && typeBoss == "water") {
@@ -277,6 +285,7 @@ void BeatEmUpState::update() {
 	else if (camRect_.x > BACKGROUNDBEU_WIDTH - WIN_WIDTH) {
 		camRect_.x = BACKGROUNDBEU_WIDTH - WIN_WIDTH;
 	}
+	shakeme = camRect_.x;
 }
 
 void BeatEmUpState::Background(string file) {
@@ -292,4 +301,11 @@ void BeatEmUpState::Background(string file) {
 	Texture* t = &SDLUtils::instance()->images().at(file);
 	e->addComponent<Image>(IMAGE_H, t);
 	addEntity(e);
+}
+
+
+void BeatEmUpState::ShakeCam(int shaking) {
+	//Aplicar temblor de pantalla.
+	
+	camRect_.x += shaking;
 }

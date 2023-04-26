@@ -115,10 +115,15 @@ void LifeComponent::Hit(float damage) {
 				anim_->changeState(AnimationEnemyBEUComponent::Hit);
 				eMov_->moveBackX();
 				eMov_->stop(true);
+				
+				
 			}
 			else {// player
+				be->ShakeCam(10);
+				/*inp_->MovePlayerBack();*/
 				skin_->changeState(SkinBEUComponent::Hit);
 			}
+			
 		}
 		subLife(damage);
 		hit_ = true;
@@ -139,8 +144,10 @@ void LifeComponent::subLife(float damage) {
 		if (enemy_) {
 			properties().getPowerUpRef()->instancePowerUp();
 		}
+		else be->ShakeCam(10);
+	
 	}
-
+	 
 	playDamageSound();
 	updateLifeBar();
 }

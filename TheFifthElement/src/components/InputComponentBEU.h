@@ -34,7 +34,7 @@ private:
     bool alreadyPressed2 = false;
     bool moveLeft, moveRight, moveUp, moveDown, jump;
     bool earthStage3 = false;
-    
+    int direction;
 
     float timeExecution, ultiTime;
 
@@ -53,6 +53,8 @@ public:
     void setEarth(bool b);
 
     void vibrate(SDL_GameController* controller, int duration_ms, float intensity);
+
+    void MovePlayerBack();
 
     inline void setEarthStage3(bool newValue) { earthStage3 = newValue; }
 };

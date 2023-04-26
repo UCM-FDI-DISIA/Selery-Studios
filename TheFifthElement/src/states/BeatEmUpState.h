@@ -54,7 +54,7 @@ private:
 	Entity* enemy_;
 	AnimationEnemyBEUComponent* animation_;
 	Texture* enemy_texture;
-
+	int shakeme;
 	int numEnemies;
 	float timeToGenerate;
 	int createdEnemies = 0;
@@ -98,5 +98,6 @@ public:
 	ColManager* getColManager() { return colManager_; }
 	void update();
 	void Background(string file);
+	void ShakeCam(int shaking);
 };
 

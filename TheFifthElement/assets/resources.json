@@ -163,6 +163,8 @@
     {"id": "fondo3",  "file": "assets/Scenes/Backgrounds/BeatEmUp/DorjeeSofia180x398.png"},
     {"id": "fondo4","file": "assets/Scenes/Backgrounds/BeatEmUp/DorjeeSofia1800x900.png"},
     {"id": "fondoBossAgua", "file": "assets/Scenes/Backgrounds/BeatEmUp/nieve.png"},
+    {"id": "fondoBossFire", "file": "assets/Scenes/Backgrounds/BeatEmUp/fondoFire.jpg"},
+    {"id": "fondoBossLight", "file": "assets/Scenes/Backgrounds/BeatEmUp/fondoLight.jpg"},
     {"id": "Fire_LifeBar","file": "assets/Enemies/HUD/LifeBars/Horizontal/Bars/Bar2.png"},
     {"id": "Fire_LifeBarBack", "file": "assets/Enemies/HUD/LifeBars/Horizontal/Backs/Back6.png"},
     {"id": "Fire_LifeBarBorder", "file": "assets/Enemies/HUD/LifeBars/Horizontal/Boarders/Boarder2.png"},

@@ -10,7 +10,7 @@ struct player {
 	bool alive;
 };
 class InputComponentBEU;
-
+class BeatEmUpState;
 class LifeComponent : public Component {
 private:
 #pragma region references
@@ -20,6 +20,7 @@ private:
 	InputComponentBEU* inp_ = nullptr;
 	FramedImage* im_ = nullptr;
 	Transform* entTransform_ = nullptr;
+	MovementComponent* mov_;
 #pragma endregion
 
 #pragma region parameters
@@ -36,6 +37,7 @@ private:
 	bool set_ = false;
 	time_t deathTime_;
 	float damageReduction_ = 1.0f; // 1=0% 0=100%
+	BeatEmUpState* be;
 #pragma endregion
 
 #pragma region propierties
