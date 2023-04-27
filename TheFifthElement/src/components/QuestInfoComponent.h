@@ -107,7 +107,11 @@ public:
                 s = "RECOMPENSA: " + to_string(coins_) + " monedas"; 
                 PropertiesManager::instance()->addMoney(coins_);// añade las monedas
             }
-            else s = "RECOMPENSA: " + reward_;
+            else 
+            { 
+                if (reward_ == "Desbloqueo de zona");// desbloquear zona
+                s = "RECOMPENSA: " + reward_; 
+            }
             end = true;
         }
 

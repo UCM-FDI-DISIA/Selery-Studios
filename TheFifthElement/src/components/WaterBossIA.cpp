@@ -45,7 +45,7 @@ void WaterBossIA::update() {
 				////im_->setAnim(true, 2, 14, 0, 14); 
 				
 				// espaciado entre olas
-				if (lastWave_ == nullptr || lastWave_->getPos().getX() < WIN_WIDTH - ICEBLOCK_WIDTH - offset) {
+				if (lastWave_ == nullptr || lastWave_->getPos().getX() < ((900 - ICEBLOCK_WIDTH - offset)*(WIN_WIDTH/900))) {
 					summonWave();
 					cont++;
 					// numero de olas
@@ -147,17 +147,17 @@ void WaterBossIA::summonWave() { // crea 2 olas
 	
 	int rnd_ = rand() % 3;
 	if (rnd_ == 0) { // no arriba
-		wavePos_ = topLimit + (downLimit - topLimit) * 1 / 3;
+		wavePos_ = topLimit + (downLimit - topLimit) * 1/3;
 		createWave(wavePos_);
-		wavePos_ = topLimit + (downLimit - topLimit) - (ICEBLOCK_HEIGHT);
+		wavePos_ = topLimit + (downLimit - topLimit) - (ICEBLOCK_HEIGHT * (WIN_WIDTH / 900));
 	}
 	else if (rnd_ == 1) { // no medio
 		wavePos_ = topLimit;
 		createWave(wavePos_);
-		wavePos_ = topLimit + (downLimit - topLimit) -(ICEBLOCK_HEIGHT);
+		wavePos_ = topLimit + (downLimit - topLimit) -(ICEBLOCK_HEIGHT*(WIN_WIDTH/900));
 	}
 	else { // no abajo
-		wavePos_ = topLimit + (downLimit - topLimit) * 1 / 3;
+		wavePos_ = topLimit + (downLimit - topLimit) * 1/3;
 		createWave(wavePos_);
 		wavePos_ = topLimit;
 	}
@@ -168,7 +168,7 @@ void WaterBossIA::summonWave() { // crea 2 olas
 Entity* WaterBossIA::createWave(float y) {
 	Vector2D pos = Vector2D(WIN_WIDTH, y);
 	Entity* wave = mngr_->addEntity();
-	if (WIN_WIDTH == 1920)wave->addComponent<Transform>(TRANSFORM_H, pos, ICEBLOCK_WIDTH, ICEBLOCK_HEIGHT, 0.8, 4)->setDir(Vector2D(-1, 0));
+	if (WIN_WIDTH == 1920)wave->addComponent<Transform>(TRANSFORM_H, pos, ICEBLOCK_WIDTH, ICEBLOCK_HEIGHT, 1, 4)->setDir(Vector2D(-1, 0));
 	else wave->addComponent<Transform>(TRANSFORM_H, pos, ICEBLOCK_WIDTH, ICEBLOCK_HEIGHT, 1, 4)->setDir(Vector2D(-1, 0));
 	wave->addComponent<FramedImage>(FRAMEDIMAGE_H, &sdlutils().images().at("iceBlock"), ICEBLOCK_WIDTH, ICEBLOCK_HEIGHT, 8);
 	wave->addComponent<MovementComponent>(MOVEMENTCOMPONENT_H);

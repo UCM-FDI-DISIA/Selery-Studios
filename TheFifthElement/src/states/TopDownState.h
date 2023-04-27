@@ -35,7 +35,6 @@
 #include "../components/SectorCollisionComponent.h"
 #include "../components/BossCollision.h"
 #include "../Saving.h"
-#include "../components/QuestInfoComponent.h"
 
 using uint = unsigned int;
 using tileset_map = std::map<std::string, Texture*>; //mapa con CLAVE:string, ARGUMENTO: puntero a textura
@@ -131,8 +130,6 @@ private:
 	Transform* exitShopButtonTr_;
 	Button* exitShopButtonComp_;
 
-	list<Entity*> quests;
-
 	//void actSectors(int idChange, bool nowValue)
 	//{
 	//	if (sectors[idChange] != nowValue)
@@ -176,10 +173,7 @@ public:
 	void render();
 	void createShopButtons();
 	void cleanShopButtons();
-	void newQuest(string nombre, string text, string reward, int coins = 0, int fases = 0);
-	void completedQuest(string nombre);
-	void actQuests();
-	void renderQuestList();
+	void newQuest(string nombre, string text, string reward, int coins, int fases);
 	Texture* npcTexture() {
 		int a = SDLUtils::instance()->rand().nextInt(1, 11);
 		return &SDLUtils::instance()->images().at("NPC_"+ to_string(a));

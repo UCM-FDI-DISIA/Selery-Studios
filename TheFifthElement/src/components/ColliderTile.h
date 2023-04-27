@@ -4,9 +4,8 @@
 #include "../utils/Vector2D.h"
 #include "../components/Transform.h"
 #include "../utils/Collision.h"
-#include "../components/InputComponent.h"
 
-
+class InputComponent;
 
 class ColliderTile : public Component
 {

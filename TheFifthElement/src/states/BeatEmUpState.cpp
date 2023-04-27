@@ -249,6 +249,7 @@ void BeatEmUpState::finishBEU() {
 		}
 		else {
 			props_->instance()->addMoney(50); // monedas ganadas al derrotar non-bosses
+			Quests::instance()->completedQuest("enemigos");
 		}
 		Saving::instance()->deletePos();
 		SDLUtils::instance()->soundEffects().at("Battle").haltChannel();

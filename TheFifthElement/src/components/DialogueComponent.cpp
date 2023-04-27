@@ -73,7 +73,8 @@ void DialogueComponent::inicombe() {
 				fin = conespacios[linea].size();
 			}
 			else {
-				static_cast<TopDownState*>(mngr_)->newQuest("hermanos", "Reune a tus hermanos", "monedas", 300, 3);
+				if (quest && !quest1) { static_cast<TopDownState*>(mngr_)->newQuest("hermanos", "Reune a tus hermanos", "monedas", 300, 3); quest1 = true; }
+				else if (quest) { static_cast<TopDownState*>(mngr_)->newQuest("enemigos", "Elimina a 5 enemigos", "Desbloqueo de zona", 0, 5); quest = false; }
 				hasstarted = false;
 				conespacios.clear();
 				if (plynpc->getcol() == 22) {

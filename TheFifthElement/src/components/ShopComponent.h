@@ -4,9 +4,9 @@
 #include "../utils/Component.h"
 #include "../utils/Vector2D.h"
 #include "EconomyComponent.h"
-#include "DialogueComponent.h"
 #include "Damage.h"
 #include "LifeTD.h"
+class DialogueComponent;
 
 class ShopComponent : public Component {
 

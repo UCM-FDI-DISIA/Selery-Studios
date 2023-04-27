@@ -32,6 +32,7 @@
 #include "../components/WaterBossLife.h"
 #include "../components/FireBossComponent.h"
 #include "../components/PowerUpControler.h"
+#include "../Quests.h"
 
 using name = string;
 using damage = int;

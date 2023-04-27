@@ -1,6 +1,7 @@
 ﻿#pragma once
 #include "ShopComponent.h"
 #include "../states/TopDownState.h"
+#include "DialogueComponent.h"
 
 ShopComponent::ShopComponent(EconomyComponent* economyComp, Damage* damage, LifeTD* life) {
     if (WIN_WIDTH / 900 == 1920 / 900)font_ = &SDLUtils::instance()->fonts().at("TCenturyScale");

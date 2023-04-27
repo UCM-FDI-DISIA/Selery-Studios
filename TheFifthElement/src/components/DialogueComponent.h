@@ -10,6 +10,7 @@
 #include <vector>;
 #include "Playernpc.h"
 #include "../GameManager.h"
+#include "../Quests.h"
 using namespace std;
 class DialogueComponent : public Component
 {
@@ -25,6 +26,7 @@ private:
 	int cont = 0, fin, linea =0;
 	int d;
 	Texture* t;
+	bool quest = true, quest1 = false;
 public:
 	DialogueComponent();
 	void render();

@@ -12,7 +12,7 @@ private:
     float width, height, rotation_, vel;
     SDL_Rect rect;
     int framesTotales_;
-    bool matrix_, demo = false;
+    bool matrix_, demo = true;
     float size_ = 1.0f;
     float scale_ = WIN_WIDTH / 900;
 public:
@@ -79,19 +79,19 @@ public:
     void render()
     {
         if (!demo) {
-            ///*if (matrix_)
-            //    rect = build_sdlrect(getPos().getX() + 120, getPos().getY() + 70, (getW() * size_) / (5 * framesTotales_), (getH() * size_) / 2);
-            //else
-            //{
-            //    if (framesTotales_ != 0) rect = build_sdlrect(getPos().getX(), getPos().getY(), (getW() * size_) / framesTotales_, (getH() * size_));
-            //    else  rect = build_sdlrect(getPos().getX() + 50, getPos().getY() + 60, 3 * (getW() * size_) / 4, (getH() * size_) / 2);
-            //}*/
-            //rect = build_sdlrect(getPos().getX(), getPos().getY(), (getW() * size_ * scale_), (getH() * size_ * scale_));
-            //rect.x -= mngr_->camRect_.x;
-            //rect.y -= mngr_->camRect_.y;
-            //SDL_SetRenderDrawColor(sdlutils().renderer(), 255, 0, 255, 0);
-            //SDL_RenderDrawRect(sdlutils().renderer(), &rect);
-            //SDL_SetRenderDrawColor(sdlutils().renderer(), 0, 0, 0, 0);
+            /*if (matrix_)
+                rect = build_sdlrect(getPos().getX() + 120, getPos().getY() + 70, (getW() * size_) / (5 * framesTotales_), (getH() * size_) / 2);
+            else
+            {
+                if (framesTotales_ != 0) rect = build_sdlrect(getPos().getX(), getPos().getY(), (getW() * size_) / framesTotales_, (getH() * size_));
+                else  rect = build_sdlrect(getPos().getX() + 50, getPos().getY() + 60, 3 * (getW() * size_) / 4, (getH() * size_) / 2);
+            }*/
+            rect = build_sdlrect(getPos().getX(), getPos().getY(), (getW() * size_ * scale_), (getH() * size_ * scale_));
+            rect.x -= mngr_->camRect_.x;
+            rect.y -= mngr_->camRect_.y;
+            SDL_SetRenderDrawColor(sdlutils().renderer(), 255, 0, 255, 0);
+            SDL_RenderDrawRect(sdlutils().renderer(), &rect);
+            SDL_SetRenderDrawColor(sdlutils().renderer(), 0, 0, 0, 0);
 
         }
     }

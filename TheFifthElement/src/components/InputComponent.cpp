@@ -3,6 +3,7 @@
 #include "../utils/Entity.h"
 #include "../utils/ecs.h"
 #include "../states/TopDownState.h"
+#include "DialogueComponent.h"
 #include <string>
 const int joystick_deadzone = 8000;
 

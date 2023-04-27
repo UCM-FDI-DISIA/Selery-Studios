@@ -1,4 +1,5 @@
 #include "ColliderTile.h"
+#include "InputComponent.h"
 ColliderTile::ColliderTile(vector<Entity*> colisions) :Component() {
 	this->colisions = colisions;
 	

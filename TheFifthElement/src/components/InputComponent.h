@@ -6,16 +6,16 @@
 #include "SkinComponent.h"
 #include "SDL_events.h"
 #include <string>
-#include "DialogueComponent.h"
 #include <array>
 #include "rouletteComponent.h"
 #include "../Elements.h"
-
 
 enum Directions {
     NONE=-1,
     UP=0, DOWN=1, LEFT=2, RIGHT=3
 };
+
+class DialogueComponent;
 
 class InputComponent : public Component {
 private:
