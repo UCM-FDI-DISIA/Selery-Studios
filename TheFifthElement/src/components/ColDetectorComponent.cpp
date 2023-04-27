@@ -59,6 +59,7 @@ void ColDetectorComponent::update() {
                 Vector2D(col2_->getColRect().x, col2_->getColRect().y),
                 col2_->getColRect().w, col2_->getColRect().h))
                 obj2_->getComponent<LifeComponent>(LIFECOMPONENT_H)->Hit(1.2);
+
                 
                 
         }

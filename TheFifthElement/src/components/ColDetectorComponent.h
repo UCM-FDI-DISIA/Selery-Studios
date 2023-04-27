@@ -20,6 +20,7 @@ private:
     ColliderComponent* col1_ = nullptr;
     ColliderComponent* col2_ = nullptr;
     ColliderComponent* col3_ = nullptr;
+    BeatEmUpState* be;
     SDL_Rect rect_;
     float damage_ = 0.0f;
     float margin_ = 12.0f;

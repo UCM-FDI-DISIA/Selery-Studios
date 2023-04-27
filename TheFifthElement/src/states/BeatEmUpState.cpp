@@ -308,5 +308,7 @@ void BeatEmUpState::Background(string file) {
 void BeatEmUpState::ShakeCam(int shaking) {
 	//Aplicar temblor de pantalla.
 	
-	camRect_.x += shaking;
+	if(this != nullptr && typeBoss_ == "water")
+		camRect_.x = 20;
+	else camRect_.x += shaking;
 }

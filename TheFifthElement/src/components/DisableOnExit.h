@@ -12,7 +12,7 @@ public:
 
     void initComponent() {
         tr_ = ent_->getComponent<Transform>(TRANSFORM_H);
-        w = tr_->getW();
+        w = tr_->getW() * tr_->getS();
     }
 
     void update() { // Si un objeto con este componente sale de los limites de la ventana se destruye

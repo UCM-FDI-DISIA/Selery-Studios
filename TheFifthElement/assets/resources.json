@@ -242,6 +242,8 @@
     {"id": "OptionsButtonPressed", "file": "assets/Scenes/Backgrounds/Menu/Buttons/OptionsButtonPress.png"},
     {"id": "MenuButton", "file": "assets/Scenes/Backgrounds/Pausa/Buttons/MenuButton.png"},
     {"id": "MenuButtonPressed", "file": "assets/Scenes/Backgrounds/Pausa/Buttons/MenuButtonPress.png"},
+    {"id": "ReplayButton", "file": "assets/Scenes/Backgrounds/End/Buttons/ReplayButton.png"},
+    {"id": "ReplayButtonPressed", "file": "assets/Scenes/Backgrounds/End/Buttons/ReplayButtonPress.png"},
     {"id": "TDControlsButton", "file": "assets/Scenes/Backgrounds/Pausa/Buttons/TDControlsButton.png"},
     {"id": "TDControlsButtonPressed", "file": "assets/Scenes/Backgrounds/Pausa/Buttons/TDControlsButtonPress.png"},
     {"id": "BEUControlsButton", "file": "assets/Scenes/Backgrounds/Pausa/Buttons/BEUControlsButton.png"},

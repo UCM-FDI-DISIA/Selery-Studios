@@ -84,6 +84,7 @@ void LifeComponent::update() {
 				if (anim_->currentState_ != AnimationEnemyBEUComponent::Hit) hit_ = false;
 			}
 			else {//player
+				be->ShakeCam(15);
 				if (skin_->currentState_ != SkinBEUComponent::Hit) hit_ = false;
 			}
 		}
@@ -119,7 +120,7 @@ void LifeComponent::Hit(float damage) {
 				
 			}
 			else {// player
-				be->ShakeCam(10);
+				be->ShakeCam(15);
 				/*inp_->MovePlayerBack();*/
 				skin_->changeState(SkinBEUComponent::Hit);
 			}
@@ -144,7 +145,7 @@ void LifeComponent::subLife(float damage) {
 		if (enemy_) {
 			properties().getPowerUpRef()->instancePowerUp();
 		}
-		else be->ShakeCam(10);
+		else be->ShakeCam(15);
 	
 	}
 	 

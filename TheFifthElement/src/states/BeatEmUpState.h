@@ -77,7 +77,7 @@ private:
 	//BOSSES
 	Entity* earthBoss_;
 	bool boss;
-	string typeBoss_;
+	string typeBoss_ = "";
 
 	//PROPERTIES
 	PropertiesManager* props_;
