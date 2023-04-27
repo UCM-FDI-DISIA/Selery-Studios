@@ -47,9 +47,5 @@ public:
  
         d = Directions(dd);
     }
-    /*void setAir(bool b) { elements[0] = b; }
-    void setFire(bool b) { elements[1] = b; }
-    void setWater(bool b) { elements[2] = b; }
-    void setEarth(bool b) { elements[3] = b; }*/
 };
 #endif
