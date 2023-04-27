@@ -8,7 +8,7 @@ void LimitBEU::initComponent() {
 	tr_ = ent_->getComponent<Transform>(TRANSFORM_H);
 	jmp_ = ent_->getComponent<JumpComponent>(JUMP_H);
 	downLimit = /*sdlutils().height()*/WIN_HEIGHT - (tr_->getH()*tr_->getS());
-	topLimit = /*sdlutils().height()*/ WIN_HEIGHT * 0.4;
+	topLimit = /*sdlutils().height()*/ WIN_HEIGHT * 0.3;
 }
 
 void LimitBEU::update() {
