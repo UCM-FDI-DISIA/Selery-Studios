@@ -19,6 +19,7 @@ private:
 	PlayerNPC* plynpc;
 	string stringoriginal;
 	vector<string> conespacios;
+	vector<bool> tutorial{false,false,false, false, false};
 	string out;
 	SDL_Color color_;
 	bool hasstarted;
@@ -26,7 +27,6 @@ private:
 	int cont = 0, fin, linea =0;
 	int d;
 	Texture* t;
-	bool quest = true, quest1 = false;
 public:
 	DialogueComponent();
 	void render();

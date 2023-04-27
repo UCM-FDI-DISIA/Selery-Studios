@@ -1566,7 +1566,7 @@
   </object>
  </objectgroup>
  <objectgroup id="57" name="Shop">
-  <object id="1152" x="930" y="414">
+  <object id="1152" x="326" y="352">
    <point/>
   </object>
  </objectgroup>
@@ -1579,19 +1579,19 @@
   <object id="1154" name="Contexto" x="490.667" y="572">
    <point/>
   </object>
-  <object id="1155" x="1124" y="580">
+  <object id="1155" x="517.939" y="716.364">
    <point/>
   </object>
-  <object id="1156" x="1020" y="972">
+  <object id="1156" x="556.364" y="832.606">
    <point/>
   </object>
-  <object id="1157" x="1668" y="996">
+  <object id="1157" x="661.939" y="826.303">
    <point/>
   </object>
-  <object id="1158" x="2278" y="352">
+  <object id="1158" x="411.333" y="742.909">
    <point/>
   </object>
-  <object id="1159" x="710" y="2266">
+  <object id="1159" x="636.424" y="702.485">
    <point/>
   </object>
   <object id="1160" x="2600" y="2238">
@@ -1618,7 +1618,7 @@
    <point/>
   </object>
  </objectgroup>
- <objectgroup id="61" name="Enemy">
+ <objectgroup id="61" name="Enemy" visible="0">
   <object id="1210" x="2532" y="2089.33">
    <point/>
   </object>

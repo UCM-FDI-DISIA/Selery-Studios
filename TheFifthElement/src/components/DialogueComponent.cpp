@@ -66,18 +66,25 @@ void DialogueComponent::inicombe() {
 			hasstarted = true;
 		}
 		else {
-			if (linea < conespacios.size()-1) {
+			if (linea < conespacios.size() - 1) {
 				linea++;
 				out = "";
 				cont = 0;
 				fin = conespacios[linea].size();
 			}
 			else {
-				if (quest && !quest1) { static_cast<TopDownState*>(mngr_)->newQuest("hermanos", "Reune a tus hermanos", "monedas", 300, 3); quest1 = true; }
-				else if (quest) { static_cast<TopDownState*>(mngr_)->newQuest("enemigos", "Elimina a 5 enemigos", "Desbloqueo de zona", 0, 5); quest = false; }
+
 				hasstarted = false;
 				conespacios.clear();
-				if (plynpc->getcol() == 22) {
+				int numeronpc = plynpc->getcol();
+				if (numeronpc == 5) {
+					static_cast<TopDownState*>(mngr_)->DeleteContexto();
+					static_cast<TopDownState*>(mngr_)->newQuest("hermanos", "Reune a tus hermanos", "monedas", 300, 3);
+					static_cast<TopDownState*>(mngr_)->newQuest("aldeanos", "Habla con aldeanos", "Desbloqueo de zona", 0, 5);
+				}
+				else if (numeronpc > 5 && numeronpc <= 11 && !tutorial[numeronpc - 6]) {
+					Quests::instance()->completedQuest("aldeanos");
+					tutorial[numeronpc - 6] = true;			
 					static_cast<TopDownState*>(mngr_)->DeleteContexto();
 				}
 				if (plynpc->getcol() <=4) {

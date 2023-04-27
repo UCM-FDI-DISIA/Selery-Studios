@@ -19,6 +19,9 @@ void GameManager::goTopDown() {
 	SDLUtils::instance()->soundEffects().at("Title").play();
 	GameStateMachine::instance()->popState();
 }
+void GameManager::goToEndState() {
+	GameStateMachine::instance()->changeState(new EndState());
+}
 
 void GameManager::backToMainMenu() {
 	SDLUtils::instance()->soundEffects().at("Title").haltChannel();

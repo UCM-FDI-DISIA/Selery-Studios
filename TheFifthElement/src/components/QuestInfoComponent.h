@@ -111,6 +111,8 @@ public:
             { 
                 if (reward_ == "Desbloqueo de zona");// desbloquear zona
                 s = "RECOMPENSA: " + reward_; 
+               // static_cast<BeatEmUpState*>(mngr_)->getColManager()->checkCollisionP(i, type, false);
+
             }
             end = true;
         }

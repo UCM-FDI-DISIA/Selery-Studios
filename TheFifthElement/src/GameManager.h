@@ -28,6 +28,7 @@ public:
 	inline Game* getGame() { return game; }
 	void goBeatEmUp(bool boss, Entity* enemy, string typeboss);
 	void goTopDown();
+	void goToEndState();
 	void backToMainMenu();
 	void leaveMainMenu();
 	static void goPauseMenu();

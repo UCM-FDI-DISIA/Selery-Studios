@@ -13,7 +13,7 @@
 class LifeLightBossComponent: public Component
 {
 private:
-	int maxLife=20000;
+	int maxLife=20;
 	int life;
 	float scale;
 	int fightState;

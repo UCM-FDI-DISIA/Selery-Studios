@@ -220,5 +220,6 @@ public:
 	SkinComponent* getPlayerSkin() { return sk_; }
 	bool getMenuQuest() { return questsMenu; }
 	void setMenuQuest(bool b) { questsMenu = b; }
+	void desbloqueoZona();
 };
 

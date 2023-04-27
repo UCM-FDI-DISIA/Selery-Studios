@@ -744,3 +744,7 @@ void TopDownState::newQuest(string nombre, string text, string reward, int coins
 string TopDownState::getStateID() {
     return "TopDownState";
 }
+void TopDownState::desbloqueoZona() {
+    cout << "se llama";
+    collisions_.pop_back();
+}
