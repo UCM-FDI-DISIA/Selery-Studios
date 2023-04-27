@@ -18,7 +18,7 @@ InputComponent::InputComponent(Roulette* r) :Component() {
 void InputComponent::initComponent() {
 	mov_ = ent_->getComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
 	skin_ = ent_->getComponent<SkinComponent>(SKINCOMPONENT_H);
-	 dialog = ent_->getComponent<DialogueComponent>(DIALOGCOMPONENT_H);
+	dialog = ent_->getComponent<DialogueComponent>(DIALOGCOMPONENT_H);
 	//setContext();	
 
 	 if (SDL_NumJoysticks() < 1) {
@@ -34,21 +34,27 @@ void InputComponent::update() { //Actualizamos el contador que mide el tiempo
 	unsigned timer = clock();
 	actionDelay = (double(timer) / CLOCKS_PER_SEC);
 
-	if (moveLeft) {
-		mov_->setDir(Vector2D(-1, 0));
-		skin_->changeState(SkinComponent::Left);
-	}
-	else if (moveRight) {
-		mov_->setDir(Vector2D(1, 0));
-		skin_->changeState(SkinComponent::Right);
-	}
-	else if (moveUp) {
-		mov_->setDir(Vector2D(0, -1));
-		skin_->changeState(SkinComponent::Up);
-	}
-	else if (moveDown) {
-		mov_->setDir(Vector2D(0, 1));
-		skin_->changeState(SkinComponent::Down);
+	if (!dialog->gethasstarted()) {
+		if (moveLeft) {
+			mov_->setDir(Vector2D(-1, 0));
+			skin_->changeState(SkinComponent::Left);
+		}
+		else if (moveRight) {
+			mov_->setDir(Vector2D(1, 0));
+			skin_->changeState(SkinComponent::Right);
+		}
+		else if (moveUp) {
+			mov_->setDir(Vector2D(0, -1));
+			skin_->changeState(SkinComponent::Up);
+		}
+		else if (moveDown) {
+			mov_->setDir(Vector2D(0, 1));
+			skin_->changeState(SkinComponent::Down);
+		}
+		else {
+			mov_->setDir(Vector2D(0, 0));
+			skin_->changeState(SkinComponent::Idle);
+		}
 	}
 	else {
 		mov_->setDir(Vector2D(0, 0));
@@ -87,12 +93,15 @@ void InputComponent::handleEvents(SDL_Event event)
 		}
 		if (SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_A) && !dialog->getopenedShop()) {
 
-			mov_->setDir(Vector2D(0, 0));
-			if (actionDelay > 0) {
-				dialog->inicombe();
-				sdlutils().soundEffects().at("NPC_Chat").play();
+			if (canTalk) {
+				canTalk = false;
+				mov_->setDir(Vector2D(0, 0));
+				if (actionDelay > 0) {
+					dialog->inicombe();
+					sdlutils().soundEffects().at("NPC_Chat").play();
+				}
+				actionDelay = 0;
 			}
-			actionDelay = 0;
 		}
 		if (SDL_GameControllerGetButton(controller,SDL_CONTROLLER_BUTTON_DPAD_DOWN) && Elements::instance()->getAir()) {
 			skin_->changeSkin("air");
