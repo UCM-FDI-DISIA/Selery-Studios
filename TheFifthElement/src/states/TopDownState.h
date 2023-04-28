@@ -148,11 +148,13 @@ private:
 	// MINIMAPA
 	Texture* m_ = &SDLUtils::instance()->images().at("mapFrame");
 	Texture* airAvatar_ = &SDLUtils::instance()->images().at("AirAvatar");
-	int mapFrameX_ = 180;
-	int mapFrameY_ = 100;
-	float zoom_ = 3.0f;
-	int mapOffsetX_ = 200;
-	int mapOffsetY_ = 150;
+	float mapFrameX_ = 145;
+	float mapFrameY_ = 100;
+	float speedMinMap_ = 135.0f;
+	int mapOffsetX_ = 155;
+	int mapOffsetY_ = 10;
+	int iconOffsetX_ = 165;
+	int iconOffsetY_ = 60;
 	int iconWidth_ = 15;
 	int iconHeight_ = 15;
 

@@ -129,19 +129,19 @@ void TopDownState::render() {
     for (auto p : collisions_) {
         p->render();
     }
-    //SDL_RenderCopy(Gm_->getRenderer(), background_1, &src, &dst);
-    //hudTD->render();
-    
-    // MINIMAPA
+
+    //MINIMAPA
     Vector2D scale = { (WIN_WIDTH / 900.0f), (WIN_HEIGHT / 600.0f) };
-    SDL_Rect mapFrame = { (WIN_WIDTH - 190 * scale.getX()), 10 * scale.getY(), mapFrameX_ * scale.getX(), mapFrameY_ * scale.getY() };
-    SDL_Rect srcMinMap = { 0, 0, fondowidth_ / zoom_, fondoheight_ / zoom_ };
-    srcMinMap.x += Manager::camRect_.x / 4 - WIN_WIDTH / 2 - mapOffsetX_;
-    srcMinMap.y += Manager::camRect_.y / 4 - WIN_HEIGHT / 4 + mapOffsetY_;
-    SDL_RenderCopy(Gm_->getRenderer(), background_0, &srcMinMap, &mapFrame);
+    Vector2D scalePlayer = { ((float)fondowidth_ / mapFrameX_)/speedMinMap_, ((float)fondoheight_ / mapFrameY_) /speedMinMap_ };
+    SDL_Rect mapFrame = { (WIN_WIDTH - mapOffsetX_ * scale.getX()), mapOffsetY_ * scale.getY(), mapFrameX_ * scale.getX(), mapFrameY_ * scale.getY() };
+    SDL_Rect src1 = { trans_player_->getPos().getX() * scalePlayer.getX() - WIN_WIDTH/1.5f,
+                     trans_player_->getPos().getY() * scalePlayer.getY() - WIN_HEIGHT/1.5f,
+                     (camRect_.w),
+                     (camRect_.h) };
+    SDL_RenderCopy(Gm_->getRenderer(), background_0, &src1, &mapFrame);
     m_->render(mapFrame);
 
-    SDL_Rect icon = { (WIN_WIDTH - 190 / 2 * scale.getX()), 60 * scale.getY(), iconWidth_, iconHeight_ };
+    SDL_Rect icon = { (WIN_WIDTH - 165 / 2 * scale.getX()), 60 * scale.getY(), iconWidth_, iconHeight_ };
     SDL_Rect srcIc = { 0, 0, PLAYERAVATAR_DIMENSION, PLAYERAVATAR_DIMENSION };
     SDL_RenderCopy(Gm_->getRenderer(), background_0, &srcIc, &icon);
     sk_->getAvatar()->render(icon);
