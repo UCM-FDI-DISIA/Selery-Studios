@@ -6,7 +6,7 @@ MainMenuState::MainMenuState()
 
 	Background("fondoMainMenu3");
 
-	SDLUtils::instance()->soundEffects().at("Title").play();
+	SDLUtils::instance()->soundEffects().at("Title").play(-1);
 	addNewEntity("campfire", 128, 128, Vector2D(4 * WIN_WIDTH / 9, 3 * WIN_HEIGHT / 4), 8, 128, 128, false);
 
 	addNewEntity("NPC_1", NPC_WIDTH, NPC_HEIGHT, Vector2D(48 * WIN_WIDTH / 90, 3 * WIN_HEIGHT / 4), 7, NPC_WIDTH, NPC_HEIGHT, false);

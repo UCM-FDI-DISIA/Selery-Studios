@@ -20,7 +20,7 @@ TopDownState::TopDownState() {
     roulete = Hud_->addComponent<Roulette>(ROULETTECOMPONENT_H);
     LoadMap("assets/Scenes/Maps/MapaInicial.tmx");
     addEntity(Hud_);  
-    SDLUtils::instance()->soundEffects().at("Title").play();
+    SDLUtils::instance()->soundEffects().at("Title").play(-1);
     dialog_->inicombe();
     //trans_player_->setPos({ 11668 ,547 });
 }

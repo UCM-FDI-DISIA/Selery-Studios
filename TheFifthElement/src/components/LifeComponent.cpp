@@ -51,6 +51,7 @@ void LifeComponent::update() {
 
 				if (i == 4) {
 					ent_->setAlive(false);
+					SDLUtils::instance()->soundEffects().at("Battle").haltChannel();
 					GameManager::instance()->goTopDown();
 				}
 				else  {

@@ -8,7 +8,7 @@ BeatEmUpState::BeatEmUpState(bool Boss,Entity* enemySends, string typeBoss, int 
 	timeToGenerate = timeGen;
 	boss = Boss;
 	typeBoss_ = typeBoss;
-	SDLUtils::instance()->soundEffects().at("Battle").play();
+	SDLUtils::instance()->soundEffects().at("Battle").play(-1);
 	random = &SDLUtils::instance()->rand();
 
 	//BACKGROUND
