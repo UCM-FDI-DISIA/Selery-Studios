@@ -53,7 +53,7 @@ BeatEmUpState::BeatEmUpState(bool Boss,Entity* enemySends, string typeBoss, int 
 	in_ = player_->addComponent<InputComponentBEU>(INPUTCOMPONENTBEU_H, roulete);
 	player_->addComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
 	player_->addComponent<AttackBoxComponent>(ATTACKBOXCOMPONENT_H);
-	if (typeBoss == "water") player_->addComponent<LimitBEU>(LIMITBEU_H, true);
+	if (typeBoss == "water"|| typeBoss=="fire") player_->addComponent<LimitBEU>(LIMITBEU_H, true);
 	else player_->addComponent<LimitBEU>(LIMITBEU_H);
 
 	player_->addComponent<ColliderComponent>(int(COLLIDERCOMPONENT_H), Vector2D(90, 80), 1.2*PLAYERBEU_HEIGHT_FRAME / 3, PLAYERBEU_WIDTH_FRAME / 7);
@@ -160,14 +160,14 @@ void BeatEmUpState::AddWaterBoss() {
 
 void BeatEmUpState::AddFireBoss() {
 	numEnemies = 4; // Boss + enemigos que spawnea
-	Vector2D pos = { WIN_WIDTH / 2,WIN_HEIGHT / 2 };
+	Vector2D pos = { WIN_WIDTH / 2,WIN_HEIGHT -240 };
 	Entity* boss = addEntity();
 	Transform* t = boss->addComponent<Transform>(TRANSFORM_H, pos, FIREBOSS_WIDTH, FIREBOSS_HEIGHT);
 	boss->addComponent<FramedImage>(FRAMEDIMAGE_H, &sdlutils().images().at("FireBoss"),  FIREBOSS_WIDTH, FIREBOSS_HEIGHT,6,0, "FireBoss");
 	boss->addComponent<AttackBoxComponent>(ATTACKBOXCOMPONENT_H);
 	boss->addComponent<FireBossComponent>(FIREBOSSCOMPONENT_H, player_);
 	boss->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(100, 40), (FIREBOSS_WIDTH / 2 - 25), (FIREBOSS_HEIGHT - 75));
-	boss->addComponent<LimitBEU>(LIMITBEU_H);
+	//boss->addComponent<LimitBEU>(LIMITBEU_H);
 }
 
 void BeatEmUpState::AddEarthBoss() {
@@ -286,7 +286,7 @@ void BeatEmUpState::update() {
 	camRect_.y = 0;
 
 	// Clamp de la cámara
-	if (camRect_.x < 0 || typeBoss_ == "water") {
+	if (camRect_.x < 0 || typeBoss_ == "water"||typeBoss_=="fire") {
 		camRect_.x = 0;
 	}
 	else if (camRect_.x > BACKGROUNDBEU_WIDTH - WIN_WIDTH) {
@@ -313,7 +313,7 @@ void BeatEmUpState::update() {
 	camRect_.x = camRect_.x + ((trans_player_->getPos().getX() + camOffset_ - camRect_.x) - WIN_WIDTH / 2) * 0.05;
 	camRect_.y = 0;
 	// Clamp de la cámara
-	if (camRect_.x < 0 || typeBoss_ == "water") {
+	if (camRect_.x < 0 || typeBoss_ == "water"||typeBoss_=="fire") {
 		camRect_.x = 0;
 	}
 	else if (camRect_.x > BACKGROUNDBEU_WIDTH - WIN_WIDTH) {

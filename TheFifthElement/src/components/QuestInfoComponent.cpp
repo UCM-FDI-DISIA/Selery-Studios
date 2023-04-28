@@ -102,8 +102,4 @@ QuestInfoComponent::QuestInfoComponent(string Name, string text, string reward, 
         fin = conespacios[0].size();
     }
 
-    void QuestInfoComponent::setAlive(bool b)
-    {
-        if (!b) setDialogue("end");
-        alive_ = b;
-    }
+   

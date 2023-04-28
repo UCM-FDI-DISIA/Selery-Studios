@@ -55,6 +55,8 @@ protected:
 	bool canfire2 = true;
 	int n = 0;
 
+	int cont = 0;
+
 	const static int nEnemies = 3;
 	LifeComponent* enemyRef[nEnemies];
 	const char* const enemyTypes[4]{ "bat" ,"shroom" ,"goblin" ,"skeleton" };
@@ -63,7 +65,7 @@ protected:
 	SoundEffect* hit = &SDLUtils::instance()->soundEffects().at("fire_golpe");
 	SoundEffect* vanish = &SDLUtils::instance()->soundEffects().at("vanish");
 
-
+	bool anim;
 	
 	
 public:	
@@ -78,5 +80,7 @@ public:
 	void subLife(float dmg);
 	void moreLife();
 	void createColumns(Vector2D p);
+
+	void changeDir();
 };
 

@@ -12,6 +12,14 @@ public:
 
     void actQuests();
 
+
     void renderQuestList();
+     inline list<Entity*> getQuests() const {
+        return quests;
+    }
+
+   
+   
+
 };
 

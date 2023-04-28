@@ -24,45 +24,81 @@ void FireBossComponent::initComponent() {
 	image->setAnim("FireBoss", 12, false, 1);
 	
 	//diferencia de posicion entre player y BOSS
-	velocity_x =(((player_pos.getX() - initial_posotion.getX())/WIN_WIDTH))*2;
-	velocity_y = (((player_pos.getY() - initial_posotion.getY()) / WIN_HEIGHT)) * 2;
+	velocity_x =(((player_pos.getX() * trans_player->getS() - initial_posotion.getX() * trans_player->getS())/WIN_WIDTH))*2;
+	velocity_y = (((player_pos.getY() * trans_player->getS() -( initial_posotion.getY() * trans_player->getS() -PLAYERTD_HEIGHT_FRAME)) / WIN_HEIGHT))*2;
 
 	barWidth_ = backWidth_ = borderWidth_ = 300 * scale;
 	barHeight_ = backHeight_ = borderHeight_ = 50 * scale;
 	death->play();
  }
 
+
+void FireBossComponent::changeDir() {
+
+	if (my_transform->getPos().getX() > trans_player->getPos().getX()) {
+		velocity_x = trans_player->getPos().getX()*trans_player->getS() - my_transform->getPos().getX()*my_transform->getS();
+		velocity_x = (velocity_x / WIN_WIDTH)*2;
+		image->setFlip(SDL_FLIP_NONE);
+		
+	}
+	else {
+		velocity_x = my_transform->getPos().getX() * trans_player->getS() -trans_player->getPos().getX() * trans_player->getS();
+		velocity_x = (velocity_x / WIN_WIDTH)*-2;
+		image->setFlip(SDL_FLIP_HORIZONTAL);
+
+	}
+	if (my_transform->getPos().getY() < trans_player->getPos().getY()) {
+
+		velocity_y = trans_player->getPos().getY() * my_transform->getS() - my_transform->getPos().getY()*trans_player->getS();
+		velocity_y = velocity_y / WIN_HEIGHT;
+	}
+	else {
+		
+			velocity_y =  my_transform->getPos().getY()* my_transform->getS() -trans_player->getPos().getY() *trans_player->getS();
+			velocity_y = velocity_y / WIN_HEIGHT;
+		
+	}
+
+	if (velocity_x < -0.1)velocity_x = -0.95;
+	if (velocity_x > 0.1)velocity_x = 0.95;
+
+}
 void FireBossComponent::update() {
 	Vector2D new_pos = my_transform->getPos();
-	new_pos.setX(new_pos.getX() + velocity_x*2);
-	new_pos.setY(new_pos.getY() + velocity_y*2);
-	my_transform->setPos(new_pos);
+	
+
+
+	if (new_pos.getY() < 330 || new_pos.getY() > WIN_HEIGHT-FIREBOSS_HEIGHT/2) velocity_y = 0;
+	Vector2D v{ velocity_x,velocity_y };
+	my_transform->setPos(my_transform->getPos() + v);
+	 cout << (abs(my_transform->getPos().getX() * my_transform->getS() - trans_player->getPos().getX() * trans_player->getS())) << endl;
+	//my_transform->setPos(new_pos);
 	switch (current) {
 	case moving_towards_player:
+			changeDir();
 		image->setAnim("FireBoss", 12, false, 1);
 		//Si has llegado a la posicion  cogida anteriormente por el player vuelve pa atras
-		if (abs(my_transform->getPos().getX() - player_pos.getX())<=3) {
+		if (abs(my_transform->getPos().getX()*my_transform->getS() - trans_player->getPos().getX() *trans_player->getS())<50 ) {
 			image->setAnim("FireBoss", 12, false, 1);
 			image->setFlip(SDL_FLIP_HORIZONTAL);
-			velocity_x = (((  initial_posotion.getX()- player_pos.getX()) / WIN_WIDTH)) * 2;
-			velocity_y = ((( initial_posotion.getY()- player_pos.getY()) / WIN_HEIGHT)) * 2;
+			changeDir();
 			//current = moving_towards_initialpoint;
-			hit->play();
+		
 			current = attack;//ATACAMOS
 		}
 		break;
 
 	case moving_towards_initialpoint:
-		//si has llegado a la posicion base vuelve pa el player
-		if (abs(my_transform->getPos().getX() - initial_posotion.getX())<=3) {
-			image->setAnim("FireBoss", 12, false, 1);
-			image->setFlip(SDL_FLIP_NONE);
-			player_pos = trans_player->getPos();
-			velocity_x = (((player_pos.getX() - initial_posotion.getX()) / WIN_WIDTH)) *2;
-			velocity_y = (((player_pos.getY() - initial_posotion.getY()) / WIN_HEIGHT)) *2;
-			current = moving_towards_player;
-		}
-		break;
+		////si has llegado a la posicion base vuelve pa el player
+		//if (my_transform->getPos().getX()*my_transform->getS() >initial_posotion.getX()*my_transform->getS()) {
+		//	image->setAnim("FireBoss", 12, false, 1);
+		//	image->setFlip(SDL_FLIP_NONE);
+		//	player_pos = trans_player->getPos();
+		//	velocity_x = (((player_pos.getX() * my_transform->getS() - initial_posotion.getX() * trans_player->getS()) / WIN_WIDTH)) *2;
+		//	velocity_y = (((player_pos.getY() * my_transform->getS() - initial_posotion.getY() * trans_player->getS()) / WIN_HEIGHT))*2 ;
+		//	current = moving_towards_player;
+		//}
+		//break;
 
 	case paused: 
 		//Movimiento
@@ -89,6 +125,7 @@ void FireBossComponent::update() {
 		// Si hay algun enemigo vivo se acaba el update
 		// Si no, se cambia de estado y vuelve a pelear
 		velocity_x = -1;
+		changeDir();
 		current = moving_towards_player; 
 		image->setFlip(SDL_FLIP_NONE);
 		break;
@@ -113,8 +150,7 @@ void FireBossComponent::update() {
 		image->setAnim("FireBoss", 12, false, 1);
 		image->setFlip(SDL_FLIP_NONE);
 		player_pos = trans_player->getPos();
-		velocity_x = (((player_pos.getX() - initial_posotion.getX()) / WIN_WIDTH)) * 2;
-		velocity_y = (((player_pos.getY() - initial_posotion.getY()) / WIN_HEIGHT)) * 2;
+		changeDir();
 		current = moving_towards_player;
 		end = false;
 		
@@ -122,25 +158,34 @@ void FireBossComponent::update() {
 
 	case attack: 
 		
+		cont++;
+		if (cont > 20) {
+			cont = 0;
 		
-		if (trans_player->getPos().getX() < my_transform->getPos().getX()) {
-			image->setFlip(SDL_FLIP_NONE);
-			image->setAnim("FireBoss", 15, false, 2);
-		}
-		else {
-			image->setFlip(SDL_FLIP_HORIZONTAL);
-			image->setAnim("FireBoss", 15, false, 2);
-		}
-		velocity_x = 0;
-		velocity_y = 0;
+				if (trans_player->getPos().getX() < my_transform->getPos().getX()) {
+					image->setFlip(SDL_FLIP_NONE);
+					image->setAnim("FireBoss", 15, false, 2);
+				}
+				else {
+					image->setFlip(SDL_FLIP_HORIZONTAL);
+					image->setAnim("FireBoss", 15, false, 2);
+				}
+				anim = image->isAnimPlaying();
+				cout << anim;
 		
-		if (image->getCol()>=14) {//acaba el ataque
-			image->setAnim("FireBoss", 12, false, 1);
-			image->setFlip(SDL_FLIP_HORIZONTAL);
-			velocity_x = (((initial_posotion.getX() - player_pos.getX()) / WIN_WIDTH)) * 2;
-			velocity_y = (((initial_posotion.getY() - player_pos.getY()) / WIN_HEIGHT)) * 2;
-			current = moving_towards_initialpoint;
+			velocity_x = 0;
+			velocity_y = 0;
+
+			if (image->getCol()>12) {//acaba el ataque
+				hit->play();
+				image->setAnim("FireBoss", 12, false, 1);
+				image->setFlip(SDL_FLIP_HORIZONTAL);
+				player_pos = trans_player->getPos();
+				changeDir();
+				current = moving_towards_player;
+			}
 		}
+		
 		break;
 	}
 

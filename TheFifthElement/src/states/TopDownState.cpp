@@ -106,6 +106,17 @@ void TopDownState::SaveGame() {
                 }
 
             }
+            save << "QUESTS" << endl;
+            list<Entity*> quest = Quests::instance()->getQuests();
+            for (auto c : quest) {
+                QuestInfoComponent* comp = c->getComponent<QuestInfoComponent>(QUESTINFOCOMPONENT_H);
+                if (comp != nullptr) {
+                    save << comp->getName() << " " << comp->getText() << " " << comp->getReward() << " " << comp->getCoins() << " " << comp->getAlive() << " ";
+                }
+
+            }
+
+
 
             save << -1 << endl;
             save.close();
