@@ -2,6 +2,7 @@
 #include "AnimationEnemyBEUComponent.h"
 #include "EnemyBEUDirectionComponent.h"
 #include "SkinBEUComponent.h"
+#include "../Elements.h"
 #include "FramedImage.h"
 #include <array>
 
@@ -36,8 +37,7 @@ private:
 	float scale;
 	bool set_ = false;
 	time_t deathTime_;
-	float damageReduction_ = 1.0f; // 1=0% 0=100%
-	BeatEmUpState* be;
+	float damageReduction_ = 1.0f; // 1=0% 0=100
 #pragma endregion
 
 #pragma region propierties

@@ -14,7 +14,7 @@ private:
 	}
 
 public:
-	
+	bool getElementsList(int i) { return elements[i]; }
 	void setAir(bool b = true) { elements[0] = b; }
 	void setFire (bool b = true) { elements[1] = b; }
 	void setWater (bool b = true) { elements[2] = b; }

@@ -80,6 +80,7 @@ private:
 	string typeBoss_ = "";
 
 	//PROPERTIES
+	bool Shakemyass = false;
 	PropertiesManager* props_;
 
 public:
@@ -99,6 +100,6 @@ public:
 	ColManager* getColManager() { return colManager_; }
 	void update();
 	void Background(string file);
-	void ShakeCam(int shaking);
+	void ShakeCam(bool shakeyourbooty);
 };
 

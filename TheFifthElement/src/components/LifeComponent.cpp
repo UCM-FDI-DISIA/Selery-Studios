@@ -26,17 +26,18 @@ void LifeComponent::initComponent() {
 		barWidth_ = backWidth_ = borderWidth_ = 100 * entTransform_->getScale();
 		barHeight_ = backHeight_ = borderHeight_ = 30 * entTransform_->getScale();
 		skin_ = ent_->getComponent<SkinBEUComponent>(SKINBEUCOMPONENT_H);
+		for (int i = 0; i < 4; i++) {
+			types[i].life = -1.0f;
+			types[i].alive = Elements::instance()->getElementsList(i);
+		}
 	}
 	chooseTexture();
 }
 
 void LifeComponent::update() {
+
 	if (!set_ && !enemy_) { 
 		inp_ = ent_->getComponent<InputComponentBEU>(INPUTCOMPONENTBEU_H); 
-		for (int i = 0; i < 4; i++) {
-			types[i].life = -1.0f;
-			types[i].alive = inp_->elements[i];
-		}
 		set_ = true;
 	}
 	
@@ -67,7 +68,8 @@ void LifeComponent::update() {
 		}
 	}
 	else {
-		if (!im_->getIsAnimUnstoppable()) {
+		if (!im_->getIsAnimUnstoppable()) {				
+		
 		////if (!im_->isAnimPlaying()) {
 			if (enemy_) {
 				if (collision) {
@@ -85,10 +87,12 @@ void LifeComponent::update() {
 				if (anim_->currentState_ != AnimationEnemyBEUComponent::Hit) hit_ = false;
 			}
 			else {//player
-				be->ShakeCam(15);
 				if (skin_->currentState_ != SkinBEUComponent::Hit) hit_ = false;
+
 			}
+		
 		}
+	/*	else if (!enemy_) be->ShakeCam(15);*/
 	}
 }
 
@@ -121,7 +125,7 @@ void LifeComponent::Hit(float damage) {
 				
 			}
 			else {// player
-				be->ShakeCam(15);
+				static_cast<BeatEmUpState*>(mngr_)->ShakeCam(true);
 				/*inp_->MovePlayerBack();*/
 				skin_->changeState(SkinBEUComponent::Hit);
 			}
@@ -146,8 +150,6 @@ void LifeComponent::subLife(float damage) {
 		if (enemy_) {
 			properties().getPowerUpRef()->instancePowerUp();
 		}
-		else be->ShakeCam(15);
-	
 	}
 	 
 	playDamageSound();
