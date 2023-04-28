@@ -63,5 +63,7 @@ public:
 	//}
 
 	int chooseDirection();
-
+	void DesbloqueoZona() {
+		colisions.pop_back();
+	}
 };

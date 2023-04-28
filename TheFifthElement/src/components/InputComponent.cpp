@@ -67,20 +67,21 @@ void InputComponent::handleEvents(SDL_Event event)
 {
 	if(controladorDetectado)
 	{
-		if (SDL_GameControllerGetAxis(controller, SDL_CONTROLLER_AXIS_LEFTX) < -8000 && d != LEFT) {
+		
+		if (SDL_GameControllerGetAxis(controller, SDL_CONTROLLER_AXIS_LEFTX) < -8000 && d != LEFT && d!= DOWNLEFT && d!= UPLEFT ) {
 			mov_->setDir(Vector2D(-1, 0));
 			skin_->changeState(SkinComponent::Left);
 		}
 		
-		else if (SDL_GameControllerGetAxis(controller, SDL_CONTROLLER_AXIS_LEFTX) > 8000 && d != RIGHT) {
+		else if (SDL_GameControllerGetAxis(controller, SDL_CONTROLLER_AXIS_LEFTX) > 8000 && d != RIGHT && d != DOWNRIGHT && d != UPRIGHT) {
 			mov_->setDir(Vector2D(1, 0));
 			skin_->changeState(SkinComponent::Right);
 		}
-		else  if (SDL_GameControllerGetAxis(controller, SDL_CONTROLLER_AXIS_LEFTY) < -8000 && d != UP) {
+		else  if (SDL_GameControllerGetAxis(controller, SDL_CONTROLLER_AXIS_LEFTY) < -8000 && d != UP && d != UPLEFT && d != UPRIGHT) {
 			mov_->setDir(Vector2D(0, -1));
 			skin_->changeState(SkinComponent::Up);
 		}
-		else if (SDL_GameControllerGetAxis(controller, SDL_CONTROLLER_AXIS_LEFTY) > 8000 && d != DOWN) {
+		else if (SDL_GameControllerGetAxis(controller, SDL_CONTROLLER_AXIS_LEFTY) > 8000 && d != DOWN && d != DOWNLEFT && d != DOWNRIGHT) {
 			mov_->setDir(Vector2D(0, 1));
 			skin_->changeState(SkinComponent::Down);
 		}
@@ -156,25 +157,24 @@ void InputComponent::handleEvents(SDL_Event event)
 			}
 
 
-
-			if (ih().isKeyDown(SDL_SCANCODE_A) && d != LEFT) {
+			if (ih().isKeyDown(SDL_SCANCODE_A) && d != LEFT && d!= DOWNLEFT && d!= UPLEFT) {
 				moveLeft = true;
 			}
-			else if (ih().isKeyUp(SDL_SCANCODE_A) || d == LEFT) { moveLeft = false; }
-			if (ih().isKeyDown(SDL_SCANCODE_D) && d != RIGHT) {
+			else moveLeft = false; 
+			if (ih().isKeyDown(SDL_SCANCODE_D) && d != RIGHT && d != DOWNRIGHT && d != UPRIGHT) {
 				moveRight = true;
 			}
-			else if (ih().isKeyUp(SDL_SCANCODE_D) || d == RIGHT) { moveRight = false; }
+			else moveRight = false;
 			
-			if (ih().isKeyDown(SDL_SCANCODE_W) && d != UP ) {
+			if (ih().isKeyDown(SDL_SCANCODE_W) && d != UP && d != UPLEFT && d != UPRIGHT) {
 				moveUp = true;
 			}
-			else if (ih().isKeyUp(SDL_SCANCODE_W) || d == UP) { moveUp = false; }
+			else  moveUp = false; 
 
-			if (ih().isKeyDown(SDL_SCANCODE_S)&&d!=DOWN ) {
+			if (ih().isKeyDown(SDL_SCANCODE_S)&&d!=DOWN && d != DOWNLEFT && d != DOWNRIGHT) {
 				moveDown = true;
 			}
-			else if (ih().isKeyUp(SDL_SCANCODE_S) || d == DOWN) { moveDown = false; }
+			else  moveDown = false; 
 			
 
 			if (ih().isKeyDown(SDL_SCANCODE_1) && Elements::instance()->getAir()) {
@@ -221,8 +221,6 @@ void InputComponent::handleEvents(SDL_Event event)
 		if (ih().isKeyDown(SDL_SCANCODE_ESCAPE) && !dialog->gethasstarted() && !dialog->getopenedShop() /* || SDL_GameControllerButton(SDL_CONTROLLER_BUTTON_A)*/) {
 			GameManager::goPauseMenu();
 		}
-
-		//if (ih().isKeyDown(SDL_SCANCODE_Q)) static_cast<TopDownState*>(mngr_)->questsMenu = !static_cast<TopDownState*>(mngr_)->questsMenu;
 
 		if (ih().isKeyDown(SDL_SCANCODE_X) && static_cast<TopDownState*>(mngr_)->getMenuQuest()) 
 			static_cast<TopDownState*>(mngr_)->setMenuQuest(false);

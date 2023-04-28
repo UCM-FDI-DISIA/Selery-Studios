@@ -81,10 +81,8 @@ QuestInfoComponent::QuestInfoComponent(string Name, string text, string reward, 
             }
             else 
             { 
-                if (reward_ == "Desbloqueo de zona");// desbloquear zona
                 s = "RECOMPENSA: " + reward_; 
-              
-                static_cast<TopDownState*>(GameStateMachine::instance()->state());
+              if (reward_ == "Desbloqueo de zona")  static_cast<TopDownState*>(GameStateMachine::instance()->state())->desbloqueoZona();
 
 
             }
