@@ -187,12 +187,14 @@ void WaterBossIA::addIce(int n) {
 		int rndX_ = rand() % (WIN_WIDTH - size_);
 		int rndY_ = rand() % (WIN_HEIGHT/2); // position
 		ice_->addComponent<Transform>(TRANSFORM_H, Vector2D(rndX_, rndY_), size_, size_, 0.7, 2);
-		rndY_ += (WIN_HEIGHT/2 - size_);// shadow position
+		rndY_ += (WIN_HEIGHT/2 + size_);// shadow position
 
 		ice_->addComponent<IceShadowComponent>(ICESHADOWCOMPONENT_H, Vector2D(rndX_, rndY_), 0.7, player_);
 		
 		ice_->addComponent<FramedImage>(FRAMEDIMAGE_H, &sdlutils().images().at("ice"), size_, size_, 3);
-		ice_->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(0, 0), size_/2, size_);
+		Vector2D offset = Vector2D(0,0);
+		if (WIN_WIDTH == 900) offset = Vector2D(-10, 0);
+		ice_->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, offset, size_/2, size_/2);
 		ice_->addComponent<ColDetectorComponent>(COLDETECTORCOMPONENT_H, ice_, player_);
 		ice_->addComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
 		ice_->addComponent<IceIAComponent>(ICEIACOMPONENT_H, player_);
