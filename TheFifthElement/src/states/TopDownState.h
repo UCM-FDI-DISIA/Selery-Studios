@@ -108,7 +108,7 @@ private:
 	vector<Entity*> collisions_; //vector colision player-mapa
 	vector<ColliderTileInteraction*> interactions_; //vector colision player-mapa
 	float camOffset_ = 60.0f;
-
+	ColliderTile* ColideTileComponent;
 	int fondowidth_, fondoheight_;
 
 	DialogueComponent* dialog_;

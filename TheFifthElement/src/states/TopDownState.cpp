@@ -1,6 +1,5 @@
 ﻿#include "TopDownState.h"
 #include "../Game.h"
-
 #include <fstream>
 #include "../Elements.h"
 #include "../Quests.h"
@@ -94,9 +93,6 @@ void TopDownState::SaveGame() {
                     save << f->getPos().getX() << " " << f->getPos().getY() << " " << f->getDir().getX() << " " << f->getDir().getY() << endl;
 
 
-
-
-
                 }
                 else if (c->hasComponent(REDIRECTENEMY_H)) {
                     save << "redirect" << endl;
@@ -137,10 +133,6 @@ void TopDownState::render() {
     for (auto p : interactions_) {
         p->render();
     }
-    for (auto p : collisions_) {
-        p->render();
-    }
-
     //MINIMAPA
     Vector2D scale = { (WIN_WIDTH / 900.0f), (WIN_HEIGHT / 600.0f) };
     Vector2D scalePlayer = { ((float)fondowidth_ / mapFrameX_)/speedMinMap_, ((float)fondoheight_ / mapFrameY_) /speedMinMap_ };
@@ -158,11 +150,13 @@ void TopDownState::render() {
     sk_->getAvatar()->render(icon);
 
     Manager::render();
-
+   
     SDL_RenderCopy(Gm_->getRenderer(), prueba, &src, &dst);
     Hud_->render();
     if (questsMenu)Quests::instance()->renderQuestList();
-
+    for (auto p : collisions_) {
+        p->render();
+    }
 }
 void TopDownState::LoadMap(string const& filename) {
 
@@ -223,26 +217,7 @@ void TopDownState::LoadMap(string const& filename) {
                 // recorremos todos los tiles para obtener su informacion
                 for (auto y = 0; y < mapInfo.rows; ++y) {
                     for (auto x = 0; x < mapInfo.cols; ++x) {
-                        //if (y < mapInfo.rows/10) {
-                        //    if (x < mapInfo.cols / 5) { //primer 
-                        //        SDL_SetRenderTarget(Gm_->getRenderer(), background_0);
-
-                        //    }
-                        //    else {//segundo
-                        //        SDL_SetRenderTarget(Gm_->getRenderer(), background_1);
-
-                        //    }
-                        //}
-                        //else {//tercero
-                        //    if (x < mapInfo.cols / 2) {
-                        //        SDL_SetRenderTarget(Gm_->getRenderer(), background_2);
-
-                        //    }
-                        //    else {//cuarto
-                        //        SDL_SetRenderTarget(Gm_->getRenderer(), background_3);
-
-                        //    }
-                        //}
+                    
                         // obtenemos el indice relativo del tile en el mapa de tiles
                         int tile_index = x + (y * mapInfo.cols);
 
@@ -343,7 +318,7 @@ void TopDownState::LoadMap(string const& filename) {
                     dialog_ = player_->addComponent<DialogueComponent>(DIALOGCOMPONENT_H);
                     movcomp_player_ = player_->addComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
                     in_ = player_->addComponent<InputComponent>(INPUTCOMPONENT_H, roulete);
-                    player_->addComponent<ColliderTile>(COLLIDERTILE_H, collisions_);
+                    ColideTileComponent = player_->addComponent<ColliderTile>(COLLIDERTILE_H, collisions_);
                     damage_ = Hud_->addComponent<Damage>(DAMAGE_H);
                     life_ = Hud_->addComponent<LifeTD>(LIFETDCOMPONENT_H);
                     economyComp_ = Hud_->addComponent<EconomyComponent>(ECONOMYCOMPONENT_H);
@@ -756,6 +731,5 @@ string TopDownState::getStateID() {
     return "TopDownState";
 }
 void TopDownState::desbloqueoZona() {
-    cout << "se llama";
-    collisions_.pop_back();
+    ColideTileComponent->DesbloqueoZona();
 }

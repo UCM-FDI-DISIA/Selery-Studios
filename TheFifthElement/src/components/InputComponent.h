@@ -11,8 +11,8 @@
 #include "../Elements.h"
 
 enum Directions {
-    NONE=-1,
-    UP=0, DOWN=1, LEFT=2, RIGHT=3
+    NONE = -1,
+    UP = 0, DOWN = 1, LEFT = 2, RIGHT = 3, UPLEFT = 4, UPRIGHT = 5, DOWNLEFT = 6, DOWNRIGHT = 7
 };
 
 class DialogueComponent;
