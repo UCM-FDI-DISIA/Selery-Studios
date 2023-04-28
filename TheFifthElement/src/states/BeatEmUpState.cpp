@@ -269,7 +269,38 @@ void BeatEmUpState::update() {
 	Manager::refresh();
 	Manager::update();
 	colManager_->update();
-	
+
+	if (!boss && createdEnemies < numEnemies && cont <= 0) {
+		AddEnemy();
+		cont = timeToGenerate;
+		createdEnemies++;
+		numEnemies++;
+	}
+	cont--;
+
+	// Ajusta el valor de leftOffset para que el jugador esté a la izquierda, a gusto del consumidor (Cleon)
+	int leftOffset = WIN_WIDTH / 4; // Ajusta este valor según la cantidad deseada
+
+	// Ajusta la fórmula para calcular camRect_.x teniendo en cuenta el leftOffset
+	camRect_.x = camRect_.x + ((trans_player_->getPos().getX() - leftOffset - camRect_.x) - WIN_WIDTH / 2) * 0.05;
+	camRect_.y = 0;
+
+	// Clamp de la cámara
+	if (camRect_.x < 0 || typeBoss_ == "water") {
+		camRect_.x = 0;
+	}
+	else if (camRect_.x > BACKGROUNDBEU_WIDTH - WIN_WIDTH) {
+		camRect_.x = BACKGROUNDBEU_WIDTH - WIN_WIDTH;
+	}
+	shakeme = camRect_.x;
+}
+
+/*ASÍ ESTABA EL UPDATE ANTES:
+void BeatEmUpState::update() {
+	Manager::refresh();
+	Manager::update();
+	colManager_->update();
+
 	if (!boss && createdEnemies < numEnemies && cont <= 0) { //aqui salta un fallo porque esta leyendo numenemies que no es fijo, se reduce cuando matas a un enemigo y si matas a un enemigo antes de que se genere otro dejan de generarse
 		AddEnemy();
 		cont = timeToGenerate;
@@ -284,12 +315,13 @@ void BeatEmUpState::update() {
 	// Clamp de la cámara
 	if (camRect_.x < 0 || typeBoss_ == "water") {
 		camRect_.x = 0;
-	}	
+	}
 	else if (camRect_.x > BACKGROUNDBEU_WIDTH - WIN_WIDTH) {
 		camRect_.x = BACKGROUNDBEU_WIDTH - WIN_WIDTH;
 	}
 	shakeme = camRect_.x;
-}
+}*/
+
 
 void BeatEmUpState::Background(string file) {
 	Entity* e = new Entity();
