@@ -10,7 +10,7 @@ private:
 	stack<Manager*> stToDelete; // pila de escenas a borrar
 
 public:
-	~GameStateMachine(); // destructora
+	virtual ~GameStateMachine(); // destructora
 	Manager* currentState(); // acceso al estado actual
 	void pushState(Manager* myState); // push de un estado de juego
 	void changeState(Manager* myState); // cambio de estado de juego
@@ -19,5 +19,6 @@ public:
 	void handleEvents();
 	void update();
 	void render();
+	Manager * state();
 };
 

@@ -19,6 +19,9 @@ void GameStateMachine::changeState(Manager* myState) // cambio de estado
 		pushState(myState);
 	}
 }
+Manager* GameStateMachine::state() {
+	return st.top();
+}
 
 void GameStateMachine::popState() { // pop si la pila no está vacía y salida del estado
 	if (!st.empty()) {

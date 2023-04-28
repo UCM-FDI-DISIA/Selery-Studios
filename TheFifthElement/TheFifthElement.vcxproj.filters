@@ -73,6 +73,8 @@
     <ClCompile Include="src\components\LifeBasicComponent.cpp" />
     <ClCompile Include="src\components\PowerUpControler.cpp" />
     <ClCompile Include="src\states\EndState.cpp" />
+    <ClCompile Include="src\Quests.cpp" />
+    <ClCompile Include="src\components\QuestInfoComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\components\Button.h" />

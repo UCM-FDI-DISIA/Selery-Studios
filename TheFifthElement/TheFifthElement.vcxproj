@@ -251,9 +251,11 @@
     <ClCompile Include="src\components\LifeTD.cpp" />
     <ClCompile Include="src\components\PortalComponent.cpp" />
     <ClCompile Include="src\components\ProtectionEarthBossComponent.cpp" />
+    <ClCompile Include="src\components\QuestInfoComponent.cpp" />
     <ClCompile Include="src\components\SectorCollisionComponent.cpp" />
     <ClCompile Include="src\components\StoneComponent.cpp" />
     <ClCompile Include="src\components\ThrowableObject.cpp" />
+    <ClCompile Include="src\Quests.cpp" />
     <ClCompile Include="src\states\EndState.cpp" />
     <ClCompile Include="src\states\PauseState.cpp" />
     <ClCompile Include="src\components\AttackEarthBossComponent.cpp" />
