@@ -73,6 +73,7 @@ BeatEmUpState::BeatEmUpState(bool Boss,Entity* enemySends, string typeBoss, int 
 		AddWaterBoss();
 	}
 	else if (boss && typeBoss == "earth") {
+		SDLUtils::instance()->soundEffects().at("golemStarts").play();
 		AddEarthBoss();
 	}
 	else if (boss && typeBoss == "light") {
