@@ -113,6 +113,56 @@ void InputComponent::handleEvents(SDL_Event event)
 		}
 
 		wasButtonAPressed = isButtonAPressed;
+		int leftTriggerValue = SDL_GameControllerGetAxis(controller, SDL_CONTROLLER_AXIS_TRIGGERLEFT);
+		int rightTriggerValue = SDL_GameControllerGetAxis(controller, SDL_CONTROLLER_AXIS_TRIGGERRIGHT);
+		bool isLeftTriggerPressed = leftTriggerValue > triggerThreshold;
+		bool isRightTriggerPressed = rightTriggerValue > triggerThreshold;
+
+		if (!dialog->gethasstarted() && !dialog->getopenedShop()) {
+			if (isLeftTriggerPressed) {
+				if (canSave) {
+					static_cast<TopDownState*>(mngr_)->SaveGame();
+					canSave = false;
+				}
+			}
+			else if (!isLeftTriggerPressed && wasLeftTriggerPressed) {
+				// El gatillo izquierdo se soltó en este frame
+				canSave = true;
+			}
+
+			if (isRightTriggerPressed) {
+				if (canLoad) {
+					canLoad = false;
+					static_cast<TopDownState*>(mngr_)->LoadGame();
+				}
+			}
+			else if (!isRightTriggerPressed && wasRightTriggerPressed) {
+				// El gatillo derecho se soltó en este frame
+				canLoad = true;
+			}
+		}
+
+		// Almacena si los gatillos izquierdo y derecho estaban presionados en este frame para usarlo en el siguiente frame
+		wasLeftTriggerPressed = isLeftTriggerPressed;
+		wasRightTriggerPressed = isRightTriggerPressed;
+
+		bool isSelectButtonPressed = SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_BACK);
+
+		if (isSelectButtonPressed) {
+			if (!wasSelectButtonPressed) {
+				// El botón Select se soltó en este frame
+				if (static_cast<TopDownState*>(mngr_)->getMenuQuest()) {
+					static_cast<TopDownState*>(mngr_)->setMenuQuest(false);
+				}
+				else {
+					static_cast<TopDownState*>(mngr_)->setMenuQuest(true);
+				}
+			}
+		}
+
+		// Almacena si el botón Select estaba presionado en este frame para usarlo en el siguiente frame
+		wasSelectButtonPressed = isSelectButtonPressed;
+	
 		if (SDL_GameControllerGetButton(controller,SDL_CONTROLLER_BUTTON_DPAD_DOWN) && Elements::instance()->getAir()) {
 			skin_->changeSkin("air");
 			roulet->changeplayer(1);

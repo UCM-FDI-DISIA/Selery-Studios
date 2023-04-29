@@ -37,6 +37,12 @@ private:
     bool canLoad = false;
     bool wasButtonAPressed = false;
     SoundManager* smg_=nullptr;
+    bool wasSelectButtonPressed = false;
+    bool wasLeftTriggerPressed = false;
+    bool wasRightTriggerPressed = false;
+
+    // Establece un umbral para determinar si un gatillo presionado
+    const int triggerThreshold = 16384;
 
 public:
     InputComponent(Roulette* r);
