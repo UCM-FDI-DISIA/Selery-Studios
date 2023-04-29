@@ -82,6 +82,35 @@ BeatEmUpState::BeatEmUpState(bool Boss,Entity* enemySends, string typeBoss, int 
 		AddFireBoss();
 	}
 }
+void BeatEmUpState::update() {
+	Manager::refresh();
+	Manager::update();
+	colManager_->update();
+
+	if (!boss && createdEnemies < numEnemies && cont <= 0) { //aqui salta un fallo porque esta leyendo numenemies que no es fijo, se reduce cuando matas a un enemigo y si matas a un enemigo antes de que se genere otro dejan de generarse
+		AddEnemy();
+		cont = timeToGenerate;
+		createdEnemies++;
+		numEnemies++;
+	}
+	cont--;
+
+	camRect_.x = (trans_player_->getPos().getX() + camOffset_) - WIN_WIDTH / 2;
+	camRect_.x = camRect_.x + ((trans_player_->getPos().getX() + camOffset_ - camRect_.x) - WIN_WIDTH / 2) * 0.05;
+	camRect_.y = 0;
+
+	if (camRect_.x < 0 || typeBoss_ == "water" || typeBoss_ == "fire") {
+		camRect_.x = 0;
+	}
+	if (Shakemyass) {
+		camRect_.x += 10;
+		Shakemyass = false;
+	}
+	else if (camRect_.x > BACKGROUNDBEU_WIDTH - WIN_WIDTH) {
+		camRect_.x = BACKGROUNDBEU_WIDTH - WIN_WIDTH;
+	}
+}
+
 
 void BeatEmUpState::AddEnemy() {
 	int character = random->nextInt(0, 4);
@@ -171,7 +200,9 @@ void BeatEmUpState::AddFireBoss() {
 }
 
 void BeatEmUpState::AddEarthBoss() {
-	numEnemies = 1;
+	numEnemies = 1; 
+	double upperLimit = WIN_HEIGHT / 4; // Define el límite superior
+	double lowerLimit = WIN_HEIGHT / 2;
 	//Vector2D pos = { WIN_WIDTH , WIN_HEIGHT / 2 };
 	Vector2D pos = Vector2D(sdlutils().width() * 3 / 4 - WATERBOSS_WIDTH, sdlutils().height() / 2);
 	earthBoss_ = new Entity();
@@ -181,7 +212,7 @@ void BeatEmUpState::AddEarthBoss() {
 	earthBoss_->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(150, 120), (EARTHBOSS_HEIGHT * 2) - 240, (EARTHBOSS_WIDTH * 2) - 300);
 	earthBoss_->addComponent<PointOfFightComponent>(POINTOFFIGHTCOMPONENT_H, 60, 140);
 	AnimationEarthBossComponent* earthAnim = earthBoss_->addComponent<AnimationEarthBossComponent>(ANIMATIONEARTHBOSSCOMPONENT_H);
-	earthBoss_->addComponent<MovementEarthBossComponent>(MOVEMENTEARTHBOSSCOMPONENT_H, player_);
+	earthBoss_->addComponent<MovementEarthBossComponent>(MOVEMENTEARTHBOSSCOMPONENT_H, player_, upperLimit, lowerLimit);
 	earthBoss_->addComponent<AttackEarthBossComponent>(ATTACKEARTHBOSSCOMPONENT_H);
 	earthBoss_->addComponent<LifeEarthBossComponent>(LIFEEARTHBOSSCOMPONENT_H);
 	earthBoss_->addComponent<AttackBoxComponent>(ATTACKBOXCOMPONENT_H);
@@ -264,37 +295,6 @@ void BeatEmUpState::finishBEU() {
 string BeatEmUpState::getStateID() {
 	return "BeatEmUpState";
 }
-
-void BeatEmUpState::update() {
-	Manager::refresh();
-	Manager::update();
-	colManager_->update();
-
-	if (!boss && createdEnemies < numEnemies && cont <= 0) { //aqui salta un fallo porque esta leyendo numenemies que no es fijo, se reduce cuando matas a un enemigo y si matas a un enemigo antes de que se genere otro dejan de generarse
-		AddEnemy();
-		cont = timeToGenerate;
-		createdEnemies++;
-		numEnemies++;
-	}
-	cont--;
-
-	camRect_.x = (trans_player_->getPos().getX() + camOffset_) - WIN_WIDTH / 2;
-	camRect_.x = camRect_.x + ((trans_player_->getPos().getX() + camOffset_ - camRect_.x) - WIN_WIDTH / 2) * 0.05;
-	camRect_.y = 0;
-
-	if (camRect_.x < 0 || typeBoss_ == "water"||typeBoss_=="fire") {
-		camRect_.x = 0;
-	}
-	if (Shakemyass) {
-		camRect_.x += 10;
-		Shakemyass = false;
-	}
-	else if (camRect_.x > BACKGROUNDBEU_WIDTH - WIN_WIDTH) {
-		camRect_.x = BACKGROUNDBEU_WIDTH - WIN_WIDTH;
-	}
-}
-
-
 
 void BeatEmUpState::Background(string file) {
 	Entity* e = new Entity();

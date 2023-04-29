@@ -249,7 +249,7 @@ void InputComponentBEU::handleEvents(SDL_Event event) {
 	}
 	else if (ih().isKeyJustUp(SDL_SCANCODE_P) || !ih().isGamePadButtonDown(SDL_CONTROLLER_BUTTON_Y)) alreadyPressedSpecial = false;
 
-	if (ih().isKeyJustDown(SDL_SCANCODE_E)) {
+	if (ih().isKeyJustDown(SDL_SCANCODE_E) || !ih().isGamePadButtonDown(SDL_CONTROLLER_BUTTON_B)) {
 		if (!alreadyPressed2 && earthStage3 && !ent_->hasComponent(THROWABLEOBJECT_H)) { // Recogida de piedras en el stage 3 del boss de tierra
 			for (auto it : mngr_->getEntities()) {
 				if (it->hasComponent(OBJECTSCOMPONENT_H) && it->getComponent<ObjectsComponent>(OBJECTSCOMPONENT_H)->getInRange()) {

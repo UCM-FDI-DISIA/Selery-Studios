@@ -70,7 +70,7 @@ private:
 	float camOffset_ = WIN_WIDTH/3;
 	float enemy_width=0, enemy_height=0;
 	float scale;
-	
+
 	//HUD
 	Entity* Hud_;
 	Roulette* roulete;
