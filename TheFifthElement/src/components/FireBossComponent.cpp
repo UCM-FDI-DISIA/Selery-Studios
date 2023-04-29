@@ -68,7 +68,14 @@ void FireBossComponent::update() {
 	
 
 
-	if (new_pos.getY() < 330 || new_pos.getY() > WIN_HEIGHT-FIREBOSS_HEIGHT/2) velocity_y = 0;
+	int upper_limit = WIN_HEIGHT/4; // Nuevo límite superior
+	int lower_limit = WIN_HEIGHT/2; // Nuevo límite inferior
+
+	if (new_pos.getY() < upper_limit || new_pos.getY() > lower_limit) velocity_y = 0;
+	
+	//Así estaba antes:
+	//if (new_pos.getY() < 330 || new_pos.getY() > WIN_HEIGHT - FIREBOSS_HEIGHT / 2) velocity_y = 0;
+
 	Vector2D v{ velocity_x,velocity_y };
 	my_transform->setPos(my_transform->getPos() + v);
 	 cout << (abs(my_transform->getPos().getX() * my_transform->getS() - trans_player->getPos().getX() * trans_player->getS())) << endl;
