@@ -92,8 +92,10 @@ void InputComponent::handleEvents(SDL_Event event)
 			mov_->setDir(Vector2D(0, 0));
 			skin_->changeState(SkinComponent::Idle);
 		}
-		if (SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_A) && !dialog->getopenedShop()) {
 
+		bool isButtonAPressed = SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_A);
+
+		if (isButtonAPressed && !dialog->getopenedShop()) {
 			if (canTalk) {
 				canTalk = false;
 				mov_->setDir(Vector2D(0, 0));
@@ -104,6 +106,13 @@ void InputComponent::handleEvents(SDL_Event event)
 				actionDelay = 0;
 			}
 		}
+		else if (!isButtonAPressed && wasButtonAPressed) {
+			// El botónse soltó en este frame
+			// El que inventó SDL, seguro que era judío
+			canTalk = true;
+		}
+
+		wasButtonAPressed = isButtonAPressed;
 		if (SDL_GameControllerGetButton(controller,SDL_CONTROLLER_BUTTON_DPAD_DOWN) && Elements::instance()->getAir()) {
 			skin_->changeSkin("air");
 			roulet->changeplayer(1);

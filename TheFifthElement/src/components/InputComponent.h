@@ -35,6 +35,7 @@ private:
     bool canTalk = false;
     bool canSave = false;
     bool canLoad = false;
+    bool wasButtonAPressed = false;
     SoundManager* smg_=nullptr;
 
 public:
