@@ -264,6 +264,7 @@
     {"id": "treasure", "file": "assets/Scenes/Maps/GrassLand/Props/treasure chest lvl 3-opening animation-standard style.png"},
     {"id": "treasureBlue", "file": "assets/Scenes/Maps/GrassLand/Props/treasure chest lvl 2-closing animation.png"},
     {"id": "tree", "file": "assets/Scenes/Maps/GrassLand/Props/Animated Tree1.png"},
+    {"id": "tree2", "file": "assets/Scenes/Maps/GrassLand/Props/Animated Tree2.png"},
     {"id": "shine", "file": "assets/Scenes/Maps/GrassLand/Props/shrine2-available.png"},
     {"id": "coin", "file": "assets/HUD/coin.png"},
     {"id": "WaterAvatar", "file": "assets/HUD/tienda/water_priestess.png"},

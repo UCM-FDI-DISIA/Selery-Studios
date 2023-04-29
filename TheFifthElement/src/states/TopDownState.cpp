@@ -302,8 +302,7 @@ void TopDownState::LoadMap(string const& filename) {
                     /*auto a = new ColliderTileInteraction(Vector2D(rect.left, rect.top), rect.width, rect.height, player_, obj.getUID(), puzzle1);
                     interactions_.push_back(a);*/
                 }
-                else if (name == "Player") {
-                    // PLAYER
+                else if (name == "Player") { // PLAYER
                     player_ = new Entity();
                     player_->setContext(this);
                     trans_player_ = player_->addComponent<Transform>(TRANSFORM_H, Vector2D((obj.getPosition().x * 2.5), obj.getPosition().y * 2.5), PLAYERTD_WIDTH_FRAME, PLAYERTD_HEIGHT_FRAME);
@@ -323,7 +322,6 @@ void TopDownState::LoadMap(string const& filename) {
                     life_ = Hud_->addComponent<LifeTD>(LIFETDCOMPONENT_H);
                     economyComp_ = Hud_->addComponent<EconomyComponent>(ECONOMYCOMPONENT_H);
                     shopComp_ = player_->addComponent<ShopComponent>(SHOPCOMPONENT_H, economyComp_, damage_, life_);
-
                 }
                 else if (name == "NPC") {
                     contnpc++; 
@@ -357,6 +355,17 @@ void TopDownState::LoadMap(string const& filename) {
                     pruebaCollider->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(0, 0), obj.getAABB().height, obj.getAABB().width);
                     addEntity(pruebaCollider);
                     idSector++;
+                }
+                else if (name == "Anims") {
+                    Entity* anim = addEntity();
+                    anim->addComponent<Transform>(TRANSFORM_H, Vector2D((obj.getPosition().x * 2.5), obj.getPosition().y * 2.5), 128*1.5, 192*1.5);
+                    
+                    if (obj.getType() == "tree") {
+                        anim->addComponent<FramedImage>(FRAMEDIMAGE_H, &sdlutils().images().at("tree"), 128, 192, 8);
+                    }
+                    else if (obj.getType() == "tree2") {
+                        anim->addComponent<FramedImage>(FRAMEDIMAGE_H, &sdlutils().images().at("tree2"), 128, 192, 8);
+                    }
                 }
                 else if (name == "BossLuz")
                 {

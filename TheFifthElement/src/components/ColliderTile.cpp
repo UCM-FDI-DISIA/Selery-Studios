@@ -1,24 +1,24 @@
 #include "ColliderTile.h"
 #include "InputComponent.h"
+
 ColliderTile::ColliderTile(vector<Entity*> colisions) :Component() {
 	this->colisions = colisions;
-	
-
 }
-ColliderTile::~ColliderTile() 
-{
+
+ColliderTile::~ColliderTile() {
 	delete colision;
 	delete player;
 	delete area;
 }
+
 void ColliderTile::initComponent() {
 	trans_player = ent_->getComponent<Transform>(TRANSFORM_H);
 	input = ent_->getComponent<InputComponent>(INPUTCOMPONENT_H);
 	colision = new SDL_Rect();
 	player = new SDL_Rect();
 	area = new SDL_Rect();
-	
 }
+
 void ColliderTile::update() {
 
 	player->x = trans_player->getPos().getX();
