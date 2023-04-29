@@ -2,6 +2,7 @@
 #include "../Game.h"
 EndState::EndState()
 {
+	
 	//PARA EL TEXTO:
 	//carga el tipo de letra
 	font_ = &SDLUtils::instance()->fonts().at("TCentury");
@@ -30,7 +31,7 @@ EndState::EndState()
 	// Creacion de los botones
 	createButtons();
 	//musica 
-	//SDLUtils::instance()->soundEffects().at("Menu").play();
+	SDLUtils::instance()->soundEffects().at("Title").play(-1);
 
 }
 //destructor

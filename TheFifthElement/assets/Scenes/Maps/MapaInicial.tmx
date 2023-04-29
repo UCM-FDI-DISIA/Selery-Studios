@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.9" tiledversion="1.9.2" orientation="orthogonal" renderorder="right-down" width="499" height="344" tilewidth="16" tileheight="16" infinite="0" nextlayerid="63" nextobjectid="1280">
+<map version="1.10" tiledversion="1.10.1" orientation="orthogonal" renderorder="right-down" width="499" height="344" tilewidth="16" tileheight="16" infinite="0" nextlayerid="63" nextobjectid="1311">
  <editorsettings>
   <export target="../../../../../Users/Agustin Castro/Downloads/MapaInicial..tmx" format="tmx"/>
  </editorsettings>
@@ -2582,7 +2582,7 @@
   <object id="1155" x="1973.94" y="1836.36">
    <point/>
   </object>
-  <object id="1156" x="2012.36" y="1952.61">
+  <object id="1156" x="2028.36" y="1912.61">
    <point/>
   </object>
   <object id="1157" x="2117.94" y="1946.3">
@@ -2609,6 +2609,39 @@
   <object id="1164" x="4760" y="2968">
    <point/>
   </object>
+  <object id="1292" x="3121.33" y="1446.67">
+   <point/>
+  </object>
+  <object id="1293" x="3669.33" y="1502.67">
+   <point/>
+  </object>
+  <object id="1294" x="4266.67" y="1654.67">
+   <point/>
+  </object>
+  <object id="1295" x="4800" y="1786.67">
+   <point/>
+  </object>
+  <object id="1296" x="5212" y="1558.67">
+   <point/>
+  </object>
+  <object id="1297" x="5760" y="1790.67">
+   <point/>
+  </object>
+  <object id="1306" x="4912" y="3254">
+   <point/>
+  </object>
+  <object id="1307" x="5726" y="2988">
+   <point/>
+  </object>
+  <object id="1308" x="1990" y="3828">
+   <point/>
+  </object>
+  <object id="1309" x="6322" y="1748">
+   <point/>
+  </object>
+  <object id="1310" x="1888" y="1498">
+   <point/>
+  </object>
  </objectgroup>
  <objectgroup id="60" name="Herreros">
   <object id="1208" x="2086.3" y="2856.36">
@@ -2618,7 +2651,7 @@
    <point/>
   </object>
  </objectgroup>
- <objectgroup id="61" name="Enemy" visible="0">
+ <objectgroup id="61" name="Enemy">
   <object id="1210" x="3988" y="3209.33">
    <point/>
   </object>
@@ -2634,7 +2667,7 @@
   <object id="1214" x="3356" y="3107.88">
    <point/>
   </object>
-  <object id="1215" x="2032" y="1972">
+  <object id="1215" x="1974" y="2027">
    <point/>
   </object>
   <object id="1216" x="2324" y="2244">
@@ -2671,6 +2704,18 @@
    <point/>
   </object>
   <object id="1227" x="3752" y="1636">
+   <point/>
+  </object>
+  <object id="1280" name="BossEarth" x="5964" y="2913.33">
+   <point/>
+  </object>
+  <object id="1281" name="BossFire" x="1946.67" y="4022.67">
+   <point/>
+  </object>
+  <object id="1283" name="BossWater" x="6330.67" y="1417.33">
+   <point/>
+  </object>
+  <object id="1284" x="2141.5" y="1630.5">
    <point/>
   </object>
  </objectgroup>

@@ -369,7 +369,7 @@ void TopDownState::LoadMap(string const& filename) {
                     addEntity(boss_);
                 }
                 if (!loadGame) { //carga
-                     if (name == "Enemy") {
+                    if (name == "Enemy") {
                         if (obj.getName() == "" && !loadGame) {
                             enemy_ = new Entity();
                             enemy_->setContext(this);
@@ -383,7 +383,6 @@ void TopDownState::LoadMap(string const& filename) {
                             enemy_->addComponent<CheckCollision>(CHECKCOLLISION_H, player_, lookingRange, lookingWidth, a);
                             enemy_->addComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
                             enemy_->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(0, 0), enemy_height, enemy_width);
-
                             addEntity(enemy_);
                             enemies_.push_back(enemy_);
                         }
@@ -423,43 +422,58 @@ void TopDownState::LoadMap(string const& filename) {
                             redirect_->addComponent<RedirectEnemy>(REDIRECTENEMY_H, Vector2D(0, 1), redBox_, enemies_);
                             addEntity(redirect_);
                         }
+
+                        else if (obj.getName() == "BossWater") {
+                            //PARA CREAR EL RESTO DE BOSSES AÑADIR AL TILEMAP (EN LA CAPA DE ENEMY) UN ENEMIGO NUEVO Y MODIFICAR SU NOMBRE
+                            enemy_ = new Entity();
+                            enemy_->setContext(this);
+                            enemy_->addComponent<Transform>(TRANSFORM_H, Vector2D(obj.getPosition().x * 2.5, obj.getPosition().y * 2.5), WATERBOSS_WIDTH, WATERBOSS_HEIGHT, 2);
+                            enemy_->addComponent<FramedImage>(FRAMEDIMAGE_H, &sdlutils().images().at("waterBoss_idle"), WATERBOSS_WIDTH, WATERBOSS_HEIGHT, 6);
+                            float a = 1.0f;
+                            float lookingRange = 50.0f;
+                            float lookingWidth = -40;
+                            enemy_->addComponent<Enemy_movementTD_component>(ENEMY_MOVEMENT_TD_H, "boss");
+                            enemy_->addComponent<CheckCollision>(CHECKCOLLISION_H, player_, lookingRange, lookingWidth, a, -300, "water");
+                            addEntity(enemy_);
+                            enemies_.push_back(enemy_);
+                        }
+                        else if (obj.getName() == "BossEarth") {
+                            //PARA CREAR EL RESTO DE BOSSES AÑADIR AL TILEMAP (EN LA CAPA DE ENEMY) UN ENEMIGO NUEVO Y MODIFICAR SU NOMBRE
+                            enemy_ = new Entity();
+                            enemy_->setContext(this);
+                            enemy_->addComponent<Transform>(TRANSFORM_H, Vector2D(obj.getPosition().x * 2.5, obj.getPosition().y * 2.5), EARTHBOSS_HEIGHT, EARTHBOSS_HEIGHT, 2);
+                            enemy_->addComponent<FramedImage>(FRAMEDIMAGE_H, &sdlutils().images().at("GolemFase1_idle"), EARTHBOSS_WIDTH, EARTHBOSS_HEIGHT, 6);
+                            float a = 1.0f;
+                            float lookingRange = 50.0f;
+                            float lookingWidth = -40;
+                            enemy_->addComponent<Enemy_movementTD_component>(ENEMY_MOVEMENT_TD_H, "boss");
+                            enemy_->addComponent<CheckCollision>(CHECKCOLLISION_H, player_, lookingRange, lookingWidth, a, -300, "earth");
+                            addEntity(enemy_);
+                            enemies_.push_back(enemy_);
+                        }
+                        else if (obj.getName() == "BossFire") {
+                            //PARA CREAR EL RESTO DE BOSSES AÑADIR AL TILEMAP (EN LA CAPA DE ENEMY) UN ENEMIGO NUEVO Y MODIFICAR SU NOMBRE
+                            enemy_ = new Entity();
+                            enemy_->setContext(this);
+                            enemy_->addComponent<Transform>(TRANSFORM_H, Vector2D(obj.getPosition().x * 2.5, obj.getPosition().y * 2.5), EARTHBOSS_HEIGHT, EARTHBOSS_HEIGHT, 2);
+                            enemy_->addComponent<FramedImage>(FRAMEDIMAGE_H, &sdlutils().images().at("GolemFase1_idle"), EARTHBOSS_WIDTH, EARTHBOSS_HEIGHT, 6);
+                            float a = 1.0f;
+                            float lookingRange = 50.0f;
+                            float lookingWidth = -40;
+                            enemy_->addComponent<Enemy_movementTD_component>(ENEMY_MOVEMENT_TD_H, "boss");
+                            enemy_->addComponent<CheckCollision>(CHECKCOLLISION_H, player_, lookingRange, lookingWidth, a, -300, "earth");
+                            addEntity(enemy_);
+                            enemies_.push_back(enemy_);
+                        }
                     }
-                    else if (obj.getName() == "water") {
-                        //PARA CREAR EL RESTO DE BOSSES AÑADIR AL TILEMAP (EN LA CAPA DE ENEMY) UN ENEMIGO NUEVO Y MODIFICAR SU NOMBRE
-                        enemy_ = new Entity();
-                        enemy_->setContext(this);
-                        enemy_->addComponent<Transform>(TRANSFORM_H, Vector2D(obj.getPosition().x, obj.getPosition().y), WATERBOSS_WIDTH, WATERBOSS_HEIGHT, 2);
-                        enemy_->addComponent<FramedImage>(FRAMEDIMAGE_H, &sdlutils().images().at("waterBoss_idle"), WATERBOSS_WIDTH, WATERBOSS_HEIGHT, 6);
-                        float a = 1.0f;
-                        float lookingRange = 50.0f;
-                        float lookingWidth = -40;
-                        enemy_->addComponent<Enemy_movementTD_component>(ENEMY_MOVEMENT_TD_H, "boss");
-                        enemy_->addComponent<CheckCollision>(CHECKCOLLISION_H, player_, lookingRange, lookingWidth, a, -300, "water");
-                        addEntity(enemy_);
-                        enemies_.push_back(enemy_);
+                    else if (name == "Portal") {
+                        Entity* portal_ = new Entity();
+                        portal_->setContext(this);
+                        portal_->addComponent<Transform>(TRANSFORM_H, Vector2D((obj.getPosition().x * 2.5), obj.getPosition().y * 2.5), PORTAL_WIDTH, PORTAL_HEIGHT);
+                        portal_->addComponent<FramedImage>(FRAMEDIMAGE_H, &SDLUtils::instance()->images().at("portal"), PORTAL_WIDTH, PORTAL_HEIGHT, 1);
+                        portal_->addComponent<PortalComponent>(PORTALCOMPONENT_H, trans_player_);
+                        addEntity(portal_);
                     }
-                    else if (obj.getName() == "earth") {
-                        //PARA CREAR EL RESTO DE BOSSES AÑADIR AL TILEMAP (EN LA CAPA DE ENEMY) UN ENEMIGO NUEVO Y MODIFICAR SU NOMBRE
-                        enemy_ = new Entity();
-                        enemy_->setContext(this);
-                        enemy_->addComponent<Transform>(TRANSFORM_H, Vector2D(obj.getPosition().x, obj.getPosition().y), EARTHBOSS_HEIGHT, EARTHBOSS_HEIGHT, 2);
-                        enemy_->addComponent<FramedImage>(FRAMEDIMAGE_H, &sdlutils().images().at("GolemFase1_idle"), EARTHBOSS_WIDTH, EARTHBOSS_HEIGHT, 6);
-                        float a = 1.0f;
-                        float lookingRange = 50.0f;
-                        float lookingWidth = -40;
-                        enemy_->addComponent<Enemy_movementTD_component>(ENEMY_MOVEMENT_TD_H, "boss");
-                        enemy_->addComponent<CheckCollision>(CHECKCOLLISION_H, player_, lookingRange, lookingWidth, a, -300, "earth");
-                        addEntity(enemy_);
-                        enemies_.push_back(enemy_);
-                    }
-                }
-                else if (name == "Portal") {
-                    Entity* portal_ = new Entity();
-                    portal_->setContext(this);
-                    portal_->addComponent<Transform>(TRANSFORM_H, Vector2D((obj.getPosition().x * 2.5), obj.getPosition().y * 2.5), PORTAL_WIDTH, PORTAL_HEIGHT);
-                    portal_->addComponent<FramedImage>(FRAMEDIMAGE_H, &SDLUtils::instance()->images().at("portal"), PORTAL_WIDTH, PORTAL_HEIGHT, 1);
-                    portal_->addComponent<PortalComponent>(PORTALCOMPONENT_H, trans_player_);
-                    addEntity(portal_);
                 }
             }
         }

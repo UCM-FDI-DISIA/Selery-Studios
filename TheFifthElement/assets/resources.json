@@ -24,10 +24,10 @@
     {"id": "5","text": "Hola hermano $ si te ha llegado esta carta significa $ que estoy muerto. $ Se que tras todo lo que sucedio $ no esperabas vovler a saber de mi $ se que no va a ser facil,$ pero me gustaria, $ poder reuniros a todos en mi funeral $ reune a tus hermanos luchando$ contra los monstruos $ y convenceles..... $ para que se unan a tu lucha $ por cierto habla con los aldeanos ellos te ayudaran."},
 
     {"id": "4","text": "Bienvenide a mi tienda "},
-    {"id": "30","text": "Se rumorea que este golem es fragil $ y deja caer su armadura cuando recibe danoww $ quizas puedas usar su armadura contra el."},
-    {"id": "31","text": "Este demonio infernal lleva decadas $ incubando y regernerandose gracias $ a los pilares infernales $ que tiene en su guarida, $ ten en cuenta esto para la batalla."}
-    {"id": "32","text": "Este gigante de hielo en sus ratos libre $ da forma cuadrada $ a bloques de hielo gigantes $ ten cuidado por si decido usarlos, $ contra ti. $ Ademas los aldeanos se quejan $ de la lluvia de carambanos $ que este gigante produce $ cuando esta cabreado, $ ten cuidado."}
-    {"id": "33","text": "Esta lucha sera dificil, $ luz usara su arco celestial $ para daros caza, $ cuidado con sus flechas."}
+    {"id": "23","text": "Se rumorea que este golem es fragil $ y deja caer su armadura cuando recibe dano $ quizas puedas usar su armadura contra el."},
+    {"id": "24","text": "Este demonio infernal lleva decadas $ incubando y regernerandose gracias $ a los pilares infernales $ que tiene en su guarida, $ ten en cuenta esto para la batalla."},
+    {"id": "25","text": "Este gigante de hielo en sus ratos libre $ da forma cuadrada $ a bloques de hielo gigantes $ ten cuidado por si decido usarlos, $ contra ti. $ Ademas los aldeanos se quejan $ de la lluvia de carambanos $ que este gigante produce $ cuando esta cabreado, $ ten cuidado."},
+    {"id": "26","text": "Esta lucha sera dificil, $ luz usara su arco celestial $ para daros caza, $ cuidado con sus flechas."}
    ],
    
   "fonts": [
