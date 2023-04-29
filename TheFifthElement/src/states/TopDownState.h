@@ -9,7 +9,6 @@
 #include "../include/SDL_mixer.h"
 #include "../components/PortalComponent.h"
 #include "../components/ColliderTile.h"
-#include "../components/CollideTileInteraction.h"
 #include "../PuzzleCopas.h"
 #include "../components/NPCcollisioncomponent.h"
 #include "../components/Transform.h"
@@ -67,7 +66,6 @@ private:
 	//SDL_Texture* background_;
 	MapInfo mapInfo;	//struct
 	vector<bool> sectors{ true,false,false,false };
-	Entity* pruebaCollider;
 	int idSector = 0;
 	//PLAYER 
 	Entity* player_;
@@ -106,7 +104,7 @@ private:
 
 	//COLISIONES TILE-PLAYER
 	vector<Entity*> collisions_; //vector colision player-mapa
-	vector<ColliderTileInteraction*> interactions_; //vector colision player-mapa
+	//vector<ColliderTileInteraction*> interactions_; //vector colision player-mapa
 	float camOffset_ = 60.0f;
 	ColliderTile* ColideTileComponent;
 	int fondowidth_, fondoheight_;
@@ -130,15 +128,6 @@ private:
 	Transform* exitShopButtonTr_;
 	Button* exitShopButtonComp_;
 
-	//void actSectors(int idChange, bool nowValue)
-	//{
-	//	if (sectors[idChange] != nowValue)
-	//	{
-	//		sectors[idChange] = nowValue;
-	//		printMap();
-	//	}
-	//	//printMap();
-	//}
 	bool saved = false;
 	bool loaded = false;
 	bool shopCreated_ = false;

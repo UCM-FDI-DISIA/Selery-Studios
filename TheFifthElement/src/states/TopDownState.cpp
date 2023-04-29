@@ -130,9 +130,6 @@ void TopDownState::render() {
     SDL_Rect src = { 0, 0, fondowidth_, fondoheight_ };
 
     SDL_RenderCopy(Gm_->getRenderer(), background_0, &src, &dst);
-    for (auto p : interactions_) {
-        p->render();
-    }
     //MINIMAPA
     Vector2D scale = { (WIN_WIDTH / 900.0f), (WIN_HEIGHT / 600.0f) };
     Vector2D scalePlayer = { ((float)fondowidth_ / mapFrameX_)/speedMinMap_, ((float)fondoheight_ / mapFrameY_) /speedMinMap_ };
@@ -301,6 +298,9 @@ void TopDownState::LoadMap(string const& filename) {
                 else if (name == "Interacctions") {
                     /*auto a = new ColliderTileInteraction(Vector2D(rect.left, rect.top), rect.width, rect.height, player_, obj.getUID(), puzzle1);
                     interactions_.push_back(a);*/
+                    Entity* puzzle = new Entity();
+                    puzzle->addComponent<Transform>(TRANSFORM_H, Vector2D((obj.getPosition().x * 2.5), obj.getPosition().y * 2.5), PLAYERTD_WIDTH_FRAME, PLAYERTD_HEIGHT_FRAME);
+
                 }
                 else if (name == "Player") { // PLAYER
                     player_ = new Entity();
@@ -346,16 +346,6 @@ void TopDownState::LoadMap(string const& filename) {
                     addEntity(Blacksmith_);
 
                 }
-                else if (name == "pruebas")
-                {
-                    pruebaCollider = new Entity();
-                    pruebaCollider->setContext(this);
-                    pruebaCollider->addComponent<Transform>(TRANSFORM_H, Vector2D((obj.getPosition().x * 2.5), obj.getPosition().y * 2.5), obj.getAABB().width, obj.getAABB().height);
-                    //pruebaCollider->addComponent <SectorCollisionComponent>(SECTORCOLLISIONCOMPONENT_H, player_, idSector);
-                    pruebaCollider->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(0, 0), obj.getAABB().height, obj.getAABB().width);
-                    addEntity(pruebaCollider);
-                    idSector++;
-                }
                 else if (name == "Anims") {
                     Entity* anim = addEntity();
                     anim->addComponent<Transform>(TRANSFORM_H, Vector2D((obj.getPosition().x * 2.5), obj.getPosition().y * 2.5), 128*1.5, 192*1.5);
@@ -367,16 +357,7 @@ void TopDownState::LoadMap(string const& filename) {
                         anim->addComponent<FramedImage>(FRAMEDIMAGE_H, &sdlutils().images().at("tree2"), 128, 192, 8);
                     }
                 }
-                else if (name == "BossLuz")
-                {
-                    boss_ = new Entity();
-                    boss_->setContext(this);
-                    boss_->addComponent<Transform>(TRANSFORM_H, Vector2D((obj.getPosition().x * 2.5), obj.getPosition().y * 2.5), 600, 400);
-                    boss_->addComponent<FramedImage>(IMAGE_H, bossLuzTexture(), LIGHTBOSS_TP_WIDTH, LIGHTBOSS_TP_HEIGHT, LIGHTBOSS_TP_FRAMES);
-                    boss_->addComponent<BossCollision>(BOSSCOLLISION_H, player_, "light");
-                    boss_->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(0, 0), 288, 188);
-                    addEntity(boss_);
-                }
+               
                 if (!loadGame) { //carga
                     if (name == "Enemy") {
                         if (obj.getName() == "" && !loadGame) {
@@ -470,9 +451,19 @@ void TopDownState::LoadMap(string const& filename) {
                             float lookingRange = 50.0f;
                             float lookingWidth = -40;
                             enemy_->addComponent<Enemy_movementTD_component>(ENEMY_MOVEMENT_TD_H, "boss");
-                            enemy_->addComponent<CheckCollision>(CHECKCOLLISION_H, player_, lookingRange, lookingWidth, a, -300, "earth");
+                            enemy_->addComponent<CheckCollision>(CHECKCOLLISION_H, player_, lookingRange, lookingWidth, a, -300, "fire");
                             addEntity(enemy_);
                             enemies_.push_back(enemy_);
+                        }
+                        else if (name == "BossLight")
+                        {
+                            boss_ = new Entity();
+                            boss_->setContext(this);
+                            boss_->addComponent<Transform>(TRANSFORM_H, Vector2D((obj.getPosition().x * 2.5), obj.getPosition().y * 2.5), 600, 400);
+                            boss_->addComponent<FramedImage>(IMAGE_H, bossLuzTexture(), LIGHTBOSS_TP_WIDTH, LIGHTBOSS_TP_HEIGHT, LIGHTBOSS_TP_FRAMES);
+                            boss_->addComponent<BossCollision>(BOSSCOLLISION_H, player_, "light");
+                            boss_->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(0, 0), 288, 188);
+                            addEntity(boss_);
                         }
                     }
                     else if (name == "Portal") {
