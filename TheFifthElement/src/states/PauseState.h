@@ -12,6 +12,8 @@ private:
 	Entity* menuButton;
 	Entity* optionsButton;
 	Image* im_;
+	bool controladorDetectado;
+	SDL_GameController* controller;
 	
 public:
 	PauseState();
