@@ -790,5 +790,7 @@ string TopDownState::getStateID() {
 void TopDownState::desbloqueoZona() {
     UnlockedZones++;
     ColideTileComponent->DesbloqueoZona();
-    sdlutils().soundEffects().at("desbloqueo").play(0, 0);
+    SoundEffect* s = &sdlutils().soundEffects().at("desbloqueo"); 
+    (*s).setVolume(25);  
+    (*s).play();
 }
