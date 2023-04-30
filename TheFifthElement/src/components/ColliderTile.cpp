@@ -22,8 +22,8 @@ void ColliderTile::initComponent() {
 void ColliderTile::update() {
 
 	player->x = trans_player->getPos().getX();
-	player->y = trans_player->getPos().getY();
-	player->h = trans_player->getH();
+	player->y = trans_player->getPos().getY() + 40 * WIN_HEIGHT / 600;
+	player->h = trans_player->getH() - 50 * WIN_HEIGHT / 600;
 	player->w = trans_player->getW();
 	d = -1;
 	for (auto c : colisions) {
