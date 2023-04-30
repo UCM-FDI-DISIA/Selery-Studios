@@ -363,10 +363,10 @@ void TopDownState::LoadMap(string const& filename) {
                     Entity* anim = addEntity();
                     anim->addComponent<Transform>(TRANSFORM_H, Vector2D((obj.getPosition().x * 2.5), obj.getPosition().y * 2.5), 128*1.5, 192*1.5);
                     
-                    if (obj.getType() == "tree") {
+                    if (obj.getName() == "tree") {
                         anim->addComponent<FramedImage>(FRAMEDIMAGE_H, &sdlutils().images().at("tree"), 128, 192, 8);
                     }
-                    else if (obj.getType() == "tree2") {
+                    else if (obj.getName() == "tree2") {
                         anim->addComponent<FramedImage>(FRAMEDIMAGE_H, &sdlutils().images().at("tree2"), 128, 192, 8);
                     }
                 }
