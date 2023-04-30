@@ -10,6 +10,7 @@ class Trigger : public Component
 private:
 	FramedImage* framed;
 	Transform* trans_player;
+	Transform* trans_propio;
 	SDL_Rect* colision;
 	SDL_Rect* player;
 	bool istrigger_ = false;
@@ -22,4 +23,5 @@ public:
 	bool istrigger() { return istrigger_; } //getter para el trigger
 	void setTexture();
 	void desbloqueozona();
+	void changemove(int a);
 };

@@ -104,7 +104,8 @@ private:
 	//COLISIONES TILE-PLAYER
 	vector<Entity*> collisions_; //vector colision player-mapa
 
-	vector<Entity*> puzzle_; //vector para los puzzles 
+	vector<Entity*> puzzle_; //vector para los puzzles copas
+	vector<Entity*> puzzle2_; //vector para los puzzles torres
 	float camOffset_ = 60.0f;
 	ColliderTile* ColideTileComponent;
 	int fondowidth_, fondoheight_;

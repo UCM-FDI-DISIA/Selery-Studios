@@ -1,88 +1,26 @@
 PLAYER
-500
-4587.68 3897
+550
+5052.68 7863
 1
-1 10
-0
-1 10
+1.2 10
 1
-1 10
+1.2 10
+1
+1.2 10
 
 enemy
-mushroom
+goblin
 9970 8023.33 0 0
 enemy
 goblin
 4730.9 8004.55 0 0
 enemy
-mushroom
+bat
 6458.17 8072.73 0 0
 enemy
-mushroom
+bat
 7291.53 9140.9 0 0
 enemy
-skeleton
+bat
 8390 7769.7 0 0
 enemy
-mushroom
-4935 5067.5 0 0
-enemy
-bat
-5810 5610 0 0
-enemy
-goblin
-7410 4320 0 0
-enemy
-mushroom
-8580 5375 0 0
-enemy
-bat
-11265 6825 0 0
-enemy
-bat
-13435 6480 0 0
-enemy
-bat
-12115 8945 0 0
-enemy
-goblin
-14850 9025 0 0
-enemy
-goblin
-14310 6355 0 0
-enemy
-skeleton
-6910 5290 0 0
-enemy
-goblin
-9090 4530 0 0
-enemy
-bat
-8820 4120 0 0
-enemy
-goblin
-9380 4090 0 0
-enemy
-skeleton
-14910 7283.33 0 0
-enemy
-skeleton
-4866.68 10056.7 0 0
-enemy
-skeleton
-15805 3365 0 0
-enemy
-bat
-5353.75 4076.25 0 0
-QUEST
-siblings
-Gather your siblings
-coins
--842150451 3 0
-QUEST
-villagers
-Talk to villagers
-Area unlock
--842150451 1 0
-unlockedzones 0
--1

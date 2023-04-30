@@ -39,4 +39,3 @@ public:
 	//creacion de los dos botones (replay-exit)
 	void createButtons();
 };
-

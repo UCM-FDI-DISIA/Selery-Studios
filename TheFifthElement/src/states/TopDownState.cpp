@@ -312,9 +312,20 @@ void TopDownState::LoadMap(string const& filename) {
                     Entity* puzzle = new Entity();
                     puzzle->setContext(this);
                    Transform* trans = puzzle->addComponent<Transform>(TRANSFORM_H, Vector2D((obj.getPosition().x * 2.5), obj.getPosition().y * 2.5), PLAYERTD_WIDTH_FRAME, PLAYERTD_HEIGHT_FRAME);
-                  FramedImage* frimage=  puzzle->addComponent<FramedImage>(FRAMEDIMAGE_H, &SDLUtils::instance()->images().at("Calice"), CALICES_WIDTH, CALICES_HEIGHT, CALICES_FRAMES);
-                   puzzle->addComponent<Trigger>(TRIGGER_H, obj.getName(), trans_player_, trans, frimage);
-                   puzzle_.push_back(puzzle);
+                   string name = obj.getName();
+                   
+                   FramedImage* frimage;
+                   if (name[0] == '1') {
+                       frimage = puzzle->addComponent<FramedImage>(FRAMEDIMAGE_H, &SDLUtils::instance()->images().at("Calice"), CALICES_WIDTH, CALICES_HEIGHT, CALICES_FRAMES);
+                       puzzle_.push_back(puzzle);
+
+                   }
+                   else {
+                       frimage = puzzle->addComponent<FramedImage>(FRAMEDIMAGE_H, &SDLUtils::instance()->images().at("Pilar"), 59, 131, 0);
+                       puzzle2_.push_back(puzzle);
+
+                   }
+                   puzzle->addComponent<Trigger>(TRIGGER_H, name, trans_player_, trans, frimage);
                     addEntity(puzzle);
                 }
                 else if (name == "Player") { // PLAYER
@@ -495,6 +506,7 @@ void TopDownState::LoadMap(string const& filename) {
     SDL_RenderPresent(Gm_->getRenderer());
     SDL_SetRenderTarget(Gm_->getRenderer(), nullptr);
     Puzzle1::instance()->copas(puzzle_);
+    Puzzle1::instance()->pilar(puzzle2_);
 }
 
 
