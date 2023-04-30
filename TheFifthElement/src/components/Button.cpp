@@ -23,7 +23,7 @@ void Button::update() {
 		else if (identifier == "MUTE")im_->setTexture("MuteButtonPressed");
 		else if (identifier == "EXITCONTROLS")im_->setTexture("TDControlsButtonPressed");
 		else if (identifier == "RETURN")im_->setTexture("ReturnButtonPressed");
-	
+		else if (identifier == "LOAD")im_->setTexture("LoadButtonPress");
 	}
 	else
 	{
@@ -38,6 +38,7 @@ void Button::update() {
 		else if (identifier == "MUTE")im_->setTexture("MuteButton");
 		else if (identifier == "EXITCONTROLS")im_->setTexture("TDControlsButton");
 		else if (identifier == "RETURN")im_->setTexture("ReturnButton");
+		else if (identifier == "LOAD")im_->setTexture("LoadButton");
 		currentPositionState = MOUSE_OUT;
 	}
 	updateMousePosition();
@@ -58,6 +59,11 @@ void Button::handleEvent(SDL_Event event)
 					SDLUtils::instance()->soundEffects().at("Title").haltChannel();
 					//SDLUtils::instance()->soundEffects().at("pruebaBoton").play();
 					GameManager::instance()->leaveMainMenu();
+				}
+				else if (identifier == "LOAD"){
+					SDLUtils::instance()->soundEffects().at("Title").haltChannel();
+					//SDLUtils::instance()->soundEffects().at("pruebaBoton").play();
+					GameManager::instance()->LoadGame();
 				}
 				else if (identifier == "RESUME") {
 					SDLUtils::instance()->soundEffects().at("prueba").play();

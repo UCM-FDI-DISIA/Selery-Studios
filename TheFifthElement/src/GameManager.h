@@ -34,5 +34,6 @@ public:
 	static void goPauseMenu();
 	void goOptionsMenu();
 	void Pop();
+	void LoadGame();
 
 };

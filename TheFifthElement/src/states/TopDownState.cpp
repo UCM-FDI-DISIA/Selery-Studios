@@ -3,7 +3,7 @@
 #include <fstream>
 #include "../Elements.h"
 #include "../Quests.h"
-TopDownState::TopDownState() {
+TopDownState::TopDownState(bool load = false) {
     ////HUD
     //Hud_ = new Entity();
     //Hud_->setContext(this);
@@ -13,13 +13,17 @@ TopDownState::TopDownState() {
     //economyComp_ = Hud_->addComponent<EconomyComponent>(ECONOMYCOMPONENT_H);
     //CARGAS EL MAPA
     //HUD
+    loadGame_ = load;
     Hud_ = new Entity();
     Hud_->setContext(this);
     roulete = Hud_->addComponent<Roulette>(ROULETTECOMPONENT_H);
     LoadMap("assets/Scenes/Maps/MapaInicial.tmx");
     addEntity(Hud_);  
     SDLUtils::instance()->soundEffects().at("Title").play(-1);
-    dialog_->inicombe();
+    if(!loadGame_)  dialog_->inicombe();
+    else {
+        LoadGame();
+    }
     //trans_player_->setPos({ 11668 ,547 });
 }
 
@@ -363,9 +367,9 @@ void TopDownState::LoadMap(string const& filename) {
                     }
                 }
                
-                if (!loadGame) { //carga
+                if (!loadGame_) { //carga
                     if (name == "Enemy") {
-                        if (obj.getName() == "" && !loadGame) {
+                        if (obj.getName() == "" ) {
                             enemy_ = new Entity();
                             enemy_->setContext(this);
                             Texture* enemyT_ = EnemyTexture();

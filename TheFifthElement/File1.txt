@@ -1,6 +1,6 @@
 PLAYER
 500
-4596.68 4257
+4587.68 3897
 1
 1 10
 0
@@ -9,7 +9,7 @@ PLAYER
 1 10
 
 enemy
-skeleton
+mushroom
 9970 8023.33 0 0
 enemy
 goblin
@@ -18,7 +18,7 @@ enemy
 mushroom
 6458.17 8072.73 0 0
 enemy
-goblin
+mushroom
 7291.53 9140.9 0 0
 enemy
 skeleton
@@ -27,40 +27,40 @@ enemy
 mushroom
 4935 5067.5 0 0
 enemy
-mushroom
+bat
 5810 5610 0 0
 enemy
-skeleton
+goblin
 7410 4320 0 0
 enemy
-bat
+mushroom
 8580 5375 0 0
 enemy
 bat
 11265 6825 0 0
 enemy
-skeleton
+bat
 13435 6480 0 0
 enemy
 bat
 12115 8945 0 0
 enemy
-skeleton
+goblin
 14850 9025 0 0
 enemy
-skeleton
+goblin
 14310 6355 0 0
 enemy
-mushroom
+skeleton
 6910 5290 0 0
 enemy
-bat
+goblin
 9090 4530 0 0
 enemy
 bat
 8820 4120 0 0
 enemy
-bat
+goblin
 9380 4090 0 0
 enemy
 skeleton
@@ -72,17 +72,17 @@ enemy
 skeleton
 15805 3365 0 0
 enemy
-goblin
+bat
 5353.75 4076.25 0 0
 QUEST
-hermanos
-Reune a tus hermanos
-monedas
-300 3 0
+siblings
+Gather your siblings
+coins
+-842150451 3 0
 QUEST
-aldeanos
-Habla con aldeanos
-Desbloqueo de zona
+villagers
+Talk to villagers
+Area unlock
 -842150451 1 0
 unlockedzones 0
 -1

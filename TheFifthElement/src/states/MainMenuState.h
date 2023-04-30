@@ -13,6 +13,7 @@ private:
 	Entity* exitButton;
 	Entity* optionsButton;
 	Entity* slider;
+	Entity* loadButton;
 	
 public:
 	MainMenuState();

@@ -326,6 +326,8 @@
     {"id": "BEUControls", "file": "assets/HUD/Menu/BEUControls.png"},
     {"id": "controlPanel", "file": "assets/Scenes/Backgrounds/Pausa/Buttons/PapiroPlex.png"},
     {"id": "slider", "file": "assets/HUD/Menu/slider.png"},
+    {"id": "LoadButton", "file": "assets/Scenes/Backgrounds/Menu/Buttons/LoadButton.png"},
+     {"id": "LoadButtonPress", "file": "assets/Scenes/Backgrounds/Menu/Buttons/LoadButtonPress.png"},
 
     {"id": "TDLightBoss", "file": "assets/Enemies/BeatEmUp/Bosses/LightBoss/animations/PNG/idle/idle_1.png"},
     {"id": "BEULightBossIdle", "file": "assets/Enemies/BeatEmUp/Bosses/LightBoss/animations/spritesheets/idle.png"},

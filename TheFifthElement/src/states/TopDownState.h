@@ -131,7 +131,7 @@ private:
 	bool saved = false;
 	bool loaded = false;
 	bool shopCreated_ = false;
-	bool loadGame = false;
+	bool loadGame_ = false;
 	bool questsMenu = false;
 	// MINIMAPA
 	Texture* m_ = &SDLUtils::instance()->images().at("mapFrame");
@@ -148,7 +148,7 @@ private:
 	int UnlockedZones = 0;
 public:
 	string getStateID(); // stringID
-	TopDownState();	
+	TopDownState(bool load);
 	~TopDownState();
 	void LoadMap(string const& filename);
 	void LoadGame();
