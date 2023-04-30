@@ -260,8 +260,7 @@ void BeatEmUpState::handleEvents() {
 
 void BeatEmUpState::finishBEU() {
 	numEnemies -= 1;
-	if (numEnemies <= 0)
-	{		
+	if (numEnemies <= 0) {		
 		// DESBLOQUEO DE PERSONAJES
 		if (boss) {
 			if (typeBoss_ == "water") Elements::instance()->setWater();

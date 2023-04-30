@@ -45,10 +45,6 @@ void TopDownState::update() {
         SaveGame();
         startTime = SDLUtils::instance()->currRealTime();
     }
-    if (desbloqueoDeZona) {
-        SDLUtils::instance()->soundEffects().at("Desbloqueo").play();
-        desbloqueoDeZona = false;
-    }
     Vector2D savedPos = Saving::instance()->getPos();
     if (savedPos != Vector2D(0, 0))
     {
@@ -766,7 +762,6 @@ void TopDownState::createShopButtons() {
         exitShopButtonComp_ = exitShopButton_->addComponent<Button>(BUTTON_H, "EXITSHOP");
         addEntity(exitShopButton_);
     }
-
 }
 
 void TopDownState::cleanShopButtons() {
@@ -795,6 +790,5 @@ string TopDownState::getStateID() {
 void TopDownState::desbloqueoZona() {
     UnlockedZones++;
     ColideTileComponent->DesbloqueoZona();
-    desbloqueoDeZona = true;
-    //musica 
+    sdlutils().soundEffects().at("desbloqueo").play(0, 0);
 }

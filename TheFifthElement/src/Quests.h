@@ -17,9 +17,4 @@ public:
      inline list<Entity*> getQuests() const {
         return quests;
     }
-
-   
-   
-
 };
-
