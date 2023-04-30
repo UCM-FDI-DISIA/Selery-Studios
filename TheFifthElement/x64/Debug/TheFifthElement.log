@@ -114,48 +114,48 @@ C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\s
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(229,42): warning C4018: '<=': no coinciden signed/unsigned
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(291,100): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(291,86): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(301,142): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(301,114): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(310,141): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(310,113): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(332,121): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(332,93): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(344,129): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(344,101): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(353,122): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(353,94): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(369,132): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(369,104): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(383,61): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(384,61): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(392,61): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(393,61): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(401,61): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(402,61): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(410,61): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(411,61): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(422,130): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(422,103): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(436,130): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(436,103): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(450,130): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(450,103): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(464,131): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(464,103): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(474,129): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(474,101): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(299,142): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(299,114): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(308,141): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(308,113): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(330,121): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(330,93): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(342,129): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(342,101): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(351,122): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(351,94): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(367,132): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(367,104): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(381,61): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(382,61): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(390,61): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(391,61): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(399,61): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(400,61): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(408,61): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(409,61): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(420,130): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(420,103): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(434,130): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(434,103): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(448,130): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(448,103): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(462,131): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(462,103): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(472,129): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(472,101): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(559,37): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(560,37): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(561,37): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(562,37): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(563,37): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(564,37): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(605,49): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(606,49): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(607,103): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(607,82): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(608,89): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(608,52): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(652,43): warning C4244: 'argumento': conversión de 'uint' a 'float'; posible pérdida de datos
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(714,43): warning C4244: 'argumento': conversión de 'uint' a 'float'; posible pérdida de datos
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(603,49): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(604,49): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(605,103): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(605,82): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(606,89): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(606,52): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(650,43): warning C4244: 'argumento': conversión de 'uint' a 'float'; posible pérdida de datos
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(712,43): warning C4244: 'argumento': conversión de 'uint' a 'float'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(37,27): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
           with
           [
@@ -167,7 +167,7 @@ C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\s
               T=Transform
           ]
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(37,27): warning C4244: 'argumento': conversión de 'const uint' a 'float'; posible pérdida de datos
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(301): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Entity::addComponent<Transform,Vector2D,const uint&,const uint&>(cmpId_type,Vector2D &&,const uint &,const uint &)" que se está compilando
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(299): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Entity::addComponent<Transform,Vector2D,const uint&,const uint&>(cmpId_type,Vector2D &&,const uint &,const uint &)" que se está compilando
           with
           [
               T=Transform
@@ -177,13 +177,13 @@ C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\u
           [
               _Ty=uint32_t
           ]
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(347): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Entity::addComponent<ColliderComponent,Vector2D,const uint&,uint>(cmpId_type,Vector2D &&,const uint &,uint &&)" que se está compilando
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(345): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Entity::addComponent<ColliderComponent,Vector2D,const uint&,uint>(cmpId_type,Vector2D &&,const uint &,uint &&)" que se está compilando
           with
           [
               T=ColliderComponent
           ]
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(37,27): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(370): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Entity::addComponent<FramedImage,Texture*&,float&,float&,int,std::string&>(cmpId_type,Texture *&,float &,float &,int &&,std::string &)" que se está compilando
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(368): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Entity::addComponent<FramedImage,Texture*&,float&,float&,int,std::string&>(cmpId_type,Texture *&,float &,float &,int &&,std::string &)" que se está compilando
           with
           [
               T=FramedImage
@@ -193,7 +193,7 @@ C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\u
           [
               _Ty=int
           ]
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(422): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Entity::addComponent<Transform,Vector2D,const int&,const int&,int>(cmpId_type,Vector2D &&,const int &,const int &,int &&)" que se está compilando
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(420): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Entity::addComponent<Transform,Vector2D,const int&,const int&,int>(cmpId_type,Vector2D &&,const int &,const int &,int &&)" que se está compilando
           with
           [
               T=Transform

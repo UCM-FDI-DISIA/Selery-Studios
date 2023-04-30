@@ -294,8 +294,6 @@ void TopDownState::LoadMap(string const& filename) {
                     // collisions_.push_back(collidertile);
                 }
                 else if (name == "Interactions") {
-                    /*auto a = new ColliderTileInteraction(Vector2D(rect.left, rect.top), rect.width, rect.height, player_, obj.getUID(), puzzle1);
-                    interactions_.push_back(a);*/
                     Entity* puzzle = new Entity();
                     puzzle->setContext(this);
                    Transform* trans = puzzle->addComponent<Transform>(TRANSFORM_H, Vector2D((obj.getPosition().x * 2.5), obj.getPosition().y * 2.5), PLAYERTD_WIDTH_FRAME, PLAYERTD_HEIGHT_FRAME);
@@ -748,4 +746,7 @@ string TopDownState::getStateID() {
 }
 void TopDownState::desbloqueoZona() {
     ColideTileComponent->DesbloqueoZona();
+
+    //musica 
+    SDLUtils::instance()->soundEffects().at("Desbloqueo").play();
 }
