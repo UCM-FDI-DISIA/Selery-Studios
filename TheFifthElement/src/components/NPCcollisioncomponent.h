@@ -8,8 +8,7 @@
 #include "../GameManager.h"
 #include "../components/Playernpc.h"
 #include "../utils/Entity.h"
-class NPCcollisioncomponent : public Component
-{
+class NPCcollisioncomponent : public Component {
 private:
 	PlayerNPC* plynpc;
 	Entity* player_;
@@ -20,8 +19,8 @@ private:
 	SDL_Rect dest;
 	bool visibility=false;
 	Vector2D pos_;
-
 	int npc_ = -1;
+
 public:
 	//NPCcollisioncomponent(Entity* player, int npc);
 	virtual ~NPCcollisioncomponent() {};
@@ -34,10 +33,12 @@ public:
 
 	//Equivalente para el personaje
 	inline SDL_Rect getPlayerRect() { return build_sdlrect(tr2->getPos(), tr2->getW(), tr2->getH()); }
+
 	NPCcollisioncomponent(Entity* player, int npc) {
 		player_ = player;
 		npc_ = npc;
 	}
+
 	void initComponent() {
 		//Hacemos los getComponent de los Transform
 		tr1 = ent_->getComponent<Transform>(TRANSFORM_H);
@@ -45,31 +46,25 @@ public:
 		plynpc = player_->getComponent<PlayerNPC>(PLAYERNPC_H);
 		rectNPC = getRectNPC();
 		rectPlayer = getPlayerRect();
-		
 	}
-	void update()
-	{
-		if (Collision::collides(Vector2D(rectPlayer.x, rectPlayer.y), rectPlayer.w, rectPlayer.h, Vector2D(rectNPC.x, rectNPC.y), rectNPC.w, rectNPC.h))
-		{
+
+	void update() {
+		if (Collision::collides(Vector2D(rectPlayer.x, rectPlayer.y), rectPlayer.w, rectPlayer.h, Vector2D(rectNPC.x, rectNPC.y), rectNPC.w, rectNPC.h)) {
 			plynpc->setcolnpc(npc_);	
 			visibility = true;
-
 		}
 		else { visibility = false; }
 		updateRects();
-
 	}
-	void updateRects()
-	{
+
+	void updateRects() {
 		//Modo para actualizar los rect?gulos
 		rectPlayer = getPlayerRect();
 		rectNPC = getRectNPC();
 	}
 
-	void render()
-	{
-		if(visibility)
-		{
+	void render() {
+		if(visibility) {
 			SDL_Rect dest = { 165 * WIN_WIDTH / 900,280 * WIN_HEIGHT / 600,50 * WIN_WIDTH / 900,50 * WIN_HEIGHT / 600 };
 			SDLUtils::instance()->images().at("E").render(dest);
 		}

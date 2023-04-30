@@ -600,7 +600,7 @@ void TopDownState::LoadGame() {
                         QuestInfoComponent*q= newQuest(a, text, reward, coins, fasesT);
                         q->setCurrFase(fasescurr);
 
-                   /*     save << comp->getName() << endl;
+                        /*save << comp->getName() << endl;
                         save << comp->getText() << endl;
                         save << comp->getReward().length() << endl;
                         save << comp->getReward() << endl;
