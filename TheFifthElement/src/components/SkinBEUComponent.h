@@ -10,15 +10,14 @@
 class PropertiesManager;
 class LifeComponent;
 
-class SkinBEUComponent : public Component
-{
+class SkinBEUComponent : public Component {
 public:
-    enum AnimationStates
-    {
+    enum AnimationStates {
         Idle, Left, Right, Vertical, Jump, Hit, Death, Null
     };
     AnimationStates currentState_;
     AnimationStates nextState_;
+
 private:
     string t_;
     string skin_;
@@ -47,6 +46,4 @@ public:
     void setTexture();
     void changeSkin(string skin);
     inline string getSkin() { return t_; }
-
 };
-

@@ -8,8 +8,8 @@ BeatEmUpState::BeatEmUpState(bool Boss,Entity* enemySends, string typeBoss, int 
 	timeToGenerate = timeGen;
 	boss = Boss;
 	typeBoss_ = typeBoss;
-	SDLUtils::instance()->soundEffects().at("Battle").play(-1);
-	random = &SDLUtils::instance()->rand();
+	sdlutils().soundEffects().at("Battle").play(-1);
+	random = &sdlutils().rand();
 
 	//BACKGROUND
 	background_ = new Entity();
@@ -18,12 +18,10 @@ BeatEmUpState::BeatEmUpState(bool Boss,Entity* enemySends, string typeBoss, int 
 		//background_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("fondoBossAgua"));
 		Background("fondoBossAgua");// fondo estático
 	}
-	else if (typeBoss_ == "fire")
-	{
+	else if (typeBoss_ == "fire") {
 		Background("fondoBossFire");
 	}
-	else if (typeBoss_ == "light")
-	{
+	else if (typeBoss_ == "light") {
 		Background("fondoBossLight");
 	}
 	else {
@@ -83,6 +81,7 @@ BeatEmUpState::BeatEmUpState(bool Boss,Entity* enemySends, string typeBoss, int 
 		AddFireBoss();
 	}
 }
+
 void BeatEmUpState::update() {
 	Manager::refresh();
 	Manager::update();
@@ -256,10 +255,8 @@ string BeatEmUpState::getEnemyType(int i) {
 
 void BeatEmUpState::handleEvents() {
 	SDL_Event event;
-	while (SDL_PollEvent(&event)) 
-	{
-		if (event.type == SDL_QUIT )
-		{
+	while (SDL_PollEvent(&event)) {
+		if (event.type == SDL_QUIT ) {
 			GameManager::instance()->getGame()->setExit(true);
 		}
 		in_->handleEvents(event); 

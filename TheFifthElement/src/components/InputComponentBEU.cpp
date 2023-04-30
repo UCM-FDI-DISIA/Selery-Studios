@@ -38,6 +38,7 @@ void InputComponentBEU::initComponent() {
 		}
 	}
 }
+
 void InputComponentBEU::render() {
 	int r = abs(ultiTime - timeExecution);
 
@@ -53,6 +54,7 @@ void InputComponentBEU::render() {
 		p->render(dest);
 	}
 }
+
 void InputComponentBEU::update() {	
 	unsigned timer = clock();
 	timeExecution = (double(timer) / CLOCKS_PER_SEC);
@@ -278,8 +280,7 @@ void InputComponentBEU::setAir(bool b) {
 	}
 }
 
-void InputComponentBEU::setFire(bool b) 
-{ 
+void InputComponentBEU::setFire(bool b)  { 
 	elements[1] = b;
 	if (!b) {
 		if (elements[2]) sk_->changeSkin("water");
@@ -288,8 +289,7 @@ void InputComponentBEU::setFire(bool b)
 	}
 }
 
-void InputComponentBEU::setWater(bool b) 
-{ 
+void InputComponentBEU::setWater(bool b)  { 
 	elements[2] = b; 
 	if (!b) {
 		if (elements[3]) sk_->changeSkin("earth");
@@ -298,8 +298,7 @@ void InputComponentBEU::setWater(bool b)
 	}
 }
 
-void InputComponentBEU::setEarth(bool b) 
-{ 
+void InputComponentBEU::setEarth(bool b) { 
 	elements[3] = b; 
 	if (!b) {
 		if (elements[0]) sk_->changeSkin("air");
@@ -348,8 +347,7 @@ void InputComponentBEU::vibrate(SDL_GameController* controller, int duration_ms,
 	SDL_HapticClose(haptic);
 }
 
-void InputComponentBEU::MovePlayerBack()
-{
+void InputComponentBEU::MovePlayerBack() {
 	Vector2D currPos = tr_->getPos();
 	currPos.set(currPos.getX() - 500.0 * direction, currPos.getY());
 	tr_->setPos(currPos);
