@@ -63,6 +63,8 @@ private:
 
 	Damage* damage_;
 	LifeTD* life_;
+
+	bool purchase_ = true;
 	
 public:
 	ShopComponent(EconomyComponent* economyComp, Damage* damage, LifeTD* life);
@@ -74,6 +76,6 @@ public:
 	void shopEconomy();
 	void showShopBackground();
 	void showShopAvatar(Vector2D avatarPos, Vector2D framePos, Texture* avatar, Texture* frame);
-	
+	inline bool canPurchase() { return purchase_; }
 };
 #endif

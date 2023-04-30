@@ -367,6 +367,10 @@ Monkey Delivery (2022,Moon Key)
 
 ## UML
 ---
+La arquitectura del juego está basada en componentes.
+Tenemos una máquina de estados que gestiona los estados (recuadros naranjas). En estos estados se encuentran las Entidades que son contenedores de los Componentes necesarios. Las flechas azules indican la transición entre estados.  
+![Imagen UML](https://github.com/UCM-FDI-DISIA/Selery-Studios/raw/main/imgs/UML.png)
+
 
 ## QA
 ---

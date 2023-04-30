@@ -61,12 +61,11 @@ void Button::handleEvent(SDL_Event event)
 				//SDLUtils::instance()->soundEffects().at("pruebaBoton").play();
 				GameManager::instance()->LoadGame();
 				}
-			 else if (identifier == "PLAY") {
+			    else if (identifier == "PLAY") {
 					SDLUtils::instance()->soundEffects().at("Title").haltChannel();
 					//SDLUtils::instance()->soundEffects().at("pruebaBoton").play();
 					GameManager::instance()->leaveMainMenu();
-				}
-			
+				}		
 				else if (identifier == "RESUME") {
 					SDLUtils::instance()->soundEffects().at("prueba").play();
 					SDLUtils::instance()->soundEffects().at("Title").resumeChannel();
@@ -84,10 +83,13 @@ void Button::handleEvent(SDL_Event event)
 				else if (identifier == "EXIT") {
 					SDL_Quit();
 				}
-				else if (identifier == "UPTURN") {
-					SDLUtils::instance()->soundEffects().at("pruebaBoton").play();
+				else if (identifier == "UPTURN") {						
 					isClicked_ = true;
-					static_cast<TopDownState*>(mngr_)->getShopComp()->shopEconomy();
+					TopDownState* topdownstate = static_cast<TopDownState*>(mngr_);
+					topdownstate->getShopComp()->shopEconomy();
+					if (topdownstate->getShopComp()->canPurchase()) {
+						SDLUtils::instance()->soundEffects().at("pruebaBoton").play();
+					}			
 					isClicked_ = false;
 				}
 				else if (identifier == "EXITSHOP") {

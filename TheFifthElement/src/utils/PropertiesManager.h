@@ -18,7 +18,7 @@ private:
 		for (int i = 0; i < 4; i++) {
 			strength.push_back(1.0f);
 			lives.push_back((int)10);
-			currentMoney_ = 500; // poner a 0 en versión final
+			currentMoney_ = 0; // poner a 0 en versión final
 		}
 	}
 
