@@ -48,24 +48,23 @@ private:
 	InputComponentBEU* in_;
 	Texture* texture_player_;
 	Saving* savePos;
+
 	//BACKGROUND
 	Entity* background_;
 	RandomNumberGenerator* random;
+
 	//ENEMIGOS
 	Entity* enemy_;
 	AnimationEnemyBEUComponent* animation_;
 	Texture* enemy_texture;
 	int shakeme;
 	int numEnemies;
-	float timeToGenerate;
-	int createdEnemies = 0;
-	int cont = 0;
-
+	float timeNextGeneration;
+	const int delayGenerateEnemies = 15000;
 	Entity* enemySender;
 
 	//COLISIONES
 	ColManager* colManager_;
-	
 	Entity* lifebar_;
 	float camOffset_ = WIN_WIDTH/3;
 	float enemy_width=0, enemy_height=0;
@@ -74,6 +73,7 @@ private:
 	//HUD
 	Entity* Hud_;
 	Roulette* roulete;
+
 	//BOSSES
 	Entity* earthBoss_;
 	bool boss;

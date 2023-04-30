@@ -12,7 +12,6 @@ TopDownState::TopDownState(bool load = false) {
     //life_ = Hud_->addComponent<LifeTD>(LIFETDCOMPONENT_H);
     //economyComp_ = Hud_->addComponent<EconomyComponent>(ECONOMYCOMPONENT_H);
     //CARGAS EL MAPA
-    //HUD
 
     loadGame_ = load;
     Hud_ = new Entity();
@@ -45,10 +44,6 @@ void TopDownState::update() {
     if ( SDLUtils::instance()->currRealTime()-  startTime > SaveGame_) {
         SaveGame();
         startTime = SDLUtils::instance()->currRealTime();
-    }
-    if (desbloqueoDeZona) {
-        SDLUtils::instance()->soundEffects().at("Desbloqueo").play();
-        desbloqueoDeZona = false;
     }
     Vector2D savedPos = Saving::instance()->getPos();
     if (savedPos != Vector2D(0, 0))
@@ -137,8 +132,8 @@ void TopDownState::SaveGame() {
             save.close();
 
         }
-    
 }
+
 void TopDownState::render() {
 
     SDL_Rect dst = { 0,0,(fondowidth_ * 2.5) * (WIN_WIDTH / 900),(fondoheight_ * 2.5) * (WIN_HEIGHT / 600) };
@@ -466,7 +461,7 @@ void TopDownState::LoadMap(string const& filename) {
                             enemy_ = new Entity();
                             enemy_->setContext(this);
                             enemy_->addComponent<Transform>(TRANSFORM_H, Vector2D(obj.getPosition().x * 2.5, obj.getPosition().y * 2.5), EARTHBOSS_HEIGHT, EARTHBOSS_HEIGHT, 2);
-                            enemy_->addComponent<FramedImage>(FRAMEDIMAGE_H, &sdlutils().images().at("GolemFase1_idle"), EARTHBOSS_WIDTH, EARTHBOSS_HEIGHT, 6);
+                            enemy_->addComponent<FramedImage>(FRAMEDIMAGE_H, &sdlutils().images().at("FireBoss"), EARTHBOSS_WIDTH, EARTHBOSS_HEIGHT, 6);
                             float a = 1.0f;
                             float lookingRange = 50.0f;
                             float lookingWidth = -40;
@@ -600,7 +595,7 @@ void TopDownState::LoadGame() {
                         QuestInfoComponent*q= newQuest(a, text, reward, coins, fasesT);
                         q->setCurrFase(fasescurr);
 
-                   /*     save << comp->getName() << endl;
+                        /*save << comp->getName() << endl;
                         save << comp->getText() << endl;
                         save << comp->getReward().length() << endl;
                         save << comp->getReward() << endl;
@@ -767,7 +762,6 @@ void TopDownState::createShopButtons() {
         exitShopButtonComp_ = exitShopButton_->addComponent<Button>(BUTTON_H, "EXITSHOP");
         addEntity(exitShopButton_);
     }
-
 }
 
 void TopDownState::cleanShopButtons() {
@@ -792,10 +786,11 @@ QuestInfoComponent* TopDownState::newQuest(string nombre, string text, string re
 string TopDownState::getStateID() {
     return "TopDownState";
 }
+
 void TopDownState::desbloqueoZona() {
     UnlockedZones++;
     ColideTileComponent->DesbloqueoZona();
-    desbloqueoDeZona = true;
-    //musica 
-    /**/
+    SoundEffect* s = &sdlutils().soundEffects().at("desbloqueo"); 
+    (*s).setVolume(25);  
+    (*s).play();
 }

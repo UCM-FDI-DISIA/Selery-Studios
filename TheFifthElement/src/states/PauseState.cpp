@@ -29,7 +29,6 @@ PauseState::PauseState()
 	createCharacter("tree",128, 192, Vector2D(550 * WIN_WIDTH / 900, 215 * WIN_HEIGHT / 600), 8, false, 1.8);
 	createCharacter("tree", 128, 192, Vector2D(650 * WIN_WIDTH / 900, 180 * WIN_HEIGHT / 600), 8, false, 1.8);
 	createCharacter("shine", 64, 99, Vector2D(242 * WIN_WIDTH / 900, 450*WIN_HEIGHT/600), 14, false, 1.8);
-
 	createCharacter("shine", 64, 99, Vector2D(660 * WIN_WIDTH / 900, 30 * WIN_HEIGHT / 600), 14, false, 1.8);
 
 	createCharacter("NPC_2", PLAYERTD_WIDTH_FRAME, PLAYERTD_HEIGHT_FRAME, Vector2D(WIN_WIDTH / 5, 350), 7, true, 1);
@@ -47,6 +46,7 @@ void PauseState::update() {
 
 	Manager::update();
 }
+
 void PauseState::handleEvents()
 {
 	SDL_Event event;

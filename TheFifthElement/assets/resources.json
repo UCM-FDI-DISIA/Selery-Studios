@@ -367,7 +367,7 @@
     {"id": "golemStarts", "file": "assets/sounds/bosses/golemStarts.wav"},
     {"id": "golemStomp", "file": "assets/sounds/bosses/stompEarth.wav"},
     {"id": "Title", "file": "assets/sounds/Title.wav" },
-    {"id": "Desbloqueo", "file": "assets/sounds/Desbloqueo.wav" },
+    {"id": "desbloqueo", "file": "assets/sounds/Desbloqueo.wav" },
     {"id": "Battle", "file": "assets/sounds/Battle.wav"},
     {"id": "playerAttack", "file": "assets/sounds/player/attack/playerAttack.wav" },
     {"id": "playerSpecialAttack", "file": "assets/sounds/player/attack/playerSpecialAttack.wav"},

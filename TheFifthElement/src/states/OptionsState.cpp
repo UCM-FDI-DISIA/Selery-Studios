@@ -1,6 +1,15 @@
 #include "OptionsState.h"
 #include "../Game.h"
 OptionsState::OptionsState() {
+	if (SDL_NumJoysticks() < 1) {
+		// No hay gamepads conectados
+		controladorDetectado = false;
+	}
+	else {
+		// Se detectA un gamepad
+		controller = SDL_GameControllerOpen(0);
+		controladorDetectado = true;
+	}
 	Background("fondoPausa");
 	ControlsBackground("controlPanel");
 	createCharacter("PTD_water_right", PLAYERTD_WIDTH_FRAME, PLAYERTD_HEIGHT_FRAME, Vector2D(WIN_WIDTH / 5, 350), 7, false, 1);
@@ -50,6 +59,15 @@ void OptionsState::handleEvents()
 		if (event.type == SDL_QUIT )
 		{
 			GameManager::instance()->getGame()->setExit(true);
+
+		}
+		if (controladorDetectado) {
+			if (SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_B)) {
+				GameManager::instance()->backToMainMenu();
+			}
+			//else if (SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_A)) {
+			//	GameManager::instance()->backToMainMenu();
+			//}
 		}
 		backButton->handleEvent(event);
 		TDcontrolsButton->handleEvent(event);

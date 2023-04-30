@@ -7,7 +7,6 @@
 #include <string>
 const int joystick_deadzone = 8000;
 
-
 InputComponent::InputComponent(Roulette* r) :Component() {
 	d = NONE;
 	roulet = r;
@@ -30,11 +29,12 @@ void InputComponent::initComponent() {
 		 controller = SDL_GameControllerOpen(0);
 	 }
 }
+
 void InputComponent::update() { //Actualizamos el contador que mide el tiempo
 	unsigned timer = clock();
 	actionDelay = (double(timer) / CLOCKS_PER_SEC);
 
-	if (!dialog->gethasstarted()) {
+	if (!dialog->gethasstarted() && !dialog->getopenedShop()) {
 		if (moveLeft) {
 			mov_->setDir(Vector2D(-1, 0));
 			skin_->changeState(SkinComponent::Left);
@@ -170,17 +170,14 @@ void InputComponent::handleEvents(SDL_Event event)
 		}
 		else if (SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_DPAD_UP) && Elements::instance()->getFire()) {
 			roulet->changeplayer(2);
-
 			skin_->changeSkin("fire");
 		}
 		else  if (SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_DPAD_LEFT) && Elements::instance()->getWater()) {
 			roulet->changeplayer(3);
-
 			skin_->changeSkin("water");
 		}
 		else if (SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_DPAD_RIGHT) && Elements::instance()->getEarth()) {
 			roulet->changeplayer(4);
-
 			skin_->changeSkin("earth");
 		}
 	}
@@ -189,29 +186,24 @@ void InputComponent::handleEvents(SDL_Event event)
 	if (ih().keyDownEvent()){
 		if (!dialog->gethasstarted() && !dialog->getopenedShop()) {
 			if ((ih().isKeyDown(SDL_SCANCODE_J))) {
-				if(canSave)
-				{
+				if(canSave) {
 					static_cast<TopDownState*>(mngr_)->SaveGame();
 					canSave = false;
 					//s->SaveGame();
 				}
 			}
-			else if (ih().isKeyUp(SDL_SCANCODE_J))
-			{
+			else if (ih().isKeyUp(SDL_SCANCODE_J)) {
 				canSave = true;
 			}
 		
 			if ((ih().isKeyDown(SDL_SCANCODE_T))) {
-				if (canLoad)
-				{
+				if (canLoad) {
 					canLoad = false;
 					static_cast<TopDownState*>(mngr_)->LoadGame();
 					//s->LoadGame();
-
 				}
 			}
-			else if (ih().isKeyUp(SDL_SCANCODE_T))
-			{
+			else if (ih().isKeyUp(SDL_SCANCODE_T)) {
 				canLoad = true;
 			}
 
@@ -259,9 +251,7 @@ void InputComponent::handleEvents(SDL_Event event)
 		}
 
 		if (ih().isKeyDown(SDL_SCANCODE_E) && !dialog->getopenedShop()){
-
-			if (canTalk)
-			{
+			if (canTalk) {
 				canTalk = false;
 				mov_->setDir(Vector2D(0, 0));
 				if (actionDelay > 0) {
@@ -270,10 +260,8 @@ void InputComponent::handleEvents(SDL_Event event)
 				}
 				actionDelay = 0;
 			}
-			
 		}
-		else if(ih().isKeyUp(SDL_SCANCODE_E))
-		{
+		else if(ih().isKeyUp(SDL_SCANCODE_E)) {
 			canTalk = true;
 		}
 
@@ -286,10 +274,8 @@ void InputComponent::handleEvents(SDL_Event event)
 		else if (ih().isKeyDown(SDL_SCANCODE_Q) && !static_cast<TopDownState*>(mngr_)->getMenuQuest()) 
 			static_cast<TopDownState*>(mngr_)->setMenuQuest(true);
 
-		if (ih().isKeyDown(SDL_SCANCODE_0)) //cambio a pantalla completa podria ser una opcion
-		{
+		if (ih().isKeyDown(SDL_SCANCODE_0)) { //cambio a pantalla completa podria ser una opcion
 			SDL_SetWindowFullscreen(SDLUtils::instance()->window(), SDL_WINDOW_FULLSCREEN); //tambien se puede usar _DESKTOP
 		}
-
 	}
 }

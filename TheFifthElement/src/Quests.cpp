@@ -12,7 +12,6 @@ void Quests::completedQuest(string nombre) {
         if (q_->getName() == nombre) { q_->setAlive(false); found = true; }
         ++it;
     }
-    SDLUtils::instance()->soundEffects().at("Desbloqueo").play();
 }
 
 void Quests::actQuests() {// actualiza las quests
@@ -33,14 +32,13 @@ void Quests::renderQuestList() {
     Font* font_ = &SDLUtils::instance()->fonts().at("TCentury");
     Vector2D a;
     int w, h;
-    if (WIN_WIDTH == 1920)
-    {
+
+    if (WIN_WIDTH == 1920) {
         a = Vector2D(100, 0);
         w = 500;
         h = 900;
     }
-    else
-    {
+    else {
         a = Vector2D(0, 0);
         w = 400;
         h = 480;
