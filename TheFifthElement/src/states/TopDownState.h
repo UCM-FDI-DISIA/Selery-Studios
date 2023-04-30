@@ -145,7 +145,7 @@ private:
 	int iconOffsetY_ = 60;
 	int iconWidth_ = 15;
 	int iconHeight_ = 15;
-
+	int UnlockedZones = 0;
 public:
 	string getStateID(); // stringID
 	TopDownState();	
@@ -162,7 +162,7 @@ public:
 	void render();
 	void createShopButtons();
 	void cleanShopButtons();
-	void newQuest(string nombre, string text, string reward, int coins, int fases);
+	QuestInfoComponent* newQuest(string nombre, string text, string reward, int coins, int fases);
 	Texture* npcTexture() {
 		int a = SDLUtils::instance()->rand().nextInt(1, 11);
 		return &SDLUtils::instance()->images().at("NPC_"+ to_string(a));

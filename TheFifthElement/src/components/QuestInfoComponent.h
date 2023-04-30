@@ -44,7 +44,9 @@ public:
     int getCurrFase() { return currFase; }
     int getMaxFase() { return maxFase; }
 
-  
+    inline void setCurrFase(int fase) {
+        currFase = fase;
+    }
     void setAlive(bool b)
     {
         if (!b) setDialogue("end");

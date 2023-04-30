@@ -57,6 +57,7 @@ void TopDownState::update() {
         camRect_.y = 0;
     }
 }
+
 void TopDownState::SaveGame() {
 
     if (!saved) {
@@ -100,25 +101,29 @@ void TopDownState::SaveGame() {
                 }
 
             }
-            save << "QUESTS" << endl;
+           
             list<Entity*> quest = Quests::instance()->getQuests();
             for (auto c : quest) {
+                save << "QUEST" << endl;
                 QuestInfoComponent* comp = c->getComponent<QuestInfoComponent>(QUESTINFOCOMPONENT_H);
                 if (comp != nullptr) {
-                    save << comp->getName() << " " << comp->getText() << " " << comp->getReward() << " " << comp->getCoins() << " " << comp->getAlive() << " ";
+
+                    save << comp->getName() << endl;
+                    save << comp->getText() << endl;
+                    save << comp->getReward() << endl;
+                    save<< comp->getCoins() <<  " " << comp->getMaxFase() << " " << comp->getCurrFase() << endl;
                 }
 
             }
 
+            save << "unlockedzones" <<" "<< UnlockedZones << endl;
 
-
-            save << -1 << endl;
+            save << "-1" << endl;
             save.close();
 
         }
     }
 }
-
 void TopDownState::render() {
 
     SDL_Rect dst = { 0,0,(fondowidth_ * 2.5) * (WIN_WIDTH / 900),(fondoheight_ * 2.5) * (WIN_HEIGHT / 600) };
@@ -492,6 +497,8 @@ void TopDownState::LoadGame() {
         loaded = true;
         ifstream f;
         f.open("File1.txt");
+       /* list<Entity*> quest = Quests::instance()->getQuests();
+        for (auto c : quest)quest.remove(c);*/
         if (f.is_open()) {
             string player;
             f >> player;
@@ -523,10 +530,10 @@ void TopDownState::LoadGame() {
                 Elements::instance()->setWater(d);
                 PropertiesManager::instance()->setStrength(2, number2);
                 PropertiesManager::instance()->setLives(2, number3);
-
+                for (auto c : enemies_)c->setAlive(false);
                 string name;
                 f >> name;
-                while (name != "-1") {
+                while (name!="-1") {
                     if (name == "enemy") {
                         Vector2D pos;
                         string name;
@@ -564,13 +571,38 @@ void TopDownState::LoadGame() {
                         addEntity(redirect_);
 
                     }
+                    else if (name == "QUEST") {
+                        string nombre; string text; string reward; int coins;  int fasesT; int fasescurr;
+                        bool alive;
+                        int size;
+                        string a;
+                        f >> a;
+                        getline(f, nombre);
+                        a +=" "+nombre;
+                        getline(f, text);
+                        getline(f, reward);
+                        f >> coins >> fasesT >> fasescurr;
+                        QuestInfoComponent*q= newQuest(a, text, reward, coins, fasesT);
+                        q->setCurrFase(fasescurr);
+
+                   /*     save << comp->getName() << endl;
+                        save << comp->getText() << endl;
+                        save << comp->getReward().length() << endl;
+                        save << comp->getReward() << endl;
+                        save << comp->getCoins() << " " << comp->getMaxFase() << " " << comp->getCurrFase() << endl;*/
+                    }
+                    else if (name == "unlockedzones") {
+                        int n;
+                        f >> n;
+                        for (int i = 0; i < n; ++i)desbloqueoZona();
+                    }
                     f >> name;
 
                 }
 
 
             }
-
+            f.close();
 
         }
     }
@@ -734,17 +766,19 @@ void TopDownState::cleanShopButtons() {
     shopCreated_ = true;
 }
 
-void TopDownState::newQuest(string nombre, string text, string reward, int coins, int fases) {
+QuestInfoComponent* TopDownState::newQuest(string nombre, string text, string reward, int coins, int fases) {
     Entity* q = new Entity();
-    q->addComponent<QuestInfoComponent>(QUESTINFOCOMPONENT_H, nombre, text, reward, coins, fases);
+    QuestInfoComponent* quest=q->addComponent<QuestInfoComponent>(QUESTINFOCOMPONENT_H, nombre, text, reward, coins, fases);
     addEntity(q);
     Quests::instance()->pushElement(q);
+    return quest;
 }
 
 string TopDownState::getStateID() {
     return "TopDownState";
 }
 void TopDownState::desbloqueoZona() {
+    UnlockedZones++;
     ColideTileComponent->DesbloqueoZona();
 
     //musica 
