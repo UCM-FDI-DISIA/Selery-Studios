@@ -127,7 +127,7 @@ private:
 	Button* upturnButtonComp_;
 	Transform* exitShopButtonTr_;
 	Button* exitShopButtonComp_;
-
+	bool  desbloqueoDeZona = false;
 	bool saved = false;
 	bool loaded = false;
 	bool shopCreated_ = false;

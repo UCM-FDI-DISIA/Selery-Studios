@@ -35,6 +35,10 @@ TopDownState::~TopDownState()
 }
 
 void TopDownState::update() {
+    if (desbloqueoDeZona) {
+        SDLUtils::instance()->soundEffects().at("Desbloqueo").play();
+        desbloqueoDeZona = false;
+    }
     Vector2D savedPos = Saving::instance()->getPos();
     if (savedPos != Vector2D(0, 0))
     {
@@ -780,7 +784,7 @@ string TopDownState::getStateID() {
 void TopDownState::desbloqueoZona() {
     UnlockedZones++;
     ColideTileComponent->DesbloqueoZona();
-
+    desbloqueoDeZona = true;
     //musica 
-    SDLUtils::instance()->soundEffects().at("Desbloqueo").play();
+    /**/
 }
