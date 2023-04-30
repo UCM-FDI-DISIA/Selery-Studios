@@ -12,7 +12,6 @@ TopDownState::TopDownState(bool load = false) {
     //life_ = Hud_->addComponent<LifeTD>(LIFETDCOMPONENT_H);
     //economyComp_ = Hud_->addComponent<EconomyComponent>(ECONOMYCOMPONENT_H);
     //CARGAS EL MAPA
-    //HUD
 
     loadGame_ = load;
     Hud_ = new Entity();
@@ -137,8 +136,8 @@ void TopDownState::SaveGame() {
             save.close();
 
         }
-    
 }
+
 void TopDownState::render() {
 
     SDL_Rect dst = { 0,0,(fondowidth_ * 2.5) * (WIN_WIDTH / 900),(fondoheight_ * 2.5) * (WIN_HEIGHT / 600) };
@@ -792,10 +791,10 @@ QuestInfoComponent* TopDownState::newQuest(string nombre, string text, string re
 string TopDownState::getStateID() {
     return "TopDownState";
 }
+
 void TopDownState::desbloqueoZona() {
     UnlockedZones++;
     ColideTileComponent->DesbloqueoZona();
     desbloqueoDeZona = true;
     //musica 
-    /**/
 }
