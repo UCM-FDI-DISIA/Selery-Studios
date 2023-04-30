@@ -277,7 +277,10 @@ void BeatEmUpState::finishBEU() {
 			if (typeBoss_ == "water") Elements::instance()->setWater();
 			else if (typeBoss_ == "earth") Elements::instance()->setEarth();
 			else if (typeBoss_ == "fire") Elements::instance()->setFire();
-			else if (typeBoss_ == "light") GameManager::instance()->goToEndState();
+			if (typeBoss_ == "light") {
+				trans_player_->setPos(Vector2D(0,0));
+				GameManager::instance()->goToEndState();
+			}
 			props_->instance()->addMoney(200); // monedas ganadas al derrotar un boss
 		}
 		else {

@@ -64,25 +64,25 @@ QuestInfoComponent::QuestInfoComponent(string Name, string text, string reward, 
         string s;
         if (i == "init") 
         { 
-            if(maxFase > 0) s = "NUEVA QUEST: " + text_ + " " + to_string(currFase) + "/" + to_string(maxFase);
-            else s = "NUEVA QUEST: " + text_;
+            if(maxFase > 0) s = "NEW QUEST: " + text_ + " " + to_string(currFase) + "/" + to_string(maxFase);
+            else s = "NEW QUEST: " + text_;
         }
         else if (i == "end") 
         { 
             currFase++;
-            if (maxFase > 0)s = "COMPLETADA: " + text_ + " " + to_string(currFase) + "/" + to_string(maxFase);
-            else s = "COMPLETADA: " + text_;
+            if (maxFase > 0)s = "COMPLETED: " + text_ + " " + to_string(currFase) + "/" + to_string(maxFase);
+            else s = "COMPLETED: " + text_;
         }
         else {
             if (reward_ == "monedas") 
             { 
-                s = "RECOMPENSA: " + to_string(coins_) + " monedas"; 
+                s = "REWARD: " + to_string(coins_) + " monedas"; 
                 PropertiesManager::instance()->addMoney(coins_);// añade las monedas
             }
             else 
             { 
-                s = "RECOMPENSA: " + reward_; 
-              if (reward_ == "Desbloqueo de zona")  static_cast<TopDownState*>(GameStateMachine::instance()->state())->desbloqueoZona();
+                s = "REWARD: " + reward_; 
+              if (reward_ == "Zone unblocked.")  static_cast<TopDownState*>(GameStateMachine::instance()->state())->desbloqueoZona();
 
 
             }
