@@ -9,6 +9,7 @@
 class EndState : public Manager
 {
 private:
+
 	//letra
 	Font* font_;
 	//color de letra

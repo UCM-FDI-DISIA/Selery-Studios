@@ -79,8 +79,8 @@ void DialogueComponent::inicombe() {
 				int numeronpc = plynpc->getcol();
 				if (numeronpc == 5) {
 					static_cast<TopDownState*>(mngr_)->DeleteContexto();
-					static_cast<TopDownState*>(mngr_)->newQuest("hermanos", "Reune a tus hermanos", "monedas", 300, 3);
-					static_cast<TopDownState*>(mngr_)->newQuest("aldeanos", "Habla con aldeanos", "Desbloqueo de zona", 0, 1);
+					static_cast<TopDownState*>(mngr_)->newQuest("siblings", "Gather your siblings", "coins", 300, 3);
+					static_cast<TopDownState*>(mngr_)->newQuest("villagers", "Talk to villagers", "Area unlock", 0, 1);
 				}
 				else if (numeronpc > 5 && numeronpc <= 11 && !tutorial[numeronpc - 6]) {
 					Quests::instance()->completedQuest("aldeanos");

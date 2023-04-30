@@ -82,7 +82,7 @@ void Quests::renderQuestList() {
 
     if (WIN_WIDTH == 1920) a = Vector2D(320, 600);
     else a = Vector2D(150, 300);
-    string s = "Pulsa X para salir";
+    string s = "Press X to close.";
     font_->render(GameManager::instance()->getRenderer(), s, a.getX(), a.getY(), { 50,50,0 });
 }
 
