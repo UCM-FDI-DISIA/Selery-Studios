@@ -11,6 +11,7 @@ PauseState::PauseState()
 	else {
 		// Se detectA un gamepad
 		controller = SDL_GameControllerOpen(0);
+		controladorDetectado = true;
 	}
 	float scaleX = WIN_WIDTH / 900;
 	float scaleY = WIN_HEIGHT / 600;
@@ -43,12 +44,7 @@ PauseState::PauseState()
 }
 
 void PauseState::update() {
-	if (SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_A)) {
-		GameManager::instance()->Pop();
-	}
-	else if (SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_B)) {
-		GameManager::instance()->backToMainMenu();
-	}
+
 	Manager::update();
 }
 void PauseState::handleEvents()
@@ -59,7 +55,14 @@ void PauseState::handleEvents()
 		{
 			GameManager::instance()->getGame()->setExit(true);
 		}
-		
+		if (controladorDetectado) {
+			if (SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_A)) {
+				GameManager::instance()->Pop();
+			}
+			else if (SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_B)) {
+				GameManager::instance()->backToMainMenu();
+			}
+		}
 		resumeButton->handleEvent(event);
 		menuButton->handleEvent(event);
 		optionsButton->handleEvent(event);
