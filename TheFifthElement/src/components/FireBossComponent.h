@@ -32,9 +32,9 @@ protected:
 	FramedImage* column_image;
 	bool sevfive;
 	Transform* trans_column;
-	Vector2D column1 = { 400,400 };
-	Vector2D column2 = { 200,400 };
-	Vector2D column3 = { 100,400 };
+	Vector2D column1 = { 400,500 };
+	Vector2D column2 = { 200,500 };
+	Vector2D column3 = { 100,500 };
 
 	bool end = true;
 	
@@ -47,14 +47,14 @@ protected:
 	int barWidth_, backWidth_, borderWidth_, barHeight_, backHeight_, borderHeight_;
 
 
-	float maxLife_=8000, current_life=maxLife_;
+	float maxLife_=4000, current_life=maxLife_;
 	int diff = 0;
 
 	bool canSummonEnemies = true;
 	bool canfire = true;
 	bool canfire2 = true;
 	int n = 0;
-
+	bool startedattack = false;
 	int cont = 0;
 
 	const static int nEnemies = 3;
@@ -66,6 +66,9 @@ protected:
 	SoundEffect* vanish = &SDLUtils::instance()->soundEffects().at("vanish");
 
 	bool anim;
+
+	float follow = 300;
+	float start=0;
 	
 	
 public:	
