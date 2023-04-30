@@ -22,6 +22,8 @@ public:
 	void exitControls();
 	void ControlsBackground(string file);
 private:
+	bool controladorDetectado;
+	SDL_GameController* controller;
 	Entity* backButton;
 	Entity* muteButton;
 	Entity* TDcontrolsButton;

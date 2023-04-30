@@ -3,7 +3,15 @@
 MainMenuState::MainMenuState()
 {
 	
-
+	if (SDL_NumJoysticks() < 1) {
+		// No hay gamepads conectados
+		controladorDetectado = false;
+	}
+	else {
+		// Se detectA un gamepad
+		controller = SDL_GameControllerOpen(0);
+		controladorDetectado = true;
+	}
 	Background("fondoMainMenu3");
 
 	SDLUtils::instance()->soundEffects().at("Title").play(-1);
@@ -45,6 +53,17 @@ void MainMenuState::handleEvents()
 		if (event.type == SDL_QUIT )
 		{
 			GameManager::instance()->getGame()->setExit(true);
+		}
+		if (controladorDetectado) {
+			if (SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_A)) {
+				GameManager::instance()->leaveMainMenu();
+			}
+			else if (SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_B)) {
+				SDL_Quit();
+			}
+			else if (SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_Y)) {
+				GameManager::instance()->goOptionsMenu();
+			}
 		}
 		playButton->handleEvent(event);
 		exitButton->handleEvent(event);

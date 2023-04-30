@@ -14,6 +14,8 @@ private:
 	Entity* optionsButton;
 	Entity* slider;
 	Entity* loadButton;
+	bool controladorDetectado;
+	SDL_GameController* controller;
 	
 public:
 	MainMenuState();
