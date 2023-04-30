@@ -13,6 +13,7 @@ TopDownState::TopDownState(bool load = false) {
     //economyComp_ = Hud_->addComponent<EconomyComponent>(ECONOMYCOMPONENT_H);
     //CARGAS EL MAPA
     //HUD
+
     loadGame_ = load;
     Hud_ = new Entity();
     Hud_->setContext(this);
@@ -25,7 +26,9 @@ TopDownState::TopDownState(bool load = false) {
         LoadGame();
     }
     //trans_player_->setPos({ 11668 ,547 });
+    startTime = SDLUtils::instance()->currRealTime();
 }
+
 
 TopDownState::~TopDownState()
 {
@@ -39,6 +42,10 @@ TopDownState::~TopDownState()
 }
 
 void TopDownState::update() {
+    if ( SDLUtils::instance()->currRealTime()-  startTime > SaveGame_) {
+        SaveGame();
+        startTime = SDLUtils::instance()->currRealTime();
+    }
     if (desbloqueoDeZona) {
         SDLUtils::instance()->soundEffects().at("Desbloqueo").play();
         desbloqueoDeZona = false;
@@ -68,7 +75,7 @@ void TopDownState::update() {
 
 void TopDownState::SaveGame() {
 
-    if (!saved) {
+    
         saved = true;
         ofstream save;
         save.open("File1.txt");
@@ -130,7 +137,7 @@ void TopDownState::SaveGame() {
             save.close();
 
         }
-    }
+    
 }
 void TopDownState::render() {
 

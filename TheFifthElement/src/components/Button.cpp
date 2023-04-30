@@ -8,6 +8,7 @@ void Button::initComponent() {
 }
 
 void Button::update() {
+
 	mouseRect = build_sdlrect(mousePos, mouseWidth, mouseHeight);
 	if (Collision::collides(buttonTransform->getPos(), buttonTransform->getW()*size_, buttonTransform->getH()*size_, mousePos, mouseRect.w, mouseRect.h))
 	{
@@ -55,16 +56,17 @@ void Button::handleEvent(SDL_Event event)
 		if (event.button.button == SDL_BUTTON_LEFT) {
 			if (currentPositionState == 1)
 			{
-				if (identifier == "PLAY") {
+				if (identifier == "LOAD") {
+				SDLUtils::instance()->soundEffects().at("Title").haltChannel();
+				//SDLUtils::instance()->soundEffects().at("pruebaBoton").play();
+				GameManager::instance()->LoadGame();
+				}
+			 else if (identifier == "PLAY") {
 					SDLUtils::instance()->soundEffects().at("Title").haltChannel();
 					//SDLUtils::instance()->soundEffects().at("pruebaBoton").play();
 					GameManager::instance()->leaveMainMenu();
 				}
-				else if (identifier == "LOAD"){
-					SDLUtils::instance()->soundEffects().at("Title").haltChannel();
-					//SDLUtils::instance()->soundEffects().at("pruebaBoton").play();
-					GameManager::instance()->LoadGame();
-				}
+			
 				else if (identifier == "RESUME") {
 					SDLUtils::instance()->soundEffects().at("prueba").play();
 					SDLUtils::instance()->soundEffects().at("Title").resumeChannel();

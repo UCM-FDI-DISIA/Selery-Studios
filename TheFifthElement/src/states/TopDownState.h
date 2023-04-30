@@ -146,6 +146,8 @@ private:
 	int iconWidth_ = 15;
 	int iconHeight_ = 15;
 	int UnlockedZones = 0;
+	int startTime = 0;
+	float SaveGame_ = 120000;
 public:
 	string getStateID(); // stringID
 	TopDownState(bool load);

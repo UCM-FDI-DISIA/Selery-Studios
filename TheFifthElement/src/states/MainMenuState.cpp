@@ -81,9 +81,12 @@ void MainMenuState::Background(string file) {
 
 void MainMenuState::createButtons() {
 	loadButton = new Entity();
-	loadButton->addComponent<Transform>(TRANSFORM_H, Vector2D(5 * WIN_WIDTH / 90 , 28 * WIN_HEIGHT / 60-130), 289, 86);
+	//playButton->setContext(this);
+	loadButton->addComponent<Transform>(TRANSFORM_H, Vector2D(5 * WIN_WIDTH / 90, 28 * WIN_HEIGHT / 60-120), 289, 86);
+	//playButton = addNewEntity("PlayButton", 289, 86, Vector2D(5 * WIN_WIDTH / 90, 28 * WIN_HEIGHT / 60), 1, false);
 	loadButton->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("LoadButton"));
 	loadButton->addComponent<Button>(BUTTON_H, "LOAD");
+	//addEntity(playButton);
 	addEntity(loadButton);
 
 	playButton = new Entity();
