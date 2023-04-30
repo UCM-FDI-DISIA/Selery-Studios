@@ -149,8 +149,9 @@ void FireBossComponent::update() {
 		}
 		// Si hay algun enemigo vivo se acaba el update
 		// Si no, se cambia de estado y vuelve a pelear
+		vanish->play();
 		velocity_x = -1;
-		changeDir();
+	//	changeDir();
 		my_transform->setPos(initial_posotion);
 		current = moving_towards_player; 
 		image->setFlip(SDL_FLIP_NONE);
@@ -172,6 +173,7 @@ void FireBossComponent::update() {
 			}
 
 		}
+		death->play();
 		my_transform->setPos(initial_posotion);
 		image->setAnim("FireBoss", 12, false, 1);
 		image->setFlip(SDL_FLIP_NONE);
