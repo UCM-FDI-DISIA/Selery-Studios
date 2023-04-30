@@ -12,6 +12,7 @@ void Quests::completedQuest(string nombre) {
         if (q_->getName() == nombre) { q_->setAlive(false); found = true; }
         ++it;
     }
+    SDLUtils::instance()->soundEffects().at("Desbloqueo").play();
 }
 
 void Quests::actQuests() {// actualiza las quests

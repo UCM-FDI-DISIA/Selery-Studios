@@ -83,7 +83,7 @@ void DialogueComponent::inicombe() {
 					static_cast<TopDownState*>(mngr_)->newQuest("villagers", "Talk to villagers", "Area unlock", 0, 1);
 				}
 				else if (numeronpc > 5 && numeronpc <= 11 && !tutorial[numeronpc - 6]) {
-					Quests::instance()->completedQuest("aldeanos");
+					Quests::instance()->completedQuest("villagers");
 					tutorial[numeronpc - 6] = true;			
 					static_cast<TopDownState*>(mngr_)->DeleteContexto();
 				}
