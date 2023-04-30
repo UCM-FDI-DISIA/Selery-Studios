@@ -1,59 +1,88 @@
 PLAYER
 500
-10680 3058
-0
+4596.68 4257
+1
 1 10
 0
 1 10
-0
+1
 1 10
 
 enemy
+skeleton
+9970 8023.33 0 0
+enemy
+goblin
+4730.9 8004.55 0 0
+enemy
 mushroom
-10993 490 -1 0
+6458.17 8072.73 0 0
 enemy
 goblin
-5010 7686.67 0 0
-enemy
-goblin
-4985 9485 0 0
+7291.53 9140.9 0 0
 enemy
 skeleton
-5470 9800 0 0
-enemy
-bat
-3150 10150 0 0
-enemy
-bat
-3695 9330 0 0
-redirect
-1 0
-10960 1120 10 10
-redirect
-0 1
-10960 480 10 10
-redirect
--1 0
-11840 480 10 10
-redirect
-0 -1
-11840 1120 10 10
-enemy
-bat
-15130 6195 0 0
-enemy
-goblin
-15140 6305 0 0
+8390 7769.7 0 0
 enemy
 mushroom
-15135 6555 0 0
+4935 5067.5 0 0
+enemy
+mushroom
+5810 5610 0 0
 enemy
 skeleton
-15150 6755 0 0
+7410 4320 0 0
 enemy
-goblin
-15120 6400 0 0
+bat
+8580 5375 0 0
+enemy
+bat
+11265 6825 0 0
+enemy
+skeleton
+13435 6480 0 0
+enemy
+bat
+12115 8945 0 0
+enemy
+skeleton
+14850 9025 0 0
+enemy
+skeleton
+14310 6355 0 0
 enemy
 mushroom
-15130 6585 0 0
+6910 5290 0 0
+enemy
+bat
+9090 4530 0 0
+enemy
+bat
+8820 4120 0 0
+enemy
+bat
+9380 4090 0 0
+enemy
+skeleton
+14910 7283.33 0 0
+enemy
+skeleton
+4866.68 10056.7 0 0
+enemy
+skeleton
+15805 3365 0 0
+enemy
+goblin
+5353.75 4076.25 0 0
+QUEST
+hermanos
+Reune a tus hermanos
+monedas
+300 3 0
+QUEST
+aldeanos
+Habla con aldeanos
+Desbloqueo de zona
+-842150451 1 0
+unlockedzones 0
 -1
