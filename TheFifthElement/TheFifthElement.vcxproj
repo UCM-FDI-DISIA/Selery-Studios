@@ -136,6 +136,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\components\Trigger.h" />
     <ClInclude Include="src\Quests.h" />
     <ClInclude Include="src\components\QuestInfoComponent.h" />
     <ClInclude Include="src\components\PowerUpControler.h" />
@@ -255,6 +256,7 @@
     <ClCompile Include="src\components\SectorCollisionComponent.cpp" />
     <ClCompile Include="src\components\StoneComponent.cpp" />
     <ClCompile Include="src\components\ThrowableObject.cpp" />
+    <ClCompile Include="src\components\Trigger.cpp" />
     <ClCompile Include="src\Quests.cpp" />
     <ClCompile Include="src\states\EndState.cpp" />
     <ClCompile Include="src\states\PauseState.cpp" />

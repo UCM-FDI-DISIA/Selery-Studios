@@ -75,6 +75,7 @@
     <ClCompile Include="src\states\EndState.cpp" />
     <ClCompile Include="src\Quests.cpp" />
     <ClCompile Include="src\components\QuestInfoComponent.cpp" />
+    <ClCompile Include="src\components\Trigger.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\components\Button.h" />
@@ -174,6 +175,7 @@
     <ClInclude Include="src\components\QuestInfoComponent.h" />
     <ClInclude Include="src\states\EndState.h" />
     <ClInclude Include="src\Quests.h" />
+    <ClInclude Include="src\components\Trigger.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="TheFifthElement.rc" />

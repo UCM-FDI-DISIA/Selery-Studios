@@ -9,13 +9,13 @@
 #include "../include/SDL_mixer.h"
 #include "../components/PortalComponent.h"
 #include "../components/ColliderTile.h"
-#include "../PuzzleCopas.h"
 #include "../components/NPCcollisioncomponent.h"
 #include "../components/Transform.h"
 #include "../sdlutils/Texture.h"
 #include "../GameManager.h"
 #include "../components/InputComponent.h"
 #include "../components/MovementComponent.h"
+#include "../components/Trigger.h"
 #include "../components/Image.h"
 #include "../components/SkinComponent.h"
 #include "../components/CheckCollision.h"
@@ -149,7 +149,6 @@ private:
 
 public:
 	string getStateID(); // stringID
-	PuzzleCopas* puzzle1;
 	TopDownState();	
 	~TopDownState();
 	void LoadMap(string const& filename);

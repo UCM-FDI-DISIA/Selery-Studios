@@ -78,7 +78,6 @@ void FireBossComponent::update() {
 
 	Vector2D v{ velocity_x,velocity_y };
 	my_transform->setPos(my_transform->getPos() + v);
-	 cout << (abs(my_transform->getPos().getX() * my_transform->getS() - trans_player->getPos().getX() * trans_player->getS())) << endl;
 	//my_transform->setPos(new_pos);
 	switch (current) {
 	case moving_towards_player:
@@ -178,7 +177,6 @@ void FireBossComponent::update() {
 					image->setAnim("FireBoss", 15, false, 2);
 				}
 				anim = image->isAnimPlaying();
-				cout << anim;
 		
 			velocity_x = 0;
 			velocity_y = 0;

@@ -4,6 +4,7 @@
 #include "SkinBEUComponent.h"
 #include "../Elements.h"
 #include "FramedImage.h"
+#include "rouletteComponent.h"
 #include <array>
 
 struct player {
@@ -22,6 +23,7 @@ private:
 	FramedImage* im_ = nullptr;
 	Transform* entTransform_ = nullptr;
 	MovementComponent* mov_;
+
 #pragma endregion
 
 #pragma region parameters
@@ -38,6 +40,7 @@ private:
 	bool set_ = false;
 	time_t deathTime_;
 	float damageReduction_ = 1.0f; // 1=0% 0=100
+	Roulette* roulette;
 #pragma endregion
 
 #pragma region propierties
@@ -61,7 +64,7 @@ private:
 #pragma endregion
 
 public:
-	LifeComponent(float maxLife);
+	LifeComponent(float maxLife, Roulette* r = nullptr);
 	void initComponent();
 
 	void render();

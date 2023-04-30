@@ -2,13 +2,15 @@
 #include "InputComponentBEU.h"
 #include "../states/BeatEmUpState.h"
 
-LifeComponent::LifeComponent(float maxLife) {
+LifeComponent::LifeComponent(float maxLife, Roulette* r ) {
 	life_ = maxLife_ = maxLife;
+	roulette = r;
 }
 
 void LifeComponent::initComponent() {
 	im_ = ent_->getComponent<FramedImage>(FRAMEDIMAGE_H);
 	type_ = im_->getType();
+
 
 	enemy_ = ent_->hasComponent(ANIMATIONENEMYBEUCOMPONENT_H);
 
@@ -74,7 +76,7 @@ void LifeComponent::update() {
 			if (enemy_) {
 				if (collision) {
 
-					//animaci�n de ataque y ataque en s�
+					//animacion de ataque y ataque en s�
 					anim_->changeState(AnimationEnemyBEUComponent::Attack);
 					eMov_->stop(true);
 					collision = false;
@@ -106,10 +108,34 @@ void LifeComponent::Death() {
 	}
 	else {// player
 		skin_->changeState(SkinBEUComponent::Death);
-		if (type_ == "air") types[0].alive = false;
-		else if (type_ == "fire")types[1].alive = false;
-		else if (type_ == "water")types[2].alive = false;
-		else if (type_ == "earth") types[3].alive = false;
+		if ("air") {
+			types[0].alive = false;
+			if(types[1].alive) roulette->changeplayer(2);
+			else if (types[2].alive) roulette->changeplayer(3);
+			else if (types[3].alive) roulette->changeplayer(4);
+		 }
+		else if("fire") {
+			types[1].alive = false;
+			if (types[0].alive) roulette->changeplayer(1);
+			else if (types[2].alive) roulette->changeplayer(3);
+			else if (types[3].alive) roulette->changeplayer(4);
+		}
+		else if ("water") {
+			types[2].alive = false;
+			if (types[1].alive) roulette->changeplayer(2);
+			else if (types[0].alive) roulette->changeplayer(1);
+			else if (types[3].alive) roulette->changeplayer(4);
+
+		}
+		else if ("earth") {
+			types[3].alive = false;
+			if (types[1].alive) roulette->changeplayer(2);
+			else if (types[2].alive) roulette->changeplayer(3);
+			else if (types[0].alive) roulette->changeplayer(1);
+		}
+
+		//roulette->changeplayer(4);
+
 	}
 }
 
