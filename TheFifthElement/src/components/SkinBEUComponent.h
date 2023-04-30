@@ -5,6 +5,7 @@
 #include "../sdlutils/Texture.h"
 #include "../GameManager.h"
 #include "FramedImage.h"
+#include "ColliderComponent.h"
 
 class PropertiesManager;
 class LifeComponent;
@@ -26,6 +27,8 @@ private:
     FramedImage* im_;
     LifeComponent* lifeC_ = nullptr;
     PropertiesManager* props;
+    bool flip_;
+    ColliderComponent* col_;
 
 public:
     SkinBEUComponent(string skin);

@@ -105,7 +105,6 @@ void Button::handleEvent(SDL_Event event)
 					OptionsState* optionsstate = static_cast<OptionsState*>(mngr_);
 					optionsstate->exitControls();					
 					optionsstate->deleteButtonsTD();
-
 				}
 				else if (identifier == "BEUCONTROLS")
 				{			

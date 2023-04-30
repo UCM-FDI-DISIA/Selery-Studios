@@ -5,12 +5,14 @@
 SkinBEUComponent::SkinBEUComponent(string skin) {
 	skin_ = skin;
 	prevSkin_ = skin;
+	flip_ = false;
 }
 
 void SkinBEUComponent::initComponent() {
 	t_ = "Player_BEU_" + skin_;
 	im_ = ent_->getComponent<FramedImage>(FRAMEDIMAGE_H);
 	lifeC_ = ent_->getComponent<LifeComponent>(LIFECOMPONENT_H);
+	col_ = ent_->getComponent<ColliderComponent>(COLLIDERCOMPONENT_H);
 }
 
 void SkinBEUComponent::update() {
@@ -34,7 +36,7 @@ void SkinBEUComponent::changeSkin(string skin)
 	else if (skin_ == "earth") {
 		lifeC_->chageType(props->instance()->getLives(3));
 	}
-	
+
 }
 
 void SkinBEUComponent::setTexture() {
@@ -90,7 +92,7 @@ void SkinBEUComponent::changeMov() {
 	default:
 		break;
 	}
-	
+
 }
 
 void SkinBEUComponent::setIdle() {
@@ -101,10 +103,26 @@ void SkinBEUComponent::setIdle() {
 	else if (skin_ == "earth") {
 		nframes_ = 6;
 	}
+
+	// colliders
+	if (skin_ == "fire") {
+		if (!flip_) col_->setCollider(Vector2D(95, 83), 44, 20);
+		else col_->setCollider(Vector2D(92, 83), 44, 20);
+	}
+	else if (skin_ == "water") {
+		col_->setCollider(Vector2D(97, 89), 38, 15);
+	}
+	else if (skin_ == "air") {
+		col_->setCollider(Vector2D(92, 91), 36, 23);
+	}
+	else if (skin_ == "earth") {
+		col_->setCollider(Vector2D(98, 85), 36, 13);
+	}
 }
 
 void SkinBEUComponent::setLeft() {
 	im_->setFlip(SDL_FLIP_HORIZONTAL);
+	flip_ = true;
 	t_ = "Player_BEU_" + skin_ + "_run";
 
 	if (skin_ == "fire" || skin_ == "air" || skin_ == "earth") {
@@ -117,6 +135,7 @@ void SkinBEUComponent::setLeft() {
 
 void SkinBEUComponent::setRight() {
 	im_->setFlip(SDL_FLIP_NONE);
+	flip_ = false;
 	t_ = "Player_BEU_" + skin_ + "_run";
 
 	if (skin_ == "fire" || skin_ == "air" || skin_ == "earth") {

@@ -4,8 +4,8 @@ void sliderComponent::initComponent() {
 	sliderTransform = ent_->getComponent<Transform>(TRANSFORM_H);
 	im_ = ent_->getComponent<Image>(IMAGE_H);
 	t_ = &SDLUtils::instance()->images().at("slider");
-	topeDer = sliderTransform->getPos().getX() + 60;
-	topeIzq = sliderTransform->getPos().getX() - 60;
+	topeDer = sliderTransform->getPos().getX() + 60 * WIN_WIDTH / 900;
+	topeIzq = sliderTransform->getPos().getX() - 60 * WIN_WIDTH / 900;
 	valor = 85;
 	set = false;
 	volume = ent_->getComponent<VolumeSlider>(VOLUMESLIDER_H);
@@ -31,9 +31,9 @@ void sliderComponent::update() {
 
 	if (!clicked && set){ //Actualizar sonido o lo que sea.
 		valor = sliderTransform->getPos().getX() - sliderTransform->getW()/2 - topeIzq;
-		
+		if (valor > 155) valor = 155;
 		if (bright != nullptr) bright->channgeBrightness(valor);
-		volume->changeVolume(valor);
+		if (volume != nullptr) volume->changeVolume(valor);
 	}
 	//bright->channgeBrightness(valor);
 
