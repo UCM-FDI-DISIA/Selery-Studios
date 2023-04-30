@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.9" tiledversion="1.9.2" orientation="orthogonal" renderorder="right-down" width="499" height="380" tilewidth="16" tileheight="16" infinite="0" nextlayerid="66" nextobjectid="1549">
+<map version="1.9" tiledversion="1.9.2" orientation="orthogonal" renderorder="right-down" width="499" height="380" tilewidth="16" tileheight="16" infinite="0" nextlayerid="66" nextobjectid="1565">
  <editorsettings>
   <export target="../../../../../Users/Agustin Castro/Downloads/MapaInicial..tmx" format="tmx"/>
  </editorsettings>
@@ -3164,10 +3164,16 @@
   <object id="1283" name="BossWater" x="6322" y="1346">
    <point/>
   </object>
-  <object id="1284" x="2141.5" y="1630.5">
+  <object id="1524" name="Bosslight" x="6114.51" y="4978.33">
    <point/>
   </object>
-  <object id="1524" name="Bosslight" x="6114.51" y="4978.33">
+  <object id="1549" x="2344" y="1641">
+   <point/>
+  </object>
+  <object id="1552" name="left" x="2344" y="1641">
+   <point/>
+  </object>
+  <object id="1553" name="right" x="2200" y="1641">
    <point/>
   </object>
  </objectgroup>

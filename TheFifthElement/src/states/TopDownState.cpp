@@ -440,7 +440,6 @@ void TopDownState::LoadMap(string const& filename) {
                             enemy_->addComponent<Enemy_movementTD_component>(ENEMY_MOVEMENT_TD_H, "boss");
                             enemy_->addComponent<CheckCollision>(CHECKCOLLISION_H, player_, lookingRange, lookingWidth, a, -300, "water");
                             addEntity(enemy_);
-                            enemies_.push_back(enemy_);
                         }
                         else if (obj.getName() == "BossEarth") {
                             //PARA CREAR EL RESTO DE BOSSES AÑADIR AL TILEMAP (EN LA CAPA DE ENEMY) UN ENEMIGO NUEVO Y MODIFICAR SU NOMBRE
@@ -454,7 +453,6 @@ void TopDownState::LoadMap(string const& filename) {
                             enemy_->addComponent<Enemy_movementTD_component>(ENEMY_MOVEMENT_TD_H, "boss");
                             enemy_->addComponent<CheckCollision>(CHECKCOLLISION_H, player_, lookingRange, lookingWidth, a, -300, "earth");
                             addEntity(enemy_);
-                            enemies_.push_back(enemy_);
                         }
                         else if (obj.getName() == "BossFire") {
                             //PARA CREAR EL RESTO DE BOSSES AÑADIR AL TILEMAP (EN LA CAPA DE ENEMY) UN ENEMIGO NUEVO Y MODIFICAR SU NOMBRE
@@ -468,7 +466,6 @@ void TopDownState::LoadMap(string const& filename) {
                             enemy_->addComponent<Enemy_movementTD_component>(ENEMY_MOVEMENT_TD_H, "boss");
                             enemy_->addComponent<CheckCollision>(CHECKCOLLISION_H, player_, lookingRange, lookingWidth, a, -300, "fire");
                             addEntity(enemy_);
-                            enemies_.push_back(enemy_);
                         }
                         else if (name == "BossLight")
                         {
