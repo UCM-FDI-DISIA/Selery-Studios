@@ -1,7 +1,7 @@
 {
 "dialog": [
   {"id": "1","text": "Good morning, dear traveler $ What can I offer you?"},
-  {"id": "2","text": "Either buy or get out of the way $ What will it be then?"},
+  {"id": "2","text": "Either buy or get out of the way $ You can upgrade $ your damage and vitality. $ What will it be then?"},
   {"id": "3","text": "Friend! $ Everything here is good, chic, and cheap!"},
   {"id": "4","text": "Welcome to my store "},
   {"id": "22","text": "Since you separated from your siblings $ this kingdom doesn't feel the same $ I don't know, maybe opening borders would be a $ good idea, don't you think?"},

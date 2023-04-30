@@ -56,20 +56,19 @@ void Button::handleEvent(SDL_Event event)
 		if (event.button.button == SDL_BUTTON_LEFT) {
 			if (currentPositionState == 1)
 			{
-				if (identifier == "LOAD") {
-				SDLUtils::instance()->soundEffects().at("Title").haltChannel();
-				//SDLUtils::instance()->soundEffects().at("pruebaBoton").play();
-				GameManager::instance()->LoadGame();
-				}
-			    else if (identifier == "PLAY") {
-					SDLUtils::instance()->soundEffects().at("Title").haltChannel();
+				
+			    if (identifier == "PLAY") {
 					//SDLUtils::instance()->soundEffects().at("pruebaBoton").play();
 					GameManager::instance()->leaveMainMenu();
-				}		
+				}	
+				else if (identifier == "LOAD") {
+					//SDLUtils::instance()->soundEffects().at("pruebaBoton").play();
+					GameManager::instance()->LoadGame();
+				}
 				else if (identifier == "RESUME") {
-					SDLUtils::instance()->soundEffects().at("prueba").play();
-					SDLUtils::instance()->soundEffects().at("Title").resumeChannel();
-					GameManager::instance()->goTopDown();
+					//SDLUtils::instance()->soundEffects().at("prueba").play();
+					//SDLUtils::instance()->soundEffects().at("Title").resumeChannel();
+					GameManager::instance()->Pop();
 					//GameManager::instance()->Pop();
 				}
 				else if (identifier == "OPTIONS") {

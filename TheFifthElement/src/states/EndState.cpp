@@ -8,7 +8,7 @@ EndState::EndState()
 	font_ = &SDLUtils::instance()->fonts().at("TCentury");
 	//color de la letra
 	color_ = { 255,255,255 };
-	creditos = "After fighting against your own brother, $ you realize the path has not been easy. $ You've tried to go against the wind, $ denying the undeniable. $ You felt so much anger that it burned you inside, $ you tried to negotiate with death, $ you almost drowned in a sea of tears. $ But finally, after all that $ you managed to overcome the grief. $ Credits: $ Francisco Miguel Galvan Munoz $ Sheila Julvez Lopez $ Cristina Mora Velasco $ Jose Moreno Barbero $ Dorjee Khampa Herrezuelo Blasco $ Sofia Sanchez Hernandez $ Pablo Cerrada Vega $ Pablo Cao $ Pablo Martinez Quesada $ Agustin Castro $ Alberto Peñalba Martos $";
+	creditos = "After fighting against your own brother, $ you realize the path has not been easy. $ You've tried to go against the wind, $ denying the undeniable. $ You felt so much anger that it burned you inside, $ you tried to negotiate with death, $ you almost drowned in a sea of tears. $ But finally, after all that $ you managed to overcome the grief. $ Credits: $ Francisco Miguel Galvan Munoz $ Sheila Julvez Lopez $ Cristina Mora Velasco $ Jose Moreno Barbero $ Dorjee Khampa Herrezuelo Blasco $ Sofia Sanchez Fernandez $ Pablo Cerrada Vega $ Pablo Cao Calvo $ Pablo Martinez Quesada $ Agustin Castro de Troya $ Alberto Penalba Martos $";
 	//declaras un stringsteam que te ayude a dividir el texto
 	stringstream aux(creditos);
 	//cada segmento del texto

@@ -151,7 +151,7 @@ private:
 	float SaveGame_ = 120000;
 public:
 	string getStateID(); // stringID
-	TopDownState(bool load);
+	TopDownState(bool load = false);
 	~TopDownState();
 	void LoadMap(string const& filename);
 	void LoadGame();

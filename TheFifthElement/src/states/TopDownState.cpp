@@ -3,7 +3,7 @@
 #include <fstream>
 #include "../Elements.h"
 #include "../Quests.h"
-TopDownState::TopDownState(bool load = false) {
+TopDownState::TopDownState(bool load) {
     ////HUD
     //Hud_ = new Entity();
     //Hud_->setContext(this);
@@ -168,6 +168,8 @@ void TopDownState::render() {
     SDL_Rect srcIc = { 0, 0, PLAYERAVATAR_DIMENSION, PLAYERAVATAR_DIMENSION };
     SDL_RenderCopy(Gm_->getRenderer(), background_0, &srcIc, &icon);
     sk_->getAvatar()->render(icon);
+    SDL_Rect dest = { 0,90 * WIN_HEIGHT / 600,50 * WIN_WIDTH / 900,50 * WIN_HEIGHT / 600 };
+    SDLUtils::instance()->images().at("P").render(dest);
 }
 void TopDownState::LoadMap(string const& filename) {
 
