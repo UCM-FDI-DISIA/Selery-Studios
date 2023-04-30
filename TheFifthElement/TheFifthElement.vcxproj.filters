@@ -176,6 +176,7 @@
     <ClInclude Include="src\states\EndState.h" />
     <ClInclude Include="src\Quests.h" />
     <ClInclude Include="src\components\Trigger.h" />
+    <ClInclude Include="src\Puzzle1.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="TheFifthElement.rc" />

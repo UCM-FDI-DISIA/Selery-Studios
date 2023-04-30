@@ -293,12 +293,15 @@ void TopDownState::LoadMap(string const& filename) {
                     collisions_.push_back(colision);
                     // collisions_.push_back(collidertile);
                 }
-                else if (name == "Interacctions") {
+                else if (name == "Interactions") {
                     /*auto a = new ColliderTileInteraction(Vector2D(rect.left, rect.top), rect.width, rect.height, player_, obj.getUID(), puzzle1);
                     interactions_.push_back(a);*/
                     Entity* puzzle = new Entity();
+                    puzzle->setContext(this);
                    Transform* trans = puzzle->addComponent<Transform>(TRANSFORM_H, Vector2D((obj.getPosition().x * 2.5), obj.getPosition().y * 2.5), PLAYERTD_WIDTH_FRAME, PLAYERTD_HEIGHT_FRAME);
-                   puzzle->addComponent<Trigger>(TRIGGER_H, obj.getName(), trans_player_, trans);
+                  FramedImage* frimage=  puzzle->addComponent<FramedImage>(FRAMEDIMAGE_H, &SDLUtils::instance()->images().at("Calice"), CALICES_WIDTH, CALICES_HEIGHT, CALICES_FRAMES);
+                   puzzle->addComponent<Trigger>(TRIGGER_H, obj.getName(), trans_player_, trans, frimage);
+                   puzzle_.push_back(puzzle);
                     addEntity(puzzle);
                 }
                 else if (name == "Player") { // PLAYER
@@ -339,7 +342,7 @@ void TopDownState::LoadMap(string const& filename) {
                     Blacksmith_ = new Entity();
                     Blacksmith_->setContext(this);
                     Blacksmith_->addComponent<Transform>(TRANSFORM_H, Vector2D((obj.getPosition().x * 2.5), obj.getPosition().y * 2.5), BLACKSMITH_WIDTH, BLACKSMITH_HEIGHT);
-                    Blacksmith_->addComponent<FramedImage>(IMAGE_H, blacksmithTexture(), BLACKSMITH_WIDTH, BLACKSMITH_HEIGHT, BLACKSMITH_FRAMES);
+                    Blacksmith_->addComponent<FramedImage>(FRAMEDIMAGE_H, blacksmithTexture(), BLACKSMITH_WIDTH, BLACKSMITH_HEIGHT, BLACKSMITH_FRAMES);
                     Blacksmith_->addComponent<NPCcollisioncomponent>(NPCCOLLISIONCOMPONENTT, player_, contBlksm);
                     Blacksmith_->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(0, 0), BLACKSMITH_HEIGHT, BLACKSMITH_WIDTH / BLACKSMITH_FRAMES);
                     addEntity(Blacksmith_);
@@ -459,7 +462,7 @@ void TopDownState::LoadMap(string const& filename) {
                             boss_ = new Entity();
                             boss_->setContext(this);
                             boss_->addComponent<Transform>(TRANSFORM_H, Vector2D((obj.getPosition().x * 2.5), obj.getPosition().y * 2.5), 600, 400);
-                            boss_->addComponent<FramedImage>(IMAGE_H, bossLuzTexture(), LIGHTBOSS_TP_WIDTH, LIGHTBOSS_TP_HEIGHT, LIGHTBOSS_TP_FRAMES);
+                            boss_->addComponent<FramedImage>(FRAMEDIMAGE_H, bossLuzTexture(), LIGHTBOSS_TP_WIDTH, LIGHTBOSS_TP_HEIGHT, LIGHTBOSS_TP_FRAMES);
                             boss_->addComponent<BossCollision>(BOSSCOLLISION_H, player_, "light");
                             boss_->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(0, 0), 288, 188);
                             addEntity(boss_);
@@ -481,7 +484,7 @@ void TopDownState::LoadMap(string const& filename) {
     addEntity(player_);
     SDL_RenderPresent(Gm_->getRenderer());
     SDL_SetRenderTarget(Gm_->getRenderer(), nullptr);
-
+    Puzzle1::instance()->copas(puzzle_);
 }
 
 

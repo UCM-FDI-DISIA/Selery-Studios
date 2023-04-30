@@ -351,7 +351,9 @@
     { "id":"dmgIcon", "file": "assets/HUD/powerUps/sword.png"},
     { "id":"spdIcon", "file": "assets/HUD/powerUps/boot.png"},
     { "id":"shieldIcon", "file": "assets/HUD/powerUps/bubble.png"},
-    { "id":"dmgRedIcon", "file": "assets/HUD/powerUps/shield.png"}
+    { "id":"dmgRedIcon", "file": "assets/HUD/powerUps/shield.png"},
+    { "id":"Calicelleno", "file": "assets/Scenes/Maps/AncientRuins/Props/goldenchalicelleno.png"},
+    { "id":"Calice", "file": "assets/Scenes/Maps/AncientRuins/Props/goldenchalice.png"}
   ],
 
   "messages": [

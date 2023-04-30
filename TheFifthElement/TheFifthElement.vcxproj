@@ -137,6 +137,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="src\components\Trigger.h" />
+    <ClInclude Include="src\Puzzle1.h" />
     <ClInclude Include="src\Quests.h" />
     <ClInclude Include="src\components\QuestInfoComponent.h" />
     <ClInclude Include="src\components\PowerUpControler.h" />

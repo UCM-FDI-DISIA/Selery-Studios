@@ -106,9 +106,9 @@ const int LIGHTBOSS_TP_FRAMES= 1;
 #pragma endregion
 
 // SHOP
-const uint BLACKSMITH_WIDTH = 96; // anchura de NPC
-const uint BLACKSMITH_HEIGHT = 96; // altura de NPC
-const uint BLACKSMITH_FRAMES = 13; // frame del npcs
+const uint BLACKSMITH_WIDTH = 96; 
+const uint BLACKSMITH_HEIGHT = 96;  
+const uint BLACKSMITH_FRAMES = 13; 
 const uint SHOP_WIDTH = 747;
 const uint SHOP_HEIGHT = 876;
 const uint UPTURNBUTTON_WIDTH = 88;
@@ -121,12 +121,8 @@ const uint AVATAR_HEIGHT = 64;
 const float EXITSHOP_WIDTH = 557.0f;
 const float EXITSHOP_HEIGHT = 131.0f;
 const int MAX_MONEY = 1200;
-/*const string FUEGO = "fire";
-const string AIRE = "wind";
-const string AGUA = "water";
-const string TIERRA = "earth";
 
-const string SETA = "shroom";
-const string ESQUELETO = "skeleton";
-const string DUENDE = "goblin";
-const string MURCIELAGO = "bat";*/
+//PUZZLES
+const uint CALICES_WIDTH = 64; 
+const uint CALICES_HEIGHT = 64; 
+const uint CALICES_FRAMES = 8; 

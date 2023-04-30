@@ -34,7 +34,7 @@
 #include "../components/SectorCollisionComponent.h"
 #include "../components/BossCollision.h"
 #include "../Saving.h"
-
+#include "../Puzzle1.h"
 using uint = unsigned int;
 using tileset_map = std::map<std::string, Texture*>; //mapa con CLAVE:string, ARGUMENTO: puntero a textura
 using tilelayer = tmx::TileLayer;
@@ -63,7 +63,6 @@ private:
 	tileset_map tilesets_;	// textures map (string -> texture)
 	SDL_Texture* background_0;
 	SDL_Texture* prueba;
-	//SDL_Texture* background_;
 	MapInfo mapInfo;	//struct
 	vector<bool> sectors{ true,false,false,false };
 	int idSector = 0;
@@ -104,7 +103,8 @@ private:
 
 	//COLISIONES TILE-PLAYER
 	vector<Entity*> collisions_; //vector colision player-mapa
-	//vector<ColliderTileInteraction*> interactions_; //vector colision player-mapa
+
+	vector<Entity*> puzzle_; //vector para los puzzles 
 	float camOffset_ = 60.0f;
 	ColliderTile* ColideTileComponent;
 	int fondowidth_, fondoheight_;
@@ -133,7 +133,6 @@ private:
 	bool shopCreated_ = false;
 	bool loadGame = false;
 	bool questsMenu = false;
-
 	// MINIMAPA
 	Texture* m_ = &SDLUtils::instance()->images().at("mapFrame");
 	Texture* airAvatar_ = &SDLUtils::instance()->images().at("AirAvatar");
