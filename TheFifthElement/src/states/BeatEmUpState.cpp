@@ -55,7 +55,7 @@ BeatEmUpState::BeatEmUpState(bool Boss,Entity* enemySends, string typeBoss, int 
 	if (typeBoss == "water"|| typeBoss=="fire") player_->addComponent<LimitBEU>(LIMITBEU_H, true);
 	else player_->addComponent<LimitBEU>(LIMITBEU_H);
 
-	player_->addComponent<ColliderComponent>(int(COLLIDERCOMPONENT_H), Vector2D(90, 80), 1.2*PLAYERBEU_HEIGHT_FRAME / 3, PLAYERBEU_WIDTH_FRAME / 7);
+	player_->addComponent<ColliderComponent>(int(COLLIDERCOMPONENT_H), Vector2D(90, 80), PLAYERBEU_HEIGHT_FRAME, PLAYERBEU_WIDTH_FRAME);
 	player_->addComponent<PointOfFightComponent>(POINTOFFIGHTCOMPONENT_H, 30, 10);
 	PowerUpControler* puCtrl = player_->addComponent<PowerUpControler>(POWERUPCTRL_H);
 	properties().setPowerUpRef(puCtrl);
