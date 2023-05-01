@@ -331,6 +331,7 @@ void TopDownState::LoadMap(string const& filename) {
                    puzzle->addComponent<Trigger>(TRIGGER_H, name, trans_player_, trans, frimage);
                     addEntity(puzzle);
                 }
+
                 else if (name == "Player") { // PLAYER
                     player_ = new Entity();
                     player_->setContext(this);
