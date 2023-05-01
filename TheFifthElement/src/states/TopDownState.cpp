@@ -91,18 +91,23 @@ void TopDownState::SaveGame() {
             //ENEMIGUESSS
             for (auto c : ents_) {
                 if (c->hasComponent(ENEMY_MOVEMENT_TD_H)) {
-                    save << "enemy" << endl;
                     Transform* f = c->getComponent<Transform>(TRANSFORM_H);
-                    if (c->getComponent<FramedImage>(FRAMEDIMAGE_H)->getType() == "") {
-                        save << "skeleton" << endl;
+                    try 
+                    {
+                        if (c->getComponent<FramedImage>(FRAMEDIMAGE_H)->getType() == "") {
+                            save << "enemy" << endl;
+                            save << "skeleton" << endl;
+                        }
+                        else {
+                            save << "enemy" << endl;
+                            save << c->getComponent<FramedImage>(FRAMEDIMAGE_H)->getType() << endl;
+                        }
+
+                        save << f->getPos().getX() << " " << f->getPos().getY() << " " << f->getDir().getX() << " " << f->getDir().getY() << endl;
+                    }  
+                    catch (exception& e)
+                    {
                     }
-                    else {
-                        save << c->getComponent<FramedImage>(FRAMEDIMAGE_H)->getType() << endl;
-                    }
-
-                    save << f->getPos().getX() << " " << f->getPos().getY() << " " << f->getDir().getX() << " " << f->getDir().getY() << endl;
-
-
                 }
                 else if (c->hasComponent(REDIRECTENEMY_H)) {
                     save << "redirect" << endl;
@@ -394,7 +399,6 @@ void TopDownState::LoadMap(string const& filename) {
                
                 if (!loadGame_) { //carga
                     if (name == "Enemy") {
-                        break;
                         if (obj.getName() == "" ) {
                             enemy_ = new Entity();
                             enemy_->setContext(this);
@@ -453,7 +457,7 @@ void TopDownState::LoadMap(string const& filename) {
                             enemy_ = new Entity();
                             enemy_->setContext(this);
                             enemy_->addComponent<Transform>(TRANSFORM_H, Vector2D(obj.getPosition().x * 2.5*(WIN_WIDTH/900), obj.getPosition().y * 2.5*(WIN_HEIGHT/600)), WATERBOSS_WIDTH, WATERBOSS_HEIGHT, 2);
-                            enemy_->addComponent<FramedImage>(FRAMEDIMAGE_H, &sdlutils().images().at("waterBoss_idle"), WATERBOSS_WIDTH, WATERBOSS_HEIGHT, 6);
+                            enemy_->addComponent<FramedImage>(FRAMEDIMAGE_H, &sdlutils().images().at("waterBoss_idle"), WATERBOSS_WIDTH, WATERBOSS_HEIGHT, 6, "waterBoss");
                             float a = 1.0f;
                             float lookingRange = 50.0f;
                             float lookingWidth = -40;
@@ -466,7 +470,7 @@ void TopDownState::LoadMap(string const& filename) {
                             enemy_ = new Entity();
                             enemy_->setContext(this);
                             enemy_->addComponent<Transform>(TRANSFORM_H, Vector2D(obj.getPosition().x * 2.5*(WIN_WIDTH/900), obj.getPosition().y * 2.5*(WIN_HEIGHT/600)), EARTHBOSS_HEIGHT, EARTHBOSS_HEIGHT, 2);
-                            enemy_->addComponent<FramedImage>(FRAMEDIMAGE_H, &sdlutils().images().at("GolemFase1_idle"), EARTHBOSS_WIDTH, EARTHBOSS_HEIGHT, 6);
+                            enemy_->addComponent<FramedImage>(FRAMEDIMAGE_H, &sdlutils().images().at("GolemFase1_idle"), EARTHBOSS_WIDTH, EARTHBOSS_HEIGHT, 6, "earthBoss");
                             float a = 1.0f;
                             float lookingRange = 50.0f;
                             float lookingWidth = -40;
@@ -479,7 +483,7 @@ void TopDownState::LoadMap(string const& filename) {
                             enemy_ = new Entity();
                             enemy_->setContext(this);
                             enemy_->addComponent<Transform>(TRANSFORM_H, Vector2D(obj.getPosition().x * 2.5*(WIN_WIDTH/900), obj.getPosition().y * 2.5*(WIN_HEIGHT/600)), EARTHBOSS_HEIGHT, EARTHBOSS_HEIGHT, 2);
-                            enemy_->addComponent<FramedImage>(FRAMEDIMAGE_H, &sdlutils().images().at("FireBoss"), EARTHBOSS_WIDTH, EARTHBOSS_HEIGHT, 6);
+                            enemy_->addComponent<FramedImage>(FRAMEDIMAGE_H, &sdlutils().images().at("FireBoss"), EARTHBOSS_WIDTH, EARTHBOSS_HEIGHT, 6, "fireBoss");
                             float a = 1.0f;
                             float lookingRange = 50.0f;
                             float lookingWidth = -40;
@@ -492,7 +496,7 @@ void TopDownState::LoadMap(string const& filename) {
                             boss_ = new Entity();
                             boss_->setContext(this);
                             boss_->addComponent<Transform>(TRANSFORM_H, Vector2D((obj.getPosition().x * 2.5 *(WIN_WIDTH/900)), obj.getPosition().y * 2.5*(WIN_HEIGHT/600)), 600, 400);
-                            boss_->addComponent<FramedImage>(FRAMEDIMAGE_H, bossLuzTexture(), LIGHTBOSS_TP_WIDTH, LIGHTBOSS_TP_HEIGHT, LIGHTBOSS_TP_FRAMES);
+                            boss_->addComponent<FramedImage>(FRAMEDIMAGE_H, bossLuzTexture(), LIGHTBOSS_TP_WIDTH, LIGHTBOSS_TP_HEIGHT, LIGHTBOSS_TP_FRAMES, "lightBoss");
                             boss_->addComponent<BossCollision>(BOSSCOLLISION_H, player_, "light");
                             boss_->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(0, 0), 288, 188);
                             addEntity(boss_);
@@ -568,7 +572,6 @@ void TopDownState::LoadGame() {
                         f >> name;
                         float x, y, dirx, diry;
                         f >> x >> y >> dirx >> diry;
-
                         pos = { x,y };
                         enemy_ = new Entity();
                         enemy_->setContext(this);
@@ -631,7 +634,6 @@ void TopDownState::LoadGame() {
 
             }
             f.close();
-
         }
     }
 

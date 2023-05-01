@@ -281,7 +281,7 @@ void BeatEmUpState::finishBEU() {
 		if( typeBoss_!= "light")
 		GameManager::instance()->goTopDown();
 		
-		if (enemySender != nullptr)enemySender->~Entity();
+		if (enemySender != nullptr) enemySender->~Entity();
 	}
 }
 
