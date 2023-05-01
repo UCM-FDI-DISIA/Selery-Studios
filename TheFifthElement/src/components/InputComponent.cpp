@@ -67,24 +67,26 @@ void InputComponent::handleEvents(SDL_Event event)
 {
 	if(controladorDetectado)
 	{
-		
-		if (SDL_GameControllerGetAxis(controller, SDL_CONTROLLER_AXIS_LEFTX) < -8000 && d != LEFT && d!= DOWNLEFT && d!= UPLEFT ) {
-			mov_->setDir(Vector2D(-1, 0));
-			skin_->changeState(SkinComponent::Left);
+		if (!dialog->gethasstarted() && !dialog->getopenedShop()) {
+			if (SDL_GameControllerGetAxis(controller, SDL_CONTROLLER_AXIS_LEFTX) < -8000 && d != LEFT && d != DOWNLEFT && d != UPLEFT) {
+				mov_->setDir(Vector2D(-1, 0));
+				skin_->changeState(SkinComponent::Left);
+			}
+
+			else if (SDL_GameControllerGetAxis(controller, SDL_CONTROLLER_AXIS_LEFTX) > 8000 && d != RIGHT && d != DOWNRIGHT && d != UPRIGHT) {
+				mov_->setDir(Vector2D(1, 0));
+				skin_->changeState(SkinComponent::Right);
+			}
+			else  if (SDL_GameControllerGetAxis(controller, SDL_CONTROLLER_AXIS_LEFTY) < -8000 && d != UP && d != UPLEFT && d != UPRIGHT) {
+				mov_->setDir(Vector2D(0, -1));
+				skin_->changeState(SkinComponent::Up);
+			}
+			else if (SDL_GameControllerGetAxis(controller, SDL_CONTROLLER_AXIS_LEFTY) > 8000 && d != DOWN && d != DOWNLEFT && d != DOWNRIGHT) {
+				mov_->setDir(Vector2D(0, 1));
+				skin_->changeState(SkinComponent::Down);
+			}
 		}
-		
-		else if (SDL_GameControllerGetAxis(controller, SDL_CONTROLLER_AXIS_LEFTX) > 8000 && d != RIGHT && d != DOWNRIGHT && d != UPRIGHT) {
-			mov_->setDir(Vector2D(1, 0));
-			skin_->changeState(SkinComponent::Right);
-		}
-		else  if (SDL_GameControllerGetAxis(controller, SDL_CONTROLLER_AXIS_LEFTY) < -8000 && d != UP && d != UPLEFT && d != UPRIGHT) {
-			mov_->setDir(Vector2D(0, -1));
-			skin_->changeState(SkinComponent::Up);
-		}
-		else if (SDL_GameControllerGetAxis(controller, SDL_CONTROLLER_AXIS_LEFTY) > 8000 && d != DOWN && d != DOWNLEFT && d != DOWNRIGHT) {
-			mov_->setDir(Vector2D(0, 1));
-			skin_->changeState(SkinComponent::Down);
-		}
+
 		else if (SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_START)) {
 			GameManager::goPauseMenu();
 		}

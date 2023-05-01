@@ -68,6 +68,7 @@ void MainMenuState::handleEvents()
 		playButton->handleEvent(event);
 		exitButton->handleEvent(event);
 		optionsButton->handleEvent(event);
+		loadButton->handleEvent(event);
 		
 	}
 
