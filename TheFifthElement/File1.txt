@@ -1,6 +1,6 @@
 PLAYER
 0
-7645 7471
+14458 7666
 0
 1 10
 0
@@ -9,58 +9,55 @@ PLAYER
 1 10
 
 enemy
-mushroom
-9970 8023.33 0 0
-enemy
-skeleton
-4730.9 8004.55 0 0
+goblin
+11080 7920 0 0
 enemy
 bat
-6458.17 8072.73 0 0
-enemy
-mushroom
-7291.53 9140.9 0 0
+4845 7889 1 0
 enemy
 bat
-8390 7769.7 0 0
-enemy
-bat
-4677 4960 1 0
-enemy
-bat
-6037 5480 1 0
+6864 7920 -1 0
 enemy
 goblin
-7533 4080 -1 0
+9080 7960 0 0
 enemy
 bat
-8893 5160 1 0
-enemy
-mushroom
-11265 6825 0 0
-enemy
-bat
-13435 6480 0 0
-enemy
-mushroom
-12115 8945 0 0
+4836 4960 1 0
 enemy
 skeleton
-14850 9025 0 0
+6271 5009 -1 0
 enemy
 bat
-14310 6355 0 0
+7830 4080 1 0
+enemy
+mushroom
+9070 5160 -1 0
+enemy
+mushroom
+11436 6120 1 0
+enemy
+bat
+12688 6974 0 1
 enemy
 goblin
+10706 8962 1 0
+enemy
+bat
+14730 9080 1 0
+enemy
+bat
+15200 6102 0 -1
+enemy
+skeleton
 7527.5 5390 0 0
 enemy
-mushroom
+bat
 9200 4520 0 0
 enemy
-skeleton
+goblin
 8520 3680 0 0
 enemy
-mushroom
+goblin
 9440 4080 0 0
 enemy
 skeleton
@@ -72,23 +69,41 @@ enemy
 skeleton
 15600 3280 0 0
 enemy
-mushroom
-5755 4102.5 -1 0
-enemy
 bat
-10423 3322 1 0
+5578 4102.5 1 0
+enemy
+goblin
+10288 2950 0 1
 enemy
 mushroom
 11880 3320 0 0
 enemy
-bat
-14692 3473 0 1
+mushroom
+14209 3527 0 -1
 enemy
-goblin
+mushroom
 13040 3520 0 0
 enemy
-skeleton
+goblin
 10960 5040 0 0
+enemy
+bat
+8960 8640 0 0
+enemy
+bat
+8614 7240 -1 0
+enemy
+skeleton
+7289 6731 0 1
+enemy
+mushroom
+6730 8958 0 1
+redirect
+0 1
+7280 6560 10 10
+redirect
+-1 0
+7720 8640 10 10
 redirect
 -1 0
 5860 4102 10 10
@@ -161,6 +176,108 @@ redirect
 redirect
 -1 0
 10280 3160 10 10
+redirect
+-1 0
+7800 6560 10 10
+redirect
+0 -1
+7800 7040 10 10
+redirect
+1 0
+7280 7040 10 10
+redirect
+1 0
+8200 7240 10 10
+redirect
+-1 0
+8840 7240 10 10
+redirect
+1 0
+6600 7680 10 10
+redirect
+0 1
+7400 7680 10 10
+redirect
+-1 0
+7400 8040 10 10
+redirect
+0 -1
+6600 8040 10 10
+redirect
+0 -1
+7720 9640 10 10
+redirect
+1 0
+6720 9640 10 10
+redirect
+0 1
+6720 8640 10 10
+redirect
+0 1
+5040 7880 10 10
+redirect
+-1 0
+5040 8400 10 10
+redirect
+0 -1
+4640 8400 10 10
+redirect
+1 0
+4640 7880 10 10
+redirect
+1 0
+9800 8560 10 10
+redirect
+0 1
+10160 8560 10 10
+redirect
+1 0
+10160 9080 10 10
+redirect
+0 1
+11000 9080 10 10
+redirect
+-1 0
+11000 9360 10 10
+redirect
+0 -1
+9800 9360 10 10
+redirect
+-1 0
+12000 6120 10 10
+redirect
+1 0
+11200 6120 10 10
+redirect
+-1 0
+15120 8240 10 10
+redirect
+0 1
+14320 8240 10 10
+redirect
+1 0
+14320 9200 10 10
+redirect
+0 -1
+15120 9200 10 10
+redirect
+0 1
+15200 6000 10 10
+redirect
+0 -1
+15200 6600 10 10
+redirect
+-1 0
+13480 6680 10 10
+redirect
+0 1
+12680 6680 10 10
+redirect
+1 0
+12680 7400 10 10
+redirect
+0 -1
+13480 7400 10 10
 QUEST
 siblings
 Gather your siblings
