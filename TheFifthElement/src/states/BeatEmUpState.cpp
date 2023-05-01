@@ -6,7 +6,9 @@
 BeatEmUpState::BeatEmUpState(bool Boss,Entity* enemySends, string typeBoss, int nEnemies, int timeGen) {
 	enemySender = enemySends;
 	numEnemies = 0;
+	lockCameraX = false;
 	boss = Boss;
+	fireBossBackgroundWidth = sdlutils().images().at("fondoBossFire").width();
 	typeBoss_ = typeBoss;
 	sdlutils().soundEffects().at("Battle").play(-1);
 	random = &sdlutils().rand();
@@ -20,6 +22,7 @@ BeatEmUpState::BeatEmUpState(bool Boss,Entity* enemySends, string typeBoss, int 
 		Background("fondoBossAgua");// fondo estático
 	}
 	else if (typeBoss_ == "fire") {
+		lockCameraX = true;
 		Background("fondoBossFire");
 	}
 	else if (typeBoss_ == "light") {
@@ -87,16 +90,18 @@ void BeatEmUpState::update() {
 	Manager::update();
 	colManager_->update();
 
-	if (!boss && timeNextGeneration <= sdlutils().currRealTime()) { //aqui salta un fallo porque esta leyendo numenemies que no es fijo, se reduce cuando matas a un enemigo y si matas a un enemigo antes de que se genere otro dejan de generarse
+	if (!boss && timeNextGeneration <= sdlutils().currRealTime()) {
 		AddEnemy();
 		timeNextGeneration = sdlutils().currRealTime() + delayGenerateEnemies;
 	}
 
-	camRect_.x = (trans_player_->getPos().getX() + camOffset_) - WIN_WIDTH / 2;
-	camRect_.x = camRect_.x + ((trans_player_->getPos().getX() + camOffset_ - camRect_.x) - WIN_WIDTH / 2) * 0.05;
-	camRect_.y = 0;
+	if (!lockCameraX) {
+		camRect_.x = (trans_player_->getPos().getX() + camOffset_) - WIN_WIDTH / 2;
+		camRect_.x = camRect_.x + ((trans_player_->getPos().getX() + camOffset_ - camRect_.x) - WIN_WIDTH / 2) * 0.05;
+		camRect_.y = 0;
+	}
 
-	if (camRect_.x < 0 || typeBoss_ == "water" || typeBoss_ == "fire") {
+	if (camRect_.x < 0 || typeBoss_ == "water") {
 		camRect_.x = 0;
 	}
 	if (Shakemyass) {
@@ -106,7 +111,23 @@ void BeatEmUpState::update() {
 	else if (camRect_.x > BACKGROUNDBEU_WIDTH - WIN_WIDTH) {
 		camRect_.x = BACKGROUNDBEU_WIDTH - WIN_WIDTH;
 	}
+
+	if (typeBoss_ == "fire") {
+		
+		float minX = -350.0f; 
+		float maxX = fireBossBackgroundWidth + minX + WIN_WIDTH; 
+
+		Vector2D playerPos = trans_player_->getPos();
+
+		playerPos.setX(std::max(minX, std::min(playerPos.getX(), maxX)));
+
+		trans_player_->setPos(playerPos);
+	}
+
+
+
 }
+
 
 void BeatEmUpState::AddEnemies(int n_enemies) {
 	for (int i = 0; i < n_enemies; ++i) {
