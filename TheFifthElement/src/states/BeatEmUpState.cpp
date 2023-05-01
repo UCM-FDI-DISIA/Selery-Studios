@@ -169,7 +169,7 @@ void BeatEmUpState::AddEnemy() {
 
 void BeatEmUpState::AddWaterBoss() {
 	numEnemies = 1;
-	Vector2D position = Vector2D(sdlutils().width() * 3 / 4 - (192 * 2.4*(WIN_WIDTH/900)) / 2, sdlutils().height()/2);
+	Vector2D position = Vector2D(sdlutils().width() * 3 / 4 - (WATERBOSS_WIDTH) / 2, sdlutils().height()/2);
 
 	Entity* waterBoss = addEntity();
 	waterBoss->addComponent<Transform>(TRANSFORM_H, position, WATERBOSS_WIDTH, WATERBOSS_HEIGHT, 2.4);

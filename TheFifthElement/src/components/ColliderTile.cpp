@@ -23,13 +23,13 @@ void ColliderTile::update() {
 
 	player->x = trans_player->getPos().getX();
 	player->y = trans_player->getPos().getY() + 40 * WIN_HEIGHT / 600;
-	player->h = trans_player->getH() *trans_player->getS() - 50 * WIN_HEIGHT / 600;
-	player->w = trans_player->getW()*trans_player->getS();
+	player->h = trans_player->getH() - 50 * WIN_HEIGHT / 600;
+	player->w = trans_player->getW();
 	d = -1;
 	for (auto c : colisions) {
 			trans_col = c->getComponent<Transform>(TRANSFORM_H);
-			colision->h = trans_col->getH()*trans_col->getS();
-			colision->w = trans_col->getW() * trans_col->getS();
+			colision->h = trans_col->getH();
+			colision->w = trans_col->getW();
 			colision->x = trans_col->getPos().getX();
 			colision->y = trans_col->getPos().getY();
 

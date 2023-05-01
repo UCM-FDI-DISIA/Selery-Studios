@@ -24,8 +24,8 @@ void FireBossComponent::initComponent() {
 	image->setAnim("FireBoss", 12, false, 1);
 	
 	//diferencia de posicion entre player y BOSS
-	velocity_x =(((player_pos.getX() * trans_player->getS() - initial_posotion.getX() * trans_player->getS())/WIN_WIDTH))*2;
-	velocity_y = (((player_pos.getY() * trans_player->getS() -( initial_posotion.getY() * trans_player->getS() -PLAYERTD_HEIGHT_FRAME)) / WIN_HEIGHT))*2;
+	velocity_x =(((player_pos.getX() * trans_player->getSW() - initial_posotion.getX() * trans_player->getSW())/WIN_WIDTH))*2;
+	velocity_y = (((player_pos.getY() * trans_player->getSH() -( initial_posotion.getY() * trans_player->getSH() -PLAYERTD_HEIGHT_FRAME)) / WIN_HEIGHT))*2;
 
 	barWidth_ = backWidth_ = borderWidth_ = 300 * scale;
 	barHeight_ = backHeight_ = borderHeight_ = 50 * scale;
@@ -103,7 +103,7 @@ void FireBossComponent::update() {
 		
 		image->setAnim("FireBoss", 12, false, 1);
 		//Si has llegado a la posicion  cogida anteriormente por el player vuelve pa atras
-		if (abs(my_transform->getPos().getX()*my_transform->getS() - trans_player->getPos().getX() *trans_player->getS())<50 ) {
+		if (abs(my_transform->getPos().getX()*my_transform->getSW() - trans_player->getPos().getX() *trans_player->getSW())<50 ) {
 			image->setAnim("FireBoss", 12, false, 1);
 			image->setFlip(SDL_FLIP_HORIZONTAL);
 			changeDir();

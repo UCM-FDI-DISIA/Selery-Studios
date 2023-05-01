@@ -6,7 +6,7 @@ void ObjectsComponent::initComponent() {
 }
 void ObjectsComponent::update() {
 	Vector2D trPos = Vector2D(trPlayer->getPos().getX(), trPlayer->getPos().getY());
-	if (Collision::collides(trObject->getPos(), trObject->getW(), trObject->getH(), trPos, trPlayer->getW() * trPlayer->getS(), trPlayer->getH() * trPlayer->getS())) {
+	if (Collision::collides(trObject->getPos(), trObject->getW(), trObject->getH(), trPos, trPlayer->getW(), trPlayer->getH())) {
 		inRange = true;
 	}
 	else {
