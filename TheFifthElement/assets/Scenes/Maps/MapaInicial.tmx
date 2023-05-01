@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.0" orientation="orthogonal" renderorder="right-down" width="499" height="380" tilewidth="16" tileheight="16" infinite="0" nextlayerid="66" nextobjectid="1568">
+<map version="1.9" tiledversion="1.9.2" orientation="orthogonal" renderorder="right-down" width="499" height="380" tilewidth="16" tileheight="16" infinite="0" nextlayerid="66" nextobjectid="1568">
  <editorsettings>
   <export target="../../../../../Users/Agustin Castro/Downloads/MapaInicial..tmx" format="tmx"/>
  </editorsettings>
@@ -2987,12 +2987,12 @@
   <object id="1546" x="2640" y="1280" width="160" height="132"/>
   <object id="1547" x="1760" y="2144" width="52" height="224"/>
   <object id="1548" x="2000" y="2144" width="48" height="240"/>
-  <object id="1526" x="3896" y="2040" width="2460" height="1892"/>
-  <object id="1525" x="3896.97" y="966.667" width="2651.52" height="1093.94"/>
-  <object id="1527" x="1452" y="2352" width="2500" height="1952"/>
   <object id="1565" x="3660.5" y="2278" width="27.5" height="42"/>
   <object id="1566" x="1879" y="2223" width="29.5" height="36.5"/>
   <object id="1567" x="1977" y="2223.5" width="29" height="35.5"/>
+  <object id="1525" x="3896.97" y="966.667" width="2651.52" height="1093.94"/>
+  <object id="1526" x="3896" y="2040" width="2460" height="1892"/>
+  <object id="1527" x="1452" y="2352" width="2500" height="1952"/>
  </objectgroup>
  <objectgroup id="54" name="Player">
   <object id="1148" x="1946.67" y="1692">
@@ -3181,31 +3181,31 @@
   </object>
  </objectgroup>
  <objectgroup id="63" name="Anims">
-  <object id="1319" name="tree" type="tree" x="1660" y="1660">
+  <object id="1319" name="tree" class="tree" x="1660" y="1660">
    <point/>
   </object>
-  <object id="1320" name="tree2" type="tree2" x="1669" y="1834">
+  <object id="1320" name="tree2" class="tree2" x="1669" y="1834">
    <point/>
   </object>
-  <object id="1321" name="tree" type="tree" x="3706.67" y="1206">
+  <object id="1321" name="tree" class="tree" x="3706.67" y="1206">
    <point/>
   </object>
-  <object id="1322" name="tree" type="tree" x="3529.33" y="1208">
+  <object id="1322" name="tree" class="tree" x="3529.33" y="1208">
    <point/>
   </object>
-  <object id="1323" name="tree2" type="tree2" x="3152" y="1207.33">
+  <object id="1323" name="tree2" class="tree2" x="3152" y="1207.33">
    <point/>
   </object>
-  <object id="1324" name="tree" type="tree" x="6424" y="2840">
+  <object id="1324" name="tree" class="tree" x="6424" y="2840">
    <point/>
   </object>
-  <object id="1325" name="tree2" type="tree2" x="6206" y="3448">
+  <object id="1325" name="tree2" class="tree2" x="6206" y="3448">
    <point/>
   </object>
-  <object id="1326" name="tree" type="tree" x="6232" y="3680">
+  <object id="1326" name="tree" class="tree" x="6232" y="3680">
    <point/>
   </object>
-  <object id="1327" name="tree2" type="tree2" x="6300" y="2994">
+  <object id="1327" name="tree2" class="tree2" x="6300" y="2994">
    <point/>
   </object>
  </objectgroup>
