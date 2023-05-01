@@ -389,110 +389,110 @@ void TopDownState::LoadMap(string const& filename) {
                 }
                
                 if (!loadGame_) { //carga
-                    //if (name == "Enemy") {
-                    //    if (obj.getName() == "" ) {
-                    //        enemy_ = new Entity();
-                    //        enemy_->setContext(this);
-                    //        Texture* enemyT_ = EnemyTexture();
-                    //        enemy_->addComponent<Transform>(TRANSFORM_H, Vector2D((obj.getPosition().x * 2.5), obj.getPosition().y * 2.5), enemy_width, enemy_height);
-                    //        FramedImage* img = enemy_->addComponent<FramedImage>(FRAMEDIMAGE_H, enemyT_, enemy_width, enemy_height, 7, type_);
-                    //        float a = -1.0f;
-                    //        float lookingRange = 150.0f;
-                    //        float lookingWidth = 100.0f;
-                    //        enemy_->addComponent<Enemy_movementTD_component>(ENEMY_MOVEMENT_TD_H, type_);
-                    //        enemy_->addComponent<CheckCollision>(CHECKCOLLISION_H, player_, lookingRange, lookingWidth, a);
-                    //        enemy_->addComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
-                    //        enemy_->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(0, 0), enemy_height, enemy_width);
-                    //        addEntity(enemy_);
-                    //        enemies_.push_back(enemy_);
-                    //    }
-                    //    else if (obj.getName() == "left") {
-                    //        redirect_ = new Entity();
-                    //        redBox_.x = obj.getPosition().x * 2.5;
-                    //        redBox_.y = obj.getPosition().y * 2.5;
-                    //        redBox_.w = 10;
-                    //        redBox_.h = 10;
-                    //        redirect_->addComponent<RedirectEnemy>(REDIRECTENEMY_H, Vector2D(-1, 0), redBox_, enemies_);
-                    //        addEntity(redirect_);
-                    //    }
-                    //    else if (obj.getName() == "right") {
-                    //        redirect_ = new Entity();
-                    //        redBox_.x = obj.getPosition().x * 2.5;
-                    //        redBox_.y = obj.getPosition().y * 2.5;
-                    //        redBox_.w = 10;
-                    //        redBox_.h = 10;
-                    //        redirect_->addComponent<RedirectEnemy>(REDIRECTENEMY_H, Vector2D(1, 0), redBox_, enemies_);
-                    //        addEntity(redirect_);
-                    //    }
-                    //    else if (obj.getName() == "up") {
-                    //        redirect_ = new Entity();
-                    //        redBox_.x = obj.getPosition().x * 2.5;
-                    //        redBox_.y = obj.getPosition().y * 2.5;
-                    //        redBox_.w = 10;
-                    //        redBox_.h = 10;
-                    //        redirect_->addComponent<RedirectEnemy>(REDIRECTENEMY_H, Vector2D(0, -1), redBox_, enemies_);
-                    //        addEntity(redirect_);
-                    //    }
-                    //    else if (obj.getName() == "down") {
-                    //        redirect_ = new Entity();
-                    //        redBox_.x = obj.getPosition().x * 2.5;
-                    //        redBox_.y = obj.getPosition().y * 2.5;
-                    //        redBox_.w = 10;
-                    //        redBox_.h = 10;
-                    //        redirect_->addComponent<RedirectEnemy>(REDIRECTENEMY_H, Vector2D(0, 1), redBox_, enemies_);
-                    //        addEntity(redirect_);
-                    //    }
+                    if (name == "Enemy") {
+                        if (obj.getName() == "" ) {
+                            enemy_ = new Entity();
+                            enemy_->setContext(this);
+                            Texture* enemyT_ = EnemyTexture();
+                            enemy_->addComponent<Transform>(TRANSFORM_H, Vector2D((obj.getPosition().x * 2.5), obj.getPosition().y * 2.5), enemy_width, enemy_height);
+                            FramedImage* img = enemy_->addComponent<FramedImage>(FRAMEDIMAGE_H, enemyT_, enemy_width, enemy_height, 7, type_);
+                            float a = -1.0f;
+                            float lookingRange = 150.0f;
+                            float lookingWidth = 100.0f;
+                            enemy_->addComponent<Enemy_movementTD_component>(ENEMY_MOVEMENT_TD_H, type_);
+                            enemy_->addComponent<CheckCollision>(CHECKCOLLISION_H, player_, lookingRange, lookingWidth, a);
+                            enemy_->addComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
+                            enemy_->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(0, 0), enemy_height, enemy_width);
+                            addEntity(enemy_);
+                            enemies_.push_back(enemy_);
+                        }
+                        else if (obj.getName() == "left") {
+                            redirect_ = new Entity();
+                            redBox_.x = obj.getPosition().x * 2.5;
+                            redBox_.y = obj.getPosition().y * 2.5;
+                            redBox_.w = 10;
+                            redBox_.h = 10;
+                            redirect_->addComponent<RedirectEnemy>(REDIRECTENEMY_H, Vector2D(-1, 0), redBox_, enemies_);
+                            addEntity(redirect_);
+                        }
+                        else if (obj.getName() == "right") {
+                            redirect_ = new Entity();
+                            redBox_.x = obj.getPosition().x * 2.5;
+                            redBox_.y = obj.getPosition().y * 2.5;
+                            redBox_.w = 10;
+                            redBox_.h = 10;
+                            redirect_->addComponent<RedirectEnemy>(REDIRECTENEMY_H, Vector2D(1, 0), redBox_, enemies_);
+                            addEntity(redirect_);
+                        }
+                        else if (obj.getName() == "up") {
+                            redirect_ = new Entity();
+                            redBox_.x = obj.getPosition().x * 2.5;
+                            redBox_.y = obj.getPosition().y * 2.5;
+                            redBox_.w = 10;
+                            redBox_.h = 10;
+                            redirect_->addComponent<RedirectEnemy>(REDIRECTENEMY_H, Vector2D(0, -1), redBox_, enemies_);
+                            addEntity(redirect_);
+                        }
+                        else if (obj.getName() == "down") {
+                            redirect_ = new Entity();
+                            redBox_.x = obj.getPosition().x * 2.5;
+                            redBox_.y = obj.getPosition().y * 2.5;
+                            redBox_.w = 10;
+                            redBox_.h = 10;
+                            redirect_->addComponent<RedirectEnemy>(REDIRECTENEMY_H, Vector2D(0, 1), redBox_, enemies_);
+                            addEntity(redirect_);
+                        }
 
-                    //    else if (obj.getName() == "BossWater") {
-                    //        //PARA CREAR EL RESTO DE BOSSES AÑADIR AL TILEMAP (EN LA CAPA DE ENEMY) UN ENEMIGO NUEVO Y MODIFICAR SU NOMBRE
-                    //        enemy_ = new Entity();
-                    //        enemy_->setContext(this);
-                    //        enemy_->addComponent<Transform>(TRANSFORM_H, Vector2D(obj.getPosition().x * 2.5, obj.getPosition().y * 2.5), WATERBOSS_WIDTH, WATERBOSS_HEIGHT, 2);
-                    //        enemy_->addComponent<FramedImage>(FRAMEDIMAGE_H, &sdlutils().images().at("waterBoss_idle"), WATERBOSS_WIDTH, WATERBOSS_HEIGHT, 6);
-                    //        float a = 1.0f;
-                    //        float lookingRange = 50.0f;
-                    //        float lookingWidth = -40;
-                    //        enemy_->addComponent<Enemy_movementTD_component>(ENEMY_MOVEMENT_TD_H, "boss");
-                    //        enemy_->addComponent<CheckCollision>(CHECKCOLLISION_H, player_, lookingRange, lookingWidth, a, -300, "water");
-                    //        addEntity(enemy_);
-                    //    }
-                    //    else if (obj.getName() == "BossEarth") {
-                    //        //PARA CREAR EL RESTO DE BOSSES AÑADIR AL TILEMAP (EN LA CAPA DE ENEMY) UN ENEMIGO NUEVO Y MODIFICAR SU NOMBRE
-                    //        enemy_ = new Entity();
-                    //        enemy_->setContext(this);
-                    //        enemy_->addComponent<Transform>(TRANSFORM_H, Vector2D(obj.getPosition().x * 2.5, obj.getPosition().y * 2.5), EARTHBOSS_HEIGHT, EARTHBOSS_HEIGHT, 2);
-                    //        enemy_->addComponent<FramedImage>(FRAMEDIMAGE_H, &sdlutils().images().at("GolemFase1_idle"), EARTHBOSS_WIDTH, EARTHBOSS_HEIGHT, 6);
-                    //        float a = 1.0f;
-                    //        float lookingRange = 50.0f;
-                    //        float lookingWidth = -40;
-                    //        enemy_->addComponent<Enemy_movementTD_component>(ENEMY_MOVEMENT_TD_H, "boss");
-                    //        enemy_->addComponent<CheckCollision>(CHECKCOLLISION_H, player_, lookingRange, lookingWidth, a, -300, "earth");
-                    //        addEntity(enemy_);
-                    //    }
-                    //    else if (obj.getName() == "BossFire") {
-                    //        //PARA CREAR EL RESTO DE BOSSES AÑADIR AL TILEMAP (EN LA CAPA DE ENEMY) UN ENEMIGO NUEVO Y MODIFICAR SU NOMBRE
-                    //        enemy_ = new Entity();
-                    //        enemy_->setContext(this);
-                    //        enemy_->addComponent<Transform>(TRANSFORM_H, Vector2D(obj.getPosition().x * 2.5, obj.getPosition().y * 2.5), EARTHBOSS_HEIGHT, EARTHBOSS_HEIGHT, 2);
-                    //        enemy_->addComponent<FramedImage>(FRAMEDIMAGE_H, &sdlutils().images().at("FireBoss"), EARTHBOSS_WIDTH, EARTHBOSS_HEIGHT, 6);
-                    //        float a = 1.0f;
-                    //        float lookingRange = 50.0f;
-                    //        float lookingWidth = -40;
-                    //        enemy_->addComponent<Enemy_movementTD_component>(ENEMY_MOVEMENT_TD_H, "boss");
-                    //        enemy_->addComponent<CheckCollision>(CHECKCOLLISION_H, player_, lookingRange, lookingWidth, a, -300, "fire");
-                    //        addEntity(enemy_);
-                    //    }
-                    //    else if (name == "BossLight")
-                    //    {
-                    //        boss_ = new Entity();
-                    //        boss_->setContext(this);
-                    //        boss_->addComponent<Transform>(TRANSFORM_H, Vector2D((obj.getPosition().x * 2.5), obj.getPosition().y * 2.5), 600, 400);
-                    //        boss_->addComponent<FramedImage>(FRAMEDIMAGE_H, bossLuzTexture(), LIGHTBOSS_TP_WIDTH, LIGHTBOSS_TP_HEIGHT, LIGHTBOSS_TP_FRAMES);
-                    //        boss_->addComponent<BossCollision>(BOSSCOLLISION_H, player_, "light");
-                    //        boss_->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(0, 0), 288, 188);
-                    //        addEntity(boss_);
-                    //    }
-                    //}
+                        else if (obj.getName() == "BossWater") {
+                            //PARA CREAR EL RESTO DE BOSSES AÑADIR AL TILEMAP (EN LA CAPA DE ENEMY) UN ENEMIGO NUEVO Y MODIFICAR SU NOMBRE
+                            enemy_ = new Entity();
+                            enemy_->setContext(this);
+                            enemy_->addComponent<Transform>(TRANSFORM_H, Vector2D(obj.getPosition().x * 2.5, obj.getPosition().y * 2.5), WATERBOSS_WIDTH, WATERBOSS_HEIGHT, 2);
+                            enemy_->addComponent<FramedImage>(FRAMEDIMAGE_H, &sdlutils().images().at("waterBoss_idle"), WATERBOSS_WIDTH, WATERBOSS_HEIGHT, 6);
+                            float a = 1.0f;
+                            float lookingRange = 50.0f;
+                            float lookingWidth = -40;
+                            enemy_->addComponent<Enemy_movementTD_component>(ENEMY_MOVEMENT_TD_H, "boss");
+                            enemy_->addComponent<CheckCollision>(CHECKCOLLISION_H, player_, lookingRange, lookingWidth, a, -300, "water");
+                            addEntity(enemy_);
+                        }
+                        else if (obj.getName() == "BossEarth") {
+                            //PARA CREAR EL RESTO DE BOSSES AÑADIR AL TILEMAP (EN LA CAPA DE ENEMY) UN ENEMIGO NUEVO Y MODIFICAR SU NOMBRE
+                            enemy_ = new Entity();
+                            enemy_->setContext(this);
+                            enemy_->addComponent<Transform>(TRANSFORM_H, Vector2D(obj.getPosition().x * 2.5, obj.getPosition().y * 2.5), EARTHBOSS_HEIGHT, EARTHBOSS_HEIGHT, 2);
+                            enemy_->addComponent<FramedImage>(FRAMEDIMAGE_H, &sdlutils().images().at("GolemFase1_idle"), EARTHBOSS_WIDTH, EARTHBOSS_HEIGHT, 6);
+                            float a = 1.0f;
+                            float lookingRange = 50.0f;
+                            float lookingWidth = -40;
+                            enemy_->addComponent<Enemy_movementTD_component>(ENEMY_MOVEMENT_TD_H, "boss");
+                            enemy_->addComponent<CheckCollision>(CHECKCOLLISION_H, player_, lookingRange, lookingWidth, a, -300, "earth");
+                            addEntity(enemy_);
+                        }
+                        else if (obj.getName() == "BossFire") {
+                            //PARA CREAR EL RESTO DE BOSSES AÑADIR AL TILEMAP (EN LA CAPA DE ENEMY) UN ENEMIGO NUEVO Y MODIFICAR SU NOMBRE
+                            enemy_ = new Entity();
+                            enemy_->setContext(this);
+                            enemy_->addComponent<Transform>(TRANSFORM_H, Vector2D(obj.getPosition().x * 2.5, obj.getPosition().y * 2.5), EARTHBOSS_HEIGHT, EARTHBOSS_HEIGHT, 2);
+                            enemy_->addComponent<FramedImage>(FRAMEDIMAGE_H, &sdlutils().images().at("FireBoss"), EARTHBOSS_WIDTH, EARTHBOSS_HEIGHT, 6);
+                            float a = 1.0f;
+                            float lookingRange = 50.0f;
+                            float lookingWidth = -40;
+                            enemy_->addComponent<Enemy_movementTD_component>(ENEMY_MOVEMENT_TD_H, "boss");
+                            enemy_->addComponent<CheckCollision>(CHECKCOLLISION_H, player_, lookingRange, lookingWidth, a, -300, "fire");
+                            addEntity(enemy_);
+                        }
+                        else if (name == "BossLight")
+                        {
+                            boss_ = new Entity();
+                            boss_->setContext(this);
+                            boss_->addComponent<Transform>(TRANSFORM_H, Vector2D((obj.getPosition().x * 2.5), obj.getPosition().y * 2.5), 600, 400);
+                            boss_->addComponent<FramedImage>(FRAMEDIMAGE_H, bossLuzTexture(), LIGHTBOSS_TP_WIDTH, LIGHTBOSS_TP_HEIGHT, LIGHTBOSS_TP_FRAMES);
+                            boss_->addComponent<BossCollision>(BOSSCOLLISION_H, player_, "light");
+                            boss_->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(0, 0), 288, 188);
+                            addEntity(boss_);
+                        }
+                    }
                      if (name == "Portal") {
                         Entity* portal_ = new Entity();
                         portal_->setContext(this);
