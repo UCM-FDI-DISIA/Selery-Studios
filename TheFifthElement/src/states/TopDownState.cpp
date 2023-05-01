@@ -307,7 +307,10 @@ void TopDownState::LoadMap(string const& filename) {
 
                 if (name == "Collisions") {
                     Entity* colision = new Entity();
-                    colision->addComponent<Transform>(TRANSFORM_H, Vector2D(rect.left*2.5, rect.top*2.5), (rect.width * 2.5)* (WIN_WIDTH / 900), (rect.height * 2.5)* (WIN_HEIGHT / 600));
+                    if(WIN_WIDTH == 1920)
+                    colision->addComponent<Transform>(TRANSFORM_H, Vector2D(rect.left*2.5*(WIN_WIDTH/900), rect.top * 2.5*(WIN_HEIGHT/600)), 
+                        (rect.width), (rect.height)/2, 2.5);
+                    else colision->addComponent<Transform>(TRANSFORM_H, Vector2D(rect.left * 2.5 * (WIN_WIDTH / 900), rect.top * 2.5 * (WIN_HEIGHT / 600)),(rect.width), (rect.height), 2.5);
                     //(fondowidth_ * 2.5)* (WIN_WIDTH / 900),(fondoheight_ * 2.5)* (WIN_HEIGHT / 600)
                     collisions_.push_back(colision);
                     // collisions_.push_back(collidertile);
@@ -315,7 +318,7 @@ void TopDownState::LoadMap(string const& filename) {
                 else if (name == "Interactions") {
                     Entity* puzzle = new Entity();
                     puzzle->setContext(this);
-                   Transform* trans = puzzle->addComponent<Transform>(TRANSFORM_H, Vector2D((obj.getPosition().x * 2.5), obj.getPosition().y * 2.5), PLAYERTD_WIDTH_FRAME, PLAYERTD_HEIGHT_FRAME);
+                   Transform* trans = puzzle->addComponent<Transform>(TRANSFORM_H, Vector2D((obj.getPosition().x * 2.5 *(WIN_WIDTH/900)), obj.getPosition().y * 2.5*(WIN_HEIGHT/600)), PLAYERTD_WIDTH_FRAME, PLAYERTD_HEIGHT_FRAME);
                    string name = obj.getName();
                    
                    FramedImage* frimage;
@@ -336,7 +339,7 @@ void TopDownState::LoadMap(string const& filename) {
                 else if (name == "Player") { // PLAYER
                     player_ = new Entity();
                     player_->setContext(this);
-                    trans_player_ = player_->addComponent<Transform>(TRANSFORM_H, Vector2D((obj.getPosition().x * 2.5), obj.getPosition().y * 2.5), PLAYERTD_WIDTH_FRAME, PLAYERTD_HEIGHT_FRAME);
+                    trans_player_ = player_->addComponent<Transform>(TRANSFORM_H, Vector2D((obj.getPosition().x * 2.5 *(WIN_WIDTH/900)), obj.getPosition().y * 2.5*(WIN_HEIGHT/600)), PLAYERTD_WIDTH_FRAME, PLAYERTD_HEIGHT_FRAME);
                     trans_player_->setVel(PLAYERTD_SPEED);                                      /*(fondowidth_ * 2.5)* (WIN_WIDTH / 900), (fondoheight_ * 2.5)* (WIN_HEIGHT / 600)*/
                     sk_ = player_->addComponent<SkinComponent>(SKINCOMPONENT_H, "air", airAvatar_);
                     sk_->changeState(SkinComponent::Idle);
@@ -358,7 +361,7 @@ void TopDownState::LoadMap(string const& filename) {
                     contnpc++; 
                     Npc_ = new Entity();
                     Npc_->setContext(this);
-                    Npc_->addComponent<Transform>(TRANSFORM_H,Vector2D((obj.getPosition().x * 2.5), obj.getPosition().y * 2.5), NPC_WIDTH, NPC_HEIGHT);
+                    Npc_->addComponent<Transform>(TRANSFORM_H,Vector2D((obj.getPosition().x * 2.5*(WIN_WIDTH/900)), obj.getPosition().y * 2.5*(WIN_HEIGHT/600)), NPC_WIDTH, NPC_HEIGHT);
                     if (obj.getName() != "Contexto") { Npc_->addComponent<FramedImage>(FRAMEDIMAGE_H, npcTexture(), NPC_WIDTH, NPC_HEIGHT, 7);}
                     Npc_->addComponent<NPCcollisioncomponent>(NPCCOLLISIONCOMPONENTT, player_,  contnpc );
                     addEntity(Npc_);
@@ -370,7 +373,7 @@ void TopDownState::LoadMap(string const& filename) {
                     contBlksm++;
                     Blacksmith_ = new Entity();
                     Blacksmith_->setContext(this);
-                    Blacksmith_->addComponent<Transform>(TRANSFORM_H, Vector2D((obj.getPosition().x * 2.5), obj.getPosition().y * 2.5), BLACKSMITH_WIDTH, BLACKSMITH_HEIGHT);
+                    Blacksmith_->addComponent<Transform>(TRANSFORM_H, Vector2D((obj.getPosition().x * 2.5 *(WIN_WIDTH/900)), obj.getPosition().y * 2.5*(WIN_HEIGHT/600)), BLACKSMITH_WIDTH, BLACKSMITH_HEIGHT);
                     Blacksmith_->addComponent<FramedImage>(FRAMEDIMAGE_H, blacksmithTexture(), BLACKSMITH_WIDTH, BLACKSMITH_HEIGHT, BLACKSMITH_FRAMES);
                     Blacksmith_->addComponent<NPCcollisioncomponent>(NPCCOLLISIONCOMPONENTT, player_, contBlksm);
                     Blacksmith_->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(0, 0), BLACKSMITH_HEIGHT, BLACKSMITH_WIDTH / BLACKSMITH_FRAMES);
@@ -379,7 +382,7 @@ void TopDownState::LoadMap(string const& filename) {
                 }
                 else if (name == "Anims") {
                     Entity* anim = addEntity();
-                    anim->addComponent<Transform>(TRANSFORM_H, Vector2D((obj.getPosition().x * 2.5), obj.getPosition().y * 2.5), 128*1.5, 192*1.5);
+                    anim->addComponent<Transform>(TRANSFORM_H, Vector2D((obj.getPosition().x * 2.5 *(WIN_WIDTH/900)), obj.getPosition().y * 2.5*(WIN_HEIGHT/600)), 128*1.5, 192*1.5);
                     
                     if (obj.getName() == "tree") {
                         anim->addComponent<FramedImage>(FRAMEDIMAGE_H, &sdlutils().images().at("tree"), 128, 192, 8);
@@ -391,11 +394,12 @@ void TopDownState::LoadMap(string const& filename) {
                
                 if (!loadGame_) { //carga
                     if (name == "Enemy") {
+                        break;
                         if (obj.getName() == "" ) {
                             enemy_ = new Entity();
                             enemy_->setContext(this);
                             Texture* enemyT_ = EnemyTexture();
-                            enemy_->addComponent<Transform>(TRANSFORM_H, Vector2D((obj.getPosition().x * 2.5), obj.getPosition().y * 2.5), enemy_width, enemy_height);
+                            enemy_->addComponent<Transform>(TRANSFORM_H, Vector2D((obj.getPosition().x * 2.5 *(WIN_WIDTH/900)), obj.getPosition().y * 2.5*(WIN_HEIGHT/600)), enemy_width, enemy_height);
                             FramedImage* img = enemy_->addComponent<FramedImage>(FRAMEDIMAGE_H, enemyT_, enemy_width, enemy_height, 7, type_);
                             float a = -1.0f;
                             float lookingRange = 150.0f;
@@ -448,7 +452,7 @@ void TopDownState::LoadMap(string const& filename) {
                             //PARA CREAR EL RESTO DE BOSSES AÑADIR AL TILEMAP (EN LA CAPA DE ENEMY) UN ENEMIGO NUEVO Y MODIFICAR SU NOMBRE
                             enemy_ = new Entity();
                             enemy_->setContext(this);
-                            enemy_->addComponent<Transform>(TRANSFORM_H, Vector2D(obj.getPosition().x * 2.5, obj.getPosition().y * 2.5), WATERBOSS_WIDTH, WATERBOSS_HEIGHT, 2);
+                            enemy_->addComponent<Transform>(TRANSFORM_H, Vector2D(obj.getPosition().x * 2.5*(WIN_WIDTH/900), obj.getPosition().y * 2.5*(WIN_HEIGHT/600)), WATERBOSS_WIDTH, WATERBOSS_HEIGHT, 2);
                             enemy_->addComponent<FramedImage>(FRAMEDIMAGE_H, &sdlutils().images().at("waterBoss_idle"), WATERBOSS_WIDTH, WATERBOSS_HEIGHT, 6);
                             float a = 1.0f;
                             float lookingRange = 50.0f;
@@ -461,7 +465,7 @@ void TopDownState::LoadMap(string const& filename) {
                             //PARA CREAR EL RESTO DE BOSSES AÑADIR AL TILEMAP (EN LA CAPA DE ENEMY) UN ENEMIGO NUEVO Y MODIFICAR SU NOMBRE
                             enemy_ = new Entity();
                             enemy_->setContext(this);
-                            enemy_->addComponent<Transform>(TRANSFORM_H, Vector2D(obj.getPosition().x * 2.5, obj.getPosition().y * 2.5), EARTHBOSS_HEIGHT, EARTHBOSS_HEIGHT, 2);
+                            enemy_->addComponent<Transform>(TRANSFORM_H, Vector2D(obj.getPosition().x * 2.5*(WIN_WIDTH/900), obj.getPosition().y * 2.5*(WIN_HEIGHT/600)), EARTHBOSS_HEIGHT, EARTHBOSS_HEIGHT, 2);
                             enemy_->addComponent<FramedImage>(FRAMEDIMAGE_H, &sdlutils().images().at("GolemFase1_idle"), EARTHBOSS_WIDTH, EARTHBOSS_HEIGHT, 6);
                             float a = 1.0f;
                             float lookingRange = 50.0f;
@@ -474,7 +478,7 @@ void TopDownState::LoadMap(string const& filename) {
                             //PARA CREAR EL RESTO DE BOSSES AÑADIR AL TILEMAP (EN LA CAPA DE ENEMY) UN ENEMIGO NUEVO Y MODIFICAR SU NOMBRE
                             enemy_ = new Entity();
                             enemy_->setContext(this);
-                            enemy_->addComponent<Transform>(TRANSFORM_H, Vector2D(obj.getPosition().x * 2.5, obj.getPosition().y * 2.5), EARTHBOSS_HEIGHT, EARTHBOSS_HEIGHT, 2);
+                            enemy_->addComponent<Transform>(TRANSFORM_H, Vector2D(obj.getPosition().x * 2.5*(WIN_WIDTH/900), obj.getPosition().y * 2.5*(WIN_HEIGHT/600)), EARTHBOSS_HEIGHT, EARTHBOSS_HEIGHT, 2);
                             enemy_->addComponent<FramedImage>(FRAMEDIMAGE_H, &sdlutils().images().at("FireBoss"), EARTHBOSS_WIDTH, EARTHBOSS_HEIGHT, 6);
                             float a = 1.0f;
                             float lookingRange = 50.0f;
@@ -487,7 +491,7 @@ void TopDownState::LoadMap(string const& filename) {
                         {
                             boss_ = new Entity();
                             boss_->setContext(this);
-                            boss_->addComponent<Transform>(TRANSFORM_H, Vector2D((obj.getPosition().x * 2.5), obj.getPosition().y * 2.5), 600, 400);
+                            boss_->addComponent<Transform>(TRANSFORM_H, Vector2D((obj.getPosition().x * 2.5 *(WIN_WIDTH/900)), obj.getPosition().y * 2.5*(WIN_HEIGHT/600)), 600, 400);
                             boss_->addComponent<FramedImage>(FRAMEDIMAGE_H, bossLuzTexture(), LIGHTBOSS_TP_WIDTH, LIGHTBOSS_TP_HEIGHT, LIGHTBOSS_TP_FRAMES);
                             boss_->addComponent<BossCollision>(BOSSCOLLISION_H, player_, "light");
                             boss_->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(0, 0), 288, 188);
@@ -497,7 +501,7 @@ void TopDownState::LoadMap(string const& filename) {
                      if (name == "Portal") {
                         Entity* portal_ = new Entity();
                         portal_->setContext(this);
-                        portal_->addComponent<Transform>(TRANSFORM_H, Vector2D((obj.getPosition().x * 2.5), obj.getPosition().y * 2.5), PORTAL_WIDTH, PORTAL_HEIGHT);
+                        portal_->addComponent<Transform>(TRANSFORM_H, Vector2D((obj.getPosition().x * 2.5 *(WIN_WIDTH/900)), obj.getPosition().y * 2.5*(WIN_HEIGHT/600)), PORTAL_WIDTH, PORTAL_HEIGHT);
                         portal_->addComponent<FramedImage>(FRAMEDIMAGE_H, &SDLUtils::instance()->images().at("portal"), PORTAL_WIDTH, PORTAL_HEIGHT, 1);
                         portal_->addComponent<PortalComponent>(PORTALCOMPONENT_H, trans_player_);
                         addEntity(portal_);
@@ -658,7 +662,7 @@ void TopDownState::handleEvents() {
 void TopDownState::createShopButtons() {
     upturnButtonX = trans_player_->getPos().getX();
     upturnButtonY = trans_player_->getPos().getY();
-    if (WIN_WIDTH / 900 == 1920 / 900) upturnButtonPos_ = Vector2D(upturnButtonX - 195, upturnButtonY - 20);
+    if (WIN_WIDTH == 1920) upturnButtonPos_ = Vector2D(upturnButtonX - 195, upturnButtonY - 20);
     else upturnButtonPos_ = Vector2D(upturnButtonX - upturnButtonOffsetX, upturnButtonY + upturnButtonOffsetY);
 
     if (shopCreated_) {
@@ -666,7 +670,7 @@ void TopDownState::createShopButtons() {
         for (auto e : buttons1) {
 
             Vector2D pos;
-            if (WIN_WIDTH / 900 == 1920 / 900) {
+            if (WIN_WIDTH == 1920) {
                 pos = Vector2D((upturnButtonPos_.getX()),
                     upturnButtonPos_.getY() + i * (50 * WIN_HEIGHT / 600));
             }
@@ -684,7 +688,7 @@ void TopDownState::createShopButtons() {
         for (auto e : buttons2) {
 
             Vector2D pos;
-            if (WIN_WIDTH / 900 == 1920 / 900) {
+            if (WIN_WIDTH == 1920) {
                 pos = Vector2D((upturnButtonPos_.getX() + 330),
                     upturnButtonPos_.getY() + j * (50 * WIN_HEIGHT / 600));
             }
@@ -700,12 +704,12 @@ void TopDownState::createShopButtons() {
         exitShopButton_ = new Entity();
         exitShopButton_->setContext(this);
         Vector2D pos;
-        if (WIN_WIDTH / 900 == 1920 / 900) {
+        if (WIN_WIDTH == 1920) {
             pos = Vector2D(upturnButtonPos_.getX() - 60, upturnButtonPos_.getY() + 510);
         }
         else pos = Vector2D(upturnButtonX - SHOP_WIDTH / 9, upturnButtonPos_.getY() + 275);
 
-        if (WIN_WIDTH / 900 == 1920 / 900) {
+        if (WIN_WIDTH == 1920) {
             exitShopButtonTr_ = exitShopButton_->addComponent<Transform>(TRANSFORM_H, pos, (EXITSHOP_WIDTH / 2) * WIN_WIDTH / 900, (EXITSHOP_HEIGHT / 2) * WIN_HEIGHT / 600, 0.5);
         }
         else exitShopButtonTr_ = exitShopButton_->addComponent<Transform>(TRANSFORM_H, pos, EXITSHOP_WIDTH / 2, EXITSHOP_HEIGHT / 2);
@@ -734,7 +738,7 @@ void TopDownState::createShopButtons() {
             upturnButton_ = new Entity();
             upturnButton_->setContext(this);
             Vector2D pos;
-            if (WIN_WIDTH / 900 == 1920 / 900) {
+            if (WIN_WIDTH == 1920) {
                 pos = Vector2D((upturnButtonPos_.getX() + 330),
                     upturnButtonPos_.getY() + i * (50 * WIN_HEIGHT / 600));
 
@@ -762,12 +766,12 @@ void TopDownState::createShopButtons() {
         exitShopButton_ = new Entity();
         exitShopButton_->setContext(this);
         Vector2D pos;
-        if (WIN_WIDTH / 900 == 1920 / 900) {
+        if (WIN_WIDTH == 1920) {
             pos = Vector2D(upturnButtonPos_.getX() - 60, upturnButtonPos_.getY() + 510);
         }
         else pos = Vector2D(upturnButtonX - SHOP_WIDTH / 9, upturnButtonPos_.getY() + 275);
 
-        if (WIN_WIDTH / 900 == 1920 / 900) {
+        if (WIN_WIDTH == 1920) {
             exitShopButtonTr_ = exitShopButton_->addComponent<Transform>(TRANSFORM_H, pos, (EXITSHOP_WIDTH / 2) * WIN_WIDTH / 900, (EXITSHOP_HEIGHT / 2) * WIN_HEIGHT / 600, 0.5);
         }
         else exitShopButtonTr_ = exitShopButton_->addComponent<Transform>(TRANSFORM_H, pos, EXITSHOP_WIDTH / 2, EXITSHOP_HEIGHT / 2);
