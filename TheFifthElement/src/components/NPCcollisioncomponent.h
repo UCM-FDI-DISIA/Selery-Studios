@@ -49,7 +49,7 @@ public:
 	}
 
 	void update() {
-		if (Collision::collides(Vector2D(rectPlayer.x, rectPlayer.y), rectPlayer.w, rectPlayer.h, Vector2D(rectNPC.x, rectNPC.y), rectNPC.w, rectNPC.h)) {
+		if (Collision::collides(Vector2D(rectPlayer.x, rectPlayer.y), rectPlayer.w, rectPlayer.h, Vector2D(rectNPC.x, rectNPC.y), 50, 50)) {
 			plynpc->setcolnpc(npc_);	
 			visibility = true;
 		}

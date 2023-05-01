@@ -304,14 +304,14 @@ void TopDownState::LoadMap(string const& filename) {
                 auto rect = obj.getAABB();
                 string name = object_layer->getName();
 
-                if (name == "Collisions") {
-                    Entity* colision = new Entity();
-                    colision->addComponent<Transform>(TRANSFORM_H, Vector2D(rect.left*2.5, rect.top*2.5), (rect.width * 2.5)* (WIN_WIDTH / 900), (rect.height * 2.5)* (WIN_HEIGHT / 600));
-                    //(fondowidth_ * 2.5)* (WIN_WIDTH / 900),(fondoheight_ * 2.5)* (WIN_HEIGHT / 600)
-                    collisions_.push_back(colision);
-                    // collisions_.push_back(collidertile);
-                }
-                else if (name == "Interactions") {
+                //if (name == "Collisions") {
+                //    Entity* colision = new Entity();
+                //    colision->addComponent<Transform>(TRANSFORM_H, Vector2D(rect.left*2.5, rect.top*2.5), (rect.width * 2.5)* (WIN_WIDTH / 900), (rect.height * 2.5)* (WIN_HEIGHT / 600));
+                //    //(fondowidth_ * 2.5)* (WIN_WIDTH / 900),(fondoheight_ * 2.5)* (WIN_HEIGHT / 600)
+                //    collisions_.push_back(colision);
+                //    // collisions_.push_back(collidertile);
+                //}
+                 if (name == "Interactions") {
                     Entity* puzzle = new Entity();
                     puzzle->setContext(this);
                    Transform* trans = puzzle->addComponent<Transform>(TRANSFORM_H, Vector2D((obj.getPosition().x * 2.5), obj.getPosition().y * 2.5), PLAYERTD_WIDTH_FRAME, PLAYERTD_HEIGHT_FRAME);
