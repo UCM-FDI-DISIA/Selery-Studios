@@ -47,7 +47,7 @@ void PortalComponent::update() {
 	}
 	if (!setCheckCollision && Elements::instance()->getAir() && Elements::instance()->getEarth() && Elements::instance()->getFire() && Elements::instance()->getWater()) {
 		ent_->addComponent<CheckCollision>(CHECKCOLLISION_H, static_cast<TopDownState*> (mngr_)->getplayer(), "portal");
-		portalImage->setAnim("portalAnimated", 30, 10, 3, true);
+		portalImage->setAnim("portalAnimated", 30, true);
 		setCheckCollision = true;
 	}
 }
