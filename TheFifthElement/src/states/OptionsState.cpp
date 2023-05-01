@@ -151,5 +151,5 @@ void OptionsState::exitControls()
 {
 	exitActive = true;
 	exitControlsButton = addNewEntity("ReturnButton", 194, 45, Vector2D(10, 10), 1, false, 0.75);
-	exitControlsButton->addComponent<Button>(BUTTON_H, "RETURN");
+	exitControlsButton->addComponent<Button>(BUTTON_H, "EXITCONTROLS");
 }

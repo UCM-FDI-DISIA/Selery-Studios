@@ -7,6 +7,7 @@
 #include "../sdlutils/SDLUtils.h"
 #include <sstream>
 #include "../utils/PropertiesManager.h"
+class TopDownState;
 
 class QuestInfoComponent :  public Component
 {
@@ -19,6 +20,7 @@ private:
 
     bool alive_;
     bool end;
+    bool isThisQuest;// booleano para saber si se puede dibujar o tiene que esperar
 
     bool init_;
     int cont_, fin, linea_, currFase, maxFase;
@@ -28,8 +30,10 @@ private:
 
     Font* font_;
     Texture* t_;
+
+    TopDownState* topDown_;
 public:
-    QuestInfoComponent(string Name, string text, string reward, int coin, int fases);
+    QuestInfoComponent(string Name, string text, string reward, TopDownState* tp, int coin, int fases);
 
     void update();
 

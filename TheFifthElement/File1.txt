@@ -1,13 +1,85 @@
 PLAYER
 0
-5348 8033
-1
+4866.68 4230
+0
 1 10
-1
+0
 1 10
-1
+0
 1 10
 
+enemy
+goblin
+9970 8023.33 0 0
+enemy
+goblin
+4730.9 8004.55 0 0
+enemy
+goblin
+6458.17 8072.73 0 0
+enemy
+mushroom
+7291.53 9140.9 0 0
+enemy
+bat
+8390 7769.7 0 0
+enemy
+bat
+4935 5067.5 0 0
+enemy
+mushroom
+5810 5610 0 0
+enemy
+mushroom
+7410 4320 0 0
+enemy
+skeleton
+8580 5375 0 0
+enemy
+goblin
+11265 6825 0 0
+enemy
+mushroom
+13435 6480 0 0
+enemy
+skeleton
+12115 8945 0 0
+enemy
+skeleton
+14850 9025 0 0
+enemy
+bat
+14310 6355 0 0
+enemy
+bat
+6910 5290 0 0
+enemy
+mushroom
+9090 4530 0 0
+enemy
+goblin
+8820 4120 0 0
+enemy
+mushroom
+9380 4090 0 0
+enemy
+skeleton
+14910 7283.33 0 0
+enemy
+skeleton
+4866.68 10056.7 0 0
+enemy
+skeleton
+15805 3365 0 0
+enemy
+mushroom
+5611 4102.5 1 0
+redirect
+-1 0
+5860 4102 10 10
+redirect
+1 0
+5500 4102 10 10
 QUEST
 siblings
 Gather your siblings

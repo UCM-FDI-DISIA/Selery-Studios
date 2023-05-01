@@ -22,7 +22,7 @@ void Button::update() {
 		else if (identifier == "TDCONTROLS")im_->setTexture("TDControlsButtonPressed");
 		else if (identifier == "BEUCONTROLS")im_->setTexture("BEUControlsButtonPressed");
 		else if (identifier == "MUTE")im_->setTexture("MuteButtonPressed");
-		else if (identifier == "EXITCONTROLS")im_->setTexture("TDControlsButtonPressed");
+		else if (identifier == "EXITCONTROLS")im_->setTexture("ReturnButtonPressed");
 		else if (identifier == "RETURN")im_->setTexture("ReturnButtonPressed");
 		else if (identifier == "LOAD")im_->setTexture("LoadButtonPress");
 	}
@@ -37,7 +37,7 @@ void Button::update() {
 		else if (identifier == "TDCONTROLS")im_->setTexture("TDControlsButton");
 		else if (identifier == "BEUCONTROLS")im_->setTexture("BEUControlsButton");
 		else if (identifier == "MUTE")im_->setTexture("MuteButton");
-		else if (identifier == "EXITCONTROLS")im_->setTexture("TDControlsButton");
+		else if (identifier == "EXITCONTROLS")im_->setTexture("ReturnButton");
 		else if (identifier == "RETURN")im_->setTexture("ReturnButton");
 		else if (identifier == "LOAD")im_->setTexture("LoadButton");
 		currentPositionState = MOUSE_OUT;
@@ -126,7 +126,11 @@ void Button::handleEvent(SDL_Event event)
 				{
 					tdcontrols = false;
 					beucontrols = false;
-					GameManager::instance()->goOptionsMenu();
+					OptionsState* optionsstate = static_cast<OptionsState*>(mngr_);
+					optionsstate->Background("fondoPausa");
+					optionsstate->ControlsBackground("controlPanel");
+					optionsstate->createCharacter("PTD_water_right", PLAYERTD_WIDTH_FRAME, PLAYERTD_HEIGHT_FRAME, Vector2D(WIN_WIDTH / 5, 350), 7, false, 1);
+					optionsstate->createButtons();
 				}
 			}
 		}

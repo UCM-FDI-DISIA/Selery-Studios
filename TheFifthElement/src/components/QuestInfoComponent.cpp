@@ -3,7 +3,7 @@
 #include "../utils/Manager.h"
 #include "../states/GameStateMachine.h"
 
-QuestInfoComponent::QuestInfoComponent(string Name, string text, string reward, int coins=0 , int fases=0 ) {
+QuestInfoComponent::QuestInfoComponent(string Name, string text, string reward, TopDownState* tp, int coins=0 , int fases=0 ) {
     name_ = Name;
     text_ = text;
     reward_ = reward;
@@ -21,33 +21,40 @@ QuestInfoComponent::QuestInfoComponent(string Name, string text, string reward, 
     font_ = &SDLUtils::instance()->fonts().at("TCentury");
     t_ = &SDLUtils::instance()->images().at("papiro");
 
-    setDialogue("init");
+    topDown_ = tp;
+
+    isThisQuest = !topDown_->activeQuest;// si no hay quest activa se ejecuta esta
+    topDown_->activeQuest = true;// si esta va a ser la quest activa avisa de que está activa
+
+   // if(isThisQuest)setDialogue("init");
 }
 
-    void  QuestInfoComponent::update() {
-        if (init_ || !alive_) {
-            cont_++;
-            if (cont_ < fin)
+void  QuestInfoComponent::update() {
+   // if (!topDown_->activeQuest) isThisQuest = true;
+    if ((!topDown_->activeQuest || isThisQuest) && (init_ || !alive_)) {
+        if (init_ && cont_ == 0)setDialogue("init");
+        cont_++;
+        if (cont_ < fin)
+        {
+            out += conespacios[linea_][cont_];
+        }
+        else if (cont_ >= fin + 100) {
+            if (init_) { init_ = false; topDown_->activeQuest = isThisQuest = false; }
+            else
             {
-                out += conespacios[linea_][cont_];
-            }
-            else if (cont_ >= fin + 100) {
-                if (init_) { init_ = false;}
-                else
-                {
-                    if (end) ent_->setAlive(false);
-                    else 
-                    { 
-                        if (currFase == maxFase)setDialogue("reward");
-                        else alive_ = true;
-                    }
+                if (end) { ent_->setAlive(false); topDown_->activeQuest = isThisQuest = false;}
+                else 
+                { 
+                    if (currFase == maxFase)setDialogue("reward");
+                    else { alive_ = true; topDown_->activeQuest = isThisQuest = false;}
                 }
             }
         }
     }
+}
 
     void QuestInfoComponent::render() {
-        if (init_ || !alive_) {
+        if ((!topDown_->activeQuest || isThisQuest) && (init_ || !alive_)) {
             Vector2D a;
             if (WIN_WIDTH == 1920) a = Vector2D(600, 0);
             else  a = Vector2D(100, 0);
@@ -61,6 +68,8 @@ QuestInfoComponent::QuestInfoComponent(string Name, string text, string reward, 
     }
 
     void QuestInfoComponent::setDialogue(string i) {
+        topDown_->activeQuest = true;
+        isThisQuest = true;
         string s;
         if (i == "init") 
         { 

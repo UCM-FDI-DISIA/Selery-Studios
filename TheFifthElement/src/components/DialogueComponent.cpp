@@ -4,7 +4,8 @@
 #include "../states/TopDownState.h"
 DialogueComponent::DialogueComponent():Component() {
 	//coge el tipo de letra
-	font_ = &SDLUtils::instance()->fonts().at("TCentury");
+	if (WIN_WIDTH == 1920)font_ = &SDLUtils::instance()->fonts().at("TCenturyScale");
+	else font_ = &SDLUtils::instance()->fonts().at("TCentury");
 	//de que color va a salir, en este caso negro
 	color_ = { 50,50,0 };
 	hasstarted = false;
@@ -38,12 +39,22 @@ void DialogueComponent::render() {
 	//renderizas el texto
 	if (hasstarted) {
 		Vector2D a;
-		if (WIN_WIDTH / 900 == 1920 / 900) a = Vector2D(600, 600);
-		else a = Vector2D(100, 250);
-		SDL_Rect dest = build_sdlrect(a, DIALOGUE_WIDTH, DIALOGUE_HEIGHT);
+		SDL_Rect dest;
+		if (WIN_WIDTH == 1920) 
+		{
+			a = Vector2D(550, 500); 
+			dest = build_sdlrect(a,920, 533);
+		}
+		else 
+		{ 
+			a = Vector2D(100, 250); 
+			dest = build_sdlrect(a, DIALOGUE_WIDTH, DIALOGUE_HEIGHT);
+		}
+
+		//SDL_Rect dest = build_sdlrect(a, DIALOGUE_WIDTH * (WIN_WIDTH/900), DIALOGUE_HEIGHT * (WIN_HEIGHT / 600));
 		t->render(dest, 0);
 
-		if (WIN_WIDTH / 900 == 1920 / 900) a = Vector2D(740, 750);
+		if (WIN_WIDTH == 1920) a = Vector2D(750, 750);
 		else a = Vector2D(230, 400);
 		font_->render(GameManager::instance()->getRenderer(), out, a.getX(), a.getY(), color_);
 	

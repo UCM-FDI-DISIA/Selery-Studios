@@ -150,6 +150,7 @@ private:
 	int startTime = 0;
 	float SaveGame_ = 120000;
 public:
+	bool activeQuest = false;
 	string getStateID(); // stringID
 	TopDownState(bool load = false);
 	~TopDownState();

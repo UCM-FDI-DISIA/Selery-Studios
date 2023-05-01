@@ -12,7 +12,7 @@ TopDownState::TopDownState(bool load) {
     //life_ = Hud_->addComponent<LifeTD>(LIFETDCOMPONENT_H);
     //economyComp_ = Hud_->addComponent<EconomyComponent>(ECONOMYCOMPONENT_H);
     //CARGAS EL MAPA
-
+    activeQuest = false;
     loadGame_ = load;
     Hud_ = new Entity();
     Hud_->setContext(this);
@@ -20,6 +20,7 @@ TopDownState::TopDownState(bool load) {
     LoadMap("assets/Scenes/Maps/MapaInicial.tmx");
     addEntity(Hud_);  
     SDLUtils::instance()->soundEffects().at("Title").play(-1);
+    Quests::instance()->borraLista();
     if(!loadGame_)  dialog_->inicombe();
     else {
         LoadGame();
@@ -790,7 +791,7 @@ void TopDownState::cleanShopButtons() {
 
 QuestInfoComponent* TopDownState::newQuest(string nombre, string text, string reward, int coins, int fases) {
     Entity* q = new Entity();
-    QuestInfoComponent* quest=q->addComponent<QuestInfoComponent>(QUESTINFOCOMPONENT_H, nombre, text, reward, coins, fases);
+    QuestInfoComponent* quest=q->addComponent<QuestInfoComponent>(QUESTINFOCOMPONENT_H, nombre, text, reward, this, coins, fases);
     addEntity(q);
     Quests::instance()->pushElement(q);
     return quest;

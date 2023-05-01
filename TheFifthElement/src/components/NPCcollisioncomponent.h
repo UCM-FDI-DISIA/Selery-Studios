@@ -65,7 +65,9 @@ public:
 
 	void render() {
 		if(visibility) {
-			SDL_Rect dest = { 165 * WIN_WIDTH / 900,280 * WIN_HEIGHT / 600,50 * WIN_WIDTH / 900,50 * WIN_HEIGHT / 600 };
+			SDL_Rect dest;
+			if(WIN_WIDTH == 1920)dest = { 520,650,50 * WIN_WIDTH / 900,50 * WIN_HEIGHT / 600 };
+			else dest = { 165,280,50,50 };
 			SDLUtils::instance()->images().at("E").render(dest);
 		}
 	}

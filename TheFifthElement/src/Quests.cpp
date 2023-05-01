@@ -14,6 +14,10 @@ void Quests::completedQuest(string nombre) {
     }
 }
 
+void Quests::borraLista() {
+    while (quests.size() != 0)quests.pop_back();
+}
+
 void Quests::actQuests() {// actualiza las quests
     for (auto it = quests.begin(); it != quests.end();) {
         QuestInfoComponent* q_ = it.operator*()->getComponent<QuestInfoComponent>(QUESTINFOCOMPONENT_H);
@@ -51,12 +55,12 @@ void Quests::renderQuestList() {
         if (WIN_WIDTH == 1920)
         {
             a = Vector2D(200, 300);
-            s = "    NO TIENES QUESTS PENDIENTES";
+            s = "           NO PENDING QUESTS";
         }
         else
         {
             a = Vector2D(85, 170);
-            s = "NO TIENES QUESTS PENDIENTES";
+            s = "    NO PENDING QUESTS";
         }
         font_->render(GameManager::instance()->getRenderer(), s, a.getX(), a.getY(), { 50,50,0 });
     }

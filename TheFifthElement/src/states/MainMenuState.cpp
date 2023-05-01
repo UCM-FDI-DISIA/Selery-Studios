@@ -100,26 +100,27 @@ void MainMenuState::Background(string file) {
 }
 
 void MainMenuState::createButtons() {
+
+	playButton = new Entity();
+	//playButton->setContext(this);
+	playButton->addComponent<Transform>(TRANSFORM_H, Vector2D(5 * WIN_WIDTH / 90, 22 * WIN_HEIGHT / 60), 289, 86);
+	//playButton = addNewEntity("PlayButton", 289, 86, Vector2D(5 * WIN_WIDTH / 90, 28 * WIN_HEIGHT / 60), 1, false);
+	playButton->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("PlayButton"));
+	playButton->addComponent<Button>(BUTTON_H, "PLAY");
+	addEntity(playButton);
+
 	loadButton = new Entity();
 	//playButton->setContext(this);
-	loadButton->addComponent<Transform>(TRANSFORM_H, Vector2D(5 * WIN_WIDTH / 90, 28 * WIN_HEIGHT / 60-120), 289, 86);
+	loadButton->addComponent<Transform>(TRANSFORM_H, Vector2D(5 * WIN_WIDTH / 90, 32 * WIN_HEIGHT / 60), 289, 86);
 	//playButton = addNewEntity("PlayButton", 289, 86, Vector2D(5 * WIN_WIDTH / 90, 28 * WIN_HEIGHT / 60), 1, false);
 	loadButton->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("LoadButton"));
 	loadButton->addComponent<Button>(BUTTON_H, "LOAD");
 	//addEntity(playButton);
 	addEntity(loadButton);
 
-	playButton = new Entity();
-	//playButton->setContext(this);
-	playButton->addComponent<Transform>(TRANSFORM_H, Vector2D(5 * WIN_WIDTH / 90, 28 * WIN_HEIGHT / 60), 289, 86);
-	//playButton = addNewEntity("PlayButton", 289, 86, Vector2D(5 * WIN_WIDTH / 90, 28 * WIN_HEIGHT / 60), 1, false);
-	playButton->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("PlayButton"));
-	playButton->addComponent<Button>(BUTTON_H, "PLAY");
-	addEntity(playButton);
-
 	exitButton = new Entity();
 	//exitButton->setContext(this);
-	exitButton->addComponent<Transform>(TRANSFORM_H, Vector2D(5 * WIN_WIDTH / 90, 40 * WIN_HEIGHT / 60), 289, 86);
+	exitButton->addComponent<Transform>(TRANSFORM_H, Vector2D(5 * WIN_WIDTH / 90, 42 * WIN_HEIGHT / 60), 289, 86);
 	//exitButton = addNewEntity("ExitButton", 289, 86, Vector2D(5 * WIN_WIDTH / 90, 40 * WIN_HEIGHT / 60), 1, false);
 	exitButton->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("ExitButton"));
 	exitButton->addComponent<Button>(BUTTON_H, "EXIT");
