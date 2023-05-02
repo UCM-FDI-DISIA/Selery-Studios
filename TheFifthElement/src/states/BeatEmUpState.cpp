@@ -298,7 +298,7 @@ void BeatEmUpState::Background(string file) {
 	int r = 0;
 	//if(WIN_WIDTH == 1920)e->addComponent<Transform>(TRANSFORM_H, v, WIN_WIDTH/2, WIN_HEIGHT, 1);
 	//else e->addComponent<Transform>(TRANSFORM_H, v, WIN_WIDTH, WIN_HEIGHT, 1);
-	e->addComponent<Transform>(TRANSFORM_H, v, 900,600, 1);
+	e->addComponent<Transform>(TRANSFORM_H, v, BACKGROUNDBEU_WIDTH,WIN_HEIGHT, 1);
 	Texture* t = &SDLUtils::instance()->images().at(file);
 	e->addComponent<Image>(IMAGE_H, t);
 	addEntity(e);
