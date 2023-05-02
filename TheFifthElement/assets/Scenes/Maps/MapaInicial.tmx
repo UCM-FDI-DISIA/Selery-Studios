@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.9" tiledversion="1.9.2" orientation="orthogonal" renderorder="right-down" width="499" height="380" tilewidth="16" tileheight="16" infinite="0" nextlayerid="66" nextobjectid="1709">
+<map version="1.9" tiledversion="1.9.2" orientation="orthogonal" renderorder="right-down" width="499" height="380" tilewidth="16" tileheight="16" infinite="0" nextlayerid="66" nextobjectid="1716">
  <editorsettings>
   <export target="../../../../../Users/Agustin Castro/Downloads/MapaInicial..tmx" format="tmx"/>
  </editorsettings>
@@ -2842,7 +2842,7 @@
   <object id="1378" x="2010" y="2066" width="14" height="61.3333"/>
   <object id="1379" x="1943.67" y="2032.67" width="14.33" height="119.33"/>
   <object id="1380" x="1882.67" y="2034.67" width="14" height="117.33"/>
-  <object id="1381" x="3116" y="3025" width="425" height="71"/>
+  <object id="1381" x="3116" y="3025" width="413.25" height="71"/>
   <object id="1382" x="3594" y="3024" width="54" height="71"/>
   <object id="1384" x="2412.4" y="4544.18" width="132.955" height="797.732"/>
   <object id="1385" x="2501.03" y="4460.92" width="128.926" height="146.385"/>
@@ -2984,9 +2984,9 @@
   <object id="1565" x="3660.5" y="2285" width="27.5" height="33"/>
   <object id="1566" x="1879" y="2223" width="29.5" height="36.5"/>
   <object id="1567" x="1977" y="2223.5" width="29" height="35.5"/>
-  <object id="1568" x="1878" y="2313" width="85" height="36"/>
-  <object id="1569" x="1811" y="2369" width="41" height="71"/>
-  <object id="1570" x="1971" y="2376" width="45" height="64"/>
+  <object id="1568" x="1879" y="2324" width="82.25" height="15.3333"/>
+  <object id="1569" x="1811" y="2369" width="38" height="71"/>
+  <object id="1570" x="1973" y="2376" width="43" height="64"/>
   <object id="1571" x="3351" y="1552" width="40" height="64"/>
   <object id="1572" x="3264" y="1280" width="720" height="160"/>
   <object id="1573" x="3408" y="1750" width="64" height="128"/>
@@ -3018,9 +3018,9 @@
   <object id="1642" x="1976" y="3584" width="208" height="80"/>
   <object id="1643" x="1913" y="4048" width="55" height="20"/>
   <object id="1644" x="1664" y="3584" width="80" height="48"/>
-  <object id="1650" x="1787" y="2656" width="45" height="18"/>
+  <object id="1650" x="1787" y="2656" width="43.75" height="18"/>
   <object id="1651" x="1698" y="2608" width="60" height="9"/>
-  <object id="1652" x="1869" y="2640" width="36" height="13"/>
+  <object id="1652" x="1869" y="2640" width="33.125" height="13"/>
   <object id="1653" x="1933" y="2598" width="40" height="20"/>
   <object id="1655" x="1696" y="2688" width="32" height="112"/>
   <object id="1657" x="2061" y="2598" width="40" height="20"/>
@@ -3047,11 +3047,17 @@
   <object id="1683" x="3227" y="2765" width="10" height="85"/>
   <object id="1684" x="3527" y="3091" width="14" height="32"/>
   <object id="1685" x="3594" y="3091" width="14" height="32"/>
-  <object id="1621" x="3936" y="1072" width="2560" height="1008" visible="0"/>
-  <object id="1526" x="3896" y="2040" width="2460" height="1892" visible="0"/>
+  <object id="1710" x="1884.13" y="2339.5" width="72.625" height="6.875"/>
+  <object id="1711" x="1889.25" y="2347.13" width="58.5" height="6.125"/>
+  <object id="1712" x="1891.38" y="2316.63" width="57.5" height="7.875"/>
+  <object id="1713" x="1902.13" y="2308.13" width="40.25" height="8.125"/>
+  <object id="1714" x="1896.38" y="2353.75" width="46.125" height="5.625"/>
+  <object id="1621" x="3936" y="1072" width="2560" height="1008"/>
+  <object id="1715" x="3788" y="2220" width="2592" height="1604"/>
+  <object id="1709" x="1630.3" y="2406.06" width="2224.24" height="1815.15"/>
  </objectgroup>
  <objectgroup id="54" name="Player">
-  <object id="1148" x="1840" y="3712">
+  <object id="1148" x="1921.67" y="1633.34">
    <point/>
   </object>
  </objectgroup>
@@ -3066,7 +3072,7 @@
   </object>
  </objectgroup>
  <objectgroup id="59" name="NPC">
-  <object id="1154" name="Contexto" x="1840" y="3712">
+  <object id="1154" name="Contexto" x="1921.85" y="1633.22">
    <point/>
   </object>
   <object id="1155" x="2976.61" y="1808.36">
@@ -3075,7 +3081,7 @@
   <object id="1156" x="2839.03" y="1889.94">
    <point/>
   </object>
-  <object id="1157" x="2117.94" y="1946.3">
+  <object id="1157" x="3454.91" y="2217.48">
    <point/>
   </object>
   <object id="1158" x="1867.33" y="1862.91">
@@ -3422,16 +3428,16 @@
   <object id="1531" name="1.1" x="1761.67" y="3463">
    <point/>
   </object>
-  <object id="1532" name="2.1" x="4094.5" y="2884">
+  <object id="1532" name="2.1" x="4084" y="2883.75">
    <point/>
   </object>
-  <object id="1533" name="2.2" x="4351.5" y="2737">
+  <object id="1533" name="2.2" x="4340.75" y="2736.5">
    <point/>
   </object>
-  <object id="1534" name="2.3" x="4527" y="2959">
+  <object id="1534" name="2.3" x="4518" y="2959">
    <point/>
   </object>
-  <object id="1535" name="2.4" x="4704.5" y="2737">
+  <object id="1535" name="2.4" x="4691.75" y="2736.25">
    <point/>
   </object>
  </objectgroup>
