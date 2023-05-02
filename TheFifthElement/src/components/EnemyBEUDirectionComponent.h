@@ -13,6 +13,7 @@ public:
     void initComponent();
     void update();
     void changeDir(Vector2D d);
+    void moveBackX();
     void stop(bool s);
 private:
 
@@ -28,7 +29,7 @@ private:
     Texture* t_;
     string enemy_;
 
-
+    int direction;
     int cont = 1000;
     bool izq = true;
     float distance_ = 100.0f * (WIN_WIDTH/900);

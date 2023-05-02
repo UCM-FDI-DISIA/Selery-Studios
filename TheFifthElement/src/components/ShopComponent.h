@@ -4,16 +4,18 @@
 #include "../utils/Component.h"
 #include "../utils/Vector2D.h"
 #include "EconomyComponent.h"
-#include "DialogueComponent.h"
 #include "Damage.h"
 #include "LifeTD.h"
+class DialogueComponent;
 
 class ShopComponent : public Component {
 
 private:
-	Vector2D shopPos_ = { 250 * WIN_WIDTH / 900, 100 * WIN_HEIGHT / 600 };
+	Vector2D shopPos_;
 	
 	DialogueComponent* dialog_ = nullptr;
+
+	Transform* playerTr_;
 
 	Texture* shopBackground_ = &SDLUtils::instance()->images().at("ShopBackground");
 	Texture* airAvatar_ = &SDLUtils::instance()->images().at("AirAvatar");
@@ -21,7 +23,15 @@ private:
 	Texture* waterAvatar_ = &SDLUtils::instance()->images().at("WaterAvatar");
 	Texture* earthAvatar_ = &SDLUtils::instance()->images().at("EarthAvatar");
 	Texture* avatarFrame_ = &SDLUtils::instance()->images().at("ShopFrame");
-	int frameOffsetY_ = 50;
+	int avatarOffsetX_ = 30;
+	int avatarOffsetY_ = 25;
+
+	int frameOffsetX_ = 30;
+	int frameOffsetY_ = 25;
+
+	int backgroundOffsetX_ = 310;
+	int backgroundOffsetY_ = 290;
+
 
 	// Texto mejoras
 	int u1 = 0;
@@ -34,8 +44,10 @@ private:
 	int u8 = 0;
 	Font* font_;
 	string textUp_;
-	int textX = 300;
-	int textY = 270;
+	int textX;
+	int textY;
+	int textOffsetX_ = 210;
+	int textOffsetY_ = 50;
 	SDL_Color color_;
 
 	EconomyComponent* economyComp_;
@@ -51,16 +63,19 @@ private:
 
 	Damage* damage_;
 	LifeTD* life_;
+
+	bool purchase_ = true;
 	
 public:
 	ShopComponent(EconomyComponent* economyComp, Damage* damage, LifeTD* life);
 	void initComponent();
 	void update();
-	void render();
-	void showUpgradeText(int value, int offsetXup, int offsetYup, int offsetXcoin, int offsetYcoin, int price);
+	void render();	
 	int increase(int& i);
+	void showUpgradeText(int value, int offsetXup, int offsetYup, int offsetXcoin, int offsetYcoin, int price);
 	void shopEconomy();
 	void showShopBackground();
 	void showShopAvatar(Vector2D avatarPos, Vector2D framePos, Texture* avatar, Texture* frame);
+	inline bool canPurchase() { return purchase_; }
 };
 #endif

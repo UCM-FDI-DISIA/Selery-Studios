@@ -4,12 +4,12 @@
 void Button::initComponent() {
 	buttonTransform = ent_->getComponent<Transform>(TRANSFORM_H);
 	im_ = ent_->getComponent<Image>(IMAGE_H);
-	size_ = buttonTransform->getS();
 }
 
 void Button::update() {
+
 	mouseRect = build_sdlrect(mousePos, mouseWidth, mouseHeight);
-	if (Collision::collides(buttonTransform->getPos(), buttonTransform->getW()*size_, buttonTransform->getH()*size_, mousePos, mouseRect.w, mouseRect.h))
+	if (Collision::collides(buttonTransform->getPos(), buttonTransform->getW(), buttonTransform->getH(), mousePos, mouseRect.w, mouseRect.h))
 	{
 		currentPositionState = MOUSE_OVER;
 		if (identifier == "PLAY")im_->setTexture("PlayButtonPressed");
@@ -21,15 +21,9 @@ void Button::update() {
 		else if (identifier == "TDCONTROLS")im_->setTexture("TDControlsButtonPressed");
 		else if (identifier == "BEUCONTROLS")im_->setTexture("BEUControlsButtonPressed");
 		else if (identifier == "MUTE")im_->setTexture("MuteButtonPressed");
-		else if (identifier == "EXITCONTROLS")im_->setTexture("TDControlsButtonPressed");
-		//if (identifier == "PLAY") im_->setTexture("PlayButtonPressed"); ////im_->setAnimTexture("PlayButtonPressed", 1, 289);
-		//else if (identifier == "EXIT") im_->setTexture("ExitButtonPressed"); ////im_->setAnimTexture("ExitButtonPressed", 1, 289);
-		//else if (identifier == "OPTIONS")im_->setTexture("OptionsButtonPressed"); ////im_->setAnimTexture("OptionsButtonPressed", 1, 95);
-		//else if(identifier == "RESUME") im_->setTexture("ResumeButtonPressed"); ////im_->setAnimTexture("ResumeButtonPressed", 1, 289);
-		//else if (identifier == "MAINMENU") im_->setTexture("MenuButtonPressed"); ////im_->setAnimTexture("MenuButtonPressed", 1, 289);
-		//else if (identifier == "BACK") im_->setTexture("MenuButtonPressed"); ////im_->setAnimTexture("MenuButtonPressed", 1, 289);
-		///*else if (identifier == "CONTROLS")im_->setAnimTexture("OptionsButtonPressed", 1, 95);*/
-		//else if (identifier == "MUTE") im_->setTexture("OptionsButtonPressed"); ////im_->setAnimTexture("OptionsButtonPressed", 1, 95);
+		else if (identifier == "EXITCONTROLS")im_->setTexture("ReturnButtonPressed");
+		else if (identifier == "RETURN")im_->setTexture("ReturnButtonPressed");
+		else if (identifier == "LOAD")im_->setTexture("LoadButtonPress");
 	}
 	else
 	{
@@ -42,16 +36,10 @@ void Button::update() {
 		else if (identifier == "TDCONTROLS")im_->setTexture("TDControlsButton");
 		else if (identifier == "BEUCONTROLS")im_->setTexture("BEUControlsButton");
 		else if (identifier == "MUTE")im_->setTexture("MuteButton");
-		else if (identifier == "EXITCONTROLS")im_->setTexture("TDControlsButton");
+		else if (identifier == "EXITCONTROLS")im_->setTexture("ReturnButton");
+		else if (identifier == "RETURN")im_->setTexture("ReturnButton");
+		else if (identifier == "LOAD")im_->setTexture("LoadButton");
 		currentPositionState = MOUSE_OUT;
-		//if (identifier == "PLAY") im_->setTexture("PlayButton"); ////im_->setAnimTexture("PlayButton", 1, 289);
-		//else if (identifier == "EXIT")  im_->setTexture("ExitButton"); ////im_->setAnimTexture("ExitButton", 1, 289);
-		//else if (identifier == "BACK") im_->setTexture("BackButton"); ////im_->setAnimTexture("BackButton", 1, 289);
-		//else if (identifier == "OPTIONS") im_->setTexture("OptionsButton"); ////im_->setAnimTexture("OptionsButton", 1, 95);
-		//else if (identifier == "RESUME") im_->setTexture("ResumeButton"); ////im_->setAnimTexture("ResumeButton", 1, 289);
-		//else if (identifier == "MAINMENU") im_->setTexture("MenuButton"); ////im_->setAnimTexture("MenuButton", 1, 289);
-		///*else if (identifier == "CONTROLS")im_->setAnimTexture("OptionsButton", 1, 95);*/
-		//else if (identifier == "MUTE") im_->setTexture("MuteButton"); ////im_->setAnimTexture("MuteButton", 1, 95);
 	}
 	updateMousePosition();
 }
@@ -67,15 +55,19 @@ void Button::handleEvent(SDL_Event event)
 		if (event.button.button == SDL_BUTTON_LEFT) {
 			if (currentPositionState == 1)
 			{
-				if (identifier == "PLAY") {
-					SDLUtils::instance()->soundEffects().at("Title").haltChannel();
+				
+			    if (identifier == "PLAY") {
 					//SDLUtils::instance()->soundEffects().at("pruebaBoton").play();
 					GameManager::instance()->leaveMainMenu();
+				}	
+				else if (identifier == "LOAD") {
+					//SDLUtils::instance()->soundEffects().at("pruebaBoton").play();
+					GameManager::instance()->LoadGame();
 				}
 				else if (identifier == "RESUME") {
-					SDLUtils::instance()->soundEffects().at("prueba").play();
-					SDLUtils::instance()->soundEffects().at("Title").resumeChannel();
-					GameManager::instance()->goTopDown();
+					//SDLUtils::instance()->soundEffects().at("prueba").play();
+					//SDLUtils::instance()->soundEffects().at("Title").resumeChannel();
+					GameManager::instance()->Pop();
 					//GameManager::instance()->Pop();
 				}
 				else if (identifier == "OPTIONS") {
@@ -89,10 +81,13 @@ void Button::handleEvent(SDL_Event event)
 				else if (identifier == "EXIT") {
 					SDL_Quit();
 				}
-				else if (identifier == "UPTURN") {
-					SDLUtils::instance()->soundEffects().at("pruebaBoton").play();
+				else if (identifier == "UPTURN") {						
 					isClicked_ = true;
-					static_cast<TopDownState*>(mngr_)->getShopComp()->shopEconomy();
+					TopDownState* topdownstate = static_cast<TopDownState*>(mngr_);
+					topdownstate->getShopComp()->shopEconomy();
+					if (topdownstate->getShopComp()->canPurchase()) {
+						SDLUtils::instance()->soundEffects().at("pruebaBoton").play();
+					}			
 					isClicked_ = false;
 				}
 				else if (identifier == "EXITSHOP") {
@@ -100,6 +95,10 @@ void Button::handleEvent(SDL_Event event)
 					topdownstate->cleanShopButtons();
 					topdownstate->getDialog()->setopenedShop();
 					
+				}
+				else if (identifier == "RETURN") {
+					GameManager::instance()->Pop();
+
 				}
 				else if (identifier == "BACK") {
 					GameManager::instance()->backToMainMenu();
@@ -114,7 +113,6 @@ void Button::handleEvent(SDL_Event event)
 					OptionsState* optionsstate = static_cast<OptionsState*>(mngr_);
 					optionsstate->exitControls();					
 					optionsstate->deleteButtonsTD();
-
 				}
 				else if (identifier == "BEUCONTROLS")
 				{			
@@ -127,7 +125,11 @@ void Button::handleEvent(SDL_Event event)
 				{
 					tdcontrols = false;
 					beucontrols = false;
-					GameManager::instance()->goOptionsMenu();
+					OptionsState* optionsstate = static_cast<OptionsState*>(mngr_);
+					optionsstate->Background("fondoPausa");
+					optionsstate->ControlsBackground("controlPanel");
+					optionsstate->createCharacter("PTD_water_right", PLAYERTD_WIDTH_FRAME, PLAYERTD_HEIGHT_FRAME, Vector2D(WIN_WIDTH / 5, 350), 7, false, 1);
+					optionsstate->createButtons();
 				}
 			}
 		}

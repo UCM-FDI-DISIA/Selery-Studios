@@ -3,7 +3,6 @@ E:\Selery-Studios\TheFifthElement\x64\Debug\TheFifthElement.exe
 C:\Users\PC\Documents\GitHub\Selery-Studios\TheFifthElement\x64\Debug\TheFifthElement.exe
 C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\x64\Debug\TheFifthElement.exe
 C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\P2\TheFifthElement\x64\Debug\TheFifthElement.exe
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\x64\Debug\TheFifthElement.exe
 C:\Users\pmq12\OneDrive\Escritorio\Selery-Studios\TheFifthElement\x64\Debug\TheFifthElement.exe
 C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\x64\Debug\TheFifthElement.exe
 C:\UCM\2º\proyectos\Nueva carpeta\Selery-Studios\TheFifthElement\x64\Debug\TheFifthElement.exe
@@ -13,3 +12,9 @@ C:\Selery-Studios\TheFifthElement\x64\Debug\TheFifthElement.exe
 D:\GitHub\Selery-Studios\TheFifthElement\x64\Debug\TheFifthElement.exe
 C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\x64\Debug\TheFifthElement.exe
 C:\Users\david\Downloads\Selery-Studios\TheFifthElement\x64\Debug\TheFifthElement.exe
+C:\Users\pmq12\OneDrive\Escritorio\SeleryStudios\TheFifthElement\x64\Debug\TheFifthElement.exe
+U:\hlocal\Selery-Studios-main\TheFifthElement\x64\Debug\TheFifthElement.exe
+C:\Users\Dorjee\Desktop\PROYECTOS 2\Selery-Studios\TheFifthElement\x64\Debug\TheFifthElement.exe
+C:\Users\Chon\Desktop\PROYECTOS 2\Selery-Studios\TheFifthElement\x64\Debug\TheFifthElement.exe
+C:\hlocal\Selery-Studios\TheFifthElement\x64\Debug\TheFifthElement.exe
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Selery-Studios\TheFifthElement\x64\Debug\TheFifthElement.exe

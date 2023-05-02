@@ -12,10 +12,15 @@
 #include "ObjectsComponent.h"
 #include "StoneComponent.h"
 #include <array>
+#include "../Elements.h"
+#include "ThrowableObject.h"
 class Image;
 
 class InputComponentBEU : public Component {
 private:
+    SDL_Color color = { 50, 50, 0 };
+    Font* font_;
+    Texture* p;
     Transform* tr_ = nullptr;
     FramedImage* im_ = nullptr;
     SDL_GameController* controller;
@@ -29,6 +34,9 @@ private:
     bool alreadyPressed2 = false;
     bool moveLeft, moveRight, moveUp, moveDown, jump;
     bool earthStage3 = false;
+    int direction;
+
+    float timeExecution, ultiTime;
 
 public:
     bool elements[4];
@@ -36,12 +44,17 @@ public:
     InputComponentBEU(Roulette* r);
     void initComponent();
     void update();
+    void render();
     void handleEvents(SDL_Event event);
 
     void setAir(bool b);
     void setFire(bool b);
     void setWater(bool b);
     void setEarth(bool b);
+
+    void vibrate(SDL_GameController* controller, int duration_ms, float intensity);
+
+    void MovePlayerBack();
 
     inline void setEarthStage3(bool newValue) { earthStage3 = newValue; }
 };

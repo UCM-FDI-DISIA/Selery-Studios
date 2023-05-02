@@ -17,12 +17,15 @@ private:
 	PointOfFightComponent* fightPlayerComp;
 	PointOfFightComponent* fightBossComp;
 	Entity* player_;
+	double upperLimit_;
+	double lowerLimit_;
+	float velocity = 1.75;
 	float marginToMove = 20; // Variable que controla lo suficientemente lejos que esta verticalmente el player
 	float marginToAttack = 5; // Variable que controla lo suficientemente cerca que esta el player para poder atacar
 	bool attack = false;
 	bool bossProtected = false;
 public:
-	MovementEarthBossComponent(Entity* player);
+	MovementEarthBossComponent(Entity* player, double upperLimit, double lowerLimit);
 	virtual ~MovementEarthBossComponent() {}
 	void initComponent();
 	void update();
@@ -31,6 +34,11 @@ public:
 
 	inline bool getBossProtected() { return bossProtected; }
 	inline void setBossProtected(bool newValue) { bossProtected = newValue; }
+
+	inline void setMarginToAttack(int newValue) { marginToAttack = newValue; }
+
+	inline float getVelocity() { return velocity; }
+	inline void setVelocity(float newVel) { velocity = newVel; }
 };
 #endif
 

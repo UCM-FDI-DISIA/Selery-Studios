@@ -10,6 +10,7 @@
 #include <vector>;
 #include "Playernpc.h"
 #include "../GameManager.h"
+#include "../Quests.h"
 using namespace std;
 class DialogueComponent : public Component
 {
@@ -18,6 +19,7 @@ private:
 	PlayerNPC* plynpc;
 	string stringoriginal;
 	vector<string> conespacios;
+	vector<bool> tutorial{false,false,false, false, false};
 	string out;
 	SDL_Color color_;
 	bool hasstarted;

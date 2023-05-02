@@ -2,7 +2,9 @@
 #include "AnimationEnemyBEUComponent.h"
 #include "EnemyBEUDirectionComponent.h"
 #include "SkinBEUComponent.h"
+#include "../Elements.h"
 #include "FramedImage.h"
+#include "rouletteComponent.h"
 #include <array>
 
 struct player {
@@ -10,7 +12,7 @@ struct player {
 	bool alive;
 };
 class InputComponentBEU;
-
+class BeatEmUpState;
 class LifeComponent : public Component {
 private:
 #pragma region references
@@ -20,19 +22,25 @@ private:
 	InputComponentBEU* inp_ = nullptr;
 	FramedImage* im_ = nullptr;
 	Transform* entTransform_ = nullptr;
+	MovementComponent* mov_;
 
 #pragma endregion
 
 #pragma region parameters
 	float life_, maxLife_;
 	float speed_ = 1.0f;
+	float damageMultiplier_ = 1.0;
 	bool die_ = false;
 	bool hit_ = false;
 	bool collision = false;
 	bool enemy_ = false;
+	bool boss_=false;
 	string type_;
 	float scale;
 	bool set_ = false;
+	time_t deathTime_;
+	float damageReduction_ = 1.0f; // 1=0% 0=100
+	Roulette* roulette;
 #pragma endregion
 
 #pragma region propierties
@@ -56,19 +64,22 @@ private:
 #pragma endregion
 
 public:
-	LifeComponent(float maxLife);
+	LifeComponent(float maxLife, Roulette* r = nullptr);
 	void initComponent();
 
 	void render();
 	void update();
+	void setLife(float newLife) { life_ = newLife; }
 	void subLife(float damage);
 
 	void Hit(float damage);
 	void Death();
 
 
-	void resetLife() { life_ = maxLife_; }
 	float getLife() { return life_; }
+	float getMaxLife() { return maxLife_; }
+	void resetLife() { life_ = maxLife_; }
+
 	void setCollision(bool col) { collision = col; }
 	void chageType(float maxLife);
 
@@ -76,4 +87,11 @@ public:
 	
 	void playDamageSound();
 	void playDieSound();
+
+	inline string getType() { return type_; }
+
+	void setDamageReduction(float prctg = 1.0f) { damageReduction_ = prctg; }
+	float getDamageReduction() { return damageReduction_; }
+
+	void updateLifeBar();
 };

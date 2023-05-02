@@ -6,6 +6,14 @@ ColDetectorComponent::ColDetectorComponent(Entity* obj1, Entity* obj2) {
     collider = true;
 }
 
+ColDetectorComponent::ColDetectorComponent(Entity* obj1, Entity* obj2, Entity* obj3) {
+    //obj1 desde el que llamas
+    obj1_ = obj1;
+    obj2_ = obj2;
+    obj3_ = obj3;
+    collider = true;
+}
+
 ColDetectorComponent::ColDetectorComponent(Entity* obj1, ColliderComponent* c2) {
     //obj1 desde el que llamas
     obj1_ = obj1;
@@ -24,6 +32,7 @@ ColDetectorComponent::ColDetectorComponent(Entity* obj1, SDL_Rect r, float damag
 void ColDetectorComponent::initComponent() {
     col1_ = obj1_->getComponent<ColliderComponent>(int(COLLIDERCOMPONENT_H));
     if (obj2_ != nullptr)col2_ = obj2_->getComponent<ColliderComponent>(int(COLLIDERCOMPONENT_H));
+    if (obj3_ != nullptr)col3_ = obj3_->getComponent<ColliderComponent>(int(COLLIDERCOMPONENT_H));
     if (obj1_->hasComponent(LIFECOMPONENT_H))lifeC_ = obj1_->getComponent<LifeComponent>(LIFECOMPONENT_H);
     else lifeC_ = nullptr;
     if (obj1_->hasComponent(ANIMATIONENEMYBEUCOMPONENT_H))anim_ = ent_->getComponent<AnimationEnemyBEUComponent>(ANIMATIONENEMYBEUCOMPONENT_H);
@@ -43,14 +52,42 @@ void ColDetectorComponent::update() {
             col1_->getColRect().y), col1_->getColRect().w, col1_->getColRect().h,
             Vector2D(rect_.x, rect_.y), rect_.w, rect_.h)) lifeC_->Hit(damage_);
     }
-    else { //OLA A PLAYER
-        if (obj1_->hasComponent(DISABLEONEXIT_H)) {
+    else { //OLA A PLAYER y ademas excluye las flechas de lightboss
+        if (obj1_->hasComponent(DISABLEONEXIT_H) && !obj1_->hasComponent(LIGHTBOSSELEMENT_H)) {
             if (Collision::collides(Vector2D(col1_->getColRect().x,
                 col1_->getColRect().y), col1_->getColRect().w, col1_->getColRect().h,
                 Vector2D(col2_->getColRect().x, col2_->getColRect().y),
                 col2_->getColRect().w, col2_->getColRect().h))
                 obj2_->getComponent<LifeComponent>(LIFECOMPONENT_H)->Hit(1.2);
+
+                
+                
         }
+        else if (obj1_->hasComponent(LIGHTBOSSELEMENT_H))//para los ataques del lightboss
+        {
+            if (Collision::collides(Vector2D(col1_->getColRect().x,
+                col1_->getColRect().y), col1_->getColRect().w, col1_->getColRect().h,
+                Vector2D(col2_->getColRect().x, col2_->getColRect().y),
+                col2_->getColRect().w, col2_->getColRect().h)) //colision con el player
+            {
+                obj2_->getComponent<LifeComponent>(LIFECOMPONENT_H)->Hit(1.2);
+                if (obj1_->hasComponent(DISABLEONEXIT_H)) { obj1_->setAlive(false); }
+            }
+
+            if (obj3_!=nullptr && Collision::collides(Vector2D(col1_->getColRect().x,
+                col1_->getColRect().y), col1_->getColRect().w, col1_->getColRect().h,
+                Vector2D(col3_->getColRect().x, col3_->getColRect().y),
+                col3_->getColRect().w, col3_->getColRect().h)) //colision con el boss
+            {
+                obj3_->getComponent<LifeLightBossComponent>(LIFELIGHTBOSSCOMPONENT_H)->damage(50);
+            }
+        }
+        if (obj1_->hasComponent(ICEIACOMPONENT_H))
+            obj1_->getComponent<IceIAComponent>(ICEIACOMPONENT_H)->colPlayer(Collision::collides(Vector2D(col1_->getColRect().x,
+                col1_->getColRect().y), col1_->getColRect().w, col1_->getColRect().h,
+                Vector2D(col2_->getColRect().x, col2_->getColRect().y),
+                col2_->getColRect().w, col2_->getColRect().h));
+
     }
 }
 

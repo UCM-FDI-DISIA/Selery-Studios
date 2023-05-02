@@ -10,6 +10,7 @@ void AttackEarthBossComponent::initComponent() {
 
 void AttackEarthBossComponent::update() {
 	if (bossMovement->getAttack()) {
+		SDLUtils::instance()->soundEffects().at("golemStomp").play();
 		animator->newAnimation(AnimationEarthBossComponent::Attack);
 	}
 }

@@ -4,9 +4,8 @@
 #include "../utils/Vector2D.h"
 #include "../components/Transform.h"
 #include "../utils/Collision.h"
-#include "../components/InputComponent.h"
 
-
+class InputComponent;
 
 class ColliderTile : public Component
 {
@@ -48,6 +47,7 @@ public:
 	
 	ColliderTile(vector<Entity*> colisions);
 	
+	virtual ~ColliderTile();
 	void initComponent();
 	
 	inline bool isActive() { return isActive_; }
@@ -63,5 +63,7 @@ public:
 	//}
 
 	int chooseDirection();
-
+	void DesbloqueoZona() {
+		colisions.pop_back();
+	}
 };

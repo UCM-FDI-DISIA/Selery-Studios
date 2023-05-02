@@ -10,6 +10,7 @@ private:
 	Transform* tr_; // Consulta las caracteristicas fisicas
 	Texture* tex_;	// Imagen a rederizar
 	SDL_RendererFlip s = SDL_FLIP_NONE;
+	string texKey_ = "";
 public:
 	//Constructora
 	Image(Texture* tex);
@@ -24,9 +25,14 @@ public:
 	// Dibuja en escena
 	void render();
 
-	inline void setTexture(string key) { tex_ = &SDLUtils::instance()->images().at(key); }
+	inline void setTexture(string key) { 
+		tex_ = &SDLUtils::instance()->images().at(key);
+		texKey_ = key;
+	}
 
 	void setFlip(SDL_RendererFlip Flip = SDL_FLIP_NONE) { s = Flip; }
+
+	inline string getTexKey() { return texKey_; }
 };
 #endif
 //#pragma once

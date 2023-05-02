@@ -8,7 +8,7 @@
 class OptionsState : public Manager {
 public:
 	OptionsState();
-	~OptionsState() {};
+	~OptionsState();
 	virtual string getStateID() { return "OptionsState"; }
 	void Background(string file);
 	void render();
@@ -22,6 +22,8 @@ public:
 	void exitControls();
 	void ControlsBackground(string file);
 private:
+	bool controladorDetectado;
+	SDL_GameController* controller;
 	Entity* backButton;
 	Entity* muteButton;
 	Entity* TDcontrolsButton;

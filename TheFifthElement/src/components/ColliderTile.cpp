@@ -1,95 +1,125 @@
 #include "ColliderTile.h"
+#include "InputComponent.h"
+
 ColliderTile::ColliderTile(vector<Entity*> colisions) :Component() {
 	this->colisions = colisions;
-	
-
 }
+
+ColliderTile::~ColliderTile() {
+	delete colision;
+	delete player;
+	delete area;
+}
+
 void ColliderTile::initComponent() {
 	trans_player = ent_->getComponent<Transform>(TRANSFORM_H);
 	input = ent_->getComponent<InputComponent>(INPUTCOMPONENT_H);
 	colision = new SDL_Rect();
 	player = new SDL_Rect();
 	area = new SDL_Rect();
-	
 }
+
 void ColliderTile::update() {
 
 	player->x = trans_player->getPos().getX();
-	player->y = trans_player->getPos().getY();
-	player->h = trans_player->getH();
+	player->y = trans_player->getPos().getY() + 40 * WIN_HEIGHT / 600;
+	player->h = trans_player->getH() - 50 * WIN_HEIGHT / 600;
 	player->w = trans_player->getW();
+	d = -1;
 	for (auto c : colisions) {
-		trans_col = c->getComponent<Transform>(TRANSFORM_H);
-		colision->h = trans_col->getH();
-		colision->w = trans_col->getW();
-		colision->x = trans_col->getPos().getX();
-		colision->y = trans_col->getPos().getY();
-		
+			trans_col = c->getComponent<Transform>(TRANSFORM_H);
+			colision->h = trans_col->getH();
+			colision->w = trans_col->getW();
+			colision->x = trans_col->getPos().getX();
+			colision->y = trans_col->getPos().getY();
 
-		/*topLeft_ = trans_col->getPos();
-		topRight_ = { trans_col->getPos().getX() + trans_col->getW(), trans_col->getPos().getY() };
-		bottomLeft_ = { trans_col->getPos().getX(), trans_col->getPos().getY() + trans_col->getH() };
-		bottomRight_ = { trans_col->getPos().getX() + trans_col->getW(), trans_col->getPos().getY() + trans_col->getH() };*/
-		bool a = SDL_IntersectRect(player, colision, area);
-		if (a) {
-			/*pTopLeft = trans_player->getPos();
-			pBottomLeft = { pTopLeft.getX(), pTopLeft.getY() + trans_player->getH() };
-			pTopRight = { pTopLeft.getX() + trans_player->getW(), pTopLeft.getY() };
-			pBottonRight = { pTopRight.getX(), pTopRight.getY() + trans_player->getH() };*/
-			// colision arriba
+			if (SDL_IntersectRect(player, colision, area)) {
+				//NONE = -1,
+				//	UP = 0, DOWN = 1, LEFT = 2, RIGHT = 3, 
+				//UPLEFT = 4, UPRIGHT = 5, DOWNLEFT = 6, DOWNRIGHT = 7
+				
+				if (area->y <  (colision->y+(colision->h/2))) { //por arriba
+						//colisiona por la izquierda
+						if (area->x <= (colision->x+(colision->w/2))) {
+							if (area->w > area->h) {
+								if (d == -1)  d = 1;
+								else { //si ya estaba colisionando con algo
+									if (d == 2)  d = 6;
+									else if (d == 3) d = 7;
+								}
+							}
+							else { 
 
-			// UP=0, DOWN=1, LEFT=2, RIGHT=3
-			if (area->y > colision->y ) { //por arriba
+								if (d == -1) d = 3;
+								else {
+									if (d == 1)  d = 7;
+									else if (d == 0) d = 5;
+								}
+							}
+
+							
+						}
+						else {
+							//colisiona por la derecha
+							if (area->w > area->h) {
+								if (d == -1) d = 1;
+								else {
+									if (d == 2)  d = 6;
+									else if (d == 3) d = 7;
+								}
+							}
+							else  {
+								if (d == -1) d = 2;
+								else {
+									if (d == 0)  d = 4;
+									else if (d == 1) d = 6;
+								}
+							}
+						}
+				}
+				else { // colisiona por abajo
 					//colisiona por la izquierda
-					if (area->x > colision->x) {
-						if (area->w > area->h) d = 0;
-						else d=2;
+					if (area->x <= (colision->x+(colision->w/2))) {
+						if (area->w > area->h) {
+							if (d == -1) d = 0;
+							else {
+								if (d == 2)  d = 4;
+								else if (d == 3) d = 5;
+							}
+						}
+						else {
+							if (d == -1) d = 3;
+							else {
+								if (d == 0)  d = 5;
+								else if (d == 1) d = 7;
+							}
+						}
+					
 					}
 					else {
 						//colisiona por la derecha
-						if (area->w > area->h) d = 0;
-						else d = 3;
+						if (area->w > area->h) {
+							if (d == -1) d = 0;
+							else {
+								if (d == 2)  d = 4;
+								else if (d == 3) d = 5;
+							}
+						}
+						else {
+							if (d == -1) d = 2;
+							else {
+								if (d == 0)  d = 4;
+								else if (d == 1) d = 6;
+							}
+						}
 					}
+				}
+				
 			}
-			else { // colisiona por abajo
-					//colisiona por la izquierda
-					if (area->x > colision->x) {
-						if (area->w > area->h) d = 2;
-						else d = 1;
-					}
-					else {
-						//colisiona por la derecha
-						if (area->w > area->h) d = 3;
-						else d=1;
-					}
-			}
-			input->setDirection(d);
-		}
-		else{
-			input->setDirection(-1);
-		}
-		
 	}
-	//if (isActive_) {
-	//	SDL_Rect rect = build_sdlrect(tr->getPos(), tr->getW(), tr->getH());
-	//	if (p->collide(rect)) {
-	//		isColliding_ = true;
-	//		onPlayerCollision();
-	//	}
-	//	else if (isColliding_) { // La colisión estaba activa pero ha parado
+	input->setDirection(d);
 
-	//		isColliding_ = false;
-	//		//onPlayerCollisionExit();
-	//	}
-	//}
 }
-//void ColliderTile:: onPlayerCollision() {
-//	int dir = chooseDirection();
-//
-//}
-//void ColliderTile:: onPlayerCollisionExit() {
-//
-//}
 
 int ColliderTile::chooseDirection() {
 

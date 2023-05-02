@@ -9,14 +9,13 @@
 #include "../include/SDL_mixer.h"
 #include "../components/PortalComponent.h"
 #include "../components/ColliderTile.h"
-#include "../components/CollideTileInteraction.h"
-#include "../PuzzleCopas.h"
 #include "../components/NPCcollisioncomponent.h"
 #include "../components/Transform.h"
 #include "../sdlutils/Texture.h"
 #include "../GameManager.h"
 #include "../components/InputComponent.h"
 #include "../components/MovementComponent.h"
+#include "../components/Trigger.h"
 #include "../components/Image.h"
 #include "../components/SkinComponent.h"
 #include "../components/CheckCollision.h"
@@ -35,7 +34,7 @@
 #include "../components/SectorCollisionComponent.h"
 #include "../components/BossCollision.h"
 #include "../Saving.h"
-
+#include "../Puzzle1.h"
 using uint = unsigned int;
 using tileset_map = std::map<std::string, Texture*>; //mapa con CLAVE:string, ARGUMENTO: puntero a textura
 using tilelayer = tmx::TileLayer;
@@ -62,10 +61,10 @@ class TopDownState : public Manager {
 private:
 	//TILE
 	tileset_map tilesets_;	// textures map (string -> texture)
-	SDL_Texture* background_;
+	SDL_Texture* background_0;
+	SDL_Texture* prueba;
 	MapInfo mapInfo;	//struct
-	vector<bool> sectors{ true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true };
-	Entity* pruebaCollider;
+	vector<bool> sectors{ true,false,false,false };
 	int idSector = 0;
 	//PLAYER 
 	Entity* player_;
@@ -78,9 +77,8 @@ private:
 	MovementComponent* movcomp_player_;
 	//NPCS
 	Entity* Npc_;
+	Entity* Contexto;
 	Entity* Blacksmith_;
-	//Transform* Nptr_;
-	int number_npc_ = 0;
 	int contBlksm = 0;
 	//HUD
 	Entity* Hud_;
@@ -105,60 +103,73 @@ private:
 
 	//COLISIONES TILE-PLAYER
 	vector<Entity*> collisions_; //vector colision player-mapa
-	vector<ColliderTileInteraction*> interactions_; //vector colision player-mapa
-	float camOffset_ = 60.0f;
 
+	vector<Entity*> puzzle_; //vector para los puzzles copas
+	vector<Entity*> puzzle2_; //vector para los puzzles torres
+	float camOffset_ = 60.0f;
+	ColliderTile* ColideTileComponent;
 	int fondowidth_, fondoheight_;
 
 	DialogueComponent* dialog_;
-	
-	
+
 	// SHOP
 	Entity* upturnButton_;
 	Entity* exitShopButton_;
-	vector<Entity*> buttons;
+	vector<Entity*> buttons1;
+	vector<Entity*> buttons2;
 	vector<Button*> buttonsComp;
 	ShopComponent* shopComp_;
 	Vector2D upturnButtonPos_;
 	int upturnButtonX, upturnButtonY;
 	int upturnButtonWidth_, upturnButtonHeight_;
-	int upturnButtonOffsetX = 50;
-	int upturnButtonOffsetY = 20;
+	int upturnButtonOffsetX = 140;
+	int upturnButtonOffsetY = 30;
 	Transform* upturnButtonTr_;
 	Button* upturnButtonComp_;
 	Transform* exitShopButtonTr_;
 	Button* exitShopButtonComp_;
-
+	bool  desbloqueoDeZona = false;
+	bool saved = false;
+	bool loaded = false;
+	bool shopCreated_ = false;
+	bool loadGame_ = false;
+	bool questsMenu = false;
+	// MINIMAPA
+	Texture* m_ = &SDLUtils::instance()->images().at("mapFrame");
+	Texture* airAvatar_ = &SDLUtils::instance()->images().at("AirAvatar");
+	float mapFrameX_ = 145;
+	float mapFrameY_ = 100;
+	float speedMinMap_ = 135.0f;
+	int mapOffsetX_ = 155;
+	int mapOffsetY_ = 10;
+	int iconOffsetX_ = 165;
+	int iconOffsetY_ = 60;
+	int iconWidth_ = 15;
+	int iconHeight_ = 15;
+	int UnlockedZones = 0;
+	int startTime = 0;
+	float SaveGame_ = 120000;
 public:
-	void actSectors(int idChange, bool nowValue)
-	{
-		if (sectors[idChange] != nowValue)
-		{
-			sectors[idChange] = nowValue;
-			printMap();
-		}
-		//printMap();
-	}
+	bool activeQuest = false;
 	string getStateID(); // stringID
-	PuzzleCopas* puzzle1;
-	TopDownState();	
-	~TopDownState() {}
+	TopDownState(bool load = false);
+	~TopDownState();
 	void LoadMap(string const& filename);
-	void printMap();
+	void LoadGame();
+	//void printMap();
+	void DeleteContexto() {
+		Contexto->setAlive(false);
+	}
+	void SaveGame();
 	void update();	
 	void handleEvents();
 	void render();
 	void createShopButtons();
 	void cleanShopButtons();
+	QuestInfoComponent* newQuest(string nombre, string text, string reward, int coins, int fases);
 	Texture* npcTexture() {
-		int a = SDLUtils::instance()->rand().nextInt(0, 1);
-		if (a == 0) {
-			return &SDLUtils::instance()->images().at("NPC_1");
-		}
-		else if (a == 1) {
-			return &SDLUtils::instance()->images().at("NPC_2");
-		}
-		
+		int a = SDLUtils::instance()->rand().nextInt(1, 11);
+		return &SDLUtils::instance()->images().at("NPC_"+ to_string(a));
 	}
 	Texture* blacksmithTexture() {
 		return &SDLUtils::instance()->images().at("Blacksmith");
@@ -200,5 +211,8 @@ public:
 	DialogueComponent* getDialog() { return dialog_; }
 	Button* getShopButton(int i) { return buttonsComp.at(i); }
 	SkinComponent* getPlayerSkin() { return sk_; }
+	bool getMenuQuest() { return questsMenu; }
+	void setMenuQuest(bool b) { questsMenu = b; }
+	void desbloqueoZona();
 };
 

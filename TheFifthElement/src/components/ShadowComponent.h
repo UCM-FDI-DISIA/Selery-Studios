@@ -14,6 +14,9 @@ protected:
 	int src_width = 62 ;// tamaño real de la imagen
 	int src_height = 40;
 	int jump_poss_y;
+	int i = 0;
+	int init_i;
+	SDL_Rect rect;
 
 public:
 	ShadowComponent();
@@ -26,4 +29,6 @@ public:
 	inline void Setpos_y(int i) {
 		jump_poss_y = i;
 	}
+
+	inline SDL_Rect getRect() { return rect; }
 };

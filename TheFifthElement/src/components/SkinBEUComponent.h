@@ -1,21 +1,23 @@
 #pragma once
+#include "../utils/Entity.h"
+#include "../utils/ecs.h"
 #include "../utils/Component.h"
 #include "../sdlutils/Texture.h"
-#include "../utils/PropertiesManager.h"
 #include "../GameManager.h"
 #include "FramedImage.h"
+#include "ColliderComponent.h"
 
+class PropertiesManager;
 class LifeComponent;
 
-class SkinBEUComponent : public Component
-{
+class SkinBEUComponent : public Component {
 public:
-    enum AnimationStates
-    {
+    enum AnimationStates {
         Idle, Left, Right, Vertical, Jump, Hit, Death, Null
     };
     AnimationStates currentState_;
     AnimationStates nextState_;
+
 private:
     string t_;
     string skin_;
@@ -24,6 +26,8 @@ private:
     FramedImage* im_;
     LifeComponent* lifeC_ = nullptr;
     PropertiesManager* props;
+    bool flip_;
+    ColliderComponent* col_;
 
 public:
     SkinBEUComponent(string skin);
@@ -42,6 +46,4 @@ public:
     void setTexture();
     void changeSkin(string skin);
     inline string getSkin() { return t_; }
-
 };
-

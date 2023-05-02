@@ -6,6 +6,9 @@
 #include "components/LifeComponent.h"
 #include "components/LifeEarthBossComponent.h"
 #include "components/WaterBossLife.h"
+#include "components/FireBossComponent.h"
+#include "components/LifeBasicComponent.h"
+
 
 //Este manager existira en la escena y sera el encargado de gestionar los ataques jugador->enemigo y enemigo->jugador
 //Su constructora recibe un puntero al manager para acceder a lalista de entidades, como hacemos en TPV2.
@@ -16,10 +19,14 @@ class ColManager
 private:
 	Manager* mngr_;
 	PropertiesManager* props_;
+	int enemiesNearPlayer = 0;
 public:
-	ColManager(Manager* manager): mngr_(manager) {};
-	void checkCollisionP(SDL_Rect boxAttack,string type);
+	ColManager(Manager* manager) : mngr_(manager) {};
+	void checkCollisionP(SDL_Rect boxAttack, string type, bool strongAttack);
 	void checkCollisionE(SDL_Rect boxAttack, string type, int extraDamage);
+
+	void update();
+	int howManyNear();
 
 };
 

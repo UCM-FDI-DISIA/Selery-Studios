@@ -32,9 +32,9 @@ void AnimationEnemyBEUComponent::updateAn() {
 
 		break;
 	case AnimationEnemyBEUComponent::Attack:
-		posX = tr_->getPos().getX() + offset_.getX();
+		posX = tr_->getPos().getX() + col_->getOffset().getX() + col_->getColWidth();
 		playerPosX = playerTr_->getPos().getX() + playerCol_->getOffset().getX() + playerCol_->getColWidth() / 2;
-		if (posX < playerPosX) {
+		if (posX <= playerPosX) {
 			im_->setFlip(SDL_FLIP_NONE);
 			if (enemy_ == "shroom")col_->setOffset(Vector2D(65, 55));
 		}
@@ -82,6 +82,12 @@ void AnimationEnemyBEUComponent::updateAnimation() {
 		im_->setAnim(t_, nframes_, true);
 		col_->setCollider(offset_, ColHeight_, ColWidth_);
 		break;
+	case AnimationEnemyBEUComponent::Idle:
+		setIdleTexture();
+		////im_->setSpriteAnim(true, nframes_, 0, t_);
+		im_->setAnim(t_, nframes_, true);
+		col_->setCollider(offset_, ColHeight_, ColWidth_);
+		break;
 	default:
 		break;
 	}
@@ -91,7 +97,7 @@ void AnimationEnemyBEUComponent::updateAnimation() {
 void AnimationEnemyBEUComponent::setMovTexture() {
 	if (enemy_ == "shroom") {
 
-		nframes_ = 8;
+		nframes_ = 4;
 		EnemyWidth_ = 1200;
 		EnemyHeight_ = 150;
 
@@ -145,7 +151,7 @@ void AnimationEnemyBEUComponent::setMovTexture() {
 
 	else if (enemy_ == "goblin") {
 
-		nframes_ = 8;
+		nframes_ = 4;
 		EnemyWidth_ = 1200;
 		EnemyHeight_ = 150;
 
@@ -526,6 +532,117 @@ void AnimationEnemyBEUComponent::setDeathTexture()
 
 		else if (type_ == "earth") {
 			t_ = "BEU_earth_Bat_death";
+		}
+	}
+}
+
+void AnimationEnemyBEUComponent::setIdleTexture()
+{
+	if (enemy_ == "shroom") {
+
+		nframes_ = 4;
+		EnemyWidth_ = 1200;
+		EnemyHeight_ = 150;
+
+		offset_ = Vector2D(60, 55);
+		ColHeight_ = ENEMYBEU_HEIGHT / 3;
+		ColWidth_ = ENEMYBEU_WIDTH / 5;
+
+		if (type_ == "fire") {
+			t_ = "BEU_fire_Mushroom_idle";
+		}
+
+		else if (type_ == "air") {
+			t_ = "BEU_air_Mushroom_idle";
+		}
+
+		else if (type_ == "water") {
+			t_ = "BEU_water_Mushroom_idle";
+		}
+
+		else if (type_ == "earth") {
+			t_ = "BEU_earth_Mushroom_idle";
+		}
+	}
+
+	else if (enemy_ == "skeleton") {
+
+		nframes_ = 4;
+		EnemyWidth_ = 600;
+		EnemyHeight_ = 150;
+
+		offset_ = Vector2D(55, 42);
+		ColHeight_ = 2.5 * ENEMYBEU_HEIGHT / 6;
+		ColWidth_ = ENEMYBEU_WIDTH / 5;
+
+		if (type_ == "fire") {
+			t_ = "BEU_fire_Skeleton_idle";
+		}
+
+		else if (type_ == "air") {
+			t_ = "BEU_air_Skeleton_idle";
+		}
+
+		else if (type_ == "water") {
+			t_ = "BEU_water_Skeleton_idle";
+		}
+
+		else if (type_ == "earth") {
+			t_ = "BEU_earth_Skeleton_idle";
+		}
+	}
+
+	else if (enemy_ == "goblin") {
+
+		nframes_ = 4;
+		EnemyWidth_ = 1200;
+		EnemyHeight_ = 150;
+
+		offset_ = Vector2D(55, 55);
+		ColHeight_ = ENEMYBEU_HEIGHT / 3;
+		ColWidth_ = ENEMYBEU_WIDTH / 5;
+
+		if (type_ == "fire") {
+			t_ = "BEU_fire_Goblin_idle";
+		}
+
+		else if (type_ == "air") {
+			t_ = "BEU_air_Goblin_idle";
+		}
+
+		else if (type_ == "water") {
+			t_ = "BEU_water_Goblin_idle";
+		}
+
+		else if (type_ == "earth") {
+			t_ = "BEU_earth_Goblin_idle";
+		}
+	}
+
+	else if (enemy_ == "bat") {
+
+		nframes_ = 8;
+		EnemyWidth_ = 1200;
+		EnemyHeight_ = 150;
+
+		offset_ = Vector2D(55, 55);
+		ColHeight_ = ENEMYBEU_HEIGHT / 4;
+		ColWidth_ = ENEMYBEU_WIDTH / 4;
+
+		if (type_ == "fire") {
+			t_ = "BEU_fire_Bat_fly";
+		}
+
+		else if (type_ == "air") {
+			t_ = "BEU_air_Bat_fly";
+		}
+
+		else if (type_ == "water") {
+			t_ = "BEU_water_Bat_fly";
+		}
+
+		else if (type_ == "earth") {
+			t_ = "BEU_earth_Bat_fly";
 		}
 	}
 }

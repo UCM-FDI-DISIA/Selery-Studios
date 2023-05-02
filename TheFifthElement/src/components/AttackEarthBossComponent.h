@@ -21,6 +21,7 @@ public:
 	void update();
 
 	inline float getExtraDamage() { return extraDamage; }
+	inline void setExtraDamage(int newValue) { extraDamage = newValue; }
 	inline void addExtraDamage() { extraDamage += 0.1; }
 };
 #endif

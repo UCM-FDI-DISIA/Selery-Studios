@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Fifth Element - Videojuego</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <!-- Carga la biblioteca de la API de YouTube -->
+  <script src="https://www.youtube.com/iframe_api"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-image: url('web/DorjeeSofia 873x436.png');
+      background-size: 105%;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+    header {
+      position: relative;
+      background-color: rgba(34, 34, 34, 0.8);
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+    .grid-item {
+      background-color: #ccc;
+      padding: 1rem;
+      text-align: center;
+      border-radius: 4px;
+    }
+    #text-section p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  text-align: justify;
+  color: #333;
+  margin-bottom: 1rem;
+}
+.grid-image {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.grid-image img {
+  width: 100%;
+  height: auto;
+}
+
+.name {
+  margin-top: 10px;
+}
+
+.grid-image:hover img {
+  opacity: 1; /* Aumenta la opacidad cuando se pasa el mouse por encima */
+}
+    header h1 {
+      display: inline-block;
+      margin: 0;
+      transition: transform 0.3s;
+    }
+    header h1:hover {
+      transform: scale(1.1);
+    }
+    .social-icons {
+      position: absolute;
+      top: 50%;
+      right: 1rem;
+      transform: translateY(-50%);
+      font-size: 1.2rem;
+    }
+    .gif-left, .gif-right {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: -1; 
+}
+.gif-left img, .gif-right img {
+  max-width: 100%;
+  height: 70%;
+}
+.gif-left {
+  position: fixed;
+  top: 70%;
+  scale: 150%;
+  left: 15%;
+  transform: translateY(-50%);
+  z-index: -1;
+}
+
+.gif-right {
+  position: fixed;
+  top: 80%;
+  scale: 200%;
+  right: 20%; /* Modifica este valor para mover el gif hacia el centro */
+  transform: translateY(-50%);
+  z-index: -1;
+}
+    .social-icons a {
+      color: white;
+      margin-left: 0.5rem;
+      text-decoration: none;
+    }
+    .social-icons a:hover {
+      color: #f1f1f1;
+    }
+    .container {
+      flex: 1;
+      align-items: center;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-left: 100px; /* Ajusta este valor según el ancho del gif izquierdo */
+      margin-right: 100px; /* Ajusta este valor según el ancho del gif derecho */
+    }
+    section {
+      margin: 1rem;
+      padding: 1rem;
+      border: 1px solid #ccc;
+      background-color: rgba(255, 255, 255, 0.8);
+    }
+    #scroll {
+      overflow-y: scroll;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .banner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 15%;
+      background-image: url('web/github-banner.png');
+      background-repeat: no-repeat;
+      background-size:cover;
+      background-position: center;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      transition: box-shadow 0.3s;
+    }
+    h1 {
+      font-size: xx-large;
+    }
+
+    @keyframes zoomInOut {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.5);
+      }
+    }
+    
+
+
+
+    #sidebar {
+      position: fixed;
+      left: 0;
+      top: 0;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      padding: 1rem;
+      border-radius: 0 4px 4px 0;
+      z-index: 1000;
+      justify-content: center;
+      display: none;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      background-color: rgba(34, 34, 34, 0.8);
+    }
+    .banner:hover {
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    .banner a {
+  display: contents;
+  color: white;
+  font-size: large;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+  text-decoration:wavy;
+    }
+  .banner a:hover {
+  color: #f1f1f1;
+    }
+    a {
+  text-decoration: none;
+  color: #0077cc;
+  transition: color 0.3s;
+    }
+  a:hover {
+  color: #0055aa;
+  background-color: transparent;
+  }
+  body:hover #sidebar {
+  display: flex;
+}
+#download-section {
+  text-align: center;
+  padding: 1rem;
+  border: 1px solid transparent;
+  background-color: transparent;
+  margin-top: 1rem;
+  font-size: x-large;
+  color: white;
+}
+
+#download-section a {
+  display: inline-block;
+  background-color: #0077cc;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+#download-section a:hover {
+  background-color: #0055aa;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#detector {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 20px;
+  height: 100%;
+  z-index: 1001;
+}
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(2, 1fr); /* Añade esta línea para crear dos filas */
+  grid-row-gap: 1rem; /* Añade esta línea para agregar separación entre las filas */
+  grid-column-gap: 1rem;
+  display: none;
+}
+#content {
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out; /* Aquí se define el efecto de fade in y fade out */
+}
+h2{
+  animation: zoomInOut 15s infinite;
+  background-color: transparent;
+}
+.hidden {
+  opacity: 0;
+  display: none;
+}
+
+button {
+  background-color: #0077cc;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer; 
+  margin-bottom: 10px;
+  margin-bottom: 1rem;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+.button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+button:hover {
+  background-color: #0055aa;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.video-wrapper {
+  position: relative;
+  padding-bottom: 56.25%;
+  background-color: transparent;
+  height: 0;
+  color: transparent;
+  overflow: visible; /* Cambia 'visible' por 'hidden' */
+  max-width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+.btn-1{
+  position: relative;
+}
+#ytplayer {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+</style>
+
+  <script>
+    var player;
+    function onYouTubeIframeAPIReady() {
+      player = new YT.Player('ytplayer', {
+        width: '560',
+        height: '315',
+        videoId: '5eOVw7ZBvOQ',
+        events: {
+          'onReady': onPlayerReady,
+        }
+      });
+    }
+    function onPlayerReady(event) {
+      event.target.pauseVideo();
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+      AOS.init();
+    }); 
+    $(document).ready(function() {
+  setInterval(function() {
+    $('body').animate({ 'background-size': '125%' }, 4000).delay(500).animate({ 'background-size': '100%' }, 4000);
+    $('.gif-left img, .gif-right img').css({ transition: 'transform 4s', transform: 'scale(2)' });
+    setTimeout(function() {
+      $('.gif-left img, .gif-right img').css({ transition: 'transform 4s', transform: 'scale(1)' });
+    }, 4500);
+  }, 2000);
+});
+
+function changeBackground1() {
+    document.body.style.backgroundImage = "url('web/DorjeeSofia 873x436.png')";
+  }
+  function changeBackground2() {
+    document.body.style.backgroundImage = "url('web/fondoFire.jpg')";
+  }
+  function changeBackground3() {
+    document.body.style.backgroundImage = "url('web/fondoPausa.png')";
+  }
+document.addEventListener("DOMContentLoaded", function() {
+      AOS.init();
+    });
+
+    $(document).ready(function() {
+  // ...
+  $('#detector').on('mouseenter', function() {
+    $('#sidebar').show();
+  });
+
+  // Oculta la barra lateral cuando el puntero sale de su área
+  $('#sidebar').on('mouseleave', function() {
+    $(this).hide();
+  });
+
+$('#btn-3').on('click', function() {
+  $('.video-wrapper').hide();
+  $('#download-section').hide();  
+  player.pauseVideo();
+  $('.banner').hide();
+  $('.grid-container').css("display", "grid");
+  // Oculta los gifs
+    $('#text-section').hide();
+  $('.gif-left, .gif-right').hide();
+});
+
+// Muestra el videowrapper y oculta la cuadrícula cuando se hace clic en el botón 1
+$('#btn-1').on('click', function() {
+  $('.grid-container').hide();
+   $('#download-section').show();  
+  $('#text-section').hide();
+  $('.banner').show();
+  $('.video-wrapper').show();
+  player.pauseVideo();
+  // Muestra los gifs
+  $('.gif-left, .gif-right').show();
+});
+
+$('#btn-2').on('click', function() {
+  $('.grid-container').hide();
+  $('.video-wrapper').hide();
+  player.pauseVideo();
+  $('.banner').hide();
+  $('#download-section').hide();  
+  $('#text-section').show();
+  // Oculta los gifs
+  $('.gif-left, .gif-right').hide();  
+  });
+});
+</script>
+</head>
+<body>
+
+  <div id="detector"></div>
+<header>
+  <div class="container">
+  <h1 data-aos="fade-down" data-aos-duration="1000000000000" >THE FIFTH ELEMENT</h1>
+  <div class="social-icons">
+    <a href="https://twitter.com/alo_oficial?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
+  </div>
+</header>
+<div class="container">
+  <div class="banner" data-aos="fade-down" data-aos-duration="1000000000000">
+    <a  href="https://github.com/UCM-FDI-DISIA/Selery-Studios" target="_blank"><i class="fab fa-github"></i> Sobre nosotros - Selery Studios</a>
+  </div>
+     <section id="download-section" data-aos="fade-up" data-aos-duration="1000">
+  <h2>Descargar archivo</h2>
+  <a href="a.gif" download="archivo-ejemplo">Descargar archivo de ejemplo</a>
+  
+</section>
+  <div class="gif-left">
+    <img id="gif-a" src="web/a.gif" alt="GIF A">
+  </div>
+  <div class="gif-right">
+    <img id="gif-b" src="web/b.gif" alt="GIF B">
+  </div>
+
+<section id="text-section" data-aos="fade-up" data-aos-duration="1000" style="display:none;">
+  <div style="padding: 1rem;">
+      <p>
+        ACABÉ
+      </p>
+    </section>
+    <div class="video-wrapper">
+      <div id="ytplayer"></div> 
+    </div>
+    <div class="grid-container">
+<div class="grid-item grid-image">
+  <img src="web/agustin.gif" alt="GIF A">
+  <div class="name">Agustín</div>
+</div>
+<div class="grid-item grid-image">
+  <img src="web/ciscoypatri.gif" alt="GIF A">
+  <div class="name">Cisco</div>
+</div>
+<div class="grid-item grid-image">
+  <img src="web/putocangrejo.gif" alt="GIF A">
+  <div class="name">Sheila</div>
+</div>
+<div class="grid-item grid-image">
+  <img src="web/bebeinseminado.gif" alt="GIF A">
+  <div class="name">Cristina</div>
+</div>
+<div class="grid-item grid-image">
+  <img src="web/mami.gif" alt="GIF A">
+  <div class="name">Paceve</div>
+</div>
+<div class="grid-item grid-image">
+  <img src="web/pablouwu.gif" alt="GIF A">
+  <div class="name">Pablo</div>
+</div>
+<div class="grid-item grid-image">
+  <img src="web/catkiss.gif" alt="GIF A">
+  <div class="name">Dorjee</div>
+</div>
+<div class="grid-item grid-image">
+  <img src="web/saoko.gif" alt="GIF A">
+  <div class="name">José</div>
+</div>
+<div class="grid-item grid-image">
+  <img src="web/sofia.gif" alt="GIF A">
+  <div class="name">Sofía</div>
+</div>
+<div class="grid-item grid-image">
+  <img src="web/necesimatosotroholocausto.gif" alt="GIF A">
+  <div class="name">Alberto</div>
+</div>
+    </div>
+  </section>
+</div>
+<div id="sidebar">
+  <button id="btn-1" onclick="changeBackground1()">DESCARGA</button>
+  <button id="btn-2" onclick="changeBackground2()">HISTORIA</button>
+  <button id="btn-3" onclick="changeBackground3()">EQUIPO</button>
+</div>
+</body>
+</html>

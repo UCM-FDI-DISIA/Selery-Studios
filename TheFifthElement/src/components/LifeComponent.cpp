@@ -2,42 +2,44 @@
 #include "InputComponentBEU.h"
 #include "../states/BeatEmUpState.h"
 
-LifeComponent::LifeComponent(float maxLife) {
+LifeComponent::LifeComponent(float maxLife, Roulette* r ) {
 	life_ = maxLife_ = maxLife;
+	roulette = r;
 }
 
 void LifeComponent::initComponent() {
 	im_ = ent_->getComponent<FramedImage>(FRAMEDIMAGE_H);
 	type_ = im_->getType();
 
+
 	enemy_ = ent_->hasComponent(ANIMATIONENEMYBEUCOMPONENT_H);
-	scale = WIN_WIDTH / 900;
+
 
 	if (enemy_) {
 		anim_ = ent_->getComponent<AnimationEnemyBEUComponent>(ANIMATIONENEMYBEUCOMPONENT_H);
 		eMov_ = ent_->getComponent<EnemyBEUDirectionComponent>(ENEMYBEUDIRECTIONCOMPONENT_H);
 		entTransform_ = ent_->getComponent<Transform>(TRANSFORM_H);
-		barWidth_ = backWidth_ = borderWidth_ = (entTransform_->getW() / 4) * scale;
-		barHeight_ = backHeight_ = borderHeight_ = (entTransform_->getH() / 11) * scale;
+		barWidth_ = backWidth_ = borderWidth_ = (entTransform_->getW() / 4);
+		barHeight_ = backHeight_ = borderHeight_ = (entTransform_->getH() / 11);
 		pos_ = Vector2D(entTransform_->getPos().getX(), entTransform_->getPos().getY());
 	}
 	else {
-		barWidth_ = backWidth_ = borderWidth_ = 100 * scale;
-		barHeight_ = backHeight_ = borderHeight_ = 30 * scale;
+		entTransform_ = ent_->getComponent<Transform>(TRANSFORM_H);
+		barWidth_ = backWidth_ = borderWidth_ = 100 * entTransform_->getScaleW();
+		barHeight_ = backHeight_ = borderHeight_ = 30 * WIN_HEIGHT/600;
 		skin_ = ent_->getComponent<SkinBEUComponent>(SKINBEUCOMPONENT_H);
+		for (int i = 0; i < 4; i++) {
+			types[i].life = -1.0f;
+			types[i].alive = Elements::instance()->getElementsList(i);
+		}
 	}
 	chooseTexture();
 }
 
 void LifeComponent::update() {
-	if (!set_ && !enemy_) 
-	{ 
+
+	if (!set_ && !enemy_) { 
 		inp_ = ent_->getComponent<InputComponentBEU>(INPUTCOMPONENTBEU_H); 
-		for (int i = 0; i < 4; i++)
-		{
-			types[i].life = -1.0f;
-			types[i].alive = inp_->elements[i];
-		}
 		set_ = true;
 	}
 	
@@ -45,24 +47,21 @@ void LifeComponent::update() {
 	
 	if (die_) {
 		if (!im_->getIsAnimUnstoppable()) {
-		/////if (!im_->isAnimPlaying()) {
-
 			if (enemy_)ent_->setAlive(false);
 			else {
 				int i = 0;
 				while (!types[i].alive && i < 4) i++;
 
-				if (i == 4) 
-				{
+				if (i == 4) {
 					ent_->setAlive(false);
+					SDLUtils::instance()->soundEffects().at("Battle").haltChannel();
 					GameManager::instance()->goTopDown();
 				}
-				else 
-				{
-					if (type_ == "air") inp_->setAir(false);// bloquea aire
-					else if (type_ == "fire")inp_->setFire(false);// bloquea fuego
-					else if (type_ == "water")inp_->setWater(false);// bloquea agua
-					else if (type_ == "earth") inp_->setEarth(false);// bloquea tierra
+				else  {
+					if (type_ == "air") { inp_->setAir(false); }// bloquea aire
+					else if (type_ == "fire") { inp_->setFire(false); }// bloquea fuego
+					else if (type_ == "water") { inp_->setWater(false); }// bloquea agua
+					else if (type_ == "earth") { inp_->setEarth(false); }// bloquea tierra
 
 					die_ = false;
 					hit_ = false;
@@ -71,12 +70,9 @@ void LifeComponent::update() {
 		}
 	}
 	else {
-		if (!im_->getIsAnimUnstoppable()) {
-		////if (!im_->isAnimPlaying()) {
+		if (!im_->getIsAnimUnstoppable()) {				
 			if (enemy_) {
-				if (collision) {
-
-					//animaci�n de ataque y ataque en s�
+				if (collision) { //animacion de ataque y ataque en s�
 					anim_->changeState(AnimationEnemyBEUComponent::Attack);
 					eMov_->stop(true);
 					collision = false;
@@ -84,7 +80,6 @@ void LifeComponent::update() {
 				else {
 					anim_->changeState(AnimationEnemyBEUComponent::Moving);
 					eMov_->stop(false);
-
 				}
 				if (anim_->currentState_ != AnimationEnemyBEUComponent::Hit) hit_ = false;
 			}
@@ -105,22 +100,45 @@ void LifeComponent::Death() {
 	}
 	else {// player
 		skin_->changeState(SkinBEUComponent::Death);
-		if (type_ == "air") types[0].alive = false;
-		else if (type_ == "fire")types[1].alive = false;
-		else if (type_ == "water")types[2].alive = false;
-		else if (type_ == "earth") types[3].alive = false;
+		if (type_ == "air") {
+			types[0].alive = false;
+			if(types[1].alive) roulette->changeplayer(2);
+			else if (types[2].alive) roulette->changeplayer(3);
+			else if (types[3].alive) roulette->changeplayer(4);
+		}
+		else if(type_ == "fire") {
+			types[1].alive = false;
+			if (types[0].alive) roulette->changeplayer(1);
+			else if (types[2].alive) roulette->changeplayer(3);
+			else if (types[3].alive) roulette->changeplayer(4);
+		}
+		else if (type_ == "water") {
+			types[2].alive = false;
+			if (types[1].alive) roulette->changeplayer(2);
+			else if (types[0].alive) roulette->changeplayer(1);
+			else if (types[3].alive) roulette->changeplayer(4);
+		}
+		else if (type_ == "earth") {
+			types[3].alive = false;
+			if (types[1].alive) roulette->changeplayer(2);
+			else if (types[2].alive) roulette->changeplayer(3);
+			else if (types[0].alive) roulette->changeplayer(1);
+		}
 	}
 }
 
-void LifeComponent::Hit(float damage)
-{
+void LifeComponent::Hit(float damage) {
 	if (!hit_) {
-		if (getLife() - damage > 0) {
+		float realDamage = damage * damageMultiplier_ * damageReduction_;
+		if (getLife() - (realDamage) > 0) {
 			if (enemy_) {// enemy
 				anim_->changeState(AnimationEnemyBEUComponent::Hit);
+				//eMov_->moveBackX();
 				eMov_->stop(true);
 			}
 			else {// player
+				static_cast<BeatEmUpState*>(mngr_)->ShakeCam(true);
+				/*inp_->MovePlayerBack();*/
 				skin_->changeState(SkinBEUComponent::Hit);
 			}
 		}
@@ -128,24 +146,32 @@ void LifeComponent::Hit(float damage)
 		hit_ = true;
 	}
 
-	//en el hit
-	// cuando termine la animaci�n se mueve para permitir al jugador escapar
+	//en el hit cuando termine la animacion se mueve para permitir al jugador escapar
 	//tr_->setPos(Vector2D(tr_->getPos().getX() + 50, tr_->getPos().getY()));
 }
 
 void LifeComponent::subLife(float damage) {
-	life_ -= damage;
-	if (life_ <= 0)
-	{
+	float realDamage = damage * damageMultiplier_ * damageReduction_;
+	life_ -= (realDamage);
+
+	if (life_ <= 0) {
 		life_ = 0;
 		Death();
+		if (enemy_) {
+			properties().getPowerUpRef()->instancePowerUp();
+		}
 	}
+	 
 	playDamageSound();
+	updateLifeBar();
+}
+
+void LifeComponent::updateLifeBar() {
 	barWidth_ = ((life_ * backWidth_) / maxLife_);
 }
 
-void LifeComponent::chageType(float maxLife) {
 
+void LifeComponent::chageType(float maxLife) {
 	if (type_ == "air") {
 		types[0].life = life_;
 	}
@@ -180,7 +206,7 @@ void LifeComponent::chageType(float maxLife) {
 	}
 	
 	chooseTexture();
-	barWidth_ = ((life_ * backWidth_) / maxLife_);
+	updateLifeBar();
 }
 
 void LifeComponent::render() {
@@ -192,34 +218,30 @@ void LifeComponent::render() {
 
 	SDL_Rect dest;
 	if(enemy_){
-		dest.x = pos_.getX() + (60*scale);
-		dest.y = pos_.getY() + (35*scale);
+		dest.x = pos_.getX() + (60*entTransform_->getSW());
+		dest.y = pos_.getY() + (35*entTransform_->getSH());
 		dest.h = backHeight_;
 		dest.w = backWidth_;
 		backTexture_->render(src, dest);
 
-
 		dest.h = barHeight_;
 		dest.w = barWidth_;
 		barTexture_->render(src, dest);
-
 
 		dest.h = borderHeight_;
 		dest.w = borderWidth_;
 		borderTexture_->render(src, dest);
 	}
 	else {
-		dest.x = 90 * scale;
-		dest.y = 25 * scale;
+		dest.x = 90 * WIN_WIDTH/900;
+		dest.y = 25 * WIN_HEIGHT/600;
 		dest.h = backHeight_;
 		dest.w = backWidth_;
 		backTexture_->render(src, dest);
 
-
 		dest.h = barHeight_;
 		dest.w = barWidth_;
 		barTexture_->render(src, dest);
-
 
 		dest.h = borderHeight_;
 		dest.w = borderWidth_;
@@ -233,19 +255,16 @@ void LifeComponent::chooseTexture() {
 		backTexture_ = &SDLUtils::instance()->images().at("Fire_LifeBarBack");
 		borderTexture_ = &SDLUtils::instance()->images().at("Fire_LifeBarBorder");
 	}
-
 	else if (type_ == "air") {
 		barTexture_ = &SDLUtils::instance()->images().at("Air_LifeBar");
 		backTexture_ = &SDLUtils::instance()->images().at("Air_LifeBarBack");
 		borderTexture_ = &SDLUtils::instance()->images().at("Air_LifeBarBorder");
 	}
-
 	else if (type_ == "water") {
 		barTexture_ = &SDLUtils::instance()->images().at("Water_LifeBar");
 		backTexture_ = &SDLUtils::instance()->images().at("Water_LifeBarBack");
 		borderTexture_ = &SDLUtils::instance()->images().at("Water_LifeBarBorder");
 	}
-
 	else if (type_ == "earth") {
 		barTexture_ = &SDLUtils::instance()->images().at("Earth_LifeBar");
 		backTexture_ = &SDLUtils::instance()->images().at("Earth_LifeBarBack");

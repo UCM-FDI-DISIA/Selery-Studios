@@ -3,6 +3,7 @@
 #include "states/TopDownState.h"
 #include "states/BeatEmUpState.h"
 #include "states/PauseState.h"
+#include "Game.h"
 
 	////Audio de prueba
 	////SDLUtils::instance()->soundEffects().at("prueba").play();
@@ -18,13 +19,20 @@ void GameManager::goTopDown() {
 	SDLUtils::instance()->soundEffects().at("Title").play();
 	GameStateMachine::instance()->popState();
 }
+void GameManager::goToEndState() {
+	GameStateMachine::instance()->changeState(new EndState());
+}
 
 void GameManager::backToMainMenu() {
 	SDLUtils::instance()->soundEffects().at("Title").haltChannel();
 	GameStateMachine::instance()->changeState(new MainMenuState());
 }
-
+void GameManager::LoadGame() {
+	SDLUtils::instance()->soundEffects().at("Title").haltChannel();
+	GameStateMachine::instance()->pushState(new TopDownState(true));
+}
 void GameManager:: leaveMainMenu() {
+	SDLUtils::instance()->soundEffects().at("Title").haltChannel();
 	GameStateMachine::instance()->pushState(new TopDownState());
 	//GameStateMachine::instance()->pushState(new BeatEmUpState(false));
 }
@@ -47,7 +55,7 @@ void GameManager::handleEvents() { // handleEvents
 
 void GameManager::update() { //update
 	GameStateMachine::instance()->update();// actualiza el juego
-	GameStateMachine::instance()->clearStates();
+	/*GameStateMachine::instance()->clearStates();*/
 }
 
 void GameManager::render() { //render

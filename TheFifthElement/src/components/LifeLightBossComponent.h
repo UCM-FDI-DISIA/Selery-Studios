@@ -8,11 +8,12 @@
 #include "FramedImage.h"
 #include "../states/BeatEmUpState.h"
 #include "AttackLightBossComponent.h"
+#include "AnimationLightBossComponent.h"
 
 class LifeLightBossComponent: public Component
 {
 private:
-	int maxLife=20000;
+	int maxLife=20;
 	int life;
 	float scale;
 	int fightState;
@@ -29,6 +30,7 @@ private:
 
 	FramedImage* im_;
 	Transform* tr_;
+	AnimationLightBossComponent* animBoss_;
 
 public:
 	LifeLightBossComponent();

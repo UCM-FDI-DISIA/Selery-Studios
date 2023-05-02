@@ -66,6 +66,16 @@
     <ClCompile Include="src\components\SectorCollisionComponent.cpp" />
     <ClCompile Include="src\components\StoneComponent.cpp" />
     <ClCompile Include="src\components\ProtectionEarthBossComponent.cpp" />
+    <ClCompile Include="src\components\IceShadowComponent.cpp" />
+    <ClCompile Include="src\components\IceIAComponent.cpp" />
+    <ClCompile Include="src\components\ThrowableObject.cpp" />
+    <ClCompile Include="src\components\FireBossComponent.cpp" />
+    <ClCompile Include="src\components\LifeBasicComponent.cpp" />
+    <ClCompile Include="src\components\PowerUpControler.cpp" />
+    <ClCompile Include="src\states\EndState.cpp" />
+    <ClCompile Include="src\Quests.cpp" />
+    <ClCompile Include="src\components\QuestInfoComponent.cpp" />
+    <ClCompile Include="src\components\Trigger.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\components\Button.h" />
@@ -155,6 +165,18 @@
     <ClInclude Include="src\components\SectorCollisionComponent.h" />
     <ClInclude Include="src\components\StoneComponent.h" />
     <ClInclude Include="src\components\ProtectionEarthBossComponent.h" />
+    <ClInclude Include="src\components\IceShadowComponent.h" />
+    <ClInclude Include="src\components\IceIAComponent.h" />
+    <ClInclude Include="src\components\ThrowableObject.h" />
+    <ClInclude Include="src\components\FireBossComponent.h" />
+    <ClInclude Include="src\components\LifeBasicComponent.h" />
+    <ClInclude Include="src\components\PowerUpControler.h" />
+    <ClInclude Include="src\Elements.h" />
+    <ClInclude Include="src\components\QuestInfoComponent.h" />
+    <ClInclude Include="src\states\EndState.h" />
+    <ClInclude Include="src\Quests.h" />
+    <ClInclude Include="src\components\Trigger.h" />
+    <ClInclude Include="src\Puzzle1.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="TheFifthElement.rc" />
