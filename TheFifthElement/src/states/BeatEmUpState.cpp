@@ -220,7 +220,7 @@ void BeatEmUpState::AddLightBoss() {
 	numEnemies = 1;
 	Entity* lightBoss = new Entity();
 	lightBoss->setContext(this);
-	lightBoss->addComponent<Transform>(TRANSFORM_H, Vector2D(100,trans_player_->getPos().getY()), LIGHTBOSS_WIDTH, LIGHTBOSS_HEIGHT, 2);
+	lightBoss->addComponent<Transform>(TRANSFORM_H, Vector2D(100,trans_player_->getPos().getY()+20), LIGHTBOSS_WIDTH, LIGHTBOSS_HEIGHT, 2);
 	lightBoss->addComponent<FramedImage>(FRAMEDIMAGE_H, &SDLUtils::instance()->images().at("BEULightBossIdle"), LIGHTBOSS_WIDTH, LIGHTBOSS_HEIGHT, 12, "light");
 	lightBoss->addComponent<MovementLightBossComponent>(MOVEMENTLIGHTBOSSCOMPONENT_H, player_);
 	lightBoss->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(LIGHTBOSS_WIDTH/2 -20, LIGHTBOSS_HEIGHT/2), 64, 50);
@@ -298,7 +298,7 @@ void BeatEmUpState::Background(string file) {
 	int r = 0;
 	//if(WIN_WIDTH == 1920)e->addComponent<Transform>(TRANSFORM_H, v, WIN_WIDTH/2, WIN_HEIGHT, 1);
 	//else e->addComponent<Transform>(TRANSFORM_H, v, WIN_WIDTH, WIN_HEIGHT, 1);
-	e->addComponent<Transform>(TRANSFORM_H, v, BACKGROUNDBEU_WIDTH,WIN_HEIGHT, 1);
+	e->addComponent<Transform>(TRANSFORM_H, v, BACKGROUNDBEU_WIDTH,WIN_HEIGHT+20, 1);
 	Texture* t = &SDLUtils::instance()->images().at(file);
 	e->addComponent<Image>(IMAGE_H, t);
 	addEntity(e);
