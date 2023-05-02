@@ -220,7 +220,7 @@ void BeatEmUpState::AddLightBoss() {
 	numEnemies = 1;
 	Entity* lightBoss = new Entity();
 	lightBoss->setContext(this);
-	lightBoss->addComponent<Transform>(TRANSFORM_H, Vector2D(700, WIN_HEIGHT/2), LIGHTBOSS_WIDTH, LIGHTBOSS_HEIGHT);
+	lightBoss->addComponent<Transform>(TRANSFORM_H, Vector2D(700,trans_player_->getPos().getY()), LIGHTBOSS_WIDTH, LIGHTBOSS_HEIGHT, 2);
 	lightBoss->addComponent<FramedImage>(FRAMEDIMAGE_H, &SDLUtils::instance()->images().at("BEULightBossIdle"), LIGHTBOSS_WIDTH, LIGHTBOSS_HEIGHT, 12, "light");
 	lightBoss->addComponent<MovementLightBossComponent>(MOVEMENTLIGHTBOSSCOMPONENT_H, player_);
 	lightBoss->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(LIGHTBOSS_WIDTH/2 -20, LIGHTBOSS_HEIGHT/2), 64, 60);
