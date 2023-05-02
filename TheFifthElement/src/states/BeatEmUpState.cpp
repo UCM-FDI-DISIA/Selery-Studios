@@ -10,7 +10,7 @@ BeatEmUpState::BeatEmUpState(bool Boss,Entity* enemySends, string typeBoss, int 
 	boss = Boss;
 	fireBossBackgroundWidth = sdlutils().images().at("fondoBossFire").width();
 	typeBoss_ = typeBoss;
-	sdlutils().soundEffects().at("Battle").play(-1);
+	//sdlutils().soundEffects().at("Battle").play(-1);
 	random = &sdlutils().rand();
 	timeNextGeneration = sdlutils().currRealTime() + delayGenerateEnemies;
 

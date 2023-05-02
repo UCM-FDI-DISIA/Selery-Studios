@@ -43,6 +43,11 @@ void AttackBoxComponent::update() {
 	if (isPlayer) {
 		type = im_->getType();
 	}
+	else
+	{
+		if(im_->getRow()==2)
+		cout << im_->getCol()<<endl;
+	}
 	handleBoxes();
 	unsigned timer = clock();
 	timerExecution = (double(timer) / CLOCKS_PER_SEC);
@@ -1000,7 +1005,7 @@ void AttackBoxComponent::handleBoxes()
 			if (!boxCreated) {
 				boxes.clear();
 				for (int i = 0; i < 4; i++) {
-					boxes.push_back(build_sdlrect(entityTr->getPos().getX() - mngr_->camRect_.x + entityTr->getW() / 2, entityTr->getPos().getY() + entityTr->getH(), 15, 10));
+					boxes.push_back(build_sdlrect(entityTr->getPos().getX() - mngr_->camRect_.x + entityTr->getW() / 2, entityTr->getPos().getY() + entityTr->getH(), 40 * entityTr->getSW(), 35* entityTr->getSW()));
 				}
 				boxCreated = true;
 
@@ -1024,13 +1029,14 @@ void AttackBoxComponent::handleBoxes()
 			else {
 				for (int i = 0; i < boxes.size(); i++) {
 
-					moveBoxCurve(boxes[i], 40 + 15 * i, Vector2D(entityTr->getPos().getX() - mngr_->camRect_.x + entityTr->getW() / 2, entityTr->getPos().getY() + entityTr->getH()), 0.04, angles[i], stoppingAngle, way);
+					moveBoxCurve(boxes[i], 80 + 40 * i * entityTr->getSW(), Vector2D(entityTr->getPos().getX() - mngr_->camRect_.x + entityTr->getW() / 2, entityTr->getPos().getY() + entityTr->getH()), 0.04, angles[i], stoppingAngle, way);
 					static_cast<BeatEmUpState*>(mngr_)->getColManager()->checkCollisionE(boxes[i], type, 0);
 				}
 
 
-				if (im_->getCol() >= 14)
+				if (im_->getCol() >= 13)
 				{
+					
 					unsigned timer = clock();
 					boxTime = (double(timer) / CLOCKS_PER_SEC);
 					boxes.clear();
