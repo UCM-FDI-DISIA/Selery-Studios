@@ -17,6 +17,7 @@ Game::Game() {
 	//GameStateMachine::instance()->pushState(new BeatEmUpState(true, nullptr, "fire"));
 	//GameStateMachine::instance()->pushState(new PauseState());
 	//GameStateMachine::instance()->pushState(new BeatEmUpState());
+	//GameStateMachine::instance()->pushState(new PauseState());
 }
 
 Game::~Game(){ // destructora

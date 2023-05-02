@@ -44,19 +44,19 @@ public:
 
 	//M?odo para crear y actualizar el rect?gulo interior del enemigo el cual, si colisiona el personaje con ?, ser?llevado al modo Beat Em Up
 	inline SDL_Rect getRectFight() {
-		if (enM_->getState() == "left") return  build_sdlrect(tr1->getPos().getX(), tr1->getPos().getY() - (lookingHeight_ / 2) / 2, (lookingRange_ + 50 * side_) * tr1->getS(), (tr1->getH() + lookingHeight_ / 2) * tr1->getS());
-		else return  build_sdlrect(tr1->getPos().getX() - offset * side_, tr1->getPos().getY() - (lookingHeight_ / 2) / 2, ((lookingRange_ + 50 * side_) * -1) * tr1->getS(), (tr1->getH() + lookingHeight_ / 2) * tr1->getS());
+		if (enM_->getState() == "left") return  build_sdlrect(tr1->getPos().getX(), tr1->getPos().getY() - (lookingHeight_ / 2) / 2, (lookingRange_ + 50 * side_) , (tr1->getH() + lookingHeight_ / 2) );
+		else return  build_sdlrect(tr1->getPos().getX() - offset * side_, tr1->getPos().getY() - (lookingHeight_ / 2) / 2, ((lookingRange_ + 50 * side_) * -1) , (tr1->getH() + lookingHeight_ / 2) );
 	}
 
 	//M?odo para crear y actualizar el rect?gulo exterior del enemigo el cual, si colisiona el personaje con ?, lo avisa con un sonido y con una imagen
 	inline SDL_Rect getRectDetection() {
-		if (enM_->getState() == "left") return  build_sdlrect(tr1->getPos().getX(), tr1->getPos().getY() - lookingHeight_ / 2, (lookingRange_ + 200 * side_) * tr1->getS(), (tr1->getH() + lookingHeight_) * tr1->getS());
-		else return  build_sdlrect(tr1->getPos().getX() - offset * side_, tr1->getPos().getY() - lookingHeight_ / 2, ((lookingRange_ + 200 * side_) * -1) * tr1->getS(), (tr1->getH() + lookingHeight_) * tr1->getS());
+		if (enM_->getState() == "left") return  build_sdlrect(tr1->getPos().getX(), tr1->getPos().getY() - lookingHeight_ / 2, (lookingRange_ + 200 * side_) , (tr1->getH() + lookingHeight_) );
+		else return  build_sdlrect(tr1->getPos().getX() - offset * side_, tr1->getPos().getY() - lookingHeight_ / 2, ((lookingRange_ + 200 * side_) * -1) , (tr1->getH() + lookingHeight_) );
 	}							//lo que sume a getH()------> lo tengo que restar a la Y partido de 2------> si sumo 4, resto 2
 
 
 	//Equivalente para el personaje
-	inline SDL_Rect getPlayerRect() { return build_sdlrect(tr2->getPos(), tr2->getW() * tr2->getS(), tr2->getH() * tr2->getS()); }
+	inline SDL_Rect getPlayerRect() { return build_sdlrect(tr2->getPos(), tr2->getW(), tr2->getH()); }
 	void render();
 };
 #endif

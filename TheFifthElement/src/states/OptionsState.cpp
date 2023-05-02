@@ -22,12 +22,8 @@ OptionsState::~OptionsState()
 
 void OptionsState::Background(string file) {
 	Entity* e = new Entity();
-
-	int f = 0;
-	bool matrix = false;
-	Vector2D v = { 0,0 };
-	int r = 0;
-	e->addComponent<Transform>(TRANSFORM_H, v, 900, 600, r, 0, f, matrix);
+	Vector2D pos = { 0,0 };
+	e->addComponent<Transform>(TRANSFORM_H, pos, 900, 600, 1);
 	Texture* t = &SDLUtils::instance()->images().at(file);
 	e->addComponent<Image>(IMAGE_H, t);
 	addEntity(e);

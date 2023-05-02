@@ -10,8 +10,8 @@ void PointOfFightComponent::initComponent() {
 }
 
 void PointOfFightComponent::update() {
-	center = Vector2D(tr_->getPos().getX()+ (tr_->getW() * tr_->getS())/ 2, tr_->getPos().getY() + 
-		(tr_->getH()*tr_->getS()) - height);
+	center = Vector2D(tr_->getPos().getX()+ (tr_->getW())/ 2, tr_->getPos().getY() + 
+		(tr_->getH()) - height);
 	pointLeftFight = center - Vector2D(margin, 0);
 	pointRightFight = center + Vector2D(margin, 0);
 }

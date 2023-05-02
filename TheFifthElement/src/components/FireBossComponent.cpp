@@ -24,8 +24,8 @@ void FireBossComponent::initComponent() {
 	image->setAnim("FireBoss", 12, false, 1);
 	
 	//diferencia de posicion entre player y BOSS
-	velocity_x =(((player_pos.getX() * trans_player->getS() - initial_posotion.getX() * trans_player->getS())/WIN_WIDTH))*2;
-	velocity_y = (((player_pos.getY() * trans_player->getS() -( initial_posotion.getY() * trans_player->getS() -PLAYERTD_HEIGHT_FRAME)) / WIN_HEIGHT))*2;
+	velocity_x =(((player_pos.getX() * trans_player->getSize() - initial_posotion.getX() * trans_player->getSize()) / WIN_WIDTH)) * 2;
+	velocity_y = (((player_pos.getY() * trans_player->getSize() -( initial_posotion.getY() * trans_player->getSize() -trans_player->getSH()/2) / WIN_HEIGHT)))*2;
 
 	barWidth_ = backWidth_ = borderWidth_ = 300 * scale;
 	barHeight_ = backHeight_ = borderHeight_ = 50 * scale;
@@ -67,7 +67,7 @@ void FireBossComponent::changeDir() {
 	velocity_x /= distance;
 	velocity_y /= distance;
 
-	cout << velocity_x << " " << velocity_y << endl;
+	//cout << velocity_x << " " << velocity_y << endl;
 	/*velocity_x *= 0.1;
 	velocity_y *= 0.1;*/
 
@@ -103,7 +103,7 @@ void FireBossComponent::update() {
 		
 		image->setAnim("FireBoss", 12, false, 1);
 		//Si has llegado a la posicion  cogida anteriormente por el player vuelve pa atras
-		if (abs(my_transform->getPos().getX()*my_transform->getS() - trans_player->getPos().getX() *trans_player->getS())<50 ) {
+		if (abs(my_transform->getPos().getX()*my_transform->getSW() - trans_player->getPos().getX() *trans_player->getSW())<50 ) {
 			image->setAnim("FireBoss", 12, false, 1);
 			image->setFlip(SDL_FLIP_HORIZONTAL);
 			changeDir();
@@ -187,13 +187,24 @@ void FireBossComponent::update() {
 	case attack: 
 		cont++;
 		if (cont > 50) {
+		
 			image->setAnim("FireBoss", 15, false, 2);
+			if (!startedattack && trans_player->getPos().getX() < my_transform->getPos().getX()) {
+				image->setFlip(SDL_FLIP_NONE);
 			
+			}
+			else if (!startedattack) {
+				image->setFlip(SDL_FLIP_HORIZONTAL);
+			}
+			startedattack = true;
+		
 
 			velocity_x = 0;
 			velocity_y = 0;
 
+
 			if (image->getCol() > 12) {//acaba el ataque
+				startedattack = false;
 				cont = 0;
 				hit->play();
 				image->setAnim("FireBoss", 12, false, 1);

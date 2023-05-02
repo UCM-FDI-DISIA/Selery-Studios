@@ -34,8 +34,8 @@ void FramedImage::initComponent() { 	// Inicializa el componente
 void FramedImage::update() {
 	dest.x = tr_->getPos().getX() - mngr_->camRect_.x;
 	dest.y = tr_->getPos().getY() - mngr_->camRect_.y;
-	dest.h = (tr_->getH() * tr_->getSize() * WIN_HEIGHT) / 600;
-	dest.w = (tr_->getW() * tr_->getSize() * WIN_WIDTH) / 900;
+	dest.h = tr_->getH();
+	dest.w = tr_->getW();
 	src.x = col * widthFrame_;
 	src.y = fila_ * heightFrame_;
 	src.h = heightFrame_;
