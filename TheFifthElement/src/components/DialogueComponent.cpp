@@ -91,7 +91,7 @@ void DialogueComponent::inicombe() {
 				if (numeronpc == 5) {
 					static_cast<TopDownState*>(mngr_)->DeleteContexto();
 					static_cast<TopDownState*>(mngr_)->newQuest("siblings", "Gather your siblings", "coins", 300, 3);
-					static_cast<TopDownState*>(mngr_)->newQuest("villagers", "Talk to villagers", "Area unlock", 0, 1);
+					static_cast<TopDownState*>(mngr_)->newQuest("villagers", "Talk to villagers", "Area unlock", 0, 6);
 				}
 				else if (numeronpc > 5 && numeronpc <= 11 && !tutorial[numeronpc - 6]) {
 					Quests::instance()->completedQuest("villagers");
