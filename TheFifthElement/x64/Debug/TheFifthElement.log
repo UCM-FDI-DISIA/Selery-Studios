@@ -1,9 +1,4 @@
-﻿  PauseState.cpp
-C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(52,30): warning C4101: 'e': variable local sin referencia
-C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(48,1): message : al compilar la función del miembro clase plantilla "Texture &SDLUtils::map_access_wrapper<Texture>::at(std::string)"
-C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(208,30): message : Vea la referencia a la creación de una instancia de clase plantilla "SDLUtils::map_access_wrapper<Texture>" que se está compilando
-C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\sdlutils\SoundManager.h(112,33): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\sdlutils\SoundManager.h(117,46): warning C4018: '>': no coinciden signed/unsigned
+﻿  TopDownState.cpp
 C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(36,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(37,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(38,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
@@ -14,8 +9,13 @@ C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthEle
 C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(57,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(70,33): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(71,32): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(52,30): warning C4101: 'e': variable local sin referencia
+C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(48,1): message : al compilar la función del miembro clase plantilla "Texture &SDLUtils::map_access_wrapper<Texture>::at(std::string)"
+C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(208,30): message : Vea la referencia a la creación de una instancia de clase plantilla "SDLUtils::map_access_wrapper<Texture>" que se está compilando
 C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\components\AnimationEnemyBEUComponent.h(78,29): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\components\AnimationEnemyBEUComponent.h(79,30): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\sdlutils\SoundManager.h(112,33): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\sdlutils\SoundManager.h(117,46): warning C4018: '>': no coinciden signed/unsigned
 C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\components\rouletteComponent.h(39,32): warning C4838: la conversión de 'float' en 'int' requiere una conversión de restricción
 C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\components\rouletteComponent.h(39,32): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\components\rouletteComponent.h(39,46): warning C4838: la conversión de 'float' en 'int' requiere una conversión de restricción
@@ -87,29 +87,118 @@ C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthEle
 C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\components\IceShadowComponent.h(63,61): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
 C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\components\DisableOnExit.h(15,22): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\components\DisableOnExit.h(19,15): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\states\PauseState.cpp(21,86): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\states\PauseState.cpp(23,90): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\states\PauseState.cpp(23,106): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\states\PauseState.cpp(24,94): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\states\PauseState.cpp(24,111): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\states\PauseState.cpp(26,89): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\states\PauseState.cpp(18,8): warning C4101: 'y': variable local sin referencia
-C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\states\PauseState.cpp(105,121): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\states\PauseState.cpp(108,117): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\utils\Entity.h(37,27): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\states\PauseState.cpp(91,98): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Entity::addComponent<FramedImage,Texture*,float&,float&,int&>(cmpId_type,Texture *&&,float &,float &,int &)" que se está compilando
+C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(61,29): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(62,29): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(140,46): warning C4838: la conversión de 'double' en 'int' requiere una conversión de restricción
+C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(140,46): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(140,87): warning C4838: la conversión de 'double' en 'int' requiere una conversión de restricción
+C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(140,87): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(160,38): warning C4838: la conversión de 'float' en 'int' requiere una conversión de restricción
+C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(160,38): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(160,81): warning C4838: la conversión de 'float' en 'int' requiere una conversión de restricción
+C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(160,81): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(160,108): warning C4838: la conversión de 'float' en 'int' requiere una conversión de restricción
+C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(160,108): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(160,135): warning C4838: la conversión de 'float' en 'int' requiere una conversión de restricción
+C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(160,135): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(161,75): warning C4838: la conversión de 'float' en 'int' requiere una conversión de restricción
+C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(161,75): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(162,74): warning C4838: la conversión de 'float' en 'int' requiere una conversión de restricción
+C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(162,74): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(168,34): warning C4838: la conversión de 'float' en 'int' requiere una conversión de restricción
+C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(168,34): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(168,64): warning C4838: la conversión de 'float' en 'int' requiere una conversión de restricción
+C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(168,64): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(248,42): warning C4018: '<=': no coinciden signed/unsigned
+C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(311,122): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(311,90): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(313,134): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(313,98): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(321,165): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(321,120): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(343,163): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(343,119): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(366,143): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(366,98): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(379,173): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(379,128): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(381,160): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(381,112): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(391,144): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(391,100): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(408,154): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(408,110): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(422,61): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(423,61): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(431,61): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(432,61): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(440,61): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(441,61): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(449,61): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(450,61): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(461,151): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(461,108): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(474,151): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(474,108): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(487,151): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(487,108): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(500,153): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(500,109): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(510,151): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(510,107): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(600,37): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(601,37): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(602,37): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(603,37): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(611,29): warning C4101: 'size': variable local sin referencia
+C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(610,30): warning C4101: 'alive': variable local sin referencia
+C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(669,49): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(670,49): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(672,91): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(672,54): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(712,45): warning C4244: 'argumento': conversión de 'uint' a 'float'; posible pérdida de datos
+C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(781,45): warning C4244: 'argumento': conversión de 'uint' a 'float'; posible pérdida de datos
+C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\utils\Entity.h(37,27): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
           with
           [
-              T=FramedImage
+              _Ty=double
+          ]
+C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(312,65): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Entity::addComponent<Transform,Vector2D,float,float,double>(cmpId_type,Vector2D &&,float &&,float &&,double &&)" que se está compilando
+          with
+          [
+              T=Transform
+          ]
+C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\utils\Entity.h(37,27): warning C4244: 'argumento': conversión de 'const uint' a 'float'; posible pérdida de datos
+C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(322,67): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Entity::addComponent<Transform,Vector2D,const uint&,const uint&>(cmpId_type,Vector2D &&,const uint &,const uint &)" que se está compilando
+          with
+          [
+              T=Transform
+          ]
+C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\utils\Entity.h(37,27): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
+          with
+          [
+              _Ty=uint32_t
+          ]
+C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(385,158): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Entity::addComponent<ColliderComponent,Vector2D,const uint&,uint>(cmpId_type,Vector2D &&,const uint &,uint &&)" que se está compilando
+          with
+          [
+              T=ColliderComponent
           ]
 C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\utils\Entity.h(37,27): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
           with
           [
               _Ty=int
           ]
-C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\states\PauseState.cpp(98,58): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Entity::addComponent<Transform,Vector2D&,int,int,int>(cmpId_type,Vector2D &,int &&,int &&,int &&)" que se está compilando
+C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\utils\Entity.h(37,27): warning C4244: 'argumento': conversión de 'T' a 'int'; posible pérdida de datos
           with
           [
-              T=Transform
+              T=float
           ]
+C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(409,141): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Entity::addComponent<FramedImage,Texture*&,float&,float&,int,std::string&>(cmpId_type,Texture *&,float &,float &,int &&,std::string &)" que se está compilando
+          with
+          [
+              T=FramedImage
+          ]
+C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\utils\Entity.h(37,27): warning C4244: 'argumento': conversión de 'const int' a 'float'; posible pérdida de datos
+C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\src\states\TopDownState.h(208): warning C4715: 'TopDownState::EnemyTexture': no todas las rutas de acceso de control devuelven un valor
   TheFifthElement.vcxproj -> C:\Users\sofsa\OneDrive\Escritorio\Trabajos de Sofía\Selery-Studios\TheFifthElement\x64\Debug\TheFifthElement.exe

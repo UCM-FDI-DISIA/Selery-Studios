@@ -9,7 +9,7 @@ Game::Game() {
 	GameManager::instance()->setGame(this);
 
 	//GameStateMachine::instance()->pushState(new MainMenuState());
-	//GameStateMachine::instance()->pushState(new TopDownState());
+	GameStateMachine::instance()->pushState(new TopDownState());
 	//GameStateMachine::instance()->pushState(new BeatEmUpState(false, nullptr));
 	//GameStateMachine::instance()->pushState(new BeatEmUpState(true, nullptr, "earth"));
 	//GameStateMachine::instance()->pushState(new BeatEmUpState(true, nullptr, "water"));
@@ -17,7 +17,7 @@ Game::Game() {
 	//GameStateMachine::instance()->pushState(new BeatEmUpState(true, nullptr, "fire"));
 	//GameStateMachine::instance()->pushState(new PauseState());
 	//GameStateMachine::instance()->pushState(new BeatEmUpState());
-	GameStateMachine::instance()->pushState(new PauseState());
+	//GameStateMachine::instance()->pushState(new PauseState());
 }
 
 Game::~Game(){ // destructora
