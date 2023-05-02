@@ -3,11 +3,11 @@
 ---
 ## Enlaces
 ---
-[Web del juego]()
+[Web del juego](https://ucm-fdi-disia.github.io/Selery-Studios/)
 
 [Enlace al release]()
 
-[Enlace al vídeo]()
+[Enlace al vídeo](https://youtu.be/5eOVw7ZBvOQ)
 
 [Presentaciones](https://drive.google.com/drive/folders/1f_cQAVOkluKYBIAy_LxrGzPj3atoO3wp?usp=share_link)
 
@@ -85,7 +85,7 @@ Proyecto que combina navegación en un mapa TopDown con elementos de gestión de
 
 ### PÚBLICO OBJETIVO
 **Clasificación PEGI**
-
+Debido a que el juego tiene una violencia poco detallada en implícita podríamos calificarlo como PEGI 7.
 **Perfil de jugador** 
 El perfil de nuestro jugador encaja en personas tanto jóvenes adolescentes como adultos que quieran verse envueltos en una narrativa curiosa y poco común. Nuestro público objetivo también disfrutará de lo divertida que es la experiencia. Sobre todo buscamos un público abierto a afrontar retos que atentan contra los nervios.
 
@@ -193,6 +193,9 @@ El mapa tendrá zonas bloqueadas a las que no se puede acceder por estar bloquea
 
 
 ### DINÁMICA
+**Quests**
+En el modo exploración, al hablar con ciertos NPCs, estos nos darán una serie de quests que debemos ir completando para poder ir avanzando por el mapa.
+
 **Sistema de detección**
 Para empezar el combate, en el modo exploración, los enemigos tendrán una ruta predeterminada. Cada enemigo tendrá dos zonas, será un cuadrado dentro de otro como se muestra en siguiente imagen:
 
@@ -269,8 +272,6 @@ Al perder el 75% de vida podrá teletransportarse (en casos aleatorios) y al hac
 Entre un 40% y un 20% de la vida si el jugador se acerca demasiado el boss se teletransportará y disparará la bola.
 Al perder un 80% de la vida las luces empezarán a apagarse y encenderse cada pocos segundos y el combate seguirá como antes.
 
-**Puzzles**
-
 **Tienda**
 El jugador podrá comprar mejoras en una tienda para mejorar sus estadísticas tanto de ataque como de salud a cambio de monedas obtenidas como recompensas en los combates. Estas mejoras son independientes de cada personaje elemental, es decir, podemos obtener mejoras de ataque y/o de salud para cada uno de los 4 personajes que podremos conseguir durante el juego.
 
@@ -294,11 +295,15 @@ Se podrá mejorar las estadísticas de ataque y salud máxima en los mercaderes 
 
 **Modo exploración**
 **Rueda de personajes:** aparece en la esquina superior izquierda. Muestra al personaje que tenemos seleccionado actualmente(en grande), además también los personajes que tenemos desbloqueados(en pequeño). En adición podemos ver las estadísticas actuales de cada personaje(también en la rueda y en pequeño).
+
 **Monedas:** aparecen en el mismo layout de la rueda y muestran las monedas actuales que tenemos.
+
+**Minimapa:** en la esquina superior derecha aparece un minimapa con el que podemos observar el área que nos rodea.
 
 
 **Beat em’up**
 **Barra de vida:** aparece en la esquina superior izquierda, mostrando la salud actual de cada personaje. También, encima de cada enemigo, aparece su respectiva barra de vida.
+
 **Rueda de personajes:** se diferencia de la del modo exploración en que no contiene las estadísticas de ataque y salud, y las monedas.
 
 ![Mockup pantalla 1](https://github.com/UCM-FDI-DISIA/Selery-Studios/raw/main/imgs/UI.png)
@@ -307,14 +312,18 @@ Se podrá mejorar las estadísticas de ataque y salud máxima en los mercaderes 
 ### MENÚS
 **Menú principal**
 Menú de inicio que consta de un botón PLAY, un botón EXIT, y una rueda para cambiar los ajustes. 
+
 **Pantalla de ajustes** 
 En esta pantalla podemos cambiar el volumen del juego, los SFX, y ver los controles.
+
 **Menú pausa** 
 En esta pantalla el juego estará en pausa. Podemos volver al juego con un botón RESUME, salir al menú principal con un botón MENÚ, además de la rueda para cambiar los ajustes.
-**Menú Game Over** 
-Cuando nos debiliten aparece un menú de Game Over con un botón de MENÚ para volver al menú principal y otro botón EXIT para salir del juego.
+
+**Menú End Game** 
+Cuando nos pasamos el juego aparece un menú con los créditos con un botón de MENÚ para volver al menú principal y otro botón REPLAY para volver a jugar. 
+
 **Menú de tienda**
-Este menú aparece al interactuar con un comerciante. Consta de 8 botones de mejora, 4 para las mejoras de ataque y 4 para las mejoras de salud.
+Este menú aparece al interactuar con un comerciante. Consta de 8 botones de mejora, 4 para las mejoras de ataque y 4 para las mejoras de salud. Podemos mejorar hasta 10 veces cada una de las estadísticas siendo su precio incrementado en cada compra.
 
 ![Tienda](https://github.com/UCM-FDI-DISIA/Selery-Studios/raw/main/imgs/Tienda.png)
 
@@ -338,10 +347,12 @@ Etapa de la aceptación: Luz
 Se iniciará con el hermano de aire (Aire).
 El jugador podrá moverse con las teclas (W,A,S,D) y explorar el entorno.
 Existirá la posibilidad de cambiar de hermano, siempre que se le tenga desbloqueado. Se cambia con las teclas 1, 2, 3 y 4 .
+
 **Enemigos:** Su función será detectar al jugador mediante un área para empezar el modo Beat em’up. 
 
 **Beat em’up**
-Personaje principal: podrá cambiarse en mitad de la partida con las teclas 1,2,3 y 4 (igual que en el mundo abierto). Constará de un combo de tres ataques y uno especial
+Personaje principal: podrá cambiarse en mitad de la partida con las teclas 1, 2, 3 y 4 (igual que en el mundo abierto). Constará de un combo de tres ataques y uno especial.
+
 Enemigos: serán de diferentes elementos, al igual que el personaje principal. Perseguirán y atacarán al jugador. El daño que ejercen, así como el que reciben, dependen de las mecánicas del combate.
 Aparecerán en oleadas (más o menos numerosas en función del nivel).
 
