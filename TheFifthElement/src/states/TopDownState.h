@@ -122,8 +122,8 @@ private:
 	Vector2D upturnButtonPos_;
 	int upturnButtonX, upturnButtonY;
 	int upturnButtonWidth_, upturnButtonHeight_;
-	int upturnButtonOffsetX = 57;
-	int upturnButtonOffsetY = 20;
+	int upturnButtonOffsetX = 140;
+	int upturnButtonOffsetY = 30;
 	Transform* upturnButtonTr_;
 	Button* upturnButtonComp_;
 	Transform* exitShopButtonTr_;
