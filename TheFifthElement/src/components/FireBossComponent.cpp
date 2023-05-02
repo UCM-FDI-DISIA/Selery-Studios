@@ -24,8 +24,8 @@ void FireBossComponent::initComponent() {
 	image->setAnim("FireBoss", 12, false, 1);
 	
 	//diferencia de posicion entre player y BOSS
-	velocity_x =(((player_pos.getX() * trans_player->getSW() - initial_posotion.getX() * trans_player->getSW())/WIN_WIDTH))*2;
-	velocity_y = (((player_pos.getY() * trans_player->getSH() -( initial_posotion.getY() * trans_player->getSH() -PLAYERTD_HEIGHT_FRAME)) / WIN_HEIGHT))*2;
+	velocity_x =(((player_pos.getX() * trans_player->getSize() - initial_posotion.getX() * trans_player->getSize()) / WIN_WIDTH)) * 2;
+	velocity_y = (((player_pos.getY() * trans_player->getSize() -( initial_posotion.getY() * trans_player->getSize() -trans_player->getSH()/2) / WIN_HEIGHT)))*2;
 
 	barWidth_ = backWidth_ = borderWidth_ = 300 * scale;
 	barHeight_ = backHeight_ = borderHeight_ = 50 * scale;
@@ -67,7 +67,7 @@ void FireBossComponent::changeDir() {
 	velocity_x /= distance;
 	velocity_y /= distance;
 
-	cout << velocity_x << " " << velocity_y << endl;
+	//cout << velocity_x << " " << velocity_y << endl;
 	/*velocity_x *= 0.1;
 	velocity_y *= 0.1;*/
 

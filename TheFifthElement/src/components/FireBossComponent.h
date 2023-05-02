@@ -32,9 +32,9 @@ protected:
 	FramedImage* column_image;
 	bool sevfive;
 	Transform* trans_column;
-	Vector2D column1 = { 400,500 };
-	Vector2D column2 = { 200,500 };
-	Vector2D column3 = { 100,500 };
+	Vector2D column1 = { 600,900 };
+	Vector2D column2 = { 400,900 };
+	Vector2D column3 = { 100,900 };
 
 	bool end = true;
 	
