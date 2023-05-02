@@ -61,6 +61,9 @@ void PauseState::handleEvents()
 			else if (SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_B)) {
 				GameManager::instance()->backToMainMenu();
 			}
+			else if (SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_Y)) {
+				GameManager::instance()->goOptionsMenu();
+			}
 		}
 		resumeButton->handleEvent(event);
 		menuButton->handleEvent(event);
@@ -70,6 +73,15 @@ void PauseState::handleEvents()
 }
 void PauseState::render() {
 	Manager::render();
+	SDL_Rect dest1 = { 290 * WIN_WIDTH / 900, (20 * WIN_HEIGHT / 60) - 50 * WIN_HEIGHT / 600, 50 * WIN_WIDTH / 900, 50 * WIN_HEIGHT / 600 };
+	SDLUtils::instance()->images().at("A").render(dest1);
+
+	SDL_Rect dest2 = { 290 * WIN_WIDTH / 900, (36 * WIN_HEIGHT / 60) - 50 * WIN_HEIGHT / 600, 50 * WIN_WIDTH / 900, 50 * WIN_HEIGHT / 600 };
+	SDLUtils::instance()->images().at("B").render(dest2);
+
+	SDL_Rect dest3 = { 290 * WIN_WIDTH / 900, (50 * WIN_WIDTH / 60) - 50 * WIN_WIDTH / 600, 50 * WIN_HEIGHT / 900, 50 * WIN_HEIGHT / 600 };
+	SDLUtils::instance()->images().at("X").render(dest3);
+
 }
 
 Entity* PauseState::addNewEntity(string t, float w, float h, Vector2D pos, int nframes, bool flip, float size, bool neg) {

@@ -64,11 +64,20 @@ public:
 	}
 
 	void render() {
-		if(visibility) {
-			SDL_Rect dest;
-			if(WIN_WIDTH == 1920)dest = { 520,650,50 * WIN_WIDTH / 900,50 * WIN_HEIGHT / 600 };
-			else dest = { 165,280,50,50 };
-			SDLUtils::instance()->images().at("E").render(dest);
+		if (visibility) {
+			SDL_Rect dest1;
+			if (WIN_WIDTH == 1920)
+				dest1 = { 520, 650, 50 * WIN_WIDTH / 900, 50 * WIN_HEIGHT / 600 };
+			else
+				dest1 = { 165, 280, 50, 50 };
+			SDLUtils::instance()->images().at("E").render(dest1);
+
+			SDL_Rect dest2;
+			if (WIN_WIDTH == 1920)
+				dest2 = { dest1.x - dest1.w - 10, dest1.y, dest1.w - 20, dest1.h - 20 };
+			else
+				dest2 = { dest1.x - dest1.w - 10, dest1.y, dest1.w - 20, dest1.h  - 20};
+			SDLUtils::instance()->images().at("A").render(dest2);
 		}
 	}
 };

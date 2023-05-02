@@ -169,8 +169,12 @@ void TopDownState::render() {
     SDL_Rect srcIc = { 0, 0, PLAYERAVATAR_DIMENSION, PLAYERAVATAR_DIMENSION };
     SDL_RenderCopy(Gm_->getRenderer(), background_0, &srcIc, &icon);
     sk_->getAvatar()->render(icon);
-    SDL_Rect dest = { 0,90 * WIN_HEIGHT / 600,50 * WIN_WIDTH / 900,50 * WIN_HEIGHT / 600 };
-    SDLUtils::instance()->images().at("P").render(dest);
+    SDL_Rect dest1 = { 0, 90 * WIN_HEIGHT / 600, 50 * WIN_WIDTH / 900, 50 * WIN_HEIGHT / 600 };
+    SDLUtils::instance()->images().at("X").render(dest1);
+
+    SDL_Rect dest = { dest1.x + dest1.w, 90 * WIN_HEIGHT / 600, 50 * WIN_WIDTH / 900, 50 * WIN_HEIGHT / 600 };
+    SDLUtils::instance()->images().at("Q").render(dest);
+
 }
 void TopDownState::LoadMap(string const& filename) {
 
@@ -400,7 +404,7 @@ void TopDownState::LoadMap(string const& filename) {
                
                 if (!loadGame_) { //carga
                     if (name == "Enemy") {
-                        break;
+                        /*break;*/
                         if (obj.getName() == "" ) {
                             enemy_ = new Entity();
                             enemy_->setContext(this);

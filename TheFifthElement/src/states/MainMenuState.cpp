@@ -75,6 +75,10 @@ void MainMenuState::handleEvents()
 }
 void MainMenuState::render() {
 	Manager::render();
+	SDL_Rect dest1 = { 5 * WIN_WIDTH / 90, (25 * WIN_HEIGHT / 60) - 50 * WIN_HEIGHT / 600, 50 * WIN_WIDTH / 900, 50 * WIN_HEIGHT / 600 };
+	SDLUtils::instance()->images().at("A").render(dest1);
+	SDL_Rect dest2 = { 5 * WIN_WIDTH / 90, (45 * WIN_HEIGHT / 60) - 50 * WIN_HEIGHT / 600, 50 * WIN_WIDTH / 900, 50 * WIN_HEIGHT / 600 };
+	SDLUtils::instance()->images().at("B").render(dest2);
 }
 
 Entity* MainMenuState::addNewEntity(string t, float w, float h, Vector2D pos, int nframes, int wFrame, int hFrame, bool flip, float size) {
@@ -98,9 +102,7 @@ void MainMenuState::Background(string file) {
 void MainMenuState::createButtons() {
 
 	playButton = new Entity();
-	//playButton->setContext(this);
 	playButton->addComponent<Transform>(TRANSFORM_H, Vector2D(5 * WIN_WIDTH / 90, 22 * WIN_HEIGHT / 60), 289, 86);
-	//playButton = addNewEntity("PlayButton", 289, 86, Vector2D(5 * WIN_WIDTH / 90, 28 * WIN_HEIGHT / 60), 1, false);
 	playButton->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("PlayButton"));
 	playButton->addComponent<Button>(BUTTON_H, "PLAY");
 	addEntity(playButton);
