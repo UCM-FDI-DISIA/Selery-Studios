@@ -65,12 +65,14 @@ void ColManager::checkCollisionP(SDL_Rect boxAttack, string type, bool strongAtt
 			{
 				if (!it->getComponent<MovementEarthBossComponent>(MOVEMENTEARTHBOSSCOMPONENT_H)->getBossProtected()) {
 					if (type == "fire") {
+						
 						it->getComponent<LifeEarthBossComponent>(LIFEEARTHBOSSCOMPONENT_H)->receiveDamage(props_->instance()->getStrength(0), 2);
 					}
 					else if (type == "water") {
 						it->getComponent<LifeEarthBossComponent>(LIFEEARTHBOSSCOMPONENT_H)->receiveDamage(props_->instance()->getStrength(0), 0.5);
 					}
 					else {
+						
 						it->getComponent<LifeEarthBossComponent>(LIFEEARTHBOSSCOMPONENT_H)->receiveDamage(props_->instance()->getStrength(0), 1);
 					}
 				}
@@ -179,6 +181,11 @@ void ColManager::update()
 					im->setFlip(SDL_FLIP_NONE);
 				}
 				tr->setVel(0);
+			}
+			else if (it->hasComponent(ENEMYBEUDIRECTIONCOMPONENT_H) && col->getCollisionWithPlayer())
+			{
+				Transform* tr = it->getComponent<Transform>(TRANSFORM_H);
+				tr->setVel(3);
 			}
 		}
 	}
