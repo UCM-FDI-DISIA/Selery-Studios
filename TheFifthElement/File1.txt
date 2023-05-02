@@ -1,67 +1,64 @@
 PLAYER
 50
-4897 9913
+4701 9877
 0
-1.2 10
+6.4 60
 0
-1.2 10
+6.4 60
 0
-1.2 10
+6.4 60
 
 enemy
-skeleton
-9970 8023.33 0 0
-enemy
 bat
-7299 7689 1 0
-redirect
--1 0
-7720 8640 10 10
-enemy
-skeleton
-9080 7960 0 0
-enemy
-goblin
-4824 4960 -1 0
-enemy
-skeleton
-6274 5174 0 -1
-enemy
-bat
-8094 4080 -1 0
-enemy
-bat
-8878 5160 -1 0
-enemy
-skeleton
-11265 6825 0 0
-enemy
-goblin
-13435 6480 0 0
-enemy
-goblin
-12115 8945 0 0
+11080 7920 0 0
 enemy
 mushroom
-14850 9025 0 0
+4650 8111 0 -1
 enemy
 goblin
-14310 6355 0 0
+6642 7689 1 0
+enemy
+mushroom
+9080 7960 0 0
 enemy
 skeleton
+6232 5009 -1 0
+enemy
+goblin
+7839 4080 1 0
+enemy
+mushroom
+8695 5160 1 0
+enemy
+skeleton
+11631 6120 1 0
+enemy
+skeleton
+12754 6689 -1 0
+enemy
+goblin
+9809 9112 0 -1
+enemy
+skeleton
+15036 8429 0 -1
+enemy
+mushroom
+15200 6315 0 1
+enemy
+mushroom
 7527.5 5390 0 0
 enemy
-bat
+skeleton
 9200 4520 0 0
 enemy
 bat
 8520 3680 0 0
 enemy
-skeleton
+goblin
 9440 4080 0 0
 enemy
 earthBoss
-14910 7283.33 0 0
+14880 7200 0 0
 enemy
 fireBoss
 4650 10080 0 0
@@ -69,38 +66,41 @@ enemy
 waterBoss
 15600 3280 0 0
 enemy
-bat
-5692 4102.5 1 0
-enemy
-bat
-10210 3040 -1 0
+skeleton
+5647 4102.5 -1 0
 enemy
 skeleton
+10552 3169 -1 0
+enemy
+bat
 11880 3320 0 0
 enemy
-mushroom
-14209 3359 0 -1
-enemy
-goblin
-13040 3520 0 0
+bat
+14209 3476 0 -1
 enemy
 bat
+13040 3520 0 0
+enemy
+goblin
 10960 5040 0 0
 enemy
-skeleton
+bat
 8960 8640 0 0
 enemy
+goblin
+8611 7240 -1 0
+enemy
+mushroom
+7289 6920 1 0
+enemy
 skeleton
-8356 7240 1 0
-enemy
-goblin
-7553 6569 -1 0
-enemy
-goblin
-7720 8640 0 0
+7636 8691 0 -1
 redirect
 0 1
 7280 6560 10 10
+redirect
+-1 0
+7720 8640 10 10
 redirect
 -1 0
 5860 4102 10 10
@@ -221,15 +221,64 @@ redirect
 redirect
 1 0
 4640 7880 10 10
+redirect
+1 0
+9800 8560 10 10
+redirect
+0 1
+10160 8560 10 10
+redirect
+1 0
+10160 9080 10 10
+redirect
+0 1
+11000 9080 10 10
+redirect
+-1 0
+11000 9360 10 10
+redirect
+0 -1
+9800 9360 10 10
+redirect
+-1 0
+12000 6120 10 10
+redirect
+1 0
+11200 6120 10 10
+redirect
+-1 0
+15120 8240 10 10
+redirect
+0 1
+14320 8240 10 10
+redirect
+1 0
+14320 9200 10 10
+redirect
+0 -1
+15120 9200 10 10
+redirect
+0 1
+15200 6000 10 10
+redirect
+0 -1
+15200 6600 10 10
+redirect
+-1 0
+13480 6680 10 10
+redirect
+0 1
+12680 6680 10 10
+redirect
+1 0
+12680 7400 10 10
+redirect
+0 -1
+13480 7400 10 10
 QUEST
 siblings
 Gather your siblings
 coins
 -842150451 3 0
-QUEST
-villagers
-Talk to villagers
-Area unlock
--842150451 1 0
-unlockedzones 0
+unlockedzones 1
 -1

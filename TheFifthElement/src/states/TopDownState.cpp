@@ -575,17 +575,51 @@ void TopDownState::LoadGame() {
                         pos = { x,y };
                         enemy_ = new Entity();
                         enemy_->setContext(this);
-                        Texture* enemyT_ = EnemyTexture();
-                        Transform* m = enemy_->addComponent<Transform>(TRANSFORM_H, pos, enemy_width, enemy_height);
-                        m->setDir(Vector2D{ dirx,diry });
-                        FramedImage* img = enemy_->addComponent<FramedImage>(FRAMEDIMAGE_H, enemyT_, enemy_width, enemy_height, 7, name);
-                        float a = -1.0f;
-                        float lookingRange = 150.0f;
-                        float lookingWidth = 100.0f;
-                        enemy_->addComponent<Enemy_movementTD_component>(ENEMY_MOVEMENT_TD_H, type_);
-                        enemy_->addComponent<CheckCollision>(CHECKCOLLISION_H, player_, lookingRange, lookingWidth, a);
-                        enemy_->addComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
-                        enemy_->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(0, 0), enemy_height, enemy_width);
+
+                        if (name == "fireBoss")
+                        {
+                            enemy_->addComponent<Transform>(TRANSFORM_H, Vector2D(x, y), EARTHBOSS_HEIGHT, EARTHBOSS_HEIGHT, 2);
+                            enemy_->addComponent<FramedImage>(FRAMEDIMAGE_H, &sdlutils().images().at("FireBoss"), EARTHBOSS_WIDTH, EARTHBOSS_HEIGHT, 6, "fireBoss");
+                            float a = 1.0f;
+                            float lookingRange = 50.0f;
+                            float lookingWidth = -40;
+                            enemy_->addComponent<Enemy_movementTD_component>(ENEMY_MOVEMENT_TD_H, "boss");
+                            enemy_->addComponent<CheckCollision>(CHECKCOLLISION_H, player_, lookingRange, lookingWidth, a, -300, "fire");
+                        }
+                        else if(name=="waterBoss") 
+                        {
+                            enemy_->addComponent<Transform>(TRANSFORM_H, Vector2D(x, y), WATERBOSS_WIDTH, WATERBOSS_HEIGHT, 2);
+                            enemy_->addComponent<FramedImage>(FRAMEDIMAGE_H, &sdlutils().images().at("waterBoss_idle"), WATERBOSS_WIDTH, WATERBOSS_HEIGHT, 6, "waterBoss");
+                            float a = 1.0f;
+                            float lookingRange = 50.0f;
+                            float lookingWidth = -40;
+                            enemy_->addComponent<Enemy_movementTD_component>(ENEMY_MOVEMENT_TD_H, "boss");
+                            enemy_->addComponent<CheckCollision>(CHECKCOLLISION_H, player_, lookingRange, lookingWidth, a, -300, "water");
+                        }
+                        else if(name=="earthBoss") 
+                        {
+                            enemy_->addComponent<Transform>(TRANSFORM_H, Vector2D(x, y), EARTHBOSS_HEIGHT, EARTHBOSS_HEIGHT, 2);
+                            enemy_->addComponent<FramedImage>(FRAMEDIMAGE_H, &sdlutils().images().at("GolemFase1_idle"), EARTHBOSS_WIDTH, EARTHBOSS_HEIGHT, 6, "earthBoss");
+                            float a = 1.0f;
+                            float lookingRange = 50.0f;
+                            float lookingWidth = -40;
+                            enemy_->addComponent<Enemy_movementTD_component>(ENEMY_MOVEMENT_TD_H, "boss");
+                            enemy_->addComponent<CheckCollision>(CHECKCOLLISION_H, player_, lookingRange, lookingWidth, a, -300, "earth");
+                        }
+                        else 
+                        {
+                            Texture* enemyT_ = EnemyTexture();
+                            Transform* m = enemy_->addComponent<Transform>(TRANSFORM_H, pos, enemy_width, enemy_height);
+                            m->setDir(Vector2D{ dirx,diry });
+                            FramedImage* img = enemy_->addComponent<FramedImage>(FRAMEDIMAGE_H, enemyT_, enemy_width, enemy_height, 7, name);
+                            float a = -1.0f;
+                            float lookingRange = 150.0f;
+                            float lookingWidth = 100.0f;
+                            enemy_->addComponent<Enemy_movementTD_component>(ENEMY_MOVEMENT_TD_H, type_);
+                            enemy_->addComponent<CheckCollision>(CHECKCOLLISION_H, player_, lookingRange, lookingWidth, a);
+                            enemy_->addComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
+                            enemy_->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(0, 0), enemy_height, enemy_width);
+                        }
 
                         addEntity(enemy_);
                         enemies_.push_back(enemy_);
