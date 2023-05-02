@@ -170,7 +170,12 @@ void TopDownState::render() {
     SDL_RenderCopy(Gm_->getRenderer(), background_0, &srcIc, &icon);
     sk_->getAvatar()->render(icon);
     SDL_Rect dest = { 0,90 * WIN_HEIGHT / 600,50 * WIN_WIDTH / 900,50 * WIN_HEIGHT / 600 };
+
     SDLUtils::instance()->images().at("Q").render(dest);
+
+    SDL_Rect dest1 = { 0,90 * WIN_HEIGHT / 2 ,50 * WIN_WIDTH / 600,50 * WIN_HEIGHT / 600 };
+    SDLUtils::instance()->images().at("P").render(dest);
+    SDLUtils::instance()->images().at("X").render(dest1);
 }
 void TopDownState::LoadMap(string const& filename) {
 
