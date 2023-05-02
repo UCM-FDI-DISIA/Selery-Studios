@@ -35,6 +35,11 @@
   ],
 
   "images": [
+    {"id":  "A", "file": "./assets/HUD/A.png"},
+    {"id":  "B", "file": "./assets/HUD/B.png"},
+    {"id":  "Y", "file": "./assets/HUD/Y.png"},
+    {"id":  "X", "file": "./assets/HUD/X.png"},
+
     {"id": "NPC_1","file": "./assets/NPCs/Villagers/ChicoMoreno/IdleLeft.png"},
     {"id": "NPC_2","file": "./assets/NPCs/Villagers/ChicoMoreno/IdleRight.png"},
     {"id": "NPC_3","file": "./assets/NPCs/Villagers/ChicaMorena/IdleLeft.png"},
@@ -322,6 +327,7 @@
     {"id": "papiro", "file": "assets/Texts/image.png"},
     {"id": "E", "file": "assets/NPCs/E.png"},
     {"id": "P", "file": "assets/NPCs/P.png"},
+    {"id": "Q", "file": "assets/NPCs/Q.png"},
     {"id": "TopDownControls", "file": "assets/HUD/Menu/TopDownControls.png"},
     {"id": "BEUControls", "file": "assets/HUD/Menu/BEUControls.png"},
     {"id": "controlPanel", "file": "assets/Scenes/Backgrounds/Pausa/Buttons/PapiroPlex.png"},
