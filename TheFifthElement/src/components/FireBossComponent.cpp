@@ -187,13 +187,24 @@ void FireBossComponent::update() {
 	case attack: 
 		cont++;
 		if (cont > 50) {
+		
 			image->setAnim("FireBoss", 15, false, 2);
+			if (!startedattack && trans_player->getPos().getX() < my_transform->getPos().getX()) {
+				image->setFlip(SDL_FLIP_NONE);
 			
+			}
+			else if (!startedattack) {
+				image->setFlip(SDL_FLIP_HORIZONTAL);
+			}
+			startedattack = true;
+		
 
 			velocity_x = 0;
 			velocity_y = 0;
 
+
 			if (image->getCol() > 12) {//acaba el ataque
+				startedattack = false;
 				cont = 0;
 				hit->play();
 				image->setAnim("FireBoss", 12, false, 1);
