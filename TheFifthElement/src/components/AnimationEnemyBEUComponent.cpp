@@ -32,9 +32,9 @@ void AnimationEnemyBEUComponent::updateAn() {
 
 		break;
 	case AnimationEnemyBEUComponent::Attack:
-		posX = tr_->getPos().getX() + col_->getOffset().getX() + col_->getColWidth();
+		posX = tr_->getPos().getX() + offset_.getX();
 		playerPosX = playerTr_->getPos().getX() + playerCol_->getOffset().getX() + playerCol_->getColWidth() / 2;
-		if (posX <= playerPosX) {
+		if (posX < playerPosX) {
 			im_->setFlip(SDL_FLIP_NONE);
 			if (enemy_ == "shroom")col_->setOffset(Vector2D(65, 55));
 		}

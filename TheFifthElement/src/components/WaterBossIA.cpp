@@ -16,9 +16,9 @@ void WaterBossIA::initComponent() {
 	downLimit = /*sdlutils().height()*/ WIN_HEIGHT;
 	topLimit = /*sdlutils().height()*/ WIN_HEIGHT * 0.55;
 
-	attackIcePos_ = WIN_WIDTH / 2 - (WATERBOSS_WIDTH)/ 2;
+	attackIcePos_ = WIN_WIDTH / 2 - (tr_->getW() * tr_->getS())/ 2;
 	attackWavesPos_ = WIN_WIDTH * 7 / 11;
-	idlePos_ = (WIN_WIDTH * 3 / 4 - (WATERBOSS_WIDTH) / 2);
+	idlePos_ = (WIN_WIDTH * 3 / 4 - (tr_->getW() * tr_->getS()) / 2);
 
 	iceCont_ = 0;// al principio el contador estar� a 0
 }
@@ -45,7 +45,7 @@ void WaterBossIA::update() {
 				////im_->setAnim(true, 2, 14, 0, 14); 
 				
 				// espaciado entre olas
-				if (lastWave_ == nullptr || lastWave_->getPos().getX() < ((900 - ICEBLOCK_WIDTH - offset))) {
+				if (lastWave_ == nullptr || lastWave_->getPos().getX() < ((900 - ICEBLOCK_WIDTH - offset)*(WIN_WIDTH/900))) {
 					summonWave();
 					cont++;
 					// numero de olas
@@ -149,12 +149,12 @@ void WaterBossIA::summonWave() { // crea 2 olas
 	if (rnd_ == 0) { // no arriba
 		wavePos_ = topLimit + (downLimit - topLimit) * 1/3;
 		createWave(wavePos_);
-		wavePos_ = topLimit + (downLimit - topLimit) - (ICEBLOCK_HEIGHT* tr_->getSize());
+		wavePos_ = topLimit + (downLimit - topLimit) - (ICEBLOCK_HEIGHT * (WIN_WIDTH / 900));
 	}
 	else if (rnd_ == 1) { // no medio
 		wavePos_ = topLimit;
 		createWave(wavePos_);
-		wavePos_ = topLimit + (downLimit - topLimit) -(ICEBLOCK_HEIGHT*tr_->getSize());
+		wavePos_ = topLimit + (downLimit - topLimit) -(ICEBLOCK_HEIGHT*(WIN_WIDTH/900));
 	}
 	else { // no abajo
 		wavePos_ = topLimit + (downLimit - topLimit) * 1/3;

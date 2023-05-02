@@ -10,7 +10,7 @@
   {"id": "21","text": "I must say I'm not very religious, but $ your brother, Feliciano, the one who moves rocks, $ made me believe many times $ as he preached, taught, and instructed $ I wish you'd bring him back"},
   {"id": "8","text": "If you continue ahead $ you'll enter the Fire Kingdom, $ ruled by your brother Charmander $ people say $ that your fight between siblings was $ over something silly, was it really like that? $ Luz was always the one $ who mediated between you, right? $ Where is he?"},
   {"id": "9","text": "If you continue ahead $ you'll enter the Stone Kingdom, $ ruled by your brother Feliciano, $ if it's true that you've all decided to come together $ Where is Luz?"},
-  {"id": "10","text": "You will have to fight enemies $ in your path, $ kill them with your sword, $ use O or X $ if you use a controller,  to strike them $ with some quick attacks $ and stack them $ to strike them with a combo, $ use P or Y $ if you are using a controller, $ to strike them with a powerful attack!"},
+  {"id": "10","text": "I had an aunt $ whom I was involved with for a while $ and we had a good relationship, she called me $ because her dog had died. $ I was training $ and I told her I'd go to her house $ and shower there to be with her. $ When I arrived, I gave her a hug $ and said: $ sorry, I smell like dead dogs $"},
   {"id": "11","text": "Oh, what a surprise to see you here! $ it's time to overcome your differences $ by the way...Where does your dispute come from? $ Everyone says it was about the division of land, $ what ambition these gods have"},
   {"id": "12","text": "I'm afraid I know why you're here. $ If you're looking for your brother, he's all the way south, $ we haven't seen him around here in a long time, $ he must be upset, as usual."},
   {"id": "13","text": "I feel that if you continue ahead. $ You're going to encounter something difficult to overcome!"},
@@ -42,11 +42,6 @@
   ],
 
   "images": [
-    {"id":  "A", "file": "./assets/HUD/A.png"},
-    {"id":  "B", "file": "./assets/HUD/B.png"},
-    {"id":  "Y", "file": "./assets/HUD/Y.png"},
-    {"id":  "X", "file": "./assets/HUD/X.png"},
-
     {"id": "NPC_1","file": "./assets/NPCs/Villagers/ChicoMoreno/IdleLeft.png"},
     {"id": "NPC_2","file": "./assets/NPCs/Villagers/ChicoMoreno/IdleRight.png"},
     {"id": "NPC_3","file": "./assets/NPCs/Villagers/ChicaMorena/IdleLeft.png"},
@@ -334,7 +329,6 @@
     {"id": "papiro", "file": "assets/Texts/image.png"},
     {"id": "E", "file": "assets/NPCs/E.png"},
     {"id": "P", "file": "assets/NPCs/P.png"},
-    {"id": "Q", "file": "assets/NPCs/Q.png"},
     {"id": "TopDownControls", "file": "assets/HUD/Menu/TopDownControls.png"},
     {"id": "BEUControls", "file": "assets/HUD/Menu/BEUControls.png"},
     {"id": "controlPanel", "file": "assets/Scenes/Backgrounds/Pausa/Buttons/PapiroPlex.png"},

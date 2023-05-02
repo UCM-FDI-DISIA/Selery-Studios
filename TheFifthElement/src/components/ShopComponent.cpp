@@ -4,7 +4,7 @@
 #include "DialogueComponent.h"
 
 ShopComponent::ShopComponent(EconomyComponent* economyComp, Damage* damage, LifeTD* life) {
-    if (WIN_WIDTH == 1920)font_ = &SDLUtils::instance()->fonts().at("TCenturyScale");
+    if (WIN_WIDTH / 900 == 1920 / 900)font_ = &SDLUtils::instance()->fonts().at("TCenturyScale");
     else font_ = &SDLUtils::instance()->fonts().at("TCentury");
 	color_ = { 0,0,0 };
     economyComp_ = economyComp;
@@ -20,11 +20,7 @@ void ShopComponent::initComponent() {
 void ShopComponent::update() {
     if (dialog_->getopenedShop()) 
     {
-        /*if (WIN_WIDTH == 1920)shopPos_ = Vector2D(WIN_WIDTH / 3 - 100, 250);
-        else shopPos_ = { ((playerTr_->getPos().getX() - mngr_->camRect_.x) - backgroundOffsetX_) * WIN_WIDTH / 900,
-            ((playerTr_->getPos().getY() - mngr_->camRect_.y) - backgroundOffsetY_) * WIN_HEIGHT / 600 };*/
-        shopPos_ = { (playerTr_->getPos().getX() - mngr_->camRect_.x) - backgroundOffsetX_,
-            (playerTr_->getPos().getY() - mngr_->camRect_.y) - backgroundOffsetY_};
+        shopPos_ = { (playerTr_->getPos().getX() - mngr_->camRect_.x) * WIN_WIDTH / 900 - backgroundOffsetX_, (playerTr_->getPos().getY() - mngr_->camRect_.y) * WIN_HEIGHT / 600 - backgroundOffsetY_ };
     }   
 }
 
@@ -33,16 +29,11 @@ void ShopComponent::render() {
     if (dialog_->getopenedShop()) {
         showShopBackground();
 
-       /* showShopAvatar(Vector2D((playerTr_->getPos().getX() - mngr_->camRect_.x) * WIN_WIDTH / 900 + (WIN_WIDTH / 900 * avatarOffsetX_), (playerTr_->getPos().getY() - mngr_->camRect_.y) * WIN_HEIGHT / 600 + avatarOffsetY_), Vector2D((playerTr_->getPos().getX() - mngr_->camRect_.x) * WIN_WIDTH / 900 + frameOffsetX_, (playerTr_->getPos().getY() - mngr_->camRect_.y) * WIN_HEIGHT / 600 + frameOffsetY_), airAvatar_, avatarFrame_);
+        showShopAvatar(Vector2D((playerTr_->getPos().getX() - mngr_->camRect_.x) * WIN_WIDTH / 900 + (WIN_WIDTH / 900 * avatarOffsetX_), (playerTr_->getPos().getY() - mngr_->camRect_.y) * WIN_HEIGHT / 600 + avatarOffsetY_), Vector2D((playerTr_->getPos().getX() - mngr_->camRect_.x) * WIN_WIDTH / 900 + frameOffsetX_, (playerTr_->getPos().getY() - mngr_->camRect_.y) * WIN_HEIGHT / 600 + frameOffsetY_), airAvatar_, avatarFrame_);
         showShopAvatar(Vector2D((playerTr_->getPos().getX() - mngr_->camRect_.x) * WIN_WIDTH / 900 + (WIN_WIDTH / 900 * avatarOffsetX_), (50 + playerTr_->getPos().getY() - mngr_->camRect_.y) * WIN_HEIGHT / 600 + avatarOffsetY_), Vector2D((playerTr_->getPos().getX() - mngr_->camRect_.x) * WIN_WIDTH / 900 + (WIN_WIDTH / 900 * frameOffsetX_), (50 + playerTr_->getPos().getY() - mngr_->camRect_.y) * WIN_HEIGHT / 600 + frameOffsetY_), fireAvatar_, avatarFrame_);
         showShopAvatar(Vector2D((playerTr_->getPos().getX() - mngr_->camRect_.x) * WIN_WIDTH / 900 + (WIN_WIDTH / 900 * avatarOffsetX_), (100 + playerTr_->getPos().getY() - mngr_->camRect_.y) * WIN_HEIGHT / 600 + avatarOffsetY_), Vector2D((playerTr_->getPos().getX() - mngr_->camRect_.x) * WIN_WIDTH / 900 + (WIN_WIDTH / 900 * frameOffsetX_), (100 + playerTr_->getPos().getY() - mngr_->camRect_.y) * WIN_HEIGHT / 600 + frameOffsetY_), waterAvatar_, avatarFrame_);
-        showShopAvatar(Vector2D((playerTr_->getPos().getX() - mngr_->camRect_.x) * WIN_WIDTH / 900 + (WIN_WIDTH / 900 * avatarOffsetX_), (150 + playerTr_->getPos().getY() - mngr_->camRect_.y) * WIN_HEIGHT / 600 + avatarOffsetY_), Vector2D((playerTr_->getPos().getX() - mngr_->camRect_.x) * WIN_WIDTH / 900 + (WIN_WIDTH / 900 * frameOffsetX_), (150 + playerTr_->getPos().getY() - mngr_->camRect_.y) * WIN_HEIGHT / 600 + frameOffsetY_), earthAvatar_, avatarFrame_);*/
+        showShopAvatar(Vector2D((playerTr_->getPos().getX() - mngr_->camRect_.x) * WIN_WIDTH / 900 + (WIN_WIDTH / 900 * avatarOffsetX_), (150 + playerTr_->getPos().getY() - mngr_->camRect_.y) * WIN_HEIGHT / 600 + avatarOffsetY_), Vector2D((playerTr_->getPos().getX() - mngr_->camRect_.x) * WIN_WIDTH / 900 + (WIN_WIDTH / 900 * frameOffsetX_), (150 + playerTr_->getPos().getY() - mngr_->camRect_.y) * WIN_HEIGHT / 600 + frameOffsetY_), earthAvatar_, avatarFrame_);
 
-        showShopAvatar(Vector2D((playerTr_->getPos().getX() - mngr_->camRect_.x) + ( avatarOffsetX_), (playerTr_->getPos().getY() - mngr_->camRect_.y)  + avatarOffsetY_), Vector2D((playerTr_->getPos().getX() - mngr_->camRect_.x) + frameOffsetX_, (playerTr_->getPos().getY() - mngr_->camRect_.y) + frameOffsetY_), airAvatar_, avatarFrame_);
-        showShopAvatar(Vector2D((playerTr_->getPos().getX() - mngr_->camRect_.x) + (avatarOffsetX_), (50 + playerTr_->getPos().getY() - mngr_->camRect_.y) + avatarOffsetY_), Vector2D((playerTr_->getPos().getX() - mngr_->camRect_.x) + (frameOffsetX_), (50 + playerTr_->getPos().getY() - mngr_->camRect_.y) + frameOffsetY_), fireAvatar_, avatarFrame_);
-        showShopAvatar(Vector2D((playerTr_->getPos().getX() - mngr_->camRect_.x) + (avatarOffsetX_), (100 + playerTr_->getPos().getY() - mngr_->camRect_.y)  + avatarOffsetY_), Vector2D((playerTr_->getPos().getX() - mngr_->camRect_.x)  + (frameOffsetX_), (100 + playerTr_->getPos().getY() - mngr_->camRect_.y) + frameOffsetY_), waterAvatar_, avatarFrame_);
-        showShopAvatar(Vector2D((playerTr_->getPos().getX() - mngr_->camRect_.x)  + (avatarOffsetX_), (150 + playerTr_->getPos().getY() - mngr_->camRect_.y)  + avatarOffsetY_), Vector2D((playerTr_->getPos().getX() - mngr_->camRect_.x)  + (frameOffsetX_), (150 + playerTr_->getPos().getY() - mngr_->camRect_.y) + frameOffsetY_), earthAvatar_, avatarFrame_);
-        
         showUpgradeText(u1, 0, 0, 90, 0, price1_);
         showUpgradeText(u2, 0, 50, 90, 50, price2_);
         showUpgradeText(u3, 0, 100, 90, 100, price3_);
@@ -126,36 +117,25 @@ void ShopComponent::shopEconomy() {
 
 void ShopComponent::showUpgradeText(int value, int offsetXup, int offsetYup, int offsetXcoin, int offsetYcoin, int price) {
     // Textos mejoras
-    /*textX = (playerTr_->getPos().getX() - mngr_->camRect_.x) * WIN_WIDTH / 900 - textOffsetX_;
-    textY = (playerTr_->getPos().getY() - mngr_->camRect_.y) * WIN_HEIGHT / 600 + textOffsetY_;*/
-    textX = (playerTr_->getPos().getX() - mngr_->camRect_.x) - textOffsetX_;
-    textY = (playerTr_->getPos().getY() - mngr_->camRect_.y) + textOffsetY_;
+    textX = (playerTr_->getPos().getX() - mngr_->camRect_.x) * WIN_WIDTH / 900 - textOffsetX_;
+    textY = (playerTr_->getPos().getY() - mngr_->camRect_.y) * WIN_HEIGHT / 600 + textOffsetY_;
     textUp_ = std::to_string(value) + "/" + std::to_string(MAX_UPGRADE);
-   /* font_->render(GameManager::instance()->getRenderer(), textUp_, (textX + offsetXup) * WIN_WIDTH / 900,
-        (textY + offsetYup) * WIN_HEIGHT / 600, color_);*/
-    font_->render(GameManager::instance()->getRenderer(), textUp_, (textX + offsetXup),
-        (textY + offsetYup), color_);
+    font_->render(GameManager::instance()->getRenderer(), textUp_, (textX + offsetXup) * WIN_WIDTH / 900,
+        (textY + offsetYup) * WIN_HEIGHT / 600, color_);
     // Textos monedas
     textCoin_ = std::to_string(price);
-   /* font_->render(GameManager::instance()->getRenderer(), textCoin_, (textX + offsetXcoin) * WIN_WIDTH / 900,
-        (textY + offsetYcoin) * WIN_HEIGHT / 600, color_);*/
-    font_->render(GameManager::instance()->getRenderer(), textCoin_, (textX + offsetXcoin),
-        (textY + offsetYcoin), color_);
+    font_->render(GameManager::instance()->getRenderer(), textCoin_, (textX + offsetXcoin) * WIN_WIDTH / 900,
+        (textY + offsetYcoin) * WIN_HEIGHT / 600, color_);
 }
 
 void ShopComponent::showShopBackground() {
-    SDL_Rect background;
-    /*if(WIN_WIDTH == 1920)background = build_sdlrect(shopPos_, (SHOP_WIDTH / 2) * WIN_WIDTH / 900, (SHOP_HEIGHT / 2)*WIN_HEIGHT/600);
-    else background = build_sdlrect(shopPos_, (SHOP_WIDTH / 2) * (WIN_WIDTH / 900), (SHOP_HEIGHT / 2) * (WIN_HEIGHT / 600));*/
-    background = build_sdlrect(shopPos_, (SHOP_WIDTH / 2), (SHOP_HEIGHT / 2));
+    SDL_Rect background = build_sdlrect(shopPos_, (SHOP_WIDTH / 2) * WIN_WIDTH / 900, (SHOP_HEIGHT / 2)*WIN_HEIGHT/600);
     shopBackground_->render(background, 0);
 }
 
 void ShopComponent::showShopAvatar(Vector2D avatarPos, Vector2D framePos, Texture* avatar, Texture* frame) {
-    //SDL_Rect frameRect = build_sdlrect(framePos, (SHOP_FRAME_WIDTH / 2) * WIN_WIDTH / 900, (SHOP_FRAME_HEIGHT / 2) * WIN_HEIGHT / 600);
-    SDL_Rect frameRect = build_sdlrect(framePos, (SHOP_FRAME_WIDTH / 2), (SHOP_FRAME_HEIGHT / 2));
+    SDL_Rect frameRect = build_sdlrect(framePos, (SHOP_FRAME_WIDTH / 2) * WIN_WIDTH / 900, (SHOP_FRAME_HEIGHT / 2) * WIN_HEIGHT / 600);
     frame->render(frameRect, 0);
-    //SDL_Rect avatarRect = build_sdlrect(avatarPos, (AVATAR_WIDTH / 2) * WIN_WIDTH / 900, (AVATAR_HEIGHT / 2) * WIN_HEIGHT / 600);
-    SDL_Rect avatarRect = build_sdlrect(avatarPos, (AVATAR_WIDTH / 2), (AVATAR_HEIGHT / 2));
+    SDL_Rect avatarRect = build_sdlrect(avatarPos, (AVATAR_WIDTH / 2) * WIN_WIDTH / 900, (AVATAR_HEIGHT / 2) * WIN_HEIGHT / 600);
     avatar->render(avatarRect, 0);
 }

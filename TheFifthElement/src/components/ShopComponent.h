@@ -29,8 +29,8 @@ private:
 	int frameOffsetX_ = 30;
 	int frameOffsetY_ = 25;
 
-	int backgroundOffsetX_ = 310;
-	int backgroundOffsetY_ = 290;
+	int backgroundOffsetX_ = 135;
+	int backgroundOffsetY_ = 140;
 
 
 	// Texto mejoras
@@ -46,8 +46,8 @@ private:
 	string textUp_;
 	int textX;
 	int textY;
-	int textOffsetX_ = 210;
-	int textOffsetY_ = 50;
+	int textOffsetX_ = 87;
+	int textOffsetY_ = 35;
 	SDL_Color color_;
 
 	EconomyComponent* economyComp_;

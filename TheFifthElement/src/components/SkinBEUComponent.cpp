@@ -106,18 +106,27 @@ void SkinBEUComponent::setIdle() {
 
 	// colliders
 	if (skin_ == "fire") {
-		if (!flip_) col_->setCollider(Vector2D(95, 83), 44, 20);
-		else col_->setCollider(Vector2D(92, 83), 44, 20);
+		if (WIN_WIDTH == 1920) {
+			if (!flip_) col_->setCollider(Vector2D(100, 73), 44, 20);
+			else col_->setCollider(Vector2D(97, 73), 44, 20);
+		}
+		else {
+			if (!flip_) col_->setCollider(Vector2D(95, 83), 44, 20);
+			else col_->setCollider(Vector2D(92, 83), 44, 20);
+		}
 
 	}
 	else if (skin_ == "water") {
-		col_->setCollider(Vector2D(97, 89), 38, 15);
+		if(WIN_WIDTH == 1920)col_->setCollider(Vector2D(102, 79), 38, 15);
+		else col_->setCollider(Vector2D(97, 89), 38, 15);
 	}
 	else if (skin_ == "air") {
-		col_->setCollider(Vector2D(92, 91), 36, 23);
+		if (WIN_WIDTH == 1920)col_->setCollider(Vector2D(97, 81), 36, 23);
+		else col_->setCollider(Vector2D(92, 91), 36, 23);
 	}
 	else if (skin_ == "earth") {
-		 col_->setCollider(Vector2D(98, 85), 36, 13);
+		if (WIN_WIDTH == 1920)col_->setCollider(Vector2D(103, 75), 36, 13);
+		else col_->setCollider(Vector2D(98, 85), 36, 13);
 	}
 }
 

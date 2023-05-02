@@ -21,12 +21,11 @@ EndState::EndState()
 	}
 	numlineas = conespacios.size();
 
-	Entity* e = new Entity();
-	Vector2D pos = { 0,0 };
-	e->addComponent<Transform>(TRANSFORM_H, pos, 900, 600, 1);
-	Texture* t = &SDLUtils::instance()->images().at("fondoPausa");
-	e->addComponent<Image>(IMAGE_H, t);
-	addEntity(e);
+	Entity* fondo = new Entity();
+	Vector2D v = { 0,0 };
+	fondo->addComponent<Transform>(TRANSFORM_H, v, 900, 600, 0, 0, 0, false);
+	fondo->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("fondoPausa"));
+	addEntity(fondo);
 	x = 25;
 	y = 300;
 	// Creacion de los botones

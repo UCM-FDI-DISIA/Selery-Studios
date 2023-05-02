@@ -35,7 +35,7 @@ void Trigger::update() {
 			else {
 				if (!Puzzle1::instance()->fin()) {
 					Vector2D position = trans_propio->getPos();
-					position.setY(position.getY() - 80);
+					position.setY(position.getY() - 20);
 					trans_propio->setPos(position);
 					colision->y = trans_propio->getPos().getY();
 					Puzzle1::instance()->move(std::stoi(std::string(1, name[2])));
@@ -59,7 +59,7 @@ void Trigger::desbloqueozona()
 }
 void  Trigger::changemove(int a){
 	Vector2D position = trans_propio->getPos();
-	position.setY(position.getY() + (80*a));
+	position.setY(position.getY() + (20*a));
 	trans_propio->setPos(position);
 	colision->y = trans_propio->getPos().getY();
 }

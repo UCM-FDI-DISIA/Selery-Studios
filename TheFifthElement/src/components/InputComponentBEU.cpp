@@ -43,14 +43,14 @@ void InputComponentBEU::render() {
 	int r = abs(ultiTime - timeExecution);
 
 	if (r < 10) {
-		font_->render(SDLUtils::instance()->renderer(), to_string(r).c_str(), (90 + 100 + 8) *  WIN_WIDTH/900, (25 + 8) * WIN_HEIGHT / 600, color);
+		font_->render(SDLUtils::instance()->renderer(), to_string(r).c_str(), (90 + 100 + 8) * tr_->getScale(), (25 + 8) * tr_->getScale(), color);
 	}
 	else {
 		SDL_Rect dest;
-		dest.x = (90 + 100) *  WIN_WIDTH/900;
-		dest.y = 25 * WIN_HEIGHT / 600;
-		dest.h = 32 * WIN_HEIGHT / 600;
-		dest.w = 32 *  WIN_WIDTH/900;
+		dest.x = (90 + 100) * tr_->getScale();
+		dest.y = 25 * tr_->getScale();
+		dest.h = 32 * tr_->getScale();
+		dest.w = 32 * tr_->getScale();
 		p->render(dest);
 	}
 }

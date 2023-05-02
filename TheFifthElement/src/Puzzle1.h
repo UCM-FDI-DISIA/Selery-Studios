@@ -34,7 +34,7 @@ class Puzzle1 : public Singleton<Puzzle1>
 				}
 				else {
 					orden.clear();
-					if (!finish) {
+					if (!finish2) {
 
 						//cambia la animacion de todos los 
 						for (int i = 0; i < copasv.size(); i++) {
@@ -47,7 +47,7 @@ class Puzzle1 : public Singleton<Puzzle1>
 			
 		}
 		void move(int a) {
-			if (!finish2) {
+			if (!finish) {
 				pilarespositiony[a - 1]++;
 				if (pilarespositiony[a - 1] > 5) {
 					for (int i = 0; i < 4; i++) {

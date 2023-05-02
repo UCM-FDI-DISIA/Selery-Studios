@@ -75,8 +75,6 @@ private:
 	Roulette* roulete;
 
 	//BOSSES
-	int fireBossBackgroundWidth;
-	bool lockCameraX;
 	Entity* earthBoss_;
 	bool boss;
 	string typeBoss_ = "";
