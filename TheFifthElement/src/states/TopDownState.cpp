@@ -161,12 +161,12 @@ void TopDownState::render() {
     }
     //MINIMAPA
     Vector2D scale = { (WIN_WIDTH / 900.0f), (WIN_HEIGHT / 600.0f) };
-    Vector2D scalePlayer = { ((float)fondowidth_ / mapFrameX_) / speedMinMap_, ((float)fondoheight_ / mapFrameY_) / speedMinMap_ };
+    Vector2D scalePlayer = { ((float)fondowidth_ / mapFrameX_) / speedMinMapX_, ((float)fondoheight_ / mapFrameY_) / speedMinMapY_ };
     SDL_Rect mapFrame = { (WIN_WIDTH - mapOffsetX_ * scale.getX()), mapOffsetY_ * scale.getY(), mapFrameX_ * scale.getX(), mapFrameY_ * scale.getY() };
-    SDL_Rect src1 = { trans_player_->getPos().getX() * scalePlayer.getX() - WIN_WIDTH / 1.7f,
-                     trans_player_->getPos().getY() * scalePlayer.getY() - WIN_HEIGHT / 1.1f,
-                     (camRect_.w),
-                     (camRect_.h) };
+    SDL_Rect src1 = { trans_player_->getPos().getX() * scalePlayer.getX() - WIN_WIDTH / 3.9f,
+                     trans_player_->getPos().getY() * scalePlayer.getY() - WIN_HEIGHT / 3.5f,
+                     ((float)camRect_.w/scale.getX()),
+                     ((float)camRect_.h/scale.getY()) };
     SDL_RenderCopy(Gm_->getRenderer(), background_0, &src1, &mapFrame);
     m_->render(mapFrame);
 
