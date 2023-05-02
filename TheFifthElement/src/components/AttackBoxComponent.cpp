@@ -931,7 +931,7 @@ void AttackBoxComponent::handleBoxes()
 			}
 		}
 	}
-	else if (im_->getType() == "earth") { // Para el jefe de tierra
+	else if (im_->getType() == "EarthBoss") { // Para el jefe de tierra
 		if ((im_->getTexKey() == "GolemFase1_attack" || im_->getTexKey() == "GolemFase2_attack") && im_->getCol() >= 7) {
 			if (!boxCreated && im_->getCol() == 7) {
 				boxes.clear();

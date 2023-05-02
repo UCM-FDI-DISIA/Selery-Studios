@@ -131,8 +131,8 @@ void BeatEmUpState::update() {
 
 void BeatEmUpState::AddEnemies(int n_enemies) {
 	for (int i = 0; i < n_enemies; ++i) {
-		int character = random->nextInt(0, 4);
-		int type = random->nextInt(0, 4);
+		int character = 2;
+		int type = 2;
 		Vector2D pos={ (float)random->nextInt(50,WIN_WIDTH - 80),(float)random->nextInt(50,WIN_HEIGHT - 50) };
 		
 		enemy_ = addEntity();
@@ -160,8 +160,8 @@ void BeatEmUpState::AddEnemies(int n_enemies) {
 }
 
 void BeatEmUpState::AddEnemy() {
-	int character = random->nextInt(0, 4);
-	int type = random->nextInt(0, 4);
+	int character = 2;
+	int type = 2;
 	int dist = 900 * (WIN_WIDTH / 900);
 	Vector2D pos = { trans_player_->getPos().getX() + dist ,(float)random->nextInt(50,WIN_HEIGHT - 50) };
 
@@ -223,7 +223,7 @@ void BeatEmUpState::AddEarthBoss() {
 	earthBoss_ = new Entity();
 	earthBoss_->setContext(this);
 	Transform* t = earthBoss_->addComponent<Transform>(TRANSFORM_H, pos, EARTHBOSS_WIDTH * 2, EARTHBOSS_HEIGHT * 2);
-	earthBoss_->addComponent<FramedImage>(FRAMEDIMAGE_H, &SDLUtils::instance()->images().at("GolemFase1_idle"), EARTHBOSS_WIDTH, EARTHBOSS_HEIGHT, 8, "earth");
+	earthBoss_->addComponent<FramedImage>(FRAMEDIMAGE_H, &SDLUtils::instance()->images().at("GolemFase1_idle"), EARTHBOSS_WIDTH, EARTHBOSS_HEIGHT, 8, "EarthBoss");
 	earthBoss_->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(150, 120), (EARTHBOSS_HEIGHT * 2) - 240, (EARTHBOSS_WIDTH * 2) - 300);
 	earthBoss_->addComponent<PointOfFightComponent>(POINTOFFIGHTCOMPONENT_H, 60, 140);
 	AnimationEarthBossComponent* earthAnim = earthBoss_->addComponent<AnimationEarthBossComponent>(ANIMATIONEARTHBOSSCOMPONENT_H);
