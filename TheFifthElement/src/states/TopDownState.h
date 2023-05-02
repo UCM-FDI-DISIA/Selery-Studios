@@ -139,7 +139,8 @@ private:
 	Texture* airAvatar_ = &SDLUtils::instance()->images().at("AirAvatar");
 	float mapFrameX_ = 145;
 	float mapFrameY_ = 100;
-	float speedMinMap_ = 135.0f;
+	float speedMinMapX_ = 275.0f;
+	float speedMinMapY_ = 150.0f;
 	int mapOffsetX_ = 155;
 	int mapOffsetY_ = 10;
 	int iconOffsetX_ = 165;
