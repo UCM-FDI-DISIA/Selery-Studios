@@ -9,34 +9,11 @@
 
 [Enlace al vídeo](https://youtu.be/5eOVw7ZBvOQ)
 
-[Presentaciones](https://drive.google.com/drive/folders/1f_cQAVOkluKYBIAy_LxrGzPj3atoO3wp?usp=share_link)
+[Presentaciones]()
 
 
 ## GDD
 ---
-### AUTORES
-● Pablo Cao Calvo
-
-● Agustín Castro De Troya
-
-● Pablo Cerrada Vega
-
-● Francisco Miguel Galván Muñoz
-
-● Dorjee Khampa Herrezuelo Blasco
-
-● Sheila Julvez López
-
-● Pablo Martínez Quesada
-
-● Cristina Mora Velasco
-
-● Jose Moreno Barbero
-
-● Alberto Peñalba Martos
-
-● Sofía Sánchez Fernández
-
 
 ### ÍNDICE
 ● Estructura grupal
