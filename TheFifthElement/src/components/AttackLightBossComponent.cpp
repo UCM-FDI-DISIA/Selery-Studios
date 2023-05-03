@@ -159,7 +159,7 @@ void AttackLightBossComponent::attack1()//esto debe ser para generar siempre bol
 {
 	if (distX<closeX && distX>negCloseX && distY<closeY && distY>negCloseY)//si esta muy cerca se aleja para disparar
 	{
-		if (distX <= 0 && bossTrans->getPos().getX() <= (BACKGROUNDBEU_WIDTH - 1000)) 
+		if (distX <= 0 && bossTrans->getPos().getX() <= (WIN_WIDTH - 1000)) 
 		{ 
 			dirMov.setX(1);
 		}
@@ -178,11 +178,11 @@ void AttackLightBossComponent::attack1()//esto debe ser para generar siempre bol
 	Entity* sphere = new Entity();
 	if (distX <= 0)
 	{
-		arrowTrans_ = sphere->addComponent<Transform>(TRANSFORM_H, Vector2D(bossTrans->getPos().getX()+80, bossTrans->getPos().getY() + bossTrans->getH()), 256, 128);
+		arrowTrans_ = sphere->addComponent<Transform>(TRANSFORM_H, Vector2D(bossTrans->getPos().getX() + bossTrans->getW() * 0.5, bossTrans->getPos().getY() + bossTrans->getH()*1.75), 256, 128);
 	}
 	else
 	{
-		arrowTrans_ = sphere->addComponent<Transform>(TRANSFORM_H, Vector2D(bossTrans->getPos().getX() + bossTrans->getW()-20, bossTrans->getPos().getY() + bossTrans->getH()), 256, 128);
+		arrowTrans_ = sphere->addComponent<Transform>(TRANSFORM_H, Vector2D(bossTrans->getPos().getX() + bossTrans->getW()*1.75, bossTrans->getPos().getY() + bossTrans->getH() * 1.75), 256, 128);
 	}	
 	arrowIm_ = sphere->addComponent<FramedImage>(FRAMEDIMAGE_H, &SDLUtils::instance()->images().at("SphereArrow"), 256, 128, 12);
 	if (distX <= 0) { dirAtk = Vector2D(-1, 0); arrowIm_->setFlip(SDL_FLIP_HORIZONTAL); }
@@ -202,11 +202,11 @@ void AttackLightBossComponent::attack2()
 	Entity* ray = new Entity();
 	if (distX <= 0) 
 	{ 
-		rayTrans_ = ray->addComponent<Transform>(TRANSFORM_H, Vector2D(0, bossTrans->getPos().getY() + bossTrans->getH()+8), bossTrans->getPos().getX()+bossTrans->getW()-40, 128);
+		rayTrans_ = ray->addComponent<Transform>(TRANSFORM_H, Vector2D(0, bossTrans->getPos().getY() + bossTrans->getH()*2-12), bossTrans->getPos().getX()+bossTrans->getW()*0.2, 128);
 	}
 	else 
 	{
-		rayTrans_ = ray->addComponent<Transform>(TRANSFORM_H, Vector2D(bossTrans->getPos().getX() + bossTrans->getW() + 90, bossTrans->getPos().getY() + bossTrans->getH()+8), BACKGROUNDBEU_WIDTH - bossTrans->getPos().getX(), 128); 
+		rayTrans_ = ray->addComponent<Transform>(TRANSFORM_H, Vector2D(bossTrans->getPos().getX() + bossTrans->getW()*2.2, bossTrans->getPos().getY() + bossTrans->getH() * 2 - 12), BACKGROUNDBEU_WIDTH - bossTrans->getPos().getX(), 128);
 	}		
 	ray->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(0, bossTrans->getH() / 4), bossTrans->getH() / 2, rayTrans_->getW());
 	ray->addComponent<ColDetectorComponent>(COLDETECTORCOMPONENT_H, ray, player_);
