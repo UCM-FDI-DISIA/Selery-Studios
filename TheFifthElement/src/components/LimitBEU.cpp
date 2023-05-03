@@ -7,8 +7,8 @@ LimitBEU::LimitBEU(bool staticCamera) {
 void LimitBEU::initComponent() {
 	tr_ = ent_->getComponent<Transform>(TRANSFORM_H);
 	jmp_ = ent_->getComponent<JumpComponent>(JUMP_H);
-	downLimit = /*sdlutils().height()*/WIN_HEIGHT - (tr_->getH()*tr_->getS());
-	topLimit = /*sdlutils().height()*/ WIN_HEIGHT * 0.3;
+	downLimit = /*sdlutils().height()*/WIN_HEIGHT - (tr_->getH()*tr_->getS())-60;//cao: he añadido un - porque al poder bajar hasta abajo en la pelea contra el boss de luz tienes un espacio muy apmlio donde evitar ataques sin peligro
+	topLimit = /*sdlutils().height()*/ WIN_HEIGHT * 0.3 +20; //aqui hice lo mismo
 }
 
 void LimitBEU::update() {
