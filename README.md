@@ -152,6 +152,14 @@ Daño = CaracterísticaDaño
 - Habilidad especial: El personaje se queda parado e invoca dos manos gigantes de roca que machacan el suelo, (doble hit)
 
 **Potenciadores**
+Cuando matas a un enemigo tienes una cierta probabilidad de obtener un potenciador de uno de estos tipos:
+-Recuperar vida.
+-Potenciar el daño (duración entre 10 y 15 segundos).
+-Potenciar la velocidad de movimiento (duración entre 10 y 15 segundos).
+-Escudo (te hace invulnerable al siguiente golpe que recibas, a no ser que ese golpe sea capaz de matarte, se puede acumular hasta 2).
+-Reducción de daño (recibes la mitad de daño entre 10 y 15 segundos).
+
+Estos potenciadores son indicados en el HUD con un símbolo correspondiente a cada uno.
 
 ### DISEÑO DE NIVEL Y PUZZLES
 El mapa de juego está dividido en 5 zonas que están diferenciadas de manera que representan a uno de los elementos.
@@ -333,11 +341,11 @@ Este menú aparece al interactuar con un comerciante. Consta de 8 botones de mej
 ![Tienda](https://github.com/UCM-FDI-DISIA/Selery-Studios/raw/main/imgs/Tienda.png)
 
 ### HISTORIA Y NARRATIVA
-Nos situamos en Pivo, una tierra donde hay heraldos. Estos están encargados del equilibrio del mundo. Tras una trifulca entre los hermanos, el mundo se divide en cinco partes: fuego, agua, aire, tierra y Sondeluz, una por cada hermano. 
+Nos situamos en Pivo, una tierra donde hay heraldos. Estos están encargados del equilibrio del mundo. Tras una trifulca entre los hermanos, el mundo se divide en cinco partes: fuego, agua, aire, tierra y Luz, una por cada hermano. 
 
-Tras unos años, el hermano Aire recibe la carta de un siervo de Sondeluz, el quinto hermano, el cual ha fallecido. Como última voluntad pidió reunir a todos los hermanos para despedirle, dada la situación entre los hermanos, será tarea de Aire encontrar por el bosque al resto de hermanos  y convencerles de ir juntos, resolviendo las diferencias que tienen entre ellos.
+Tras unos años, el hermano Aire recibe la carta de un siervo de Luz, el quinto hermano, el cual ha fallecido. Como última voluntad pidió reunir a todos los hermanos para despedirle, dada la situación entre los hermanos, será tarea de Aire encontrar por el bosque al resto de hermanos  y convencerles de ir juntos, resolviendo las diferencias que tienen entre ellos.
 
-Por el camino se van encontrando enemigos y puzzles, los cuales solo se pueden resolver con la ayuda de la colaboración de los hermanos, SondeLuz lo planeó para que trabajaran juntos y se reconciliasen.
+Por el camino se van encontrando enemigos y puzzles, los cuales solo se pueden resolver con la ayuda de la colaboración de los hermanos, Luz lo planeó para que trabajaran juntos y se reconciliasen.
 
 Cada zona representa una etapa del duelo
 Etapa de la negación: Aire
