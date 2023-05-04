@@ -66,7 +66,7 @@ Proyecto que combina navegación en un mapa TopDown con elementos de gestión de
 ### PÚBLICO OBJETIVO
 **Clasificación PEGI**
 
-Debido a que el juego tiene una violencia poco detallada en implícita podríamos calificarlo como PEGI 7.
+Debido a que el juego tiene violencia poco detallada e implícita podríamos calificarlo como PEGI 7.
 
 **Perfil de jugador**
 
@@ -131,54 +131,51 @@ Daño = CaracterísticaDaño
 - Ataque básico: Katanazo. (pulsando 1 vez)
 - Ataque básico 2: Katanazo + ráfaga de katanazos (pulsando 2 veces)
 - Ataque básico 3: Katanazo + ráfaga de katanazos + tornado (pulsando 3 veces)
-- Habilidad especial: Ataque rápido que atraviesa al enemigo 
+- Habilidad especial: Ataque rápido en múltiples direcciones que atraviesa al enemigo 
 
 **Fuego:**
 - Ataque básico: Espadazo. (pulsando 1 vez) 
 - Ataque básico 2: Espadazo + pirueta. (pulsando 2 veces)
 - Ataque básico 3: Espadazo + pirueta + explosión (pulsando 3 veces)
-- Habilidad especial: El personaje se queda 1 segundo parado cargando la espada (se queda expuesto), cuando está cargada, al soltar el botón se lanza un ataque que proyecta una llamarada de fuego.
-La habilidad especial tendrá un multiplicador mayor en enemigos de Tierra.
-Daño= CaracterísticaDaño*2
+- Habilidad especial: El personaje se queda 1 segundo parado cargando la espada (se queda expuesto), cuando está cargada, se lanza un ataque que proyecta una llamarada de fuego.
 
 **Agua:** 
 - Ataque básico: Estocada. (pulsando 1 vez)
 - Ataque básico 2: Estocada + estocada larga (pulsando 2 veces)
 - Ataque básico 3: Estocada + estocada larga + ola (pulsando 3 veces)
-- Habilidad especial: Creas una burbuja que aplasta al enemigo. Deja un rastro de pìnchos de hielo (doble hit)
-- La habilidad especial tendrá un multiplicador mayor en enemigos de Fuego
-Daño = CaracterísticaDaño * 2
+- Habilidad especial: Creas una burbuja, esta sube y cuando crece lo suficiente golpea con fiereza el suelo creando una explosión de rango medio.
 
 **Tierra:**
 - Ataque básico: Puñetazo. (pulsando 1 vez)
 - Ataque básico 2: Puñetazo + doble puñetazo. (pulsando 2 veces)
 -  básico 3: Puñetazo + doble puñetazo + terremoto. (pulsando 3 veces)
 - Habilidad especial: El personaje se queda parado e invoca dos manos gigantes de roca que machacan el suelo, (doble hit)
-- La habilidad especial tendrá un multiplicador mayor en enemigos de Agua..
-Daño = CaracterísticaDaño*2
+
+**Potenciadores**
 
 ### DISEÑO DE NIVEL Y PUZZLES
-A lo largo del juego se van a poder ir desbloqueando a los distintos personajes jugables. Estos te van a proporcionar también la posibilidad de utilizarlos en modo exploración (intercambiándolos de la misma forma que el en modo Beat Em Up). Cada uno proporcionará una mecánica distinta una vez desbloqueados:
-
-**Fuego**
-
-A lo largo del mapa habrá distintos altares apagados alrededor de un cofre, con el personaje de fuego podrás acercarte y encenderlos. Para poder desbloquear el cofre tendrás que encender los distintos altares (como máximo cuatro) en un orden específico, que es tarea del jugador descubrir, podrá estar señalado en el mapa el orden en el que deben ser.
-
-![Imagen pedestales](https://github.com/UCM-FDI-DISIA/Selery-Studios/raw/main/imgs/altares.png)
+El mapa de juego está dividido en 5 zonas que están diferenciadas de manera que representan a uno de los elementos.
+Habrá tres herreros, los cuáles son los encargados de mejorar nuestro equipamiento para tener más daño y más vida.
+El orden es el siguiente:
+-Primero tenemos el Reino de Aire, es el más estándar ya que sirve para introducir al jugador a la estética del juego. En este mundo introducimos el lore a través de los NPCs con los que habrá que hablar para desbloquear el siguiente reino, el cual se sitúa al suroeste de nuestra posición.
+-Trás completar las quests designadas al principio de la partida, podremos ir al Reino de Fuego donde nos encontramos a nuestro primer jefe. En caso de ganarle nos encontraremos con nuestro primer hermano, y podremos empezar a utilizarlo tanto en el Modo Exploración como en el modo BeatEmUp.
+-Nuestro siguiente reino es el Reino de Tierra, el cual nos introduce un ambiente desértico. Aquí encontraremos al segundo jefe.
+-Por último el Reino de Agua en la parte noreste del mapa, destaca por su abundante cantidad de agua. El jefe que nos espera es el jefe helado.
+Tras haber completado las quests, podremos tomar un portal ubicado en el centro del mapa que nos llevará al Reino de Luz, donde lucharemos con nuestro hermano y llegaremos al final del juego.
+Los personajes desbloqueados nos proporcionan la capacidad de usarlos en combate y a la hora de explorar, para poder completar ciertos puzzles que nos otorgan dinero.
+Los puzzles son los siguientes:
 
 **Agua**
-Funciona de la misma forma que con el personaje de fuego pero en vez de altares con “copas”.
+A lo largo del mapa habrá distintas copas vacías, con el personaje de agua podrás acercarte y rellenarlas. Para poder obtener dinero tendrás que rellenar las copas (como máximo cuatro) en un orden específico, que es tarea del jugador descubrir.
 
 ![Imagen copas1](https://github.com/UCM-FDI-DISIA/Selery-Studios/raw/main/imgs/copas1.png)
 
 ![Imagen copas2](https://github.com/UCM-FDI-DISIA/Selery-Studios/raw/main/imgs/copas2.png)
 
-
 **Roca** 
-El mapa tendrá zonas bloqueadas a las que no se puede acceder por estar bloqueadas por una roca. Con el personaje de piedra se podrá destruir esta y acceder a esta nueva zona, la cual será una pequeña zona que podrá contar con cofres y enemigos.
+El mapa tendrá pilares los cuales deberemos de mover en una dirección concreta una cierta distancia. Si el jugador consigue colocarlos de la manera correcta recibirá como recompensa dinero.
 
 ![Imagen Rocas](https://github.com/UCM-FDI-DISIA/Selery-Studios/raw/main/imgs/rocas.png)
-
 
 ### DINÁMICA
 **Quests**
@@ -191,7 +188,7 @@ Para empezar el combate, en el modo exploración, los enemigos tendrán una ruta
 
 ![Imagen detección](https://github.com/UCM-FDI-DISIA/Selery-Studios/raw/main/imgs/deteccion.png)
 
-El enemigo está representado como un punto negro. El cuadrado más grande representa la primera zona donde detecta, en esta avisará al jugador mediante una música distinta y una representación gráfica (exclamación en la cabeza). Si el jugador pasa a la segunda zona (la del color más intenso) el enemigo detectará al jugador, aparecerá una exclamación y posteriormente iniciará el modo combate.
+El enemigo está representado como un punto negro. El cuadrado más grande representa la primera zona donde detecta, en esta avisará al jugador mediante  representación gráfica (exclamación en la cabeza). Si el jugador pasa a la segunda zona (la del color más intenso) el enemigo detectará al jugador y posteriormente iniciará el modo combate.
 
 **Sistema de combate**
 
@@ -199,7 +196,7 @@ El combate será de tipo beat em’ up, en el que nuestro personaje se colocará
 
 **Dinámica de combate contra jefes** 
 
-Los jefes presentarán distintas dinámicas de combate con respecto a los enemigos normales, a continuación especificaremos cada uno de ellos. Todos ellos tendrán una barra de vida en la parte superior de nuestra pantalla.
+Los jefes presentarán distintas dinámicas de combate con respecto a los enemigos normales, a continuación especificaremos cada uno de ellos. Todos ellos tendrán una barra de vida en la parte superior derecha de nuestra pantalla.
 
 **Jefe de Tierra (golems y ciervo)**
 
@@ -306,6 +303,8 @@ Se podrá mejorar las estadísticas de ataque y salud máxima en los mercaderes 
 
 **Barra de vida:** aparece en la esquina superior izquierda, mostrando la salud actual de cada personaje. También, encima de cada enemigo, aparece su respectiva barra de vida.
 
+**Timer de habilidad especial:**  está justo a la derecha de la barra de vida. Se pone a 0 cuando realizamos una habilidad especial y en ese momento comienza una cuenta hasta 10, momento en el que podremos volver a utilizar una habilidad especial.
+
 **Rueda de personajes:** se diferencia de la del modo exploración en que no contiene las estadísticas de ataque y salud, y las monedas.
 
 ![Mockup pantalla 1](https://github.com/UCM-FDI-DISIA/Selery-Studios/raw/main/imgs/UI.png)
@@ -314,11 +313,10 @@ Se podrá mejorar las estadísticas de ataque y salud máxima en los mercaderes 
 ### MENÚS
 **Menú principal**
 
-Menú de inicio que consta de un botón PLAY, un botón EXIT, y una rueda para cambiar los ajustes. 
-
+Menú de inicio que consta de un botón PLAY, un botón de LOAD para cargar la partida, un botón EXIT, y una rueda que nos lleva al menú de ajustes
 **Pantalla de ajustes** 
 
-En esta pantalla podemos cambiar el volumen del juego, los SFX, y ver los controles.
+En esta pantalla podemos cambiar el volumen del juego, los SFX, y ver los controles tanto para mando como para teclado.
 
 **Menú pausa** 
 
@@ -358,10 +356,12 @@ Existirá la posibilidad de cambiar de hermano, siempre que se le tenga desbloqu
 **Enemigos:** Su función será detectar al jugador mediante un área para empezar el modo Beat em’up. 
 
 **Beat em’up**
-Personaje principal: podrá cambiarse en mitad de la partida con las teclas 1, 2, 3 y 4 (igual que en el mundo abierto). Constará de un combo de tres ataques y uno especial.
+**Personaje principal:** podrá cambiarse en mitad de la partida con las teclas 1, 2, 3 y 4 (igual que en el mundo abierto). Constará de un combo de tres ataques y uno especial.
 
-**Enemigos:** serán de diferentes elementos, al igual que el personaje principal. Perseguirán y atacarán al jugador. El daño que ejercen, así como el que reciben, dependen de las mecánicas del combate.
-Aparecerán en oleadas (más o menos numerosas en función del nivel).
+**Enemigos:** los enemigos aparecerán en pantalla gradualmente. Nuestro juego consta con 4 tipos de enemigos: los esqueletos, los murciélagos, los goblins y por último los champiñones. Aparecerán ,aleatoriamente, estos enemigos con tipos aleatorios.
+Los enemigos nos golpean y realizan daño de su tipo propio.
+En el momento en el que el jugador pelea con un número de enemigos, los demás esperarán a que sus compañeros mueran para unirse a la reyerta.
+Todos los enemigos tendrán una barra de vida encima de sus cabezas y cuando estas llegan a cero mueren.
 
 ### REFERENCIAS
 Hemos usado varias fuentes como referencias:
