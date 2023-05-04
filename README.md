@@ -5,12 +5,15 @@
 ---
 [Web del juego](https://ucm-fdi-disia.github.io/Selery-Studios/)
 
-[Enlace al release]()
+[Enlace al release](https://ucm-fdi-disia.github.io/Selery-Studios/)
 
 [Enlace al vídeo](https://youtu.be/5eOVw7ZBvOQ)
 
-[Presentaciones]()
+[Presentaciones](https://github.com/UCM-FDI-DISIA/Selery-Studios/raw/main/docs/presentaciones)
 
+[UML](#uml)
+
+[QA](#qa)
 
 ## GDD
 ---
