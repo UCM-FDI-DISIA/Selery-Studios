@@ -65,15 +65,20 @@ Proyecto que combina navegación en un mapa TopDown con elementos de gestión de
 
 ### PÚBLICO OBJETIVO
 **Clasificación PEGI**
+
 Debido a que el juego tiene una violencia poco detallada en implícita podríamos calificarlo como PEGI 7.
-**Perfil de jugador** 
+
+**Perfil de jugador**
+
 El perfil de nuestro jugador encaja en personas tanto jóvenes adolescentes como adultos que quieran verse envueltos en una narrativa curiosa y poco común. Nuestro público objetivo también disfrutará de lo divertida que es la experiencia. Sobre todo buscamos un público abierto a afrontar retos que atentan contra los nervios.
 
 ### GÉNERO
-**Aventura** 
+**Aventura**
+
 Debido a su enfoque en la historia y en su forma de avanzar para ir desentramando la historia.
 
-**Beat em’up** 
+**Beat em’up**
+
 El género beat em’ up se encuentra en las escenas de lucha, en las cuales lucharemos contra un número de enemigos indefinido.
 
 A su vez, al ser un juego con una narrativa tan fácil de seguir y  unas mecánicas tan intuitivas, los jugadores casuales, que no tienen tanto bagaje en el mundo del videojuego, pueden encontrar en nuestro juego una muy buena experiencia.
@@ -86,12 +91,14 @@ Cámara en movimiento siguiendo al jugador dentro de los límites del escenario 
 
 ### MECÁNICAS
 **Sistema de movimiento**
+
 Tendremos dos tipos de movimientos, aunque estos serán muy similares entre sí.
 Por una parte tenemos el movimiento en el modo TopDown, en este podremos movernos con AWSD en el eje X e Y. 
 En el modo Beat Em Up también podremos movernos con WASD, con AD se realizan movimientos en horizontal y con WS en profundidad (habiendo límites en los bordes del mapa que no se pueden superar), además será posible saltar (tanto en el sitio como moviéndose horizontalmente).
 Si en el modo TopDown, mientras nos movemos a la derecha, por ejemplo, pulsamos W, para movernos hacia arriba, la instrucción que impera es la primera.
 
 **Sistema de combate**
+
 Nuestro sistema de combate se basa en los elementos Fuego, Agua, Tierra y Aire, siendo este último el elemento neutro.
 A continuación un grafo que explica la relación entre elementos:
 
@@ -153,7 +160,8 @@ Daño = CaracterísticaDaño*2
 ### DISEÑO DE NIVEL Y PUZZLES
 A lo largo del juego se van a poder ir desbloqueando a los distintos personajes jugables. Estos te van a proporcionar también la posibilidad de utilizarlos en modo exploración (intercambiándolos de la misma forma que el en modo Beat Em Up). Cada uno proporcionará una mecánica distinta una vez desbloqueados:
 
-**Fuego** 
+**Fuego**
+
 A lo largo del mapa habrá distintos altares apagados alrededor de un cofre, con el personaje de fuego podrás acercarte y encenderlos. Para poder desbloquear el cofre tendrás que encender los distintos altares (como máximo cuatro) en un orden específico, que es tarea del jugador descubrir, podrá estar señalado en el mapa el orden en el que deben ser.
 
 ![Imagen pedestales](https://github.com/UCM-FDI-DISIA/Selery-Studios/raw/main/imgs/altares.png)
@@ -174,9 +182,11 @@ El mapa tendrá zonas bloqueadas a las que no se puede acceder por estar bloquea
 
 ### DINÁMICA
 **Quests**
+
 En el modo exploración, al hablar con ciertos NPCs, estos nos darán una serie de quests que debemos ir completando para poder ir avanzando por el mapa.
 
 **Sistema de detección**
+
 Para empezar el combate, en el modo exploración, los enemigos tendrán una ruta predeterminada. Cada enemigo tendrá dos zonas, será un cuadrado dentro de otro como se muestra en siguiente imagen:
 
 ![Imagen detección](https://github.com/UCM-FDI-DISIA/Selery-Studios/raw/main/imgs/deteccion.png)
@@ -184,11 +194,15 @@ Para empezar el combate, en el modo exploración, los enemigos tendrán una ruta
 El enemigo está representado como un punto negro. El cuadrado más grande representa la primera zona donde detecta, en esta avisará al jugador mediante una música distinta y una representación gráfica (exclamación en la cabeza). Si el jugador pasa a la segunda zona (la del color más intenso) el enemigo detectará al jugador, aparecerá una exclamación y posteriormente iniciará el modo combate.
 
 **Sistema de combate**
+
 El combate será de tipo beat em’ up, en el que nuestro personaje se colocará a la izquierda y los enemigos a la derecha. El personaje, independientemente de quien sea, tendrá un combo de tres ataques y un ataque especial, el cuál contará con un cooldown entre usos. Se podrá cambiar de personaje en medio del combate, con un cooldown establecido.
 
 **Dinámica de combate contra jefes** 
+
 Los jefes presentarán distintas dinámicas de combate con respecto a los enemigos normales, a continuación especificaremos cada uno de ellos. Todos ellos tendrán una barra de vida en la parte superior de nuestra pantalla.
+
 **Jefe de Tierra (golems y ciervo)**
+
 Se encontrará al final del reino de Tierra.
 Al comienzo de la pelea, nos encontraremos con un golem normal cuyo único comportamiento es ir hacia el jugador y golpearle con un puñetazo. Este golem será fácil de derrotar. Al derrotarlo, dejará rocas en el lugar de su muerte. 
 Tras este aparecerá otro golem (skin con yerbajos), a diferenciar del otro, este puede protegerse, lo que nos complicará a la hora de derrotarlo. Dejará sus restos al ser derrotado.
@@ -207,6 +221,7 @@ Velocidad de movimiento y velocidad de ataque progresiva cuando baja su salud.
 ![Imagen Ciervo](https://github.com/UCM-FDI-DISIA/Selery-Studios/raw/main/imgs/ciervo.gif)
 
 **Jefe de Fuego**
+
 Este jefe se ubicará en la parte derecha del escenario, su forma de ataque será: moverse desde la esquina derecha hacia el jugador, quedarse quieto y atacar para luego volver a su esquina derecha.
 
 Cuando pierde el 25% de su vida invocará dos pilares de fuego y el jefe pasará a un estado donde se quedará quieto, no se le podrá hacer daño y recuperará vida, esto continuará así hasta que el jugador elimine los pilares.
@@ -216,6 +231,7 @@ Al 50% de vida perdida, invoca a 3 enemigos de fuego y sale de la pantalla, una 
 Al perder el 75% de la vida, vuelve a invocar pilares, esta vez tres, y pasar al estado anterior.
 
 **Jefe de Agua(golem de hielo)**
+
 La mecánica principal de esta batalla es esquivar. El jefe contará con una armadura de hielo que le hará invulnerable a los ataques del jugador, por lo que se deberá evitar el daño de sus dos ataques hasta detectar una ventana en la que realizarle daño.
 
 El jefe solo se moverá para realizar sus ataques (no seguirá al jugador). Para realizar el primer ataque se colocará cerca del borde derecho de la pantalla, mientras que para realizar el segundo ataque caminará a una posición más cerca del centro de la pantalla (en el eje horizontal).
@@ -240,6 +256,7 @@ Al terminar el ataque realizará la animación del principio de forma inversa (r
 ![Mockup boss agua 2](https://github.com/UCM-FDI-DISIA/Selery-Studios/raw/main/imgs/mockupWaterBoss1.png)
 
 **Jefe de Luz( hermano de Luz)** 
+
 Primer ataque: bola de luz (se puede devolver)
 
 ![Primer ataque](https://github.com/UCM-FDI-DISIA/Selery-Studios/raw/main/imgs/mockupLightBoss1.png)
@@ -253,16 +270,19 @@ Entre un 40% y un 20% de la vida si el jugador se acerca demasiado el boss se te
 Al perder un 80% de la vida las luces empezarán a apagarse y encenderse cada pocos segundos y el combate seguirá como antes.
 
 **Tienda**
+
 El jugador podrá comprar mejoras en una tienda para mejorar sus estadísticas tanto de ataque como de salud a cambio de monedas obtenidas como recompensas en los combates. Estas mejoras son independientes de cada personaje elemental, es decir, podemos obtener mejoras de ataque y/o de salud para cada uno de los 4 personajes que podremos conseguir durante el juego.
 
 
 
 ### ESTÉTICA
 **Estilo gráfico** 
+
 El estilo gráfico de nuestro proyecto es de tipo Pixel-Art. 
 Desde el punto de vista artístico existirán dos tipos de entorno, uno para el mundo abierto (con más detalle) y otro para las escenas de combate (menos pixeles).
 
 **Recursos** 
+
 Los recursos han sido tomados de itchi.io. Algunos los hemos adquirido de forma gratuita y otros los hemos comprado, por lo que, tenemos plena potestad, sobre su uso según el Real Decreto Legislativo 1/1996, de 12 de abril, por el que se aprueba el texto refundido de la Ley de Propiedad Intelectual, regularizando, aclarando y armonizando las disposiciones legales vigentes sobre la materia.
 
 ### DESCRIPCIÓN PARTIDA TÍPICA
@@ -274,6 +294,7 @@ Se podrá mejorar las estadísticas de ataque y salud máxima en los mercaderes 
 ### HUD
 
 **Modo exploración**
+
 **Rueda de personajes:** aparece en la esquina superior izquierda. Muestra al personaje que tenemos seleccionado actualmente(en grande), además también los personajes que tenemos desbloqueados(en pequeño). En adición podemos ver las estadísticas actuales de cada personaje(también en la rueda y en pequeño).
 
 **Monedas:** aparecen en el mismo layout de la rueda y muestran las monedas actuales que tenemos.
@@ -282,6 +303,7 @@ Se podrá mejorar las estadísticas de ataque y salud máxima en los mercaderes 
 
 
 **Beat em’up**
+
 **Barra de vida:** aparece en la esquina superior izquierda, mostrando la salud actual de cada personaje. También, encima de cada enemigo, aparece su respectiva barra de vida.
 
 **Rueda de personajes:** se diferencia de la del modo exploración en que no contiene las estadísticas de ataque y salud, y las monedas.
@@ -291,18 +313,23 @@ Se podrá mejorar las estadísticas de ataque y salud máxima en los mercaderes 
 
 ### MENÚS
 **Menú principal**
+
 Menú de inicio que consta de un botón PLAY, un botón EXIT, y una rueda para cambiar los ajustes. 
 
 **Pantalla de ajustes** 
+
 En esta pantalla podemos cambiar el volumen del juego, los SFX, y ver los controles.
 
 **Menú pausa** 
+
 En esta pantalla el juego estará en pausa. Podemos volver al juego con un botón RESUME, salir al menú principal con un botón MENÚ, además de la rueda para cambiar los ajustes.
 
-**Menú End Game** 
+**Menú End Game**
+
 Cuando nos pasamos el juego aparece un menú con los créditos con un botón de MENÚ para volver al menú principal y otro botón REPLAY para volver a jugar. 
 
 **Menú de tienda**
+
 Este menú aparece al interactuar con un comerciante. Consta de 8 botones de mejora, 4 para las mejoras de ataque y 4 para las mejoras de salud. Podemos mejorar hasta 10 veces cada una de las estadísticas siendo su precio incrementado en cada compra.
 
 ![Tienda](https://github.com/UCM-FDI-DISIA/Selery-Studios/raw/main/imgs/Tienda.png)
@@ -333,7 +360,7 @@ Existirá la posibilidad de cambiar de hermano, siempre que se le tenga desbloqu
 **Beat em’up**
 Personaje principal: podrá cambiarse en mitad de la partida con las teclas 1, 2, 3 y 4 (igual que en el mundo abierto). Constará de un combo de tres ataques y uno especial.
 
-Enemigos: serán de diferentes elementos, al igual que el personaje principal. Perseguirán y atacarán al jugador. El daño que ejercen, así como el que reciben, dependen de las mecánicas del combate.
+**Enemigos:** serán de diferentes elementos, al igual que el personaje principal. Perseguirán y atacarán al jugador. El daño que ejercen, así como el que reciben, dependen de las mecánicas del combate.
 Aparecerán en oleadas (más o menos numerosas en función del nivel).
 
 ### REFERENCIAS
