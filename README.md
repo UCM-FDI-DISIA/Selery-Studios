@@ -348,10 +348,15 @@ Tras unos años, el hermano Aire recibe la carta de un siervo de Luz, el quinto 
 Por el camino se van encontrando enemigos y puzzles, los cuales solo se pueden resolver con la ayuda de la colaboración de los hermanos, Luz lo planeó para que trabajaran juntos y se reconciliasen.
 
 Cada zona representa una etapa del duelo
+
 Etapa de la negación: Aire
+
 Etapa de la ira: Fuego
+
 Etapa de la negociación: Tierra
+
 Etapa de la depresión: Agua
+
 Etapa de la aceptación: Luz
 
 ### PERSONAJES Y ENEMIGOS
