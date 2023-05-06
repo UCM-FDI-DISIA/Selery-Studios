@@ -4,8 +4,8 @@ void ThrowableObject::initComponent() {
 	trPlayer = ent_->getComponent<Transform>(TRANSFORM_H);
 	stone = new Entity();
 	stone->setContext(mngr_);
-	trStone = stone->addComponent<Transform>(TRANSFORM_H, trPlayer->getPos(), trPlayer->getW(), trPlayer->getH(), 1, 5);
-	imageStone = stone->addComponent<FramedImage>(FRAMEDIMAGE_H, &SDLUtils::instance()->images().at("v1stone1"), 224, 192, 1, "earth");
+	trStone = stone->addComponent<Transform>(TRANSFORM_H, trPlayer->getPos(), trPlayer->getW() / (WIN_WIDTH / 900 * trPlayer->getSize()), trPlayer->getH() / (WIN_HEIGHT / 600 * trPlayer->getSize()), 1, 5);
+	imageStone = stone->addComponent<FramedImage>(FRAMEDIMAGE_H, &SDLUtils::instance()->images().at("v1stone1"), 224, 192, 1, "EarthBoss");
 	imageStone->setTexKey("v1stone1");
 	
 	mngr_->addEntity(stone);
@@ -18,7 +18,7 @@ void ThrowableObject::update() {
 	Vector2D posPlayer = trPlayer->getPos();
 
 	if (!thrown) {
-		trStone->setPos(posPlayer - Vector2D(0, 20));
+		trStone->setPos(posPlayer + Vector2D(trPlayer->getW() / 2 - trStone->getW() / 2, trPlayer->getH() / 2 - trStone->getH() / 2));
 	}
 	else
 	{
@@ -30,10 +30,6 @@ void ThrowableObject::update() {
 			trStone->setPos(trStone->getPos() + trStone->getDir() * trStone->getVel());
 		}
 	}
-}
-
-void ThrowableObject::render() {
-
 }
 
 void ThrowableObject::throwStone() {

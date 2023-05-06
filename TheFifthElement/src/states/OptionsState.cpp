@@ -22,12 +22,8 @@ OptionsState::~OptionsState()
 
 void OptionsState::Background(string file) {
 	Entity* e = new Entity();
-
-	int f = 0;
-	bool matrix = false;
-	Vector2D v = { 0,0 };
-	int r = 0;
-	e->addComponent<Transform>(TRANSFORM_H, v, 900, 600, r, 0, f, matrix);
+	Vector2D pos = { 0,0 };
+	e->addComponent<Transform>(TRANSFORM_H, pos, 900, 600, 1);
 	Texture* t = &SDLUtils::instance()->images().at(file);
 	e->addComponent<Image>(IMAGE_H, t);
 	addEntity(e);
@@ -51,6 +47,8 @@ void OptionsState::render() {
 }
 void OptionsState::update() {
 	Manager::update();
+	SDL_Rect dest3 = { 290 * WIN_WIDTH / 900, (50 * WIN_WIDTH / 60) - 50 * WIN_WIDTH / 600, 50 * WIN_HEIGHT / 900, 50 * WIN_HEIGHT / 600 };
+	SDLUtils::instance()->images().at("X").render(dest3);
 }
 void OptionsState::handleEvents()
 {
@@ -146,10 +144,15 @@ void OptionsState::deleteButtonsBEU()
 	sliderBrillo->~Entity();
 	sliderSonido->~Entity();
 }
-
 void OptionsState::exitControls()
 {
 	exitActive = true;
-	exitControlsButton = addNewEntity("ReturnButton", 194, 45, Vector2D(10, 10), 1, false, 0.75);
+	const int buttonWidth = 194;
+	const int buttonHeight = 45;
+	const Vector2D buttonPosition(10, 10);
+	exitControlsButton = addNewEntity("ReturnButton", buttonWidth, buttonHeight, buttonPosition, 1, false, 0.75);
 	exitControlsButton->addComponent<Button>(BUTTON_H, "EXITCONTROLS");
+
+
 }
+

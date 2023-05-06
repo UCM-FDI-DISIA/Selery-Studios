@@ -5,10 +5,10 @@
 #include "states/PauseState.h"
 #include "Game.h"
 
-	////Audio de prueba
-	////SDLUtils::instance()->soundEffects().at("prueba").play();
-	//gameStMc->pushState(new TopDownState());
-	////gameStMc->pushState(new BeatEmUpState(this));
+////Audio de prueba
+////SDLUtils::instance()->soundEffects().at("prueba").play();
+//gameStMc->pushState(new TopDownState());
+////gameStMc->pushState(new BeatEmUpState(this));
 
 void GameManager::goBeatEmUp(bool boss, Entity* enemy, string typeboss) {
 	SDLUtils::instance()->soundEffects().at("Title").haltChannel();
@@ -18,23 +18,31 @@ void GameManager::goBeatEmUp(bool boss, Entity* enemy, string typeboss) {
 void GameManager::goTopDown() {
 	SDLUtils::instance()->soundEffects().at("Title").play();
 	GameStateMachine::instance()->popState();
+	Vector2D po = Saving::instance()->getPos();
+	if (po.getX() != 0 && po.getY() != 0) {
+		static_cast<TopDownState*>(GameStateMachine::instance()->currentState())->setPlayerPos(po);
+	}
+	
 }
-void GameManager::goToEndState() {
+
+void GameManager::goToEndState() { //
 	GameStateMachine::instance()->changeState(new EndState());
 }
 
 void GameManager::backToMainMenu() {
 	SDLUtils::instance()->soundEffects().at("Title").haltChannel();
+	/*GameStateMachine::instance()->popState();*/
 	GameStateMachine::instance()->changeState(new MainMenuState());
 }
+
 void GameManager::LoadGame() {
 	SDLUtils::instance()->soundEffects().at("Title").haltChannel();
-	GameStateMachine::instance()->pushState(new TopDownState(true));
+	GameStateMachine::instance()->changeState(new TopDownState(true));
 }
-void GameManager:: leaveMainMenu() {
+
+void GameManager::leaveMainMenu() {
 	SDLUtils::instance()->soundEffects().at("Title").haltChannel();
-	GameStateMachine::instance()->pushState(new TopDownState());
-	//GameStateMachine::instance()->pushState(new BeatEmUpState(false));
+	GameStateMachine::instance()->changeState(new TopDownState());
 }
 
 void GameManager::goPauseMenu() {

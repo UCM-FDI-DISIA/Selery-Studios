@@ -20,7 +20,5 @@ public:
 	void update();
 	virtual ~PortalComponent() {};
 	void Teleport(Vector2D newPlayerPos);
-
-
 };
 

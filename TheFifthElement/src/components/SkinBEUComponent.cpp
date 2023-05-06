@@ -45,7 +45,6 @@ void SkinBEUComponent::setTexture() {
 	if (skin_ == "earth") nframes_ = 6;
 	else nframes_ = 8;
 	im_->setAnim(t_, nframes_, false);
-	////im_->setAnimTexture(t_, nframes_, PLAYERBEU_WIDTH_FRAME, 0);
 	changeMov();
 }
 
@@ -56,37 +55,30 @@ void SkinBEUComponent::changeMov() {
 	{
 	case SkinBEUComponent::Idle:
 		setIdle();
-		////im_->setAnim(false, fila_, nframes_, 0, nframes_);
 		im_->setAnim(t_, nframes_, false);
 		break;
 	case SkinBEUComponent::Left:
 		setLeft();
-		////im_->setAnim(false, fila_, nframes_, 0, nframes_);
 		im_->setAnim(t_, nframes_, false);
 		break;
 	case SkinBEUComponent::Right:
 		setRight();
-		////im_->setAnim(false, fila_, nframes_, 0, nframes_);
 		im_->setAnim(t_, nframes_, false);
 		break;
 	case SkinBEUComponent::Vertical:
 		setVertical();
-		////im_->setAnim(false, fila_, nframes_, 0, nframes_);
 		im_->setAnim(t_, nframes_, false);
 		break;
 	case SkinBEUComponent::Jump:
 		setJump();
-		////im_->setAnim(true, fila_, nframes_, 0, 100);
 		im_->setAnim(t_, nframes_, false);
 		break;
 	case SkinBEUComponent::Hit:
 		setHit();
-		////im_->setAnim(true, fila_, nframes_, 0, nframes_);
 		im_->setAnim(t_, nframes_, true);
 		break;
 	case SkinBEUComponent::Death:
 		setDeath();
-		////im_->setAnim(true, fila_, nframes_, 0, nframes_);
 		im_->setAnim(t_, nframes_, true);
 		break;
 	default:
@@ -106,27 +98,18 @@ void SkinBEUComponent::setIdle() {
 
 	// colliders
 	if (skin_ == "fire") {
-		if (WIN_WIDTH == 1920) {
-			if (!flip_) col_->setCollider(Vector2D(100, 73), 44, 20);
-			else col_->setCollider(Vector2D(97, 73), 44, 20);
-		}
-		else {
-			if (!flip_) col_->setCollider(Vector2D(95, 83), 44, 20);
-			else col_->setCollider(Vector2D(92, 83), 44, 20);
-		}
+		if (!flip_) col_->setCollider(Vector2D(95, 83), 44, 20);
+		else col_->setCollider(Vector2D(92, 83), 44, 20);
 
 	}
 	else if (skin_ == "water") {
-		if(WIN_WIDTH == 1920)col_->setCollider(Vector2D(102, 79), 38, 15);
-		else col_->setCollider(Vector2D(97, 89), 38, 15);
+		col_->setCollider(Vector2D(97, 89), 38, 15);
 	}
 	else if (skin_ == "air") {
-		if (WIN_WIDTH == 1920)col_->setCollider(Vector2D(97, 81), 36, 23);
-		else col_->setCollider(Vector2D(92, 91), 36, 23);
+		col_->setCollider(Vector2D(92, 91), 36, 23);
 	}
 	else if (skin_ == "earth") {
-		if (WIN_WIDTH == 1920)col_->setCollider(Vector2D(103, 75), 36, 13);
-		else col_->setCollider(Vector2D(98, 85), 36, 13);
+		 col_->setCollider(Vector2D(98, 85), 36, 13);
 	}
 }
 

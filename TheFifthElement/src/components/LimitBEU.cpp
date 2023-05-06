@@ -1,14 +1,34 @@
 #include "LimitBEU.h"
 
-LimitBEU::LimitBEU(bool staticCamera) {
-	stCam_ = staticCamera;
+LimitBEU::LimitBEU(string type) {
+	type_ = type;
 }
 
 void LimitBEU::initComponent() {
 	tr_ = ent_->getComponent<Transform>(TRANSFORM_H);
 	jmp_ = ent_->getComponent<JumpComponent>(JUMP_H);
-	downLimit = /*sdlutils().height()*/WIN_HEIGHT - (tr_->getH()*tr_->getS())-60;//cao: he añadido un - porque al poder bajar hasta abajo en la pelea contra el boss de luz tienes un espacio muy apmlio donde evitar ataques sin peligro
-	topLimit = /*sdlutils().height()*/ WIN_HEIGHT * 0.3 +20; //aqui hice lo mismo
+	
+	if (type_ == "water") {
+		downLimit = WIN_HEIGHT - (tr_->getH());
+		topLimit = WIN_HEIGHT * 0.18;
+		rightLimit = WIN_WIDTH -  (50 * tr_->getScaleW() + (tr_->getW()) / 2);
+	}
+	else if (type_ == "fire") {
+		downLimit = WIN_HEIGHT - (tr_->getH());
+		topLimit = WIN_HEIGHT * 0.43;
+		rightLimit = WIN_WIDTH - (50 * tr_->getScaleW() + (tr_->getW()) / 2);
+	}
+	else if (type_ == "light") {
+		downLimit = WIN_HEIGHT - (tr_->getH()*1.25);
+		topLimit = WIN_HEIGHT * 0.25;
+		rightLimit = BACKGROUNDLIGHTBOSS_WIDTH- (250 * WIN_WIDTH / 900); // si es camara fija cambiar por WIN_WIDTH - (50 * tr_->getScaleW() + (tr_->getW()) / 2)
+	}
+	// fondo normal y jefe de tierra
+	else {
+		downLimit = WIN_HEIGHT * 0.44;
+		topLimit = WIN_HEIGHT * 0.29;
+		rightLimit = BACKGROUNDLIGHTBOSS_WIDTH -(290*WIN_WIDTH/900);
+	}
 }
 
 void LimitBEU::update() {
@@ -18,13 +38,6 @@ void LimitBEU::update() {
 	else if (tr_->getPos().getY() > downLimit) { tr_->setPos(Vector2D(tr_->getPos().getX(), downLimit)); }
 	
 	// límites horizontales
-	if (tr_->getPos().getX() < ( - 150  * tr_->getScale())) { tr_->setPos(Vector2D(-150 * tr_->getScale(), tr_->getPos().getY())); }
-	else{
-
-		if (stCam_ && tr_->getPos().getX() > WIN_WIDTH- (150 *tr_->getScale()+(tr_->getW()*tr_->getScale()) / 2))
-			tr_->setPos(Vector2D(WIN_WIDTH - (150 * tr_->getScale() + (tr_->getW() * tr_->getScale()) / 2), tr_->getPos().getY()));
-
-		else if	(tr_->getPos().getX() > BACKGROUNDBEU_WIDTH - (tr_->getW() * tr_->getS()) * 1.25)
-			tr_->setPos(Vector2D(BACKGROUNDBEU_WIDTH - (tr_->getW() * tr_->getS()) * 1.25, tr_->getPos().getY()));
-	}
+	if (tr_->getPos().getX() < ( - 180  * tr_->getScaleW())) { tr_->setPos(Vector2D(-180 * tr_->getScaleW(), tr_->getPos().getY())); }
+	else if (tr_->getPos().getX() > rightLimit) { tr_->setPos(Vector2D(rightLimit, tr_->getPos().getY())); }
 }

@@ -8,10 +8,10 @@ class LimitBEU : public Component {
 private:
     Transform* tr_ = nullptr;
     JumpComponent* jmp_ = nullptr;
-    float downLimit, topLimit;
-    bool stCam_;
+    float downLimit, topLimit, rightLimit;
+    string type_;
 public:
-    LimitBEU(bool staticCamera = false);
+    LimitBEU(string type = "normal");
     void initComponent();
     void update();
 };

@@ -31,7 +31,6 @@ void LifeEarthBossComponent::update() {
 			if (vel + increment < 5) {
 				bossMovement->setVelocity(vel + increment);
 			}
-			
 		}
 		else if (slowTime + 2 < timeExecution)
 		{
@@ -40,6 +39,7 @@ void LifeEarthBossComponent::update() {
 	}
 	if (die_ && !bossImage->isAnimPlaying()) {
 		ent_->setAlive(false);
+		Quests::instance()->completedQuest("siblings");
 		static_cast<BeatEmUpState*>(mngr_)->finishBEU();
 	}
 	else if (hit_ && cont >= hitTime) hit_ = false;
@@ -115,8 +115,6 @@ void LifeEarthBossComponent::stageThree() {
 }
 
 void LifeEarthBossComponent::render() {
-	SDL_Rect src = { 0, 0, 400, 50 };
-
 	SDL_Rect dest;
 	dest.x = 8 * (WIN_WIDTH / 13);
 	dest.y = 35 * scale;

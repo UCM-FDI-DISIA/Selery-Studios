@@ -14,7 +14,7 @@ private:
 	Texture* tex_;	// Imagen a rederizar
 	SDL_RendererFlip s = SDL_FLIP_NONE;
 	SDL_Rect dest, src;
-	bool isAnimUnstoppable_ = false;
+	bool isAnimUnstoppable_ = false, animationInDifferentsRows = false;
 	float frameRate = FRAME_RATE;
 	string type_, texKey_ = "";
 public:

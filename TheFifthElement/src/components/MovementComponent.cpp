@@ -15,6 +15,3 @@ void MovementComponent::setNewPos(Vector2D position)
 {
 	tr_->setPos(position);
 }
-
-
-

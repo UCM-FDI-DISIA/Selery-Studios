@@ -38,8 +38,6 @@ void PowerUpControler::update() {
     previousFrameType = _myLifeComponent->getType();
 }
 
-
-
 void PowerUpControler::instancePowerUp() {
     int prct = 1 + (rand() % 100);
     if (prct <= 30) { // Fuerza
@@ -57,10 +55,7 @@ void PowerUpControler::instancePowerUp() {
     else if (prct <= 80) { // Curación
         healBonus();
     }
-    // 80 < prct <= 100 // No recibe powerUp
 }
-
-
 
 void PowerUpControler::strenghtBonus() {
     properties().setMult(DMG_MULT);
@@ -102,7 +97,9 @@ void PowerUpControler::healBonus() {
 }
 
 void PowerUpControler::render() {
-    int posx = 90; int posy = 55; // Posición de la barra de vida del playes deplazado hacia abajo
+    // Posición de la barra de vida del playes deplazado hacia abajo
+    int posx = 90 * WIN_WIDTH / 900;
+    int posy = 25 * WIN_HEIGHT / 600 + 32 * WIN_HEIGHT / 600; 
 
     if (properties().getMult() != 1) { // Fuerza
         dmgText->render({ posx, posy, ICON_SIZE, ICON_SIZE });

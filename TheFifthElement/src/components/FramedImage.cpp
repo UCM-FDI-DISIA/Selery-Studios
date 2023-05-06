@@ -34,8 +34,8 @@ void FramedImage::initComponent() { 	// Inicializa el componente
 void FramedImage::update() {
 	dest.x = tr_->getPos().getX() - mngr_->camRect_.x;
 	dest.y = tr_->getPos().getY() - mngr_->camRect_.y;
-	dest.h = (tr_->getH() * tr_->getSize() * WIN_HEIGHT) / 600;
-	dest.w = (tr_->getW() * tr_->getSize() * WIN_WIDTH) / 900;
+	dest.h = tr_->getH();
+	dest.w = tr_->getW();
 	src.x = col * widthFrame_;
 	src.y = fila_ * heightFrame_;
 	src.h = heightFrame_;
@@ -55,14 +55,16 @@ void FramedImage::update() {
 	}
 	cont++;
 
-	/*if (col >= framesPerRow_ - 1) { //esta parte la ha comentado CAO porque al estar aqui abajo por orden de ejecucion nunca se ejecutará el codigo del primer if, hay que echar un ojo
-		col = 0;
-		fila_++;
+	if (animationInDifferentsRows) {
+		if (col >= framesPerRow_ - 1) { //esta parte la ha comentado CAO porque al estar aqui abajo por orden de ejecucion nunca se ejecutará el codigo del primer if, hay que echar un ojo
+			col = 0;
+			fila_++;
+		}
+		if (fila_ >= nFilas_) {
+			fila_ = 0;
+			isAnimUnstoppable_ = false;
+		}
 	}
-	if (fila_ >= nFilas_) {
-		fila_ = 0;
-		isAnimUnstoppable_ = false;
-	}*/
 }
 
 // Dibuja en escena
@@ -101,5 +103,6 @@ void FramedImage::setAnim(string textureKey, int frames, int framesPerRow, int n
 		isAnimUnstoppable_ = isAnimUnstoppable;
 		fila_ = fila;
 		nFilas_ = nFilas;
+		animationInDifferentsRows = true;
 	}
 }

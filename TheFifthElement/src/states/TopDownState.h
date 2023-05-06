@@ -31,10 +31,10 @@
 #include "../components/Damage.h"
 #include "../components/LifeTD.h"
 #include "../components/rouletteComponent.h"
-#include "../components/SectorCollisionComponent.h"
 #include "../components/BossCollision.h"
 #include "../Saving.h"
 #include "../Puzzle1.h"
+#include "../components/rewardtextComponent.h"
 using uint = unsigned int;
 using tileset_map = std::map<std::string, Texture*>; //mapa con CLAVE:string, ARGUMENTO: puntero a textura
 using tilelayer = tmx::TileLayer;
@@ -45,12 +45,6 @@ struct MapInfo {
 	int rows, cols;	//fila columna
 	int tile_width, tile_height;	//ancho y alto del tile
 	map<uint, Texture*> tilesets;	//mapa con CLAVE: int, ARGUMENTO: puntero a textura
-	//MapInfo() {
-	//	tile_MAP = nullptr;
-	//	path = "";
-	//	rows = cols = tile_width = tile_height = 0;
-	//	//tilesets
-	//}
 	~MapInfo() {
 		if (tile_MAP != nullptr)
 			delete tile_MAP;
@@ -63,6 +57,7 @@ private:
 	tileset_map tilesets_;	// textures map (string -> texture)
 	SDL_Texture* background_0;
 	SDL_Texture* prueba;
+	SDL_Texture* minimap;
 	MapInfo mapInfo;	//struct
 	vector<bool> sectors{ true,false,false,false };
 	int idSector = 0;
@@ -94,7 +89,7 @@ private:
 	Entity* enemy_;
 	float enemy_width, enemy_height;
 	string type_;
-
+	bool exclamacion_ = false;
 	//Boss
 	Entity* boss_;
 
@@ -112,6 +107,7 @@ private:
 
 	DialogueComponent* dialog_;
 
+	Vector2D posLight;
 	// SHOP
 	Entity* upturnButton_;
 	Entity* exitShopButton_;
@@ -122,8 +118,8 @@ private:
 	Vector2D upturnButtonPos_;
 	int upturnButtonX, upturnButtonY;
 	int upturnButtonWidth_, upturnButtonHeight_;
-	int upturnButtonOffsetX = 57;
-	int upturnButtonOffsetY = 20;
+	int upturnButtonOffsetX = 140;
+	int upturnButtonOffsetY = 30;
 	Transform* upturnButtonTr_;
 	Button* upturnButtonComp_;
 	Transform* exitShopButtonTr_;
@@ -139,8 +135,8 @@ private:
 	Texture* airAvatar_ = &SDLUtils::instance()->images().at("AirAvatar");
 	float mapFrameX_ = 145;
 	float mapFrameY_ = 100;
-	float speedMinMapX_ = 275.0f;
-	float speedMinMapY_ = 150.0f;
+	float speedMinMapX_ = 290.0f;
+	float speedMinMapY_ = 320.0f;
 	int mapOffsetX_ = 155;
 	int mapOffsetY_ = 10;
 	int iconOffsetX_ = 165;
@@ -215,5 +211,9 @@ public:
 	bool getMenuQuest() { return questsMenu; }
 	void setMenuQuest(bool b) { questsMenu = b; }
 	void desbloqueoZona();
+	inline void collisionenemy(bool e) { exclamacion_ = e; }
+	void setPlayerPos(Vector2D v) { trans_player_->setPos(v); }
+	Vector2D getPlayerPos() { return trans_player_->getPos(); }
+	Vector2D getPosLight() { return posLight; }
 };
 

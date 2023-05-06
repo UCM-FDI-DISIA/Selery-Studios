@@ -23,8 +23,8 @@ void AnimationEarthBossComponent::newAnimation(Animations newAnim) {
 		else if (stage == 3) imBoss->setAnim("Moose_attack", 23, true);
 		break;
 	case Hit:
-		if (stage == 1) imBoss->setAnim("GolemFase1_hit", 12, true);
-		else if (stage == 2) imBoss->setAnim("GolemFase2_hit", 12, true);
+		if (stage == 1) imBoss->setAnim("GolemFase1_hit", 8, true);
+		else if (stage == 2) imBoss->setAnim("GolemFase2_hit", 8, true);
 		else if (stage == 3) imBoss->setAnim("Moose_hit", 6, true);
 		break;
 	case Death:
@@ -40,8 +40,4 @@ void AnimationEarthBossComponent::newAnimation(Animations newAnim) {
 		break;
 	}
 	currentAnimation = newAnim;
-}
-
-void AnimationEarthBossComponent::update() {
-
 }

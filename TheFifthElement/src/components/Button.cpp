@@ -1,17 +1,16 @@
 #include "Button.h"
 #include "../states/TopDownState.h"
+#include "../GameManager.h"
+#include "../Game.h"
 
 void Button::initComponent() {
 	buttonTransform = ent_->getComponent<Transform>(TRANSFORM_H);
 	im_ = ent_->getComponent<Image>(IMAGE_H);
-	size_ = buttonTransform->getS();
 }
 
 void Button::update() {
-
 	mouseRect = build_sdlrect(mousePos, mouseWidth, mouseHeight);
-	if (Collision::collides(buttonTransform->getPos(), buttonTransform->getW()*size_, buttonTransform->getH()*size_, mousePos, mouseRect.w, mouseRect.h))
-	{
+	if (Collision::collides(buttonTransform->getPos(), buttonTransform->getW(), buttonTransform->getH(), mousePos, mouseRect.w, mouseRect.h)) {
 		currentPositionState = MOUSE_OVER;
 		if (identifier == "PLAY")im_->setTexture("PlayButtonPressed");
 		else if (identifier == "EXIT")im_->setTexture("ExitButtonPressed");
@@ -26,8 +25,7 @@ void Button::update() {
 		else if (identifier == "RETURN")im_->setTexture("ReturnButtonPressed");
 		else if (identifier == "LOAD")im_->setTexture("LoadButtonPress");
 	}
-	else
-	{
+	else {
 		if (identifier == "PLAY")im_->setTexture("PlayButton");
 		else if (identifier == "EXIT")im_->setTexture("ExitButton");
 		else if (identifier == "BACK")im_->setTexture("BackButton");
@@ -56,20 +54,18 @@ void Button::handleEvent(SDL_Event event)
 		if (event.button.button == SDL_BUTTON_LEFT) {
 			if (currentPositionState == 1)
 			{
-				
-			    if (identifier == "PLAY") {
-					//SDLUtils::instance()->soundEffects().at("pruebaBoton").play();
+
+				if (identifier == "PLAY") {
+					SDLUtils::instance()->soundEffects().at("pruebaBoton").play();
 					GameManager::instance()->leaveMainMenu();
-				}	
+				}
 				else if (identifier == "LOAD") {
-					//SDLUtils::instance()->soundEffects().at("pruebaBoton").play();
+					SDLUtils::instance()->soundEffects().at("pruebaBoton").play();
 					GameManager::instance()->LoadGame();
 				}
 				else if (identifier == "RESUME") {
-					//SDLUtils::instance()->soundEffects().at("prueba").play();
-					//SDLUtils::instance()->soundEffects().at("Title").resumeChannel();
+					SDLUtils::instance()->soundEffects().at("pruebaBoton").play();
 					GameManager::instance()->Pop();
-					//GameManager::instance()->Pop();
 				}
 				else if (identifier == "OPTIONS") {
 					SDLUtils::instance()->soundEffects().at("pruebaBoton").play();
@@ -80,22 +76,22 @@ void Button::handleEvent(SDL_Event event)
 					GameManager::instance()->backToMainMenu();
 				}
 				else if (identifier == "EXIT") {
-					SDL_Quit();
+					GameManager::instance()->getGame()->setExit(true);
 				}
-				else if (identifier == "UPTURN") {						
+				else if (identifier == "UPTURN") {
 					isClicked_ = true;
 					TopDownState* topdownstate = static_cast<TopDownState*>(mngr_);
 					topdownstate->getShopComp()->shopEconomy();
 					if (topdownstate->getShopComp()->canPurchase()) {
 						SDLUtils::instance()->soundEffects().at("pruebaBoton").play();
-					}			
+					}
 					isClicked_ = false;
 				}
 				else if (identifier == "EXITSHOP") {
 					TopDownState* topdownstate = static_cast<TopDownState*>(mngr_);
 					topdownstate->cleanShopButtons();
 					topdownstate->getDialog()->setopenedShop();
-					
+
 				}
 				else if (identifier == "RETURN") {
 					GameManager::instance()->Pop();
@@ -106,17 +102,28 @@ void Button::handleEvent(SDL_Event event)
 				}
 				else if (identifier == "MUTE")
 				{
-					SDL_AudioQuit(); //Mutea el juego (TODO). //Lo podremos manejar a traves del sound manager
+					if (!muted) { //Mutea el juego (TODO).
+					Mix_Volume(-1, 0);
+					Mix_VolumeMusic(0);
+					muted = true; 
+					}
+
+					else {
+						Mix_VolumeMusic(64);
+						Mix_Volume(-1, 64);
+						muted = false;
+					}
+		
 				}
 				else if (identifier == "TDCONTROLS")
-				{		
+				{
 					tdcontrols = true;
 					OptionsState* optionsstate = static_cast<OptionsState*>(mngr_);
-					optionsstate->exitControls();					
+					optionsstate->exitControls();
 					optionsstate->deleteButtonsTD();
 				}
 				else if (identifier == "BEUCONTROLS")
-				{			
+				{
 					beucontrols = true;
 					OptionsState* optionsstate = static_cast<OptionsState*>(mngr_);
 					optionsstate->exitControls();
@@ -142,12 +149,10 @@ void Button::render() {
 	SDL_RenderDrawRect(GameManager::instance()->getRenderer(), &mouseRect);
 	SDL_SetRenderDrawColor(GameManager::instance()->getRenderer(), 0, 0, 0, 255);
 	SDL_Rect dest = { 0,0,WIN_WIDTH,WIN_HEIGHT };
-	if (tdcontrols)
-	{
+	if (tdcontrols) {
 		SDLUtils::instance()->images().at("TopDownControls").render(dest);
 	}
-	if (beucontrols)
-	{
+	if (beucontrols) {
 		SDLUtils::instance()->images().at("BEUControls").render(dest);
 	}
 }

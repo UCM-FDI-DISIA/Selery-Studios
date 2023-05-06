@@ -4,8 +4,6 @@
 #include "Transform.h"
 #include "../utils/Collision.h"
 #include "Image.h"
-//#include "DialogueComponent.h"
-//#include "ShopComponent.h"
 
 class Button : public Component
 {
@@ -18,10 +16,8 @@ private:
 	int mousePosX, mousePosY, mouseWidth = 1, mouseHeight = 1, currentPositionState;
 	SDL_Rect mouseRect;
 	float size_;
-
+	bool muted = false;
 	bool isClicked_ = false; // utilizado para la tienda
-	/*ShopComponent* shopComp_;*/
-	/*DialogueComponent* dialog_;*/
 	bool beucontrols = false;
 	bool tdcontrols = false;
 public:

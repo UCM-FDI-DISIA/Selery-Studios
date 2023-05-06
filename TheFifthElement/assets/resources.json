@@ -6,12 +6,12 @@
   {"id": "4","text": "Welcome to my store "},
   {"id": "22","text": "Since you separated from your siblings $ this kingdom doesn't feel the same $ I don't know, maybe opening borders would be a $ good idea, don't you think?"},
   {"id": "6","text": "I would tell you $ that if you decide to reconcile $ with your siblings, start $ with the red one, $ he was my favorite, $ with his temper, but firm. $"},
-  {"id": "7","text": "I've always been more fond of your sister, Florence, $ her kingdom is the most beautiful, it's a shame it's closed $ You know you don't rule here just for yourself $ right?"},
+  {"id": "7","text": "I've always been more fond $ of your sister, Florence, $ her kingdom is the most beautiful, $ it's a shame it's closed $ You know you don't rule $ here just for yourself $ right?"},
   {"id": "21","text": "I must say I'm not very religious, but $ your brother, Feliciano, the one who moves rocks, $ made me believe many times $ as he preached, taught, and instructed $ I wish you'd bring him back"},
   {"id": "8","text": "If you continue ahead $ you'll enter the Fire Kingdom, $ ruled by your brother Charmander $ people say $ that your fight between siblings was $ over something silly, was it really like that? $ Luz was always the one $ who mediated between you, right? $ Where is he?"},
-  {"id": "9","text": "If you continue ahead $ you'll enter the Stone Kingdom, $ ruled by your brother Feliciano, $ if it's true that you've all decided to come together $ Where is Luz?"},
-  {"id": "10","text": "I had an aunt $ whom I was involved with for a while $ and we had a good relationship, she called me $ because her dog had died. $ I was training $ and I told her I'd go to her house $ and shower there to be with her. $ When I arrived, I gave her a hug $ and said: $ sorry, I smell like dead dogs $"},
-  {"id": "11","text": "Oh, what a surprise to see you here! $ it's time to overcome your differences $ by the way...Where does your dispute come from? $ Everyone says it was about the division of land, $ what ambition these gods have"},
+  {"id": "9","text": "If you continue ahead $ you'll enter the Stone Kingdom, $ ruled by your brother Feliciano, $ if it's true that you've all $ decided to come together $ Where is Luz?"},
+  {"id": "10","text": "You will have to fight enemies $ in your path, $ kill them with your sword, $ use O or X $ if you use a controller,  to strike them $ with some quick attacks $ and stack them $ to strike them with a combo, $ use P or Y $ if you are using a controller, $ to strike them with a powerful attack!"},
+  {"id": "11","text": "Oh, what a surprise to see you here! $ it's time to overcome your differences $ by the way...Where does your dispute $ come from? Everyone says $ it was about the division of land, $ what ambition these gods have"},
   {"id": "12","text": "I'm afraid I know why you're here. $ If you're looking for your brother, he's all the way south, $ we haven't seen him around here in a long time, $ he must be upset, as usual."},
   {"id": "13","text": "I feel that if you continue ahead. $ You're going to encounter something difficult to overcome!"},
   {"id": "14","text": "The peace that is felt in this kingdom always calms me. $ Whoever pursues righteousness and love $ finds inner peace. $ Proverbs 21:21"},
@@ -27,13 +27,14 @@
   {"id": "24","text": "This infernal demon has been $ incubating and regenerating for decades $ thanks to the hellish pillars $ in its lair, $ keep this in mind for the battle."},
   {"id": "25","text": "This ice giant in his free time $ shapes giant ice blocks into squares $ be careful if he decides to use them $ against you. $ Also, the villagers complain $ about the hailstorm of icicles $ this giant produces $ when he's angry, $ be careful."},
   {"id": "26","text": "This fight will be difficult, $ Luz will use his celestial bow $ to hunt you down, $ watch out for his arrows."},
-  {"id": "27","text": "UwU"},
-  {"id": "28","text": "UwU"},
-  {"id": "29","text": "UwU"},
-  {"id": "30","text": "UwU"},
-  {"id": "31","text": "UwU"},
-  {"id": "32","text": "UwU"},
-  {"id": "33","text": "UwU"}
+  {"id": "27","text": "There is a blacksmith somewhere here $ maybe he can upgrade your weapons $ or your armor"},
+  {"id": "28","text": "Fear is the mind killer "},
+  {"id": "29","text": "Let us not lament over the lack $ of justice as long as we have $ arms and are free to use them."},
+  { "id": "30", "text": "To gather your last brother  $ southeast you shall go $ to face your destiny"},
+   {"id": "31","text": "Do not fear the water, sometimes, $ you can walk above it"},
+  {"id": "32","text": "I think there is a puzzle $ you need to solve in order $ to unlock something $ maybe moving some Pillars will do"},
+  {"id": "33","text": "I recentky saw some glasses $ maybe by passing through them will do $ something"}
+ 
 ],
    
   "fonts": [
@@ -42,6 +43,11 @@
   ],
 
   "images": [
+    {"id":  "A", "file": "./assets/HUD/A.png"},
+    {"id":  "B", "file": "./assets/HUD/B.png"},
+    {"id":  "Y", "file": "./assets/HUD/Y.png"},
+    {"id":  "X", "file": "./assets/HUD/X.png"},
+
     {"id": "NPC_1","file": "./assets/NPCs/Villagers/ChicoMoreno/IdleLeft.png"},
     {"id": "NPC_2","file": "./assets/NPCs/Villagers/ChicoMoreno/IdleRight.png"},
     {"id": "NPC_3","file": "./assets/NPCs/Villagers/ChicaMorena/IdleLeft.png"},
@@ -68,6 +74,7 @@
     {"id": "BEU_air_Goblin_death","file": "./assets/Enemies/BeatEmUP/Air/Goblin/Death.png"},
     {"id": "BEU_air_Goblin_idle","file": "./assets/Enemies/BeatEmUP/Air/Goblin/idle.png"},
     {"id": "BEU_water_Goblin_idle","file": "./assets/Enemies/BeatEmUP/Water/Goblin/Idle.png"},
+    {"id": "Exclamacion","file": "./assets/Enemies/Exclamacion.png"},
 
     {"id": "BEU_air_Skeleton_run","file": "./assets/Enemies/BeatEmUP/Air/Skeleton/Walk.png"},
     {"id": "BEU_air_Skeleton_attack", "file": "./assets/Enemies/BeatEmUP/Air/Skeleton/Attack.png"},
@@ -86,7 +93,7 @@
     {"id": "BEU_water_Bat_death","file": "./assets/Enemies/BeatEmUP/Water/Bat/Death (1).png"},
     {"id": "BEU_water_Goblin_run","file": "./assets/Enemies/BeatEmUP/Water/Goblin/Run.png"},
     {"id": "BEU_water_Goblin_attack",  "file": "./assets/Enemies/BeatEmUP/Water/Goblin/Attack2 (1).png"},
-    {"id": "BEU_water_Goblin_hit","file": "./assets/Enemies/BeatEmUP/Water/Goblin/Take Hit.png"},
+    {"id": "BEU_water_Goblin_hit","file": "./assets/Enemies/BeatEmUP/Water/Goblin/Take_Hit.png"},
     {"id": "BEU_water_Goblin_death", "file": "./assets/Enemies/BeatEmUP/Water/Goblin/Death.png"},
     {"id": "BEU_water_Mushroom_idle","file": "./assets/Enemies/BeatEmUP/Water/Mushroom/idle.png"}, 
     {"id": "BEU_water_Skeleton_run", "file": "./assets/Enemies/BeatEmUP/Water/Skeleton/Walk.png" },
@@ -141,9 +148,9 @@
     {"id": "TD_skeleton_idle","file": "assets/Enemies/TopDown/skeleton/IdleLeft.png"},
     {"id": "TD_skeleton_left","file": "assets/Enemies/TopDown/skeleton/runleft.png"},
     {"id": "TD_skeleton_right","file": "assets/Enemies/TopDown/skeleton/runleft.png"},
-    {"id": "TD_bat_idle", "file": "assets/Enemies/TopDown/Mushroom/shroomIdleLeft.png"},
-    {"id": "TD_bat_left", "file": "assets/Enemies/TopDown/Mushroom/shroomIdleLeft.png"},
-    {"id": "TD_bat_right", "file": "assets/Enemies/TopDown/Mushroom/shroomIdleLeft.png"},
+    {"id": "TD_bat_idle", "file": "assets/Enemies/TopDown/Bat/batTDIdleLeft.png"},
+    {"id": "TD_bat_left", "file": "assets/Enemies/TopDown/Bat/batTDIdleLeft.png"},
+    {"id": "TD_bat_right", "file": "assets/Enemies/TopDown/Bat/batTDIdleRight.png"},
     {"id": "PTD_fire_idle", "file": "assets/Player/TopDown/Fire/idle.png"},
     {"id": "PTD_fire_left", "file": "assets/Player/TopDown/Fire/andarIzquierda.png"},
     {"id": "PTD_fire_up","file": "assets/Player/TopDown/Fire/andararriba.png"},
@@ -329,6 +336,7 @@
     {"id": "papiro", "file": "assets/Texts/image.png"},
     {"id": "E", "file": "assets/NPCs/E.png"},
     {"id": "P", "file": "assets/NPCs/P.png"},
+    {"id": "Q", "file": "assets/NPCs/Q.png"},
     {"id": "TopDownControls", "file": "assets/HUD/Menu/TopDownControls.png"},
     {"id": "BEUControls", "file": "assets/HUD/Menu/BEUControls.png"},
     {"id": "controlPanel", "file": "assets/Scenes/Backgrounds/Pausa/Buttons/PapiroPlex.png"},
@@ -346,6 +354,7 @@
     {"id": "Ray", "file": "assets/enemies/BeatEmUp/Bosses/LightBoss/animations/spritesheets/ray.png"},
     {"id": "BlackScreen", "file": "assets/enemies/BeatEmUp/Bosses/LightBoss/animations/PNG/BlackScreen.png"},
     {"id": "FireBoss","file": "assets/Enemies/BeatEmUp/Bosses/FireBoss/spritesheets/demon_slime_FREE_v1.0_288x160_spritesheet.png"},
+    {"id": "FireIdle","file": "assets/Enemies/BeatEmUp/Bosses/FireBoss/spritesheets/demon_idle.png"},
     {"id": "FireColumn","file": "assets/Unknown/fire_column_medium/fire_column.png"},
 
     {"id": "Obelisk","file": "assets/Scenes/Maps/AncientRuins/Props/Obelisk2-animation1-activating-70x150.png"},
@@ -435,7 +444,8 @@
     { "id": "Ritual site-style1-anim-1","file": "assets/Scenes/Maps/AncientRuins/Props/Ritual site-style1-anim-1.png"},
     { "id": "Tileset-Animated Terrains2-8 frames","file": "assets/Scenes/Maps/AncientRuins/Tilesets/Tileset-Animated Terrains2-8 frames.png"},
     {"id": "Tileset-Animated Terrains2-8 frames-with transparency","file": "assets/Scenes/Maps/AncientRuins/Tilesets/The same tiles but with transparency instead of flat color/Tileset-Animated Terrains2-8 frames-with transparency.png" },
-    {"id": "shrine or fountain 160x128-on flat surface","file": "assets/Scenes/Maps/AncientRuins/Props/shrine or fountain 160x128-on flat surface.png" }
+    {"id": "shrine or fountain 160x128-on flat surface","file": "assets/Scenes/Maps/AncientRuins/Props/shrine or fountain 160x128-on flat surface.png" },
+     {"id": "pointofinterest","file": "assets/Scenes/Maps/AncientRuins/pointofinterest.png" }
 
   ]
 } 

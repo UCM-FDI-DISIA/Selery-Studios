@@ -1,6 +1,7 @@
 #pragma once
 #include "CheckCollision.h"
 #include "../utils/Entity.h"
+#include "../states/TopDownState.h"
 using namespace std;
 
 CheckCollision::CheckCollision(Entity* player, string id) : Component() {
@@ -28,10 +29,7 @@ void CheckCollision::initComponent() {
 	//Offset el cual sumamos a la posici? en X del enemigo
 	if (ofs_ == 0) offset = tr1->getW();
 	else offset = ofs_;
-	/*if (side_==1)
-	{
-		offset = (tr1->getW() / 7)-60;
-	}*/
+
 	if (ent_->hasComponent(ENEMY_MOVEMENT_TD_H))
 	{
 		rectFight = getRectFight();
@@ -40,29 +38,56 @@ void CheckCollision::initComponent() {
 	rectPlayer = getPlayerRect();
 	enemies = ent_->hasComponent(ENEMY_MOVEMENT_TD_H);
 	portal = ent_->getComponent<PortalComponent>(PORTALCOMPONENT_H);
-
+	
 }
 void CheckCollision::update()
 {
 	updateRects();
 	if (enemies)
 	{
-		if (Collision::collides(Vector2D(rectPlayer.x, rectPlayer.y), rectPlayer.w, rectPlayer.h, Vector2D(rectFight.x, rectFight.y), rectFight.w, rectFight.h))					//Aumentado el numero por el que dividimos las alturas y anchuras, tambien aumentamos lo que tarda en detectarnos el enemigo
+		if (Collision::collides(Vector2D(rectPlayer.x, rectPlayer.y), rectPlayer.w, rectPlayer.h, Vector2D(rectFight.x, rectFight.y), rectFight.w, rectFight.h)) //Aumentado el numero por el que dividimos las alturas y anchuras, tambien aumentamos lo que tarda en detectarnos el enemigo
 		{
-			Saving::instance()->setPos(Vector2D(3686, 807));
-			if(boss_ == "")GameManager::instance()->goBeatEmUp(false, ent_, boss_);
+			SDL_Rect area;
+			const SDL_Rect* rectPlayer_= &rectPlayer;
+			const SDL_Rect* colision = &rectFight;
+
+			if (rectFight.w < 0)rectFight.w *= -1;
+			
+			//punto derecha
+			int playerRight = rectPlayer_->x + rectPlayer_->w;
+			//colision derecha
+			int colisionRight = colision->x + colision->w;
+			//player abajo
+			int playerBottom = rectPlayer_->y + rectPlayer_->h;
+			int colisionBottom = colision->y + colision->h;
+
+				
+			bool izquierda = playerRight > colision->x && rectPlayer_->x < colision->x;
+			bool derecha = playerRight < colisionRight&& rectPlayer_->x > colisionRight - rectPlayer_->w;
+			bool arriba = playerBottom > colision->y && rectPlayer_->y < colision->y;
+			bool abajo = playerBottom < colisionBottom&& rectPlayer_->y > colisionBottom - rectPlayer_->h;
+
+			Saving::instance()->setPos(Vector2D{ float(rectFight.x + rectPlayer_->w),float(rectFight.y) });
+			if (boss_ == "")GameManager::instance()->goBeatEmUp(false, ent_, boss_);
 			else GameManager::instance()->goBeatEmUp(true, ent_, boss_);
+			static_cast<TopDownState*>(mngr_)->collisionenemy(false); // para la exclamacion
 		}
 		else if (Collision::collides(Vector2D(rectPlayer.x, rectPlayer.y), rectPlayer.w, rectPlayer.h, Vector2D(rectDetection.x, rectDetection.y), rectDetection.w, rectDetection.h))
 		{
-			//SDLUtils::instance()->soundEffects().at("prueba").play();
+			static_cast<TopDownState*>(mngr_)->collisionenemy(true);
+			iChangedValue = true;
 		}
-
+		else if (iChangedValue) {
+			static_cast<TopDownState*>(mngr_)->collisionenemy(false);
+			iChangedValue = false;
+		}
 	}
 	else if (id_ == "portal") {
-		if (Collision::collides(Vector2D(rectPlayer.x, rectPlayer.y), rectPlayer.w, rectPlayer.h, Vector2D(tr1->getPos().getX(), tr1->getPos().getY()), tr1->getW() * tr1->getS(), tr1->getH() * tr1->getS()))					//Aumentado el numero por el que dividimos las alturas y anchuras, tambien aumentamos lo que tarda en detectarnos el enemigo
+		if (Collision::collides(Vector2D(rectPlayer.x, rectPlayer.y), rectPlayer.w, rectPlayer.h, Vector2D(tr1->getPos().getX(), tr1->getPos().getY()), tr1->getW() , tr1->getH() )) //Aumentado el numero por el que dividimos las alturas y anchuras, tambien aumentamos lo que tarda en detectarnos el enemigo
 		{
-			portal->Teleport(Vector2D(7020, 12399)); // Al mapa de luz
+			// LO HACEMOS ASI PORQUE EL BOSS DE LUZ NO FUNCIONA CORRECTAMENTE
+			GameStateMachine::instance()->changeState(new EndState());
+			//portal->Teleport(Vector2D(static_cast<TopDownState*>(mngr_)->getPosLight().getX(), static_cast<TopDownState*>(mngr_)->getPosLight().getY())); // Al mapa de luz
 		}
 	}
 }
@@ -70,29 +95,23 @@ void CheckCollision::update()
 
 void CheckCollision::render()
 {
-	if (id_ != "portal" && id_ != "element") {
-		rectPlayer.x -= mngr_->camRect_.x;
-		rectPlayer.y -= mngr_->camRect_.y;
-		SDL_SetRenderDrawColor(GameManager::instance()->getRenderer(), 0, 255, 0, 0); // Renderizamos el rectangulo del player						
-		SDL_RenderDrawRect(GameManager::instance()->getRenderer(), &rectPlayer);
+	if (DEBUG) {
+		if (id_ != "portal" && id_ != "element") {
+			rectPlayer.x -= mngr_->camRect_.x;
+			rectPlayer.y -= mngr_->camRect_.y;
+			SDL_SetRenderDrawColor(GameManager::instance()->getRenderer(), 0, 255, 0, 0); // Renderizamos el rectangulo del player						
+			SDL_RenderDrawRect(GameManager::instance()->getRenderer(), &rectPlayer);
 
-		rectDetection.x -= mngr_->camRect_.x;
-		rectDetection.y -= mngr_->camRect_.y;
-		SDL_SetRenderDrawColor(GameManager::instance()->getRenderer(), 120, 50, 255, 0); //	Renderizamos el rectangulo de deteccion del enemigo						
-		SDL_RenderDrawRect(GameManager::instance()->getRenderer(), &rectDetection);
+			rectDetection.x -= mngr_->camRect_.x;
+			rectDetection.y -= mngr_->camRect_.y;
+			SDL_SetRenderDrawColor(GameManager::instance()->getRenderer(), 120, 50, 255, 0); //	Renderizamos el rectangulo de deteccion del enemigo						
+			SDL_RenderDrawRect(GameManager::instance()->getRenderer(), &rectDetection);
 
-		rectFight.x -= mngr_->camRect_.x;
-		rectFight.y -= mngr_->camRect_.y;
-		SDL_SetRenderDrawColor(GameManager::instance()->getRenderer(), 0, 100, 255, 0); // Renderizamos el rectangulo de combate del enemigo
-		SDL_RenderDrawRect(GameManager::instance()->getRenderer(), &rectFight);
-
-		/*rectNPC.x -= mngr_->camRect_.x;
-		rectNPC.y -= mngr_->camRect_.y;
-
-		SDL_SetRenderDrawColor(GameManager::instance()->getRenderer(), 225, 100, 255, 0);
-		SDL_RenderDrawRect(GameManager::instance()->getRenderer(), &rectNPC);*/
-
-		SDL_SetRenderDrawColor(GameManager::instance()->getRenderer(), 0, 0, 0, 255); // ponemos el fondo a negro						
+			rectFight.x -= mngr_->camRect_.x;
+			rectFight.y -= mngr_->camRect_.y;
+			SDL_SetRenderDrawColor(GameManager::instance()->getRenderer(), 0, 100, 255, 0); // Renderizamos el rectangulo de combate del enemigo
+			SDL_RenderDrawRect(GameManager::instance()->getRenderer(), &rectFight);					
+		}
 	}
 }
 
@@ -104,13 +123,4 @@ void CheckCollision::updateRects()
 		rectFight = getRectFight();
 		rectDetection = getRectDetection();
 	}
-	/*if (ent_->hasComponent(LIFECOMPONENT_H))
-	{
-		rectFight = getRectFight();
-		rectDetection = getRectDetection();
-	}
-	else {
-		rectNPC = getRectNPC();
-	}*/
-
 }

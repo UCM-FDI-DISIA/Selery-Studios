@@ -22,7 +22,6 @@ public:
 	virtual ~AnimationEarthBossComponent() {}
 	void initComponent();
 	void newAnimation(Animations newAnim);
-	void update();
 	inline void newStage() { stage++; }
 	inline int getStage() { return stage; }
 };

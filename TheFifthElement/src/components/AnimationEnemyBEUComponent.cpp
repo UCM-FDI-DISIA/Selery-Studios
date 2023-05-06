@@ -8,7 +8,7 @@ void AnimationEnemyBEUComponent::update() {
 
 void AnimationEnemyBEUComponent::changeState(AnimationStates newState)
 {
-	nextState_ = newState;// as� se evita que se a�ada el mismo estado m�s de una vez
+	nextState_ = newState;// asi se evita que se anada el mismo estado mas de una vez
 }
 
 void AnimationEnemyBEUComponent::initComponent() {
@@ -32,9 +32,9 @@ void AnimationEnemyBEUComponent::updateAn() {
 
 		break;
 	case AnimationEnemyBEUComponent::Attack:
-		posX = tr_->getPos().getX() + offset_.getX();
+		posX = tr_->getPos().getX() + col_->getOffset().getX() + col_->getColWidth();
 		playerPosX = playerTr_->getPos().getX() + playerCol_->getOffset().getX() + playerCol_->getColWidth() / 2;
-		if (posX < playerPosX) {
+		if (posX <= playerPosX) {
 			im_->setFlip(SDL_FLIP_NONE);
 			if (enemy_ == "shroom")col_->setOffset(Vector2D(65, 55));
 		}
@@ -60,38 +60,32 @@ void AnimationEnemyBEUComponent::updateAnimation() {
 	{
 	case AnimationEnemyBEUComponent::Moving:
 		setMovTexture();
-		////im_->setSpriteAnim(false, nframes_, 0, t_);
 		im_->setAnim(t_, nframes_, false);
 		col_->setCollider(offset_, ColHeight_, ColWidth_);
 		break;
 	case AnimationEnemyBEUComponent::Attack:
 		setAttackTexture();
-		////im_->setSpriteAnim(true, nframes_, 0, t_);
 		im_->setAnim(t_, nframes_, true);
 		col_->setCollider(offset_, ColHeight_, ColWidth_);
 		break;
 	case AnimationEnemyBEUComponent::Hit:
 		setHitTexture();
-		////im_->setSpriteAnim(true, nframes_, 0, t_);
 		im_->setAnim(t_, nframes_, true);
 		col_->setCollider(offset_, ColHeight_, ColWidth_);
 		break;
 	case AnimationEnemyBEUComponent::Death:
 		setDeathTexture();
-		////im_->setSpriteAnim(true, nframes_, 0, t_);
 		im_->setAnim(t_, nframes_, true);
 		col_->setCollider(offset_, ColHeight_, ColWidth_);
 		break;
 	case AnimationEnemyBEUComponent::Idle:
 		setIdleTexture();
-		////im_->setSpriteAnim(true, nframes_, 0, t_);
 		im_->setAnim(t_, nframes_, true);
 		col_->setCollider(offset_, ColHeight_, ColWidth_);
 		break;
 	default:
 		break;
 	}
-	
 }
 
 void AnimationEnemyBEUComponent::setMovTexture() {

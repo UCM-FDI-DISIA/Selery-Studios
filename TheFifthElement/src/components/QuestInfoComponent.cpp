@@ -30,6 +30,7 @@ QuestInfoComponent::QuestInfoComponent(string Name, string text, string reward, 
 }
 
 void  QuestInfoComponent::update() {
+  // std:: cout << currFase<<endl;
    // if (!topDown_->activeQuest) isThisQuest = true;
     if ((!topDown_->activeQuest || isThisQuest) && (init_ || !alive_)) {
         if (init_ && cont_ == 0)setDialogue("init");

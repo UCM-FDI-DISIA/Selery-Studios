@@ -3,6 +3,7 @@
 #include "states/GameStateMachine.h"
 #include "sdlutils/SDLUtils.h"
 #include "states/OptionsState.h"
+#include "Saving.h"
 using namespace std;
 
 using uint = unsigned int;

@@ -80,6 +80,7 @@ void ColDetectorComponent::update() {
                 col3_->getColRect().w, col3_->getColRect().h)) //colision con el boss
             {
                 obj3_->getComponent<LifeLightBossComponent>(LIFELIGHTBOSSCOMPONENT_H)->damage(50);
+                obj1_->setAlive(false);
             }
         }
         if (obj1_->hasComponent(ICEIACOMPONENT_H))

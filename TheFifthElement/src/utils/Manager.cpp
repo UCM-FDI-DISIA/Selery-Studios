@@ -37,6 +37,3 @@ void Manager::render() {
 	for (auto i = 0; i < n; i++)
 		ents_[i]->render();
 }
-
-	
-

@@ -32,19 +32,7 @@ private:
 	InputComponent* input;
 	int d = -1;
 
-	//Directions chooseDirection(PlayerTD* player);
-public:
-	//ColliderTile(Vector2D pos, float w, float h) : Component() {
-	//	//tr = addComponent<Transform>(TRANSFORM_H, pos, w, h, 0, 0, 0, false);
-	//	
-	//	trans = new Transform(pos, w, h);
-	//	topLeft_ = pos;
-	//	topRight_ = { pos.getX() + w, pos.getY() };
-	//	bottomLeft_ = { pos.getX(), pos.getY() + h };
-	//	bottomRight_ = { pos.getX() + w, pos.getY() + h };
-	//	
-	//};
-	
+public:	
 	ColliderTile(vector<Entity*> colisions);
 	
 	virtual ~ColliderTile();
@@ -54,13 +42,6 @@ public:
 	inline void setColliding(bool p) { isColliding_ = p; }
 	
 	void update();
-	//void onPlayerCollision() {
-	//	int dir = chooseDirection();
-
-	//}
-	//void onPlayerCollisionExit() {
-
-	//}
 
 	int chooseDirection();
 	void DesbloqueoZona() {

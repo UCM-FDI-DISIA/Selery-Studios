@@ -4,13 +4,6 @@
 #include "../Elements.h"
 #include "../Quests.h"
 TopDownState::TopDownState(bool load) {
-    ////HUD
-    //Hud_ = new Entity();
-    //Hud_->setContext(this);
-    //roulete = Hud_->addComponent<Roulette>(ROULETTECOMPONENT_H);
-    //damage_ =  Hud_->addComponent<Damage>(DAMAGE_H);
-    //life_ = Hud_->addComponent<LifeTD>(LIFETDCOMPONENT_H);
-    //economyComp_ = Hud_->addComponent<EconomyComponent>(ECONOMYCOMPONENT_H);
     //CARGAS EL MAPA
     activeQuest = false;
     loadGame_ = load;
@@ -21,10 +14,17 @@ TopDownState::TopDownState(bool load) {
     addEntity(Hud_);  
     SDLUtils::instance()->soundEffects().at("Title").play(-1);
     Quests::instance()->borraLista();
+    Elements::instance()->initBlock();
+    PropertiesManager::instance()->setMoney(0);
+    PropertiesManager::instance()->setInitStrength(1.0f);
+    PropertiesManager::instance()->setInitLives(10);
     if(!loadGame_)  dialog_->inicombe();
     else {
         LoadGame();
     }
+    Entity* rew = new Entity();
+    rew->addComponent<rewardtextComponent>(REWARDTEXTCOMPONENT_H);
+    addEntity(rew);
     //trans_player_->setPos({ 11668 ,547 });
     startTime = SDLUtils::instance()->currRealTime();
 }
@@ -47,11 +47,11 @@ void TopDownState::update() {
         startTime = SDLUtils::instance()->currRealTime();
     }
     Vector2D savedPos = Saving::instance()->getPos();
-    if (savedPos != Vector2D(0, 0))
-    {
-        movcomp_player_->setNewPos(savedPos);
-        Saving::instance()->deletePos();
-    }
+    //if (savedPos != Vector2D(0, 0))
+    //{
+    //    movcomp_player_->setNewPos(savedPos);
+    //  //  Saving::instance()->deletePos();
+    //}
     Playernpc_->setcol();
 
     Quests::instance()->actQuests();
@@ -92,7 +92,7 @@ void TopDownState::SaveGame() {
             for (auto c : ents_) {
                 if (c->hasComponent(ENEMY_MOVEMENT_TD_H)) {
                     Transform* f = c->getComponent<Transform>(TRANSFORM_H);
-                    try 
+                    try
                     {
                         if (c->getComponent<FramedImage>(FRAMEDIMAGE_H)->getType() == "") {
                             save << "enemy" << endl;
@@ -104,7 +104,7 @@ void TopDownState::SaveGame() {
                         }
 
                         save << f->getPos().getX() << " " << f->getPos().getY() << " " << f->getDir().getX() << " " << f->getDir().getY() << endl;
-                    }  
+                    }
                     catch (exception& e)
                     {
                     }
@@ -115,7 +115,6 @@ void TopDownState::SaveGame() {
                     save << f->getVector().getX() << " " << f->getVector().getY() << endl;
                     save << f->getBox().x << " " << f->getBox().y << " " << f->getBox().w << " " << f->getBox().h << endl;
                 }
-
             }
            
             list<Entity*> quest = Quests::instance()->getQuests();
@@ -142,7 +141,10 @@ void TopDownState::SaveGame() {
 
 void TopDownState::render() {
 
-    SDL_Rect dst = { 0,0,(fondowidth_ * 2.5) * (WIN_WIDTH / 900),(fondoheight_ * 2.5) * (WIN_HEIGHT / 600) };
+   
+    SDL_Rect dst = { 0,0,(fondowidth_ * 2.5),(fondoheight_ * 2.5) };
+    if (WIN_WIDTH == 1920)  dst = { 0,0, (int)(fondowidth_ * 5.35), (int)(fondoheight_ * 5.35) };
+
     // posición según el transform de la Camara
     dst.x -= Manager::camRect_.x;
     dst.y -= Manager::camRect_.y;
@@ -163,19 +165,30 @@ void TopDownState::render() {
     Vector2D scale = { (WIN_WIDTH / 900.0f), (WIN_HEIGHT / 600.0f) };
     Vector2D scalePlayer = { ((float)fondowidth_ / mapFrameX_) / speedMinMapX_, ((float)fondoheight_ / mapFrameY_) / speedMinMapY_ };
     SDL_Rect mapFrame = { (WIN_WIDTH - mapOffsetX_ * scale.getX()), mapOffsetY_ * scale.getY(), mapFrameX_ * scale.getX(), mapFrameY_ * scale.getY() };
-    SDL_Rect src1 = { trans_player_->getPos().getX() * scalePlayer.getX() - WIN_WIDTH / 3.9f,
-                     trans_player_->getPos().getY() * scalePlayer.getY() - WIN_HEIGHT / 3.5f,
+    SDL_Rect src1 = { trans_player_->getPos().getX() * scalePlayer.getX() - WIN_WIDTH / 3.7f,
+                     trans_player_->getPos().getY()* scalePlayer.getY() - WIN_HEIGHT / 3.1f,
                      ((float)camRect_.w/scale.getX()),
                      ((float)camRect_.h/scale.getY()) };
     SDL_RenderCopy(Gm_->getRenderer(), background_0, &src1, &mapFrame);
+    SDL_RenderCopy(Gm_->getRenderer(), prueba, &src1, &mapFrame);
+    SDL_RenderCopy(Gm_->getRenderer(), minimap, &src1, &mapFrame);
     m_->render(mapFrame);
 
     SDL_Rect icon = { (WIN_WIDTH - 165 / 2 * scale.getX()), 60 * scale.getY(), iconWidth_, iconHeight_ };
     SDL_Rect srcIc = { 0, 0, PLAYERAVATAR_DIMENSION, PLAYERAVATAR_DIMENSION };
-    SDL_RenderCopy(Gm_->getRenderer(), background_0, &srcIc, &icon);
+  //  SDL_RenderCopy(Gm_->getRenderer(), background_0, &srcIc, &icon);
+    
     sk_->getAvatar()->render(icon);
+    //eclamacion de los enemigos 
+    if (exclamacion_) {
+        SDL_Rect dest = { WIN_WIDTH /2,( WIN_HEIGHT / 2) - 100, 50 * (WIN_WIDTH / 900) - 50, 50 * WIN_HEIGHT / 600 };
+        SDLUtils::instance()->images().at("Exclamacion").render(dest);
+    }
     SDL_Rect dest = { 0,90 * WIN_HEIGHT / 600,50 * WIN_WIDTH / 900,50 * WIN_HEIGHT / 600 };
-    SDLUtils::instance()->images().at("P").render(dest);
+    SDLUtils::instance()->images().at("X").render(dest);
+
+    SDL_Rect dest1 = { dest.x + dest.w, 90 * WIN_HEIGHT / 600, 50 * WIN_WIDTH / 900, 50 * WIN_HEIGHT / 600 };
+    SDLUtils::instance()->images().at("Q").render(dest1);
 }
 void TopDownState::LoadMap(string const& filename) {
 
@@ -202,6 +215,8 @@ void TopDownState::LoadMap(string const& filename) {
     SDL_SetTextureBlendMode(background_0, SDL_BLENDMODE_BLEND);
     prueba = SDL_CreateTexture(Gm_->getRenderer(), SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, fondowidth_, fondoheight_);
     SDL_SetTextureBlendMode(prueba, SDL_BLENDMODE_BLEND);
+    minimap= SDL_CreateTexture(Gm_->getRenderer(), SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, fondowidth_, fondoheight_);
+    SDL_SetTextureBlendMode(minimap, SDL_BLENDMODE_BLEND);
     SDL_SetRenderTarget(Gm_->getRenderer(), background_0);
     //CARGAR AQUI LAS DIFERENTES TEXTURAS
 
@@ -231,7 +246,12 @@ void TopDownState::LoadMap(string const& filename) {
                 if (name == "pruebapasardetras") {
                     SDL_SetRenderTarget(Gm_->getRenderer(), prueba); // poner en el if todas las capas que renderizan por delante de las entidades
                 }
+                else  if (name == "minimapa") {
+                    SDL_SetRenderTarget(Gm_->getRenderer(), minimap);
+                }
                 else SDL_SetRenderTarget(Gm_->getRenderer(), background_0);  // todo el resto de capas
+
+            
 
                 // recorremos todos los tiles para obtener su informacion
                 for (auto y = 0; y < mapInfo.rows; ++y) {
@@ -313,8 +333,8 @@ void TopDownState::LoadMap(string const& filename) {
                 if (name == "Collisions") {
                     Entity* colision = new Entity();
                     if(WIN_WIDTH == 1920)
-                    colision->addComponent<Transform>(TRANSFORM_H, Vector2D(rect.left*2.5*(WIN_WIDTH/900), rect.top * 2.5*(WIN_HEIGHT/600)), 
-                        (rect.width), (rect.height)/2, 2.5);
+                    colision->addComponent<Transform>(TRANSFORM_H, Vector2D(rect.left * 5.35, rect.top * 5.35), 
+                        (rect.width), (rect.height)*1.15, 2.5);
                     else colision->addComponent<Transform>(TRANSFORM_H, Vector2D(rect.left * 2.5 * (WIN_WIDTH / 900), rect.top * 2.5 * (WIN_HEIGHT / 600)),(rect.width), (rect.height), 2.5);
                     //(fondowidth_ * 2.5)* (WIN_WIDTH / 900),(fondoheight_ * 2.5)* (WIN_HEIGHT / 600)
                     collisions_.push_back(colision);
@@ -323,7 +343,11 @@ void TopDownState::LoadMap(string const& filename) {
                 else if (name == "Interactions") {
                     Entity* puzzle = new Entity();
                     puzzle->setContext(this);
-                   Transform* trans = puzzle->addComponent<Transform>(TRANSFORM_H, Vector2D((obj.getPosition().x * 2.5 *(WIN_WIDTH/900)), obj.getPosition().y * 2.5*(WIN_HEIGHT/600)), PLAYERTD_WIDTH_FRAME, PLAYERTD_HEIGHT_FRAME);
+                    Transform* trans;
+                    if (WIN_WIDTH == 1920)trans = puzzle->addComponent<Transform>(TRANSFORM_H, Vector2D((obj.getPosition().x * 5.35), obj.getPosition().y * 5.35),
+                        PLAYERTD_WIDTH_FRAME, PLAYERTD_HEIGHT_FRAME);
+                    else trans = puzzle->addComponent<Transform>(TRANSFORM_H, Vector2D((obj.getPosition().x * 2.5 * (WIN_WIDTH / 900)), obj.getPosition().y * 2.5 * (WIN_HEIGHT / 600)),
+                       PLAYERTD_WIDTH_FRAME, PLAYERTD_HEIGHT_FRAME);
                    string name = obj.getName();
                    
                    FramedImage* frimage;
@@ -344,7 +368,11 @@ void TopDownState::LoadMap(string const& filename) {
                 else if (name == "Player") { // PLAYER
                     player_ = new Entity();
                     player_->setContext(this);
-                    trans_player_ = player_->addComponent<Transform>(TRANSFORM_H, Vector2D((obj.getPosition().x * 2.5 *(WIN_WIDTH/900)), obj.getPosition().y * 2.5*(WIN_HEIGHT/600)), PLAYERTD_WIDTH_FRAME, PLAYERTD_HEIGHT_FRAME);
+                    if (WIN_WIDTH == 1920)trans_player_ = player_->addComponent<Transform>(TRANSFORM_H, Vector2D((obj.getPosition().x * 5.35), obj.getPosition().y * 5.35),
+                        PLAYERTD_WIDTH_FRAME, PLAYERTD_HEIGHT_FRAME);
+                    else
+                    trans_player_ = player_->addComponent<Transform>(TRANSFORM_H, Vector2D((obj.getPosition().x * 2.5 *(WIN_WIDTH/900)), obj.getPosition().y * 2.5*(WIN_HEIGHT/600)),
+                        PLAYERTD_WIDTH_FRAME, PLAYERTD_HEIGHT_FRAME);
                     trans_player_->setVel(PLAYERTD_SPEED);                                      /*(fondowidth_ * 2.5)* (WIN_WIDTH / 900), (fondoheight_ * 2.5)* (WIN_HEIGHT / 600)*/
                     sk_ = player_->addComponent<SkinComponent>(SKINCOMPONENT_H, "air", airAvatar_);
                     sk_->changeState(SkinComponent::Idle);
@@ -366,7 +394,10 @@ void TopDownState::LoadMap(string const& filename) {
                     contnpc++; 
                     Npc_ = new Entity();
                     Npc_->setContext(this);
-                    Npc_->addComponent<Transform>(TRANSFORM_H,Vector2D((obj.getPosition().x * 2.5*(WIN_WIDTH/900)), obj.getPosition().y * 2.5*(WIN_HEIGHT/600)), NPC_WIDTH, NPC_HEIGHT);
+                    if (WIN_WIDTH == 1920)Npc_->addComponent<Transform>(TRANSFORM_H, Vector2D((obj.getPosition().x * 5.35), obj.getPosition().y * 5.35),
+                        NPC_WIDTH, NPC_HEIGHT);
+                    else Npc_->addComponent<Transform>(TRANSFORM_H,Vector2D((obj.getPosition().x * 2.5*(WIN_WIDTH/900)), obj.getPosition().y * 2.5 *(WIN_HEIGHT/600)),
+                        NPC_WIDTH, NPC_HEIGHT);
                     if (obj.getName() != "Contexto") { Npc_->addComponent<FramedImage>(FRAMEDIMAGE_H, npcTexture(), NPC_WIDTH, NPC_HEIGHT, 7);}
                     Npc_->addComponent<NPCcollisioncomponent>(NPCCOLLISIONCOMPONENTT, player_,  contnpc );
                     addEntity(Npc_);
@@ -378,7 +409,10 @@ void TopDownState::LoadMap(string const& filename) {
                     contBlksm++;
                     Blacksmith_ = new Entity();
                     Blacksmith_->setContext(this);
-                    Blacksmith_->addComponent<Transform>(TRANSFORM_H, Vector2D((obj.getPosition().x * 2.5 *(WIN_WIDTH/900)), obj.getPosition().y * 2.5*(WIN_HEIGHT/600)), BLACKSMITH_WIDTH, BLACKSMITH_HEIGHT);
+                    if(WIN_WIDTH == 1920)Blacksmith_->addComponent<Transform>(TRANSFORM_H, Vector2D((obj.getPosition().x * 5.35), obj.getPosition().y * 5.35 + 30), 
+                        BLACKSMITH_WIDTH, BLACKSMITH_HEIGHT);
+                    else Blacksmith_->addComponent<Transform>(TRANSFORM_H, Vector2D((obj.getPosition().x * 2.5 * (WIN_WIDTH / 900)), obj.getPosition().y * 2.5 * (WIN_HEIGHT / 600)),
+                        BLACKSMITH_WIDTH, BLACKSMITH_HEIGHT);
                     Blacksmith_->addComponent<FramedImage>(FRAMEDIMAGE_H, blacksmithTexture(), BLACKSMITH_WIDTH, BLACKSMITH_HEIGHT, BLACKSMITH_FRAMES);
                     Blacksmith_->addComponent<NPCcollisioncomponent>(NPCCOLLISIONCOMPONENTT, player_, contBlksm);
                     Blacksmith_->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(0, 0), BLACKSMITH_HEIGHT, BLACKSMITH_WIDTH / BLACKSMITH_FRAMES);
@@ -387,7 +421,7 @@ void TopDownState::LoadMap(string const& filename) {
                 }
                 else if (name == "Anims") {
                     Entity* anim = addEntity();
-                    anim->addComponent<Transform>(TRANSFORM_H, Vector2D((obj.getPosition().x * 2.5 *(WIN_WIDTH/900)), obj.getPosition().y * 2.5*(WIN_HEIGHT/600)), 128*1.5, 192*1.5);
+                    anim->addComponent<Transform>(TRANSFORM_H, Vector2D((obj.getPosition().x * 2.5 *(WIN_WIDTH/900)), obj.getPosition().y * 2.5*(WIN_HEIGHT/600)), 128, 192, 1.5);
                     
                     if (obj.getName() == "tree") {
                         anim->addComponent<FramedImage>(FRAMEDIMAGE_H, &sdlutils().images().at("tree"), 128, 192, 8);
@@ -396,14 +430,45 @@ void TopDownState::LoadMap(string const& filename) {
                         anim->addComponent<FramedImage>(FRAMEDIMAGE_H, &sdlutils().images().at("tree2"), 128, 192, 8);
                     }
                 }
-               
+                else if (name == "Portal") {
+                    Entity* portal_ = new Entity();
+                    portal_->setContext(this);
+                    if (WIN_WIDTH == 1920) portal_->addComponent<Transform>(TRANSFORM_H, Vector2D(obj.getPosition().x * 5.35, obj.getPosition().y * 5.35), PORTAL_WIDTH, PORTAL_HEIGHT);
+                    else portal_->addComponent<Transform>(TRANSFORM_H, Vector2D((obj.getPosition().x * 2.5 * (WIN_WIDTH / 900)), obj.getPosition().y * 2.5 * (WIN_HEIGHT / 600)), PORTAL_WIDTH, PORTAL_HEIGHT);
+                    portal_->addComponent<FramedImage>(FRAMEDIMAGE_H, &SDLUtils::instance()->images().at("portal"), PORTAL_WIDTH, PORTAL_HEIGHT, 1);
+                    portal_->addComponent<PortalComponent>(PORTALCOMPONENT_H, trans_player_);
+                    addEntity(portal_);
+                }
+                else if (name == "PosReinoLuz") {
+                    posLight.setX(obj.getPosition().x * 5.35);
+                    posLight.setY(obj.getPosition().y * 5.35);
+                }
+                else if(name=="Enemy")
+                {
+                    if (obj.getName() == "Bosslight")
+                    {
+                        boss_ = new Entity();
+                        boss_->setContext(this);
+                        if (WIN_WIDTH == 1920)boss_->addComponent<Transform>(TRANSFORM_H, Vector2D((obj.getPosition().x * 5.35), obj.getPosition().y * 5.35), LIGHTBOSS_WIDTH, LIGHTBOSS_HEIGHT, 2);
+                        else boss_->addComponent<Transform>(TRANSFORM_H, Vector2D((obj.getPosition().x * 2.5 * (WIN_WIDTH / 900)), obj.getPosition().y * 2.5 * (WIN_HEIGHT / 600)), LIGHTBOSS_WIDTH, LIGHTBOSS_HEIGHT);
+                        boss_->addComponent<FramedImage>(FRAMEDIMAGE_H, bossLuzTexture(), LIGHTBOSS_WIDTH, LIGHTBOSS_HEIGHT, LIGHTBOSS_TP_FRAMES);
+                        boss_->addComponent<BossCollision>(BOSSCOLLISION_H, player_, "light");
+                        boss_->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(500, 300), 50, 50);
+                        addEntity(boss_);
+                    }
+                }
+
                 if (!loadGame_) { //carga
                     if (name == "Enemy") {
+                        //break;
+                        float sc = 2.5;
+                        if (WIN_WIDTH == 1920) sc = 5.35;
                         if (obj.getName() == "" ) {
                             enemy_ = new Entity();
                             enemy_->setContext(this);
                             Texture* enemyT_ = EnemyTexture();
-                            enemy_->addComponent<Transform>(TRANSFORM_H, Vector2D((obj.getPosition().x * 2.5 *(WIN_WIDTH/900)), obj.getPosition().y * 2.5*(WIN_HEIGHT/600)), enemy_width, enemy_height);
+                            if (WIN_WIDTH == 1920) enemy_->addComponent<Transform>(TRANSFORM_H, Vector2D((obj.getPosition().x * 5.35), obj.getPosition().y * 5.35), enemy_width, enemy_height);
+                            else enemy_->addComponent<Transform>(TRANSFORM_H, Vector2D((obj.getPosition().x * 2.5 *(WIN_WIDTH/900)), obj.getPosition().y * 2.5*(WIN_HEIGHT/600)), enemy_width, enemy_height);
                             FramedImage* img = enemy_->addComponent<FramedImage>(FRAMEDIMAGE_H, enemyT_, enemy_width, enemy_height, 7, type_);
                             float a = -1.0f;
                             float lookingRange = 150.0f;
@@ -417,8 +482,8 @@ void TopDownState::LoadMap(string const& filename) {
                         }
                         else if (obj.getName() == "left") {
                             redirect_ = new Entity();
-                            redBox_.x = obj.getPosition().x * 2.5;
-                            redBox_.y = obj.getPosition().y * 2.5;
+                            redBox_.x = obj.getPosition().x * sc;
+                            redBox_.y = obj.getPosition().y * sc;
                             redBox_.w = 10;
                             redBox_.h = 10;
                             redirect_->addComponent<RedirectEnemy>(REDIRECTENEMY_H, Vector2D(-1, 0), redBox_, enemies_);
@@ -426,8 +491,8 @@ void TopDownState::LoadMap(string const& filename) {
                         }
                         else if (obj.getName() == "right") {
                             redirect_ = new Entity();
-                            redBox_.x = obj.getPosition().x * 2.5;
-                            redBox_.y = obj.getPosition().y * 2.5;
+                            redBox_.x = obj.getPosition().x * sc;
+                            redBox_.y = obj.getPosition().y * sc;
                             redBox_.w = 10;
                             redBox_.h = 10;
                             redirect_->addComponent<RedirectEnemy>(REDIRECTENEMY_H, Vector2D(1, 0), redBox_, enemies_);
@@ -435,8 +500,8 @@ void TopDownState::LoadMap(string const& filename) {
                         }
                         else if (obj.getName() == "up") {
                             redirect_ = new Entity();
-                            redBox_.x = obj.getPosition().x * 2.5;
-                            redBox_.y = obj.getPosition().y * 2.5;
+                            redBox_.x = obj.getPosition().x * sc;
+                            redBox_.y = obj.getPosition().y * sc;
                             redBox_.w = 10;
                             redBox_.h = 10;
                             redirect_->addComponent<RedirectEnemy>(REDIRECTENEMY_H, Vector2D(0, -1), redBox_, enemies_);
@@ -444,8 +509,8 @@ void TopDownState::LoadMap(string const& filename) {
                         }
                         else if (obj.getName() == "down") {
                             redirect_ = new Entity();
-                            redBox_.x = obj.getPosition().x * 2.5;
-                            redBox_.y = obj.getPosition().y * 2.5;
+                            redBox_.x = obj.getPosition().x * sc;
+                            redBox_.y = obj.getPosition().y * sc;
                             redBox_.w = 10;
                             redBox_.h = 10;
                             redirect_->addComponent<RedirectEnemy>(REDIRECTENEMY_H, Vector2D(0, 1), redBox_, enemies_);
@@ -456,8 +521,9 @@ void TopDownState::LoadMap(string const& filename) {
                             //PARA CREAR EL RESTO DE BOSSES AÑADIR AL TILEMAP (EN LA CAPA DE ENEMY) UN ENEMIGO NUEVO Y MODIFICAR SU NOMBRE
                             enemy_ = new Entity();
                             enemy_->setContext(this);
-                            enemy_->addComponent<Transform>(TRANSFORM_H, Vector2D(obj.getPosition().x * 2.5*(WIN_WIDTH/900), obj.getPosition().y * 2.5*(WIN_HEIGHT/600)), WATERBOSS_WIDTH, WATERBOSS_HEIGHT, 2);
-                            enemy_->addComponent<FramedImage>(FRAMEDIMAGE_H, &sdlutils().images().at("waterBoss_idle"), WATERBOSS_WIDTH, WATERBOSS_HEIGHT, 6, "waterBoss");
+                            if(WIN_WIDTH == 1920)enemy_->addComponent<Transform>(TRANSFORM_H, Vector2D(obj.getPosition().x * 5.35, obj.getPosition().y * 5.35), WATERBOSS_WIDTH, WATERBOSS_HEIGHT, 2);
+                            else enemy_->addComponent<Transform>(TRANSFORM_H, Vector2D(obj.getPosition().x * 2.5*(WIN_WIDTH/900), obj.getPosition().y * 2.5*(WIN_HEIGHT/600)), WATERBOSS_WIDTH, WATERBOSS_HEIGHT, 2);
+                            enemy_->addComponent<FramedImage>(FRAMEDIMAGE_H, &sdlutils().images().at("waterBoss_idle"), WATERBOSS_WIDTH, WATERBOSS_HEIGHT, 6, "WaterBoss");
                             float a = 1.0f;
                             float lookingRange = 50.0f;
                             float lookingWidth = -40;
@@ -469,8 +535,9 @@ void TopDownState::LoadMap(string const& filename) {
                             //PARA CREAR EL RESTO DE BOSSES AÑADIR AL TILEMAP (EN LA CAPA DE ENEMY) UN ENEMIGO NUEVO Y MODIFICAR SU NOMBRE
                             enemy_ = new Entity();
                             enemy_->setContext(this);
-                            enemy_->addComponent<Transform>(TRANSFORM_H, Vector2D(obj.getPosition().x * 2.5*(WIN_WIDTH/900), obj.getPosition().y * 2.5*(WIN_HEIGHT/600)), EARTHBOSS_HEIGHT, EARTHBOSS_HEIGHT, 2);
-                            enemy_->addComponent<FramedImage>(FRAMEDIMAGE_H, &sdlutils().images().at("GolemFase1_idle"), EARTHBOSS_WIDTH, EARTHBOSS_HEIGHT, 6, "earthBoss");
+                            if (WIN_WIDTH == 1920)enemy_->addComponent<Transform>(TRANSFORM_H, Vector2D(obj.getPosition().x * 5.35, obj.getPosition().y * 5.35), EARTHBOSS_HEIGHT, EARTHBOSS_HEIGHT, 2);
+                            else enemy_->addComponent<Transform>(TRANSFORM_H, Vector2D(obj.getPosition().x * 2.5 * (WIN_WIDTH / 900), obj.getPosition().y * 2.5 * (WIN_HEIGHT / 600)), EARTHBOSS_HEIGHT, EARTHBOSS_HEIGHT, 2);
+                            enemy_->addComponent<FramedImage>(FRAMEDIMAGE_H, &sdlutils().images().at("GolemFase1_idle"), EARTHBOSS_WIDTH, EARTHBOSS_HEIGHT, 6, "EarthBoss");
                             float a = 1.0f;
                             float lookingRange = 50.0f;
                             float lookingWidth = -40;
@@ -482,33 +549,16 @@ void TopDownState::LoadMap(string const& filename) {
                             //PARA CREAR EL RESTO DE BOSSES AÑADIR AL TILEMAP (EN LA CAPA DE ENEMY) UN ENEMIGO NUEVO Y MODIFICAR SU NOMBRE
                             enemy_ = new Entity();
                             enemy_->setContext(this);
-                            enemy_->addComponent<Transform>(TRANSFORM_H, Vector2D(obj.getPosition().x * 2.5*(WIN_WIDTH/900), obj.getPosition().y * 2.5*(WIN_HEIGHT/600)), EARTHBOSS_HEIGHT, EARTHBOSS_HEIGHT, 2);
-                            enemy_->addComponent<FramedImage>(FRAMEDIMAGE_H, &sdlutils().images().at("FireBoss"), EARTHBOSS_WIDTH, EARTHBOSS_HEIGHT, 6, "fireBoss");
+                            if(WIN_WIDTH == 1920)enemy_->addComponent<Transform>(TRANSFORM_H, Vector2D(obj.getPosition().x * 5.35, obj.getPosition().y * 5.35), FIREBOSS_WIDTH, FIREBOSS_HEIGHT, 2);
+                            else enemy_->addComponent<Transform>(TRANSFORM_H, Vector2D(obj.getPosition().x * 2.5*(WIN_WIDTH/900), obj.getPosition().y * 2.5*(WIN_HEIGHT/600)), FIREBOSS_WIDTH, FIREBOSS_HEIGHT, 2);
+                            enemy_->addComponent<FramedImage>(FRAMEDIMAGE_H, &sdlutils().images().at("FireIdle"), FIREBOSS_WIDTH, FIREBOSS_HEIGHT, 6, "FireBoss");
                             float a = 1.0f;
                             float lookingRange = 50.0f;
                             float lookingWidth = -40;
                             enemy_->addComponent<Enemy_movementTD_component>(ENEMY_MOVEMENT_TD_H, "boss");
                             enemy_->addComponent<CheckCollision>(CHECKCOLLISION_H, player_, lookingRange, lookingWidth, a, -300, "fire");
                             addEntity(enemy_);
-                        }
-                        else if (name == "BossLight")
-                        {
-                            boss_ = new Entity();
-                            boss_->setContext(this);
-                            boss_->addComponent<Transform>(TRANSFORM_H, Vector2D((obj.getPosition().x * 2.5 *(WIN_WIDTH/900)), obj.getPosition().y * 2.5*(WIN_HEIGHT/600)), 600, 400);
-                            boss_->addComponent<FramedImage>(FRAMEDIMAGE_H, bossLuzTexture(), LIGHTBOSS_TP_WIDTH, LIGHTBOSS_TP_HEIGHT, LIGHTBOSS_TP_FRAMES, "lightBoss");
-                            boss_->addComponent<BossCollision>(BOSSCOLLISION_H, player_, "light");
-                            boss_->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(0, 0), 288, 188);
-                            addEntity(boss_);
-                        }
-                    }
-                     if (name == "Portal") {
-                        Entity* portal_ = new Entity();
-                        portal_->setContext(this);
-                        portal_->addComponent<Transform>(TRANSFORM_H, Vector2D((obj.getPosition().x * 2.5 *(WIN_WIDTH/900)), obj.getPosition().y * 2.5*(WIN_HEIGHT/600)), PORTAL_WIDTH, PORTAL_HEIGHT);
-                        portal_->addComponent<FramedImage>(FRAMEDIMAGE_H, &SDLUtils::instance()->images().at("portal"), PORTAL_WIDTH, PORTAL_HEIGHT, 1);
-                        portal_->addComponent<PortalComponent>(PORTALCOMPONENT_H, trans_player_);
-                        addEntity(portal_);
+                        }   
                     }
                 }
             }
@@ -566,65 +616,65 @@ void TopDownState::LoadGame() {
                 string name;
                 f >> name;
                 while (name!="-1") {
-                    if (name == "enemy") {
-                        Vector2D pos;
-                        string name;
-                        f >> name;
-                        float x, y, dirx, diry;
-                        f >> x >> y >> dirx >> diry;
-                        pos = { x,y };
-                        enemy_ = new Entity();
-                        enemy_->setContext(this);
+                         if (name == "enemy") {
+                                Vector2D pos;
+                                string name;
+                                f >> name;
+                                float x, y, dirx, diry;
+                                f >> x >> y >> dirx >> diry;
+                                // cout << x << " " << y << endl;
+                                pos = { x,y };
+                                enemy_ = new Entity();
+                                enemy_->setContext(this);
+                                if (name == "fireBoss")
+                                {
+                                    enemy_->addComponent<Transform>(TRANSFORM_H, Vector2D(x, y), FIREBOSS_WIDTH, FIREBOSS_HEIGHT, 2);
+                                    enemy_->addComponent<FramedImage>(FRAMEDIMAGE_H, &sdlutils().images().at("FireBoss"), FIREBOSS_WIDTH, FIREBOSS_HEIGHT, 6, "FireBoss");
+                                    float a = 1.0f;
+                                    float lookingRange = 50.0f;
+                                    float lookingWidth = -40;
+                                    enemy_->addComponent<Enemy_movementTD_component>(ENEMY_MOVEMENT_TD_H, "boss");
+                                    enemy_->addComponent<CheckCollision>(CHECKCOLLISION_H, player_, lookingRange, lookingWidth, a, -300, "fire");
+                                }
+                                else if (name == "waterBoss")
+                                {
+                                    enemy_->addComponent<Transform>(TRANSFORM_H, Vector2D(x, y), WATERBOSS_WIDTH, WATERBOSS_HEIGHT, 2);
+                                    enemy_->addComponent<FramedImage>(FRAMEDIMAGE_H, &sdlutils().images().at("waterBoss_idle"), WATERBOSS_WIDTH, WATERBOSS_HEIGHT, 6, "WaterBoss");
+                                    float a = 1.0f;
+                                    float lookingRange = 50.0f;
+                                    float lookingWidth = -40;
+                                    enemy_->addComponent<Enemy_movementTD_component>(ENEMY_MOVEMENT_TD_H, "boss");
+                                    enemy_->addComponent<CheckCollision>(CHECKCOLLISION_H, player_, lookingRange, lookingWidth, a, -300, "water");
+                                }
+                                else if (name == "earthBoss")
+                                {
+                                    enemy_->addComponent<Transform>(TRANSFORM_H, Vector2D(x, y), EARTHBOSS_HEIGHT, EARTHBOSS_HEIGHT, 2);
+                                    enemy_->addComponent<FramedImage>(FRAMEDIMAGE_H, &sdlutils().images().at("GolemFase1_idle"), EARTHBOSS_WIDTH, EARTHBOSS_HEIGHT, 6, "EarthBoss");
+                                    float a = 1.0f;
+                                    float lookingRange = 50.0f;
+                                    float lookingWidth = -40;
+                                    enemy_->addComponent<Enemy_movementTD_component>(ENEMY_MOVEMENT_TD_H, "boss");
+                                    enemy_->addComponent<CheckCollision>(CHECKCOLLISION_H, player_, lookingRange, lookingWidth, a, -300, "earth");
+                                }
+                                else {
+                                    Texture* enemyT_ = EnemyTexture();
+                                    Transform* m = enemy_->addComponent<Transform>(TRANSFORM_H, pos, enemy_width, enemy_height);
+                                    m->setDir(Vector2D{ dirx,diry });
+                                    FramedImage* img = enemy_->addComponent<FramedImage>(FRAMEDIMAGE_H, enemyT_, enemy_width, enemy_height, 7, name);
+                                    float a = -1.0f;
+                                    float lookingRange = 150.0f;
+                                    float lookingWidth = 100.0f;
+                                    enemy_->addComponent<Enemy_movementTD_component>(ENEMY_MOVEMENT_TD_H, type_);
+                                    enemy_->addComponent<CheckCollision>(CHECKCOLLISION_H, player_, lookingRange, lookingWidth, a);
+                                    enemy_->addComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
+                                    enemy_->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(0, 0), enemy_height, enemy_width);
+                                    enemies_.push_back(enemy_);
+                                }
+                                addEntity(enemy_);
 
-                        if (name == "fireBoss")
-                        {
-                            enemy_->addComponent<Transform>(TRANSFORM_H, Vector2D(x, y), EARTHBOSS_HEIGHT, EARTHBOSS_HEIGHT, 2);
-                            enemy_->addComponent<FramedImage>(FRAMEDIMAGE_H, &sdlutils().images().at("FireBoss"), EARTHBOSS_WIDTH, EARTHBOSS_HEIGHT, 6, "fireBoss");
-                            float a = 1.0f;
-                            float lookingRange = 50.0f;
-                            float lookingWidth = -40;
-                            enemy_->addComponent<Enemy_movementTD_component>(ENEMY_MOVEMENT_TD_H, "boss");
-                            enemy_->addComponent<CheckCollision>(CHECKCOLLISION_H, player_, lookingRange, lookingWidth, a, -300, "fire");
-                        }
-                        else if(name=="waterBoss") 
-                        {
-                            enemy_->addComponent<Transform>(TRANSFORM_H, Vector2D(x, y), WATERBOSS_WIDTH, WATERBOSS_HEIGHT, 2);
-                            enemy_->addComponent<FramedImage>(FRAMEDIMAGE_H, &sdlutils().images().at("waterBoss_idle"), WATERBOSS_WIDTH, WATERBOSS_HEIGHT, 6, "waterBoss");
-                            float a = 1.0f;
-                            float lookingRange = 50.0f;
-                            float lookingWidth = -40;
-                            enemy_->addComponent<Enemy_movementTD_component>(ENEMY_MOVEMENT_TD_H, "boss");
-                            enemy_->addComponent<CheckCollision>(CHECKCOLLISION_H, player_, lookingRange, lookingWidth, a, -300, "water");
-                        }
-                        else if(name=="earthBoss") 
-                        {
-                            enemy_->addComponent<Transform>(TRANSFORM_H, Vector2D(x, y), EARTHBOSS_HEIGHT, EARTHBOSS_HEIGHT, 2);
-                            enemy_->addComponent<FramedImage>(FRAMEDIMAGE_H, &sdlutils().images().at("GolemFase1_idle"), EARTHBOSS_WIDTH, EARTHBOSS_HEIGHT, 6, "earthBoss");
-                            float a = 1.0f;
-                            float lookingRange = 50.0f;
-                            float lookingWidth = -40;
-                            enemy_->addComponent<Enemy_movementTD_component>(ENEMY_MOVEMENT_TD_H, "boss");
-                            enemy_->addComponent<CheckCollision>(CHECKCOLLISION_H, player_, lookingRange, lookingWidth, a, -300, "earth");
-                        }
-                        else 
-                        {
-                            Texture* enemyT_ = EnemyTexture();
-                            Transform* m = enemy_->addComponent<Transform>(TRANSFORM_H, pos, enemy_width, enemy_height);
-                            m->setDir(Vector2D{ dirx,diry });
-                            FramedImage* img = enemy_->addComponent<FramedImage>(FRAMEDIMAGE_H, enemyT_, enemy_width, enemy_height, 7, name);
-                            float a = -1.0f;
-                            float lookingRange = 150.0f;
-                            float lookingWidth = 100.0f;
-                            enemy_->addComponent<Enemy_movementTD_component>(ENEMY_MOVEMENT_TD_H, type_);
-                            enemy_->addComponent<CheckCollision>(CHECKCOLLISION_H, player_, lookingRange, lookingWidth, a);
-                            enemy_->addComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
-                            enemy_->addComponent<ColliderComponent>(COLLIDERCOMPONENT_H, Vector2D(0, 0), enemy_height, enemy_width);
-                        }
-
-                        addEntity(enemy_);
-                        enemies_.push_back(enemy_);
-                    }
-                    else if (name == "redirect") {
+           
+                         }
+                     if (name == "redirect") {
                         float x, y, x2, y2, w, h;
                         f >> x >> y >> x2 >> y2 >> w >> h;
                         redirect_ = new Entity();
@@ -647,14 +697,13 @@ void TopDownState::LoadGame() {
                         getline(f, text);
                         getline(f, reward);
                         f >> coins >> fasesT >> fasescurr;
+                        size_t last_char = a.find_last_not_of(" ");
+                        if (last_char != std::string::npos) {
+                            a.erase(last_char + 1);
+                        }
                         QuestInfoComponent*q= newQuest(a, text, reward, coins, fasesT);
                         q->setCurrFase(fasescurr);
 
-                        /*save << comp->getName() << endl;
-                        save << comp->getText() << endl;
-                        save << comp->getReward().length() << endl;
-                        save << comp->getReward() << endl;
-                        save << comp->getCoins() << " " << comp->getMaxFase() << " " << comp->getCurrFase() << endl;*/
                     }
                     else if (name == "unlockedzones") {
                         int n;
@@ -668,6 +717,7 @@ void TopDownState::LoadGame() {
 
             }
             f.close();
+
         }
     }
 
@@ -698,8 +748,8 @@ void TopDownState::handleEvents() {
 void TopDownState::createShopButtons() {
     upturnButtonX = trans_player_->getPos().getX();
     upturnButtonY = trans_player_->getPos().getY();
-    if (WIN_WIDTH == 1920) upturnButtonPos_ = Vector2D(upturnButtonX - 195, upturnButtonY - 20);
-    else upturnButtonPos_ = Vector2D(upturnButtonX - upturnButtonOffsetX, upturnButtonY + upturnButtonOffsetY);
+    /*if (WIN_WIDTH == 1920) upturnButtonPos_ = Vector2D(upturnButtonX - 195, upturnButtonY - 20);
+    else*/ upturnButtonPos_ = Vector2D(upturnButtonX - upturnButtonOffsetX, upturnButtonY + upturnButtonOffsetY);
 
     if (shopCreated_) {
         int i = 0;
@@ -707,8 +757,8 @@ void TopDownState::createShopButtons() {
 
             Vector2D pos;
             if (WIN_WIDTH == 1920) {
-                pos = Vector2D((upturnButtonPos_.getX()),
-                    upturnButtonPos_.getY() + i * (50 * WIN_HEIGHT / 600));
+                pos = Vector2D((upturnButtonPos_.getX()),                   
+                      upturnButtonPos_.getY() + i * 100);
             }
             else
             {
@@ -725,10 +775,10 @@ void TopDownState::createShopButtons() {
 
             Vector2D pos;
             if (WIN_WIDTH == 1920) {
-                pos = Vector2D((upturnButtonPos_.getX() + 330),
-                    upturnButtonPos_.getY() + j * (50 * WIN_HEIGHT / 600));
+                pos = Vector2D((upturnButtonPos_.getX() + 350),
+                      upturnButtonPos_.getY() + j * 100);
             }
-            else
+            else 
             {
                 pos = Vector2D((upturnButtonPos_.getX() + upturnButtonOffsetX * 3), upturnButtonPos_.getY() + j * 50);
             }
@@ -741,14 +791,15 @@ void TopDownState::createShopButtons() {
         exitShopButton_->setContext(this);
         Vector2D pos;
         if (WIN_WIDTH == 1920) {
-            pos = Vector2D(upturnButtonPos_.getX() - 60, upturnButtonPos_.getY() + 510);
+            pos = Vector2D(upturnButtonPos_.getX() - 60, upturnButtonPos_.getY() + 465);
+            exitShopButtonTr_ = exitShopButton_->addComponent<Transform>(TRANSFORM_H, pos, (EXITSHOP_WIDTH / 2) /** WIN_WIDTH / 900*/, (EXITSHOP_HEIGHT / 2) /** WIN_HEIGHT / 600*/);
+            //exitShopButtonTr_ = exitShopButton_->addComponent<Transform>(TRANSFORM_H, pos, EXITSHOP_WIDTH / 4, EXITSHOP_HEIGHT / 4);
         }
-        else pos = Vector2D(upturnButtonX - SHOP_WIDTH / 9, upturnButtonPos_.getY() + 275);
-
-        if (WIN_WIDTH == 1920) {
-            exitShopButtonTr_ = exitShopButton_->addComponent<Transform>(TRANSFORM_H, pos, (EXITSHOP_WIDTH / 2) * WIN_WIDTH / 900, (EXITSHOP_HEIGHT / 2) * WIN_HEIGHT / 600, 0.5);
+        else
+        {
+            pos = Vector2D(upturnButtonX - SHOP_WIDTH / 9, upturnButtonPos_.getY() + 275);
+            exitShopButtonTr_ = exitShopButton_->addComponent<Transform>(TRANSFORM_H, pos, EXITSHOP_WIDTH / 2, EXITSHOP_HEIGHT / 2);
         }
-        else exitShopButtonTr_ = exitShopButton_->addComponent<Transform>(TRANSFORM_H, pos, EXITSHOP_WIDTH / 2, EXITSHOP_HEIGHT / 2);
 
         exitShopButton_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("ExitShop"));
         exitShopButtonComp_ = exitShopButton_->addComponent<Button>(BUTTON_H, "EXITSHOP");
@@ -758,12 +809,19 @@ void TopDownState::createShopButtons() {
         for (int i = 0; i < 4; i++) {
             upturnButton_ = new Entity();
             upturnButton_->setContext(this);
-            Vector2D pos = Vector2D(upturnButtonPos_.getX(), upturnButtonPos_.getY() + i * (50 * WIN_HEIGHT / 600));
-            if (WIN_WIDTH / 900 == 1920 / 900) {
+            //Vector2D pos = Vector2D(upturnButtonPos_.getX(), upturnButtonPos_.getY() + i * (50 * WIN_HEIGHT / 600));
+            Vector2D pos;
+            if (WIN_WIDTH == 1920) 
+            {
+                pos = Vector2D(upturnButtonPos_.getX() /*+ 22*/, upturnButtonPos_.getY() + i * 100);
                 upturnButtonTr_ = upturnButton_->addComponent<Transform>(TRANSFORM_H, pos, (UPTURNBUTTON_WIDTH * WIN_WIDTH / 900) / 2,
                     (UPTURNBUTTON_HEIGHT * WIN_HEIGHT / 600) / 2, 0.5);
             }
-            else upturnButtonTr_ = upturnButton_->addComponent<Transform>(TRANSFORM_H, pos, UPTURNBUTTON_WIDTH / 2, UPTURNBUTTON_HEIGHT / 2);
+            else 
+            {
+                pos = Vector2D(upturnButtonPos_.getX(), upturnButtonPos_.getY() + i * (50));
+                upturnButtonTr_ = upturnButton_->addComponent<Transform>(TRANSFORM_H, pos, UPTURNBUTTON_WIDTH / 2, UPTURNBUTTON_HEIGHT / 2);
+            }
 
             upturnButtonComp_ = upturnButton_->addComponent<Button>(BUTTON_H, "UPTURN");
             upturnButton_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("UpturnButton"));
@@ -775,18 +833,22 @@ void TopDownState::createShopButtons() {
             upturnButton_->setContext(this);
             Vector2D pos;
             if (WIN_WIDTH == 1920) {
-                pos = Vector2D((upturnButtonPos_.getX() + 330),
+                /*pos = Vector2D((upturnButtonPos_.getX() + 330),
                     upturnButtonPos_.getY() + i * (50 * WIN_HEIGHT / 600));
 
                 upturnButtonTr_ = upturnButton_->addComponent<Transform>(TRANSFORM_H, pos, (UPTURNBUTTON_WIDTH / 2) * WIN_WIDTH / 900,
+                    (UPTURNBUTTON_HEIGHT / 2) * WIN_HEIGHT / 600, 0.5);*/
+
+                pos = Vector2D((upturnButtonPos_.getX() + 350), upturnButtonPos_.getY() + i * 100);
+                upturnButtonTr_ = upturnButton_->addComponent<Transform>(TRANSFORM_H, pos, (UPTURNBUTTON_WIDTH / 2) * WIN_WIDTH / 900,
                     (UPTURNBUTTON_HEIGHT / 2) * WIN_HEIGHT / 600, 0.5);
+                //upturnButtonTr_ = upturnButton_->addComponent<Transform>(TRANSFORM_H, pos, UPTURNBUTTON_WIDTH / 5, UPTURNBUTTON_HEIGHT / 5);
             }
             else
             {
                 pos = Vector2D((upturnButtonPos_.getX() + upturnButtonOffsetX * 3), upturnButtonPos_.getY() + i * 50);
                 upturnButtonTr_ = upturnButton_->addComponent<Transform>(TRANSFORM_H, pos, UPTURNBUTTON_WIDTH / 2, UPTURNBUTTON_HEIGHT / 2);
             }
-
 
             upturnButtonComp_ = upturnButton_->addComponent<Button>(BUTTON_H, "UPTURN");
             upturnButton_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("UpturnButton"));
@@ -803,14 +865,15 @@ void TopDownState::createShopButtons() {
         exitShopButton_->setContext(this);
         Vector2D pos;
         if (WIN_WIDTH == 1920) {
-            pos = Vector2D(upturnButtonPos_.getX() - 60, upturnButtonPos_.getY() + 510);
+            pos = Vector2D(upturnButtonPos_.getX() - 60, upturnButtonPos_.getY() + 465);
+            exitShopButtonTr_ = exitShopButton_->addComponent<Transform>(TRANSFORM_H, pos, (EXITSHOP_WIDTH / 2) /** WIN_WIDTH / 900*/, (EXITSHOP_HEIGHT / 2) /** WIN_HEIGHT / 600*/);
+            //exitShopButtonTr_ = exitShopButton_->addComponent<Transform>(TRANSFORM_H, pos, EXITSHOP_WIDTH / 4, EXITSHOP_HEIGHT / 4);
         }
-        else pos = Vector2D(upturnButtonX - SHOP_WIDTH / 9, upturnButtonPos_.getY() + 275);
-
-        if (WIN_WIDTH == 1920) {
-            exitShopButtonTr_ = exitShopButton_->addComponent<Transform>(TRANSFORM_H, pos, (EXITSHOP_WIDTH / 2) * WIN_WIDTH / 900, (EXITSHOP_HEIGHT / 2) * WIN_HEIGHT / 600, 0.5);
+        else
+        {
+            pos = Vector2D(upturnButtonX - SHOP_WIDTH / 9, upturnButtonPos_.getY() + 275);
+            exitShopButtonTr_ = exitShopButton_->addComponent<Transform>(TRANSFORM_H, pos, EXITSHOP_WIDTH / 2, EXITSHOP_HEIGHT / 2);
         }
-        else exitShopButtonTr_ = exitShopButton_->addComponent<Transform>(TRANSFORM_H, pos, EXITSHOP_WIDTH / 2, EXITSHOP_HEIGHT / 2);
 
         exitShopButton_->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("ExitShop"));
         exitShopButtonComp_ = exitShopButton_->addComponent<Button>(BUTTON_H, "EXITSHOP");

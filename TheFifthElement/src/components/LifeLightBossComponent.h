@@ -13,7 +13,7 @@
 class LifeLightBossComponent: public Component
 {
 private:
-	int maxLife=75000;
+	int maxLife=1500;
 	int life;
 	float scale;
 	int fightState;
@@ -28,6 +28,8 @@ private:
 	float borderWidth_, borderHeight_;
 	Texture* borderTexture_;
 
+
+	bool hit;
 	FramedImage* im_;
 	Transform* tr_;
 	AnimationLightBossComponent* animBoss_;
@@ -36,6 +38,7 @@ public:
 	LifeLightBossComponent();
 	void damage(float dam);
 	void render();
+	void update();
 	void initComponent();
 	void checkState();
 	virtual ~LifeLightBossComponent() {}

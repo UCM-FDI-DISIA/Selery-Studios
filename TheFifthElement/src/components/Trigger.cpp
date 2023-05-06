@@ -17,6 +17,8 @@ Trigger::Trigger(string name_, Transform* trans_player_, Transform* trans_col, F
 }
 Trigger::~Trigger()
 {
+	delete colision;
+	delete player;
 }
 void Trigger::initComponent() {
 }
@@ -35,7 +37,7 @@ void Trigger::update() {
 			else {
 				if (!Puzzle1::instance()->fin()) {
 					Vector2D position = trans_propio->getPos();
-					position.setY(position.getY() - 20);
+					position.setY(position.getY() - 80);
 					trans_propio->setPos(position);
 					colision->y = trans_propio->getPos().getY();
 					Puzzle1::instance()->move(std::stoi(std::string(1, name[2])));
@@ -59,7 +61,7 @@ void Trigger::desbloqueozona()
 }
 void  Trigger::changemove(int a){
 	Vector2D position = trans_propio->getPos();
-	position.setY(position.getY() + (20*a));
+	position.setY(position.getY() + (80*a));
 	trans_propio->setPos(position);
 	colision->y = trans_propio->getPos().getY();
 }

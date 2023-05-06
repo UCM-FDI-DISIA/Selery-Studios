@@ -57,4 +57,5 @@ public:
     void MovePlayerBack();
 
     inline void setEarthStage3(bool newValue) { earthStage3 = newValue; }
+    inline bool getEarthStage3() { return earthStage3; }
 };

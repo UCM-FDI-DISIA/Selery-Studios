@@ -27,7 +27,7 @@ void MovementLightBossComponent::move(Vector2D dir)
 {
 	movDir = dir;
 
-	if ((bossTrans->getPos().getX() >= (playerTrans->getPos().getX() + 300)) || (bossTrans->getPos().getX() <= (playerTrans->getPos().getX() - 300)))
+	if (((bossTrans->getPos().getX()+bossTrans->getW()/2) >= (playerTrans->getPos().getX() +playerTrans->getW()/2 + 400)) || ((bossTrans->getPos().getX() + bossTrans->getW() / 2) <= (playerTrans->getPos().getX() + playerTrans->getW() / 2 - 400)))
 	{
 		movDir.setX(0);
 	}

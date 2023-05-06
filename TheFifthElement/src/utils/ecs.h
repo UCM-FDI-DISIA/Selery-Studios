@@ -69,6 +69,7 @@ enum cmpId : cmpId_type {
 	POWERUPCTRL_H = 61,
 	QUESTINFOCOMPONENT_H = 62,
 	TRIGGER_H = 63,
+	REWARDTEXTCOMPONENT_H = 64,
 	// do not remove this
 	_LAST_CMP_ID
 };

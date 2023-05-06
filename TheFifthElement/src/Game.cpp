@@ -1,4 +1,5 @@
 #include "Game.h"
+
 Game::Game() {
 	SDLUtils::init();
 	sdlutils().showCursor();
@@ -8,37 +9,29 @@ Game::Game() {
 	Elements::instance();
 	GameManager::instance()->setGame(this);
 
-	//GameStateMachine::instance()->pushState(new MainMenuState());
-	//GameStateMachine::instance()->pushState(new TopDownState());
-	//GameStateMachine::instance()->pushState(new BeatEmUpState(false, nullptr));
-	//GameStateMachine::instance()->pushState(new BeatEmUpState(true, nullptr, "earth"));
-	//GameStateMachine::instance()->pushState(new BeatEmUpState(true, nullptr, "water"));
-	GameStateMachine::instance()->pushState(new BeatEmUpState(true, nullptr, "light"));
-	//GameStateMachine::instance()->pushState(new BeatEmUpState(true, nullptr, "fire"));
-	//GameStateMachine::instance()->pushState(new PauseState());
-	//GameStateMachine::instance()->pushState(new BeatEmUpState());
+	GameStateMachine::instance()->pushState(new MainMenuState());
 }
 
 Game::~Game(){ // destructora
 	GameStateMachine::instance()->~GameStateMachine();
 
 	SDL_DestroyRenderer(renderer);
-	SDL_DestroyWindow(window);
 	SDL_Quit();
+	SDL_DestroyWindow(window);
+	
 }
 
 void Game::run(){// bucle de juego
 	uint32_t startTime, frameTime;
 	startTime = SDL_GetTicks();
 	while (!exit) {// bucle de juego
-		SDL_RenderClear(renderer);
 		handleEvents();
 
 		frameTime = SDL_GetTicks() - startTime;
 		if (frameTime >= FRAME_RATE) {
 			update();
-			//refresh();
-			//gameStMc->clearStates(); // elimina estados
+			refresh();
+			GameStateMachine::instance()->clearStates(); // elimina estados
 			startTime = SDL_GetTicks();
 		}
 		SDL_RenderClear(renderer);
@@ -50,19 +43,16 @@ void Game::run(){// bucle de juego
 
 void Game::handleEvents() { // handleEvents
 	GameManager::instance()->handleEvents();
-	//gameStMc->handleEvents();
 }
 
 void Game::update(){ //update
 	GameManager::instance()->update();
-	//gameStMc->update();// actualiza el juego
 }
 
 void Game::render() { //render
 	GameManager::instance()->render();
-	//gameStMc->render();
 }
 
 void Game::refresh() {
-	/*GameStateMachine::instance()->currentState()->refresh();*/
+	GameStateMachine::instance()->currentState()->refresh();
 }

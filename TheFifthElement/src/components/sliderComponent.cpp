@@ -19,30 +19,33 @@ void sliderComponent::updateMousePosition() {
 
 void sliderComponent::update() {
 	mouseRect = build_sdlrect(mousePos, mouseWidth, mouseHeight);
-	if (clicked && (sliderTransform->getPos().getX() + sliderTransform->getW() / 2 <= topeDer && sliderTransform->getPos().getX() - sliderTransform->getW() / 2 >= topeIzq)){
-		sliderTransform->setPos(Vector2D(mousePosX - sliderTransform->getW() / 2, sliderTransform->getPos().getY()));
-	}
-	else if(sliderTransform->getPos().getX() + sliderTransform->getW() / 2 >topeDer){
-		sliderTransform->setPos(Vector2D(topeDer - sliderTransform->getW() / 2, sliderTransform->getPos().getY()));
-	}
-	else if (sliderTransform->getPos().getX() - sliderTransform->getW() / 2 < topeIzq){
-		sliderTransform->setPos(Vector2D(topeIzq + sliderTransform->getW()/2, sliderTransform->getPos().getY()));
+	if (clicked) {
+		// Actualizar la posición del control deslizante mientras se mantiene dentro de los límites
+		int newPos = mousePosX - sliderTransform->getW() / 2;
+		if (newPos > topeDer) {
+			newPos = topeDer - sliderTransform->getW() / 2;
+		}
+		if (newPos < topeIzq) {
+			newPos = topeIzq + sliderTransform->getW() / 2;
+		}
+		sliderTransform->setPos(Vector2D(newPos, sliderTransform->getPos().getY()));
 	}
 
-	if (!clicked && set){ //Actualizar sonido o lo que sea.
-		valor = sliderTransform->getPos().getX() - sliderTransform->getW()/2 - topeIzq;
+	if (!clicked && set) {
+		// Actualizar el valor del control deslizante y realizar acciones adicionales
+		valor = sliderTransform->getPos().getX() - sliderTransform->getW() / 2 - topeIzq;
 		if (valor > 155) valor = 155;
 		if (bright != nullptr) bright->channgeBrightness(valor);
 		if (volume != nullptr) volume->changeVolume(valor);
 	}
-	//bright->channgeBrightness(valor);
 
-	if (Collision::collides(sliderTransform->getPos(), sliderTransform->getW(), sliderTransform->getH(), mousePos, mouseRect.w, mouseRect.h)){
+	if (Collision::collides(sliderTransform->getPos(), sliderTransform->getW(), sliderTransform->getH(), mousePos, mouseRect.w, mouseRect.h)) {
 		currentPositionState = MOUSE_OVER;
 	}
-	else{
+	else {
 		currentPositionState = MOUSE_OUT;
 	}
+
 	updateMousePosition();
 }
 

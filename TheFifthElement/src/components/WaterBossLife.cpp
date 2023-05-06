@@ -15,6 +15,7 @@ void WaterBossLife::initComponent() {
     borderTexture_ = &SDLUtils::instance()->images().at("Water_LifeBarBorder");
     barWidth_ = backWidth_ = borderWidth_ = 300 * scale;
     barHeight_ = backHeight_ = borderHeight_ = 50 * scale;
+    invulnerable = true;
 }
 
 void WaterBossLife::damage(float damage, float mul) {
@@ -45,6 +46,7 @@ void WaterBossLife::damage(float damage, float mul) {
 void WaterBossLife::update() {
     if (die_ && !im_->isAnimPlaying()) {
         ent_->setAlive(false);
+        Quests::instance()->completedQuest("siblings");
         BeatEmUpState* beatemupstate = static_cast<BeatEmUpState*>(mngr_);
         beatemupstate->finishBEU();
     }

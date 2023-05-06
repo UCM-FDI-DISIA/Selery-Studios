@@ -18,21 +18,20 @@ PauseState::PauseState()
 	float y;
 	Background("fondoPausa");
 
-	createCharacter("tree", 128, 192, Vector2D(36.5 * WIN_WIDTH / 90, 200*WIN_HEIGHT/600), 8, false, 1.8);
-	createCharacter("tree", 128, 192, Vector2D(15 * WIN_WIDTH / 90, 175 * WIN_HEIGHT / 600), 8, false, 1.8);
-	createCharacter("campfire2", 128, 128, Vector2D(15 * WIN_WIDTH / 90, 17 * WIN_HEIGHT / 60), 8, false, 1.7);
-	createCharacter("treasure", 64, 64, Vector2D(11.3 * WIN_WIDTH / 90, 12 * WIN_HEIGHT / 60), 14, false,1.7);
-	createCharacter("tree", 128, 192, Vector2D(26 * WIN_WIDTH / 90, 10 * WIN_HEIGHT / 600), 8, false, 1.8);
-	createCharacter("tree", 128, 192, Vector2D(36.5 * WIN_WIDTH / 90, 12 * WIN_HEIGHT / 600), 8, false, 1.8);
-	createCharacter("treasureBlue", 64, 64, Vector2D(40.5 * WIN_WIDTH / 90, 23 * WIN_HEIGHT / 60), 11, false, 1.7);
-	createCharacter("tree", 128, 192, Vector2D(-20 * scaleX, 96* WIN_HEIGHT / 600), 8, false, 1.8);
-	createCharacter("tree",128, 192, Vector2D(550 * WIN_WIDTH / 900, 215 * WIN_HEIGHT / 600), 8, false, 1.8);
-	createCharacter("tree", 128, 192, Vector2D(650 * WIN_WIDTH / 900, 180 * WIN_HEIGHT / 600), 8, false, 1.8);
-	createCharacter("shine", 64, 99, Vector2D(242 * WIN_WIDTH / 900, 450*WIN_HEIGHT/600), 14, false, 1.8);
-	createCharacter("shine", 64, 99, Vector2D(660 * WIN_WIDTH / 900, 30 * WIN_HEIGHT / 600), 14, false, 1.8);
+	createCharacter("tree", 128, 192, Vector2D(36.5 * WIN_WIDTH / 90, 200*WIN_HEIGHT/600), 8, false, 1);
+	createCharacter("tree", 128, 192, Vector2D(15 * WIN_WIDTH / 90, 175 * WIN_HEIGHT / 600), 8, false, 1);
+	createCharacter("treasure", 64, 64, Vector2D(11.3 * WIN_WIDTH / 90, 12 * WIN_HEIGHT / 60), 14, false,0.9);
+	createCharacter("treasureBlue", 64, 64, Vector2D(39.5 * WIN_WIDTH / 90, 23 * WIN_HEIGHT / 60), 11, false, 0.9);
+	createCharacter("tree", 128, 192, Vector2D(26 * WIN_WIDTH / 90, 10 * WIN_HEIGHT / 600), 8, false, 1);
+	createCharacter("tree", 128, 192, Vector2D(36.5 * WIN_WIDTH / 90, 12 * WIN_HEIGHT / 600), 8, false, 1);
+	createCharacter("tree", 128, 192, Vector2D(-20 * scaleX, 96* WIN_HEIGHT / 600), 8, false, 1);
+	createCharacter("tree",128, 192, Vector2D(550 * WIN_WIDTH / 900, 215 * WIN_HEIGHT / 600), 8, false, 1);
+	createCharacter("tree", 128, 192, Vector2D(650 * WIN_WIDTH / 900, 180 * WIN_HEIGHT / 600), 8, false, 1);
+	createCharacter("shine", 64, 99, Vector2D(230 * WIN_WIDTH / 900, 450*WIN_HEIGHT/600), 14, false, 1);
+	createCharacter("shine", 64, 99, Vector2D(660 * WIN_WIDTH / 900, 30 * WIN_HEIGHT / 600), 14, false, 1);
 
-	createCharacter("NPC_2", PLAYERTD_WIDTH_FRAME, PLAYERTD_HEIGHT_FRAME, Vector2D(WIN_WIDTH / 5, 350), 7, true, 1);
-	createCharacter("NPC_1", PLAYERTD_WIDTH_FRAME, PLAYERTD_HEIGHT_FRAME, Vector2D(WIN_WIDTH*4 /5, 100), 7, false, 1);
+	createCharacter("NPC_2", PLAYERTD_WIDTH_FRAME, PLAYERTD_HEIGHT_FRAME, Vector2D(WIN_WIDTH*3.5 / 5, 150*WIN_HEIGHT/600), 7, true, 0.5);
+	createCharacter("NPC_1", PLAYERTD_WIDTH_FRAME, PLAYERTD_HEIGHT_FRAME, Vector2D(WIN_WIDTH*4.5 /5, 100 * WIN_HEIGHT / 600), 7, false, 0.5);
 
 	// Buttons
 	createButtons();
@@ -57,10 +56,13 @@ void PauseState::handleEvents()
 		}
 		if (controladorDetectado) {
 			if (SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_A)) {
-				GameManager::instance()->Pop();
+				GameManager::instance()->LoadGame();
 			}
 			else if (SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_B)) {
 				GameManager::instance()->backToMainMenu();
+			}
+			else if (SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_Y)) {
+				GameManager::instance()->goOptionsMenu();
 			}
 		}
 		resumeButton->handleEvent(event);
@@ -71,6 +73,15 @@ void PauseState::handleEvents()
 }
 void PauseState::render() {
 	Manager::render();
+	SDL_Rect dest1 = { 290 * WIN_WIDTH / 900, (20 * WIN_HEIGHT / 60) - 50 * WIN_HEIGHT / 600, 50 * WIN_WIDTH / 900, 50 * WIN_HEIGHT / 600 };
+	SDLUtils::instance()->images().at("A").render(dest1);
+
+	SDL_Rect dest2 = { 290 * WIN_WIDTH / 900, (36 * WIN_HEIGHT / 60) - 50 * WIN_HEIGHT / 600, 50 * WIN_WIDTH / 900, 50 * WIN_HEIGHT / 600 };
+	SDLUtils::instance()->images().at("B").render(dest2);
+
+	SDL_Rect dest3 = { 290 * WIN_WIDTH / 900, (50 * WIN_WIDTH / 60) - 50 * WIN_WIDTH / 600, 50 * WIN_HEIGHT / 900, 50 * WIN_HEIGHT / 600 };
+	SDLUtils::instance()->images().at("X").render(dest3);
+
 }
 
 Entity* PauseState::addNewEntity(string t, float w, float h, Vector2D pos, int nframes, bool flip, float size, bool neg) {
@@ -95,12 +106,8 @@ Entity* PauseState::createCharacter(string t, float w, float h, Vector2D pos, in
 }
 void PauseState::Background(string file) {
 	Entity* e = new Entity();
-
-	int f = 0;
-	bool matrix = false;
-	Vector2D v = { 0,0 };
-	int r = 0;
-	e->addComponent<Transform>(int(TRANSFORM_H), v, WIN_WIDTH, WIN_HEIGHT, r, 0, f, matrix);
+	Vector2D pos = { 0,0 };
+	e->addComponent<Transform>(TRANSFORM_H, pos, 900, 600, 1);
 	Texture* t = &SDLUtils::instance()->images().at(file);
 	e->addComponent<Image>(IMAGE_H, t);
 	addEntity(e);

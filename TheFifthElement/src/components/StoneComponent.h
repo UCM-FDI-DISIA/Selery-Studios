@@ -13,11 +13,6 @@ public:
 	StoneComponent(int bossStage_);
 	virtual ~StoneComponent() {}
 	void initComponent();
-
-	void update() {}
-
-	void render() {}
-
 	void stonePicked();
 };
 #endif

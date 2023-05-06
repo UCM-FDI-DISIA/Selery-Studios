@@ -17,8 +17,7 @@ void Damage::update() {
 }
 
 void Damage::render() {
-	SDL_Rect dest = { position.getX() * WIN_WIDTH / 900,position.getY() * WIN_HEIGHT / 600,width * WIN_WIDTH / 900,
-		height * WIN_HEIGHT / 600 };
+	SDL_Rect dest = { position.getX() * WIN_WIDTH / 900,position.getY() * WIN_HEIGHT / 600,width * WIN_WIDTH / 900, height * WIN_HEIGHT / 600 };
 	SDL_Rect src;
 	src.x = 0;
 	src.y = 0;

@@ -1,8 +1,9 @@
 #pragma once
 using uint = unsigned int;
 
-const uint WIN_WIDTH = 1920; // anchura de ventana
-const uint WIN_HEIGHT = 1080; // altura de ventana
+const bool DEBUG = false;
+const int WIN_WIDTH = 1920; // anchura de ventana
+const int WIN_HEIGHT = 1080; // altura de ventana
 const float FRAME_RATE = 7.0f; // número de frames que tardará en actualizarse el juego
 const float FRAME_RATE_BEU_PLAYER = 5.0f; // número de frames que tardará en actualizarse el juego
 
@@ -11,21 +12,22 @@ const uint PLAYERBEU_WIDTH_FRAME = 208; // anchura de PlayerBEU
 const uint PLAYERBEU_HEIGHT_FRAME = 128; // altura de PlayerBEU
 const uint PlayerPosition_X =30; //pos inicial de PlayerBEU
 const uint PlayerPosition_Y = 300;
-const float PLAYERBEU_SPEED = 3.0f; //velocidad PlayerBEU
+const float PLAYERBEU_SPEED = 11.0f; //velocidad PlayerBEU
 const float PLAYERBEU_COOLDOWNULTIMATE = 10.0f; //velocidad PlayerBEU
 
 
 const uint PLAYERTD_WIDTH_FRAME = 68; // anchura de PlayerTD
 const uint PLAYERTD_HEIGHT_FRAME = 120; // altura de PlayerTD
-const float PLAYERTD_SPEED = 3.0f; //velocidad PlayerTD
+const float PLAYERTD_SPEED = 11.0f; //velocidad PlayerTD
 const uint PLAYERTD_NUMFRAMES = 7; //numero de frames PlayerTD
 const uint PLAYERAVATAR_DIMENSION = 64; // avatar de los players 64x64
 
 #pragma region backgrounds
-const uint BACKGROUNDBEU_WIDTH = 3987; // anchura de BackgroundAir
-const uint BACKGROUNDBEU_HEIGHT = 1080; // altura de BackgroundAir
-const uint BACKGROUNDWATERBOSS_WIDTH = 1000; // anchura de BackgroundAir
-const uint BACKGROUNDWATERBOSS_HEIGHT = 667; // altura de BackgroundAir
+const uint BACKGROUNDBEU_WIDTH = 3987; // anchura de BackgroundBEU
+const uint BACKGROUNDBEU_HEIGHT = 1080; // altura de BackgroundBEU
+const uint BACKGROUNDWATERBOSS_WIDTH = 1000; // anchura de BackgroundWater
+const uint BACKGROUNDWATERBOSS_HEIGHT = 667; // altura de BackgroundWater
+const uint BACKGROUNDLIGHTBOSS_WIDTH = 3840; // anchura de BackgroundLight
 #pragma endregion
 
 const uint DIALOGUE_WIDTH = 620; // anchura de Dialogue

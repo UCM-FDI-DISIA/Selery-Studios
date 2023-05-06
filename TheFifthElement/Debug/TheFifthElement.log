@@ -1,0 +1,148 @@
+﻿  PowerUpControler.cpp
+C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\utils\Component.h(2,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SDL.h': No such file or directory
+  FireBossComponent.cpp
+C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\utils\Component.h(2,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SDL.h': No such file or directory
+  IceIAComponent.cpp
+C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\utils\Component.h(2,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SDL.h': No such file or directory
+  IceShadowComponent.cpp
+C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\utils\Component.h(2,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SDL.h': No such file or directory
+  AnimationLightBossComponent.cpp
+C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\utils\Component.h(2,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SDL.h': No such file or directory
+  AttackLightBossComponent.cpp
+C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\utils\Component.h(2,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SDL.h': No such file or directory
+  DisableOnExit.cpp
+C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\utils\Component.h(2,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SDL.h': No such file or directory
+  Damage.cpp
+C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\utils\Component.h(2,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SDL.h': No such file or directory
+  FramedImage.cpp
+C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\sdlutils\Texture.h(5,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SDL.h': No such file or directory
+  LifeBasicComponent.cpp
+  LifeLightBossComponent.cpp
+C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\utils\Component.h(2,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SDL.h': No such file or directory
+  MovementLightBossComponent.cpp
+C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\utils\Component.h(2,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SDL.h': No such file or directory
+  LifeTD.cpp
+C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\utils\Component.h(2,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SDL.h': No such file or directory
+  PortalComponent.cpp
+C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\utils\Component.h(2,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SDL.h': No such file or directory
+  ProtectionEarthBossComponent.cpp
+C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\utils\Component.h(2,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SDL.h': No such file or directory
+  QuestInfoComponent.cpp
+C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\utils\Component.h(2,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SDL.h': No such file or directory
+  SectorCollisionComponent.cpp
+  StoneComponent.cpp
+C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\utils\Component.h(2,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SDL.h': No such file or directory
+  ThrowableObject.cpp
+C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\utils\Component.h(2,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SDL.h': No such file or directory
+  Trigger.cpp
+C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\utils\Component.h(2,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SDL.h': No such file or directory
+  Generando código...
+  Compilando...
+  Quests.cpp
+C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\utils\Component.h(2,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SDL.h': No such file or directory
+  EndState.cpp
+C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\sdlutils\Font.h(2,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SDL_ttf.h': No such file or directory
+  PauseState.cpp
+C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\utils\Component.h(2,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SDL.h': No such file or directory
+  AttackEarthBossComponent.cpp
+C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\utils\Component.h(2,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SDL.h': No such file or directory
+  EconomyComponent.cpp
+C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\utils\Component.h(2,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SDL.h': No such file or directory
+  SkinBEUComponent.cpp
+C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\utils\Component.h(2,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SDL.h': No such file or directory
+  OptionsState.cpp
+C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\utils\Component.h(2,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SDL.h': No such file or directory
+  sliderComponent.cpp
+C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\utils\Component.h(2,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SDL.h': No such file or directory
+  PointOfFightComponent.cpp
+C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\utils\Component.h(2,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SDL.h': No such file or directory
+  RedirectEnemy.cpp
+C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\utils\Component.h(2,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SDL.h': No such file or directory
+  ColManager.cpp
+C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\utils\Component.h(2,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SDL.h': No such file or directory
+  AnimationEarthBossComponent.cpp
+C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\utils\Component.h(2,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SDL.h': No such file or directory
+  ColliderTile.cpp
+C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\utils\Component.h(2,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SDL.h': No such file or directory
+  JumpComponent.cpp
+C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\utils\Component.h(2,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SDL.h': No such file or directory
+  Button.cpp
+C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\utils\Component.h(2,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SDL.h': No such file or directory
+  AnimationEnemyBEUComponent.cpp
+C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\utils\Component.h(2,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SDL.h': No such file or directory
+  ColDetectorComponent.cpp
+C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\utils\Component.h(2,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SDL.h': No such file or directory
+  AttackBoxComponent.cpp
+C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\utils\Component.h(2,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SDL.h': No such file or directory
+  DialogueComponent.cpp
+C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\utils\Component.h(2,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SDL.h': No such file or directory
+  Image.cpp
+C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\sdlutils\Texture.h(5,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SDL.h': No such file or directory
+  Generando código...
+  Compilando...
+  LifeEarthBossComponent.cpp
+C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\utils\Component.h(2,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SDL.h': No such file or directory
+  LimitBEU.cpp
+C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\utils\Component.h(2,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SDL.h': No such file or directory
+  MovementEarthBossComponent.cpp
+C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\utils\Component.h(2,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SDL.h': No such file or directory
+  ShadowComponent.cpp
+C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\utils\Component.h(2,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SDL.h': No such file or directory
+  ShopComponent.cpp
+C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\utils\Component.h(2,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SDL.h': No such file or directory
+  Game.cpp
+C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(5,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SDL.h': No such file or directory
+  BeatEmUpState.cpp
+C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\utils\Component.h(2,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SDL.h': No such file or directory
+  CheckCollision.cpp
+C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\utils\Component.h(2,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SDL.h': No such file or directory
+  Collision.cpp
+  Enemy_movementTD_component.cpp
+C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\utils\Component.h(2,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SDL.h': No such file or directory
+  EnemyBEUDirectionComponent.cpp
+C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\utils\Component.h(2,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SDL.h': No such file or directory
+  GameManager.cpp
+C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(5,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SDL.h': No such file or directory
+  InputComponent.cpp
+C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\utils\Component.h(2,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SDL.h': No such file or directory
+  InputComponentBEU.cpp
+C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\utils\Component.h(2,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SDL.h': No such file or directory
+  LifeComponent.cpp
+C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\utils\Component.h(2,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SDL.h': No such file or directory
+  MovementComponent.cpp
+C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\utils\Component.h(2,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SDL.h': No such file or directory
+  ObjectsComponent.cpp
+C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\utils\Component.h(2,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SDL.h': No such file or directory
+  SkinComponent.cpp
+C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\utils\Component.h(2,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SDL.h': No such file or directory
+  GameState.cpp
+C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(5,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SDL.h': No such file or directory
+  GameStateMachine.cpp
+C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(5,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SDL.h': No such file or directory
+  Generando código...
+  Compilando...
+  MainMenuState.cpp
+C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\utils\Component.h(2,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SDL.h': No such file or directory
+  TopDownState.cpp
+C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\utils\Component.h(2,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SDL.h': No such file or directory
+  JSON.cpp
+  JSONValue.cpp
+  SDLUtils.cpp
+C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(5,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SDL.h': No such file or directory
+  SoundEffect.cpp
+C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\sdlutils\SoundEffect.h(6,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SDL_mixer.h': No such file or directory
+  Texture.cpp
+C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\sdlutils\Texture.h(5,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SDL.h': No such file or directory
+  TheFifthElement.cpp
+C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\TheFifthElement.cpp(1,9): fatal  error C1083: No se puede abrir el archivo incluir: 'SDL.h': No such file or directory
+  Component.cpp
+  Entity.cpp
+C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\utils\Component.h(2,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SDL.h': No such file or directory
+  Manager.cpp
+C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\utils\Component.h(2,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SDL.h': No such file or directory
+  Vector2D.cpp
+  WaterBossIA.cpp
+C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\utils\Component.h(2,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SDL.h': No such file or directory
+  WaterBossLife.cpp
+C:\Users\josem\OneDrive\Escritorio\carrera\Segundo\Proyecto 2\Selery-Studios\TheFifthElement\src\utils\Component.h(2,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SDL.h': No such file or directory
+  Generando código...

@@ -10,8 +10,10 @@ class ObjectsComponent : public Component {
 private:
 	bool inRange = false;
 	bool picked = false;
+	bool draw = false;
 	Transform* trPlayer;
 	Transform* trObject;
+	Texture* e;
 public:
 	ObjectsComponent() {}
 
@@ -19,7 +21,7 @@ public:
 
 	void update();
 
-	void render() {}
+	void render();
 
 	inline bool getPicked() { return picked; }
 

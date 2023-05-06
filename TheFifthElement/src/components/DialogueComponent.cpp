@@ -51,7 +51,6 @@ void DialogueComponent::render() {
 			dest = build_sdlrect(a, DIALOGUE_WIDTH, DIALOGUE_HEIGHT);
 		}
 
-		//SDL_Rect dest = build_sdlrect(a, DIALOGUE_WIDTH * (WIN_WIDTH/900), DIALOGUE_HEIGHT * (WIN_HEIGHT / 600));
 		t->render(dest, 0);
 
 		if (WIN_WIDTH == 1920) a = Vector2D(750, 750);
@@ -63,8 +62,6 @@ void DialogueComponent::render() {
 }
 void DialogueComponent::update() {
 	//en el update hay que mostrar el nuevo contenido.
-	/*cont++;
-	if (cont < fin)out += conespacios[static_cast<DialogBox*>(ent_)->getline()][cont];*/
 	if (hasstarted) {
 		cont++;
 		if (cont < fin)out += conespacios[linea][cont]; 
@@ -91,9 +88,9 @@ void DialogueComponent::inicombe() {
 				if (numeronpc == 5) {
 					static_cast<TopDownState*>(mngr_)->DeleteContexto();
 					static_cast<TopDownState*>(mngr_)->newQuest("siblings", "Gather your siblings", "coins", 300, 3);
-					static_cast<TopDownState*>(mngr_)->newQuest("villagers", "Talk to villagers", "Area unlock", 0, 1);
+					static_cast<TopDownState*>(mngr_)->newQuest("villagers", "Talk to villagers", "Area unlock", 0, 3);
 				}
-				else if (numeronpc > 5 && numeronpc <= 11 && !tutorial[numeronpc - 6]) {
+				else if (numeronpc > 5 && numeronpc < 11 && !tutorial[numeronpc - 6]) {
 					Quests::instance()->completedQuest("villagers");
 					tutorial[numeronpc - 6] = true;			
 					static_cast<TopDownState*>(mngr_)->DeleteContexto();
@@ -107,19 +104,6 @@ void DialogueComponent::inicombe() {
 	}
 	
 }
-void DialogueComponent::changeline() {
-	/*int aux = static_cast<DialogBox*>(ent_)->getline();
-	if (aux >= conespacios.size()-1) {
-		static_cast<DialogBox*>(ent_)->setfinish(true);
-	}
-	else {
-		fin = conespacios[aux].size();
-		cont = 0;
-		out = "";
-	}*/
-	
-}
-//virtual DialogueComponent::~DialogueComponent() {}
 
 
 

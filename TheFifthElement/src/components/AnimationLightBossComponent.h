@@ -20,6 +20,8 @@ public:
 	virtual ~AnimationLightBossComponent() {}
 	void update();
 	void initComponent();
+
+	inline Animations getAnim() { return currentAnim; }
 	void newAnim(Animations anim);
 	void setDeath() { dead = true; }
 };

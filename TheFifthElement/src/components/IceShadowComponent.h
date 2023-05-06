@@ -20,17 +20,9 @@ private:
 
 public:
     IceShadowComponent(Vector2D position, float size, Entity* player) {
-        
         pos_ = position;
         s_ = size;
         player_ = player;
-
-        /*dest.x = position.getX();
-        dest.y = position.getY();
-        dest.w = size_ * ((WIN_WIDTH/900)*size);
-        dest.h = size_ * ((WIN_HEIGHT / 600) * size);*/
-
-
     }
 
     void initComponent() {
@@ -53,7 +45,6 @@ public:
     }
 
     bool collide(SDL_Rect r1) {
-        //SDL_Rect r2 = dest;
         return (Collision::collides(Vector2D(r1.x,r1.y), r1.w, r1.h, Vector2D(dest.x, dest.y), dest.w, dest.h));
     }
 

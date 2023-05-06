@@ -16,6 +16,8 @@ class BeatEmUpState;
 class LifeEarthBossComponent : public Component
 {
 private:
+	SDL_Rect src = { 0, 0, 400, 50 };
+
 	AttackEarthBossComponent* bossAttackComp;
 	ColliderComponent* bossCol;
 	MovementEarthBossComponent* bossMovement;

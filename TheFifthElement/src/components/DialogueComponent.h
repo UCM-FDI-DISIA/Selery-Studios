@@ -32,7 +32,6 @@ public:
 	void render();
 	void update();
 	void initComponent();
-	void changeline();
 	void setdialogue();
 	void inicombe();
 	virtual ~DialogueComponent() { };

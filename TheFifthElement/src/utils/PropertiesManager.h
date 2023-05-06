@@ -53,6 +53,14 @@ public:
 		}
 		return a;
 	}
+
+	void setMoney(int cuantity) { currentMoney_ = 0; }
+	void setInitStrength(int cuantity) {
+		for (int i = 0; i < 4; i++)strength[i] = cuantity;
+	}
+	void setInitLives(int cuantity) {
+		for (int i = 0; i < 4; i++)lives[i] = cuantity;
+	}
 };
 
 inline PropertiesManager& properties() {

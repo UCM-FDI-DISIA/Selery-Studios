@@ -19,14 +19,14 @@ void LifeComponent::initComponent() {
 		anim_ = ent_->getComponent<AnimationEnemyBEUComponent>(ANIMATIONENEMYBEUCOMPONENT_H);
 		eMov_ = ent_->getComponent<EnemyBEUDirectionComponent>(ENEMYBEUDIRECTIONCOMPONENT_H);
 		entTransform_ = ent_->getComponent<Transform>(TRANSFORM_H);
-		barWidth_ = backWidth_ = borderWidth_ = (entTransform_->getW() / 4) * entTransform_->getS();
-		barHeight_ = backHeight_ = borderHeight_ = (entTransform_->getH() / 11) * entTransform_->getS();
+		barWidth_ = backWidth_ = borderWidth_ = (entTransform_->getW() / 4);
+		barHeight_ = backHeight_ = borderHeight_ = (entTransform_->getH() / 11);
 		pos_ = Vector2D(entTransform_->getPos().getX(), entTransform_->getPos().getY());
 	}
 	else {
 		entTransform_ = ent_->getComponent<Transform>(TRANSFORM_H);
-		barWidth_ = backWidth_ = borderWidth_ = 100 * entTransform_->getScale();
-		barHeight_ = backHeight_ = borderHeight_ = 30 * entTransform_->getScale();
+		barWidth_ = backWidth_ = borderWidth_ = 100 * entTransform_->getScaleW();
+		barHeight_ = backHeight_ = borderHeight_ = 30 * WIN_HEIGHT/600;
 		skin_ = ent_->getComponent<SkinBEUComponent>(SKINBEUCOMPONENT_H);
 		for (int i = 0; i < 4; i++) {
 			types[i].life = -1.0f;
@@ -47,7 +47,9 @@ void LifeComponent::update() {
 	
 	if (die_) {
 		if (!im_->getIsAnimUnstoppable()) {
-			if (enemy_)ent_->setAlive(false);
+			if (enemy_) {
+				ent_->setAlive(false);
+			}
 			else {
 				int i = 0;
 				while (!types[i].alive && i < 4) i++;
@@ -56,6 +58,7 @@ void LifeComponent::update() {
 					ent_->setAlive(false);
 					SDLUtils::instance()->soundEffects().at("Battle").haltChannel();
 					GameManager::instance()->goTopDown();
+					
 				}
 				else  {
 					if (type_ == "air") { inp_->setAir(false); }// bloquea aire
@@ -133,21 +136,16 @@ void LifeComponent::Hit(float damage) {
 		if (getLife() - (realDamage) > 0) {
 			if (enemy_) {// enemy
 				anim_->changeState(AnimationEnemyBEUComponent::Hit);
-				//eMov_->moveBackX();
 				eMov_->stop(true);
 			}
 			else {// player
 				static_cast<BeatEmUpState*>(mngr_)->ShakeCam(true);
-				/*inp_->MovePlayerBack();*/
 				skin_->changeState(SkinBEUComponent::Hit);
 			}
 		}
 		subLife(damage);
 		hit_ = true;
 	}
-
-	//en el hit cuando termine la animacion se mueve para permitir al jugador escapar
-	//tr_->setPos(Vector2D(tr_->getPos().getX() + 50, tr_->getPos().getY()));
 }
 
 void LifeComponent::subLife(float damage) {
@@ -218,8 +216,8 @@ void LifeComponent::render() {
 
 	SDL_Rect dest;
 	if(enemy_){
-		dest.x = pos_.getX() + (60*entTransform_->getS());
-		dest.y = pos_.getY() + (35*entTransform_->getS());
+		dest.x = pos_.getX() + (60*entTransform_->getSW());
+		dest.y = pos_.getY() + (35*entTransform_->getSH());
 		dest.h = backHeight_;
 		dest.w = backWidth_;
 		backTexture_->render(src, dest);
@@ -233,8 +231,8 @@ void LifeComponent::render() {
 		borderTexture_->render(src, dest);
 	}
 	else {
-		dest.x = 90 * entTransform_->getScale();
-		dest.y = 25 * entTransform_->getScale();
+		dest.x = 90 * WIN_WIDTH/900;
+		dest.y = 25 * WIN_HEIGHT/600;
 		dest.h = backHeight_;
 		dest.w = backWidth_;
 		backTexture_->render(src, dest);

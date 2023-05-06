@@ -29,7 +29,6 @@ private:
 public:
 	LifeTD();
 	virtual void initComponent();
-	virtual void update();
 	virtual void render();
 	virtual ~LifeTD() {};
 	int getLife(int i) { return props_->instance()->getLives(i); };// obtenemos valor en el vector lives de PropertiesManager

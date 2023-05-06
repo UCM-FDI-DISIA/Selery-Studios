@@ -28,7 +28,7 @@ public:
     }
     void update() {
         for (auto it : enemies_) {
-            if (it->hasComponent(CHECKCOLLISION_H) && it->hasComponent(COLLIDERCOMPONENT_H)) {
+            if (it->hasComponent(CHECKCOLLISION_H)) {
                 ColliderComponent* col = it->getComponent<ColliderComponent>(COLLIDERCOMPONENT_H);
                 if (Collision::collides(Vector2D(redBox_.x, redBox_.y), redBox_.w, redBox_.h,
                     Vector2D(col->getColRect().x, col->getColRect().y), col->getColRect().w, col->getColRect().h)) {
@@ -40,5 +40,4 @@ public:
             }
         }
     }
-
 };

@@ -12,14 +12,13 @@ private:
     bool canJump = true;
     bool ctr = false;
     float groundHeigth, jumpHeigth;
-    float jumpSpeed = 1;
+    float jumpSpeed = 2.1f;
 
 public:
     JumpComponent();
     ~JumpComponent();
     void initComponent();
     void update();
-
     void jump();
     bool isJumpEnabled() { return canJump; }
 };

@@ -6,7 +6,7 @@
 #include "Image.h"
 #include "FramedImage.h"
 #include "AttackBoxComponent.h"
-class ThrowableObject : public Component {
+class ThrowableObject : public Component { // Componente que se utiliza para lanzar la piedra
 private:
 	FramedImage* imagePlayer;
 	FramedImage* imageStone;
@@ -22,8 +22,6 @@ public:
 	void initComponent();
 
 	void update();
-
-	void render();
 
 	void throwStone();
 

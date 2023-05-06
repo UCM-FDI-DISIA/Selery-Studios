@@ -4,7 +4,7 @@
 #include "../sdlutils/SDLUtils.h"
 #include "../utils/Manager.h"
 
-class GameStateMachine: public Singleton <GameStateMachine> {
+class GameStateMachine : public Singleton <GameStateMachine> {
 private:
 	stack<Manager*> st; // pila de escenas
 	stack<Manager*> stToDelete; // pila de escenas a borrar
@@ -19,6 +19,5 @@ public:
 	void handleEvents();
 	void update();
 	void render();
-	Manager * state();
+	Manager* state();
 };
-

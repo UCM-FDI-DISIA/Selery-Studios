@@ -9,7 +9,6 @@
 #include "MovementLightBossComponent.h"
 #include "MovementComponent.h"
 #include "DisableOnExit.h"
-#include "ColliderComponent.h"
 #include "LightBossElement.h"
 #include "../GameManager.h"
 #include "AnimationLightBossComponent.h"
@@ -24,9 +23,7 @@ private:
 	Transform* bossTrans;
 	float distX, distY;
 	float closeX = 200;
-	float closeY = 100;
 	float negCloseX = -200;
-	float negCloseY = -100;
 	Vector2D dirAtk;
 	Vector2D dirMov;
 	int timer;
@@ -46,6 +43,7 @@ private:
 	bool attacking = false;
 	bool atk1 = false;
 	bool atk2 = false;
+	Vector2D dirToPlayer;
 	AnimationLightBossComponent* animBoss_;
 
 public:

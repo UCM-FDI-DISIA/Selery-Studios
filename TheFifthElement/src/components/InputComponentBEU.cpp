@@ -43,14 +43,14 @@ void InputComponentBEU::render() {
 	int r = abs(ultiTime - timeExecution);
 
 	if (r < 10) {
-		font_->render(SDLUtils::instance()->renderer(), to_string(r).c_str(), (90 + 100 + 8) * tr_->getScale(), (25 + 8) * tr_->getScale(), color);
+		font_->render(SDLUtils::instance()->renderer(), to_string(r).c_str(), (90 + 100 + 8) *  WIN_WIDTH/900, (25 + 8) * WIN_HEIGHT / 600, color);
 	}
 	else {
 		SDL_Rect dest;
-		dest.x = (90 + 100) * tr_->getScale();
-		dest.y = 25 * tr_->getScale();
-		dest.h = 32 * tr_->getScale();
-		dest.w = 32 * tr_->getScale();
+		dest.x = (90 + 100) *  WIN_WIDTH/900;
+		dest.y = 25 * WIN_HEIGHT / 600;
+		dest.h = 32 * WIN_HEIGHT / 600;
+		dest.w = 32 *  WIN_WIDTH/900;
 		p->render(dest);
 	}
 }
@@ -99,6 +99,39 @@ void InputComponentBEU::update() {
 void InputComponentBEU::handleEvents(SDL_Event event) {
 	ih().update(event);
 
+	if (ih().isKeyJustDown(SDL_SCANCODE_E)) {
+		if (!alreadyPressed2 && earthStage3 && !ent_->hasComponent(THROWABLEOBJECT_H)) { // Recogida de piedras en el stage 3 del boss de tierra
+			bool found = false;
+			auto it = mngr_->getEntities().begin();
+			while (!found && it != mngr_->getEntities().end()) {
+				if ((*it)->hasComponent(OBJECTSCOMPONENT_H) && (*it)->getComponent<ObjectsComponent>(OBJECTSCOMPONENT_H)->getInRange()) {
+					static_cast<StoneComponent*>((*it)->getComponent<StoneComponent>(STONECOMPONENT_H))->stonePicked();
+					ent_->addComponent<ThrowableObject>(THROWABLEOBJECT_H);
+					alreadyPressed2 = true;
+					found = true;
+				}
+				++it;
+			}
+		}
+	}
+	else if (ih().isKeyJustUp(SDL_SCANCODE_E)) {
+		alreadyPressed2 = false;
+	}
+
+	if (ih().isGamePadButtonDown(SDL_CONTROLLER_BUTTON_B)) {
+		if (earthStage3 && !ent_->hasComponent(THROWABLEOBJECT_H)) { // Recogida de piedras en el stage 3 del boss de tierra
+			bool found = false;
+			auto it = mngr_->getEntities().begin();
+			while (!found && it != mngr_->getEntities().end()) {
+				if ((*it)->hasComponent(OBJECTSCOMPONENT_H) && (*it)->getComponent<ObjectsComponent>(OBJECTSCOMPONENT_H)->getInRange()) {
+					static_cast<StoneComponent*>((*it)->getComponent<StoneComponent>(STONECOMPONENT_H))->stonePicked();
+					ent_->addComponent<ThrowableObject>(THROWABLEOBJECT_H);
+					found = true;
+				}
+				++it;
+			}
+		}
+	}
 	if ((ih().isKeyDown(SDL_SCANCODE_SPACE) || SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_A)) && !im_->getIsAnimUnstoppable() && jmp_->isJumpEnabled()) { // Salto
 		jmp_->jump();
 		sk_->changeState(SkinBEUComponent::Jump); // A lo mejor 15 cambia porque se le pueden dar o puede necesitar mas frames de salto
@@ -251,20 +284,6 @@ void InputComponentBEU::handleEvents(SDL_Event event) {
 	}
 	else if (ih().isKeyJustUp(SDL_SCANCODE_P) || !ih().isGamePadButtonDown(SDL_CONTROLLER_BUTTON_Y)) alreadyPressedSpecial = false;
 
-	if (ih().isKeyJustDown(SDL_SCANCODE_E) || !ih().isGamePadButtonDown(SDL_CONTROLLER_BUTTON_B)) {
-		if (!alreadyPressed2 && earthStage3 && !ent_->hasComponent(THROWABLEOBJECT_H)) { // Recogida de piedras en el stage 3 del boss de tierra
-			for (auto it : mngr_->getEntities()) {
-				if (it->hasComponent(OBJECTSCOMPONENT_H) && it->getComponent<ObjectsComponent>(OBJECTSCOMPONENT_H)->getInRange()) {
-					static_cast<StoneComponent*>(it->getComponent<StoneComponent>(STONECOMPONENT_H))->stonePicked();
-					ent_->addComponent<ThrowableObject>(THROWABLEOBJECT_H);
-					alreadyPressed2 = true;
-				}
-			}
-		}
-	}
-	else if (ih().isKeyJustUp(SDL_SCANCODE_E)) {
-		alreadyPressed2 = false;
-	}
 
 	if (ih().isKeyDown(SDL_SCANCODE_ESCAPE) || SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_START)) {
 		GameManager::goPauseMenu();

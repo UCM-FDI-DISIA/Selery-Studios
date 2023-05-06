@@ -16,7 +16,5 @@ public:
 	}
 	void setNewPos(Vector2D position);
 private:
-
-
 	Transform* tr_ = nullptr;
 };

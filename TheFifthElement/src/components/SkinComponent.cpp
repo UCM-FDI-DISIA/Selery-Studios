@@ -26,23 +26,18 @@ void SkinComponent::changeMov() {
 	{
 	case SkinComponent::Idle:
 		setIdle();
-		////im_->setAnimTexture(t_, nframes_, w_);
 		break;
 	case SkinComponent::Left:
 		setLeft();
-		/////im_->setAnimTexture(t_, nframes_, w_);
 		break;
 	case SkinComponent::Right:
 		setRight();
-		/////im_->setAnimTexture(t_, nframes_, w_);
 		break;
 	case SkinComponent::Up:
 		setUp();
-		////im_->setAnimTexture(t_, nframes_, w_);
 		break;
 	case SkinComponent::Down:
 		setDown();
-		/////im_->setAnimTexture(t_, nframes_, w_);
 		break;
 	default:
 		break;

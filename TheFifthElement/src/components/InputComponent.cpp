@@ -10,15 +10,12 @@ const int joystick_deadzone = 8000;
 InputComponent::InputComponent(Roulette* r) :Component() {
 	d = NONE;
 	roulet = r;
-	//s = td;
-	// por defecto solo está disponible aire
 }
 
 void InputComponent::initComponent() {
 	mov_ = ent_->getComponent<MovementComponent>(MOVEMENTCOMPONENT_H);
 	skin_ = ent_->getComponent<SkinComponent>(SKINCOMPONENT_H);
 	dialog = ent_->getComponent<DialogueComponent>(DIALOGCOMPONENT_H);
-	//setContext();	
 
 	 if (SDL_NumJoysticks() < 1) {
 		 // No hay gamepads conectados
@@ -85,14 +82,13 @@ void InputComponent::handleEvents(SDL_Event event)
 				mov_->setDir(Vector2D(0, 1));
 				skin_->changeState(SkinComponent::Down);
 			}
-		}
-
-		else if (SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_START)) {
-			GameManager::goPauseMenu();
-		}
-		else if (abs(SDL_GameControllerGetAxis(controller, SDL_CONTROLLER_AXIS_LEFTX)) < joystick_deadzone && abs(SDL_GameControllerGetAxis(controller, SDL_CONTROLLER_AXIS_LEFTY)) < joystick_deadzone) {		// No ha habido movimiento en el eje horizontal izquierd
-			mov_->setDir(Vector2D(0, 0));
-			skin_->changeState(SkinComponent::Idle);
+			else if (SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_START)) {
+				GameManager::goPauseMenu();
+			}
+			else if (abs(SDL_GameControllerGetAxis(controller, SDL_CONTROLLER_AXIS_LEFTX)) < joystick_deadzone && abs(SDL_GameControllerGetAxis(controller, SDL_CONTROLLER_AXIS_LEFTY)) < joystick_deadzone) {		// No ha habido movimiento en el eje horizontal izquierd
+				mov_->setDir(Vector2D(0, 0));
+				skin_->changeState(SkinComponent::Idle);
+			}
 		}
 
 		bool isButtonAPressed = SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_A);
@@ -115,40 +111,8 @@ void InputComponent::handleEvents(SDL_Event event)
 		}
 
 		wasButtonAPressed = isButtonAPressed;
-		int leftTriggerValue = SDL_GameControllerGetAxis(controller, SDL_CONTROLLER_AXIS_TRIGGERLEFT);
-		int rightTriggerValue = SDL_GameControllerGetAxis(controller, SDL_CONTROLLER_AXIS_TRIGGERRIGHT);
-		bool isLeftTriggerPressed = leftTriggerValue > triggerThreshold;
-		bool isRightTriggerPressed = rightTriggerValue > triggerThreshold;
 
-		if (!dialog->gethasstarted() && !dialog->getopenedShop()) {
-			if (isLeftTriggerPressed) {
-				if (canSave) {
-					static_cast<TopDownState*>(mngr_)->SaveGame();
-					canSave = false;
-				}
-			}
-			else if (!isLeftTriggerPressed && wasLeftTriggerPressed) {
-				// El gatillo izquierdo se soltó en este frame
-				canSave = true;
-			}
-
-			if (isRightTriggerPressed) {
-				if (canLoad) {
-					canLoad = false;
-					static_cast<TopDownState*>(mngr_)->LoadGame();
-				}
-			}
-			else if (!isRightTriggerPressed && wasRightTriggerPressed) {
-				// El gatillo derecho se soltó en este frame
-				canLoad = true;
-			}
-		}
-
-		// Almacena si los gatillos izquierdo y derecho estaban presionados en este frame para usarlo en el siguiente frame
-		wasLeftTriggerPressed = isLeftTriggerPressed;
-		wasRightTriggerPressed = isRightTriggerPressed;
-
-		bool isSelectButtonPressed = SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_BACK);
+		bool isSelectButtonPressed = SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_X);
 
 		if (isSelectButtonPressed) {
 			if (!wasSelectButtonPressed) {
@@ -168,7 +132,6 @@ void InputComponent::handleEvents(SDL_Event event)
 		if (SDL_GameControllerGetButton(controller,SDL_CONTROLLER_BUTTON_DPAD_DOWN) && Elements::instance()->getAir()) {
 			skin_->changeSkin("air");
 			roulet->changeplayer(1);
-			//static_cast<HUD*>(ent_)->
 		}
 		else if (SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_DPAD_UP) && Elements::instance()->getFire()) {
 			roulet->changeplayer(2);
@@ -187,28 +150,6 @@ void InputComponent::handleEvents(SDL_Event event)
 	ih().update(event);
 	if (ih().keyDownEvent()){
 		if (!dialog->gethasstarted() && !dialog->getopenedShop()) {
-			if ((ih().isKeyDown(SDL_SCANCODE_J))) {
-				if(canSave) {
-					static_cast<TopDownState*>(mngr_)->SaveGame();
-					canSave = false;
-					//s->SaveGame();
-				}
-			}
-			else if (ih().isKeyUp(SDL_SCANCODE_J)) {
-				canSave = true;
-			}
-		
-			if ((ih().isKeyDown(SDL_SCANCODE_T))) {
-				if (canLoad) {
-					canLoad = false;
-					static_cast<TopDownState*>(mngr_)->LoadGame();
-					//s->LoadGame();
-				}
-			}
-			else if (ih().isKeyUp(SDL_SCANCODE_T)) {
-				canLoad = true;
-			}
-
 
 			if (ih().isKeyDown(SDL_SCANCODE_A) && d != LEFT && d!= DOWNLEFT && d!= UPLEFT) {
 				moveLeft = true;
@@ -267,7 +208,7 @@ void InputComponent::handleEvents(SDL_Event event)
 			canTalk = true;
 		}
 
-		if (ih().isKeyDown(SDL_SCANCODE_ESCAPE) && !dialog->gethasstarted() && !dialog->getopenedShop() /* || SDL_GameControllerButton(SDL_CONTROLLER_BUTTON_A)*/) {
+		if (ih().isKeyDown(SDL_SCANCODE_ESCAPE) && !dialog->gethasstarted() && !dialog->getopenedShop()) {
 			GameManager::goPauseMenu();
 		}
 
@@ -275,9 +216,5 @@ void InputComponent::handleEvents(SDL_Event event)
 			static_cast<TopDownState*>(mngr_)->setMenuQuest(false);
 		else if (ih().isKeyDown(SDL_SCANCODE_Q) && !static_cast<TopDownState*>(mngr_)->getMenuQuest()) 
 			static_cast<TopDownState*>(mngr_)->setMenuQuest(true);
-
-		if (ih().isKeyDown(SDL_SCANCODE_0)) { //cambio a pantalla completa podria ser una opcion
-			SDL_SetWindowFullscreen(SDLUtils::instance()->window(), SDL_WINDOW_FULLSCREEN); //tambien se puede usar _DESKTOP
-		}
 	}
 }

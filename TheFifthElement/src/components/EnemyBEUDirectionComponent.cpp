@@ -27,16 +27,16 @@ void EnemyBEUDirectionComponent::update() {
 	if (!stop_ && player_ != nullptr) {
 
 		Vector2D Poffset_ = playerCol_->getOffset();// player offset
-		float w_ = playerTr_->getW() * playerTr_->getS();// player frame width
-		float h_ = playerTr_->getH() * playerTr_->getS();// player frame height
+		float w_ = playerTr_->getW();// player frame width
+		float h_ = playerTr_->getH();// player frame height
 		float pcw_ = playerCol_->getColWidth();// player collider width
 		float pch_ = playerCol_->getColHeight();// player collider height
 
 		float playerPosX = playerTr_->getPos().getX() + Poffset_.getX();;// player pos X
 
 		Vector2D offset_ = col_->getOffset();// enemy offset
-		w_ = tr_->getW() * playerTr_->getS();// enemy frame width
-		h_ = tr_->getH() * playerTr_->getS();// enemy frame height
+		w_ = tr_->getW();// enemy frame width
+		h_ = tr_->getH();// enemy frame height
 		float cw_ = col_->getColWidth();// enemy collider width
 		float ch_ = col_->getColHeight();// enemy collider height
 
@@ -79,7 +79,7 @@ void EnemyBEUDirectionComponent::update() {
 				cont = 0;
 			}
 
-			if (tr_->getPos().getX() >= WIN_WIDTH * 3/*esto debería ser el punto máximo de la pantalla al que se puede llegar*/)
+			if (tr_->getPos().getX() >= WIN_WIDTH * 1.8/*esto debería ser el punto máximo de la pantalla al que se puede llegar*/)
 				izq = true;// tiene que ir a la izquierda
 
 			else if (tr_->getPos().getX() <= 0/*principio de pantalla*/)
@@ -90,7 +90,7 @@ void EnemyBEUDirectionComponent::update() {
 			else changeDir(Vector2D(1.0f, dir_.getY()));
 			// Aplica límites en el eje Y
 			if (tr_->getPos().getY() <= UPPER_Y_LIMIT) changeDir(Vector2D(dir_.getX(), 1.0f));
-			else if (tr_->getPos().getY() >= LOWER_Y_LIMIT - (tr_->getH() * tr_->getS())/*final de pantalla*/)
+			else if (tr_->getPos().getY() >= LOWER_Y_LIMIT - (tr_->getH())/*final de pantalla*/)
 				changeDir(Vector2D(dir_.getX(), -1.0f));
 
 			speed = 0.5f;
