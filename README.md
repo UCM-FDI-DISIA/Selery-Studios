@@ -152,6 +152,7 @@ Daño = CaracterísticaDaño
 - Habilidad especial: El personaje se queda parado e invoca dos manos gigantes de roca que machacan el suelo, (doble hit)
 
 **Potenciadores**
+
 Cuando matas a un enemigo tienes una cierta probabilidad de obtener un potenciador de uno de estos tipos:
 -Recuperar vida.
 -Potenciar el daño (duración entre 10 y 15 segundos).
@@ -174,6 +175,7 @@ Los personajes desbloqueados nos proporcionan la capacidad de usarlos en combate
 Los puzzles son los siguientes:
 
 **Agua**
+
 A lo largo del mapa habrá distintas copas vacías, con el personaje de agua podrás acercarte y rellenarlas. Para poder obtener dinero tendrás que rellenar las copas (como máximo cuatro) en un orden específico, que es tarea del jugador descubrir.
 
 ![Imagen copas1](https://github.com/UCM-FDI-DISIA/Selery-Studios/raw/main/imgs/copas1.png)
@@ -181,6 +183,7 @@ A lo largo del mapa habrá distintas copas vacías, con el personaje de agua pod
 ![Imagen copas2](https://github.com/UCM-FDI-DISIA/Selery-Studios/raw/main/imgs/copas2.png)
 
 **Roca** 
+
 El mapa tendrá pilares los cuales deberemos de mover en una dirección concreta una cierta distancia. Si el jugador consigue colocarlos de la manera correcta recibirá como recompensa dinero.
 
 ![Imagen Rocas](https://github.com/UCM-FDI-DISIA/Selery-Studios/raw/main/imgs/rocas.png)
