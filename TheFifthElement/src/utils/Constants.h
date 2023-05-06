@@ -18,7 +18,7 @@ const float PLAYERBEU_COOLDOWNULTIMATE = 10.0f; //velocidad PlayerBEU
 
 const uint PLAYERTD_WIDTH_FRAME = 68; // anchura de PlayerTD
 const uint PLAYERTD_HEIGHT_FRAME = 120; // altura de PlayerTD
-const float PLAYERTD_SPEED = 11.0f; //velocidad PlayerTD
+const float PLAYERTD_SPEED = 7.0f; //velocidad PlayerTD
 const uint PLAYERTD_NUMFRAMES = 7; //numero de frames PlayerTD
 const uint PLAYERAVATAR_DIMENSION = 64; // avatar de los players 64x64
 
