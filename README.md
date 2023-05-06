@@ -7,7 +7,7 @@
 
 [Enlace al release](https://ucm-fdi-disia.github.io/Selery-Studios/)
 
-[Enlace al vídeo](https://youtu.be/5eOVw7ZBvOQ)
+[Enlace al vídeo comentado](https://www.youtube.com/watch?v=DxlXve9U_ts)
 
 [Presentaciones](https://github.com/UCM-FDI-DISIA/Selery-Studios/raw/main/docs/presentaciones)
 
