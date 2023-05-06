@@ -5,7 +5,7 @@
 ---
 [Web del juego](https://ucm-fdi-disia.github.io/Selery-Studios/)
 
-[Enlace al release](https://ucm-fdi-disia.github.io/Selery-Studios/)
+[Enlace al release](https://github.com/UCM-FDI-DISIA/Selery-Studios/releases/download/EXE/TheFifthElement.setup.exe)
 
 [Enlace al vídeo comentado](https://www.youtube.com/watch?v=DxlXve9U_ts)
 
