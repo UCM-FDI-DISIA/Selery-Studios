@@ -322,6 +322,7 @@ Se podrá mejorar las estadísticas de ataque y salud máxima en los mercaderes 
 **Menú principal**
 
 Menú de inicio que consta de un botón PLAY, un botón de LOAD para cargar la partida, un botón EXIT, y una rueda que nos lleva al menú de ajustes
+
 **Pantalla de ajustes** 
 
 En esta pantalla podemos cambiar el volumen del juego, los SFX, y ver los controles tanto para mando como para teclado.
@@ -361,6 +362,7 @@ Etapa de la aceptación: Luz
 
 ### PERSONAJES Y ENEMIGOS
 **Modo exploración**
+
 **Personaje principal:** el personaje principal será un hermano (Fuego, Agua, Tierra o Aire). 
 Se iniciará con el hermano de aire (Aire).
 El jugador podrá moverse con las teclas (W,A,S,D) y explorar el entorno.
@@ -369,6 +371,7 @@ Existirá la posibilidad de cambiar de hermano, siempre que se le tenga desbloqu
 **Enemigos:** Su función será detectar al jugador mediante un área para empezar el modo Beat em’up. 
 
 **Beat em’up**
+
 **Personaje principal:** podrá cambiarse en mitad de la partida con las teclas 1, 2, 3 y 4 (igual que en el mundo abierto). Constará de un combo de tres ataques y uno especial.
 
 **Enemigos:** los enemigos aparecerán en pantalla gradualmente. Nuestro juego consta con 4 tipos de enemigos: los esqueletos, los murciélagos, los goblins y por último los champiñones. Aparecerán ,aleatoriamente, estos enemigos con tipos aleatorios.
