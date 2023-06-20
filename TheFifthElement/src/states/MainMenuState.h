@@ -14,6 +14,7 @@ private:
 	Entity* optionsButton;
 	Entity* slider;
 	Entity* loadButton;
+	Entity* cardsButton;
 	bool controladorDetectado;
 	SDL_GameController* controller;
 	

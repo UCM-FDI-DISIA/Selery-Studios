@@ -24,6 +24,7 @@ void Button::update() {
 		else if (identifier == "EXITCONTROLS")im_->setTexture("ReturnButtonPressed");
 		else if (identifier == "RETURN")im_->setTexture("ReturnButtonPressed");
 		else if (identifier == "LOAD")im_->setTexture("LoadButtonPress");
+		else if (identifier == "CARDS")im_->setTexture("PlayButtonPressed");
 	}
 	else {
 		if (identifier == "PLAY")im_->setTexture("PlayButton");
@@ -38,6 +39,7 @@ void Button::update() {
 		else if (identifier == "EXITCONTROLS")im_->setTexture("ReturnButton");
 		else if (identifier == "RETURN")im_->setTexture("ReturnButton");
 		else if (identifier == "LOAD")im_->setTexture("LoadButton");
+		else if (identifier == "CARDS")im_->setTexture("PlayButton");
 		currentPositionState = MOUSE_OUT;
 	}
 	updateMousePosition();
@@ -138,6 +140,11 @@ void Button::handleEvent(SDL_Event event)
 					optionsstate->ControlsBackground("controlPanel");
 					optionsstate->createCharacter("PTD_water_right", PLAYERTD_WIDTH_FRAME, PLAYERTD_HEIGHT_FRAME, Vector2D(WIN_WIDTH / 5, 350), 7, false, 1);
 					optionsstate->createButtons();
+				}
+				else if (identifier == "CARDS")
+				{
+					SDLUtils::instance()->soundEffects().at("pruebaBoton").play();
+					GameManager::instance()->leaveMainMenu();
 				}
 			}
 		}

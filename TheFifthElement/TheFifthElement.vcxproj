@@ -136,6 +136,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\states\CardGameState.h" />
     <ClInclude Include="src\components\rewardtextComponent.h" />
     <ClInclude Include="src\components\Trigger.h" />
     <ClInclude Include="src\Puzzle1.h" />
@@ -237,6 +238,7 @@
     <ClInclude Include="src\components\WaterBossLife.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\states\CardGameState.cpp" />
     <ClCompile Include="src\components\PowerUpControler.cpp" />
     <ClCompile Include="src\components\FireBossComponent.cpp" />
     <ClCompile Include="src\components\IceIAComponent.cpp" />

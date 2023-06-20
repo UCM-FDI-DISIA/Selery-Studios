@@ -53,6 +53,11 @@ void GameManager::goOptionsMenu() {
 	GameStateMachine::instance()->pushState(new OptionsState());
 }
 
+void GameManager::goCardsGame()
+{
+	GameStateMachine::instance()->pushState(new CardGameState());
+}
+
 void GameManager::Pop() {
 	GameStateMachine::instance()->popState();
 }

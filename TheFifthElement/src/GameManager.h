@@ -36,5 +36,6 @@ public:
 	void goOptionsMenu();
 	void Pop();
 	void LoadGame();
+	void goCardsGame();
 
 };
