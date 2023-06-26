@@ -70,6 +70,7 @@ enum cmpId : cmpId_type {
 	QUESTINFOCOMPONENT_H = 62,
 	TRIGGER_H = 63,
 	REWARDTEXTCOMPONENT_H = 64,
+	DECKMANAGERCOMPONENT_H = 65,
 	// do not remove this
 	_LAST_CMP_ID
 };

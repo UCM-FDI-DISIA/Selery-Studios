@@ -8,6 +8,12 @@
 #include "../components/Image.h"
 #include "../components/Button.h"
 #include <vector>
+#include "../components/DeckManagerComponent.h"
+#include "../components/Transform.h"
+#include "../components/FramedImage.h"
+#include "../components//Image.h"
+#include "../sdlutils/Font.h"
+#include "../sdlutils/SDLUtils.h"
 
 //struct cartas: textura reverso, textura anverso, energia, vida y ataque
 typedef struct
@@ -28,7 +34,14 @@ private:
 	int numTurno;
 	int turnTimer;
 	Texture* table;
-	SDL_Rect backRect;
+	SDL_Rect backRect = {0,0,WIN_WIDTH,WIN_HEIGHT};
+	Entity* player;
+	DeckManagerComponent* playerDeck;
+	Entity* IA;
+	//IADeck;
+	Font* font;
+	SDL_Color colorFont = { 50,50,0 };
+	GameManager* Gm_;
 public:
 	CardGameState();
 
@@ -36,5 +49,7 @@ public:
 	virtual void render();
 	virtual void handleEvents();
 	virtual string getStateID() { return "CardsGame"; };
+	void nextTurn();
+	void deal();
 };
 

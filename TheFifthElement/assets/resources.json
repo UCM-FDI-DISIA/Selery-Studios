@@ -372,7 +372,12 @@
     { "id":"Calicelleno", "file": "assets/Scenes/Maps/AncientRuins/Props/goldenchalicelleno.png"},
     { "id":"Calice", "file": "assets/Scenes/Maps/AncientRuins/Props/goldenchalice.png"},
     { "id":"Pilar", "file": "assets/Scenes/Maps/AncientRuins/Props/pilar.png"},
-    { "id": "cardTable", "file": "assets/Cartas/fondo.png"}
+
+    { "id": "cardTable", "file": "assets/Cartas/fondo.png"},
+    { "id": "reversoCarta", "file": "assets/Cartas/reverso.png"},
+    { "id": "anversoCartaProv", "file": "assets/Cartas/AnversoProvi.png"},
+    { "id": "perfilPlayer", "file": "assets/Cartas/perfilPlayer.png"}
+
   ],
 
   "messages": [

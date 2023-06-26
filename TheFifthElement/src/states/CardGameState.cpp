@@ -18,19 +18,42 @@ CardGameState::CardGameState()
 {
 	//genero todo el plano:
 	table= &SDLUtils::instance()->images().at("cardTable");
-	backRect.x = 0; backRect.y = 0; backRect.w = WIN_WIDTH; backRect.h = WIN_HEIGHT;
-	// fondo, texto de ronda, ¿texto de turno?, la energia de cada player tiene que encargarse este y mostrarla por lo que necesito: 2 imagenes energía, 2 numeros energía
-	//genero las 2 entities
-	//player tiene: deckmanager(se encarga de las cartas y el render), inputHandler(clicks en cartas y fin de turno)
-	//IA tiene:deckManager(cartas y render)
-	//genero el primer turno aleatorio y lo configuro en el vector playersTurn
+	font = &SDLUtils::instance()->fonts().at("TCenturyScale");
+	//texto de ronda, la energia de cada player tiene que encargarse este y mostrarla por lo que necesito: 2 imagenes energía, 2 numeros energía
+
+	//player tiene: deckmanager(se encarga de todo)
+	player = new Entity();
+	player->setContext(this);
+	playerDeck=player->addComponent<DeckManagerComponent>(DECKMANAGERCOMPONENT_H, player);
+	player->addComponent<Transform>(TRANSFORM_H, Vector2D(WIN_WIDTH / 2 - 40, WIN_HEIGHT - 80), 40, 40);
+	player->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("perfilPlayer"));
+	addEntity(player);
+
+	//IA tiene:deckManager distinto(cartas y render)
+
 	turnTimer = sdlutils().currRealTime() + 60000; //un temporizador de 1 minuto
+	numTurno = 1; numRonda = 1;
+	//llamamos a un metodo para asignar las cartas de las pools de cartas
 }
 
 void CardGameState::update()
 {
 	//gestor de tiempo y turnos
-	//
+	if (numTurno == 1) //turno del player tiene contador y se llama a handleevents del player
+	{
+		if (turnTimer <= sdlutils().currRealTime()) //si se acaba el tiempo
+		{
+			nextTurn();
+		}
+		else
+		{
+
+		}
+	}
+	else //siempre será numTurno==2, turno de la IA
+	{
+		nextTurn(); //todavía no está la IA por lo que me salto el turno
+	}
 }
 
 void CardGameState::handleEvents()
@@ -44,4 +67,31 @@ void CardGameState::handleEvents()
 void CardGameState::render()
 {
 	table->render(backRect);
+	player->render();
+	//IA->render();
+	//render de la textura de energia
+	//render de la cantidad de energía
+	font->render(Gm_->getRenderer(), " Ronda", 136, 470, colorFont);
+	font->render(Gm_->getRenderer(), to_string(numRonda), 178, 450, colorFont);
+	font->render(Gm_->getRenderer(), to_string((turnTimer-sdlutils().currRealTime())/1000), 100, 450, colorFont);
+	//render de la insignia de turno con un if para detectar a quien colocarsela
+}
+
+void CardGameState::nextTurn()
+{
+	if (numTurno == 1)
+	{
+		numTurno++;
+	}
+	else //si es el segundo turno
+	{
+		numRonda++;
+		numTurno--;
+		turnTimer = sdlutils().currRealTime() + 60000; //se reestablece el contador para el player
+	}
+}
+
+void CardGameState::deal()
+{
+	//hago un for hasta 20 para cada entity
 }
