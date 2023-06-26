@@ -371,7 +371,8 @@
     { "id":"dmgRedIcon", "file": "assets/HUD/powerUps/shield.png"},
     { "id":"Calicelleno", "file": "assets/Scenes/Maps/AncientRuins/Props/goldenchalicelleno.png"},
     { "id":"Calice", "file": "assets/Scenes/Maps/AncientRuins/Props/goldenchalice.png"},
-    { "id":"Pilar", "file": "assets/Scenes/Maps/AncientRuins/Props/pilar.png"}
+    { "id":"Pilar", "file": "assets/Scenes/Maps/AncientRuins/Props/pilar.png"},
+    { "id": "cardTable", "file": "assets/Cartas/fondo.png"}
   ],
 
   "messages": [

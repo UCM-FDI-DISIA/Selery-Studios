@@ -72,6 +72,7 @@ void MainMenuState::handleEvents()
 		exitButton->handleEvent(event);
 		optionsButton->handleEvent(event);
 		loadButton->handleEvent(event);
+		cardsButton->handleEvent(event);
 		
 	}
 
