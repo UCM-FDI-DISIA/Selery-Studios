@@ -71,6 +71,7 @@ enum cmpId : cmpId_type {
 	TRIGGER_H = 63,
 	REWARDTEXTCOMPONENT_H = 64,
 	DECKMANAGERCOMPONENT_H = 65,
+	IADECKCOMPONENT_H=66,
 	// do not remove this
 	_LAST_CMP_ID
 };

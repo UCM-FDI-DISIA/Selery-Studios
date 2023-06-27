@@ -19,20 +19,27 @@ CardGameState::CardGameState()
 	//genero todo el plano:
 	table= &SDLUtils::instance()->images().at("cardTable");
 	font = &SDLUtils::instance()->fonts().at("TCenturyScale");
+	energyTex= &SDLUtils::instance()->images().at("energy");
 	//texto de ronda, la energia de cada player tiene que encargarse este y mostrarla por lo que necesito: 2 imagenes energía, 2 numeros energía
 
 	//player tiene: deckmanager(se encarga de todo)
 	player = new Entity();
 	player->setContext(this);
 	playerDeck=player->addComponent<DeckManagerComponent>(DECKMANAGERCOMPONENT_H, player);
-	player->addComponent<Transform>(TRANSFORM_H, Vector2D(WIN_WIDTH / 2 - 40, WIN_HEIGHT - 80), 40, 40);
+	player->addComponent<Transform>(TRANSFORM_H, Vector2D(WIN_WIDTH / 2 - 80, WIN_HEIGHT - 160), 80, 80);
 	player->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("perfilPlayer"));
 	addEntity(player);
 
 	//IA tiene:deckManager distinto(cartas y render)
+	IA = new Entity();
+	IA->setContext(this);
+	IADeck = IA->addComponent<IADeckComponent>(IADECKCOMPONENT_H, IA, player); //le pasamos el player para que la IA ejecute acciones en base a lo que ve
+	IA->addComponent<Transform>(TRANSFORM_H, Vector2D(WIN_WIDTH / 2 - 80, 0), 80, 80);
+	IA->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("perfilIA"));
+	addEntity(IA);
 
-	turnTimer = sdlutils().currRealTime() + 60000; //un temporizador de 1 minuto
-	numTurno = 1; numRonda = 1;
+	turnTimer = sdlutils().currRealTime() + 2000; //un temporizador de 1 minuto
+	numTurno = 1; numRonda = 1; playerDeck->receiveEnergy(numRonda);
 	//llamamos a un metodo para asignar las cartas de las pools de cartas
 }
 
@@ -47,7 +54,7 @@ void CardGameState::update()
 		}
 		else
 		{
-
+			playerDeck->handleEvents();
 		}
 	}
 	else //siempre será numTurno==2, turno de la IA
@@ -59,8 +66,10 @@ void CardGameState::update()
 void CardGameState::handleEvents()
 {
     SDL_Event event;
-    SDL_PollEvent(&event);
-	//evento de click = boton fin turno o pasarselo a cada carta del player, player getComponent DeckManager handleEvents (no estoy seguro) (seguramente haga un inputHandler que se encargue de esto solo para el player
+	while (SDL_PollEvent(&event))
+	{
+
+	}
 	//evento de ESC
 }
 
@@ -68,18 +77,21 @@ void CardGameState::render()
 {
 	table->render(backRect);
 	player->render();
-	//IA->render();
-	//render de la textura de energia
-	//render de la cantidad de energía
+	IA->render();
+	energyTex->render({ 1680,250,100,100 }); //energia de la IA
+	font->render(Gm_->getRenderer(), to_string(playerDeck->getEnergy()), 1725, 290, colorFont);
+	energyTex->render({ 1680,510,100,100 }); //energia del player
+	font->render(Gm_->getRenderer(), to_string(playerDeck->getEnergy()), 1725, 550, colorFont);
 	font->render(Gm_->getRenderer(), " Ronda", 136, 470, colorFont);
 	font->render(Gm_->getRenderer(), to_string(numRonda), 178, 450, colorFont);
 	font->render(Gm_->getRenderer(), to_string((turnTimer-sdlutils().currRealTime())/1000), 100, 450, colorFont);
 	//render de la insignia de turno con un if para detectar a quien colocarsela
+	//deberia hacer aquí el render de la cantidad de cartas de cada uno
 }
 
 void CardGameState::nextTurn()
 {
-	if (numTurno == 1)
+	if (numTurno == 1) //si era el turno del player
 	{
 		numTurno++;
 	}
@@ -87,7 +99,8 @@ void CardGameState::nextTurn()
 	{
 		numRonda++;
 		numTurno--;
-		turnTimer = sdlutils().currRealTime() + 60000; //se reestablece el contador para el player
+		turnTimer = sdlutils().currRealTime() + 2000; //se reestablece el contador para el player
+		playerDeck->receiveEnergy(numRonda);
 	}
 }
 

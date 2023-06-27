@@ -76,6 +76,7 @@
     <ClCompile Include="src\components\Trigger.cpp" />
     <ClCompile Include="src\states\CardGameState.cpp" />
     <ClCompile Include="src\components\DeckManagerComponent.cpp" />
+    <ClCompile Include="src\components\IADeckComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\components\Button.h" />
@@ -179,6 +180,7 @@
     <ClInclude Include="src\components\rewardtextComponent.h" />
     <ClInclude Include="src\states\CardGameState.h" />
     <ClInclude Include="src\components\DeckManagerComponent.h" />
+    <ClInclude Include="src\components\IADeckComponent.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="TheFifthElement.rc" />

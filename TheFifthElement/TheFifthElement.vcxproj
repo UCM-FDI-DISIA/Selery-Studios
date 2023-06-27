@@ -137,6 +137,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="src\components\DeckManagerComponent.h" />
+    <ClInclude Include="src\components\IADeckComponent.h" />
     <ClInclude Include="src\states\CardGameState.h" />
     <ClInclude Include="src\components\rewardtextComponent.h" />
     <ClInclude Include="src\components\Trigger.h" />
@@ -240,6 +241,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\components\DeckManagerComponent.cpp" />
+    <ClCompile Include="src\components\IADeckComponent.cpp" />
     <ClCompile Include="src\states\CardGameState.cpp" />
     <ClCompile Include="src\components\PowerUpControler.cpp" />
     <ClCompile Include="src\components\FireBossComponent.cpp" />

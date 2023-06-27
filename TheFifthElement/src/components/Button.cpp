@@ -39,7 +39,7 @@ void Button::update() {
 		else if (identifier == "EXITCONTROLS")im_->setTexture("ReturnButton");
 		else if (identifier == "RETURN")im_->setTexture("ReturnButton");
 		else if (identifier == "LOAD")im_->setTexture("LoadButton");
-		else if (identifier == "CARDS")im_->setTexture("PlayButton");
+		else if (identifier == "CARDS")im_->setTexture("PlayButton"); //hay que cambiar el boton
 		currentPositionState = MOUSE_OUT;
 	}
 	updateMousePosition();
