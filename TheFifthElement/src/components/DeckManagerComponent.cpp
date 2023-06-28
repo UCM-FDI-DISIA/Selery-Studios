@@ -3,11 +3,14 @@
 
 void DeckManagerComponent::drawCard(int numCards)
 {
-	for (int i = 0; i < numCards; i++)
+	if (deck.size() > 0)
 	{
-		hand.push_back(deck[1]);
-		deck.erase(deck.begin());
-	}
+		for (int i = 0; i < numCards; i++)
+		{
+			hand.push_back(deck[0]);
+			deck.erase(deck.begin());
+		}
+	}	
 }
 
 void DeckManagerComponent::endTurn() //para una linea de codigo la podria haber saltado y metido dentro del event directamente
@@ -17,8 +20,20 @@ void DeckManagerComponent::endTurn() //para una linea de codigo la podria haber 
 
 void DeckManagerComponent::render()
 {
-	//for para las cartas de deck
-	//for para las cartas en mano
+	for (int i = 0; i < deck.size(); i++)
+	{
+		deck[i]->reverse->render(deckStack);
+	}
+	font->render(Gm_->getRenderer(), to_string(deck.size()), deckStack.x + 35, deckStack.y+110, { 255,255,255 });
+	
+	for (int j = 0; j < hand.size(); j++)
+	{
+		SDL_Rect provRect = handStack;
+		provRect.x += j%10 * 145;
+		provRect.y += 50 * (j / 10);
+		Texture* provTex = &SDLUtils::instance()->images().at(hand[j]->anverseName);
+		provTex->render(provRect);
+	}
 	//for para las cartas en la mesa
 }
 

@@ -22,17 +22,17 @@ CardGameState::CardGameState()
 	energyTex= &SDLUtils::instance()->images().at("energy");
 	
 	//generamos todas las cartas manualmente: 16 commonCards, 4 unicas para el player y 3 unicas para la IA
-	commonCards = { new CardsInfo{"WaterSkeleton",1,2,2,1, initialPlace,generalreverse},new CardsInfo{"WaterGoblin",1,1,3,1, initialPlace,generalreverse} ,new CardsInfo{"WaterMushroom",2,3,1,1, initialPlace,generalreverse} ,new CardsInfo{"WaterBat",1,1,1,1, initialPlace,generalreverse}, 
-	new CardsInfo{"FireSkeleton",1,2,2,2, initialPlace,generalreverse} ,new CardsInfo{"FireGoblin",1,1,3,2, initialPlace,generalreverse} ,new CardsInfo{"FireMushroom",2,3,1,2, initialPlace,generalreverse} ,new CardsInfo{"FireBat",1,1,1,2, initialPlace,generalreverse} ,
-	new CardsInfo{"EarthSkeleton",1,2,2,3, initialPlace,generalreverse} ,new CardsInfo{"EarthGoblin",1,1,3,3, initialPlace,generalreverse} ,new CardsInfo{"EarthMushroom",2,3,1,3, initialPlace,generalreverse} ,new CardsInfo{"EarthBat",1,1,1,3, initialPlace,generalreverse} ,
-	new CardsInfo{"WindSkeleton",1,2,2,4, initialPlace,generalreverse} ,new CardsInfo{"WindGoblin",1,1,3,4, initialPlace,generalreverse} ,new CardsInfo{"WindMushroom",2,3,1,4, initialPlace,generalreverse} ,new CardsInfo{"WindBat",1,1,1,4, initialPlace,generalreverse} };
-	IACards = { new CardsInfo{"WaterBoss",5,5,5,1, initialPlace,generalreverse} ,new CardsInfo{"FireBoss",5,5,5,2, initialPlace,generalreverse} ,new CardsInfo{"EarthBoss",5,5,5,3, initialPlace,generalreverse} };
-	playerCards = { new CardsInfo{"WaterSister",4,4,4,1, initialPlace,generalreverse} ,new CardsInfo{"FireBrother",4,4,4,2, initialPlace,generalreverse} ,new CardsInfo{"EarthBrother",4,4,4,3, initialPlace,generalreverse} ,new CardsInfo{"WindBrother",4,4,4,4, initialPlace,generalreverse} };
+	commonCards = { new CardsInfo{"WaterSkeleton",1,2,2,1,generalreverse},new CardsInfo{"WaterGoblin",1,1,3,1,generalreverse} ,new CardsInfo{"WaterMushroom",2,3,1,1,generalreverse} ,new CardsInfo{"WaterBat",1,1,1,1,generalreverse}, 
+	new CardsInfo{"FireSkeleton",1,2,2,2,generalreverse} ,new CardsInfo{"FireGoblin",1,1,3,2,generalreverse} ,new CardsInfo{"FireMushroom",2,3,1,2,generalreverse} ,new CardsInfo{"FireBat",1,1,1,2,generalreverse} ,
+	new CardsInfo{"EarthSkeleton",1,2,2,3,generalreverse} ,new CardsInfo{"EarthGoblin",1,1,3,3,generalreverse} ,new CardsInfo{"EarthMushroom",2,3,1,3,generalreverse} ,new CardsInfo{"EarthBat",1,1,1,3,generalreverse} ,
+	new CardsInfo{"WindSkeleton",1,2,2,4,generalreverse} ,new CardsInfo{"WindGoblin",1,1,3,4,generalreverse} ,new CardsInfo{"WindMushroom",2,3,1,4,generalreverse} ,new CardsInfo{"WindBat",1,1,1,4,generalreverse} };
+	IACards = { new CardsInfo{"WaterBoss",5,5,5,1,generalreverse} ,new CardsInfo{"FireBoss",5,5,5,2,generalreverse} ,new CardsInfo{"EarthBoss",5,5,5,3,generalreverse} };
+	playerCards = { new CardsInfo{"WaterSister",4,4,4,1,generalreverse} ,new CardsInfo{"FireBrother",4,4,4,2,generalreverse} ,new CardsInfo{"EarthBrother",4,4,4,3,generalreverse} ,new CardsInfo{"WindBrother",4,4,4,4,generalreverse} };
 
 	//player tiene: deckmanager(se encarga de todo)
 	player = new Entity();
 	player->setContext(this);
-	playerDeck=player->addComponent<DeckManagerComponent>(DECKMANAGERCOMPONENT_H, player);
+	playerDeck=player->addComponent<DeckManagerComponent>(DECKMANAGERCOMPONENT_H,Gm_, player);
 	player->addComponent<Transform>(TRANSFORM_H, Vector2D(WIN_WIDTH / 2 - 80, WIN_HEIGHT - 160), 80, 80);
 	player->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("perfilPlayer"));
 	addEntity(player);
@@ -47,7 +47,10 @@ CardGameState::CardGameState()
 
 	turnTimer = sdlutils().currRealTime() + 10000; //un temporizador de 1 minuto
 	numTurno = 1; numRonda = 1; playerDeck->receiveEnergy(numRonda);
-	//llamamos a un metodo para asignar las cartas de las pools de cartas
+
+	//llamamos al deal para darles cartas a los jugadores y despues hacemos un draw card de 5 para cada uno
+	deal();
+	playerDeck->drawCard(5);
 }
 
 void CardGameState::update()
@@ -113,10 +116,41 @@ void CardGameState::nextTurn()
 		numTurno--;
 		turnTimer = sdlutils().currRealTime() + 10000; //se reestablece el contador para el player
 		playerDeck->receiveEnergy(numRonda);
+		playerDeck->drawCard(1);
 	}
 }
 
 void CardGameState::deal()
 {
-	//hago un for hasta 20 para cada entity
+	for (int i = 0; i < 20; i++)
+	{
+		int chooseStack = rand() % 5 + 1;
+		if (chooseStack == 1&&playerCards.size()!=0)
+		{
+			int chooseCard = rand() % (playerCards.size());//aqui no hago un +1 ya que existe el indice 0 pero no el indice playerCards.size() por estar fuera de rango
+			playerDeck->shuffleDeck(playerCards[chooseCard]);
+			playerCards.erase(playerCards.begin()+chooseCard); //se elimina la carta de la pila para que el player no tenga más de 1 de cada y no se dé el caso de que tenga 4 veces al hermano de fuego (balance del juego)
+		}
+		else
+		{
+			int chooseCard = rand() % (commonCards.size());
+			playerDeck->shuffleDeck(commonCards[chooseCard]); //no se hace erase ya que se pueden tener cartas repetidas de esta pila y porque luego la IA las necesita también
+		}
+	}
+	//parte de la IA //descomentar cuando esté terminado el componente
+	//for (int i = 0; i < 20; i++)
+	//{
+	//	int chooseStack = rand() % 5 + 1;
+	//	if (chooseStack == 1 && playerCards.size() != 0)
+	//	{
+	//		int chooseCard = rand() % (playerCards.size());//aqui no hago un +1 ya que existe el indice 0 pero no el indice playerCards.size() por estar fuera de rango
+	//		playerDeck->shuffleDeck(playerCards[chooseCard]);
+	//		playerCards.erase(playerCards.begin() + chooseCard); //se elimina la carta de la pila para que el player no tenga más de 1 de cada y no se dé el caso de que tenga 4 veces al hermano de fuego (balance del juego)
+	//	}
+	//	else
+	//	{
+	//		int chooseCard = rand() % (commonCards.size());
+	//		playerDeck->shuffleDeck(playerCards[chooseCard]); //no se hace erase ya que se pueden tener cartas repetidas de esta pila y porque luego la IA las necesita también
+	//	}
+	//}
 }

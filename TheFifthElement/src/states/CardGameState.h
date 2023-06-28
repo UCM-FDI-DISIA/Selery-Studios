@@ -21,14 +21,13 @@ typedef struct CardsInfo
 {
 	string anverseName;
 	int energy, life, attack, element;
-	SDL_Rect place;
 	Texture* reverse;
+	int numTableTurns=0;
 };
 
 class CardGameState: public Manager
 {
 private:
-	SDL_Rect initialPlace = { 0,0,0,0 };
 	Texture* generalreverse= &SDLUtils::instance()->images().at("reversoCarta");
 	vector<CardsInfo*> playerCards; //pool de las cartas que puede tener solo el player
 	vector<CardsInfo*> IACards; //pool de las cartas que puede tener solo la IA
