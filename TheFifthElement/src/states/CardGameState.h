@@ -17,21 +17,22 @@
 #include "../components/IADeckComponent.h"
 
 //struct cartas: textura reverso, textura anverso, energia, vida y ataque
-typedef struct
+typedef struct CardsInfo
 {
 	string anverseName;
-	int energy, life, attack;
-	Texture* reverse;
+	int energy, life, attack, element;
 	SDL_Rect place;
-}CardsInfo;
+	Texture* reverse;
+};
 
 class CardGameState: public Manager
 {
 private:
-	Texture* generalReverse= &SDLUtils::instance()->images().at("reversoCarta");
-	vector<CardsInfo> playerCards = { {},{},{},{},{},{},{},{} }; //pool de las cartas que puede tener solo el player
-	vector<CardsInfo> IACards = { {},{},{} }; //pool de las cartas que puede tener solo la IA
-	vector<CardsInfo> commonCards = { {},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{} }; //pool de las cartas que pueden tener ambos
+	SDL_Rect initialPlace = { 0,0,0,0 };
+	Texture* generalreverse= &SDLUtils::instance()->images().at("reversoCarta");
+	vector<CardsInfo*> playerCards; //pool de las cartas que puede tener solo el player
+	vector<CardsInfo*> IACards; //pool de las cartas que puede tener solo la IA
+	vector<CardsInfo*> commonCards; //pool de las cartas que pueden tener ambos
 	vector<Entity*>playersTurn;
 	int numRonda;
 	int numTurno;
@@ -46,6 +47,9 @@ private:
 	Font* font;
 	SDL_Color colorFont = { 50,50,0 };
 	GameManager* Gm_;
+	Texture* playerTurn= &SDLUtils::instance()->images().at("sliderPlayer");
+	Texture* IATurn = &SDLUtils::instance()->images().at("sliderIA");
+	SDL_Rect sliderRect = { 130,560,100,50 };
 
 public:
 	CardGameState();

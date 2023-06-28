@@ -16,11 +16,18 @@
 
 CardGameState::CardGameState()
 {
-	//genero todo el plano:
+	//genero todo el plano, la font, y algun elemento extra necesario:
 	table= &SDLUtils::instance()->images().at("cardTable");
 	font = &SDLUtils::instance()->fonts().at("TCenturyScale");
 	energyTex= &SDLUtils::instance()->images().at("energy");
-	//texto de ronda, la energia de cada player tiene que encargarse este y mostrarla por lo que necesito: 2 imagenes energía, 2 numeros energía
+	
+	//generamos todas las cartas manualmente: 16 commonCards, 4 unicas para el player y 3 unicas para la IA
+	commonCards = { new CardsInfo{"WaterSkeleton",1,2,2,1, initialPlace,generalreverse},new CardsInfo{"WaterGoblin",1,1,3,1, initialPlace,generalreverse} ,new CardsInfo{"WaterMushroom",2,3,1,1, initialPlace,generalreverse} ,new CardsInfo{"WaterBat",1,1,1,1, initialPlace,generalreverse}, 
+	new CardsInfo{"FireSkeleton",1,2,2,2, initialPlace,generalreverse} ,new CardsInfo{"FireGoblin",1,1,3,2, initialPlace,generalreverse} ,new CardsInfo{"FireMushroom",2,3,1,2, initialPlace,generalreverse} ,new CardsInfo{"FireBat",1,1,1,2, initialPlace,generalreverse} ,
+	new CardsInfo{"EarthSkeleton",1,2,2,3, initialPlace,generalreverse} ,new CardsInfo{"EarthGoblin",1,1,3,3, initialPlace,generalreverse} ,new CardsInfo{"EarthMushroom",2,3,1,3, initialPlace,generalreverse} ,new CardsInfo{"EarthBat",1,1,1,3, initialPlace,generalreverse} ,
+	new CardsInfo{"WindSkeleton",1,2,2,4, initialPlace,generalreverse} ,new CardsInfo{"WindGoblin",1,1,3,4, initialPlace,generalreverse} ,new CardsInfo{"WindMushroom",2,3,1,4, initialPlace,generalreverse} ,new CardsInfo{"WindBat",1,1,1,4, initialPlace,generalreverse} };
+	IACards = { new CardsInfo{"WaterBoss",5,5,5,1, initialPlace,generalreverse} ,new CardsInfo{"FireBoss",5,5,5,2, initialPlace,generalreverse} ,new CardsInfo{"EarthBoss",5,5,5,3, initialPlace,generalreverse} };
+	playerCards = { new CardsInfo{"WaterSister",4,4,4,1, initialPlace,generalreverse} ,new CardsInfo{"FireBrother",4,4,4,2, initialPlace,generalreverse} ,new CardsInfo{"EarthBrother",4,4,4,3, initialPlace,generalreverse} ,new CardsInfo{"WindBrother",4,4,4,4, initialPlace,generalreverse} };
 
 	//player tiene: deckmanager(se encarga de todo)
 	player = new Entity();
@@ -38,23 +45,20 @@ CardGameState::CardGameState()
 	IA->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("perfilIA"));
 	addEntity(IA);
 
-	turnTimer = sdlutils().currRealTime() + 2000; //un temporizador de 1 minuto
+	turnTimer = sdlutils().currRealTime() + 10000; //un temporizador de 1 minuto
 	numTurno = 1; numRonda = 1; playerDeck->receiveEnergy(numRonda);
 	//llamamos a un metodo para asignar las cartas de las pools de cartas
 }
 
 void CardGameState::update()
 {
+	handleEvents();
 	//gestor de tiempo y turnos
 	if (numTurno == 1) //turno del player tiene contador y se llama a handleevents del player
 	{
 		if (turnTimer <= sdlutils().currRealTime()) //si se acaba el tiempo
 		{
 			nextTurn();
-		}
-		else
-		{
-			playerDeck->handleEvents();
 		}
 	}
 	else //siempre será numTurno==2, turno de la IA
@@ -68,9 +72,16 @@ void CardGameState::handleEvents()
     SDL_Event event;
 	while (SDL_PollEvent(&event))
 	{
+		if (event.type == SDLK_ESCAPE)
+		{
+			//pop del menu de pausa que quizá haga uno nuevo para el modo nuevo
+		}
 
+		if (numTurno == 1)
+		{
+			playerDeck->handleEvents(event);
+		}
 	}
-	//evento de ESC
 }
 
 void CardGameState::render()
@@ -85,8 +96,9 @@ void CardGameState::render()
 	font->render(Gm_->getRenderer(), " Ronda", 136, 470, colorFont);
 	font->render(Gm_->getRenderer(), to_string(numRonda), 178, 450, colorFont);
 	font->render(Gm_->getRenderer(), to_string((turnTimer-sdlutils().currRealTime())/1000), 100, 450, colorFont);
-	//render de la insignia de turno con un if para detectar a quien colocarsela
-	//deberia hacer aquí el render de la cantidad de cartas de cada uno
+	if (numTurno == 1) { playerTurn->render(sliderRect); }
+	else { IATurn->render(sliderRect); }
+	//deberia hacer aquí el render de la cantidad de cartas de cada uno //no lo creo necesario
 }
 
 void CardGameState::nextTurn()
@@ -99,7 +111,7 @@ void CardGameState::nextTurn()
 	{
 		numRonda++;
 		numTurno--;
-		turnTimer = sdlutils().currRealTime() + 2000; //se reestablece el contador para el player
+		turnTimer = sdlutils().currRealTime() + 10000; //se reestablece el contador para el player
 		playerDeck->receiveEnergy(numRonda);
 	}
 }

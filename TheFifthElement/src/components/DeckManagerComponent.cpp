@@ -5,8 +5,8 @@ void DeckManagerComponent::drawCard(int numCards)
 {
 	for (int i = 0; i < numCards; i++)
 	{
-		//hand.push_back(deck[1]);
-		//deck.erase(deck.begin());
+		hand.push_back(deck[1]);
+		deck.erase(deck.begin());
 	}
 }
 
@@ -22,32 +22,28 @@ void DeckManagerComponent::render()
 	//for para las cartas en la mesa
 }
 
-void DeckManagerComponent::handleEvents()
+void DeckManagerComponent::handleEvents(SDL_Event event)
 {
-	SDL_Event event;
-	while (SDL_PollEvent(&event))
+	if (event.type == SDL_MOUSEBUTTONDOWN)
 	{
-		if (event.type == SDL_MOUSEBUTTONDOWN)
+		if (event.button.button == SDL_BUTTON_LEFT)
 		{
-			if (event.button.button == SDL_BUTTON_LEFT) 
-			{
-				int clicX = event.button.x;
-				int clicY = event.button.y;
+			int clicX = event.button.x;
+			int clicY = event.button.y;
 
-				if (clicX >= endTurnButtonRect.x && clicX <= (endTurnButtonRect.x + endTurnButtonRect.w) &&
-					clicY >= endTurnButtonRect.y && clicY <= (endTurnButtonRect.y + endTurnButtonRect.h)) //click para acabar el turno
+			if (clicX >= endTurnButtonRect.x && clicX <= (endTurnButtonRect.x + endTurnButtonRect.w) &&
+				clicY >= endTurnButtonRect.y && clicY <= (endTurnButtonRect.y + endTurnButtonRect.h)) //click para acabar el turno
+			{
+				endTurn();
+			}
+			else
+			{
+				for (int i = 0; i < hand.size(); i++)
 				{
-					endTurn();
-				}
-				else
-				{
-					//for (int i = 0; i < hand.size(); i++)
-					//{
-					//	//if ()
-					//}
+					//if ()
 				}
 			}
-			
-		}	
+		}
+
 	}
 }

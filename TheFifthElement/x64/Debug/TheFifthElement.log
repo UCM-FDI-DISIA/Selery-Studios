@@ -109,6 +109,7 @@ C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\com
 C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\components\IceShadowComponent.h(54,61): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
 C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\components\DisableOnExit.h(15,22): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\components\DisableOnExit.h(19,15): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\states\CardGameState.h(26,2): warning C4091: 'typedef ': se ha omitido a la izquierda de 'CardsInfo' cuando no hay ninguna variable declarada
   Game.cpp
 C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(52,30): warning C4101: 'e': variable local sin referencia
 C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(48,1): message : al compilar la función del miembro clase plantilla "Texture &SDLUtils::map_access_wrapper<Texture>::at(std::string)"
@@ -218,6 +219,7 @@ C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\com
 C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\components\IceShadowComponent.h(54,61): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
 C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\components\DisableOnExit.h(15,22): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\components\DisableOnExit.h(19,15): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\states\CardGameState.h(26,2): warning C4091: 'typedef ': se ha omitido a la izquierda de 'CardsInfo' cuando no hay ninguna variable declarada
   GameManager.cpp
 C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(52,30): warning C4101: 'e': variable local sin referencia
 C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\sdlutils\SDLUtils.h(48,1): message : al compilar la función del miembro clase plantilla "Texture &SDLUtils::map_access_wrapper<Texture>::at(std::string)"
@@ -327,6 +329,7 @@ C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\com
 C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\components\IceShadowComponent.h(54,61): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
 C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\components\DisableOnExit.h(15,22): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\components\DisableOnExit.h(19,15): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\states\CardGameState.h(26,2): warning C4091: 'typedef ': se ha omitido a la izquierda de 'CardsInfo' cuando no hay ninguna variable declarada
   Button.cpp
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\crtdbg.h(307,1): warning C4005: '_malloca': redefinición de macro
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\malloc.h(124,1): message : vea la definición anterior de '_malloca'
@@ -438,6 +441,7 @@ C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\com
 C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\components\IceShadowComponent.h(54,61): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
 C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\components\DisableOnExit.h(15,22): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\components\DisableOnExit.h(19,15): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\states\CardGameState.h(26,2): warning C4091: 'typedef ': se ha omitido a la izquierda de 'CardsInfo' cuando no hay ninguna variable declarada
 C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\components\Button.cpp(12,50): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
 C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\components\Button.cpp(12,38): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
 C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\components\Button.cpp(13,135): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
@@ -493,6 +497,7 @@ C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\uti
           [
               _Ty=float
           ]
+C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\states\CardGameState.h(26,2): warning C4091: 'typedef ': se ha omitido a la izquierda de 'CardsInfo' cuando no hay ninguna variable declarada
   BeatEmUpState.cpp
 C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(36,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\components\ColliderComponent.h(37,24): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
@@ -602,6 +607,7 @@ C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\com
 C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\components\rewardtextComponent.h(48,85): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\components\rewardtextComponent.h(48,72): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\components\rewardtextComponent.h(53,46): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\states\CardGameState.h(26,2): warning C4091: 'typedef ': se ha omitido a la izquierda de 'CardsInfo' cuando no hay ninguna variable declarada
 C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\states\BeatEmUpState.cpp(15,49): warning C4244: '=': conversión de 'Uint32' a 'float'; posible pérdida de datos
 C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\states\BeatEmUpState.cpp(99,50): warning C4244: '=': conversión de 'Uint32' a 'float'; posible pérdida de datos
 C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\states\BeatEmUpState.cpp(103,62): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
@@ -682,7 +688,8 @@ C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\uti
           [
               _Ty=float
           ]
-C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\states\CardGameState.cpp(51,17): warning C4018: '<=': no coinciden signed/unsigned
+C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\states\CardGameState.h(26,2): warning C4091: 'typedef ': se ha omitido a la izquierda de 'CardsInfo' cuando no hay ninguna variable declarada
+C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\states\CardGameState.cpp(52,17): warning C4018: '<=': no coinciden signed/unsigned
 C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(37,27): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
           with
           [
@@ -802,6 +809,7 @@ C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\com
 C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\components\IceShadowComponent.h(54,61): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
 C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\components\DisableOnExit.h(15,22): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\components\DisableOnExit.h(19,15): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\states\CardGameState.h(26,2): warning C4091: 'typedef ': se ha omitido a la izquierda de 'CardsInfo' cuando no hay ninguna variable declarada
 C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\states\EndState.cpp(22,32): warning C4267: '=': conversión de 'size_t' a 'int'; posible pérdida de datos
 C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\states\EndState.cpp(68,76): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
 C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\states\EndState.cpp(68,73): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
@@ -924,6 +932,7 @@ C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\com
 C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\components\IceShadowComponent.h(54,61): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
 C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\components\DisableOnExit.h(15,22): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\components\DisableOnExit.h(19,15): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\states\CardGameState.h(26,2): warning C4091: 'typedef ': se ha omitido a la izquierda de 'CardsInfo' cuando no hay ninguna variable declarada
 C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\states\MainMenuState.cpp(24,113): warning C4305: 'argumento': truncamiento de 'double' a 'float'
 C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(37,27): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\states\MainMenuState.cpp(95,103): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Entity::addComponent<FramedImage,Texture*,int&,float&,int&>(cmpId_type,Texture *&&,int &,float &,int &)" que se está compilando
@@ -1050,6 +1059,7 @@ C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\com
 C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\components\IceShadowComponent.h(54,61): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
 C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\components\DisableOnExit.h(15,22): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\components\DisableOnExit.h(19,15): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\states\CardGameState.h(26,2): warning C4091: 'typedef ': se ha omitido a la izquierda de 'CardsInfo' cuando no hay ninguna variable declarada
 C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\states\OptionsState.cpp(112,134): warning C4305: 'argumento': truncamiento de 'double' a 'float'
 C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\utils\Entity.h(37,27): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
           with
@@ -1186,6 +1196,7 @@ C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\com
 C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\components\IceShadowComponent.h(54,61): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
 C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\components\DisableOnExit.h(15,22): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\components\DisableOnExit.h(19,15): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\states\CardGameState.h(26,2): warning C4091: 'typedef ': se ha omitido a la izquierda de 'CardsInfo' cuando no hay ninguna variable declarada
 C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\states\PauseState.cpp(21,86): warning C4305: 'argumento': truncamiento de 'double' a 'float'
 C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\states\PauseState.cpp(23,90): warning C4305: 'argumento': truncamiento de 'double' a 'float'
 C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\states\PauseState.cpp(23,106): warning C4305: 'argumento': truncamiento de 'double' a 'float'
@@ -1320,6 +1331,7 @@ C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\com
 C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\components\IceShadowComponent.h(54,61): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
 C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\components\DisableOnExit.h(15,22): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\components\DisableOnExit.h(19,15): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\states\CardGameState.h(26,2): warning C4091: 'typedef ': se ha omitido a la izquierda de 'CardsInfo' cuando no hay ninguna variable declarada
 C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(19,52): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(61,29): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
 C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\states\TopDownState.cpp(62,29): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
@@ -1494,4 +1506,5 @@ C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\sta
           ]
   Generando código...
 C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\states\TopDownState.h(205): warning C4715: 'TopDownState::EnemyTexture': no todas las rutas de acceso de control devuelven un valor
+     Creando biblioteca C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\x64\Debug\TheFifthElement.lib y objeto C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\x64\Debug\TheFifthElement.exp
   TheFifthElement.vcxproj -> C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\x64\Debug\TheFifthElement.exe
