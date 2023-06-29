@@ -33,15 +33,29 @@ void DeckManagerComponent::render()
 		provRect.y += 50 * (j / 10);
 		Texture* provTex = &SDLUtils::instance()->images().at(hand[j]->anverseName);
 		provTex->render(provRect);
+		hand[j]->pos = provRect;
 	}
-	//for para las cartas en la mesa
+	if (selected != nullptr)
+	{
+		Texture* selectedTex = &SDLUtils::instance()->images().at(selected->anverseName);
+		SDL_Rect selectedRect = selected->pos;
+		selectedRect.y -= 100;
+		selectedTex->render(selectedRect);
+	}
+	for (int k = 0; k < table.size(); k++)
+	{
+		SDL_Rect provRect = tableStack;
+		provRect.x += k * tablePlace.w / (table.size() + 1);
+		Texture* provTex = &SDLUtils::instance()->images().at(table[k]->anverseName);
+		provTex->render(provRect);
+	}
 }
 
 void DeckManagerComponent::handleEvents(SDL_Event event)
 {
 	if (event.type == SDL_MOUSEBUTTONDOWN)
 	{
-		if (event.button.button == SDL_BUTTON_LEFT)
+		if (event.button.button == SDL_BUTTON_LEFT&&selected==nullptr)
 		{
 			int clicX = event.button.x;
 			int clicY = event.button.y;
@@ -55,10 +69,30 @@ void DeckManagerComponent::handleEvents(SDL_Event event)
 			{
 				for (int i = 0; i < hand.size(); i++)
 				{
-					//if ()
+					if (clicX >= hand[i]->pos.x && clicX <= (hand[i]->pos.x + hand[i]->pos.w) &&
+						clicY >= hand[i]->pos.y && clicY <= (hand[i]->pos.y + hand[i]->pos.h))
+					{
+						selected=hand[i];
+						selectedIt = i;
+					}
 				}
 			}
 		}
-
+		if (event.button.button == SDL_BUTTON_LEFT && selected != nullptr)
+		{
+			int clicX = event.button.x;
+			int clicY = event.button.y;
+			if (clicX >= tablePlace.x && clicX <= (tablePlace.x + tablePlace.w) &&
+				clicY >= tablePlace.y && clicY <= (tablePlace.y + tablePlace.h)) //click para acabar el turno
+			{
+				table.push_back(selected);
+				hand.erase(hand.begin() + selectedIt);
+				selected = nullptr;
+			}
+		}
+		if (event.button.button == SDL_BUTTON_RIGHT)
+		{
+			selected = nullptr;
+		}
 	}
 }

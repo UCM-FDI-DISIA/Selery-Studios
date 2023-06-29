@@ -40,7 +40,7 @@ CardGameState::CardGameState()
 	//IA tiene:deckManager distinto(cartas y render)
 	IA = new Entity();
 	IA->setContext(this);
-	IADeck = IA->addComponent<IADeckComponent>(IADECKCOMPONENT_H, IA, player); //le pasamos el player para que la IA ejecute acciones en base a lo que ve
+	IADeck = IA->addComponent<IADeckComponent>(IADECKCOMPONENT_H,Gm_, IA, player); //le pasamos el player para que la IA ejecute acciones en base a lo que ve
 	IA->addComponent<Transform>(TRANSFORM_H, Vector2D(WIN_WIDTH / 2 - 80, 0), 80, 80);
 	IA->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("perfilIA"));
 	addEntity(IA);
@@ -51,6 +51,7 @@ CardGameState::CardGameState()
 	//llamamos al deal para darles cartas a los jugadores y despues hacemos un draw card de 5 para cada uno
 	deal();
 	playerDeck->drawCard(5);
+	IADeck->drawCard(5);
 }
 
 void CardGameState::update()
@@ -109,6 +110,7 @@ void CardGameState::nextTurn()
 	if (numTurno == 1) //si era el turno del player
 	{
 		numTurno++;
+		IADeck->drawCard(1);
 	}
 	else //si es el segundo turno
 	{
@@ -138,19 +140,19 @@ void CardGameState::deal()
 		}
 	}
 	//parte de la IA //descomentar cuando esté terminado el componente
-	//for (int i = 0; i < 20; i++)
-	//{
-	//	int chooseStack = rand() % 5 + 1;
-	//	if (chooseStack == 1 && playerCards.size() != 0)
-	//	{
-	//		int chooseCard = rand() % (playerCards.size());//aqui no hago un +1 ya que existe el indice 0 pero no el indice playerCards.size() por estar fuera de rango
-	//		playerDeck->shuffleDeck(playerCards[chooseCard]);
-	//		playerCards.erase(playerCards.begin() + chooseCard); //se elimina la carta de la pila para que el player no tenga más de 1 de cada y no se dé el caso de que tenga 4 veces al hermano de fuego (balance del juego)
-	//	}
-	//	else
-	//	{
-	//		int chooseCard = rand() % (commonCards.size());
-	//		playerDeck->shuffleDeck(playerCards[chooseCard]); //no se hace erase ya que se pueden tener cartas repetidas de esta pila y porque luego la IA las necesita también
-	//	}
-	//}
+	for (int j = 0; j < 20; j++)
+	{
+		int chooseStack = rand() % 5 + 1;
+		if (chooseStack == 1 && IACards.size() != 0)
+		{
+			int chooseCard = rand() % (IACards.size());//aqui no hago un +1 ya que existe el indice 0 pero no el indice playerCards.size() por estar fuera de rango
+			IADeck->shuffleDeck(IACards[chooseCard]);
+			IACards.erase(IACards.begin() + chooseCard); //se elimina la carta de la pila para que el player no tenga más de 1 de cada y no se dé el caso de que tenga 4 veces al hermano de fuego (balance del juego)
+		}
+		else
+		{
+			int chooseCard = rand() % (commonCards.size());
+			IADeck->shuffleDeck(commonCards[chooseCard]); //no se hace erase ya que se pueden tener cartas repetidas de esta pila y porque luego la IA las necesita también
+		}
+	}
 }

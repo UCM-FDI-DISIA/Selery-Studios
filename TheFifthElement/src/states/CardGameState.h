@@ -23,6 +23,7 @@ typedef struct CardsInfo
 	int energy, life, attack, element;
 	Texture* reverse;
 	int numTableTurns=0;
+	SDL_Rect pos = { 0,0,0,0 };
 };
 
 class CardGameState: public Manager
