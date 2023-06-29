@@ -39,5 +39,6 @@ public:
 	void handleEvents(SDL_Event event);
 	void addTableTurn() {} //metodo para comprobar las rondas que lleva cada carta en la mesa
 	int deckCardsLeft() { return deck.size(); }
+	int tableCardsLeft() { return table.size(); }
 };
 #endif

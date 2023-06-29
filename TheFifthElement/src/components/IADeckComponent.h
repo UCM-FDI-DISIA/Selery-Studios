@@ -6,6 +6,7 @@
 #include "../GameManager.h"
 #include <vector>
 #include "../sdlutils/Font.h"
+#include "DeckManagerComponent.h"
 
 struct CardsInfo;
 
@@ -13,7 +14,7 @@ class IADeckComponent :public Component
 {
 private:
 	Entity* IA;
-	Entity* enemy;
+	DeckManagerComponent* enemy;
 	//debo tener 3 pilas de cartas: baraja, mano y mesa
 	vector<CardsInfo*> deck;
 	vector<CardsInfo*> hand;
@@ -23,12 +24,15 @@ private:
 	SDL_Rect endTurnButtonRect = { 130,560,100,50 };
 	SDL_Rect deckStack = { 1690,210,90,110 };
 	SDL_Rect handStack = { 170,140,135,165 };
-	SDL_Rect tableStack = { 1690,710,90,110 };
+	SDL_Rect tableStack = { 285,336,135,165 };
 	GameManager* Gm_;
 	SDL_Color color = { 255,255,255 };
+	CardsInfo* selectedHand=nullptr;
+	int selectedHandIt;
+	SDL_Rect tablePlace = { 285,313,1320,423 };
 
 public:
-	IADeckComponent(GameManager* Gm, Entity* IA_, Entity* enemy_) :Gm_(Gm), IA(IA_),enemy(enemy_) { font = &SDLUtils::instance()->fonts().at("TCenturyScale"); }
+	IADeckComponent(GameManager* Gm, Entity* IA_, DeckManagerComponent* enemy_) :Gm_(Gm), IA(IA_),enemy(enemy_) { font = &SDLUtils::instance()->fonts().at("TCenturyScale"); }
 
 	void shuffleDeck(CardsInfo* card) { deck.push_back(card); }
 	void drawCard(int numCards);
@@ -38,5 +42,6 @@ public:
 	int getEnergy() { return energy; }
 	void addTableTurn() {} //metodo para comprobar las rondas que lleva cada carta en la mesa
 	int deckCardsLeft() { return deck.size(); }
+	void playCards();
 };
 #endif

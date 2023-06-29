@@ -40,13 +40,13 @@ CardGameState::CardGameState()
 	//IA tiene:deckManager distinto(cartas y render)
 	IA = new Entity();
 	IA->setContext(this);
-	IADeck = IA->addComponent<IADeckComponent>(IADECKCOMPONENT_H,Gm_, IA, player); //le pasamos el player para que la IA ejecute acciones en base a lo que ve
+	IADeck = IA->addComponent<IADeckComponent>(IADECKCOMPONENT_H,Gm_, IA, playerDeck); //le pasamos el player para que la IA ejecute acciones en base a lo que ve
 	IA->addComponent<Transform>(TRANSFORM_H, Vector2D(WIN_WIDTH / 2 - 80, 0), 80, 80);
 	IA->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("perfilIA"));
 	addEntity(IA);
 
-	turnTimer = sdlutils().currRealTime() + 10000; //un temporizador de 1 minuto
-	numTurno = 1; numRonda = 1; playerDeck->receiveEnergy(numRonda);
+	turnTimer = sdlutils().currRealTime() + 60000; //un temporizador de 1 minuto
+	numTurno = 1; numRonda = 1; playerDeck->receiveEnergy(numRonda); IADeck->receiveEnergy(numRonda);
 
 	//llamamos al deal para darles cartas a los jugadores y despues hacemos un draw card de 5 para cada uno
 	deal();
@@ -67,7 +67,7 @@ void CardGameState::update()
 	}
 	else //siempre será numTurno==2, turno de la IA
 	{
-		nextTurn(); //todavía no está la IA por lo que me salto el turno
+		IADeck->playCards();
 	}
 }
 
@@ -94,7 +94,7 @@ void CardGameState::render()
 	player->render();
 	IA->render();
 	energyTex->render({ 1680,250,100,100 }); //energia de la IA
-	font->render(Gm_->getRenderer(), to_string(playerDeck->getEnergy()), 1725, 290, colorFont);
+	font->render(Gm_->getRenderer(), to_string(IADeck->getEnergy()), 1725, 290, colorFont);
 	energyTex->render({ 1680,510,100,100 }); //energia del player
 	font->render(Gm_->getRenderer(), to_string(playerDeck->getEnergy()), 1725, 550, colorFont);
 	font->render(Gm_->getRenderer(), " Ronda", 136, 470, colorFont);
@@ -111,12 +111,13 @@ void CardGameState::nextTurn()
 	{
 		numTurno++;
 		IADeck->drawCard(1);
+		IADeck->receiveEnergy(numRonda);
 	}
 	else //si es el segundo turno
 	{
 		numRonda++;
 		numTurno--;
-		turnTimer = sdlutils().currRealTime() + 10000; //se reestablece el contador para el player
+		turnTimer = sdlutils().currRealTime() + 60000; //se reestablece el contador para el player
 		playerDeck->receiveEnergy(numRonda);
 		playerDeck->drawCard(1);
 	}
