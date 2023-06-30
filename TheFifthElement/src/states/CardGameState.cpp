@@ -103,8 +103,9 @@ void CardGameState::render()
 	font->render(Gm_->getRenderer(), to_string(numRonda), 178, 450, colorFont);
 	font->render(Gm_->getRenderer(), to_string((turnTimer-sdlutils().currRealTime())/1000), 100, 450, colorFont);
 	//vida del player
-	font->render(Gm_->getRenderer(), to_string(playerLife->lifeLeft()), WIN_WIDTH / 2 -70, WIN_HEIGHT - 60, { 255,255,255 });
+	font->render(Gm_->getRenderer(), to_string(playerLife->lifeLeft()), WIN_WIDTH / 2 -70, WIN_HEIGHT - 50, { 255,255,255 });
 	//vida de la IA
+	font->render(Gm_->getRenderer(), to_string(playerLife->lifeLeft()), WIN_WIDTH / 2 - 70, 110, { 255,255,255 });
 	if (numTurno == 1) { playerTurn->render(sliderRect); }
 	else { IATurn->render(sliderRect); }
 	//deberia hacer aquí el render de la cantidad de cartas de cada uno //no lo creo necesario
@@ -227,4 +228,9 @@ bool CardGameState::canAttackIA()
 {
 	if (IADeck->tableCardsLeft() == 0) return true;
 	else return false;
+}
+
+void CardGameState::endMatch(Entity* winner)
+{
+	GameManager::instance()->backToMainMenu();
 }

@@ -47,8 +47,8 @@ C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\uti
           [
               _Ty=float
           ]
-C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\components\DeckManagerComponent.h(42,22): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
-C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\components\DeckManagerComponent.h(43,23): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\components\DeckManagerComponent.h(45,22): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\components\DeckManagerComponent.h(46,23): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
 C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\components\IADeckComponent.h(45,22): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
 C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\components\IADeckComponent.h(49,23): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
 C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\states\CardGameState.h(29,2): warning C4091: 'typedef ': se ha omitido a la izquierda de 'CardsInfo' cuando no hay ninguna variable declarada

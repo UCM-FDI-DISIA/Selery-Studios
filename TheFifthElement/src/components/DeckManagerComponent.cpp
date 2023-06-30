@@ -91,7 +91,7 @@ void DeckManagerComponent::handleEvents(SDL_Event event)
 				}
 			}
 		}
-		if (event.button.button == SDL_BUTTON_LEFT && selected != nullptr)
+		else if (event.button.button == SDL_BUTTON_LEFT && selected != nullptr)
 		{
 			int clicX = event.button.x;
 			int clicY = event.button.y;
@@ -124,6 +124,30 @@ void DeckManagerComponent::handleEvents(SDL_Event event)
 				{
 					tableSelected = table[i];
 					selected = nullptr;
+				}
+			}
+		}
+		else if (event.button.button == SDL_BUTTON_LEFT && tableSelected != nullptr)
+		{
+			enemyTable = static_cast<CardGameState*>(mngr_)->IATable();
+			int clicX = event.button.x;
+			int clicY = event.button.y;
+			if (clicX >= enemyRect.x && clicX <= (enemyRect.x + enemyRect.w) &&
+				clicY >= enemyRect.y && clicY <= (enemyRect.y + enemyRect.h)) //detecta colision
+			{
+				if (enemyTable.size() == 0 && tableSelected->numTableTurns > 0)//es posible atacar y usar esa carta
+				{
+					static_cast<CardGameState*>(mngr_)->attackIA(tableSelected);
+					tableSelected = nullptr;
+				}
+			}
+			for (int i = 0; i < enemyTable.size(); i++)
+			{
+				if (clicX >= enemyTable[i]->pos.x && clicX <= (enemyTable[i]->pos.x + enemyTable[i]->pos.w) &&
+					clicY >= enemyTable[i]->pos.y && clicY <= (enemyTable[i]->pos.y + enemyTable[i]->pos.h))
+				{
+					static_cast<CardGameState*>(mngr_)->clashCards(tableSelected, enemyTable[i]);
+					tableSelected = nullptr;
 				}
 			}
 		}

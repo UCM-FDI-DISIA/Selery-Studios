@@ -10,7 +10,7 @@ private:
 public:
 	CardPlayerLifeComponent(int life_) : life(life_) {}
 
-	void damage(int attack) { life -= attack; }
+	void damage(int attack);
 	int lifeLeft() { return life; }
 };
 #endif

@@ -39,6 +39,7 @@ void IADeckComponent::render()
 		provRect.x += k * tablePlace.w / (table.size() + 1);
 		Texture* provTex = &SDLUtils::instance()->images().at(table[k]->anverseName);
 		provTex->render(provRect);
+		table[k]->pos = provRect;
 	}
 }
 

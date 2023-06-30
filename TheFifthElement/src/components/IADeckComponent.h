@@ -47,5 +47,6 @@ public:
 	void playAttack();
 	void reviewCards();
 	int tableCardsLeft() { return table.size(); }
+	vector<CardsInfo*> getTableCards() { return table; }
 };
 #endif
