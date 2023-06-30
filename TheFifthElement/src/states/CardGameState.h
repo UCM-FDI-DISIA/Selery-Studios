@@ -15,6 +15,7 @@
 #include "../sdlutils/Font.h"
 #include "../sdlutils/SDLUtils.h"
 #include "../components/IADeckComponent.h"
+#include "../components/CardPlayerLifeComponent.h"
 
 //struct cartas: textura reverso, textura anverso, energia, vida y ataque
 typedef struct CardsInfo
@@ -24,6 +25,7 @@ typedef struct CardsInfo
 	Texture* reverse;
 	int numTableTurns=0;
 	SDL_Rect pos = { 0,0,0,0 };
+	bool attacked = false;
 };
 
 class CardGameState: public Manager
@@ -42,8 +44,10 @@ private:
 	SDL_Rect backRect = {0,0,WIN_WIDTH,WIN_HEIGHT};
 	Entity* player;
 	DeckManagerComponent* playerDeck;
+	CardPlayerLifeComponent* playerLife;
 	Entity* IA;
 	IADeckComponent* IADeck;
+	CardPlayerLifeComponent* IALife;
 	Font* font;
 	SDL_Color colorFont = { 50,50,0 };
 	GameManager* Gm_;
@@ -60,5 +64,8 @@ public:
 	virtual string getStateID() { return "CardsGame"; };
 	void nextTurn();
 	void deal();
+	void clashCards(CardsInfo* cardPlayer, CardsInfo* cardIA);
+	void attackPlayer(CardsInfo* card);
+	void attackIA(CardsInfo* card);
 };
 

@@ -136,6 +136,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\components\CardPlayerLifeComponent.h" />
     <ClInclude Include="src\components\DeckManagerComponent.h" />
     <ClInclude Include="src\components\IADeckComponent.h" />
     <ClInclude Include="src\states\CardGameState.h" />
@@ -240,6 +241,7 @@
     <ClInclude Include="src\components\WaterBossLife.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\components\CardPlayerLifeComponent.cpp" />
     <ClCompile Include="src\components\DeckManagerComponent.cpp" />
     <ClCompile Include="src\components\IADeckComponent.cpp" />
     <ClCompile Include="src\states\CardGameState.cpp" />

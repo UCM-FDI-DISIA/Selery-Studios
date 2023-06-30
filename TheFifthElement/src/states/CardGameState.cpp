@@ -35,6 +35,7 @@ CardGameState::CardGameState()
 	playerDeck=player->addComponent<DeckManagerComponent>(DECKMANAGERCOMPONENT_H,Gm_, player);
 	player->addComponent<Transform>(TRANSFORM_H, Vector2D(WIN_WIDTH / 2 - 80, WIN_HEIGHT - 160), 80, 80);
 	player->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("perfilPlayer"));
+	playerLife = player->addComponent<CardPlayerLifeComponent>(CARDPLAYERLIFECOMPONENT_H, 20);
 	addEntity(player);
 
 	//IA tiene:deckManager distinto(cartas y render)
@@ -43,6 +44,7 @@ CardGameState::CardGameState()
 	IADeck = IA->addComponent<IADeckComponent>(IADECKCOMPONENT_H,Gm_, IA, playerDeck); //le pasamos el player para que la IA ejecute acciones en base a lo que ve
 	IA->addComponent<Transform>(TRANSFORM_H, Vector2D(WIN_WIDTH / 2 - 80, 0), 80, 80);
 	IA->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("perfilIA"));
+	IALife = IA->addComponent<CardPlayerLifeComponent>(CARDPLAYERLIFECOMPONENT_H, 20);
 	addEntity(IA);
 
 	turnTimer = sdlutils().currRealTime() + 60000; //un temporizador de 1 minuto
@@ -100,6 +102,9 @@ void CardGameState::render()
 	font->render(Gm_->getRenderer(), " Ronda", 136, 470, colorFont);
 	font->render(Gm_->getRenderer(), to_string(numRonda), 178, 450, colorFont);
 	font->render(Gm_->getRenderer(), to_string((turnTimer-sdlutils().currRealTime())/1000), 100, 450, colorFont);
+	//vida del player
+	font->render(Gm_->getRenderer(), to_string(playerLife->lifeLeft()), WIN_WIDTH / 2 -70, WIN_HEIGHT - 60, { 255,255,255 });
+	//vida de la IA
 	if (numTurno == 1) { playerTurn->render(sliderRect); }
 	else { IATurn->render(sliderRect); }
 	//deberia hacer aquí el render de la cantidad de cartas de cada uno //no lo creo necesario
@@ -112,6 +117,7 @@ void CardGameState::nextTurn()
 		numTurno++;
 		IADeck->drawCard(1);
 		IADeck->receiveEnergy(numRonda);
+		IADeck->addTableTurn();
 	}
 	else //si es el segundo turno
 	{
@@ -120,6 +126,7 @@ void CardGameState::nextTurn()
 		turnTimer = sdlutils().currRealTime() + 60000; //se reestablece el contador para el player
 		playerDeck->receiveEnergy(numRonda);
 		playerDeck->drawCard(1);
+		playerDeck->addTableTurn();
 	}
 }
 
@@ -156,4 +163,21 @@ void CardGameState::deal()
 			IADeck->shuffleDeck(commonCards[chooseCard]); //no se hace erase ya que se pueden tener cartas repetidas de esta pila y porque luego la IA las necesita también
 		}
 	}
+}
+
+void CardGameState::clashCards(CardsInfo* cardPlayer, CardsInfo* cardIA)
+{
+
+}
+
+void CardGameState::attackPlayer(CardsInfo* card)
+{
+	playerLife->damage(card->attack);
+	//if el player se muere
+}
+
+void CardGameState::attackIA(CardsInfo* card)
+{
+	IALife->damage(card->attack);
+	//if la IA se muere
 }

@@ -37,8 +37,10 @@ public:
 	void receiveEnergy(int qty) {energy = qty;}
 	int getEnergy() { return energy; }
 	void handleEvents(SDL_Event event);
-	void addTableTurn() {} //metodo para comprobar las rondas que lleva cada carta en la mesa
+	void addTableTurn(); //metodo para comprobar las rondas que lleva cada carta en la mesa
 	int deckCardsLeft() { return deck.size(); }
 	int tableCardsLeft() { return table.size(); }
+	void reviewCards();
+	CardsInfo* firstTableCard() { return table[0]; }
 };
 #endif

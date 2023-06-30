@@ -28,8 +28,9 @@ private:
 	GameManager* Gm_;
 	SDL_Color color = { 255,255,255 };
 	CardsInfo* selectedHand=nullptr;
-	int selectedHandIt;
+	int selectedHandIt, selectedHandEnergy;
 	SDL_Rect tablePlace = { 285,313,1320,423 };
+	CardsInfo* selectTable = nullptr;
 
 public:
 	IADeckComponent(GameManager* Gm, Entity* IA_, DeckManagerComponent* enemy_) :Gm_(Gm), IA(IA_),enemy(enemy_) { font = &SDLUtils::instance()->fonts().at("TCenturyScale"); }
@@ -40,8 +41,10 @@ public:
 	void render();
 	void receiveEnergy(int qty) { energy = qty; }
 	int getEnergy() { return energy; }
-	void addTableTurn() {} //metodo para comprobar las rondas que lleva cada carta en la mesa
+	void addTableTurn(); //metodo para comprobar las rondas que lleva cada carta en la mesa
 	int deckCardsLeft() { return deck.size(); }
 	void playCards();
+	void playAttack();
+	void reviewCards();
 };
 #endif

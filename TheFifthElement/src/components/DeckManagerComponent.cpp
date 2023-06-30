@@ -36,6 +36,7 @@ void DeckManagerComponent::render()
 			Texture* provTex = &SDLUtils::instance()->images().at(hand[j]->anverseName);
 			provTex->render(provRect);
 			hand[j]->pos = provRect;
+			font->render(Gm_->getRenderer(), to_string(hand[j]->life), provRect.x + 24, provRect.y + 130, {255,255,255});
 		}
 		else
 		{
@@ -43,6 +44,7 @@ void DeckManagerComponent::render()
 			SDL_Rect selectedRect = selected->pos;
 			selectedRect.y -= 100;
 			selectedTex->render(selectedRect);
+			font->render(Gm_->getRenderer(), to_string(hand[j]->life), selectedRect.x + 24, selectedRect.y + 130, { 255,255,255 });
 		}
 	}
 	for (int k = 0; k < table.size(); k++)
@@ -51,6 +53,7 @@ void DeckManagerComponent::render()
 		provRect.x += k * tablePlace.w / (table.size() + 1);
 		Texture* provTex = &SDLUtils::instance()->images().at(table[k]->anverseName);
 		provTex->render(provRect);
+		font->render(Gm_->getRenderer(), to_string(table[k]->life), provRect.x + 24, provRect.y + 130, { 255,255,255 });
 	}
 }
 
@@ -107,5 +110,22 @@ void DeckManagerComponent::handleEvents(SDL_Event event)
 		{
 			selected = nullptr; selectedIt = -1;
 		}
+	}
+}
+
+void DeckManagerComponent::reviewCards()
+{
+	for (int i = 0; i < table.size(); i++)
+	{
+		if (table[i]->life <= 0) { table.erase(table.begin() + i); }
+	}
+}
+
+void DeckManagerComponent::addTableTurn()
+{
+	for (int i = 0; i < table.size(); i++)
+	{
+		table[i]->numTableTurns++;
+		table[i]->attacked = false;
 	}
 }
