@@ -167,7 +167,48 @@ void CardGameState::deal()
 
 void CardGameState::clashCards(CardsInfo* cardPlayer, CardsInfo* cardIA)
 {
-
+	if (cardPlayer->element == cardIA->element) //mismo elemento
+	{
+		cardPlayer->life -= cardIA->attack;
+		cardIA->life -= cardPlayer->attack;
+	}
+	else if (cardPlayer->element == 1 && cardIA->element == 2)//agua vs fuego
+	{
+		cardPlayer->life -= cardIA->attack;
+		cardIA->life -= cardPlayer->attack+1;
+	}
+	else if (cardPlayer->element == 2 && cardIA->element == 3)//fuego vs tierra
+	{
+		cardPlayer->life -= cardIA->attack;
+		cardIA->life -= cardPlayer->attack+1;
+	}
+	else if (cardPlayer->element == 3 && cardIA->element == 1)//tierra vs agua
+	{
+		cardPlayer->life -= cardIA->attack;
+		cardIA->life -= cardPlayer->attack+1;
+	}
+	else if (cardPlayer->element == 1 && cardIA->element == 3)//agua vs tierra
+	{
+		cardPlayer->life -= cardIA->attack+1;
+		cardIA->life -= cardPlayer->attack;
+	}
+	else if (cardPlayer->element == 2 && cardIA->element == 1)//fuego vs agua
+	{
+		cardPlayer->life -= cardIA->attack+1;
+		cardIA->life -= cardPlayer->attack;
+	}
+	else if (cardPlayer->element == 3 && cardIA->element == 2)//tierra vs fuego
+	{
+		cardPlayer->life -= cardIA->attack+1;
+		cardIA->life -= cardPlayer->attack;
+	}
+	else if (cardPlayer->element == 4 || cardIA->element == 4)//elemento de aire es neutro para todos
+	{
+		cardPlayer->life -= cardIA->attack;
+		cardIA->life -= cardPlayer->attack;
+	}
+	playerDeck->reviewCards();
+	IADeck->reviewCards();
 }
 
 void CardGameState::attackPlayer(CardsInfo* card)
@@ -180,4 +221,10 @@ void CardGameState::attackIA(CardsInfo* card)
 {
 	IALife->damage(card->attack);
 	//if la IA se muere
+}
+
+bool CardGameState::canAttackIA()
+{
+	if (IADeck->tableCardsLeft() == 0) return true;
+	else return false;
 }

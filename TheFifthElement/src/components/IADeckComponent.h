@@ -46,5 +46,6 @@ public:
 	void playCards();
 	void playAttack();
 	void reviewCards();
+	int tableCardsLeft() { return table.size(); }
 };
 #endif

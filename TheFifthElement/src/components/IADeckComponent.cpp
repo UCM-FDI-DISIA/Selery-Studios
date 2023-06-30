@@ -105,30 +105,22 @@ void IADeckComponent::addTableTurn()
 
 void IADeckComponent::playAttack()
 {
-	if (table.size() > 0)
+	for (int i = 0; i < table.size(); i++)
 	{
-		if (enemy->tableCardsLeft() == 0) //si no tiene cartas en la mesa el player atacamos directamente al player
+		if (!table[i]->attacked && table[i]->numTableTurns > 0) //la carta puede atacar
 		{
-			for (int i = 0; i < table.size(); i++)
+			if (enemy->tableCardsLeft()==0)
 			{
-				if(!table[i]->attacked && table[i]->numTableTurns > 0)
-				{
-					static_cast<CardGameState*>(mngr_)->attackPlayer(table[i]);
-					table[i]->attacked = true;
-				}
+				static_cast<CardGameState*>(mngr_)->attackPlayer(table[i]);
 			}
-			endTurn();//una vez recorridas todas las cartas de la mesa de la IA
-		}
-		else
-		{
-			for (int i = 0; i < table.size(); i++)
+			else
 			{
-				if (!table[i]->attacked&&table[i]->numTableTurns>0) { static_cast<CardGameState*>(mngr_)->clashCards(enemy->firstTableCard(), table[i]); table[i]->attacked = true; }
+				static_cast<CardGameState*>(mngr_)->clashCards(enemy->firstTableCard(), table[i]);
+				table[i]->attacked = true;
 			}
-			endTurn();//una vez recorridas todas las cartas de la mesa de la IA
 		}
 	}
-	else { endTurn(); }
+	endTurn();
 }
 
 void IADeckComponent::reviewCards()

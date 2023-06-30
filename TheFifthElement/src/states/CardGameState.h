@@ -67,5 +67,6 @@ public:
 	void clashCards(CardsInfo* cardPlayer, CardsInfo* cardIA);
 	void attackPlayer(CardsInfo* card);
 	void attackIA(CardsInfo* card);
+	bool canAttackIA();
 };
 

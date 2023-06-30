@@ -52,7 +52,13 @@ void DeckManagerComponent::render()
 		SDL_Rect provRect = tableStack;
 		provRect.x += k * tablePlace.w / (table.size() + 1);
 		Texture* provTex = &SDLUtils::instance()->images().at(table[k]->anverseName);
+		if (table[k] == tableSelected)
+		{
+			provRect.w += 18;
+			provRect.h += 22;
+		}
 		provTex->render(provRect);
+		table[k]->pos = provRect;
 		font->render(Gm_->getRenderer(), to_string(table[k]->life), provRect.x + 24, provRect.y + 130, { 255,255,255 });
 	}
 }
@@ -80,6 +86,7 @@ void DeckManagerComponent::handleEvents(SDL_Event event)
 					{
 						selected=hand[i];
 						selectedIt = i;
+						tableSelected = nullptr;
 					}
 				}
 			}
@@ -106,9 +113,23 @@ void DeckManagerComponent::handleEvents(SDL_Event event)
 				}
 			}
 		}
+		if (event.button.button == SDL_BUTTON_LEFT && tableSelected == nullptr)
+		{
+			int clicX = event.button.x;
+			int clicY = event.button.y;
+			for (int i = 0; i < table.size(); i++)
+			{
+				if (clicX >= table[i]->pos.x && clicX <= (table[i]->pos.x + table[i]->pos.w) &&
+					clicY >= table[i]->pos.y && clicY <= (table[i]->pos.y + table[i]->pos.h))
+				{
+					tableSelected = table[i];
+					selected = nullptr;
+				}
+			}
+		}
 		if (event.button.button == SDL_BUTTON_RIGHT)
 		{
-			selected = nullptr; selectedIt = -1;
+			selected = nullptr; selectedIt = -1; tableSelected = nullptr;
 		}
 	}
 }
@@ -117,7 +138,7 @@ void DeckManagerComponent::reviewCards()
 {
 	for (int i = 0; i < table.size(); i++)
 	{
-		if (table[i]->life <= 0) { table.erase(table.begin() + i); }
+		if (table[i]->life <= 0) { table.erase(table.begin() + i);}
 	}
 }
 

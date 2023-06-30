@@ -27,6 +27,7 @@ private:
 	CardsInfo* selected=nullptr;
 	int selectedIt;
 	SDL_Rect tablePlace = { 285,313,1320,423 };
+	CardsInfo* tableSelected = nullptr;
 public:
 	DeckManagerComponent(GameManager* Gm, Entity* player_) :Gm_(Gm), player(player_) { font = &SDLUtils::instance()->fonts().at("TCenturyScale"); }
 
