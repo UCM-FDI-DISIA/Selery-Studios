@@ -37,5 +37,5 @@ public:
 	void Pop();
 	void LoadGame();
 	void goCardsGame();
-
+	void goCardsPause();
 };

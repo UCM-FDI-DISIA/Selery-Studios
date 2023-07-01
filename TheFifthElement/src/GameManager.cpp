@@ -3,6 +3,7 @@
 #include "states/TopDownState.h"
 #include "states/BeatEmUpState.h"
 #include "states/PauseState.h"
+#include "states/CardPauseState.h"
 #include "Game.h"
 
 ////Audio de prueba
@@ -57,6 +58,11 @@ void GameManager::goCardsGame()
 {
 	SDLUtils::instance()->soundEffects().at("Title").haltChannel();
 	GameStateMachine::instance()->pushState(new CardGameState());
+}
+
+void GameManager::goCardsPause()
+{
+	GameStateMachine::instance()->pushState(new CardPauseState());
 }
 
 void GameManager::Pop() {

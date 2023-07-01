@@ -25,6 +25,8 @@ void Button::update() {
 		else if (identifier == "RETURN")im_->setTexture("ReturnButtonPressed");
 		else if (identifier == "LOAD")im_->setTexture("LoadButtonPress");
 		else if (identifier == "CARDS")im_->setTexture("LoadButtonPress"); //hay que cambiar los botones
+		else if (identifier == "CARDMENU")im_->setTexture("LoadButtonPress");
+		else if (identifier == "CARDRETURN")im_->setTexture("LoadButtonPress");
 	}
 	else {
 		if (identifier == "PLAY")im_->setTexture("PlayButton");
@@ -40,6 +42,8 @@ void Button::update() {
 		else if (identifier == "RETURN")im_->setTexture("ReturnButton");
 		else if (identifier == "LOAD")im_->setTexture("LoadButton");
 		else if (identifier == "CARDS")im_->setTexture("PlayButton"); //hay que cambiar el boton
+		else if (identifier == "CARDMENU")im_->setTexture("PlayButton");
+		else if (identifier == "CARDRETURN")im_->setTexture("PlayButton");
 		currentPositionState = MOUSE_OUT;
 	}
 	updateMousePosition();

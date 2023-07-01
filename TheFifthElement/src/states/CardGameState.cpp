@@ -98,7 +98,7 @@ void CardGameState::handleEvents()
 			if (event.type==SDL_KEYDOWN&&event.key.keysym.sym==SDLK_ESCAPE)
 			{
 				Mix_HaltMusic();
-				GameManager::instance()->backToMainMenu();
+				GameManager::instance()->goCardsPause();
 			}
 
 			if (numTurno == 1)

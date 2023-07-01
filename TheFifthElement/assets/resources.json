@@ -404,7 +404,8 @@
     { "id": "FireBoss", "file": "assets/Cartas/Cartas/Fire/FireBoss.png"},
     { "id": "FireBrother", "file": "assets/Cartas/Cartas/Fire/FireBrother.png"},
     {"id": "victory", "file": "assets/Cartas/victory.png"},
-    {"id": "defeat", "file": "assets/Cartas/defeat.png"}
+    {"id": "defeat", "file": "assets/Cartas/defeat.png"},
+    {"id": "cardControls", "file":  "assets/Cartas/controls.png"}
 
   ],
 
