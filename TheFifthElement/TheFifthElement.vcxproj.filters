@@ -74,6 +74,11 @@
     <ClCompile Include="src\Quests.cpp" />
     <ClCompile Include="src\components\QuestInfoComponent.cpp" />
     <ClCompile Include="src\components\Trigger.cpp" />
+    <ClCompile Include="src\states\CardGameState.cpp" />
+    <ClCompile Include="src\components\DeckManagerComponent.cpp" />
+    <ClCompile Include="src\components\IADeckComponent.cpp" />
+    <ClCompile Include="src\components\CardPlayerLifeComponent.cpp" />
+    <ClCompile Include="src\states\CardPauseState.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\components\Button.h" />
@@ -175,6 +180,11 @@
     <ClInclude Include="src\components\Trigger.h" />
     <ClInclude Include="src\Puzzle1.h" />
     <ClInclude Include="src\components\rewardtextComponent.h" />
+    <ClInclude Include="src\states\CardGameState.h" />
+    <ClInclude Include="src\components\DeckManagerComponent.h" />
+    <ClInclude Include="src\components\IADeckComponent.h" />
+    <ClInclude Include="src\components\CardPlayerLifeComponent.h" />
+    <ClInclude Include="src\states\CardPauseState.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="TheFifthElement.rc" />

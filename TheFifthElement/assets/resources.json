@@ -371,7 +371,48 @@
     { "id":"dmgRedIcon", "file": "assets/HUD/powerUps/shield.png"},
     { "id":"Calicelleno", "file": "assets/Scenes/Maps/AncientRuins/Props/goldenchalicelleno.png"},
     { "id":"Calice", "file": "assets/Scenes/Maps/AncientRuins/Props/goldenchalice.png"},
-    { "id":"Pilar", "file": "assets/Scenes/Maps/AncientRuins/Props/pilar.png"}
+    { "id":"Pilar", "file": "assets/Scenes/Maps/AncientRuins/Props/pilar.png"},
+
+    { "id": "cardTable", "file": "assets/Cartas/fondo.png"},
+    { "id": "reversoCarta", "file": "assets/Cartas/Cartas/reverso.png"},
+    { "id": "perfilPlayer", "file": "assets/Cartas/perfilPlayer.png"},
+    { "id": "perfilIA", "file": "assets/Cartas/perfilIA.png"},
+    { "id": "energy", "file": "assets/Cartas/energy.png"},
+    { "id": "sliderIA", "file": "assets/Cartas/sliderIA.png"},
+    { "id": "sliderPlayer", "file": "assets/Cartas/sliderPlayer.png"},
+    { "id": "WaterBat", "file": "assets/Cartas/Cartas/Water/WaterBat.png"},
+    { "id": "WaterGoblin", "file": "assets/Cartas/Cartas/Water/WaterGoblin.png"},
+    { "id": "WaterMushroom", "file": "assets/Cartas/Cartas/Water/WaterMushroom.png"},
+    { "id": "WaterSkeleton", "file": "assets/Cartas/Cartas/Water/WaterSkeleton.png"},
+    { "id": "WaterBoss", "file": "assets/Cartas/Cartas/Water/WaterBoss.png"},
+    { "id": "WaterSister", "file": "assets/Cartas/Cartas/Water/WaterSister.png"},
+    { "id": "EarthBat", "file": "assets/Cartas/Cartas/Earth/EarthBat.png"},
+    { "id": "EarthGoblin", "file": "assets/Cartas/Cartas/Earth/EarthGoblin.png"},
+    { "id": "EarthMushroom", "file": "assets/Cartas/Cartas/Earth/EarthMushroom.png"},
+    { "id": "EarthSkeleton", "file": "assets/Cartas/Cartas/Earth/EarthSkeleton.png"},
+    { "id": "EarthBoss", "file": "assets/Cartas/Cartas/Earth/EarthBoss.png"},
+    { "id": "EarthBrother", "file": "assets/Cartas/Cartas/Earth/EarthBrother.png"},
+    { "id": "WindBat", "file": "assets/Cartas/Cartas/Wind/WindBat.png"},
+    { "id": "WindGoblin", "file": "assets/Cartas/Cartas/Wind/WindGoblin.png"},
+    { "id": "WindMushroom", "file": "assets/Cartas/Cartas/Wind/WindMushroom.png"},
+    { "id": "WindSkeleton", "file": "assets/Cartas/Cartas/Wind/WindSkeleton.png"},
+    { "id": "WindBrother", "file": "assets/Cartas/Cartas/Wind/WindBrother.png"},
+    { "id": "FireBat", "file": "assets/Cartas/Cartas/Fire/FireBat.png"},
+    { "id": "FireGoblin", "file": "assets/Cartas/Cartas/Fire/FireGoblin.png"},
+    { "id": "FireMushroom", "file": "assets/Cartas/Cartas/Fire/FireMushroom.png"},
+    { "id": "FireSkeleton", "file": "assets/Cartas/Cartas/Fire/FireSkeleton.png"},
+    { "id": "FireBoss", "file": "assets/Cartas/Cartas/Fire/FireBoss.png"},
+    { "id": "FireBrother", "file": "assets/Cartas/Cartas/Fire/FireBrother.png"},
+    {"id": "victory", "file": "assets/Cartas/victory.png"},
+    {"id": "defeat", "file": "assets/Cartas/defeat.png"},
+    {"id": "cardControls", "file":  "assets/Cartas/controls.png"},
+    {"id": "cardMenuButton", "file":  "assets/Cartas/cardMenuButton.png"},
+    {"id": "cardMenuButtonPressed", "file":  "assets/Cartas/cardMenuButtonPressed.png"},
+    {"id": "cardReturnButton", "file":  "assets/Cartas/cardReturnButton.png"},
+    {"id": "cardReturnButtonPressed", "file":  "assets/Cartas/cardReturnButtonPressed.png"},
+    {"id": "cardPlayButton", "file":  "assets/Cartas/cardPlayButton.png"},
+    {"id": "cardPlayButtonPressed", "file":  "assets/Cartas/cardPlayButtonPressed.png"}
+
   ],
 
   "messages": [
@@ -413,10 +454,14 @@
     {"id": "dmgRedEnd","file":  "assets/Sounds/powerUps/dmgRedEnd.wav"},
     {"id": "shieldStart","file":  "assets/Sounds/powerUps/shieldStart.wav"},
     {"id": "shieldEnd","file":  "assets/Sounds/powerUps/shieldEnd.wav"},
-    {"id": "heal","file":  "assets/Sounds/powerUps/heal.wav"}
+    {"id": "heal","file":  "assets/Sounds/powerUps/heal.wav"},
+    {"id": "cardDeal", "file": "assets/Cartas/Dealing-cards-sound.wav"},
+    {"id": "cardShuffle", "file": "assets/Cartas/Shuffling-cards.wav"}
+    
   ],
 
   "musics": [
+    {"id": "cardMusic", "file": "assets/Cartas/Ancient-music.mp3"}
   ],
 
   "tilesets": [

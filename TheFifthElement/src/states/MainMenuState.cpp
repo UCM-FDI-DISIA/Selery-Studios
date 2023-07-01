@@ -72,6 +72,7 @@ void MainMenuState::handleEvents()
 		exitButton->handleEvent(event);
 		optionsButton->handleEvent(event);
 		loadButton->handleEvent(event);
+		cardsButton->handleEvent(event);
 		
 	}
 
@@ -130,5 +131,11 @@ void MainMenuState::createButtons() {
 	optionsButton->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("OptionsButton"));
 	optionsButton->addComponent<Button>(BUTTON_H, "OPTIONS");
 	addEntity(optionsButton);
+
+	cardsButton = new Entity();
+	cardsButton->addComponent<Transform>(TRANSFORM_H, Vector2D(WIN_WIDTH/2, 32 * WIN_HEIGHT / 60), 289, 86);
+	cardsButton->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("cardPlayButton"));
+	cardsButton->addComponent<Button>(BUTTON_H, "CARDS");
+	addEntity(cardsButton);
 
 }

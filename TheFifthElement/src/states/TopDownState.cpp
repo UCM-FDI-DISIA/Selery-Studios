@@ -572,8 +572,6 @@ void TopDownState::LoadMap(string const& filename) {
     Puzzle1::instance()->pilar(puzzle2_);
 }
 
-
-
 void TopDownState::LoadGame() {
     if (!loaded) {
         loaded = true;

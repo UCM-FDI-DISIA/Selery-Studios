@@ -136,6 +136,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\components\CardPlayerLifeComponent.h" />
+    <ClInclude Include="src\components\DeckManagerComponent.h" />
+    <ClInclude Include="src\components\IADeckComponent.h" />
+    <ClInclude Include="src\states\CardGameState.h" />
     <ClInclude Include="src\components\rewardtextComponent.h" />
     <ClInclude Include="src\components\Trigger.h" />
     <ClInclude Include="src\Puzzle1.h" />
@@ -164,6 +168,7 @@
     <ClInclude Include="src\components\ThrowableObject.h" />
     <ClInclude Include="src\components\VolumeSlider.h" />
     <ClInclude Include="src\Elements.h" />
+    <ClInclude Include="src\states\CardPauseState.h" />
     <ClInclude Include="src\states\EndState.h" />
     <ClInclude Include="src\states\PauseState.h" />
     <ClInclude Include="src\components\AttackEarthBossComponent.h" />
@@ -237,6 +242,10 @@
     <ClInclude Include="src\components\WaterBossLife.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\components\CardPlayerLifeComponent.cpp" />
+    <ClCompile Include="src\components\DeckManagerComponent.cpp" />
+    <ClCompile Include="src\components\IADeckComponent.cpp" />
+    <ClCompile Include="src\states\CardGameState.cpp" />
     <ClCompile Include="src\components\PowerUpControler.cpp" />
     <ClCompile Include="src\components\FireBossComponent.cpp" />
     <ClCompile Include="src\components\IceIAComponent.cpp" />
@@ -257,6 +266,7 @@
     <ClCompile Include="src\components\ThrowableObject.cpp" />
     <ClCompile Include="src\components\Trigger.cpp" />
     <ClCompile Include="src\Quests.cpp" />
+    <ClCompile Include="src\states\CardPauseState.cpp" />
     <ClCompile Include="src\states\EndState.cpp" />
     <ClCompile Include="src\states\PauseState.cpp" />
     <ClCompile Include="src\components\AttackEarthBossComponent.cpp" />

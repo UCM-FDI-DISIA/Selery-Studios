@@ -2,6 +2,8 @@
 #include "../states/TopDownState.h"
 #include "../GameManager.h"
 #include "../Game.h"
+#include "../states/CardGameState.h"
+#include "../states/CardPauseState.h"
 
 void Button::initComponent() {
 	buttonTransform = ent_->getComponent<Transform>(TRANSFORM_H);
@@ -24,6 +26,9 @@ void Button::update() {
 		else if (identifier == "EXITCONTROLS")im_->setTexture("ReturnButtonPressed");
 		else if (identifier == "RETURN")im_->setTexture("ReturnButtonPressed");
 		else if (identifier == "LOAD")im_->setTexture("LoadButtonPress");
+		else if (identifier == "CARDS")im_->setTexture("cardPlayButtonPressed"); //hay que cambiar los botones
+		else if (identifier == "CARDMENU")im_->setTexture("cardMenuButtonPressed");
+		else if (identifier == "CARDRETURN")im_->setTexture("cardReturnButtonPressed");
 	}
 	else {
 		if (identifier == "PLAY")im_->setTexture("PlayButton");
@@ -38,6 +43,9 @@ void Button::update() {
 		else if (identifier == "EXITCONTROLS")im_->setTexture("ReturnButton");
 		else if (identifier == "RETURN")im_->setTexture("ReturnButton");
 		else if (identifier == "LOAD")im_->setTexture("LoadButton");
+		else if (identifier == "CARDS")im_->setTexture("cardPlayButton"); //hay que cambiar el boton
+		else if (identifier == "CARDMENU")im_->setTexture("cardMenuButton");
+		else if (identifier == "CARDRETURN")im_->setTexture("cardReturnButton");
 		currentPositionState = MOUSE_OUT;
 	}
 	updateMousePosition();
@@ -54,10 +62,26 @@ void Button::handleEvent(SDL_Event event)
 		if (event.button.button == SDL_BUTTON_LEFT) {
 			if (currentPositionState == 1)
 			{
-
 				if (identifier == "PLAY") {
 					SDLUtils::instance()->soundEffects().at("pruebaBoton").play();
 					GameManager::instance()->leaveMainMenu();
+				}
+				else if (identifier == "CARDS")
+				{
+					SDLUtils::instance()->soundEffects().at("pruebaBoton").play();
+					GameManager::instance()->goCardsGame();
+				}
+				else if (identifier == "CARDMENU")
+				{
+					SDLUtils::instance()->soundEffects().at("pruebaBoton").play();
+					GameManager::instance()->backToMainMenu();
+				}
+				else if (identifier == "CARDRETURN")
+				{
+					SDLUtils::instance()->soundEffects().at("pruebaBoton").play();
+					CardGameState* cardGameState = static_cast<CardPauseState*>(mngr_)->getCardState();
+					cardGameState->pausedGame(false);
+					GameManager::instance()->Pop();
 				}
 				else if (identifier == "LOAD") {
 					SDLUtils::instance()->soundEffects().at("pruebaBoton").play();
