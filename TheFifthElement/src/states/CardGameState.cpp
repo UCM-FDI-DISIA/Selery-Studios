@@ -54,6 +54,11 @@ CardGameState::CardGameState()
 	deal();
 	playerDeck->drawCard(5);
 	IADeck->drawCard(5);
+	//sonidos de la partida
+	SDLUtils::instance()->soundEffects().at("cardShuffle").play();
+	SDLUtils::instance()->musics().at("cardMusic").play();
+	Mix_Music* music = Mix_LoadMUS("cardMusic");
+	Mix_PlayMusic(music, -1);
 }
 
 void CardGameState::update()
@@ -90,9 +95,10 @@ void CardGameState::handleEvents()
 		SDL_Event event;
 		while (SDL_PollEvent(&event))
 		{
-			if (event.type == SDLK_ESCAPE)
+			if (event.type==SDL_KEYDOWN&&event.key.keysym.sym==SDLK_ESCAPE)
 			{
-				//pop del menu de pausa que quizá haga uno nuevo para el modo nuevo
+				Mix_HaltMusic();
+				GameManager::instance()->backToMainMenu();
 			}
 
 			if (numTurno == 1)
@@ -130,6 +136,7 @@ void CardGameState::nextTurn()
 	{
 		numTurno++;
 		IADeck->drawCard(1);
+		SDLUtils::instance()->soundEffects().at("cardDeal").play();
 		IADeck->receiveEnergy(numRonda);
 		IADeck->addTableTurn();
 	}
@@ -140,6 +147,7 @@ void CardGameState::nextTurn()
 		turnTimer = sdlutils().currRealTime() + 60000; //se reestablece el contador para el player
 		playerDeck->receiveEnergy(numRonda);
 		playerDeck->drawCard(1);
+		SDLUtils::instance()->soundEffects().at("cardDeal").play();
 		playerDeck->addTableTurn();
 	}
 }

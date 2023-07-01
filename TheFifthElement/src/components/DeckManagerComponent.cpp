@@ -102,6 +102,7 @@ void DeckManagerComponent::handleEvents(SDL_Event event)
 				{
 					table.push_back(selected);
 					hand.erase(hand.begin() + selectedIt);
+					SDLUtils::instance()->soundEffects().at("cardDeal").play();
 					energy -= selected->energy;
 					selected = nullptr;
 					selectedIt = -1;

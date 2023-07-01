@@ -55,6 +55,7 @@ void GameManager::goOptionsMenu() {
 
 void GameManager::goCardsGame()
 {
+	SDLUtils::instance()->soundEffects().at("Title").haltChannel();
 	GameStateMachine::instance()->pushState(new CardGameState());
 }
 

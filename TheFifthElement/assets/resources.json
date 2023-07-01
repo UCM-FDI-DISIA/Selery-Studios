@@ -447,10 +447,14 @@
     {"id": "dmgRedEnd","file":  "assets/Sounds/powerUps/dmgRedEnd.wav"},
     {"id": "shieldStart","file":  "assets/Sounds/powerUps/shieldStart.wav"},
     {"id": "shieldEnd","file":  "assets/Sounds/powerUps/shieldEnd.wav"},
-    {"id": "heal","file":  "assets/Sounds/powerUps/heal.wav"}
+    {"id": "heal","file":  "assets/Sounds/powerUps/heal.wav"},
+    {"id": "cardDeal", "file": "assets/Cartas/Dealing-cards-sound.wav"},
+    {"id": "cardShuffle", "file": "assets/Cartas/Shuffling-cards.wav"}
+    
   ],
 
   "musics": [
+    {"id": "cardMusic", "file": "assets/Cartas/Ancient-music.mp3"}
   ],
 
   "tilesets": [

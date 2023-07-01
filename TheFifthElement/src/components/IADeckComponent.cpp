@@ -65,6 +65,7 @@ void IADeckComponent::playCards()
 			//en esta parte ya no tenemos que evaluar si podemos jugar la carta porque al seleccionar la carta ya hemos comprobado que sea jugable
 			table.push_back(selectedHand);
 			hand.erase(hand.begin() + selectedHandIt);
+			SDLUtils::instance()->soundEffects().at("cardDeal").play();
 			energy -= selectedHandEnergy;
 			selectedHand = nullptr;
 			selectedHandEnergy = 0;
