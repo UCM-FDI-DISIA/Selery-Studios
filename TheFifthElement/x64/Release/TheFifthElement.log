@@ -117,15 +117,15 @@ C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\uti
           [
               _Ty=int
           ]
-C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\states\CardPauseState.cpp(7,101): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Entity::addComponent<Transform,Vector2D,int,int>(cmpId_type,Vector2D &&,int &&,int &&)" que se está compilando
+C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\states\CardPauseState.cpp(12,101): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Entity::addComponent<Transform,Vector2D,int,int>(cmpId_type,Vector2D &&,int &&,int &&)" que se está compilando
           with
           [
               T=Transform
           ]
      Creando biblioteca C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\TheFifthElement.lib y objeto C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\TheFifthElement.exp
   Generando código
-  1 of 4698 functions (<0.1%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    19 functions had inline decision re-evaluated but remain unchanged
+  Previous IPDB and IOBJ mismatch, fall back to full compilation.
+C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\src\states\TopDownState.h(205): warning C4715: 'TopDownState::EnemyTexture': no todas las rutas de acceso de control devuelven un valor
+  All 4700 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   Generación de código finalizada
   TheFifthElement.vcxproj -> C:\Users\pabca\OneDrive\Documentos\GitHub\Selery-Studios\TheFifthElement\TheFifthElement.exe

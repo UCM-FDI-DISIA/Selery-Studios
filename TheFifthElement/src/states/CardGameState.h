@@ -58,6 +58,8 @@ private:
 	int timerEnd;
 	Texture* endGameTex=nullptr;
 	SDL_Rect enGameRect = { WIN_WIDTH / 2 - 300, WIN_HEIGHT / 2 - 200,600,400 };
+	bool paused=false;
+	int pausedTime=0;
 
 public:
 	CardGameState();
@@ -74,5 +76,6 @@ public:
 	bool canAttackIA();
 	void endMatch(Entity* winner);
 	vector<CardsInfo*> IATable() { return IADeck->getTableCards(); }
+	void pausedGame(bool setPause);
 };
 

@@ -60,9 +60,9 @@ void GameManager::goCardsGame()
 	GameStateMachine::instance()->pushState(new CardGameState());
 }
 
-void GameManager::goCardsPause()
+void GameManager::goCardsPause(CardGameState* cardState_)
 {
-	GameStateMachine::instance()->pushState(new CardPauseState());
+	GameStateMachine::instance()->pushState(new CardPauseState(cardState_));
 }
 
 void GameManager::Pop() {

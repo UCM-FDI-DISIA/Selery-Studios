@@ -69,7 +69,7 @@ void CardGameState::update()
 		//gestor de tiempo y turnos
 		if (numTurno == 1) //turno del player tiene contador y se llama a handleevents del player
 		{
-			if (turnTimer <= sdlutils().currRealTime()) //si se acaba el tiempo
+			if (turnTimer <= sdlutils().currRealTime()&&!paused) //si se acaba el tiempo
 			{
 				nextTurn();
 			}
@@ -98,7 +98,8 @@ void CardGameState::handleEvents()
 			if (event.type==SDL_KEYDOWN&&event.key.keysym.sym==SDLK_ESCAPE)
 			{
 				Mix_HaltMusic();
-				GameManager::instance()->goCardsPause();
+				pausedGame(true);
+				GameManager::instance()->goCardsPause(this);
 			}
 
 			if (numTurno == 1)
@@ -257,4 +258,18 @@ void CardGameState::endMatch(Entity* winner)
 	timerEnd = sdlutils().currRealTime()+5000;
 	if (winner==player) { endGameTex = &SDLUtils::instance()->images().at("victory"); } //puede que falle
 	else { endGameTex = &SDLUtils::instance()->images().at("defeat"); }
+}
+
+void CardGameState::pausedGame(bool setPause)
+{
+	paused = setPause;
+	if (paused)
+	{
+		pausedTime = sdlutils().currRealTime();
+	}
+	else
+	{
+		int elapsedTime = sdlutils().currRealTime() - pausedTime;
+		turnTimer += elapsedTime;
+	}
 }

@@ -405,7 +405,13 @@
     { "id": "FireBrother", "file": "assets/Cartas/Cartas/Fire/FireBrother.png"},
     {"id": "victory", "file": "assets/Cartas/victory.png"},
     {"id": "defeat", "file": "assets/Cartas/defeat.png"},
-    {"id": "cardControls", "file":  "assets/Cartas/controls.png"}
+    {"id": "cardControls", "file":  "assets/Cartas/controls.png"},
+    {"id": "cardMenuButton", "file":  "assets/Cartas/cardMenuButton.png"},
+    {"id": "cardMenuButtonPressed", "file":  "assets/Cartas/cardMenuButtonPressed.png"},
+    {"id": "cardReturnButton", "file":  "assets/Cartas/cardReturnButton.png"},
+    {"id": "cardReturnButtonPressed", "file":  "assets/Cartas/cardReturnButtonPressed.png"},
+    {"id": "cardPlayButton", "file":  "assets/Cartas/cardPlayButton.png"},
+    {"id": "cardPlayButtonPressed", "file":  "assets/Cartas/cardPlayButtonPressed.png"}
 
   ],
 

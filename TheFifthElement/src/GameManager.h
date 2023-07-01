@@ -8,7 +8,7 @@ using namespace std;
 
 using uint = unsigned int;
 
-
+class CardGameState;
 class Game;
 class GameManager : public Singleton<GameManager>
 {
@@ -37,5 +37,5 @@ public:
 	void Pop();
 	void LoadGame();
 	void goCardsGame();
-	void goCardsPause();
+	void goCardsPause(CardGameState* cardState_);
 };
