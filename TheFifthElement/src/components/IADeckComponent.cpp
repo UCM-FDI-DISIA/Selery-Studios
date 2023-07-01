@@ -40,6 +40,7 @@ void IADeckComponent::render()
 		Texture* provTex = &SDLUtils::instance()->images().at(table[k]->anverseName);
 		provTex->render(provRect);
 		table[k]->pos = provRect;
+		font->render(Gm_->getRenderer(), to_string(table[k]->life), provRect.x + 24, provRect.y + 130, { 255,255,255 });
 	}
 }
 
@@ -130,4 +131,9 @@ void IADeckComponent::reviewCards()
 	{
 		if (table[i]->life <= 0) { table.erase(table.begin() + i); }
 	}
+}
+
+void IADeckComponent::animateAttack()
+{
+
 }

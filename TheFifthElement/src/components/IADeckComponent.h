@@ -48,5 +48,6 @@ public:
 	void reviewCards();
 	int tableCardsLeft() { return table.size(); }
 	vector<CardsInfo*> getTableCards() { return table; }
+	void animateAttack();
 };
 #endif

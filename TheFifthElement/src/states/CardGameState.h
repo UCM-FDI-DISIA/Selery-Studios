@@ -32,9 +32,9 @@ class CardGameState: public Manager
 {
 private:
 	Texture* generalreverse= &SDLUtils::instance()->images().at("reversoCarta");
-	vector<CardsInfo*> playerCards; //pool de las cartas que puede tener solo el player
-	vector<CardsInfo*> IACards; //pool de las cartas que puede tener solo la IA
-	vector<CardsInfo*> commonCards; //pool de las cartas que pueden tener ambos
+	vector<CardsInfo> playerCards; //pool de las cartas que puede tener solo el player
+	vector<CardsInfo> IACards; //pool de las cartas que puede tener solo la IA
+	vector<CardsInfo> commonCards; //pool de las cartas que pueden tener ambos
 	vector<Entity*>playersTurn;
 	int numRonda;
 	int numTurno;
@@ -54,6 +54,10 @@ private:
 	Texture* playerTurn= &SDLUtils::instance()->images().at("sliderPlayer");
 	Texture* IATurn = &SDLUtils::instance()->images().at("sliderIA");
 	SDL_Rect sliderRect = { 130,560,100,50 };
+	bool end=false;
+	int timerEnd;
+	Texture* endGameTex=nullptr;
+	SDL_Rect enGameRect = { WIN_WIDTH / 2 - 300, WIN_HEIGHT / 2 - 200,600,400 };
 
 public:
 	CardGameState();
@@ -68,7 +72,7 @@ public:
 	void attackPlayer(CardsInfo* card);
 	void attackIA(CardsInfo* card);
 	bool canAttackIA();
-	void endMatch(Entity* Winner);
+	void endMatch(Entity* winner);
 	vector<CardsInfo*> IATable() { return IADeck->getTableCards(); }
 };
 

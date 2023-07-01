@@ -22,12 +22,12 @@ CardGameState::CardGameState()
 	energyTex= &SDLUtils::instance()->images().at("energy");
 	
 	//generamos todas las cartas manualmente: 16 commonCards, 4 unicas para el player y 3 unicas para la IA
-	commonCards = { new CardsInfo{"WaterSkeleton",1,2,2,1,generalreverse},new CardsInfo{"WaterGoblin",1,1,3,1,generalreverse} ,new CardsInfo{"WaterMushroom",2,3,1,1,generalreverse} ,new CardsInfo{"WaterBat",1,1,1,1,generalreverse}, 
-	new CardsInfo{"FireSkeleton",1,2,2,2,generalreverse} ,new CardsInfo{"FireGoblin",1,1,3,2,generalreverse} ,new CardsInfo{"FireMushroom",2,3,1,2,generalreverse} ,new CardsInfo{"FireBat",1,1,1,2,generalreverse} ,
-	new CardsInfo{"EarthSkeleton",1,2,2,3,generalreverse} ,new CardsInfo{"EarthGoblin",1,1,3,3,generalreverse} ,new CardsInfo{"EarthMushroom",2,3,1,3,generalreverse} ,new CardsInfo{"EarthBat",1,1,1,3,generalreverse} ,
-	new CardsInfo{"WindSkeleton",1,2,2,4,generalreverse} ,new CardsInfo{"WindGoblin",1,1,3,4,generalreverse} ,new CardsInfo{"WindMushroom",2,3,1,4,generalreverse} ,new CardsInfo{"WindBat",1,1,1,4,generalreverse} };
-	IACards = { new CardsInfo{"WaterBoss",5,5,5,1,generalreverse} ,new CardsInfo{"FireBoss",5,5,5,2,generalreverse} ,new CardsInfo{"EarthBoss",5,5,5,3,generalreverse} };
-	playerCards = { new CardsInfo{"WaterSister",4,4,4,1,generalreverse} ,new CardsInfo{"FireBrother",4,4,4,2,generalreverse} ,new CardsInfo{"EarthBrother",4,4,4,3,generalreverse} ,new CardsInfo{"WindBrother",4,4,4,4,generalreverse} };
+	commonCards = {{"WaterSkeleton",1,2,2,1,generalreverse}, {"WaterGoblin",1,1,3,1,generalreverse} , {"WaterMushroom",2,3,1,1,generalreverse} , {"WaterBat",1,1,1,1,generalreverse}, 
+	 {"FireSkeleton",1,2,2,2,generalreverse} , {"FireGoblin",1,1,3,2,generalreverse} , {"FireMushroom",2,3,1,2,generalreverse} , {"FireBat",1,1,1,2,generalreverse} ,
+	 {"EarthSkeleton",1,2,2,3,generalreverse} , {"EarthGoblin",1,1,3,3,generalreverse} , {"EarthMushroom",2,3,1,3,generalreverse} , {"EarthBat",1,1,1,3,generalreverse} ,
+	 {"WindSkeleton",1,2,2,4,generalreverse} , {"WindGoblin",1,1,3,4,generalreverse} , {"WindMushroom",2,3,1,4,generalreverse} , {"WindBat",1,1,1,4,generalreverse} };
+	IACards = {  {"WaterBoss",5,5,5,1,generalreverse} , {"FireBoss",5,5,5,2,generalreverse} , {"EarthBoss",5,5,5,3,generalreverse} };
+	playerCards = {  {"WaterSister",4,4,4,1,generalreverse} , {"FireBrother",4,4,4,2,generalreverse} , {"EarthBrother",4,4,4,3,generalreverse} , {"WindBrother",4,4,4,4,generalreverse} };
 
 	//player tiene: deckmanager(se encarga de todo)
 	player = new Entity();
@@ -58,34 +58,47 @@ CardGameState::CardGameState()
 
 void CardGameState::update()
 {
-	handleEvents();
-	//gestor de tiempo y turnos
-	if (numTurno == 1) //turno del player tiene contador y se llama a handleevents del player
+	if(!end)
 	{
-		if (turnTimer <= sdlutils().currRealTime()) //si se acaba el tiempo
+		handleEvents();
+		//gestor de tiempo y turnos
+		if (numTurno == 1) //turno del player tiene contador y se llama a handleevents del player
 		{
-			nextTurn();
+			if (turnTimer <= sdlutils().currRealTime()) //si se acaba el tiempo
+			{
+				nextTurn();
+			}
+		}
+		else //siempre será numTurno==2, turno de la IA
+		{
+			IADeck->playCards();
 		}
 	}
-	else //siempre será numTurno==2, turno de la IA
+	else
 	{
-		IADeck->playCards();
+		if (timerEnd <= sdlutils().currRealTime())
+		{
+			GameManager::instance()->backToMainMenu();
+		}
 	}
 }
 
 void CardGameState::handleEvents()
 {
-    SDL_Event event;
-	while (SDL_PollEvent(&event))
+	if(!end)
 	{
-		if (event.type == SDLK_ESCAPE)
+		SDL_Event event;
+		while (SDL_PollEvent(&event))
 		{
-			//pop del menu de pausa que quizá haga uno nuevo para el modo nuevo
-		}
+			if (event.type == SDLK_ESCAPE)
+			{
+				//pop del menu de pausa que quizá haga uno nuevo para el modo nuevo
+			}
 
-		if (numTurno == 1)
-		{
-			playerDeck->handleEvents(event);
+			if (numTurno == 1)
+			{
+				playerDeck->handleEvents(event);
+			}
 		}
 	}
 }
@@ -105,10 +118,10 @@ void CardGameState::render()
 	//vida del player
 	font->render(Gm_->getRenderer(), to_string(playerLife->lifeLeft()), WIN_WIDTH / 2 -70, WIN_HEIGHT - 50, { 255,255,255 });
 	//vida de la IA
-	font->render(Gm_->getRenderer(), to_string(playerLife->lifeLeft()), WIN_WIDTH / 2 - 70, 110, { 255,255,255 });
+	font->render(Gm_->getRenderer(), to_string(IALife->lifeLeft()), WIN_WIDTH / 2 - 70, 110, { 255,255,255 });
 	if (numTurno == 1) { playerTurn->render(sliderRect); }
 	else { IATurn->render(sliderRect); }
-	//deberia hacer aquí el render de la cantidad de cartas de cada uno //no lo creo necesario
+	if (end) { endGameTex->render(enGameRect); }
 }
 
 void CardGameState::nextTurn()
@@ -139,13 +152,13 @@ void CardGameState::deal()
 		if (chooseStack == 1&&playerCards.size()!=0)
 		{
 			int chooseCard = rand() % (playerCards.size());//aqui no hago un +1 ya que existe el indice 0 pero no el indice playerCards.size() por estar fuera de rango
-			playerDeck->shuffleDeck(playerCards[chooseCard]);
+			playerDeck->shuffleDeck(new CardsInfo{ playerCards[chooseCard].anverseName, playerCards[chooseCard].energy, playerCards[chooseCard].life, playerCards[chooseCard].attack, playerCards[chooseCard].element, playerCards[chooseCard].reverse });
 			playerCards.erase(playerCards.begin()+chooseCard); //se elimina la carta de la pila para que el player no tenga más de 1 de cada y no se dé el caso de que tenga 4 veces al hermano de fuego (balance del juego)
 		}
 		else
 		{
 			int chooseCard = rand() % (commonCards.size());
-			playerDeck->shuffleDeck(commonCards[chooseCard]); //no se hace erase ya que se pueden tener cartas repetidas de esta pila y porque luego la IA las necesita también
+			playerDeck->shuffleDeck(new CardsInfo{ commonCards[chooseCard].anverseName, commonCards[chooseCard].energy, commonCards[chooseCard].life, commonCards[chooseCard].attack, commonCards[chooseCard].element, commonCards[chooseCard].reverse }); //no se hace erase ya que se pueden tener cartas repetidas de esta pila y porque luego la IA las necesita también
 		}
 	}
 	//parte de la IA //descomentar cuando esté terminado el componente
@@ -155,13 +168,13 @@ void CardGameState::deal()
 		if (chooseStack == 1 && IACards.size() != 0)
 		{
 			int chooseCard = rand() % (IACards.size());//aqui no hago un +1 ya que existe el indice 0 pero no el indice playerCards.size() por estar fuera de rango
-			IADeck->shuffleDeck(IACards[chooseCard]);
+			IADeck->shuffleDeck(new CardsInfo{ IACards[chooseCard].anverseName, IACards[chooseCard].energy, IACards[chooseCard].life, IACards[chooseCard].attack, IACards[chooseCard].element, IACards[chooseCard].reverse });
 			IACards.erase(IACards.begin() + chooseCard); //se elimina la carta de la pila para que el player no tenga más de 1 de cada y no se dé el caso de que tenga 4 veces al hermano de fuego (balance del juego)
 		}
 		else
 		{
 			int chooseCard = rand() % (commonCards.size());
-			IADeck->shuffleDeck(commonCards[chooseCard]); //no se hace erase ya que se pueden tener cartas repetidas de esta pila y porque luego la IA las necesita también
+			IADeck->shuffleDeck(new CardsInfo{ commonCards[chooseCard].anverseName, commonCards[chooseCard].energy, commonCards[chooseCard].life, commonCards[chooseCard].attack, commonCards[chooseCard].element, commonCards[chooseCard].reverse }); //no se hace erase ya que se pueden tener cartas repetidas de esta pila y porque luego la IA las necesita también
 		}
 	}
 }
@@ -175,33 +188,33 @@ void CardGameState::clashCards(CardsInfo* cardPlayer, CardsInfo* cardIA)
 	}
 	else if (cardPlayer->element == 1 && cardIA->element == 2)//agua vs fuego
 	{
-		cardPlayer->life -= cardIA->attack;
+		cardPlayer->life -= cardIA->attack-1;
 		cardIA->life -= cardPlayer->attack+1;
 	}
 	else if (cardPlayer->element == 2 && cardIA->element == 3)//fuego vs tierra
 	{
-		cardPlayer->life -= cardIA->attack;
+		cardPlayer->life -= cardIA->attack-1;
 		cardIA->life -= cardPlayer->attack+1;
 	}
 	else if (cardPlayer->element == 3 && cardIA->element == 1)//tierra vs agua
 	{
-		cardPlayer->life -= cardIA->attack;
+		cardPlayer->life -= cardIA->attack-1;
 		cardIA->life -= cardPlayer->attack+1;
 	}
 	else if (cardPlayer->element == 1 && cardIA->element == 3)//agua vs tierra
 	{
 		cardPlayer->life -= cardIA->attack+1;
-		cardIA->life -= cardPlayer->attack;
+		cardIA->life -= cardPlayer->attack-1;
 	}
 	else if (cardPlayer->element == 2 && cardIA->element == 1)//fuego vs agua
 	{
 		cardPlayer->life -= cardIA->attack+1;
-		cardIA->life -= cardPlayer->attack;
+		cardIA->life -= cardPlayer->attack-1;
 	}
 	else if (cardPlayer->element == 3 && cardIA->element == 2)//tierra vs fuego
 	{
 		cardPlayer->life -= cardIA->attack+1;
-		cardIA->life -= cardPlayer->attack;
+		cardIA->life -= cardPlayer->attack-1;
 	}
 	else if (cardPlayer->element == 4 || cardIA->element == 4)//elemento de aire es neutro para todos
 	{
@@ -232,5 +245,8 @@ bool CardGameState::canAttackIA()
 
 void CardGameState::endMatch(Entity* winner)
 {
-	GameManager::instance()->backToMainMenu();
+	end = true;
+	timerEnd = sdlutils().currRealTime()+5000;
+	if (winner==player) { endGameTex = &SDLUtils::instance()->images().at("victory"); } //puede que falle
+	else { endGameTex = &SDLUtils::instance()->images().at("defeat"); }
 }
