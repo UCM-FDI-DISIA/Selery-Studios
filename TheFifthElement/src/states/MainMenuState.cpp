@@ -133,7 +133,7 @@ void MainMenuState::createButtons() {
 	addEntity(optionsButton);
 
 	cardsButton = new Entity();
-	cardsButton->addComponent<Transform>(TRANSFORM_H, Vector2D(2*WIN_WIDTH/3, 32 * WIN_HEIGHT / 60), 289, 86);
+	cardsButton->addComponent<Transform>(TRANSFORM_H, Vector2D(WIN_WIDTH/2, 32 * WIN_HEIGHT / 60), 289, 86);
 	cardsButton->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("PlayButton"));
 	cardsButton->addComponent<Button>(BUTTON_H, "CARDS");
 	addEntity(cardsButton);

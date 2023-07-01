@@ -24,7 +24,7 @@ void IADeckComponent::render()
 	{
 		deck[i]->reverse->render(deckStack);
 	}
-	font->render(Gm_->getRenderer(), to_string(deck.size()), deckStack.x + 35, deckStack.y + 110, { 255,255,255 });
+	font->render(Gm_->getRenderer(), to_string(deck.size()), deckStack.x + 35, deckStack.y - 25, { 255,255,255 });
 
 	for (int j = 0; j < hand.size(); j++)
 	{

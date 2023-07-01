@@ -33,7 +33,7 @@ CardGameState::CardGameState()
 	player = new Entity();
 	player->setContext(this);
 	playerDeck=player->addComponent<DeckManagerComponent>(DECKMANAGERCOMPONENT_H,Gm_, player);
-	player->addComponent<Transform>(TRANSFORM_H, Vector2D(WIN_WIDTH / 2 - 80, WIN_HEIGHT - 160), 80, 80);
+	player->addComponent<Transform>(TRANSFORM_H, Vector2D(110, WIN_HEIGHT/2+70), 80, 80); //hay que cambiarlo por el release
 	player->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("perfilPlayer"));
 	playerLife = player->addComponent<CardPlayerLifeComponent>(CARDPLAYERLIFECOMPONENT_H, 20);
 	addEntity(player);
@@ -42,7 +42,7 @@ CardGameState::CardGameState()
 	IA = new Entity();
 	IA->setContext(this);
 	IADeck = IA->addComponent<IADeckComponent>(IADECKCOMPONENT_H,Gm_, IA, playerDeck); //le pasamos el player para que la IA ejecute acciones en base a lo que ve
-	IA->addComponent<Transform>(TRANSFORM_H, Vector2D(WIN_WIDTH / 2 - 80, 0), 80, 80);
+	IA->addComponent<Transform>(TRANSFORM_H, Vector2D(110, 300), 80, 80); //hay que cambiarlo por el release
 	IA->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("perfilIA"));
 	IALife = IA->addComponent<CardPlayerLifeComponent>(CARDPLAYERLIFECOMPONENT_H, 20);
 	addEntity(IA);
@@ -114,11 +114,11 @@ void CardGameState::render()
 	font->render(Gm_->getRenderer(), to_string(playerDeck->getEnergy()), 1725, 550, colorFont);
 	font->render(Gm_->getRenderer(), " Ronda", 136, 470, colorFont);
 	font->render(Gm_->getRenderer(), to_string(numRonda), 178, 450, colorFont);
-	font->render(Gm_->getRenderer(), to_string((turnTimer-sdlutils().currRealTime())/1000), 100, 450, colorFont);
+	font->render(Gm_->getRenderer(), to_string((turnTimer-sdlutils().currRealTime())/1000), 102, 450, colorFont);
 	//vida del player
-	font->render(Gm_->getRenderer(), to_string(playerLife->lifeLeft()), WIN_WIDTH / 2 -70, WIN_HEIGHT - 50, { 255,255,255 });
+	font->render(Gm_->getRenderer(), to_string(playerLife->lifeLeft()), 120, WIN_HEIGHT / 2 + 180, { 255,255,255 });
 	//vida de la IA
-	font->render(Gm_->getRenderer(), to_string(IALife->lifeLeft()), WIN_WIDTH / 2 - 70, 110, { 255,255,255 });
+	font->render(Gm_->getRenderer(), to_string(IALife->lifeLeft()), 120, 410, { 255,255,255 });
 	if (numTurno == 1) { playerTurn->render(sliderRect); }
 	else { IATurn->render(sliderRect); }
 	if (end) { endGameTex->render(enGameRect); }

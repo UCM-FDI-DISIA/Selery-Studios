@@ -22,7 +22,7 @@ private:
 	int energy;
 	Font* font;
 	SDL_Rect endTurnButtonRect = { 130,560,100,50 };
-	SDL_Rect deckStack = { 1690,210,90,110 };
+	SDL_Rect deckStack = { 1690,200,90,110 };
 	SDL_Rect handStack = { 170,140,135,165 };
 	SDL_Rect tableStack = { 285,336,135,165 };
 	GameManager* Gm_;

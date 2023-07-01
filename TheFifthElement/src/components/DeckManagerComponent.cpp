@@ -28,7 +28,7 @@ void DeckManagerComponent::render()
 	
 	for (int j = 0; j < hand.size(); j++)
 	{
-		if (selectedIt != j)
+		if (selected != hand[j])
 		{
 			SDL_Rect provRect = handStack;
 			provRect.x += j % 10 * 145;
