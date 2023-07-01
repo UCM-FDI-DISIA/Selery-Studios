@@ -35,7 +35,7 @@ CardGameState::CardGameState()
 	playerDeck=player->addComponent<DeckManagerComponent>(DECKMANAGERCOMPONENT_H,Gm_, player);
 	player->addComponent<Transform>(TRANSFORM_H, Vector2D(110, WIN_HEIGHT/2+70), 80, 80); //hay que cambiarlo por el release
 	player->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("perfilPlayer"));
-	playerLife = player->addComponent<CardPlayerLifeComponent>(CARDPLAYERLIFECOMPONENT_H, 20);
+	playerLife = player->addComponent<CardPlayerLifeComponent>(CARDPLAYERLIFECOMPONENT_H, 20, "player");
 	addEntity(player);
 
 	//IA tiene:deckManager distinto(cartas y render)
@@ -44,7 +44,7 @@ CardGameState::CardGameState()
 	IADeck = IA->addComponent<IADeckComponent>(IADECKCOMPONENT_H,Gm_, IA, playerDeck); //le pasamos el player para que la IA ejecute acciones en base a lo que ve
 	IA->addComponent<Transform>(TRANSFORM_H, Vector2D(110, 300), 80, 80); //hay que cambiarlo por el release
 	IA->addComponent<Image>(IMAGE_H, &SDLUtils::instance()->images().at("perfilIA"));
-	IALife = IA->addComponent<CardPlayerLifeComponent>(CARDPLAYERLIFECOMPONENT_H, 20);
+	IALife = IA->addComponent<CardPlayerLifeComponent>(CARDPLAYERLIFECOMPONENT_H, 20, "IA");
 	addEntity(IA);
 
 	turnTimer = sdlutils().currRealTime() + 60000; //un temporizador de 1 minuto
@@ -252,12 +252,18 @@ bool CardGameState::canAttackIA()
 	else return false;
 }
 
-void CardGameState::endMatch(Entity* winner)
+void CardGameState::endMatch(string loser)
 {
 	end = true;
 	timerEnd = sdlutils().currRealTime()+5000;
-	if (winner==player) { endGameTex = &SDLUtils::instance()->images().at("victory"); } //puede que falle
-	else { endGameTex = &SDLUtils::instance()->images().at("defeat"); }
+	if (loser == "player") 
+	{ 
+		endGameTex = &SDLUtils::instance()->images().at("defeat"); 
+	}
+	else 
+	{ 
+		endGameTex = &SDLUtils::instance()->images().at("victory");
+	}
 }
 
 void CardGameState::pausedGame(bool setPause)

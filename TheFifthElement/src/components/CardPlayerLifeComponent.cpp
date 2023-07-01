@@ -6,6 +6,6 @@ void CardPlayerLifeComponent::damage(int attack)
 	life -= attack;
 	if (life <= 0)
 	{
-		static_cast<CardGameState*>(mngr_)->endMatch(ent_);
+		static_cast<CardGameState*>(mngr_)->endMatch(entName);
 	}
 }

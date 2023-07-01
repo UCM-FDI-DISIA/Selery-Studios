@@ -28,7 +28,7 @@ private:
 	int selectedIt;
 	SDL_Rect tablePlace = { 285,313,1320,423 };
 	CardsInfo* tableSelected = nullptr;
-	SDL_Rect enemyRect = { 902,24,130,100 };
+	SDL_Rect enemyRect = { 130,320,125,100 };
 	vector<CardsInfo*> enemyTable;
 
 public:

@@ -74,7 +74,7 @@ public:
 	void attackPlayer(CardsInfo* card);
 	void attackIA(CardsInfo* card);
 	bool canAttackIA();
-	void endMatch(Entity* winner);
+	void endMatch(string winner);
 	vector<CardsInfo*> IATable() { return IADeck->getTableCards(); }
 	void pausedGame(bool setPause);
 };
